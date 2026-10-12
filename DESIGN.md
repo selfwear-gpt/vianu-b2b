@@ -41,7 +41,7 @@ Aktuelle Belegung: Farbwelt 3, Rosa und Tannengrün.
 | Linie | `--farbe-linie` | `#D8D8D2` | Trennlinien ohne Bedienfunktion |
 | Text auf Signal | `--farbe-auf-signal` | wie Tinte | Textfarbe auf Signal- und Nähe-Flächen |
 
-Weitere Tokens: Schriften (`--schrift-kopf`, `--schrift-text`, `--schrift-mono`) und die Abstandsskala (`--abstand-1` bis `--abstand-8`: 4, 8, 12, 16, 24, 32, 48, 80 px). Schriftdateien liegen in `assets/fonts/` und werden von dort geladen. Die Wahl der Schriften ist noch offen.
+Weitere Tokens: Schriften (`--schrift-kopf`, `--schrift-text`, `--schrift-mono`) und die Abstandsskala (`--abstand-1` bis `--abstand-8`: 4, 8, 12, 16, 24, 32, 48, 80 px). Schriftdateien liegen in `assets/fonts/` und werden über `assets/css/fonts.css` von dort geladen.
 
 ## Farbregeln
 
@@ -54,6 +54,24 @@ Diese Regeln gelten für jede Farbwelt:
 - **Keine Farbwerte außerhalb von `tokens.css`.** Weder `#hex` noch `rgb()` noch `hsl()`, auch nicht in HTML, Skripten oder SVG.
 
 Prüfung: `python3 scripts/check-tokens.py` meldet Farbwerte außerhalb von `tokens.css` und rechnet die Kontraste der Rollen. Sie läuft vor jedem Merge.
+
+## Schrift
+
+Aktuelle Belegung, gewählt am 12.10.2026. Die Identität ist noch nicht final, die Schriften dürfen sich ändern. Quelle, Lizenz und Anleitung zum Wechseln: `docs/design/schriften.md`. Entscheidung: `docs/adr/0002-schriften-selbst-hosten.md`.
+
+| Rolle | Familie | Schnitte | Einsatz |
+|---|---|---|---|
+| Überschriften | Barlow Condensed | 700, 800 | Überschriften, Slogans, große Schrift, in Versalien |
+| Text | Barlow | 400, 500, 600 | Fließtext, Menü, Bedienelemente |
+| Etiketten | Space Mono | 400, 700 | kleine Beschriftungen und Angaben, in Versalien mit Abstand zwischen den Buchstaben |
+
+Regeln:
+
+- Schriften kommen nur vom eigenen Server (`assets/fonts/`). Verweise auf Google Fonts oder andere Dienste sind verboten. `python3 scripts/check-extern.py` prüft das.
+- Fließtext ist höchstens etwa 65 Zeichen breit. Überschriften nutzen `text-wrap: balance`.
+- Pfeile (↗ →) fehlen in den Schriften und werden als SVG-Symbol gesetzt, nicht als Zeichen.
+- Neue Sonderzeichen vorab gegen `unicode-range` in `assets/css/fonts.css` prüfen.
+- Größenstufen (Vorschlag, zu bestätigen): Slogan und Hero-Überschrift groß und fett, Abschnittsüberschrift mittel, Fließtext etwa 17 px, Etiketten etwa 11 bis 12 px. Die Stufen werden mit der ersten Seite festgelegt und dann als Tokens ergänzt.
 
 ## Raster und Layout
 

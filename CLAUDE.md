@@ -15,7 +15,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 ## Aufbau des Repos
 
 - `index.html`: Bereich für Mitarbeitende. `b2b/`: B2B-Bereich mit Persona-Unterseiten.
-- `assets/css/`: `tokens.css` (nur Variablen), `base.css`, `components.css`. Kein CSS in HTML-Dateien.
+- `assets/css/`: `tokens.css` (nur Variablen), `fonts.css` (Schrifteinbindung), `base.css`, `components.css`. Kein CSS in HTML-Dateien.
 - `assets/js/`: kleine Module, jedes mit einer einfachen Schnittstelle (Menü, Sprache, Formular).
 - `assets/fonts/`: Schriften liegen hier. Keine Einbindung von Google Fonts oder anderen Fremdservern.
 - `content/de.json`, `content/en.json`: Texte. Deutsch steht zusätzlich fest im HTML.
@@ -36,6 +36,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - Lighthouse: Leistung, Barrierefreiheit und SEO im grünen Bereich. Core Web Vitals: LCP unter 2,5 s, INP unter 200 ms, CLS unter 0,1.
 - WCAG 2.2 Stufe AA: Kontraste, Tastaturbedienung, sichtbarer Fokus, Alternativtexte, `prefers-reduced-motion`.
 - `python3 scripts/check-tokens.py` ohne Fehler: keine Farbwerte außerhalb von `assets/css/tokens.css`, Kontraste der Rollen bestehen.
+- `python3 scripts/check-extern.py` ohne Fehler: keine Schriften oder Bibliotheken von Fremdservern.
 - Screenshots in Handy- und Desktopbreite geprüft.
 - Alle Texte in HTML ausgeliefert (auch Kachelrückseiten und Akkordeons), ein `h1` pro Seite.
 - Kein Tracking vor Einwilligung. Keine Fremdserver beim Laden der Seite.
