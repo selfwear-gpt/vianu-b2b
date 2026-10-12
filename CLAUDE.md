@@ -35,6 +35,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - HTML gültig, keine kaputten Links.
 - Lighthouse: Leistung, Barrierefreiheit und SEO im grünen Bereich. Core Web Vitals: LCP unter 2,5 s, INP unter 200 ms, CLS unter 0,1.
 - WCAG 2.2 Stufe AA: Kontraste, Tastaturbedienung, sichtbarer Fokus, Alternativtexte, `prefers-reduced-motion`.
+- `python3 scripts/check-tokens.py` ohne Fehler: keine Farbwerte außerhalb von `assets/css/tokens.css`, Kontraste der Rollen bestehen.
 - Screenshots in Handy- und Desktopbreite geprüft.
 - Alle Texte in HTML ausgeliefert (auch Kachelrückseiten und Akkordeons), ein `h1` pro Seite.
 - Kein Tracking vor Einwilligung. Keine Fremdserver beim Laden der Seite.

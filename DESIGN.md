@@ -25,29 +25,35 @@ Ruhig, hell und handfest. Die Seite zeigt Menschen in ihrer Schicht und ein Prod
 - Bewegung, die zum Gehen passt (siehe unten)
 - Ein markantes interaktives Element pro Bereich: der Fußabdruck im B2B-Bereich, der Name auf der Sohle im Mitarbeitenden-Bereich
 
-## Tokens (Vorschlag, zu bestätigen)
+## Farben und Tokens
 
-Alle Werte stehen nur in `assets/css/tokens.css`. Komponenten verwenden ausschließlich Tokens.
+Alle Werte stehen nur in `assets/css/tokens.css`. Komponenten, Seiten und Skripte verwenden ausschließlich die Rollennamen. Die Farbwelt kann später komplett wechseln, ohne dass eine andere Datei angefasst wird (Entscheidung in `docs/adr/0001-farbwelt-rollen-statt-farben.md`). Anleitung zum Wechseln und die Alternativen stehen in `docs/design/farbwelten.md`.
 
-| Token | Zweck | Vorschlag |
-|---|---|---|
-| `--farbe-tinte` | Text und dunkle Flächen | `#0E0E0C` |
-| `--farbe-papier` | Hintergrund | `#F2F2EE` |
-| `--farbe-akzent` | Hover, Spitzenbelastung, Hauptbutton-Fläche | `#C5FA1F` (Chartreuse) |
-| `--farbe-gedaempft` | Nebentext | `#5C5C57` |
-| `--farbe-linie` | Trennlinien | `#D8D8D2` |
-| `--schrift-kopf` | Überschriften | Barlow Condensed |
-| `--schrift-text` | Fließtext | Barlow |
-| `--schrift-mono` | Etiketten, Angaben | Space Mono |
-| `--abstand-1` bis `--abstand-8` | Abstandsskala | 4, 8, 12, 16, 24, 32, 48, 80 px |
+Aktuelle Belegung: Farbwelt 3, Rosa und Tannengrün.
 
-Schriften liegen in `assets/fonts/` und werden von dort geladen. Eine Entscheidung für die endgültigen Schriften fällt mit der Identität.
+| Rolle | Token | Wert | Zweck |
+|---|---|---|---|
+| Tinte | `--farbe-tinte` | `#0C3B31` | Text, dunkle Flächen, Menü im Mitarbeitenden-Bereich |
+| Papier | `--farbe-papier` | `#F3F3EE` | Hintergrund, vor allem im B2B-Bereich |
+| Signal | `--farbe-signal` | `#FF88BC` | Aktionen, Markierungen, große Flächen |
+| Nähe | `--farbe-naehe` | `#FF88BC` | Menschen-Momente im Mitarbeitenden-Bereich, sparsam |
+| Gedämpft | `--farbe-gedaempft` | `#55605B` | Nebentext, Beschriftungen |
+| Linie | `--farbe-linie` | `#D8D8D2` | Trennlinien ohne Bedienfunktion |
+| Text auf Signal | `--farbe-auf-signal` | wie Tinte | Textfarbe auf Signal- und Nähe-Flächen |
 
-## Farbe und Kontrast
+Weitere Tokens: Schriften (`--schrift-kopf`, `--schrift-text`, `--schrift-mono`) und die Abstandsskala (`--abstand-1` bis `--abstand-8`: 4, 8, 12, 16, 24, 32, 48, 80 px). Schriftdateien liegen in `assets/fonts/` und werden von dort geladen. Die Wahl der Schriften ist noch offen.
 
-- Akzentgelb dient als Fläche und für Hover. Als Textfarbe auf hellem Grund ist es nicht lesbar und wird dort nicht verwendet. Auf Schwarz ist es erlaubt.
-- Text erreicht mindestens Kontrast 4,5 zu 1, große Schrift 3 zu 1 (WCAG 2.2 AA).
-- Der Akzent erscheint sparsam, am stärksten an einer Stelle pro Bildschirm.
+## Farbregeln
+
+Diese Regeln gelten für jede Farbwelt:
+
+- **Signal ist eine Fläche.** Als Textfarbe oder Rahmen auf hellem Grund ist es nicht lesbar (etwa 2,0 zu 1) und wird dort nicht verwendet. Text auf Signal-Flächen nutzt `--farbe-auf-signal`.
+- **Dunkler Grund trägt Signal.** Auf Tinte darf Signal als Text, Icon und Linie stehen.
+- **Kontrastwerte** (nach WCAG 2.2 gerechnet, Farbwelt 3): Tinte auf Papier 11,19 zu 1. Gedämpft auf Papier 5,88 zu 1. Tinte auf Signal 5,64 zu 1. Signal auf Tinte 5,64 zu 1. Text braucht mindestens 4,5 zu 1, große Schrift und Bedienelemente 3 zu 1.
+- **Das Signal erscheint sparsam**, am stärksten an einer Stelle pro Bildschirm.
+- **Keine Farbwerte außerhalb von `tokens.css`.** Weder `#hex` noch `rgb()` noch `hsl()`, auch nicht in HTML, Skripten oder SVG.
+
+Prüfung: `python3 scripts/check-tokens.py` meldet Farbwerte außerhalb von `tokens.css` und rechnet die Kontraste der Rollen. Sie läuft vor jedem Merge.
 
 ## Raster und Layout
 

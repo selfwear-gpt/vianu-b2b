@@ -66,7 +66,7 @@ Status: geplant
 
 ### Druckkarte (Bewegung)
 Status: geplant
-- Neben dem Schmerztext baut sich beim Scrollen eine Druckkarte des Fußes aus einzelnen Messpunkten auf. Das Akzentgelb erscheint zuletzt, an der Spitze der Belastung. Vollständig umkehrbar, ohne Zahlen und ohne Vorher-Nachher.
+- Neben dem Schmerztext baut sich beim Scrollen eine Druckkarte des Fußes aus einzelnen Messpunkten auf. Das Signal (`--farbe-signal`) erscheint zuletzt, an der Spitze der Belastung. Vollständig umkehrbar, ohne Zahlen und ohne Vorher-Nachher.
 
 ### Matte-und-Weg (Grafik)
 Status: geplant
