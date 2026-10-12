@@ -1,0 +1,71 @@
+# Fakten und Belege
+
+Nur was hier steht, darf als Aussage auf die Seite. Jede Zeile hat eine Quelle und einen Status. Neue Aussagen werden zuerst hier eingetragen und freigegeben.
+
+Status: **frei** = darf veröffentlicht werden. **offen** = fehlt noch, bleibt Platzhalter. **prüfen** = Quelle ist genannt, der Volltext muss vor der Veröffentlichung gelesen werden.
+
+## Angebot
+
+| Aussage | Quelle | Status |
+|---|---|---|
+| Preis: 120 Euro je Paar, zuzüglich Umsatzsteuer | Festlegung im Konzept, Steuerangabe entschieden am 12.10.2026 | frei |
+| Preisangabe auf der Seite: "zuzüglich Umsatzsteuer" | Entscheidung am 12.10.2026 | frei |
+| Pilot: 10 Paare, 1.200 EUR zuzüglich Umsatzsteuer. Der Pilot kostet den regulären Preis | Rechnung 10 x 120 EUR, Pilotpreis entschieden am 12.10.2026 | frei |
+| Rund 55 Cent je Schicht (120 Euro zuzüglich Umsatzsteuer über etwa 220 Schichten) | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
+| Rund 10 EUR je Mitarbeitendem und Monat | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
+| Zeitraum bis zur Auswertung des Piloten | Entscheidung am 12.10.2026: kein Zeitraum auf der Seite, bis er entschieden ist | offen |
+| Aufwand für Personal: etwa vier Stunden | Annahme, wird validiert | offen |
+| Steuerliche Behandlung beim Arbeitgeber | muss von einer Steuerberatung bestätigt werden | offen |
+| Haltbarkeit, Lieferzeit | keine Zusage. "Im Idealfall eine Nacht" beschreibt nur die Produktion | offen |
+
+## Belege für Aussagen zu Fußbeschwerden
+
+Diese Angaben dürfen genannt werden, jeweils mit Quelle und genau so, wie die Quelle sie trägt. Der Prüfbericht mit Originalzahlen steht in `docs/research/studien.md` (Abruf 12.10.2026). Keine der vier Studien untersucht Hotellerie oder Gastronomie, und keine untersucht Einlegesohlen als Maßnahme gegen Fehlzeiten, Krankheitstage oder Schmerzen. Zahlen werden deshalb nie auf andere Gruppen übertragen.
+
+| Aussage | Quelle | Status |
+|---|---|---|
+| In einer Befragung von 304 Pflegekräften eines Kinderkrankenhauses in Australien berichteten 55,3 % von Fuß- oder Knöchelbeschwerden innerhalb von zwölf Monaten. Nach dem unteren Rücken und dem Nacken war das die dritthäufigste Körperregion. Selbstauskunft, gilt für diese Gruppe | Reed et al. 2014, BMC Musculoskeletal Disorders 15:196, doi:10.1186/1471-2474-15-196 (Abstract am 12.10.2026 geprüft) | frei |
+| Eine Übersichtsarbeit zu Fuß- und Knöchelstörungen bei Pflegekräften in Krankenhäusern nennt Schmerz als häufigste Störung. Die berichtete Häufigkeit unterscheidet sich zwischen den Studien deutlich | Bernardes et al. 2023, Workplace Health & Safety 71(3):101-116, doi:10.1177/21650799221137646 (Prüfbericht, Volltext durch den Agenten gelesen) | prüfen |
+| In einer britischen Online-Befragung von 1.035 Beschäftigten mit Schmerzen im Unterkörper durch Arbeit im Stehen gaben die Befragten im Mittel 4,12 durch Schmerz versäumte Arbeitsstunden pro Woche an. Selbstauskunft, keine Kostenangabe. Die Studie wurde von einem Einlegesohlen-Hersteller gefördert, das muss beim Zitat dabeistehen | Smith et al. 2023, BMC Research Notes 16:186, doi:10.1186/s13104-023-06461-5 (Abstract am 12.10.2026 geprüft, Hinweis zur Förderung aus dem Prüfbericht) | prüfen |
+| Eine Übersichtsarbeit mit 10 Studien fand mäßige Belege dafür, dass gedämpfte Materialien (weichere Böden, gedämpfte Einlegesohlen) bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen. Für Einlegesohlen im Vergleich zu Matten ist die Evidenz begrenzt | Speed et al. 2018, Applied Ergonomics 70:300-314, doi:10.1016/j.apergo.2018.02.021 (Abstract am 12.10.2026 geprüft, Volltext fehlt) | prüfen |
+| "X % unserer Nutzer berichten von weniger Fußschmerzen", gekennzeichnet als selbst berichtet | eigene Pilotdaten | offen (keine Daten) |
+
+## Patente
+
+| Aussage | Quelle | Status |
+|---|---|---|
+| "Patent angemeldet oder erteilt", ohne Nummer. Genauer wäre "Patent erteilt", falls beide Patente erteilt sind | Entscheidung am 12.10.2026. Laut Konzept sind zwei Patente der eekual bionic GmbH erteilt | prüfen |
+
+Vor der Veröffentlichung muss der Patentanwalt bestätigen, dass die Einlegesohle das Patent nutzt, und die Lizenz von der eekual bionic GmbH an die VIANU-Gesellschaft muss bestehen. Eine Patentberühmung für ein Produkt, das das Patent nicht nutzt, kann rechtliche Folgen haben. Das ist die Bedingung aus dem Konzept und gilt weiter, auch für diesen allgemeinen Wortlaut. Bis dahin bleibt die Zeile auf "prüfen" und der Satz steht nicht auf der Live-Seite.
+
+## Aussagen, die wir nicht machen
+
+- "X % der Menschen in stehenden Berufen leiden unter Fußschmerzen" als Einzelzahl.
+- "Unsere Einlegesohlen senken Krankheitstage."
+- "Einlegesohlen verhindern Rückenschmerzen."
+- "Einlegesohlen sind besser als Anti-Ermüdungsmatten." Erlaubt ist: Die Sohle ergänzt die Matte und ersetzt sie nicht.
+- "Dämpfende Einlegesohlen verhindern Verletzungen."
+- Eine selbst berichtete Zahl als klinische Wirkung.
+- "24 % der Pflegekräfte fehlen wegen Fuß- und Knöchelschmerzen." Die Zahl ist ein Fremdzitat über zwei Stufen und geht auf eine Befragung von 50 OP-Beschäftigten mit der Angabe "Knöchel oder Knie" zurück. Sie steht nicht in Bernardes 2023 als Befund.
+- "Anwesenheit trotz Beschwerden übersteigt Fehlzeiten um das Drei- bis Vierfache." Der Faktor ist eine eigene Rechnung und steht nicht in Smith 2023.
+- "Muskel-Skelett-Schmerzen kosten X Stunden je Beschäftigtem." Die Studie misst versäumte Zeit der Befragten mit Schmerz per Selbstauskunft, keine Kosten und keine Zahl für alle Beschäftigten.
+- Patentnummern. Zum Patent steht nur der Wortlaut aus dem Abschnitt "Patente", und erst nach der dort genannten Prüfung.
+- Aussagen zu Datenschutz, Speicherdauer und Zugriff, solange das zugehörige Konzept nicht existiert.
+- Nachhaltigkeits- und Herkunftsaussagen ohne Beleg.
+
+## Platzhalter, die sichtbar markiert bleiben
+
+Platzhalter bleiben auch auf der Live-Seite sichtbar markiert (Entscheidung vom 12.10.2026). Bei Bildern steht im Platzhalter in kurzen Worten, welches Bild gebraucht wird (Baustein "Platzhalter" in `COMPONENTS.md`).
+
+- Video mit dem Gründer, Video für den Mitarbeitenden-Bereich
+- Fotos aus dem Alltag in Hotellerie und Gastronomie
+- Aussage eines Orthopäden
+- Stimme eines Pilotkunden (nur mit schriftlicher Erlaubnis)
+- Aussagen echter Mitarbeitender (keine erfundenen Zitate)
+- Logo und Bildwelt (Identität folgt)
+
+## Regeln
+
+- Eigene Zahlen tragen den Hinweis "selbst berichtet". Gerechnete Zahlen tragen den Hinweis "gerechnet".
+- Studien erscheinen nur auf der Seite der Rolle, deren Frage sie beantworten.
+- Kein Platzhalter wird als echt dargestellt.

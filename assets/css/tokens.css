@@ -1,0 +1,31 @@
+/*
+  Einzige Stelle für Farben, Schriften, Abstände und Radien.
+  Alle anderen Dateien nutzen nur diese Rollennamen und enthalten keine Farbwerte.
+  Farbwelt wechseln: nur die Werte hier ändern, dann `python3 scripts/check-tokens.py` ausführen.
+  Aktuelle Belegung: Farbwelt 3 "Rosa und Tannengrün" (siehe docs/design/farbwelten.md).
+*/
+:root {
+  /* Farben nach Rolle */
+  --farbe-tinte: #0C3B31;        /* Text, dunkle Flächen, Menü im Mitarbeitenden-Bereich */
+  --farbe-papier: #F3F3EE;       /* Hintergrund, vor allem im B2B-Bereich */
+  --farbe-signal: #FF88BC;       /* Aktionen, Markierungen, große Flächen. Nie Textfarbe auf Hell */
+  --farbe-naehe: #FF88BC;        /* Menschen-Momente im Mitarbeitenden-Bereich, sparsam */
+  --farbe-gedaempft: #55605B;    /* Nebentext, Beschriftungen */
+  --farbe-linie: #D8D8D2;        /* Trennlinien ohne Bedienfunktion */
+  --farbe-auf-signal: var(--farbe-tinte);  /* Textfarbe auf Signal- und Nähe-Flächen */
+
+  /* Schriften (Dateien in assets/fonts/, noch nicht eingebunden) */
+  --schrift-kopf: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --schrift-text: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --schrift-mono: "Space Mono", ui-monospace, Menlo, monospace;
+
+  /* Abstandsskala */
+  --abstand-1: 4px;
+  --abstand-2: 8px;
+  --abstand-3: 12px;
+  --abstand-4: 16px;
+  --abstand-5: 24px;
+  --abstand-6: 32px;
+  --abstand-7: 48px;
+  --abstand-8: 80px;
+}
