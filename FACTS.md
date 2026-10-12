@@ -8,12 +8,12 @@ Status: **frei** = darf veröffentlicht werden. **offen** = fehlt noch, bleibt P
 
 | Aussage | Quelle | Status |
 |---|---|---|
-| Preis: 120 EUR je Paar | Festlegung im Konzept | frei |
-| Netto oder brutto auf der Seite | Entscheidung offen | offen |
-| Pilot: 10 Paare, 1.200 EUR (netto/brutto offen) | Rechnung 10 x 120 EUR | offen |
-| Rund 55 Cent je Schicht (120 EUR über etwa 220 Schichten) | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
+| Preis: 120 Euro je Paar, zuzüglich Umsatzsteuer | Festlegung im Konzept, Steuerangabe entschieden am 12.10.2026 | frei |
+| Preisangabe auf der Seite: "zuzüglich Umsatzsteuer" | Entscheidung am 12.10.2026 | frei |
+| Pilot: 10 Paare, 1.200 EUR zuzüglich Umsatzsteuer, falls der Pilotpreis dem regulären Preis entspricht | Rechnung 10 x 120 EUR | offen (Pilotpreis noch zu entscheiden) |
+| Rund 55 Cent je Schicht (120 Euro zuzüglich Umsatzsteuer über etwa 220 Schichten) | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
 | Rund 10 EUR je Mitarbeitendem und Monat | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
-| Auswertung nach acht Wochen | Annahme im Konzept | offen |
+| Zeitraum bis zur Auswertung des Piloten | Entscheidung am 12.10.2026: kein Zeitraum auf der Seite, bis er entschieden ist | offen |
 | Aufwand für Personal: etwa vier Stunden | Annahme, wird validiert | offen |
 | Steuerliche Behandlung beim Arbeitgeber | muss von einer Steuerberatung bestätigt werden | offen |
 | Haltbarkeit, Lieferzeit | keine Zusage. "Im Idealfall eine Nacht" beschreibt nur die Produktion | offen |

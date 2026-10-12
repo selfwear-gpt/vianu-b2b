@@ -20,6 +20,7 @@ Status: geplant
 ### Sprachumschalter
 Status: geplant
 - Zweck: Wechsel zwischen Deutsch und Englisch, oben rechts.
+- Englische Fassung: Slogans bleiben Englisch und unverändert. Menüs und Überschriften werden übersetzt, zum Beispiel "Perspektivwechsel" zu "Change of perspective" mit der Unterzeile "For the decision-makers". Deutsch ist die Hauptsprache und steht fest im HTML.
 - Offen: Im Konzept liegen "Teilen" und "Für Mitarbeitende ↗" ebenfalls am rechten Rand. Vorschlag: Der Umschalter sitzt ganz rechts, die beiden anderen Einträge direkt daneben. Zu bestätigen.
 
 ### Footer
@@ -50,13 +51,13 @@ Status: geplant
 
 ### Messwert-Kacheln
 Status: geplant
-- Vier Kacheln: Tragequote, Spürbare Verbesserung, Weiterempfehlung, Wertschätzung. Jede mit einer Frage an die Teilnehmenden und einer kleinen Grafik. Darunter ein Zeitstrahl bis zur Auswertung nach acht Wochen.
+- Vier Kacheln: Tragequote, Spürbare Verbesserung, Weiterempfehlung, Wertschätzung. Jede mit einer Frage an die Teilnehmenden und einer kleinen Grafik. Darunter ein Zeitstrahl bis zum Auswertungstermin. Der Zeitraum steht als Platzhalter, bis er entschieden ist.
 - Regeln: keine Beispielzahlen, bis es echte Daten gibt. Leerer Zustand zeigt die Frage. Immer "selbst berichtet". Auf Persona-Seiten sind die für die Rolle wichtigen Kacheln größer.
 
 ### Preisblock
 Status: geplant
 - 120 EUR je Paar offen gezeigt, dazu Kosten je Schicht und Monat (als "gerechnet" gekennzeichnet) und eine Skala vom Piloten zum Rollout ohne Größenauswahl. Daneben Platz für eine Stimme aus dem Piloten (Platzhalter).
-- Regel: Netto oder brutto erst nach Entscheidung. Mengenpreise bleiben verborgen.
+- Regel: Der Preis steht als "120 Euro je Paar, zuzüglich Umsatzsteuer". Mengenpreise bleiben verborgen.
 
 ### Fußabdruck "Sorgen und Bedenken im Entscheidungsteam"
 Status: geplant
@@ -95,7 +96,7 @@ Status: geplant
 
 ### Teilen
 Status: geplant
-- Kleines Menü: an den Arbeitgeber (erst Abteilung wählen, dann wird der Link der Persona-Seite kopiert) oder an Kolleg:innen (Link dieser Seite). Bestätigung "Link kopiert". Wenn der Browser das Kopieren ablehnt, wird der Link zum Kopieren von Hand angezeigt.
+- Kleines Menü: an den Arbeitgeber (erst Abteilung wählen, dann wird der Link der Persona-Seite kopiert) oder an Kolleginnen und Kollegen (Link dieser Seite). Bestätigung "Link kopiert". Wenn der Browser das Kopieren ablehnt, wird der Link zum Kopieren von Hand angezeigt.
 
 ### Name auf der Sohle
 Status: geplant

@@ -1,12 +1,29 @@
 # Stimme und Textregeln
 
-Alle Texte der Website folgen diesen Regeln. Einträge mit "zu bestätigen" sind Vorschläge.
+Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 
 ## Anrede
 
 - **B2B-Bereich:** "Sie". Persona-Briefe sind in der Ich-Form des Gründers geschrieben und sprechen die Rolle direkt an.
 - **Mitarbeitenden-Bereich:** "du".
-- **Englische Fassung:** Deutsch ist die Hauptsprache. Ob Slogans und Überschriften in der englischen Fassung deutsch bleiben, ist offen.
+- **Betriebsratsseite und Brief des Gründers:** "Sie", auch wenn der Betriebsrat für die Kolleginnen und Kollegen spricht.
+- **Englische Fassung:** Deutsch ist die Hauptsprache. Die Slogans ("Walk lightly, smile brightly", "Nothing fancy. Just a great way to get through your day.") bleiben in beiden Sprachen Englisch und unverändert. Menüs und Überschriften werden übersetzt. "Perspektivwechsel" wird zu "Change of perspective" mit der Unterzeile "For the decision-makers".
+
+## Gendern
+
+- Nur neutrale Formen, kein Doppelpunkt, kein Sternchen: "Mitarbeitende", "Kolleginnen und Kollegen", "Team", "Teilnehmende".
+- Rollen im Entscheidungsteam stehen so, wie das Konzept sie nennt: Personal, Geschäftsführung, Arbeitsschutz, Einkauf, Betriebsrat.
+
+## Preis
+
+- "120 Euro je Paar, zuzüglich Umsatzsteuer". Nie "je Einlage", nie "netto" oder "brutto" allein.
+- Gerechnete Werte (Kosten je Schicht, je Monat) tragen den Hinweis "gerechnet".
+- Zum steuerlichen Weg beim Arbeitgeber steht nichts auf der Seite, bis eine Steuerberatung ihn bestätigt hat.
+
+## Gründer
+
+- Briefe und Gründerband: "Roderich", in der Ich-Form.
+- Impressum und Eckdaten: voller Name.
 
 ## Sprache des Alltags
 
@@ -46,5 +63,5 @@ Alle Texte der Website folgen diesen Regeln. Einträge mit "zu bestätigen" sind
 |---|---|
 | Schmerzfrei durch die Schicht | Damit die Schicht nicht in den Füßen endet. |
 | KI-gestützte 3D-gedruckte Einlagen | Fotos in der Pause. Die Sohle kommt in Schuhe, die Ihr Team schon hat. |
-| Reduziert Krankheitstage | Wir machen keine Aussage zu Krankheitstagen. Nach acht Wochen sehen Sie, ob Ihr Team die Sohle trägt. |
+| Reduziert Krankheitstage | Wir machen keine Aussage zu Krankheitstagen. Zum Auswertungstermin sehen Sie, ob Ihr Team die Sohle trägt. |
 | Das Team wird begeistert sein | Teilnahme ist freiwillig. Sie entscheiden nach dem Piloten, ob und wie Sie ausweiten. |

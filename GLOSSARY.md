@@ -1,19 +1,23 @@
 # VIANU Website
 
-Die Begriffe der Website. Wer einen Begriff ändert, ändert ihn überall. Einträge mit "zu bestätigen" sind Vorschläge.
+Die Begriffe der Website. Wer einen Begriff ändert, ändert ihn überall. Bestätigt am 12.10.2026.
 
 ## Produkt
 
 **Einlegesohle**:
 Individuell angefertigte Sohle, die in die Schuhe der Mitarbeitenden gelegt wird. In Überschriften ist "Sohle" erlaubt.
-_Avoid_: Einlage, Orthese, Hilfsmittel (zu bestätigen. "Einlage" klingt nach Medizinprodukt.)
+_Avoid_: Einlage, Orthese, Hilfsmittel. "Einlage" klingt nach Medizinprodukt.
 
 **Paar**:
 Eine Einlegesohle für beide Füße. Preise gelten je Paar.
 _Avoid_: je Einlage, je Stück
 
+**Preis**:
+120 Euro je Paar, zuzüglich Umsatzsteuer. So steht er überall auf der Seite.
+_Avoid_: netto oder brutto ohne diesen Zusatz
+
 **Fußerfassung**:
-Die Aufnahme der Fußfotos mit dem eigenen Smartphone, ohne Messtag und ohne Zusatzgerät. In FAQ-Fragen darf "Fußscan" stehen, weil danach gesucht wird (zu bestätigen).
+Die Aufnahme der Fußfotos mit dem eigenen Smartphone, ohne Messtag und ohne Zusatzgerät. In FAQ-Fragen steht "Fußscan", weil danach gesucht wird.
 _Avoid_: Vermessung, Scan (im Fließtext)
 
 **Programm**:
@@ -30,7 +34,7 @@ _Avoid_: Studie, Wirkungsnachweis
 ## Pilot
 
 **Pilot**:
-Begrenzte Testgruppe von 10 Mitarbeitenden mit festem Auswertungstermin nach acht Wochen. Das Ziel der Seite ist, dass ein Arbeitgeber den Piloten bucht.
+Begrenzte Testgruppe von 10 Mitarbeitenden. Ein Zeitraum für die Auswertung steht nicht auf der Seite, bis er entschieden ist. Das Ziel der Seite ist, dass ein Arbeitgeber den Piloten bucht.
 _Avoid_: Testlauf, Probe, Rollout (für den Piloten)
 
 **Rollout**:
@@ -43,8 +47,12 @@ _Avoid_: Ergebnisse, Erfolgsquote, KPIs
 ## Menschen und Rollen
 
 **Mitarbeitende**:
-Die Menschen, die die Einlegesohle tragen. Im Du-Bereich "du", im Sie-Bereich "Ihre Mitarbeitenden". Für Kolleginnen und Kollegen: "Kolleg:innen".
-_Avoid_: Angestellte, Personal, User
+Die Menschen, die die Einlegesohle tragen. Im Du-Bereich "du", im Sie-Bereich "Ihre Mitarbeitenden". Gemeint sind alle Geschlechter, deshalb nur neutrale Formen: "Mitarbeitende", "Kolleginnen und Kollegen" oder "Team".
+_Avoid_: Kolleg:innen, Doppelpunkt, Angestellte, Personal, User
+
+**Roderich**:
+Der Gründer. In Briefen und im Gründerband steht der Vorname, im Impressum und bei den Eckdaten der volle Name.
+_Avoid_: der Gründer als Anrede im Text
 
 **Entscheidungsteam**:
 Die Rollen, die gemeinsam über den Piloten entscheiden: Personal, Geschäftsführung oder Betrieb, Arbeitsschutz, Einkauf, Betriebsrat.
