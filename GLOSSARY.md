@@ -76,6 +76,12 @@ Menüpunkt im Mitarbeitenden-Bereich, der in den B2B-Bereich führt. Unterzeile:
 Die Einheit, in der wir sprechen. Texte beschreiben den Alltag in Schichten, nicht in Diagnosen.
 _Avoid_: Arbeitsbelastung, Fußprobleme, Fehlstellung (als Werbeaussage)
 
+**Schichttag**:
+Die Scrollgeschichte auf der Mitarbeitenden-Seite: ein Arbeitstag vom Schichtbeginn bis zum Abend danach, erzählt in Momenten aus Küche, Service, Housekeeping, Empfang und Bar.
+
+**Namenssohle**:
+Die Mitmach-Grafik auf der Mitarbeitenden-Seite: Besucher tippen einen Namen und sehen ihn auf einer gezeichneten Sohle. Es ist eine Vorschau. Ob der Name auf die echte Sohle kommt, steht nicht fest (siehe `FACTS.md`).
+
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
 _Avoid_: Dummy, Lorem ipsum, Beispielbild als echtes Bild

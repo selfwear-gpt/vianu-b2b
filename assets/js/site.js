@@ -1,18 +1,22 @@
 /*
-  Menü des B2B-Bereichs. Schnittstelle: initMenue() wird beim Laden aufgerufen.
+  Menü beider Bereiche. Schnittstelle: initMenue(wurzel) für jedes Element mit [data-menue].
+  Jedes Menü arbeitet für sich und greift nur auf eigene Kindelemente zu. Das Menü des Mitarbeitenden-Bereichs
+  hat keine Rollenauswahl, das des B2B-Bereichs schon (optional).
   Ohne Skript bleibt alles lesbar: Menü und Auswahl sind dann geöffnet.
 */
 (function () {
   document.documentElement.classList.add("js");
 
-  function initMenue() {
-    var knopf = document.querySelector("[data-menue-knopf]");
-    var nav = document.getElementById("menue-nav");
-    var auswahlKnopf = document.querySelector("[data-auswahl-knopf]");
-    var panel = document.getElementById("persona-liste");
-    if (!knopf || !nav || !auswahlKnopf || !panel) return;
+  function initMenue(wurzel) {
+    var knopf = wurzel.querySelector("[data-menue-knopf]");
+    var nav = wurzel.querySelector("[data-menue-nav]");
+    if (!knopf || !nav) return;
+
+    var auswahlKnopf = wurzel.querySelector("[data-auswahl-knopf]");
+    var panel = auswahlKnopf ? document.getElementById(auswahlKnopf.getAttribute("aria-controls")) : null;
 
     function setzeAuswahl(offen) {
+      if (!auswahlKnopf || !panel) return;
       auswahlKnopf.setAttribute("aria-expanded", offen ? "true" : "false");
       panel.hidden = !offen;
     }
@@ -28,13 +32,18 @@
     knopf.addEventListener("click", function () {
       setzeMenue(knopf.getAttribute("aria-expanded") !== "true");
     });
-    auswahlKnopf.addEventListener("click", function () {
-      setzeAuswahl(auswahlKnopf.getAttribute("aria-expanded") !== "true");
-    });
+    if (auswahlKnopf && panel) {
+      auswahlKnopf.addEventListener("click", function () {
+        setzeAuswahl(auswahlKnopf.getAttribute("aria-expanded") !== "true");
+      });
+      document.addEventListener("click", function (e) {
+        if (!panel.hidden && !panel.contains(e.target) && !auswahlKnopf.contains(e.target)) setzeAuswahl(false);
+      });
+    }
 
-    document.addEventListener("keydown", function (e) {
+    wurzel.addEventListener("keydown", function (e) {
       if (e.key !== "Escape") return;
-      if (auswahlKnopf.getAttribute("aria-expanded") === "true") {
+      if (auswahlKnopf && auswahlKnopf.getAttribute("aria-expanded") === "true") {
         setzeAuswahl(false);
         auswahlKnopf.focus();
       } else if (knopf.getAttribute("aria-expanded") === "true") {
@@ -42,19 +51,15 @@
         knopf.focus();
       }
     });
-    document.addEventListener("click", function (e) {
-      if (!panel.hidden && !panel.contains(e.target) && !auswahlKnopf.contains(e.target)) {
-        setzeAuswahl(false);
-      }
-    });
     nav.addEventListener("click", function (e) {
       if (e.target.closest("a")) setzeMenue(false);
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initMenue);
-  } else {
-    initMenue();
+  function start() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-menue]"), initMenue);
   }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
 })();

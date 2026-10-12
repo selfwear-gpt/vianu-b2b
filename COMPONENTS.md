@@ -36,7 +36,7 @@ Status: geplant
 - Regel: kein zentrierter Hero mit zwei Buttons.
 
 ### Hero Mitarbeitende
-Status: geplant
+Status: gebaut
 - Links oben der Slogan in großer Schrift mit Unterzeile, rechts oben der Video-Platzhalter.
 
 ### Gründerband
@@ -95,24 +95,39 @@ Status: geplant
 ## Inhalt Mitarbeitende
 
 ### Teilen
-Status: geplant
-- Kleines Menü: an den Arbeitgeber (erst Abteilung wählen, dann wird der Link der Persona-Seite kopiert) oder an Kolleginnen und Kollegen (Link dieser Seite). Bestätigung "Link kopiert". Wenn der Browser das Kopieren ablehnt, wird der Link zum Kopieren von Hand angezeigt.
+Status: gebaut
+- Kleines Menü im Kopf, dazu Knöpfe an anderen Stellen (`data-teilen-oeffnen`): an den Arbeitgeber (erst Abteilung wählen, dann wird der Link der Persona-Seite kopiert) oder an Kolleginnen und Kollegen (Link dieser Seite). Bestätigung "Link kopiert". Wenn der Browser das Kopieren ablehnt, wird der Link zum Kopieren von Hand angezeigt. Die Links auf die Persona-Seiten führen erst ins Leere, bis die Seiten gebaut sind.
+- Logik: `assets/js/teilen.js`, Test in `tests/teilen.test.js`.
 
 ### Name auf der Sohle
-Status: geplant
-- Besucher tippen einen Namen und sehen ihn sofort auf der Sohle. Nichts wird gespeichert. Die Buchstaben drücken sich beim Tippen leicht ein.
+Status: gebaut
+- Besucher tippen einen Namen (höchstens 14 Zeichen, nur Buchstaben, Leerzeichen, Apostroph und Bindestrich) und sehen ihn sofort auf der Sohle. Nichts wird gespeichert, ein Hinweis sagt das. Die Buchstaben drücken sich beim Tippen leicht ein. Der Hinweis sagt auch, dass noch nicht feststeht, ob der Name auf die echte Sohle kommt.
+- Logik: `assets/js/name.js` (`bereinigeName`), Test in `tests/name.test.js`.
 
 ### Werteband
-Status: geplant
-- Sechs Werte mit je einer kurzen Zeile: Leicht durch die Schicht, Abende, die dir gehören, Passt in die Schuhe, die du hast, Hält, Bleibt frisch, Dein Name drauf.
+Status: gebaut
+- Sechs Werte als ungleich große Kacheln (zwei groß, vier klein) mit je einer kurzen Zeile und einem gezeichneten Symbol: Leicht durch die Schicht, Abende, die dir gehören, Passt in die Schuhe, die du hast, Hält, Bleibt frisch, Dein Name drauf.
 
 ### Schichttag
-Status: geplant
-- Scrollgeschichte vom Beginn der Schicht bis zum Abend danach, in der Sprache der Bewertungen.
+Status: gebaut
+- Scrollgeschichte vom Beginn der Schicht bis zum Abend danach, in der Sprache der Bewertungen. Links eine mitlaufende Uhr (bleibt beim Scrollen stehen), rechts fünf Momente. Bei reduzierter Bewegung steht der Zeiger still und die Momente stehen als Liste.
+
+### Handy-Ablauf
+Status: gebaut
+- Vier Schritte als Knöpfe (aria-pressed) neben einem gezeichneten Handy. Der gewählte Schritt zeigt seinen Bildschirm (Ankündigung, Sucherrahmen mit Fuß, Sohle, Übergabe). Die Zeile unter dem Handy nennt den Schritt als Text.
+- Kennzeichnung "Entwurf", solange der Ablauf nicht festgelegt ist. Keine Zeitangaben.
+
+### Fragen-Akkordeon (Mitarbeitende)
+Status: gebaut
+- `details` und `summary`, Fragen als ganze Sätze. Antworten ohne Beleg in `FACTS.md` stehen als Platzhalter. Strukturierte Daten (FAQPage) enthalten nur beantwortete Fragen und gleichen wörtlich dem sichtbaren Text.
+
+### Betriebsratsband
+Status: gebaut
+- Farbiges Band mit einer Aussage und einem Verweis auf die B2B-Seite für den Betriebsrat.
 
 ### Hinweis an den Arbeitgeber
-Status: geplant
-- Vorlage für eine Mail an den Arbeitgeber zum Herunterladen (förmlich, "Sie").
+Status: gebaut
+- Vorlage für eine Mail an den Arbeitgeber (förmlich, "Sie") als Text zum Kopieren und als Datei in `assets/downloads/`. "[Link zur Seite]" wird beim Kopieren durch den Link auf den B2B-Bereich ersetzt.
 
 ## Übergreifend
 

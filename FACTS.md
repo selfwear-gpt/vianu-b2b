@@ -17,6 +17,12 @@ Status: **frei** = darf veröffentlicht werden. **offen** = fehlt noch, bleibt P
 | Aufwand für Personal: etwa vier Stunden | Annahme, wird validiert | offen |
 | Steuerliche Behandlung beim Arbeitgeber | muss von einer Steuerberatung bestätigt werden | offen |
 | Haltbarkeit, Lieferzeit | keine Zusage. "Im Idealfall eine Nacht" beschreibt nur die Produktion | offen |
+| Dein Arbeitgeber bezahlt das Programm, für Mitarbeitende entstehen keine Kosten | Geschäftsmodell laut Konzept. Der Nutzer muss bestätigen, dass es für alle Fälle gilt | prüfen |
+| Die Teilnahme ist freiwillig | Konzept, FAQ und Karte für den Betriebsrat | frei |
+| Die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, ohne Messtag und ohne zusätzliche Geräte | Konzept, Ablauf aus Sicht der Mitarbeitenden. Die Details (Zeitpunkt, Dauer) sind "zu definieren" und stehen nicht auf der Seite | frei |
+| Die Sohle kommt in Schuhe, die Mitarbeitende schon besitzen, und wird im Betrieb übergeben, nicht verteilt | Konzept | frei |
+| Zielgruppe der Mitarbeitenden-Seite: Teams in Hotellerie und Gastronomie (Küche, Service, Housekeeping, Empfang, Bar) | Konzept | frei |
+| Der Name der tragenden Person steht auf der Sohle | Im Konzept nur als Möglichkeit. Die Seite zeigt eine Vorschau und sagt das | offen |
 
 ## Belege für Aussagen zu Fußbeschwerden
 

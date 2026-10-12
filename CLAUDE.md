@@ -14,7 +14,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 
 ## Aufbau des Repos
 
-- `index.html`: Bereich für Mitarbeitende. `b2b/`: B2B-Bereich mit Persona-Unterseiten.
+- `index.html`: Bereich für Mitarbeitende (Startseite unter der Adresse ohne Zusatz). `b2b/`: B2B-Bereich mit Persona-Unterseiten.
 - `assets/css/`: `tokens.css` (nur Variablen), `fonts.css` (Schrifteinbindung), `base.css`, `components.css`. Kein CSS in HTML-Dateien.
 - `assets/js/`: kleine Module, jedes mit einer einfachen Schnittstelle (Menü, Sprache, Formular).
 - `assets/fonts/`: Schriften liegen hier. Keine Einbindung von Google Fonts oder anderen Fremdservern.
@@ -38,6 +38,8 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - `python3 scripts/check-tokens.py` ohne Fehler: keine Farbwerte außerhalb von `assets/css/tokens.css`, Kontraste der Rollen bestehen.
 - `python3 scripts/check-extern.py` ohne Fehler: keine Schriften oder Bibliotheken von Fremdservern.
 - `python3 scripts/check-struktur.py` ohne Fehler: keine Inline-Stile, keine Inline-Skripte, keine absoluten Pfade, keine Verweise auf fehlende Dateien.
+- `python3 scripts/check-text.py` ohne Fehler: keine verbotenen Wörter, keine Geviertstriche, keine Kontrastformeln, kein Gendern mit Sonderzeichen. Dreierlisten und Frage-Antwort-Muster prüft die Durchsicht.
+- `node --test tests/*.test.js` und `python3 tests/test_check_text.py` ohne Fehler.
 - `node scripts/browsertest.js <Adresse> <Ordner>` ohne Fehler (Überlauf, Fremdanfragen, Schriften, ein `h1`, Konsole), Bilder in Handy- und Desktopbreite angesehen.
 - Alle Texte in HTML ausgeliefert (auch Kachelrückseiten und Akkordeons), ein `h1` pro Seite.
 - Kein Tracking vor Einwilligung. Keine Fremdserver beim Laden der Seite.
@@ -60,4 +62,4 @@ Ein Kontext: `GLOSSARY.md` und `docs/adr/` im Hauptordner. Siehe `docs/agents/do
 
 Lokal: im Hauptordner `python3 -m http.server 8000`, dann `http://localhost:8000/b2b/index.html`.
 
-Vorschau-Link für den Nutzer: `python3 scripts/build-vorschau.py b2b/index.html <Ausgabe.html> "<Titel>"`, danach als Artifact veröffentlichen. Anforderungen an den Server und Prüfung nach dem Deploy: `docs/deploy.md`.
+Vorschau-Link für den Nutzer: `python3 scripts/build-vorschau.py <Ausgabe.html> "<Titel>"` baut alle Seiten in eine Datei (Navigation über `#`, `#b2b`), danach als Artifact veröffentlichen. Neue Seiten in `SEITEN` im Skript eintragen. Anforderungen an den Server und Prüfung nach dem Deploy: `docs/deploy.md`.

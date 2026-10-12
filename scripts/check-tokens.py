@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TOKENS = ROOT / "assets" / "css" / "tokens.css"
 SCAN_SUFFIXES = {".css", ".html", ".js", ".svg"}
-SKIP_DIRS = {".git", ".claude", "node_modules", "docs", "scripts"}
+SKIP_DIRS = {".git", ".claude", "node_modules", "docs", "scripts", "tests"}
 
 HEX = re.compile(r"(?<![\w&])#(?:[0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3,4})(?![\w-])")
 FUNC = re.compile(r"\b(?:rgba?|hsla?)\(", re.IGNORECASE)

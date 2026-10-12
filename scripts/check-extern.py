@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SCAN_SUFFIXES = {".css", ".html", ".js", ".svg"}
-SKIP_DIRS = {".git", ".claude", "node_modules", "docs", "scripts"}
+SKIP_DIRS = {".git", ".claude", "node_modules", "docs", "scripts", "tests"}
 FORBIDDEN = re.compile(
     r"(fonts\.googleapis\.com|fonts\.gstatic\.com|use\.typekit\.net|fonts\.adobe\.com|"
     r"use\.fontawesome\.com|kit\.fontawesome\.com|cdnjs\.cloudflare\.com/ajax/libs/font-awesome)",

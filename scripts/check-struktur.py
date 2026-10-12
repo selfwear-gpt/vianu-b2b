@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {".git", ".claude", "node_modules", "docs", "scripts"}
+SKIP_DIRS = {".git", ".claude", "node_modules", "docs", "scripts", "tests"}
 TAG = re.compile(r"<([a-zA-Z][\w-]*)\b([^>]*)>", re.DOTALL)
 ATTR = re.compile(r"""\b([\w:-]+)\s*=\s*("([^"]*)"|'([^']*)')""", re.DOTALL)
 EXTERN = ("http:", "https:", "//", "mailto:", "tel:", "data:", "javascript:", "sms:")

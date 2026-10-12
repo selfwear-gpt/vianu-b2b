@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIANU | Einlegesohlen für Teams in Hotellerie und Gastronomie</title>
+<meta name="description" content="Für alle, die in der Schicht viel stehen und gehen: Was VIANU für dich bedeutet, wie es abläuft und was du fragen kannst.">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<script src="assets/js/name.js" defer></script>
+<script src="assets/js/teilen.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/mitarbeitende.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wer zahlt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dein Arbeitgeber bezahlt das Programm. Für dich entstehen keine Kosten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Muss ich mitmachen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Die Teilnahme ist freiwillig. Du entscheidest selbst, ob du mitmachst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Brauche ich einen eigenen Raum oder spezielle Technik?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Du brauchst dein eigenes Smartphone. Einen eigenen Raum oder zusätzliche Geräte brauchst du nicht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich auch aus der Küche teilnehmen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Küche, Service, Housekeeping, Empfang und Bar gehören zu den Teams, für die das Programm gedacht ist. Ob dein Betrieb mitmacht, entscheidet dein Arbeitgeber."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
+<header class="menue menue--mitarbeitende auf-dunkel" data-menue>
+  <div class="behaelter">
+    <div class="menue__innen">
+      <a class="menue__logo" href="./" aria-label="VIANU, zur Startseite">VIANU</a>
+
+      <a class="menue__perspektive menue__perspektive--leiste" href="b2b/">
+        <span>Perspektivwechsel</span>
+        <small>Für die Entscheider-Etage</small>
+      </a>
+
+      <nav class="menue__nav" id="menue-nav" aria-label="Hauptmenü" data-menue-nav data-offen="false">
+        <ul class="menue__liste">
+          <li><a href="#sohle">Die Sohle</a></li>
+          <li><a href="#ablauf">So läuft es ab</a></li>
+          <li><a href="#fragen">Fragen</a></li>
+        </ul>
+        <div class="menue__nav-extra">
+          <a class="menue__perspektive" href="b2b/">
+            <span>Perspektivwechsel</span>
+            <small>Für die Entscheider-Etage</small>
+          </a>
+        </div>
+      </nav>
+
+      <div class="menue__rechts">
+        <div class="teilen" data-teilen>
+          <button class="teilen__knopf" type="button" aria-expanded="false" aria-controls="teilen-panel" data-teilen-knopf>
+            Teilen
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 8v4h8V8M7 9V1M4 4l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <div class="teilen__panel" id="teilen-panel" role="group" aria-label="Teilen" hidden>
+            <p class="etikett">An meinen Arbeitgeber</p>
+            <ul class="teilen__liste" data-teilen-rollen></ul>
+            <p class="etikett">An Kolleginnen und Kollegen</p>
+            <button class="teilen__aktion" type="button" data-teilen-kollegen>Link zu dieser Seite kopieren</button>
+            <p class="teilen__status" role="status" aria-live="polite" data-teilen-status></p>
+            <label class="sr-nur" for="teilen-link">Link zum Kopieren</label>
+            <input class="teilen__link" id="teilen-link" type="text" readonly hidden data-teilen-link>
+          </div>
+        </div>
+        <div class="sprache" aria-label="Sprache">
+          <span aria-current="true">DE</span>
+          <span aria-disabled="true" title="Englische Fassung folgt">EN</span>
+        </div>
+        <button class="menue__knopf" type="button" aria-expanded="false" aria-controls="menue-nav" data-menue-knopf>Menü</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero hero--start" aria-labelledby="hero-titel">
+    <svg class="hero__spuren" viewBox="0 0 1200 130" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+      <use class="spur spur--1" href="#sohle-form" x="40" y="62" width="20" height="52" transform="rotate(90 50 88)"/>
+      <use class="spur spur--2" href="#sohle-form" x="190" y="24" width="20" height="52" transform="rotate(90 200 50)"/>
+      <use class="spur spur--3" href="#sohle-form" x="340" y="64" width="20" height="52" transform="rotate(90 350 90)"/>
+      <use class="spur spur--4" href="#sohle-form" x="490" y="26" width="20" height="52" transform="rotate(90 500 52)"/>
+      <use class="spur spur--5" href="#sohle-form" x="640" y="66" width="20" height="52" transform="rotate(90 650 92)"/>
+      <use class="spur spur--6" href="#sohle-form" x="790" y="28" width="20" height="52" transform="rotate(90 800 54)"/>
+      <use class="spur spur--7" href="#sohle-form" x="940" y="68" width="20" height="52" transform="rotate(90 950 94)"/>
+      <use class="spur spur--8" href="#sohle-form" x="1090" y="30" width="20" height="52" transform="rotate(90 1100 56)"/>
+    </svg>
+    <div class="behaelter">
+      <div class="hero__raster">
+        <div class="hero__text">
+          <h1 id="hero-titel">Walk lightly, smile brightly</h1>
+          <p class="hero__slogan">Wear your favourite shoe for hours</p>
+          <div class="hero__aktionen">
+            <button class="knopf" type="button" data-teilen-oeffnen>Zeig es deinem Arbeitgeber
+              <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            </button>
+            <a class="textlink" href="#ablauf">So läuft es ab</a>
+          </div>
+        </div>
+        <div class="hero__bild">
+          <div class="platzhalter platzhalter--video" data-platzhalter role="group" aria-label="Platzhalter für ein Video">
+            <span class="etikett platzhalter__etikett">Platzhalter</span>
+            <span class="play" aria-hidden="true"></span>
+            <p>Video: Ein Tag in der Schicht aus Sicht der Mitarbeitenden, Küche, Service und Housekeeping im Wechsel, etwa eine Minute. Startet erst auf Klick, mit Ton, dazu Vorschaubild und Transkript.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kurz" aria-labelledby="kurz-titel">
+    <div class="behaelter">
+      <h2 class="sr-nur" id="kurz-titel">Kurz erklärt</h2>
+      <dl class="kurz__liste">
+        <div class="kurz__punkt">
+          <dt class="etikett">Das Produkt</dt>
+          <dd>Einlegesohlen, individuell angefertigt, für Teams in Hotellerie und Gastronomie.</dd>
+        </div>
+        <div class="kurz__punkt">
+          <dt class="etikett">Die Fußerfassung</dt>
+          <dd>Du fotografierst ihn mit deinem eigenen Smartphone, in der Pause.</dd>
+        </div>
+        <div class="kurz__punkt">
+          <dt class="etikett">Die Kosten</dt>
+          <dd>Dein Arbeitgeber bezahlt das Programm.</dd>
+        </div>
+        <div class="kurz__punkt">
+          <dt class="etikett">Die Teilnahme</dt>
+          <dd>Freiwillig. Du entscheidest selbst.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="sohle" aria-labelledby="sohle-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="sohle-titel">Das hast du davon</h2>
+        <p>Sechs Dinge, auf die wir hinarbeiten.</p>
+      </div>
+      <div class="werte">
+        <article class="wert wert--a wert--signal">
+          <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M4 14h28M4 22h20M4 30h32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <h3>Leicht durch die Schicht</h3>
+          <p>Wir arbeiten darauf hin, dass deine Füße die Schicht gut mitmachen.</p>
+        </article>
+        <article class="wert wert--b wert--tinte">
+          <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M30 7a15 15 0 1 0 9 23A13 13 0 0 1 30 7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          <h3>Abende, die dir gehören</h3>
+          <p>Familie, Sport, Freunde. Nach der Schicht soll noch Platz für dein Leben sein.</p>
+        </article>
+        <article class="wert wert--c wert--linie">
+          <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M5 31h35v-6c-9 0-11-7-15-13l-9 4-6 3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          <h3>Passt in die Schuhe, die du hast</h3>
+          <p>Deine Arbeitsschuhe bleiben, wie sie sind. Die Sohle kommt einfach hinein.</p>
+        </article>
+        <article class="wert wert--d wert--linie">
+          <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="13" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="17" y="21" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+          <h3>Hält</h3>
+          <p>Sie soll so lange mitgehen wie deine Schuhe. Eine feste Zusage geben wir erst, wenn wir sie belegen können.</p>
+        </article>
+        <article class="wert wert--e wert--linie">
+          <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4c9 11 13 17 13 23a13 13 0 0 1-26 0c0-6 4-12 13-23z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          <h3>Bleibt frisch</h3>
+          <p>In Arbeitsschuhen ist viel los. Die Sohle soll dabei frisch bleiben.</p>
+        </article>
+        <article class="wert wert--f wert--signal">
+          <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 11h22l11 12-11 12H6z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="14" cy="23" r="2.6" fill="currentColor"/></svg>
+          <h3>Dein Name drauf</h3>
+          <p>Probier unten aus, wie dein Name auf deiner Sohle aussehen könnte.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt tag" id="tag" aria-labelledby="tag-titel" data-tag>
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="tag-titel">Ein Tag in Schichten</h2>
+        <p>Vom Schichtbeginn bis zum Abend. Geh durch den Tag, die Uhr läuft mit.</p>
+      </div>
+      <div class="tag__raster">
+        <div class="tag__uhr">
+          <svg class="uhr" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <circle class="uhr__rand" cx="60" cy="60" r="54"/>
+            <g class="uhr__striche">
+              <line x1="60" y1="10" x2="60" y2="18"/><line x1="85" y1="16.7" x2="81" y2="23.6"/><line x1="103.3" y1="35" x2="96.4" y2="39"/>
+              <line x1="110" y1="60" x2="102" y2="60"/><line x1="103.3" y1="85" x2="96.4" y2="81"/><line x1="85" y1="103.3" x2="81" y2="96.4"/>
+              <line x1="60" y1="110" x2="60" y2="102"/><line x1="35" y1="103.3" x2="39" y2="96.4"/><line x1="16.7" y1="85" x2="23.6" y2="81"/>
+              <line x1="10" y1="60" x2="18" y2="60"/><line x1="16.7" y1="35" x2="23.6" y2="39"/><line x1="35" y1="16.7" x2="39" y2="23.6"/>
+            </g>
+            <line class="uhr__zeiger" x1="60" y1="60" x2="60" y2="22" data-uhr-zeiger/>
+            <circle class="uhr__mitte" cx="60" cy="60" r="6"/>
+          </svg>
+          <p class="etikett tag__stand" data-tag-stand>Schichtbeginn</p>
+        </div>
+        <div class="tag__momente">
+          <article class="tag__moment" data-moment data-titel="Schichtbeginn">
+            <h3>Schichtbeginn</h3>
+            <p>Die Schuhe sitzen, die Sohle ist drin. Dein Ziel für heute: den Tag über nicht an deine Füße denken.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Vormittag">
+            <h3>Vormittag</h3>
+            <p>Fliesen in der Küche, Teppich im Flur, Stein in der Lobby. Du gehst den ganzen Weg in deinen eigenen Schuhen.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Stoßzeit">
+            <h3>Stoßzeit</h3>
+            <p>Zwischen Pass und Tisch zählt jeder Schritt. Für genau diese Minuten bauen wir die Sohle.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Feierabend">
+            <h3>Feierabend</h3>
+            <p>Die Schicht ist vorbei. Jetzt zeigt sich, wie viel Kraft für den Abend noch da ist.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Abend">
+            <h3>Abend</h3>
+            <p>Familie, Sport, Couch, Freunde. Der Abend gehört dir. Darauf arbeiten wir hin, mehr versprechen wir nicht.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt name" id="name" aria-labelledby="name-titel" data-name>
+    <div class="behaelter">
+      <div class="name__raster">
+        <div class="name__eingabe">
+          <h2 id="name-titel">Dein Name auf deiner Sohle</h2>
+          <p>Tipp ihn ein und sieh, wie er auf der Sohle aussieht.</p>
+          <label class="etikett" for="name-feld">Dein Name</label>
+          <input class="name__feld" id="name-feld" type="text" maxlength="14" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Anna" data-name-feld>
+          <p class="name__hinweis">Nur eine Vorschau. Ob dein Name auf die Sohle kommt, steht noch nicht fest. Was du eintippst, bleibt in deinem Browser und wird nicht gespeichert.</p>
+          <button class="knopf" type="button" data-teilen-oeffnen>Zeig es deinem Arbeitgeber
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+          <p class="sr-nur" role="status" aria-live="polite" data-name-ansage></p>
+        </div>
+        <div class="name__bild">
+          <svg class="sohle" viewBox="0 0 290 124" aria-hidden="true" focusable="false">
+            <g transform="translate(15 112) rotate(-90)">
+              <use class="sohle__form" href="#sohle-form" width="100" height="260"/>
+            </g>
+            <text class="sohle__name sohle__name--licht" x="151" y="63.5" data-name-text data-leer="true">Anna</text>
+            <text class="sohle__name" x="150" y="62" data-name-text data-leer="true">Anna</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt ablauf" id="ablauf" aria-labelledby="ablauf-titel" data-ablauf>
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="ablauf-titel">So läuft es ab</h2>
+        <p class="etikett">Entwurf, der Ablauf wird noch festgelegt</p>
+      </div>
+      <div class="ablauf__raster">
+        <ol class="ablauf__liste">
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="true" data-schritt="1">
+              <span class="ablauf__nummer" aria-hidden="true">1</span>
+              <span><strong>Dein Betrieb entscheidet sich</strong><span>Dein Arbeitgeber meldet euer Team für den Pilot an.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="2">
+              <span class="ablauf__nummer" aria-hidden="true">2</span>
+              <span><strong>Du machst Fotos in der Pause</strong><span>Mit deinem eigenen Smartphone, ohne Messtag und ohne zusätzliche Geräte.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="3">
+              <span class="ablauf__nummer" aria-hidden="true">3</span>
+              <span><strong>Deine Sohle entsteht</strong><span>Sie wird für deinen Fuß angefertigt. Ob dein Name darauf steht, steht noch nicht fest.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="4">
+              <span class="ablauf__nummer" aria-hidden="true">4</span>
+              <span><strong>Du bekommst sie im Betrieb</strong><span>Sie wird dir übergeben und nicht verteilt. Sie kommt in die Schuhe, die du schon hast.</span></span>
+            </button>
+          </li>
+        </ol>
+        <div class="ablauf__bild">
+          <svg class="handy" viewBox="0 0 200 380" aria-hidden="true" focusable="false">
+            <rect class="handy__rahmen" x="10" y="6" width="180" height="368" rx="28"/>
+            <rect class="handy__screen" x="20" y="30" width="160" height="320" rx="10"/>
+            <rect class="handy__kerbe" x="78" y="14" width="44" height="8" rx="4"/>
+
+            <g data-screen="1">
+              <rect class="handy__karte" x="34" y="70" width="132" height="70" rx="8"/>
+              <circle class="handy__punkt" cx="54" cy="92" r="9"/>
+              <rect class="handy__zeile" x="72" y="86" width="76" height="6" rx="3"/>
+              <rect class="handy__zeile" x="72" y="100" width="54" height="6" rx="3"/>
+              <rect class="handy__zeile" x="46" y="120" width="96" height="6" rx="3"/>
+              <rect class="handy__karte" x="34" y="156" width="132" height="70" rx="8"/>
+              <circle class="handy__punkt handy__punkt--leer" cx="54" cy="178" r="9"/>
+              <rect class="handy__zeile" x="72" y="172" width="64" height="6" rx="3"/>
+              <rect class="handy__zeile" x="72" y="186" width="44" height="6" rx="3"/>
+            </g>
+
+            <g data-screen="2" hidden>
+              <use class="handy__fuss" href="#sohle-form" x="64" y="82" width="72" height="187"/>
+              <g class="handy__ecken">
+                <path d="M40 74v-24h24M160 74v-24h-24M40 286v24h24M160 286v24h-24"/>
+              </g>
+              <circle class="handy__ausloeser" cx="100" cy="326" r="14"/>
+            </g>
+
+            <g data-screen="3" hidden>
+              <use class="handy__fuss handy__fuss--signal" href="#sohle-form" x="52" y="62" width="96" height="250"/>
+              <rect class="handy__zeile handy__zeile--dunkel" x="70" y="318" width="60" height="6" rx="3"/>
+            </g>
+
+            <g data-screen="4" hidden>
+              <rect class="handy__karte" x="46" y="120" width="108" height="86" rx="6"/>
+              <path class="handy__haken" d="M76 164l16 16 34-36"/>
+              <rect class="handy__zeile" x="62" y="234" width="76" height="6" rx="3"/>
+              <rect class="handy__zeile" x="78" y="250" width="44" height="6" rx="3"/>
+            </g>
+          </svg>
+          <p class="ablauf__beschreibung etikett" role="status" aria-live="polite" data-ablauf-beschreibung>Schritt 1: Dein Betrieb entscheidet sich</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="stimmen" aria-labelledby="stimmen-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="stimmen-titel">Stimmen aus dem Pilot</h2>
+      </div>
+      <div class="platzhalter platzhalter--abschnitt" data-platzhalter role="group" aria-label="Platzhalter für Stimmen aus dem Pilot">
+        <span class="etikett platzhalter__etikett">Platzhalter</span>
+        <p>Aussagen echter Mitarbeitender aus einem Pilot, jeweils mit ihrer Erlaubnis. Bis es sie gibt, steht hier nichts Erfundenes. Bild dazu: Porträt oder Hände bei der Arbeit, nur mit Einwilligung, Hochformat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="fragen" aria-labelledby="fragen-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="fragen-titel">Das fragst du dich vielleicht</h2>
+      </div>
+      <div class="fragen">
+        <details class="frage">
+          <summary>Wer zahlt?</summary>
+          <div class="frage__antwort"><p>Dein Arbeitgeber bezahlt das Programm. Für dich entstehen keine Kosten.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Muss ich mitmachen?</summary>
+          <div class="frage__antwort"><p>Nein. Die Teilnahme ist freiwillig. Du entscheidest selbst, ob du mitmachst.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Wer sieht meine Fußfotos?</summary>
+          <div class="frage__antwort">
+            <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zu den Fußfotos">
+              <span class="etikett platzhalter__etikett">Platzhalter</span>
+              <p>Antwort folgt, sobald das Datenschutzkonzept steht. Bis dahin machen wir dazu keine Zusage. Die Antwort muss klären, wer die Fotos sieht, wofür sie genutzt werden, wie lange sie gespeichert bleiben und ob dein Arbeitgeber sieht, wer teilnimmt.</p>
+            </div>
+          </div>
+        </details>
+        <details class="frage">
+          <summary>Brauche ich einen eigenen Raum oder spezielle Technik?</summary>
+          <div class="frage__antwort"><p>Nein. Du brauchst dein eigenes Smartphone. Einen eigenen Raum oder zusätzliche Geräte brauchst du nicht.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Was passiert, wenn ich in der Erfassungswoche krank oder im Urlaub bin?</summary>
+          <div class="frage__antwort">
+            <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zur Erfassungswoche">
+              <span class="etikett platzhalter__etikett">Platzhalter</span>
+              <p>Antwort folgt, sobald der Ablauf der Fußerfassung feststeht.</p>
+            </div>
+          </div>
+        </details>
+        <details class="frage">
+          <summary>Kann ich auch aus der Küche teilnehmen?</summary>
+          <div class="frage__antwort"><p>Ja. Küche, Service, Housekeeping, Empfang und Bar gehören zu den Teams, für die das Programm gedacht ist. Ob dein Betrieb mitmacht, entscheidet dein Arbeitgeber.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="rat auf-hell" id="betriebsrat" aria-labelledby="rat-titel">
+    <div class="behaelter">
+      <div class="rat__innen">
+        <h2 id="rat-titel">Für euren Betriebsrat</h2>
+        <p>Wenn es bei euch einen gibt, sollte er früh dabei sein. Für ihn gibt es eine eigene Seite mit den Fragen, die ein Betriebsrat vor so einem Programm stellt.</p>
+        <a class="knopf knopf--dunkel" href="b2b/#wer-entscheidet-mit">Seite für den Betriebsrat
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="arbeitgeber" aria-labelledby="mail-titel" data-mail>
+    <div class="behaelter">
+      <div class="mail__raster">
+        <div>
+          <h2 id="mail-titel">Sag es deinem Arbeitgeber</h2>
+          <p>Du entscheidest, ob du es weitergibst. Dafür gibt es zwei Wege: den Link über „Teilen“ im Menü oder diese Mail.</p>
+        </div>
+        <div class="mail__box">
+          <p class="etikett">Mailvorlage</p>
+          <div class="mail__text" data-mail-text>Betreff: Frage zu Einlegesohlen für unser Team
+
+Guten Tag,
+
+ich habe mich über das Programm von VIANU informiert. Es richtet sich an Teams in Hotellerie und Gastronomie, die viel stehen und gehen. Es beginnt mit einem Pilot für 10 Mitarbeitende. Die Teilnahme ist freiwillig.
+
+Ich fände es gut, wenn Sie sich das ansehen. Hier finden Sie die Informationen für Entscheiderinnen und Entscheider:
+
+[Link zur Seite]
+
+Über eine kurze Rückmeldung freue ich mich.
+
+Freundliche Grüße
+[Ihr Name]</div>
+          <div class="mail__aktionen">
+            <button class="knopf" type="button" data-mail-kopieren>Text kopieren</button>
+            <a class="textlink" href="assets/downloads/mail-an-arbeitgeber.txt" download>Als Datei laden</a>
+          </div>
+          <p class="teilen__status" role="status" aria-live="polite" data-mail-status></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss auf-dunkel">
+  <div class="behaelter">
+    <div class="fuss__innen">
+      <span class="fuss__logo">VIANU</span>
+      <p class="etikett">Impressum und Datenschutz folgen</p>
+      <a class="textlink textlink--hell" href="b2b/">Für Entscheiderinnen und Entscheider</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
