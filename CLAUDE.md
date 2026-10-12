@@ -26,7 +26,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - Eine Änderung pro Branch und Pull Request. Nichts geht ohne Freigabe nach `main`.
 - Die laufende Seite vianu247.com und das Repo `vianu-website` bleiben unverändert.
 - Keine Zugangsdaten, Schlüssel oder interne Unterlagen im Repo. Das Repo kann öffentlich sein.
-- Vor neuen Seiten oder Abschnitten die Skills `grill-with-docs` oder `grill-me` nutzen, bis alle offenen Entscheidungen geklärt sind.
+- Bei jeder neuen Aufgabe zuerst `docs/agents/skill-auswahl.md` lesen, den passenden Skill selbst wählen und anwenden, ohne dass der Nutzer ihn nennt.
 - Texte nie erfinden. Fehlt ein Beleg, steht ein markierter Platzhalter.
 - Größere Entscheidungen kurz erklären (Was, Warum), damit sie nachvollziehbar bleiben.
 
