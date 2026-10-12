@@ -41,6 +41,20 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - Alle Texte in HTML ausgeliefert (auch Kachelrückseiten und Akkordeons), ein `h1` pro Seite.
 - Kein Tracking vor Einwilligung. Keine Fremdserver beim Laden der Seite.
 
+## Agent skills
+
+### Issue tracker
+
+Aufgaben und Spezifikationen liegen als Markdown-Dateien unter `.scratch/`, nicht in GitHub-Issues. Siehe `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Nur der Status `ready-for-agent` und seine Nachbarn sind in Gebrauch. Siehe `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Ein Kontext: `GLOSSARY.md` und `docs/adr/` im Hauptordner. Siehe `docs/agents/domain.md`.
+
 ## Vorschau
 
 Lokal: im Hauptordner `python3 -m http.server 8000`, dann `http://localhost:8000`.
