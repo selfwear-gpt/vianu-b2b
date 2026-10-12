@@ -95,6 +95,7 @@ Regeln:
 - Bilder in WebP oder AVIF, passende Größen, `loading="lazy"` außer im ersten Bildschirm, immer mit Alternativtext.
 - Video startet erst auf Klick, mit Ton, mit Vorschaubild und Transkript. Selbst gehostet, kein Einbetten von Fremddiensten.
 - Der Fußabdruck ist eine Vektorzeichnung mit Punktraster und weichen Druckzonen, kein Foto.
+- Fehlende Bilder und Videos stehen als sichtbar markierter Platzhalter in der vorgesehenen Größe, mit einer kurzen Beschreibung des gebrauchten Bildes (Baustein "Platzhalter" in `COMPONENTS.md`). Keine Stockfotos als Ersatz.
 
 ## Technische Hygiene
 

@@ -37,7 +37,7 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 - Wirkversprechen: "schmerzfrei", "verhindert Rückenschmerzen", "reduziert Krankheitstage", "besser als Matten", "Schutz".
 - Medizinische Rahmung und Rahmung als Schutzausrüstung. Keine Aussagen zu zertifizierten Sicherheitsschuhen.
 - Erfundene Zahlen, Zitate, Bewertungen. Keine Kundennamen ohne schriftliche Erlaubnis.
-- "patentiert" und Patentnummern, solange es keine ausdrückliche Freigabe gibt.
+- Patentnummern. Zum Patent steht nur "Patent angemeldet oder erteilt", und erst, nachdem der Patentanwalt bestätigt hat, dass die Einlegesohle das Patent nutzt (siehe `FACTS.md`, Abschnitt "Patente").
 - Jede Zahl, die nicht in `FACTS.md` steht.
 
 ## Satzregeln

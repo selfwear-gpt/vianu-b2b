@@ -10,7 +10,7 @@ Status: **frei** = darf veröffentlicht werden. **offen** = fehlt noch, bleibt P
 |---|---|---|
 | Preis: 120 Euro je Paar, zuzüglich Umsatzsteuer | Festlegung im Konzept, Steuerangabe entschieden am 12.10.2026 | frei |
 | Preisangabe auf der Seite: "zuzüglich Umsatzsteuer" | Entscheidung am 12.10.2026 | frei |
-| Pilot: 10 Paare, 1.200 EUR zuzüglich Umsatzsteuer, falls der Pilotpreis dem regulären Preis entspricht | Rechnung 10 x 120 EUR | offen (Pilotpreis noch zu entscheiden) |
+| Pilot: 10 Paare, 1.200 EUR zuzüglich Umsatzsteuer. Der Pilot kostet den regulären Preis | Rechnung 10 x 120 EUR, Pilotpreis entschieden am 12.10.2026 | frei |
 | Rund 55 Cent je Schicht (120 Euro zuzüglich Umsatzsteuer über etwa 220 Schichten) | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
 | Rund 10 EUR je Mitarbeitendem und Monat | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
 | Zeitraum bis zur Auswertung des Piloten | Entscheidung am 12.10.2026: kein Zeitraum auf der Seite, bis er entschieden ist | offen |
@@ -30,6 +30,14 @@ Diese Angaben dürfen genannt werden, jeweils mit Quelle und ohne Verallgemeiner
 | Es gibt mäßige Belege, dass Dämpfung Beschwerden und Ermüdung bei Menschen mit stehender Arbeit senkt | Speed 2018 | prüfen |
 | "X % unserer Nutzer berichten von weniger Fußschmerzen", gekennzeichnet als selbst berichtet | eigene Pilotdaten | offen (keine Daten) |
 
+## Patente
+
+| Aussage | Quelle | Status |
+|---|---|---|
+| "Patent angemeldet oder erteilt", ohne Nummer. Genauer wäre "Patent erteilt", falls beide Patente erteilt sind | Entscheidung am 12.10.2026. Laut Konzept sind zwei Patente der eekual bionic GmbH erteilt | prüfen |
+
+Vor der Veröffentlichung muss der Patentanwalt bestätigen, dass die Einlegesohle das Patent nutzt, und die Lizenz von der eekual bionic GmbH an die VIANU-Gesellschaft muss bestehen. Eine Patentberühmung für ein Produkt, das das Patent nicht nutzt, kann rechtliche Folgen haben. Das ist die Bedingung aus dem Konzept und gilt weiter, auch für diesen allgemeinen Wortlaut. Bis dahin bleibt die Zeile auf "prüfen" und der Satz steht nicht auf der Live-Seite.
+
 ## Aussagen, die wir nicht machen
 
 - "X % der Menschen in stehenden Berufen leiden unter Fußschmerzen" als Einzelzahl.
@@ -38,13 +46,16 @@ Diese Angaben dürfen genannt werden, jeweils mit Quelle und ohne Verallgemeiner
 - "Einlegesohlen sind besser als Anti-Ermüdungsmatten." Erlaubt ist: Die Sohle ergänzt die Matte und ersetzt sie nicht.
 - "Dämpfende Einlegesohlen verhindern Verletzungen."
 - Eine selbst berichtete Zahl als klinische Wirkung.
-- "Patentiert" oder Patentnummern ohne ausdrückliche Freigabe.
+- Patentnummern. Zum Patent steht nur der Wortlaut aus dem Abschnitt "Patente", und erst nach der dort genannten Prüfung.
 - Aussagen zu Datenschutz, Speicherdauer und Zugriff, solange das zugehörige Konzept nicht existiert.
 - Nachhaltigkeits- und Herkunftsaussagen ohne Beleg.
 
 ## Platzhalter, die sichtbar markiert bleiben
 
+Platzhalter bleiben auch auf der Live-Seite sichtbar markiert (Entscheidung vom 12.10.2026). Bei Bildern steht im Platzhalter in kurzen Worten, welches Bild gebraucht wird (Baustein "Platzhalter" in `COMPONENTS.md`).
+
 - Video mit dem Gründer, Video für den Mitarbeitenden-Bereich
+- Fotos aus dem Alltag in Hotellerie und Gastronomie
 - Aussage eines Orthopäden
 - Stimme eines Pilotkunden (nur mit schriftlicher Erlaubnis)
 - Aussagen echter Mitarbeitender (keine erfundenen Zitate)

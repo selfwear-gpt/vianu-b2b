@@ -77,4 +77,5 @@ Die Einheit, in der wir sprechen. Texte beschreiben den Alltag in Schichten, nic
 _Avoid_: Arbeitsbelastung, Fußprobleme, Fehlstellung (als Werbeaussage)
 
 **Platzhalter**:
-Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Video, Aussage eines Orthopäden, Stimme eines Pilotkunden).
+Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
+_Avoid_: Dummy, Lorem ipsum, Beispielbild als echtes Bild
