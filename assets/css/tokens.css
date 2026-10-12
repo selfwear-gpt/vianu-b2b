@@ -28,4 +28,19 @@
   --abstand-6: 32px;
   --abstand-7: 48px;
   --abstand-8: 80px;
+
+  /* Größenstufen der Schrift */
+  --schrift-groesse-display: clamp(3rem, 8.5vw, 6.75rem);
+  --schrift-groesse-h2: clamp(2rem, 4.5vw, 3.5rem);
+  --schrift-groesse-h3: clamp(1.4rem, 2.4vw, 1.9rem);
+  --schrift-groesse-text: 1.0625rem;
+  --schrift-groesse-klein: 0.9375rem;
+  --schrift-groesse-etikett: 0.72rem;
+  --zeilenhoehe-text: 1.65;
+
+  /* Layout */
+  --inhalt-max: 76rem;
+  --seite-rand: clamp(16px, 4vw, 48px);
+  --menue-hoehe: 64px;
+  --kante: 2px;
 }

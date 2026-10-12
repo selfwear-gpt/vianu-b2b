@@ -1,0 +1,281 @@
+/* Bausteine aus COMPONENTS.md. Keine Farbwerte, nur Rollen aus tokens.css. */
+
+/* ---------- Menü B2B-Bereich ---------- */
+.menue {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: var(--farbe-papier);
+  border-bottom: 1px solid var(--farbe-tinte);
+}
+.menue__innen { display: flex; align-items: stretch; min-height: var(--menue-hoehe); }
+.menue__logo {
+  display: flex;
+  align-items: center;
+  padding-right: var(--abstand-5);
+  font-family: var(--schrift-kopf);
+  font-weight: 800;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.menue__nav { flex: 1; display: flex; min-width: 0; }
+.menue__liste { display: flex; align-items: stretch; }
+.menue__liste > li { display: flex; position: relative; }
+.menue__liste a,
+.menue__auswahl-knopf {
+  display: flex;
+  align-items: center;
+  gap: var(--abstand-2);
+  padding: 0 var(--abstand-4);
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+.menue__liste a:hover,
+.menue__auswahl-knopf:hover { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.menue__auswahl-knopf[aria-expanded="true"] { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.menue__auswahl-knopf .pfeil-unten { transition: transform 0.15s; }
+.menue__auswahl-knopf[aria-expanded="true"] .pfeil-unten { transform: rotate(180deg); }
+
+.menue__panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 28rem;
+  max-width: 90vw;
+  background: var(--farbe-papier);
+  border: var(--kante) solid var(--farbe-tinte);
+}
+.menue__panel a {
+  display: block;
+  padding: var(--abstand-3) var(--abstand-4);
+  border-top: 1px solid var(--farbe-linie);
+  font-family: var(--schrift-text);
+  font-size: var(--schrift-groesse-klein);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.menue__panel li:first-child a { border-top: 0; }
+.menue__panel strong {
+  display: block;
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.menue__panel span { display: block; }
+
+.menue__rechts { display: flex; align-items: stretch; margin-left: auto; }
+.menue__cta {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--abstand-5);
+  background: var(--farbe-signal);
+  color: var(--farbe-auf-signal);
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.menue__cta:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.menue__zurueck {
+  display: flex;
+  align-items: center;
+  gap: var(--abstand-2);
+  padding: 0 var(--abstand-4);
+  border-left: 1px solid var(--farbe-tinte);
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.menue__zurueck:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
+
+.sprache { display: flex; align-items: center; padding: 0 var(--abstand-4); border-left: 1px solid var(--farbe-tinte); gap: var(--abstand-2); }
+.sprache a, .sprache span {
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+.sprache [aria-current="true"] { font-weight: 700; border-bottom: var(--kante) solid var(--farbe-tinte); }
+.sprache [aria-disabled="true"] { color: var(--farbe-gedaempft); }
+
+.menue__knopf {
+  display: none;
+  align-items: center;
+  padding: 0 var(--abstand-4);
+  background: var(--farbe-tinte);
+  color: var(--farbe-papier);
+  border: 0;
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (max-width: 62rem) {
+  .menue__innen { flex-wrap: wrap; }
+  .menue__logo { padding-right: var(--abstand-4); }
+  .menue__knopf { display: flex; }
+  .menue__rechts { order: 2; }
+  .menue__rechts .menue__zurueck, .menue__rechts .sprache { display: none; }
+  .menue__nav { order: 3; flex: 0 0 100%; border-top: 1px solid var(--farbe-tinte); flex-direction: column; }
+  .js .menue__nav[data-offen="false"] { display: none; }
+  .menue__liste { flex-direction: column; width: 100%; }
+  .menue__liste > li { flex-direction: column; border-top: 1px solid var(--farbe-linie); }
+  .menue__liste > li:first-child { border-top: 0; }
+  .menue__liste a, .menue__auswahl-knopf { min-height: 3rem; width: 100%; justify-content: space-between; }
+  .menue__panel { position: static; width: 100%; max-width: none; border: 0; border-top: 1px solid var(--farbe-linie); background: var(--farbe-papier); }
+  .menue__nav-extra { display: flex; border-top: 1px solid var(--farbe-tinte); }
+  .menue__nav-extra a { flex: 1; min-height: 3rem; border-left: 0; padding-inline: var(--abstand-4); }
+}
+@media (min-width: 62.0625rem) {
+  .menue__nav-extra { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(40px, 8vw, 96px); overflow-x: clip; }
+.hero__raster {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: end;
+}
+.hero__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-5); }
+.hero__slogan { font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 500; line-height: 1.35; }
+.hero__preis { color: var(--farbe-gedaempft); }
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--abstand-3);
+  padding: 1rem 1.75rem;
+  background: var(--farbe-signal);
+  color: var(--farbe-auf-signal);
+  border: var(--kante) solid var(--farbe-tinte);
+  font-family: var(--schrift-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.knopf:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
+
+.hero__bild { position: relative; }
+.hero__bild::before {
+  content: "";
+  position: absolute;
+  inset: var(--abstand-5) calc(-1 * var(--abstand-5)) calc(-1 * var(--abstand-5)) var(--abstand-5);
+  background: var(--farbe-signal);
+}
+.hero__bild .platzhalter { position: relative; }
+
+@media (max-width: 56rem) {
+  .hero__raster { grid-template-columns: minmax(0, 1fr); }
+  .hero__bild::before { inset: var(--abstand-3) 0 calc(-1 * var(--abstand-3)) var(--abstand-3); }
+}
+
+/* ---------- Platzhalter ---------- */
+.platzhalter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--abstand-2);
+  padding: var(--abstand-5);
+  background: var(--farbe-papier);
+  color: var(--farbe-tinte);
+  border: var(--kante) dashed var(--farbe-gedaempft);
+}
+.platzhalter__etikett { color: var(--farbe-gedaempft); }
+.platzhalter p { font-size: var(--schrift-groesse-klein); }
+.platzhalter--video { aspect-ratio: 16 / 10; max-width: 100%; }
+.platzhalter--quadrat { aspect-ratio: 1 / 1; max-width: 100%; }
+.platzhalter--abschnitt { min-height: 9rem; }
+.play {
+  flex: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--farbe-signal);
+  border: var(--kante) solid var(--farbe-tinte);
+  position: relative;
+}
+.play::after {
+  content: "";
+  position: absolute;
+  left: 52%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 1rem solid var(--farbe-auf-signal);
+  border-block: 0.6rem solid transparent;
+}
+
+/* ---------- Gründerband ---------- */
+.band { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.band__raster {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  padding-block: clamp(32px, 5vw, 56px);
+}
+.band .platzhalter { background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); padding: var(--abstand-3); }
+.band .platzhalter__etikett { color: var(--farbe-papier); }
+.band__name { color: var(--farbe-signal); }
+.band__satz { margin-top: var(--abstand-2); font-size: clamp(1.25rem, 2.4vw, 1.9rem); font-weight: 500; line-height: 1.3; max-width: 44ch; }
+.band__fakten { margin-top: var(--abstand-4); max-width: none; }
+.band__fakten .platzhalter { padding: var(--abstand-3) var(--abstand-4); }
+@media (max-width: 40rem) {
+  .band__raster { grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); align-items: start; }
+}
+@media (max-width: 30rem) {
+  .band__raster { grid-template-columns: minmax(0, 1fr); }
+  .band .platzhalter--quadrat { max-width: 9rem; }
+}
+
+/* ---------- Abschnitte ---------- */
+.abschnitt { padding-block: clamp(48px, 8vw, 96px); border-top: 1px solid var(--farbe-tinte); }
+.abschnitt__kopf { display: flex; flex-direction: column; gap: var(--abstand-3); margin-bottom: var(--abstand-6); }
+
+/* ---------- Rollenliste "Wer entscheidet mit?" ---------- */
+.rollen { border-bottom: 1px solid var(--farbe-tinte); }
+.rollen a {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) auto;
+  gap: var(--abstand-5);
+  align-items: center;
+  padding: var(--abstand-5) var(--abstand-3);
+  border-top: 1px solid var(--farbe-tinte);
+  text-decoration: none;
+}
+.rollen a:hover, .rollen a:focus-visible { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.rollen__name { font-family: var(--schrift-kopf); font-weight: 700; font-size: var(--schrift-groesse-h3); text-transform: uppercase; line-height: 1; }
+.rollen__frage { font-size: var(--schrift-groesse-klein); }
+.rollen__entwurf { margin-left: var(--abstand-2); padding: 0.1rem 0.4rem; border: 1px solid currentColor; vertical-align: middle; }
+@media (max-width: 50rem) {
+  .rollen a { grid-template-columns: minmax(0, 1fr) auto; gap: var(--abstand-2) var(--abstand-4); }
+  .rollen__frage { grid-column: 1; }
+  .rollen svg { grid-row: 1 / span 2; grid-column: 2; }
+}
+
+/* ---------- Preis ---------- */
+.preis { display: flex; flex-wrap: wrap; gap: var(--abstand-6); align-items: flex-end; }
+.preis__zahl { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(4rem, 12vw, 9rem); line-height: 0.85; text-transform: uppercase; }
+.preis__zusatz { display: flex; flex-direction: column; gap: var(--abstand-2); }
+
+/* ---------- Footer ---------- */
+.fuss { background: var(--farbe-tinte); color: var(--farbe-papier); padding-block: var(--abstand-6); }
+.fuss__innen { display: flex; flex-wrap: wrap; gap: var(--abstand-4) var(--abstand-6); align-items: center; justify-content: space-between; }
+.fuss__logo { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; }

@@ -1,0 +1,65 @@
+/* Grundgerüst: Zurücksetzen, Typografie, Fokus, Hilfsklassen. Keine Farbwerte, nur Rollen aus tokens.css. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--menue-hoehe) + var(--abstand-4));
+}
+
+body {
+  margin: 0;
+  background: var(--farbe-papier);
+  color: var(--farbe-tinte);
+  font-family: var(--schrift-text);
+  font-weight: 400;
+  font-size: var(--schrift-groesse-text);
+  line-height: var(--zeilenhoehe-text);
+}
+
+img, svg, video { max-width: 100%; }
+a { color: inherit; }
+p { margin: 0; max-width: 65ch; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--schrift-kopf);
+  text-transform: uppercase;
+  text-wrap: balance;
+  line-height: 0.95;
+}
+h1 { font-size: var(--schrift-groesse-display); font-weight: 800; line-height: 0.9; }
+h2 { font-size: var(--schrift-groesse-h2); font-weight: 700; }
+h3 { font-size: var(--schrift-groesse-h3); font-weight: 700; }
+
+.etikett {
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.behaelter {
+  width: 100%;
+  max-width: var(--inhalt-max);
+  margin-inline: auto;
+  padding-inline: var(--seite-rand);
+}
+
+/* Sichtbarer Fokus: dunkel auf hellem Grund, Signal auf dunklem Grund */
+:focus-visible { outline: 3px solid var(--farbe-tinte); outline-offset: 3px; }
+.auf-dunkel :focus-visible { outline-color: var(--farbe-signal); }
+
+.sr-nur {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
