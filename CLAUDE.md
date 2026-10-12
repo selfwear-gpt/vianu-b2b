@@ -37,7 +37,8 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - WCAG 2.2 Stufe AA: Kontraste, Tastaturbedienung, sichtbarer Fokus, Alternativtexte, `prefers-reduced-motion`.
 - `python3 scripts/check-tokens.py` ohne Fehler: keine Farbwerte außerhalb von `assets/css/tokens.css`, Kontraste der Rollen bestehen.
 - `python3 scripts/check-extern.py` ohne Fehler: keine Schriften oder Bibliotheken von Fremdservern.
-- Screenshots in Handy- und Desktopbreite geprüft.
+- `python3 scripts/check-struktur.py` ohne Fehler: keine Inline-Stile, keine Inline-Skripte, keine absoluten Pfade, keine Verweise auf fehlende Dateien.
+- `node scripts/browsertest.js <Adresse> <Ordner>` ohne Fehler (Überlauf, Fremdanfragen, Schriften, ein `h1`, Konsole), Bilder in Handy- und Desktopbreite angesehen.
 - Alle Texte in HTML ausgeliefert (auch Kachelrückseiten und Akkordeons), ein `h1` pro Seite.
 - Kein Tracking vor Einwilligung. Keine Fremdserver beim Laden der Seite.
 
@@ -57,4 +58,6 @@ Ein Kontext: `GLOSSARY.md` und `docs/adr/` im Hauptordner. Siehe `docs/agents/do
 
 ## Vorschau
 
-Lokal: im Hauptordner `python3 -m http.server 8000`, dann `http://localhost:8000`.
+Lokal: im Hauptordner `python3 -m http.server 8000`, dann `http://localhost:8000/b2b/index.html`.
+
+Vorschau-Link für den Nutzer: `python3 scripts/build-vorschau.py b2b/index.html <Ausgabe.html> "<Titel>"`, danach als Artifact veröffentlichen. Anforderungen an den Server und Prüfung nach dem Deploy: `docs/deploy.md`.

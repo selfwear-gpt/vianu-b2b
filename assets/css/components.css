@@ -203,6 +203,7 @@
 .platzhalter--video { aspect-ratio: 16 / 10; max-width: 100%; }
 .platzhalter--quadrat { aspect-ratio: 1 / 1; max-width: 100%; }
 .platzhalter--abschnitt { min-height: 9rem; }
+.platzhalter--abstand-oben { margin-top: var(--abstand-6); }
 .play {
   flex: none;
   width: 3.5rem;
