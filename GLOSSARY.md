@@ -88,6 +88,12 @@ FAQ-Frage, in der VIANU nicht vorkommt, so wie Fremde suchen ("Was ist eine indi
 **Markenfrage**:
 FAQ-Frage, die VIANU nennt ("Was ist VIANU?"). Höchstens die Hälfte der Fragen einer Seite.
 
+**Druckkarte**:
+Schematische Zeichnung eines Fußes aus Punkten auf der B2B-Startseite, die sich beim Scrollen aufbaut. Sie zeigt, wo das Gewicht eines Schritts ankommt, und ist keine Messung.
+
+**Sorgenfuß**:
+Die sechs Kacheln "Sorgen und Bedenken im Entscheidungsteam" auf der B2B-Startseite, als Fuß angeordnet. Jede Kachel führt zur Seite einer Rolle.
+
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
 _Avoid_: Dummy, Lorem ipsum, Beispielbild als echtes Bild

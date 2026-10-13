@@ -62,6 +62,7 @@ def praefix_ids(body, praefix):
         for name in ID_ATTRIBUTE:
             text = re.sub(rf'(?<![\w-]){name}="([^"]+)"',
                           lambda a, n=name: f'{n}="' + " ".join(praefix + i if i in ids else i for i in a.group(1).split()) + '"', text)
+        text = re.sub(r"url\(#([^)]+)\)", lambda a: f"url(#{praefix}{a.group(1)})" if a.group(1) in ids else a.group(0), text)
         if text.startswith("<use"):
             text = re.sub(r'href="#([^"]+)"', lambda a: f'href="#{praefix}{a.group(1)}"' if a.group(1) in ids else a.group(0), text)
         return text

@@ -32,6 +32,8 @@ h1 { font-size: var(--schrift-groesse-display); font-weight: 800; line-height: 0
 h2 { font-size: var(--schrift-groesse-h2); font-weight: 700; }
 h3 { font-size: var(--schrift-groesse-h3); font-weight: 700; }
 
+[hidden] { display: none !important; }
+
 .etikett {
   font-family: var(--schrift-mono);
   font-size: var(--schrift-groesse-etikett);

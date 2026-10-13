@@ -1,6 +1,6 @@
 /*
   Interaktionen der Mitarbeitenden-Seite. Jedes Modul arbeitet über Datenattribute und nur innerhalb
-  seines Bereichs: initTeilen, initName, initTag, initAblauf, initMail.
+  seines Bereichs: initTeilen, initName, initTag, initMail. Der Ablauf liegt in ablauf.js.
   Benötigt name.js (VianuName) und teilen.js (VianuTeilen). Ohne Skript bleibt der Inhalt lesbar.
 */
 (function () {
@@ -184,36 +184,6 @@
     aktualisiere();
   }
 
-  /* ---------- So läuft es ab ---------- */
-  function initAblauf(wurzel) {
-    var knoepfe = wurzel.querySelectorAll("[data-schritt]");
-    var screens = wurzel.querySelectorAll("[data-screen]");
-    var beschreibung = wurzel.querySelector("[data-ablauf-beschreibung]");
-    var ecken = wurzel.querySelector(".handy__ecken");
-    if (!knoepfe.length) return;
-
-    function waehle(nummer) {
-      Array.prototype.forEach.call(knoepfe, function (k) {
-        k.setAttribute("aria-pressed", k.getAttribute("data-schritt") === nummer ? "true" : "false");
-      });
-      Array.prototype.forEach.call(screens, function (s) {
-        if (s.getAttribute("data-screen") === nummer) s.removeAttribute("hidden");
-        else s.setAttribute("hidden", "");
-      });
-      var aktiv = wurzel.querySelector('[data-schritt="' + nummer + '"] strong');
-      if (beschreibung && aktiv) beschreibung.textContent = "Schritt " + nummer + ": " + aktiv.textContent;
-      if (ecken && nummer === "2" && !reduziert) {
-        ecken.style.animation = "none";
-        void ecken.getBoundingClientRect();
-        ecken.style.animation = "";
-      }
-    }
-    Array.prototype.forEach.call(knoepfe, function (k) {
-      k.addEventListener("click", function () { waehle(k.getAttribute("data-schritt")); });
-    });
-    waehle("1");
-  }
-
   /* ---------- Mailvorlage ---------- */
   function initMail(wurzel) {
     var knopf = wurzel.querySelector("[data-mail-kopieren]");
@@ -242,7 +212,6 @@
     jeder("[data-teilen]", document, initTeilen);
     jeder("[data-name]", document, initName);
     jeder("[data-tag]", document, initTag);
-    jeder("[data-ablauf]", document, initAblauf);
     jeder("[data-mail]", document, initMail);
   }
 
