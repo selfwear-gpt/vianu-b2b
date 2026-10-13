@@ -81,10 +81,21 @@ Status: gebaut
 Status: gebaut
 - Zehn Punkte für den Piloten, daneben wachsende Gruppen für weitere Teams und weitere Standorte, in drei Stufen beim Scrollen. Schema ohne Zahlen. Darunter die drei Stufen als Text. Bei reduzierter Bewegung sind alle Stufen sichtbar.
 
-### Bahnen-Ablauf
+### Handy-Ablauf (B2B)
 Status: gebaut
-- Vier Schritte in drei Bahnen (Ihr Betrieb, Ihr Team, VIANU) als antippbare Tasten (`aria-pressed`), darunter der Text zum gewählten Schritt. Auf dem Handy stehen die Schritte untereinander, die Bahn steht in der Taste. Kennzeichnung "Entwurf". Logik: `assets/js/ablauf.js`, gemeinsam mit dem Handy-Ablauf.
+- Derselbe Baustein wie auf der Mitarbeitenden-Seite (`.ablauf__*`, `.handy`, `assets/js/ablauf.js`): vier Schritte links, jeder mit Nummer, Bahn-Etikett (Ihr Betrieb, Ihr Team, VIANU, Ihr Betrieb), Überschrift und Satz, rechts ein gezeichnetes Handy. Die Schritte öffnen per Klick, Tastatur und beim Darüberfahren mit der Maus. Bei Schritt 1 sitzt im Handybild der Knopf "Pilot buchen" und öffnet das Popup. Die Ansage des Schritts steht nur für Screenreader. Keine Bahnen-Raster mehr.
 
+### Preisschild, Bündel und Siegel
+Status: gebaut
+- Der Preis ist ein pinkes Preisschild (120 Euro), daneben "je Paar, zuzüglich Umsatzsteuer" und ein Bündel aus zehn Sohlen mit "10 Paare, 1.200 Euro zuzüglich Umsatzsteuer". Darunter ein Siegel "3 Jahre" mit dem Satz zur Haltbarkeit (Angabe des Nutzers, siehe `FACTS.md`). Rechner und "Klein starten" bleiben darunter.
+
+### FAQ-Köpfe
+Status: gebaut
+- Die Gruppen ("Einlegesohlen für Teams", "Zu VIANU") sind farbige Köpfe (Tinte, Pink), auf breiten Schirmen links und klebend. Die Fragen sind nummerierte Karten mit rundem Plus. Gilt für alle Seiten mit FAQ.
+
+### Zweites Paar
+Status: Platzhalter mit Bild
+- Zwei Sohlen (eine ausgefüllt, eine gestrichelt) mit Fragezeichen neben dem markierten Platzhalter. Der Inhalt fehlt, bis es ein Konzept gibt.
 ### Rollen-Rohbau
 Status: gebaut
 - Fünf Seiten `b2b/<rolle>.html` mit Menü, einem `h1`, der Frage der Rolle und einem Platzhalter, `noindex`. Sie werden mit dem Baustein "Persona-Seite" gefüllt.

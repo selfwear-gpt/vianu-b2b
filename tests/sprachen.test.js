@@ -11,7 +11,7 @@ const PAARE = ["index.html", "impressum.html", "datenschutz.html", "b2b/index.ht
 const ohneSkripte = (h) => h.replace(/<script(?![^>]*ld\+json)[\s\S]*?<\/script>/g, "").replace(/<style[\s\S]*?<\/style>/g, "");
 const sichtbar = (h) => ohneSkripte(h).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
 // Text aus Attributen, die Besucher lesen oder hören
-const attribute = (h) => (ohneSkripte(h).match(/\s(?:alt|title|aria-label|content|data-titel|data-zeit|data-bahn)="[^"]*"/g) || []).join(" ");
+const attribute = (h) => (ohneSkripte(h).match(/\s(?:alt|title|aria-label|content|data-titel|data-zeit)="[^"]*"/g) || []).join(" ");
 const aufloesen = (von, href) => path.normalize(path.join(path.dirname(von), href.split("#")[0].split("?")[0] || "."));
 const ziel = (von, href) => {
   const p = aufloesen(von, href);
