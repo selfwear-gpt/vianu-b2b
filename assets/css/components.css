@@ -918,3 +918,112 @@ button.knopf { cursor: pointer; }
   .sorge__hinten { border-top: 0; }
   .sorge__vorn { border-bottom: 0; }
 }
+
+/* ================= Rollenseiten ================= */
+.druck-nur { display: none; }
+.rolle .hero__text { gap: var(--abstand-4); }
+.rolle h1 { font-size: clamp(2.5rem, 6vw, 4.75rem); }
+.rolle__ueber { color: var(--farbe-gedaempft); }
+.rolle__kern { max-width: 24ch; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.05; text-transform: uppercase; }
+.rolle__lead { max-width: 58ch; font-size: 1.15rem; line-height: 1.55; }
+
+/* Im Termin */
+.termin { margin: 0; border-top: 3px solid var(--farbe-tinte); }
+.termin__zeile { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--abstand-5); padding: var(--abstand-5) 0; border-bottom: 1px solid var(--farbe-tinte); }
+.termin__zeile dt { color: var(--farbe-gedaempft); padding-top: 0.3rem; }
+.termin__zeile dd { margin: 0; max-width: 62ch; font-size: 1.15rem; line-height: 1.5; }
+.termin__zeile:first-child dd { font-family: var(--schrift-kopf); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.1; text-transform: uppercase; }
+@media (max-width: 40rem) { .termin__zeile { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-2); } }
+
+/* Brief von Roderich */
+.brief { padding: clamp(24px, 5vw, 56px); background: var(--farbe-tinte); color: var(--farbe-papier); }
+.brief__an { color: var(--farbe-signal); }
+.brief__text { display: flex; flex-direction: column; gap: var(--abstand-4); margin-top: var(--abstand-4); }
+.brief__text p { max-width: 52ch; font-size: clamp(1.1rem, 1.8vw, 1.3rem); line-height: 1.55; }
+.brief__unterschrift { margin-top: var(--abstand-5); font-family: var(--schrift-kopf); font-weight: 800; font-size: 2rem; color: var(--farbe-signal); }
+
+/* Belege */
+.belege { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand-4); }
+.beleg { display: flex; flex-direction: column; gap: var(--abstand-3); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); }
+.beleg h3 { font-size: var(--schrift-groesse-h3); }
+.beleg p { font-size: var(--schrift-groesse-klein); max-width: 56ch; }
+.beleg__quelle { color: var(--farbe-gedaempft); }
+.beleg__zitat { margin-top: auto; color: var(--farbe-gedaempft); overflow-wrap: anywhere; }
+.beleg--offen { border: var(--kante) dashed var(--farbe-gedaempft); }
+.belege__hinweis { margin-top: var(--abstand-4); max-width: 70ch; color: var(--farbe-gedaempft); font-size: var(--schrift-groesse-klein); }
+@media (max-width: 48rem) { .belege { grid-template-columns: minmax(0, 1fr); } }
+
+/* Messwerte auf Rollenseiten: die wichtigen Werte stehen vorn und größer */
+.messwert--gross { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.messwert--gross .messwert__bild { height: 6rem; max-width: 12rem; }
+.messwert--gross .messwert__frage { font-size: 1.6rem; }
+.messwert--gross .messwert__leer { color: var(--farbe-auf-signal); }
+
+/* Aufgaben im Piloten */
+.aufgaben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 3px solid var(--farbe-tinte); counter-reset: schritt; }
+.aufgaben__schritt { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5) var(--abstand-4) var(--abstand-5) 0; counter-increment: schritt; }
+.aufgaben__schritt + .aufgaben__schritt { padding-left: var(--abstand-4); border-left: 1px solid var(--farbe-tinte); }
+.aufgaben__schritt::before { content: counter(schritt); font-family: var(--schrift-kopf); font-weight: 800; font-size: 2rem; line-height: 1; }
+.aufgaben__schritt strong { font-family: var(--schrift-kopf); font-weight: 700; font-size: 1.35rem; line-height: 1.05; text-transform: uppercase; }
+.aufgaben__schritt span { font-size: var(--schrift-groesse-klein); }
+@media (max-width: 56rem) {
+  .aufgaben { grid-template-columns: minmax(0, 1fr); }
+  .aufgaben__schritt, .aufgaben__schritt + .aufgaben__schritt { padding: var(--abstand-4) 0; border-left: 0; border-top: 1px solid var(--farbe-tinte); }
+}
+
+/* Einkauf: Was feststeht, was offen ist */
+.stand { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--farbe-tinte); }
+.stand__zeile { display: flex; align-items: center; justify-content: space-between; gap: var(--abstand-4); padding: var(--abstand-4) 0; border-bottom: 1px solid var(--farbe-tinte); font-size: 1.1rem; }
+.stand__status { flex: none; padding: 0.15rem 0.6rem; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.stand__zeile--offen { color: var(--farbe-gedaempft); }
+.stand__zeile--offen .stand__status { border: 1px dashed var(--farbe-gedaempft); background: transparent; color: var(--farbe-gedaempft); }
+
+/* Betriebsrat: Datenfluss */
+.fluss { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-5); }
+.fluss__knoten { position: relative; display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); }
+.fluss__knoten p { font-size: var(--schrift-groesse-klein); max-width: 34ch; }
+.fluss__knoten::after { content: ""; position: absolute; top: 50%; right: calc(-1 * var(--abstand-5)); width: 10px; height: 10px; border-top: 2px solid var(--farbe-tinte); border-right: 2px solid var(--farbe-tinte); transform: translate(-60%, -50%) rotate(45deg); }
+.fluss__knoten:last-child::after { display: none; }
+.fluss__knoten--offen { border: var(--kante) dashed var(--farbe-gedaempft); color: var(--farbe-gedaempft); }
+.fluss__knoten--offen .etikett { color: var(--farbe-gedaempft); }
+@media (max-width: 64rem) {
+  .fluss { grid-template-columns: minmax(0, 1fr); }
+  .fluss__knoten::after { top: auto; right: auto; bottom: calc(-1 * var(--abstand-5)); left: 50%; transform: translate(-50%, -60%) rotate(135deg); }
+}
+
+/* Arbeitsschutz: Matte und Weg */
+.weg__raster { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+.weg__bild { margin: 0; }
+.weg { width: 100%; height: auto; max-height: 34rem; }
+.weg__raum { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; }
+.weg__zone { fill: none; stroke: var(--farbe-tinte); stroke-width: 1.5; }
+.weg__herd { fill: var(--farbe-tinte); }
+.weg__matte { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 2; }
+.weg__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-dasharray: 1 7; stroke-linecap: round; opacity: 0.4; }
+.weg__stationen circle { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; }
+.weg__punkt { fill: var(--farbe-tinte); transition: opacity 0.2s; }
+.weg__spur { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 6; transition: opacity 0.2s; }
+.weg__punkt[data-aus], .weg__spur[data-aus] { opacity: 0; }
+.weg__fuss-vorlage { display: none; }
+.weg__liste { padding-left: 1.5rem; display: flex; flex-direction: column; gap: var(--abstand-3); font-size: 1.15rem; }
+@media (max-width: 48rem) { .weg__raster { grid-template-columns: minmax(0, 1fr); } }
+
+/* Weiterleiten auf Rollenseiten */
+.weiter__aktionen { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+
+/* Einseiter: Im Druck bleiben nur Kopf und "Im Termin" einer Rollenseite (body.rollenseite) */
+@page { size: A4; margin: 14mm; }
+@media print {
+  .druck-nur { display: block; }
+  .rollenseite > header, .rollenseite > footer { display: none; }
+  .rollenseite main > section:not(.einseiter) { display: none; }
+  .rolle { padding-block: 0 var(--abstand-5); }
+  .rolle .knopf { display: none; }
+  .rolle h1 { font-size: 2.6rem; }
+  .rolle__kern { font-size: 1.6rem; }
+  .termin__zeile { padding: var(--abstand-3) 0; gap: var(--abstand-4); }
+  .termin__zeile dd { font-size: 1rem; }
+  .termin__zeile:first-child dd { font-size: 1.3rem; }
+  .abschnitt.einseiter { border-top: 0; padding-block: var(--abstand-4) 0; }
+  .einseiter__fuss { margin-top: var(--abstand-5); font-weight: 600; }
+}

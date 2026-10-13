@@ -94,6 +94,15 @@ Schematische Zeichnung eines Fußes aus Punkten auf der B2B-Startseite, die sich
 **Sorgenfuß**:
 Die sechs Kacheln "Sorgen und Bedenken im Entscheidungsteam" auf der B2B-Startseite, als Fuß angeordnet. Jede Kachel führt zur Seite einer Rolle.
 
+**Einseiter**:
+Die einseitige PDF einer Rollenseite zum Weiterleiten an die nächste Person im Entscheidungsteam. Sie enthält Rolle, Frage, Kernbotschaft und den Block "Im Termin".
+
+**Matte und Weg**:
+Die Zeichnung auf der Arbeitsschutz-Seite: Grundriss einer Küche mit Matte am Herd und dem Weg einer Schicht. Die Sohle ergänzt die Matte und ersetzt sie nicht.
+
+**Datenfluss**:
+Das Ablaufbild auf der Betriebsrat-Seite. Bekannte Schritte sind durchgezogen, offene sind gestrichelt und stehen als Platzhalter.
+
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
 _Avoid_: Dummy, Lorem ipsum, Beispielbild als echtes Bild

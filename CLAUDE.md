@@ -29,6 +29,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - Bei jeder neuen Aufgabe zuerst `docs/agents/skill-auswahl.md` lesen, den passenden Skill selbst wählen und anwenden, ohne dass der Nutzer ihn nennt.
 - Texte nie erfinden. Fehlt ein Beleg, steht ein markierter Platzhalter.
 - Größere Entscheidungen kurz erklären (Was, Warum), damit sie nachvollziehbar bleiben.
+- Die Einseiter-PDFs unter `assets/downloads/rolle-*.pdf` entstehen aus den Rollenseiten: nach jeder Änderung an einer Rollenseite `NODE_PATH=$(npm root -g) CHROMIUM_PFAD=<Chromium> node scripts/erzeuge-pdf.js` ausführen und die PDFs mit committen.
 
 ## Qualitätsschranken vor jedem Merge
 

@@ -27,6 +27,11 @@ ROOT = Path(__file__).resolve().parent.parent
 SEITEN = [
     ("start", "index.html", "s-"),
     ("b2b", "b2b/index.html", "b-"),
+    ("b2b-personal", "b2b/personal.html", "p-"),
+    ("b2b-geschaeftsfuehrung", "b2b/geschaeftsfuehrung.html", "g-"),
+    ("b2b-arbeitsschutz", "b2b/arbeitsschutz.html", "a-"),
+    ("b2b-einkauf", "b2b/einkauf.html", "e-"),
+    ("b2b-betriebsrat", "b2b/betriebsrat.html", "r-"),
 ]
 
 
@@ -71,14 +76,14 @@ def praefix_ids(body, praefix):
 
 
 def downloads_einbetten(body, seite_rel):
-    """Dateien aus assets/downloads werden als Data-URI eingebettet, weil die Vorschau keine Nachbardateien hat."""
+    """Textdateien aus assets/downloads werden als Data-URI eingebettet, weil die Vorschau keine Nachbardateien hat. PDFs bleiben Verweise, die Anbindung der Vorschau meldet sie als nicht ladbar."""
     def ersetze(m):
         ziel = (ROOT / seite_rel).parent / m.group(1)
         if ROOT / "assets" / "downloads" not in ziel.resolve().parents or not ziel.is_file():
             return m.group(0)
         daten = base64.b64encode(ziel.read_bytes()).decode()
         return f'href="data:text/plain;base64,{daten}"'
-    return re.sub(r'href="((?:\.\./)*assets/downloads/[^"?#]+)"', ersetze, body)
+    return re.sub(r'href="((?:\.\./)*assets/downloads/[^"?#]+\.txt)"', ersetze, body)
 
 
 def seite_als_container(kennung, rel, praefix, sichtbar):
@@ -87,7 +92,7 @@ def seite_als_container(kennung, rel, praefix, sichtbar):
     body = re.sub(r"<script\b[^>]*\bsrc=[^>]*></script>", "", body)
     body = downloads_einbetten(praefix_ids(body, praefix), rel)
     versteckt = "" if sichtbar else " hidden"
-    return f'<div data-seite="{kennung}"{versteckt}>\n{body}\n</div>'
+    return f'<div data-seite="{kennung}" data-praefix="{praefix}"{versteckt}>\n{body}\n</div>'
 
 
 def skripte_der_seiten():

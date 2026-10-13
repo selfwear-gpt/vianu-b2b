@@ -3,16 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VIANU B2B | Einkauf</title>
-<meta name="description" content="Seite für die Rolle Einkauf im Entscheidungsteam. Sie wird noch gefüllt.">
-<meta name="robots" content="noindex">
+<title>VIANU für Einkauf | Preis und Beschaffung</title>
+<meta name="description" content="120 Euro je Paar zuzüglich Umsatzsteuer, Pilot mit 10 Paaren für 1.200 Euro zuzüglich Umsatzsteuer. Was für die Beschaffung feststeht und was noch offen ist.">
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/fonts.css">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/components.css">
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/fortschritt.js" defer></script>
+<script src="../assets/js/b2b.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet ein Pilotprojekt mit Einlegesohlen für 10 Mitarbeitende?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Was ein Pilotprojekt mit Einlegesohlen für 10 Mitarbeitende kostet, hängt vom Anbieter ab. Bei VIANU kostet das Paar 120 Euro, zuzüglich Umsatzsteuer. Der Pilot mit 10 Paaren kostet damit 1.200 Euro zuzüglich Umsatzsteuer, es gilt der reguläre Preis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wer zahlt Einlegesohlen für Mitarbeitende, der Betrieb oder die Beschäftigten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wer Einlegesohlen für Mitarbeitende bezahlt, hängt vom Betrieb ab. Bei VIANU bezahlt der Arbeitgeber das Programm, für die Mitarbeitenden entstehen keine Kosten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist VIANU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VIANU ist ein Programm für Teams in Hotellerie und Gastronomie, mit dem Mitarbeitende individuell angefertigte Einlegesohlen bekommen. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, ohne Messtag."
+      }
+    }
+  ]
+}
+</script>
 </head>
-<body>
+<body class="rollenseite">
 
 <header class="menue" data-menue>
   <div class="behaelter">
@@ -63,19 +96,218 @@
 
 <main>
 
-  <section class="hero" aria-labelledby="hero-titel">
+  <section class="hero rolle einseiter" aria-labelledby="hero-titel">
     <div class="behaelter">
       <div class="hero__text">
-        <p class="etikett">Wer entscheidet mit?</p>
+        <p class="etikett druck-nur">VIANU</p>
+        <p class="etikett rolle__ueber">Wer entscheidet mit? </p>
         <h1 id="hero-titel">Einkauf</h1>
         <p class="hero__slogan">Ist das standardisiert, preislich klar und leicht beschaffbar?</p>
-        <div class="platzhalter platzhalter--abschnitt" data-platzhalter role="group" aria-label="Platzhalter für die Seite Einkauf">
-        <span class="etikett platzhalter__etikett">Platzhalter</span>
-        <p>Diese Seite wird in der nächsten Etappe gefüllt: Was die Rolle im Termin vertreten können muss, Brief von Roderich, passende Belege, Messwerte und häufige Fragen.</p>
-      </div>
-        <a class="knopf" href="./">Zur B2B-Startseite
+        <p class="rolle__kern">Einfach beschaffen. Einheitlich ausrollen. Sichtbar zur Marke passend.</p>
+        <p class="rolle__lead">Der Preis steht offen: 120 Euro je Paar, zuzüglich Umsatzsteuer. Der Pilot mit 10 Paaren kostet 1.200 Euro zuzüglich Umsatzsteuer. Bestellweg, Liefer- und Servicebedingungen sind noch offen und stehen unten als Platzhalter.</p>
+        <a class="knopf" href="./#pilot">Pilot buchen
           <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
+      </div>
+      <dl class="termin">
+        <div class="termin__zeile"><dt class="etikett">Kernbotschaft</dt><dd>„Einfach beschaffen. Einheitlich ausrollen. Sichtbar zur Marke passend.“</dd></div>
+        <div class="termin__zeile"><dt class="etikett">So sieht die Seite es</dt><dd>Der Pilot braucht eine festgelegte Testgruppe, einen dokumentierten Bestellweg und klare Angaben zu Preis, Mengen, Gestaltung und Servicerahmen.</dd></div>
+        <div class="termin__zeile"><dt class="etikett">Der Pilot gilt als Erfolg, wenn</dt><dd>eine Bestellung ohne Sonderfall möglich ist, Rückfragen klar beantwortet werden und die Testgruppe keinen ungeplanten Aufwand an den Standorten erzeugt.</dd></div>
+        <div class="termin__zeile"><dt class="etikett">Das braucht es vor der Freigabe</dt><dd>Preis- und Mengenlogik, Gestaltungsmöglichkeiten, Bestellweg, Reklamationsprozess und konkret freigegebene Liefer- und Servicebedingungen.</dd></div>
+      </dl>
+      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Pilot buchen auf der B2B-Seite von VIANU.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+    <div class="behaelter">
+      <div class="brief">
+        <h2 id="brief-titel" class="etikett brief__an">Roderich an Einkauf</h2>
+        <div class="brief__text">
+          <p>Ich will, dass Sie den Piloten wie jede andere Beschaffung abwickeln können. Der Preis steht offen: 120 Euro je Paar, zuzüglich Umsatzsteuer, der Pilot mit 10 Paaren kostet 1.200 Euro zuzüglich Umsatzsteuer.</p>
+          <p>Bestellweg, Liefer- und Servicebedingungen, Mengenlogik und Reklamationsprozess sind noch offen. Ich nenne sie Ihnen unten, damit Sie wissen, was kommt, und behaupte dazu nichts, was nicht feststeht. Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden und weiß, dass ein Pilot im Betrieb ohne Sonderfälle laufen muss.</p>
+        </div>
+        <p class="brief__unterschrift">Roderich</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="belege-titel">Belege</h2>
+        <p>Für die Beschaffung gibt es noch keine Belege, die wir nennen dürfen.</p>
+      </div>
+      <div class="belege">
+          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Platzhalter für den Wortlaut zum Patent">
+            <span class="etikett platzhalter__etikett">Platzhalter</span>
+            <p>Wortlaut zum Patent der Fußerfassung. Er folgt, nachdem der Patentanwalt die Zuordnung bestätigt hat, und steht dann in einem Satz mit dem Nutzen für die Beschaffung.</p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
+        <p>Für Einkauf zählen vor allem Tragequote und Weiterempfehlung. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst. Alle Werte sind selbst berichtet.</p>
+      </div>
+      <ul class="messwerte messwerte--rolle">
+          <li class="messwert messwert--gross">
+            <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="35" r="26" stroke-dasharray="3 7"/></svg>
+            <h3 class="etikett">Tragequote</h3>
+            <p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p>
+            <p class="messwert__leer etikett">Noch keine Daten</p>
+          </li>
+          <li class="messwert messwert--gross">
+            <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="20" r="8"/><path d="M10 56c0-12 6-18 14-18s14 6 14 18"/><circle cx="96" cy="20" r="8" stroke-dasharray="3 5"/><path d="M82 56c0-12 6-18 14-18s14 6 14 18" stroke-dasharray="3 5"/><path d="M46 36h28M66 28l8 8-8 8"/></svg>
+            <h3 class="etikett">Weiterempfehlung</h3>
+            <p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p>
+            <p class="messwert__leer etikett">Noch keine Daten</p>
+          </li>
+          <li class="messwert">
+            <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 40h96"/><circle cx="34" cy="40" r="7"/><circle cx="86" cy="40" r="7" stroke-dasharray="3 5"/></svg>
+            <h3 class="etikett">Spürbare Verbesserung</h3>
+            <p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p>
+            <p class="messwert__leer etikett">Noch keine Daten</p>
+          </li>
+          <li class="messwert">
+            <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="46" cy="22" r="9"/><path d="M28 60c0-14 8-20 18-20s18 6 18 20"/><path d="M88 14c-3-5-12-3-12 4 0 6 8 10 12 14 4-4 12-8 12-14 0-7-9-9-12-4z" stroke-dasharray="3 5"/></svg>
+            <h3 class="etikett">Wertschätzung</h3>
+            <p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p>
+            <p class="messwert__leer etikett">Noch keine Daten</p>
+          </li>
+      </ul>
+      <p class="messwerte__grenze">Das sind Werte zu Komfort und Annahme. Sie sagen nichts über Krankheitstage, Fluktuation, Leistung oder Schmerz.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="beschaffung" aria-labelledby="beschaffung-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="beschaffung-titel">Preis und Beschaffung</h2>
+        <p>Hier steht, was für die Beschaffung feststeht und was noch offen ist. Offene Punkte bleiben Platzhalter, bis es dazu eine freigegebene Aussage gibt.</p>
+      </div>
+      <ul class="stand">
+          <li class="stand__zeile"><span>Preis: 120 Euro je Paar, zuzüglich Umsatzsteuer</span><span class="etikett stand__status">Steht fest</span></li>
+          <li class="stand__zeile"><span>Pilot: 10 Paare, 1.200 Euro zuzüglich Umsatzsteuer</span><span class="etikett stand__status">Steht fest</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Mindestmengen</span><span class="etikett stand__status">Offen</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Bestellweg und Ansprechpartner für die Bestellung</span><span class="etikett stand__status">Offen</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Liefer- und Servicebedingungen</span><span class="etikett stand__status">Offen</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Reklamationsprozess</span><span class="etikett stand__status">Offen</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Gestaltung und Marke</span><span class="etikett stand__status">Offen</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Ersatz und zweites Paar</span><span class="etikett stand__status">Offen</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="fragen-rolle" aria-labelledby="fragen-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf"><h2 id="fragen-titel">Häufige Fragen</h2></div>
+      <div class="fragen__bereich">
+        <div class="fragen__gruppe">
+          <h3 class="etikett fragen__titel" id="fragen-wichtig">Das Wichtigste</h3>
+          <div class="fragen" role="group" aria-labelledby="fragen-wichtig">
+          <details class="frage">
+            <summary>Was kostet ein Pilotprojekt mit Einlegesohlen für 10 Mitarbeitende?</summary>
+            <div class="frage__antwort"><p>Was ein Pilotprojekt mit Einlegesohlen für 10 Mitarbeitende kostet, hängt vom Anbieter ab. Bei VIANU kostet das Paar 120 Euro, zuzüglich Umsatzsteuer. Der Pilot mit 10 Paaren kostet damit 1.200 Euro zuzüglich Umsatzsteuer, es gilt der reguläre Preis.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Gibt es Mindestmengen für Einlegesohlen im Betrieb?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zu Mindestmengen">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt, sobald die Mengenlogik festgelegt ist.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Wie läuft die Bestellung eines Einlegesohlen-Piloten ab?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zum Bestellweg">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt, sobald der Bestellweg dokumentiert ist.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Wer haftet bei Reklamationen von Einlegesohlen für Mitarbeitende?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zu Reklamationen">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt nach der rechtlichen Prüfung.</p>
+              </div>
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="fragen__gruppe">
+          <h3 class="etikett fragen__titel" id="fragen-weitere">Weitere Fragen</h3>
+          <div class="fragen" role="group" aria-labelledby="fragen-weitere">
+          <details class="frage">
+            <summary>Wie lange dauert es von der Fußerfassung bis zur Lieferung der Einlegesohlen?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zur Lieferzeit">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt, sobald eine Lieferzeit zugesagt werden kann.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Können wir Einlegesohlen für Mitarbeitende mit unserem Firmenlogo versehen?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zum Firmenlogo">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt, sobald feststeht, ob und wie sich Sohlen gestalten lassen.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Wer zahlt Einlegesohlen für Mitarbeitende, der Betrieb oder die Beschäftigten?</summary>
+            <div class="frage__antwort"><p>Wer Einlegesohlen für Mitarbeitende bezahlt, hängt vom Betrieb ab. Bei VIANU bezahlt der Arbeitgeber das Programm, für die Mitarbeitenden entstehen keine Kosten.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Was ist VIANU?</summary>
+            <div class="frage__antwort"><p>VIANU ist ein Programm für Teams in Hotellerie und Gastronomie, mit dem Mitarbeitende individuell angefertigte Einlegesohlen bekommen. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, ohne Messtag.</p></div>
+          </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="weiterleiten" aria-labelledby="weiterleiten-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="weiterleiten-titel">An die nächste Person im Entscheidungsteam</h2>
+        <p>Jede Rolle hat eine eigene Seite. Diese Seite gibt es auch als Einseiter zum Weiterleiten.</p>
+      </div>
+      <div class="weiter" data-weiterleiten data-weiterleiten-diese-seite>
+        <div class="weiter__aktionen">
+          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-einkauf.pdf" download>Einseiter als PDF</a>
+          <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Link zu dieser Seite kopieren</button>
+          <a class="knopf" href="./#pilot">Pilot buchen
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+        </div>
+        <p class="weiter__status" role="status" data-weiterleiten-status></p>
+        <input class="weiter__feld" type="text" readonly hidden aria-label="Link zu dieser Seite" data-weiterleiten-link>
+        <h3>Die anderen Rollen</h3>
+        <ul class="weiter__liste">
+          <li><a class="textlink" href="personal.html">Personal</a></li>
+          <li><a class="textlink" href="geschaeftsfuehrung.html">Geschäftsführung und Betrieb</a></li>
+          <li><a class="textlink" href="arbeitsschutz.html">Arbeitsschutz</a></li>
+          <li><a class="textlink" href="betriebsrat.html">Betriebsrat</a></li>
+        </ul>
       </div>
     </div>
   </section>

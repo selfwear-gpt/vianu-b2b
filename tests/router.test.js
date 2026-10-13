@@ -21,5 +21,29 @@ test("Verweise zwischen den Bereichen werden zu Kennungen, alles andere bleibt u
   assert.equal(verweisFuerVorschau("#programm", "start"), null);
   assert.equal(verweisFuerVorschau("https://example.org/", "start"), null);
   assert.equal(verweisFuerVorschau("mailto:a@b.de", "start"), null);
-  assert.equal(verweisFuerVorschau("b2b/einkauf.html", "start"), null);
+  assert.equal(verweisFuerVorschau("b2b/unbekannt.html", "start"), null);
+  assert.equal(verweisFuerVorschau("../assets/downloads/rolle-personal.pdf", "b2b-personal"), null);
+});
+
+const ROLLEN = ["personal", "geschaeftsfuehrung", "arbeitsschutz", "einkauf", "betriebsrat"];
+
+test("jede Rollenseite hat eine eigene Kennung im Adressteil", () => {
+  for (const r of ROLLEN) assert.equal(seiteFuerHash("#b2b-" + r), "b2b-" + r);
+  assert.equal(seiteFuerHash("#b2b-chef"), null);
+});
+
+test("Verweise auf Rollenseiten werden zu Kennungen, auch mit Query und Anker", () => {
+  for (const r of ROLLEN) {
+    assert.equal(verweisFuerVorschau(r + ".html", "b2b"), "#b2b-" + r);
+    assert.equal(verweisFuerVorschau("b2b/" + r + ".html?quelle=mitarbeitende", "start"), "#b2b-" + r);
+  }
+  assert.equal(verweisFuerVorschau("betriebsrat.html#datenfluss", "b2b"), "#b2b-betriebsrat");
+});
+
+test("von einer Rollenseite aus führen die Verweise zurück zur B2B-Startseite und zum Mitarbeitenden-Bereich", () => {
+  for (const r of ROLLEN) {
+    assert.equal(verweisFuerVorschau("./", "b2b-" + r), "#b2b");
+    assert.equal(verweisFuerVorschau("../", "b2b-" + r), "#");
+    assert.equal(verweisFuerVorschau("einkauf.html", "b2b-" + r), "#b2b-einkauf");
+  }
 });

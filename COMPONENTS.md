@@ -92,9 +92,34 @@ Status: gebaut
 - Fünf Seiten `b2b/<rolle>.html` mit Menü, einem `h1`, der Frage der Rolle und einem Platzhalter, `noindex`. Sie werden mit dem Baustein "Persona-Seite" gefüllt.
 
 ### Persona-Seite
-Status: geplant
-- Aufbau: Was die Person im Termin vertreten können muss, Brief des Gründers an die Rolle, passende Belege, Messwert-Kacheln mit Erfolgskriterium der Rolle, die wichtigsten drei bis vier Fragen zuerst, Weiterleiten, Link zum Pilotformular.
-- Fünf Seiten: Personal, Geschäftsführung und Betrieb, Arbeitsschutz, Einkauf, Betriebsrat.
+Status: gebaut
+- Aufbau: Kopf (Rolle, Frage, Kernbotschaft, Antwortsatz), "Im Termin", Brief von Roderich, Belege, Messwert-Kacheln (wichtige Werte vorn und größer), rollenspezifischer Baustein, FAQ in zwei Gruppen (die vier wichtigsten zuerst), Weiterleiten mit Einseiter-PDF und Link zum Pilotformular.
+- Fünf Seiten: Personal, Geschäftsführung und Betrieb, Arbeitsschutz, Einkauf, Betriebsrat. Jede hat einen eigenen Titel, eine eigene Beschreibung und FAQPage-Daten. Seitentest: `tests/seiten.test.js`.
+- Rollenspezifisch: Personal "Ihre Aufgaben im Piloten", Geschäftsführung Kostenrechner und "Klein starten", Arbeitsschutz "Matte und Weg", Einkauf "Preis und Beschaffung" (steht fest und offen), Betriebsrat "Daten und Datenschutz" (Datenfluss).
+
+### Im Termin
+Status: gebaut
+- Definitionsliste mit vier Zeilen: Kernbotschaft, "So sieht die Seite es", "Der Pilot gilt als Erfolg, wenn", "Das braucht es vor der Freigabe". Die erste Zeile steht groß. Der Block ist der Inhalt des Einseiters.
+
+### Brief
+Status: gebaut
+- Dunkle Fläche mit dem Brief von Roderich an die Rolle: Etikett, zwei Absätze, Unterschrift in Signalfarbe. Der Brief greift den Einwand der Rolle auf und nennt nur Aussagen aus `FACTS.md`. Wortlaut von Roderich zu bestätigen.
+
+### Beleg-Block
+Status: gebaut
+- Karten mit Quelle, Titel, Aussage und Zitat mit Link auf die DOI, daneben markierte Platzhalter (Pilotkunde, Orthopäde, Patent, Betriebsvereinbarung). Darunter der Hinweis, dass keine Studie Hotellerie oder Gastronomie untersucht. Studien stehen nur auf der Seite der Rolle, deren Frage sie beantworten.
+
+### Matte und Weg
+Status: gebaut
+- Grundriss einer Küche als Vektorzeichnung, Matte am Herd, gepunktete Linie und Fußspuren entlang des Weges einer Schicht. Beim Scrollen wird der Weg Station für Station gezeichnet, beim Zurückscrollen läuft er rückwärts. Die Stationen stehen als nummerierte Liste (die Reihenfolge ist der Weg), kein Text in der Zeichnung. Bei reduzierter Bewegung ist die Zeichnung fertig. Logik: `assets/js/rollen.js`.
+
+### Datenfluss
+Status: gebaut
+- Fünf Knoten mit Pfeilen: Mitarbeitende, offen (Verarbeitung der Fotos), VIANU, Ihr Betrieb, offen (Einsicht in die Teilnahme). Bekannte Knoten sind durchgezogen, offene gestrichelt und gedämpft. Auf schmalen Bildschirmen stehen sie untereinander. Keine Datenschutzzusage.
+
+### Einseiter
+Status: gebaut
+- Druckstil jeder Rollenseite: Es bleiben Name, Frage, Kernbotschaft, "Im Termin" und die Kontaktzeile stehen, alles andere entfällt. `scripts/erzeuge-pdf.js` erzeugt daraus `assets/downloads/rolle-<id>.pdf` und prüft, dass jede Datei eine Seite hat.
 
 ### FAQ-Akkordeon
 Status: gebaut

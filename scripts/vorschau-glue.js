@@ -1,6 +1,6 @@
 /*
   Browser-Anbindung der Gesamtvorschau (nicht Teil der ausgelieferten Seite).
-  Zeigt je nach # die Seite "start" oder "b2b", schreibt Verweise zwischen den Bereichen um und
+  Zeigt je nach # eine der Seiten (start, b2b, b2b-<rolle>), schreibt Verweise zwischen den Seiten um und
   scrollt Anker innerhalb der aktiven Seite. Nutzt VianuVorschauRouter für alle Zuordnungen.
   Die Seiten selbst bleiben unverändert: Der Build setzt nur Präfixe vor die ids.
 */
@@ -43,6 +43,10 @@
     Array.prototype.forEach.call(seiten[name].querySelectorAll("a[href]"), function (a) {
       var href = a.getAttribute("href");
       if (/^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(href)) return;
+      if (a.hasAttribute("download")) {
+        a.setAttribute("data-vorschau-download", "");
+        return;
+      }
       var ziel = Router.verweisFuerVorschau(href, name);
       if (ziel) a.setAttribute("href", ziel);
       else a.setAttribute("data-vorschau-offen", "");
@@ -53,12 +57,15 @@
     var a = e.target.closest && e.target.closest("a[href]");
     if (!a) return;
     var href = a.getAttribute("href");
-    if (a.hasAttribute("data-vorschau-offen")) {
+    if (a.hasAttribute("data-vorschau-download")) {
+      e.preventDefault();
+      zeigeHinweis("Downloads funktionieren in der Vorschau nicht. Auf der echten Seite lädt der Link die Datei.");
+    } else if (a.hasAttribute("data-vorschau-offen")) {
       e.preventDefault();
       zeigeHinweis("Diese Seite folgt in einer späteren Etappe.");
     } else if (href.charAt(0) === "#" && Router.seiteFuerHash(href) === null) {
       e.preventDefault();
-      var ziel = document.getElementById(aktiv === "start" ? "s-" + href.slice(1) : "b-" + href.slice(1));
+      var ziel = document.getElementById(seiten[aktiv].getAttribute("data-praefix") + href.slice(1));
       if (ziel) ziel.scrollIntoView({ behavior: reduziert ? "auto" : "smooth", block: "start" });
     }
   });

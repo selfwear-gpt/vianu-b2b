@@ -295,7 +295,9 @@
     var feld = wurzel.querySelector("[data-weiterleiten-link]");
     if (!knopf || !status) return;
     knopf.addEventListener("click", function () {
-      var link = new URL(".", document.baseURI).href;
+      // Auf Rollenseiten (data-weiterleiten-diese-seite) kopiert die Taste die Adresse der Seite, sonst die der B2B-Startseite
+      var diese = wurzel.hasAttribute("data-weiterleiten-diese-seite");
+      var link = diese ? window.location.href.split("#")[0].split("?")[0] : new URL(".", document.baseURI).href;
       if (feld) feld.hidden = true;
       kopierenMit(link, status, "Link kopiert.", "Kopieren hat nicht geklappt. Der Link steht unten, kopieren Sie ihn von Hand.", function () {
         if (!feld) return;
