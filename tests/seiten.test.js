@@ -72,12 +72,24 @@ test("rollenspezifische Bausteine: Matte und Weg, Datenfluss, Rechner", () => {
 });
 
 test("die Studien stehen nur auf den Seiten der Rolle, deren Frage sie beantworten", () => {
-  const hat = (r, text) => seite(r).includes(text);
-  assert.ok(hat("personal", "Reed"));
-  assert.ok(hat("geschaeftsfuehrung", "Smith"));
-  assert.ok(hat("arbeitsschutz", "Speed"));
-  for (const r of ["einkauf", "betriebsrat"]) for (const n of ["Reed", "Smith", "Speed", "Bernardes"]) assert.ok(!hat(r, n), r + " nennt " + n);
-  assert.ok(!hat("geschaeftsfuehrung", "Reed") && !hat("arbeitsschutz", "Reed"));
+  const erlaubt = { Reed: ["personal"], Bernardes: ["personal", "arbeitsschutz"], Smith: ["geschaeftsfuehrung"], Speed: ["arbeitsschutz"] };
+  for (const [studie, seiten] of Object.entries(erlaubt)) {
+    for (const r of ROLLEN) {
+      const text = seite(r).replace(/<script[\s\S]*?<\/script>/g, "");
+      assert.equal(text.includes(studie), seiten.includes(r), `${studie} auf ${r}`);
+    }
+  }
+});
+
+test("Der Link zum Datenschutz-Block der Betriebsratsseite findet sein Ziel", () => {
+  const start = fs.readFileSync(path.join(ROOT, "b2b", "index.html"), "utf8");
+  const m = start.match(/href="(betriebsrat\.html)#([a-z-]+)"/);
+  assert.ok(m, "Link betriebsrat.html#... fehlt auf der B2B-Startseite");
+  assert.match(seite("betriebsrat"), new RegExp(`id="${m[2]}"`));
+});
+
+test("das Erfolgskriterium steht unter den Messwerten", () => {
+  for (const r of ROLLEN) assert.match(seite(r), /class="messwerte__erfolg"><strong>Der Pilot gilt als Erfolg, wenn<\/strong>/, r);
 });
 
 test("Smith nennt die Förderung durch einen Einlegesohlen-Hersteller und die Selbstauskunft", () => {

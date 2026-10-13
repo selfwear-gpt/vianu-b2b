@@ -932,7 +932,7 @@ button.knopf { cursor: pointer; }
 .termin__zeile { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--abstand-5); padding: var(--abstand-5) 0; border-bottom: 1px solid var(--farbe-tinte); }
 .termin__zeile dt { color: var(--farbe-gedaempft); padding-top: 0.3rem; }
 .termin__zeile dd { margin: 0; max-width: 62ch; font-size: 1.15rem; line-height: 1.5; }
-.termin__zeile:first-child dd { font-family: var(--schrift-kopf); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.1; text-transform: uppercase; }
+.termin__zeile:nth-child(2) dd { font-family: var(--schrift-kopf); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.1; text-transform: uppercase; }
 @media (max-width: 40rem) { .termin__zeile { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-2); } }
 
 /* Brief von Roderich */
@@ -954,6 +954,7 @@ button.knopf { cursor: pointer; }
 @media (max-width: 48rem) { .belege { grid-template-columns: minmax(0, 1fr); } }
 
 /* Messwerte auf Rollenseiten: die wichtigen Werte stehen vorn und größer */
+.messwerte__erfolg { margin-top: var(--abstand-5); max-width: 62ch; font-size: 1.1rem; }
 .messwert--gross { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .messwert--gross .messwert__bild { height: 6rem; max-width: 12rem; }
 .messwert--gross .messwert__frage { font-size: 1.6rem; }
@@ -1000,10 +1001,10 @@ button.knopf { cursor: pointer; }
 .weg__herd { fill: var(--farbe-tinte); }
 .weg__matte { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 2; }
 .weg__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-dasharray: 1 7; stroke-linecap: round; opacity: 0.4; }
-.weg__stationen circle { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; }
+.weg__stationen circle { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; transition: opacity 0.2s; }
 .weg__punkt { fill: var(--farbe-tinte); transition: opacity 0.2s; }
 .weg__spur { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 6; transition: opacity 0.2s; }
-.weg__punkt[data-aus], .weg__spur[data-aus] { opacity: 0; }
+.weg__punkt[data-aus], .weg__spur[data-aus], .weg__stationen circle[data-aus] { opacity: 0; }
 .weg__fuss-vorlage { display: none; }
 .weg__liste { padding-left: 1.5rem; display: flex; flex-direction: column; gap: var(--abstand-3); font-size: 1.15rem; }
 @media (max-width: 48rem) { .weg__raster { grid-template-columns: minmax(0, 1fr); } }
@@ -1023,7 +1024,7 @@ button.knopf { cursor: pointer; }
   .rolle__kern { font-size: 1.6rem; }
   .termin__zeile { padding: var(--abstand-3) 0; gap: var(--abstand-4); }
   .termin__zeile dd { font-size: 1rem; }
-  .termin__zeile:first-child dd { font-size: 1.3rem; }
+  .termin__zeile:nth-child(2) dd { font-size: 1.3rem; }
   .abschnitt.einseiter { border-top: 0; padding-block: var(--abstand-4) 0; }
   .einseiter__fuss { margin-top: var(--abstand-5); font-weight: 600; }
 }

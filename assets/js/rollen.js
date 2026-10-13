@@ -48,14 +48,32 @@
       gruppe.appendChild(spur);
       teile.push({ el: spur, ab: a });
     }
+    // Stationen: Jeder Kreis erscheint, wenn der Weg ihn erreicht. Seine Stelle auf dem Weg ist der nächste Punkt der Linie.
+    Array.prototype.forEach.call(wurzel.querySelectorAll("[data-weg-stationen] circle"), function (kreis) {
+      var kx = Number(kreis.getAttribute("cx"));
+      var ky = Number(kreis.getAttribute("cy"));
+      var bester = 0;
+      var abstand = Infinity;
+      for (var k = 0; k <= 400; k++) {
+        var q = punktAn(k / 400);
+        var d = (q.x - kx) * (q.x - kx) + (q.y - ky) * (q.y - ky);
+        if (d < abstand) {
+          abstand = d;
+          bester = k / 400;
+        }
+      }
+      teile.push({ el: kreis, ab: Math.max(0, bester - 0.02) });
+    });
+    // Reihenfolge entlang des Weges: Die Anzahl der sichtbaren Teile folgt dem Scrollstand
+    teile.sort(function (x, y) { return x.ab - y.ab; });
 
     var sichtbar = -1;
     function zeige(anteil) {
-      var n = Math.round(anteil * 1000);
+      var n = F.sichtbareAnzahl(anteil, teile.length);
       if (n === sichtbar) return;
       sichtbar = n;
-      teile.forEach(function (t) {
-        if (t.ab <= anteil) t.el.removeAttribute("data-aus");
+      teile.forEach(function (t, index) {
+        if (index < n) t.el.removeAttribute("data-aus");
         else t.el.setAttribute("data-aus", "");
       });
     }

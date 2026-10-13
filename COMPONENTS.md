@@ -93,13 +93,13 @@ Status: gebaut
 
 ### Persona-Seite
 Status: gebaut
-- Aufbau: Kopf (Rolle, Frage, Kernbotschaft, Antwortsatz), "Im Termin", Brief von Roderich, Belege, Messwert-Kacheln (wichtige Werte vorn und größer), rollenspezifischer Baustein, FAQ in zwei Gruppen (die vier wichtigsten zuerst), Weiterleiten mit Einseiter-PDF und Link zum Pilotformular.
+- Aufbau: Kopf (Rolle, Kernbotschaft, Antwortsatz), "Im Termin", Brief von Roderich, Belege, Messwert-Kacheln (wichtige Werte vorn und größer), rollenspezifischer Baustein, FAQ in zwei Gruppen (die vier wichtigsten zuerst), Weiterleiten mit Einseiter-PDF und Link zum Pilotformular.
 - Fünf Seiten: Personal, Geschäftsführung und Betrieb, Arbeitsschutz, Einkauf, Betriebsrat. Jede hat einen eigenen Titel, eine eigene Beschreibung und FAQPage-Daten. Seitentest: `tests/seiten.test.js`.
 - Rollenspezifisch: Personal "Ihre Aufgaben im Piloten", Geschäftsführung Kostenrechner und "Klein starten", Arbeitsschutz "Matte und Weg", Einkauf "Preis und Beschaffung" (steht fest und offen), Betriebsrat "Daten und Datenschutz" (Datenfluss).
 
 ### Im Termin
 Status: gebaut
-- Definitionsliste mit vier Zeilen: Kernbotschaft, "So sieht die Seite es", "Der Pilot gilt als Erfolg, wenn", "Das braucht es vor der Freigabe". Die erste Zeile steht groß. Der Block ist der Inhalt des Einseiters.
+- Definitionsliste mit fünf Zeilen: "Die Frage der Rolle", Kernbotschaft (steht groß), "So sieht die Seite es", "Der Pilot gilt als Erfolg, wenn", "Das braucht es vor der Freigabe". Die Frage steht hier und nicht im Kopf, damit sie nicht direkt vor der Kernbotschaft steht (Regel "keine Frage mit direkt folgender Antwort"). Der Block ist der Inhalt des Einseiters.
 
 ### Brief
 Status: gebaut
