@@ -103,6 +103,12 @@ Die Zeichnung auf der Arbeitsschutz-Seite: Grundriss einer Küche mit Matte am H
 **Datenfluss**:
 Das Ablaufbild auf der Betriebsrat-Seite. Bekannte Schritte sind durchgezogen, offene sind gestrichelt und stehen als Platzhalter.
 
+**Roderichs Geschichte**:
+Die längere Seite `b2b/roderich.html` mit seinen Stationen und seiner Erfahrung. Sie spricht von Erfahrung und macht keine Aussage zur Wirkung.
+
+**Rechtsseiten**:
+Impressum und Datenschutzerklärung. Solange die Angaben fehlen, sind sie Gerüste mit markierten Platzhaltern.
+
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
 _Avoid_: Dummy, Lorem ipsum, Beispielbild als echtes Bild

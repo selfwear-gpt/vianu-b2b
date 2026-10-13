@@ -47,3 +47,20 @@ test("von einer Rollenseite aus führen die Verweise zurück zur B2B-Startseite 
     assert.equal(verweisFuerVorschau("einkauf.html", "b2b-" + r), "#b2b-einkauf");
   }
 });
+
+test("Rechtsseiten und Roderichs Geschichte haben eine eigene Kennung", () => {
+  assert.equal(seiteFuerHash("#impressum"), "impressum");
+  assert.equal(seiteFuerHash("#datenschutz"), "datenschutz");
+  assert.equal(seiteFuerHash("#b2b-roderich"), "b2b-roderich");
+});
+
+test("Verweise auf Rechtsseiten und die Geschichte werden zu Kennungen", () => {
+  assert.equal(verweisFuerVorschau("impressum.html", "start"), "#impressum");
+  assert.equal(verweisFuerVorschau("../datenschutz.html", "b2b"), "#datenschutz");
+  assert.equal(verweisFuerVorschau("../impressum.html", "b2b-personal"), "#impressum");
+  assert.equal(verweisFuerVorschau("roderich.html", "b2b"), "#b2b-roderich");
+  assert.equal(verweisFuerVorschau("roderich.html", "b2b-einkauf"), "#b2b-roderich");
+  assert.equal(verweisFuerVorschau("datenschutz.html", "impressum"), "#datenschutz");
+  assert.equal(verweisFuerVorschau("./", "impressum"), "#");
+  assert.equal(verweisFuerVorschau("b2b/", "datenschutz"), "#b2b");
+});

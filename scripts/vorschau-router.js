@@ -15,6 +15,13 @@
     SEITEN["b2b-" + r] = "b2b/" + r + ".html";
     KENNUNG["/b2b/" + r + ".html"] = "#b2b-" + r;
   });
+  // Weitere Seiten: Roderichs Geschichte im B2B-Bereich, Impressum und Datenschutz für beide Bereiche
+  SEITEN["b2b-roderich"] = "b2b/roderich.html";
+  KENNUNG["/b2b/roderich.html"] = "#b2b-roderich";
+  SEITEN.impressum = "impressum.html";
+  KENNUNG["/impressum.html"] = "#impressum";
+  SEITEN.datenschutz = "datenschutz.html";
+  KENNUNG["/datenschutz.html"] = "#datenschutz";
   var BASIS = "http://vorschau.invalid/";
 
   function seiteFuerHash(hash) {

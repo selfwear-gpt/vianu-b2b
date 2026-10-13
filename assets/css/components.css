@@ -1028,3 +1028,28 @@ button.knopf { cursor: pointer; }
   .abschnitt.einseiter { border-top: 0; padding-block: var(--abstand-4) 0; }
   .einseiter__fuss { margin-top: var(--abstand-5); font-weight: 600; }
 }
+
+/* ================= Roderichs Geschichte, Rechtsseiten, Fuß ================= */
+.fuss__recht { display: flex; flex-wrap: wrap; gap: var(--abstand-2) var(--abstand-5); }
+.band__weiter, .brief__weiter { margin-top: var(--abstand-4); }
+
+.geschichte .hero__bild::before { display: none; }
+.geschichte .hero__bild .platzhalter { max-width: 22rem; margin-inline: auto; }
+.stationen { margin: 0; border-top: 3px solid var(--farbe-tinte); }
+.stationen__zeile { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--abstand-5); padding: var(--abstand-4) 0; border-bottom: 1px solid var(--farbe-tinte); }
+.stationen__zeile dt { color: var(--farbe-gedaempft); padding-top: 0.3rem; }
+.stationen__zeile dd { margin: 0; max-width: 60ch; font-size: 1.2rem; line-height: 1.4; }
+.geschichte__warum { display: flex; flex-direction: column; gap: var(--abstand-4); padding-block: clamp(32px, 5vw, 56px); }
+.geschichte__bruecke { max-width: 52ch; font-size: 1.1rem; line-height: 1.55; }
+.geschichte__aktionen { display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-4) var(--abstand-6); }
+@media (max-width: 40rem) { .stationen__zeile { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-1); } }
+
+.recht h1 { font-size: var(--schrift-groesse-h2); }
+.recht h2 { margin-top: var(--abstand-7); font-size: var(--schrift-groesse-h3); }
+.recht .platzhalter { max-width: 60ch; margin-bottom: var(--abstand-5); }
+.recht__liste { margin: var(--abstand-4) 0 0; border-top: 1px solid var(--farbe-tinte); }
+.recht__zeile { display: grid; grid-template-columns: minmax(0, 18rem) minmax(0, 1fr); gap: var(--abstand-5); padding: var(--abstand-3) 0; border-bottom: 1px solid var(--farbe-tinte); }
+.recht__zeile dt { color: var(--farbe-gedaempft); padding-top: 0.2rem; }
+.recht__zeile dd { margin: 0; max-width: 62ch; color: var(--farbe-gedaempft); }
+.recht__aussagen { margin: var(--abstand-4) 0 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: var(--abstand-3); max-width: 66ch; font-size: 1.1rem; line-height: 1.5; }
+@media (max-width: 40rem) { .recht__zeile { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-1); } }

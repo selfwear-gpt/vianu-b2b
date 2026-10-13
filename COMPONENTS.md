@@ -24,8 +24,8 @@ Status: geplant
 - Offen: Im Konzept liegen "Teilen" und "Für Mitarbeitende ↗" ebenfalls am rechten Rand. Vorschlag: Der Umschalter sitzt ganz rechts, die beiden anderen Einträge direkt daneben. Zu bestätigen.
 
 ### Footer
-Status: geplant
-- Impressum, Datenschutz, Link in den anderen Bereich.
+Status: gebaut
+- Logo, Links auf Impressum und Datenschutz (`fuss__recht`), Link in den anderen Bereich. Auf jeder Seite, mit relativem Pfad (`../` in `b2b/`).
 
 ## Einstieg
 
@@ -41,7 +41,7 @@ Status: gebaut
 
 ### Gründerband
 Status: gebaut
-- Schmales Band unter dem Hero: ein Satz in der Ich-Form, eine Zeile mit Eckdaten, kleines Porträt. Eckdaten brauchen eine Quelle in `FACTS.md`.
+- Schmales Band unter dem Hero: ein Satz in der Ich-Form, eine Zeile mit Eckdaten, kleines Porträt, Link "Roderichs Geschichte". Eckdaten brauchen eine Quelle in `FACTS.md`.
 
 ## Inhalt B2B
 
@@ -175,6 +175,14 @@ Status: gebaut
 - Vorlage für eine Mail an den Arbeitgeber (förmlich, "Sie") als Text zum Kopieren und als Datei in `assets/downloads/`. "[Link zur Seite]" wird beim Kopieren durch den Link auf den B2B-Bereich ersetzt.
 
 ## Übergreifend
+
+### Geschichte-Seite
+Status: gebaut
+- `b2b/roderich.html`: Kopf mit Porträt-Platzhalter, "Seine Stationen" als ruhige Definitionsliste (keine grafische Zeitleiste, laut Konzept bewusst weggelassen), Platzhalter für die Firmenlogos, dunkles Band "Warum VIANU" mit Roderichs Satz zur eigenen Erfahrung, "Was daraus für Sie folgt" mit Pilot-Knopf. Erreichbar über das Gründerband der B2B-Startseite und den Brief jeder Rollenseite.
+
+### Rechtsseite
+Status: gebaut
+- `impressum.html` und `datenschutz.html` im Hauptordner, für beide Bereiche. Gliederung mit Pflichtabschnitten als Definitionsliste, jede Firmenangabe ein markierter Platzhalter (`data-platzhalter`), `noindex` bis zu den echten Angaben. Die Datenschutzerklärung enthält zusätzlich die Liste "Was diese Seite tut und nicht tut" mit Aussagen, die der Code belegt. Test: `tests/rechtsseiten.test.js`.
 
 ### Platzhalter
 Status: geplant

@@ -32,6 +32,9 @@ SEITEN = [
     ("b2b-arbeitsschutz", "b2b/arbeitsschutz.html", "a-"),
     ("b2b-einkauf", "b2b/einkauf.html", "e-"),
     ("b2b-betriebsrat", "b2b/betriebsrat.html", "r-"),
+    ("b2b-roderich", "b2b/roderich.html", "h-"),
+    ("impressum", "impressum.html", "i-"),
+    ("datenschutz", "datenschutz.html", "d-"),
 ]
 
 
