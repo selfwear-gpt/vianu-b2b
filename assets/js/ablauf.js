@@ -1,7 +1,8 @@
 /*
   Schritt-für-Schritt-Ablauf. Schnittstelle: Elemente mit [data-ablauf] arbeiten für sich.
   Darin: Tasten [data-schritt="n"] (aria-pressed), Flächen [data-screen="n"], optional [data-ablauf-beschreibung]
-  und .handy__ecken (Animation beim zweiten Schritt neu starten). Ohne Skript stehen alle Flächen sichtbar da.
+  und .handy__ecken (Animation beim zweiten Schritt neu starten). Das Skript blendet alle Flächen außer der des
+  gewählten Schritts aus. Flächen im HTML tragen deshalb kein hidden, ohne Skript steht alles lesbar da.
 */
 (function () {
   var reduziert = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

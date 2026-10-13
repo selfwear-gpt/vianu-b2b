@@ -210,8 +210,12 @@
   }
 
   /* ---------- Pilotformular ---------- */
-  function kopierenMit(text, status, ok, fehler) {
-    function nicht() { status.textContent = fehler; }
+  // Kopiert text in die Zwischenablage. Gelingt das nicht, meldet status den Rückfall und rueckfall() läuft.
+  function kopierenMit(text, status, ok, fehler, rueckfall) {
+    function nicht() {
+      status.textContent = fehler;
+      if (rueckfall) rueckfall();
+    }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function () { status.textContent = ok; }, nicht);
     } else {
@@ -292,23 +296,14 @@
     if (!knopf || !status) return;
     knopf.addEventListener("click", function () {
       var link = new URL(".", document.baseURI).href;
-      function nicht() {
-        if (feld) {
-          feld.hidden = false;
-          feld.value = link;
-          feld.focus();
-          feld.select();
-        }
-        status.textContent = "Kopieren hat nicht geklappt. Der Link steht unten, kopieren Sie ihn von Hand.";
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(link).then(function () {
-          status.textContent = "Link kopiert.";
-          if (feld) feld.hidden = true;
-        }, nicht);
-      } else {
-        nicht();
-      }
+      if (feld) feld.hidden = true;
+      kopierenMit(link, status, "Link kopiert.", "Kopieren hat nicht geklappt. Der Link steht unten, kopieren Sie ihn von Hand.", function () {
+        if (!feld) return;
+        feld.hidden = false;
+        feld.value = link;
+        feld.focus();
+        feld.select();
+      });
     });
   }
 

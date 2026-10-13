@@ -127,7 +127,7 @@
         <a class="menue__zurueck" href="../">Für Mitarbeitende
           <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
         </a>
-        <div class="sprache" aria-label="Sprache">
+        <div class="sprache" role="group" aria-label="Sprache">
           <span aria-current="true">DE</span>
           <span aria-disabled="true" title="Englische Fassung folgt">EN</span>
         </div>
@@ -220,7 +220,7 @@
             <path class="druck__umriss" data-druck-umriss d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
             <g data-druck-punkte></g>
           </svg>
-          <figcaption class="sr-nur">Schematische Druckkarte eines Fußes aus Messpunkten, ohne Zahlen.</figcaption>
+          <figcaption class="sr-nur">Schematische Druckkarte eines Fußes aus Punkten, ohne Zahlen.</figcaption>
         </figure>
       </div>
     </div>
@@ -324,9 +324,9 @@
         </div>
         <div class="bahnen__text" aria-live="polite">
           <p data-screen="1">Sie legen fest, welche 10 Mitarbeitenden am Piloten teilnehmen. Die Teilnahme ist freiwillig.</p>
-          <p data-screen="2" hidden>Ihre Mitarbeitenden fotografieren ihre Füße mit dem eigenen Smartphone, in einer Pause, ohne Messtag und ohne zusätzliche Geräte.</p>
-          <p data-screen="3" hidden>Für jede Person entsteht eine individuell angefertigte Einlegesohle.</p>
-          <p data-screen="4" hidden>Die Sohle wird im Betrieb übergeben und nicht verteilt. Sie kommt in Schuhe, die Ihre Mitarbeitenden schon besitzen.</p>
+          <p data-screen="2">Ihre Mitarbeitenden fotografieren ihre Füße mit dem eigenen Smartphone, in einer Pause, ohne Messtag und ohne zusätzliche Geräte.</p>
+          <p data-screen="3">Für jede Person entsteht eine individuell angefertigte Einlegesohle.</p>
+          <p data-screen="4">Die Sohle wird im Betrieb übergeben und nicht verteilt. Sie kommt in Schuhe, die Ihre Mitarbeitenden schon besitzen.</p>
         </div>
       </div>
     </div>
@@ -373,8 +373,8 @@
       <div class="abschnitt__kopf">
         <h2 id="sorgen-titel">Sorgen und Bedenken im Entscheidungsteam</h2>
       </div>
-      <div class="sorgen__mini" aria-hidden="true">
-        <svg class="mini" viewBox="0 0 260 100" focusable="false">
+      <div class="sorgen__mini">
+        <svg class="mini" viewBox="0 0 260 100" focusable="false" aria-hidden="true">
           <defs><clipPath id="mini-umriss"><polygon points="0,45 5.2,28 20.8,14 46.8,6 78,3 109.2,4 130,10 156,12 187.2,14 218.4,18 241.8,26 254.8,40 260,55 252.2,72 234,86 208,95 176.8,98 150.8,96 130,90 114.4,78 98.8,76 78,82 57.2,92 31.2,90 13,80 2.6,64"/></clipPath></defs>
           <g clip-path="url(#mini-umriss)">
             <rect class="mini__zone" data-zone x="0" y="0" width="57.2" height="100"/>
@@ -421,7 +421,7 @@
                   <span class="sorge__kurz">Wer sieht meine Fotos?</span>
                 </span>
                 <span class="sorge__hinten">
-                  <span class="sorge__frage">„Muss ich da mitmachen, und wer sieht meine Fotos vom Fußscan?“</span>
+                  <span class="sorge__frage">„Muss ich da mitmachen, und wer sieht meine Fotos von der Fußerfassung?“</span>
                   <span class="sorge__weiter">zu Daten und Datenschutz</span>
                 </span>
               </span>
@@ -448,7 +448,7 @@
                 <span class="sorge__vorn">
                   <svg class="sorge__icon" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="16" width="10" height="6" rx="1"/><path d="M15 19h4M18 15l4 4-4 4M20 4c-3 0-4 2-4 4s1 4 3 4 3-2 3-4-1-4-2-4z"/></svg>
                   <span class="etikett sorge__rolle">Arbeitsschutz</span>
-                  <span class="sorge__kurz">Besser als Matten?</span>
+                  <span class="sorge__kurz">Neben den Matten?</span>
                 </span>
                 <span class="sorge__hinten">
                   <span class="sorge__frage">„Was bringt das gegenüber den Matten, die wir schon haben?“</span>
@@ -627,7 +627,7 @@
           <button class="knopf" type="submit">Anfrage vorbereiten
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
-          <div class="formular__ergebnis" data-formular-ergebnis hidden tabindex="-1">
+          <div class="formular__ergebnis" data-formular-ergebnis hidden tabindex="-1" role="group" aria-label="Entwurf der Anfrage">
             <p class="etikett">Entwurf, die Anfrage wird noch nicht gesendet</p>
             <pre class="formular__text" data-formular-text></pre>
             <button class="knopf knopf--dunkel" type="button" data-formular-kopieren>Text kopieren</button>
