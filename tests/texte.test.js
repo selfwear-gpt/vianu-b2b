@@ -40,3 +40,9 @@ test("die Sprache eines Elements ist das nächste lang-Attribut darüber", () =>
   assert.equal(sprache(undefined), "de");
   assert.equal(t("kopiert.link", null, mit("en")), "Link copied.");
 });
+
+test("die Ansage der Sohle nennt auch die Firma, wenn eine da ist", () => {
+  assert.equal(text("name.ansage.firma", { name: "Mia", firma: "Hotel Adler" }), "Deine Sohle zeigt: Mia, Hotel Adler");
+  assert.equal(text("name.ansage.firma", { name: "Mia", firma: "Hotel Adler" }, "en"), "Your insole shows: Mia, Hotel Adler");
+  assert.equal(text("name.ansage.nurfirma", { firma: "Hotel Adler" }), "Deine Sohle zeigt: Hotel Adler");
+});

@@ -100,11 +100,44 @@
     var feld = wurzel.querySelector("[data-name-feld]");
     var texte = wurzel.querySelectorAll("[data-name-text]");
     var ansage = wurzel.querySelector("[data-name-ansage]");
+    var firmaFeld = wurzel.querySelector("[data-firma-feld]");
+    var firmaTexte = wurzel.querySelectorAll("[data-firma-text]");
     if (!feld || !texte.length || !window.VianuName) return;
 
     var BASIS = 40;
-    var MAX_BREITE = 190;
+    var MAX_BREITE = 165;
+    var FIRMA_BASIS = 13;
+    var FIRMA_MAX_LAENGE = 46;
     var timer = null;
+    var aktuellerName = "";
+    var aktuelleFirma = "";
+
+    // Vorlesetext für die Ansage: Name, Firma oder beides
+    function melde() {
+      if (!ansage) return;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(function () {
+        var schluessel = aktuellerName && aktuelleFirma ? "name.ansage.firma" : aktuellerName ? "name.ansage" : aktuelleFirma ? "name.ansage.nurfirma" : "";
+        ansage.textContent = schluessel ? window.VianuTexte.text(schluessel, { name: aktuellerName, firma: aktuelleFirma }, wurzel) : "";
+      }, 500);
+    }
+
+    // Firmenname hochkant auf der Sohle: schrumpft, wenn er die Länge der Sohle überschreitet
+    function zeigeFirma(firma) {
+      var leer = firma === "";
+      aktuelleFirma = firma;
+      Array.prototype.forEach.call(firmaTexte, function (t) {
+        t.textContent = leer ? t.getAttribute("data-beispiel") : firma;
+        t.setAttribute("data-leer", leer ? "true" : "false");
+        t.style.fontSize = FIRMA_BASIS + "px";
+      });
+      var laenge = firmaTexte.length && firmaTexte[0].getComputedTextLength ? firmaTexte[0].getComputedTextLength() : 0;
+      if (laenge > FIRMA_MAX_LAENGE) {
+        var klein = (FIRMA_BASIS * FIRMA_MAX_LAENGE) / laenge;
+        Array.prototype.forEach.call(firmaTexte, function (t) { t.style.fontSize = klein + "px"; });
+      }
+      melde();
+    }
 
     function zeige(name) {
       var leer = name === "";
@@ -125,12 +158,8 @@
           t.classList.add("sohle__name--druck");
         });
       }
-      if (ansage) {
-        window.clearTimeout(timer);
-        timer = window.setTimeout(function () {
-          ansage.textContent = leer ? "" : window.VianuTexte.text("name.ansage", { name: name }, wurzel);
-        }, 500);
-      }
+      aktuellerName = name;
+      melde();
     }
 
     feld.addEventListener("input", function () {
@@ -139,6 +168,15 @@
       zeige(sauber);
     });
     zeige(window.VianuName.bereinigeName(feld.value));
+
+    if (firmaFeld && firmaTexte.length) {
+      firmaFeld.addEventListener("input", function () {
+        var sauber = window.VianuName.bereinigeFirma(firmaFeld.value);
+        if (sauber !== firmaFeld.value) firmaFeld.value = sauber;
+        zeigeFirma(sauber);
+      });
+      zeigeFirma(window.VianuName.bereinigeFirma(firmaFeld.value));
+    }
   }
 
   /* ---------- Ein Tag im Schichtbetrieb ---------- */

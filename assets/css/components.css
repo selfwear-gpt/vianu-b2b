@@ -423,7 +423,7 @@ button.knopf { cursor: pointer; }
 
 /* ---------- Kurz erklärt ---------- */
 .kurz { background: var(--farbe-papier); border-top: 1px solid var(--farbe-tinte); border-bottom: 1px solid var(--farbe-tinte); }
-.kurz__liste { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; }
+.kurz__liste { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr); margin: 0; }
 .kurz__punkt { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5) var(--abstand-5); border-left: 1px solid var(--farbe-tinte); }
 .kurz__punkt:first-child { border-left: 0; padding-left: 0; }
 .kurz__punkt dt { color: var(--farbe-gedaempft); }
@@ -453,24 +453,25 @@ button.knopf { cursor: pointer; }
   border: var(--kante) solid var(--farbe-tinte);
   backface-visibility: hidden;
 }
-.wert__hinten { justify-content: center; transform: rotateY(180deg); }
+.wert__vorn { justify-content: flex-end; }
+.wert__hinten { justify-content: center; align-items: center; text-align: center; transform: rotateY(180deg); }
+a.wert__hinten { color: inherit; text-decoration: none; }
+a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px; }
 .wert h3 { font-size: var(--schrift-groesse-h3); }
-.wert__hinten p { font-size: 1.125rem; line-height: 1.55; max-width: 40ch; }
+.wert__hinten p { font-size: 1.125rem; line-height: 1.55; max-width: 40ch; margin-inline: auto; }
 .wert--signal .wert__vorn { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .wert--signal .wert__hinten { background: var(--farbe-tinte); color: var(--farbe-papier); }
 .wert--tinte .wert__vorn { background: var(--farbe-tinte); color: var(--farbe-papier); }
 .wert--tinte .wert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .wert--linie .wert__vorn { background: var(--farbe-papier); color: var(--farbe-tinte); }
 .wert--linie .wert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.wert:hover .wert__innen, .wert:focus-visible .wert__innen, .wert[data-gedreht="true"] .wert__innen { transform: rotateY(180deg); }
+.wert:hover .wert__innen, .wert:focus-visible .wert__innen, .wert:focus-within .wert__innen, .wert[data-gedreht="true"] .wert__innen { transform: rotateY(180deg); }
 /* Nach dem Tippen auf einem Touchgerät bleibt :hover hängen, "false" dreht dann zurück */
 .wert[data-gedreht="false"] .wert__innen { transform: none; }
 .wert--a { grid-column: span 7; }
 .wert--a .wert__innen { min-height: 17rem; }
-.wert--a .wert__vorn { justify-content: flex-end; }
 .wert--a h3 { font-size: clamp(2rem, 4vw, 3rem); }
 .wert--b { grid-column: span 5; }
-.wert--b .wert__vorn { justify-content: flex-end; }
 .wert--c { grid-column: span 5; }
 .wert--d { grid-column: span 7; }
 .wert--e { grid-column: span 4; }
@@ -478,7 +479,7 @@ button.knopf { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   .wert__innen, .wert[data-gedreht="false"] .wert__innen { transform: none !important; }
   .wert__hinten { transform: none; opacity: 0; }
-  .wert:hover .wert__hinten, .wert:focus-visible .wert__hinten, .wert[data-gedreht="true"] .wert__hinten { opacity: 1; }
+  .wert:hover .wert__hinten, .wert:focus-visible .wert__hinten, .wert:focus-within .wert__hinten, .wert[data-gedreht="true"] .wert__hinten { opacity: 1; }
 }
 @media (max-width: 56rem) {
   .werte { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -488,7 +489,7 @@ button.knopf { cursor: pointer; }
   .wert__vorn, .wert__hinten { backface-visibility: visible; transform: none; opacity: 1; }
   .wert__vorn { border-bottom: 0; padding-bottom: var(--abstand-2); }
   .wert__hinten { justify-content: flex-start; border-top: 0; padding-top: var(--abstand-3); }
-  .wert--a .wert__vorn, .wert--b .wert__vorn { justify-content: flex-start; }
+  .wert__vorn { justify-content: flex-start; }
 }
 @media (max-width: 36rem) {
   .werte { grid-template-columns: minmax(0, 1fr); }
@@ -581,6 +582,20 @@ button.knopf { cursor: pointer; }
   transform-origin: center;
 }
 .sohle__name--licht { fill: var(--farbe-papier); }
+/* Firmenname: klein und hochkant auf der Sohle, gleiche Gravur wie der Name. Die Drehung liegt auf der Gruppe, damit die Eindruck-Animation sie nicht überschreibt. */
+.sohle__firma {
+  font-family: var(--schrift-kopf);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--farbe-tinte);
+}
+.sohle__firma--licht { fill: var(--farbe-papier); }
+.sohle__firma[data-leer="true"] { opacity: 0.35; }
+.name__feld--firma { font-size: clamp(1.1rem, 2.4vw, 1.5rem); }
 .sohle__name[data-leer="true"] { opacity: 0.35; }
 .sohle__name--druck { animation: eindruck 0.22s ease-out; }
 @keyframes eindruck { 0% { transform: translateY(-4px) scale(1.08); } 100% { transform: none; } }
@@ -626,7 +641,11 @@ button.knopf { cursor: pointer; }
 .handy__haken { fill: none; stroke: var(--farbe-tinte); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
 .handy__ecken { transform-box: fill-box; transform-origin: center; animation: sucher 0.7s ease-out; }
 @keyframes sucher { from { transform: scale(1.18); } to { transform: none; } }
-.ablauf__beschreibung { text-align: center; min-height: 2.6em; }
+/* Der Knopf im Handybild sitzt über der Fläche von Schritt 1, Maße in Prozent der Handyfläche (viewBox 200 x 380) */
+.handy-huelle { position: relative; width: min(100%, 15rem); }
+.handy-huelle .handy { width: 100%; display: block; }
+.handy__cta { position: absolute; left: 12%; right: 12%; top: 65%; justify-content: center; padding: var(--abstand-2) var(--abstand-3); font-size: 0.66rem; letter-spacing: 0.04em; white-space: nowrap; }
+.handy__cta[hidden] { display: none; }
 @media (max-width: 56rem) {
   .ablauf__raster { grid-template-columns: minmax(0, 1fr); }
   .ablauf__bild { position: static; order: -1; }
@@ -1054,3 +1073,27 @@ button.knopf { cursor: pointer; }
 .recht__zeile dd { margin: 0; max-width: 62ch; color: var(--farbe-gedaempft); }
 .recht__aussagen { margin: var(--abstand-4) 0 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: var(--abstand-3); max-width: 66ch; font-size: 1.1rem; line-height: 1.5; }
 @media (max-width: 40rem) { .recht__zeile { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-1); } }
+
+
+/* ---------- Stimme: Rezensionskarte, bis echte Stimmen vorliegen mit Platzhaltertext ---------- */
+.stimme {
+  position: relative;
+  display: grid;
+  gap: var(--abstand-5);
+  margin: 0;
+  padding: var(--abstand-6);
+  max-width: 44rem;
+  background: var(--farbe-papier);
+  border: var(--kante) solid var(--farbe-tinte);
+  box-shadow: var(--abstand-3) var(--abstand-3) 0 var(--farbe-signal);
+}
+.stimme .platzhalter__etikett { position: absolute; top: var(--abstand-3); right: var(--abstand-4); }
+.stimme__zeichen { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 2; }
+.stimme__text { margin: 0; }
+.stimme__text p { font-family: var(--schrift-kopf); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 1.75rem); line-height: 1.3; max-width: none; }
+.stimme__person { display: flex; align-items: center; gap: var(--abstand-4); padding-top: var(--abstand-4); border-top: 1px solid var(--farbe-tinte); }
+.stimme__bild { flex: 0 0 4.5rem; width: 4.5rem; height: 4.5rem; border: var(--kante) dashed var(--farbe-tinte); border-radius: 50%; background: var(--farbe-signal); }
+.stimme__name { display: flex; flex-direction: column; gap: 2px; }
+.stimme__name strong { font-family: var(--schrift-kopf); font-weight: 800; text-transform: uppercase; font-size: 1.1rem; }
+.stimme__name span { font-size: var(--schrift-groesse-klein); color: var(--farbe-gedaempft); }
+@media (max-width: 36rem) { .stimme { padding: var(--abstand-5); box-shadow: var(--abstand-2) var(--abstand-2) 0 var(--farbe-signal); } }

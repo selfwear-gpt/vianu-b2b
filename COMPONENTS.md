@@ -145,23 +145,29 @@ Status: gebaut
 ### Name auf der Sohle
 Status: gebaut
 - Besucher tippen einen Namen (höchstens 14 Zeichen, nur Buchstaben, Leerzeichen, Apostroph und Bindestrich) und sehen ihn sofort auf der Sohle. Nichts wird gespeichert, der Name bleibt im Browser. Die Buchstaben drücken sich beim Tippen leicht ein. Ein Hinweis zur Vorschau steht auf Wunsch des Nutzers (13.10.2026) nicht mehr in der Sektion. Ob der Name auf die echte Sohle kommt, ist weiter offen (`FACTS.md`). Der Ablauf-Schritt "Deine Sohle entsteht" trägt den Vorbehalt.
-- Logik: `assets/js/name.js` (`bereinigeName`), Test in `tests/name.test.js`.
+- Zweites Feld "Dein Unternehmen" (höchstens 18 Zeichen, Buchstaben, Ziffern, Leerzeichen und `& . - '`). Der Firmenname steht klein und hochkant am Fersenende der Sohle, in derselben Gravur-Optik, und schrumpft bei langen Namen. Die Ansage für Screenreader nennt beides.
+- Logik: `assets/js/name.js` (`bereinigeName`, `bereinigeFirma`), Test in `tests/name.test.js`.
 
 ### Werteband
 Status: gebaut
-- Sechs Werte als ungleich große Kacheln (Spannen 7/5, 5/7, 4/8 von 12 Spalten) mit Symbol und Überschrift vorn: Leicht durch die Schicht, Abende, die dir gehören, Passt in die Schuhe, die du hast, Hält, Bleibt frisch, Dein Name drauf.
+- Sechs Werte als ungleich große Kacheln (Spannen 7/5, 5/7, 4/8 von 12 Spalten) mit Symbol und Überschrift vorn: Leicht durch die Schicht, Abende, die dir gehören, Passt in die Schuhe, die du hast, Hält so lange wie deine Schuhe, Bleibt frisch, Dein Name drauf. Bei allen Kacheln steht das Symbol oben links und die Überschrift unten. Die Rückseiten sind mittig zentriert. Die Rückseite von "Dein Name drauf" ist ein Link auf den Namensabschnitt (`#name`).
 - Beim Hovern, bei Tastaturfokus (`tabindex="0"`) und auf Geräten ohne Hover beim Tippen dreht sich die Kachel um. Die Rückseite zeigt die Antwort auf die Überschrift, in umgekehrten Farben (Signal wird Tinte, Tinte und Papier werden Signal). Beide Seiten stehen im HTML. Bei reduzierter Bewegung blendet die Rückseite über. Auf dem Handy (bis 56 rem) stehen Vorder- und Rückseite untereinander. Logik: `initWerte` in `assets/js/mitarbeitende.js`.
-- Regel: Antworten nennen nur, was `FACTS.md` trägt. Zu Haltbarkeit und Frische nur Ziel und Vorbehalt.
+- Regel: Antworten nennen nur, was `FACTS.md` trägt. Haltbarkeit (3 Jahre) und Frische sind Angaben des Nutzers vom 13.10.2026, der Beleg fehlt noch im Repo.
+
+### Stimme
+Status: gebaut (Vorlage)
+- Rezensionskarte unter der Überschrift "Hör nicht auf uns, hör auf andere in deiner Situation": großes Anführungszeichen in Signalfarbe, Zitat, rundes Porträtfeld, Vorname, Jobtitel, Signal-Versatz. Heute trägt sie den Platzhaltertext und ist mit `data-platzhalter` markiert. Keine Sterne und keine Bewertungszahl, weil beides Daten wären, die es nicht gibt.
+- Wird eine echte Stimme freigegeben, ersetzen Zitat, Porträt, Vorname und Jobtitel den Platzhalter, die Karte bleibt gleich. Das Bild nur mit Einwilligung der Person.
 
 ### Schichttag
 Status: gebaut
 - Überschrift "Ein Tag im Schichtbetrieb". Scrollgeschichte vom Beginn der Schicht bis zum Abend danach, in der Sprache der Bewertungen. Links eine mitlaufende Uhr (bleibt beim Scrollen stehen), rechts fünf Momente.
-- Der Zeiger startet beim Schichtbeginn auf 8 Uhr (unten links) und steht beim Feierabend auf 17 Uhr, 30 Grad je Stunde. Danach bleibt er stehen. Die Momente "Schichtbeginn" und "Feierabend" tragen ihre Uhrzeit im Text, für die übrigen steht keine Uhrzeit. Bei reduzierter Bewegung bleibt der Zeiger auf 8 Uhr und die Momente stehen als Liste. Logik: `zeigerWinkel` und `anteilZwischen` in `assets/js/fortschritt.js`.
+- Der Zeiger startet beim Schichtbeginn auf 8 Uhr (unten links) und steht beim Feierabend auf 17 Uhr, 30 Grad je Stunde. Der Moment "Abend" trägt `data-stunde="20"` ohne sichtbare Uhrzeit, der Zeiger läuft beim Weiterscrollen bis dorthin (600 Grad) und steht beim Abend anders als beim Feierabend. Die Momente "Schichtbeginn" und "Feierabend" tragen ihre Uhrzeit im Text, für die übrigen steht keine Uhrzeit. Bei reduzierter Bewegung bleibt der Zeiger auf 8 Uhr und die Momente stehen als Liste. Logik: `zeigerWinkel` und `anteilZwischen` in `assets/js/fortschritt.js`.
 
 ### Handy-Ablauf
 Status: gebaut
-- Vier Schritte als Knöpfe (aria-pressed) neben einem gezeichneten Handy. Der gewählte Schritt zeigt seinen Bildschirm (Ankündigung, Sucherrahmen mit Fuß, Sohle, Übergabe). Die Zeile unter dem Handy nennt den Schritt als Text.
-- Kennzeichnung "Entwurf", solange der Ablauf nicht festgelegt ist. Keine Zeitangaben.
+- Vier Schritte als Knöpfe (aria-pressed) neben einem gezeichneten Handy. Der gewählte Schritt zeigt seinen Bildschirm (Ankündigung, Sucherrahmen mit Fuß, Sohle, Übergabe). Die Schritte öffnen schon beim Darüberfahren mit der Maus (`pointerenter`), beim Tippen, Klicken und per Tastatur. Die Ansage des Schritts steht nur noch für Screenreader (`sr-nur`), unter dem Handy steht keine Zeile.
+- Bei Schritt 1 sitzt im Handybild unter den beiden Karten ein Knopf "Arbeitgeber anfragen" (`data-cta-schritt="1"`, `data-teilen-oeffnen`), der das Teilen-Feld öffnet. Der Ablauf steht als fertig, nur Schritt 4 nennt eine Zeitangabe (spätestens 7 Tage nach dem Fußscan, Angabe des Nutzers).
 
 ### Fragen-Akkordeon (Mitarbeitende)
 Status: gebaut

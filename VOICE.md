@@ -30,7 +30,7 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 - Wir sprechen in Schichten: Küche, Service, Housekeeping, Empfang, Bar. Böden aus Fliesen und Stein, nicht aus Beton.
 - Kurze Sätze, ein Gedanke pro Satz. Konkrete Wörter statt Fachwörter. Keine Orthopädie-Begriffe wie Pronation oder Gewölbe.
 - Die Technik (Scan, KI, 3D-Druck) steht nie im Vordergrund. Sie taucht nur auf, wenn sie einen Nutzen belegt, zum Beispiel "Fotos mit dem eigenen Handy in der Pause".
-- Die Merkmale, die wir wiederholen: kein Messtag, die Einlegesohle kommt in Schuhe, die die Mitarbeitenden schon besitzen, sie wird übergeben und nicht verteilt.
+- Die Merkmale, die wir wiederholen: kein Messtag, die Einlegesohle kommt in Schuhe, die die Mitarbeitenden schon besitzen, sie erreicht die Mitarbeitenden im Betrieb ("übergeben" sagen wir nicht).
 
 ## Verboten
 

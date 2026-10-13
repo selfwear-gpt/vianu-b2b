@@ -117,3 +117,43 @@ test("das Textdownload gleicht der Mailvorlage auf der Seite, in beiden Sprachen
   assert.equal(lies("assets/downloads/mail-an-arbeitgeber.txt").trim(), vorlage(lies("index.html")));
   assert.equal(lies("assets/downloads/mail-to-employer.txt").trim(), vorlage(lies("en/index.html")));
 });
+
+test("das Logo führt auf jeder Seite zur Startseite der eigenen Sprache und nach oben", () => {
+  for (const rel of PAARE.flatMap((f) => [f, "en/" + f])) {
+    const h = lies(rel);
+    const m = h.match(/<a class="menue__logo" href="([^"]+)" aria-label="([^"]+)"/);
+    assert.ok(m, rel + ": Logo");
+    const start = rel.startsWith("en/") ? "en/index.html" : "index.html";
+    const selbst = rel === start;
+    assert.equal(selbst ? m[1] : ziel(rel, m[1]), selbst ? "#" : path.normalize(start), rel + ": Ziel des Logos");
+    assert.match(m[2], rel.startsWith("en/") ? /^VIANU, to the home page$/ : /^VIANU, zur Startseite$/, rel + ": aria-label");
+  }
+});
+
+test("das B2B-Menü hat einen Punkt Ablauf zum Abschnitt Ablauf und keinen Punkt Programm", () => {
+  for (const f of PAARE.filter((x) => x.startsWith("b2b/"))) {
+    for (const [rel, wort] of [[f, "Ablauf"], ["en/" + f, "Process"]]) {
+      const h = lies(rel);
+      const menue = (h.match(/<ul class="menue__liste">[\s\S]*?<\/ul>/) || [""])[0];
+      const eigen = f === "b2b/index.html";
+      assert.ok(menue.includes(`<li><a href="${eigen ? "" : "./"}#ablauf">${wort}</a></li>`), rel + ": Punkt " + wort);
+      assert.doesNotMatch(menue, /#programm|>Programm<|>Program</, rel + ": Punkt Programm");
+    }
+  }
+});
+
+test("die Zielgruppe heißt überall Teams, deren Personal viele Stunden auf den Beinen ist", () => {
+  const erlaubt = /Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service/g;
+  // Roderichs Lebenslauf nennt die Gastronomie als Ort seiner Arbeit, das ist keine Zielgruppe
+  for (const rel of PAARE.flatMap((f) => [f, "en/" + f]).filter((r) => !/roderich/.test(r))) {
+    const h = lies(rel).replace(erlaubt, "");
+    assert.doesNotMatch(h, /Hotellerie|Gastronomie|hospitality|food service/, rel);
+  }
+});
+
+test("die Sohle erreicht den Betrieb, das Wort übergeben kommt nicht mehr vor", () => {
+  for (const f of PAARE) {
+    assert.doesNotMatch(sichtbar(lies(f)) + lies(f).match(/application\/ld\+json[\s\S]*?<\/script>/g)?.join(""), /bergeb|bergib|bergab/i, f);
+    assert.doesNotMatch(sichtbar(lies("en/" + f)), /hand(s|ed|ing)? over|handover|handed out/i, "en/" + f);
+  }
+});

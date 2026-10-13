@@ -80,7 +80,7 @@ _Avoid_: Arbeitsbelastung, Fußprobleme, Fehlstellung (als Werbeaussage)
 Die Scrollgeschichte "Ein Tag im Schichtbetrieb" auf der Mitarbeitenden-Seite ("Schichtbetrieb" steht so in der Überschrift, im Text sprechen wir von Schichten): ein Arbeitstag von 8 bis 17 Uhr und der Abend danach, erzählt in Momenten aus Küche, Service, Housekeeping, Empfang und Bar.
 
 **Namenssohle**:
-Die Mitmach-Grafik auf der Mitarbeitenden-Seite: Besucher tippen einen Namen und sehen ihn auf einer gezeichneten Sohle. Ob der Name auf die echte Sohle kommt, steht nicht fest (siehe `FACTS.md`). Der Hinweis dazu steht auf Wunsch des Nutzers (13.10.2026) nicht mehr in der Sektion.
+Die Mitmach-Grafik auf der Mitarbeitenden-Seite: Besucher tippen einen Namen und auf Wunsch den Namen ihres Unternehmens und sehen beides auf einer gezeichneten Sohle. Der Firmenname steht klein und hochkant. Ob der Name auf die echte Sohle kommt, steht nicht fest (siehe `FACTS.md`). Der Hinweis dazu steht auf Wunsch des Nutzers (13.10.2026) nicht mehr in der Sektion.
 
 **Allgemeine Frage**:
 FAQ-Frage, in der VIANU nicht vorkommt, so wie Fremde suchen ("Was ist eine individuell angefertigte Einlegesohle?"). VIANU steht erst im letzten Satz der Antwort.
@@ -108,6 +108,9 @@ Die längere Seite `b2b/roderich.html` mit seinen Stationen und seiner Erfahrung
 
 **Rechtsseiten**:
 Impressum und Datenschutzerklärung. Solange die Angaben fehlen, sind sie Gerüste mit markierten Platzhaltern.
+
+**Stimme**:
+Die Rezensionskarte in der Sektion "Hör nicht auf uns, hör auf andere in deiner Situation". Zitat, Porträt, Vorname und Jobtitel einer Person. Bis es echte Stimmen gibt, trägt sie Platzhaltertext. Englisch: voice.
 
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
@@ -149,6 +152,7 @@ Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die 
 | Roderichs Geschichte | Roderich's story | |
 | Impressum | Legal notice | |
 | Datenschutz | Privacy | Titel "Privacy notice". |
+| Stimme | voice | Die Rezensionskarte. |
 | Platzhalter | placeholder | Markiert wie im Deutschen. |
 | Pilot buchen | Book a pilot | |
 
