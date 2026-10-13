@@ -111,6 +111,13 @@
 </head>
 <body>
 
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
 <header class="menue" data-menue>
   <div class="behaelter">
     <div class="menue__innen">
@@ -278,27 +285,81 @@
     </div>
   </section>
 
-  <section class="abschnitt" id="ablauf" aria-labelledby="ablauf-titel">
+  <section class="abschnitt ablauf" id="ablauf" aria-labelledby="ablauf-titel" data-ablauf>
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="ablauf-titel">From start to insole</h2>
         <p>The pilot runs in four steps.</p>
       </div>
-      <div class="bahnen" data-ablauf>
-        <div class="bahnen__raster" role="group" aria-label="The four steps in three lanes">
-          <p class="etikett bahnen__bahn bahnen__bahn--1">Your business</p>
-          <p class="etikett bahnen__bahn bahnen__bahn--2">Your team</p>
-          <p class="etikett bahnen__bahn bahnen__bahn--3">VIANU</p>
-          <button class="bahnen__schritt bahnen__schritt--1" type="button" data-bahn="Your business" data-schritt="1" aria-pressed="true"><span class="bahnen__nr" aria-hidden="true">1</span><strong>You sign up your team</strong></button>
-          <button class="bahnen__schritt bahnen__schritt--2" type="button" data-bahn="Your team" data-schritt="2" aria-pressed="false"><span class="bahnen__nr" aria-hidden="true">2</span><strong>Your team does the foot capture</strong></button>
-          <button class="bahnen__schritt bahnen__schritt--3" type="button" data-bahn="VIANU" data-schritt="3" aria-pressed="false"><span class="bahnen__nr" aria-hidden="true">3</span><strong>VIANU makes the insoles</strong></button>
-          <button class="bahnen__schritt bahnen__schritt--4" type="button" data-bahn="Your business" data-schritt="4" aria-pressed="false"><span class="bahnen__nr" aria-hidden="true">4</span><strong>Insoles arrive at your business</strong></button>
-        </div>
-        <div class="bahnen__text" aria-live="polite">
-          <p data-screen="1">You decide which 10 employees take part in the pilot. Taking part is voluntary.</p>
-          <p data-screen="2">Your employees photograph their feet with their own smartphone, during a break, with no measurement day and no additional devices.</p>
-          <p data-screen="3">A custom-made insole is made for each person.</p>
-          <p data-screen="4">The insole reaches your employees at your business at the latest 7 days after the foot capture. It goes into shoes your employees already own.</p>
+      <div class="ablauf__raster">
+        <ol class="ablauf__liste">
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="true" data-schritt="1">
+              <span class="ablauf__nummer" aria-hidden="true">1</span>
+              <span><span class="etikett ablauf__bahn">Your business</span><strong>You sign up your team</strong><span>You decide which 10 employees take part in the pilot. Taking part is voluntary.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="2">
+              <span class="ablauf__nummer" aria-hidden="true">2</span>
+              <span><span class="etikett ablauf__bahn">Your team</span><strong>Your team does the foot capture</strong><span>On their own smartphone, during a break, with no measurement day and no additional devices.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="3">
+              <span class="ablauf__nummer" aria-hidden="true">3</span>
+              <span><span class="etikett ablauf__bahn">VIANU</span><strong>VIANU makes the insoles</strong><span>A custom-made insole is made for each person.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="4">
+              <span class="ablauf__nummer" aria-hidden="true">4</span>
+              <span><span class="etikett ablauf__bahn">Your business</span><strong>Insoles arrive at your business</strong><span>At the latest 7 days after the foot capture. It goes into shoes your employees already own.</span></span>
+            </button>
+          </li>
+        </ol>
+        <div class="ablauf__bild">
+          <div class="handy-huelle">
+          <svg class="handy" viewBox="0 0 200 380" aria-hidden="true" focusable="false">
+            <rect class="handy__rahmen" x="10" y="6" width="180" height="368" rx="28"/>
+            <rect class="handy__screen" x="20" y="30" width="160" height="320" rx="10"/>
+            <rect class="handy__kerbe" x="78" y="14" width="44" height="8" rx="4"/>
+
+            <g data-screen="1">
+              <rect class="handy__karte" x="34" y="70" width="132" height="70" rx="8"/>
+              <circle class="handy__punkt" cx="54" cy="92" r="9"/>
+              <rect class="handy__zeile" x="72" y="86" width="76" height="6" rx="3"/>
+              <rect class="handy__zeile" x="72" y="100" width="54" height="6" rx="3"/>
+              <rect class="handy__zeile" x="46" y="120" width="96" height="6" rx="3"/>
+              <rect class="handy__karte" x="34" y="156" width="132" height="70" rx="8"/>
+              <circle class="handy__punkt handy__punkt--leer" cx="54" cy="178" r="9"/>
+              <rect class="handy__zeile" x="72" y="172" width="64" height="6" rx="3"/>
+              <rect class="handy__zeile" x="72" y="186" width="44" height="6" rx="3"/>
+            </g>
+
+            <g data-screen="2" hidden>
+              <use class="handy__fuss" href="#sohle-form" x="64" y="82" width="72" height="187"/>
+              <g class="handy__ecken">
+                <path d="M40 74v-24h24M160 74v-24h-24M40 286v24h24M160 286v24h-24"/>
+              </g>
+              <circle class="handy__ausloeser" cx="100" cy="326" r="14"/>
+            </g>
+
+            <g data-screen="3" hidden>
+              <use class="handy__fuss handy__fuss--signal" href="#sohle-form" x="52" y="62" width="96" height="250"/>
+              <rect class="handy__zeile handy__zeile--dunkel" x="70" y="318" width="60" height="6" rx="3"/>
+            </g>
+
+            <g data-screen="4" hidden>
+              <rect class="handy__karte" x="46" y="120" width="108" height="86" rx="6"/>
+              <path class="handy__haken" d="M76 164l16 16 34-36"/>
+              <rect class="handy__zeile" x="62" y="234" width="76" height="6" rx="3"/>
+              <rect class="handy__zeile" x="78" y="250" width="44" height="6" rx="3"/>
+            </g>
+          </svg>
+          <button class="knopf handy__cta" type="button" data-cta-schritt="1" data-pilot-oeffnen>Book a pilot</button>
+          </div>
+          <p class="sr-nur" role="status" aria-live="polite" data-ablauf-beschreibung>1: You sign up your team</p>
         </div>
       </div>
     </div>
@@ -349,12 +410,12 @@
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="preis-titel">Price</h2></div>
       <div class="preis">
-        <p class="preis__zahl" aria-label="EUR 120 per pair">&euro;120</p>
+        <p class="preisschild" aria-label="EUR 120 per pair"><svg class="preisschild__form" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><path d="M18 90L74 14H296a12 12 0 0 1 12 12v128a12 12 0 0 1-12 12H74z"/><circle cx="66" cy="90" r="10"/></svg><span class="preisschild__zahl">&euro;120</span></p>
         <div class="preis__zusatz">
-          <p>per pair, plus VAT</p>
-          <p>The pilot costs the regular price: 10 pairs, EUR 1,200, plus VAT.</p>
+          <p class="preis__je">per pair, plus VAT</p>
+          <figure class="buendel"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Ten insoles for the pilot" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><figcaption>The pilot costs the regular price: 10 pairs, EUR 1,200, plus VAT.</figcaption></figure>
         </div>
-        <p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p>
+        <div class="siegel"><span class="siegel__rund" aria-hidden="true"><strong>3</strong><span>years</span></span><p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p></div>
       </div>
       <div class="preis__werkzeuge">
         <div class="rechner" data-rechner>
@@ -406,7 +467,7 @@
         </div>
       </div>
       <div class="sorgen__buehne">
-        <svg class="sorgen__umriss" viewBox="0 0 250 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polygon points="10.0,54.0 10.1,46.8 11.7,40.2 14.7,34.5 19.0,29.5 24.4,25.5 30.8,22.5 38.1,20.6 46.0,20.0 55.5,20.4 64.6,21.5 73.4,23.1 82.0,24.8 90.6,26.3 99.4,27.6 108.5,28.2 118.0,28.0 126.0,26.7 133.6,24.7 141.1,22.1 148.5,19.2 156.1,16.5 164.1,14.2 172.7,12.6 182.0,12.0 190.3,11.7 198.1,11.6 205.3,11.8 211.9,12.1 217.8,12.7 223.2,13.5 227.9,14.6 232.0,16.0 234.8,16.6 237.2,17.8 239.2,19.3 240.6,21.1 241.6,23.2 242.0,25.4 241.8,27.7 241.0,30.0 243.1,30.8 244.7,32.2 245.9,34.2 246.6,36.5 246.8,39.0 246.5,41.5 245.6,43.9 244.0,46.0 246.0,47.1 247.5,48.8 248.5,50.9 249.0,53.2 248.9,55.7 248.2,58.1 246.9,60.2 245.0,62.0 246.6,63.5 247.8,65.5 248.4,67.9 248.4,70.5 247.8,73.1 246.5,75.5 244.6,77.5 242.0,79.0 243.9,80.6 244.9,82.9 245.2,85.8 244.5,88.8 242.9,91.7 240.3,94.2 236.7,96.1 232.0,97.0 225.3,97.4 218.6,97.3 212.1,96.6 205.8,95.5 199.7,94.0 194.0,92.2 188.8,90.2 184.0,88.0 175.3,86.6 167.0,84.3 159.0,81.3 151.2,78.0 143.6,74.7 135.9,71.7 128.1,69.4 120.0,68.0 112.8,68.6 105.9,70.3 99.4,72.9 93.0,76.0 86.6,79.5 80.1,83.2 73.2,86.8 66.0,90.0 57.4,92.1 48.5,92.5 39.7,91.1 31.2,87.8 23.7,82.4 17.3,75.1 12.7,65.6"/><path d="M241 30l-10 3"/><path d="M244 46l-10 3"/><path d="M245 62l-10 3"/><path d="M242 79l-10 3"/></svg>
+        <svg class="sorgen__umriss" viewBox="0 0 250 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polygon points="10.0,54.0 10.1,46.8 11.7,40.2 14.7,34.5 19.0,29.5 24.4,25.5 30.8,22.5 38.1,20.6 46.0,20.0 55.5,20.4 64.6,21.5 73.4,23.1 82.0,24.8 90.6,26.3 99.4,27.6 108.5,28.2 118.0,28.0 126.0,26.7 133.6,24.7 141.1,22.1 148.5,19.2 156.1,16.5 164.1,14.2 172.7,12.6 182.0,12.0 190.3,11.7 198.1,11.6 205.3,11.8 211.9,12.1 217.8,12.7 223.2,13.5 227.9,14.6 232.0,16.0 234.8,16.6 237.2,17.8 239.2,19.3 240.6,21.1 241.6,23.2 242.0,25.4 241.8,27.7 241.0,30.0 243.1,30.8 244.7,32.2 245.9,34.2 246.6,36.5 246.8,39.0 246.5,41.5 245.6,43.9 244.0,46.0 246.0,47.1 247.5,48.8 248.5,50.9 249.0,53.2 248.9,55.7 248.2,58.1 246.9,60.2 245.0,62.0 246.6,63.5 247.8,65.5 248.4,67.9 248.4,70.5 247.8,73.1 246.5,75.5 244.6,77.5 242.0,79.0 243.9,80.6 244.9,82.9 245.2,85.8 244.5,88.8 242.9,91.7 240.3,94.2 236.7,96.1 232.0,97.0 225.3,97.4 218.6,97.3 212.1,96.6 205.8,95.5 199.7,94.0 194.0,92.2 188.8,90.2 184.0,88.0 175.3,86.6 167.0,84.3 159.0,81.3 151.2,78.0 143.6,74.7 135.9,71.7 128.1,69.4 120.0,68.0 112.8,68.6 105.9,70.3 99.4,72.9 93.0,76.0 86.6,79.5 80.1,83.2 73.2,86.8 66.0,90.0 57.4,92.1 48.5,92.5 39.7,91.1 31.2,87.8 23.7,82.4 17.3,75.1 12.7,65.6"/><path d="M241 30l-17 5"/><path d="M244 46l-17 5"/><path d="M245 62l-17 5"/><path d="M242 79l-17 5"/></svg>
         <ul class="sorgen__fuss" data-sorgen-liste>
           <li class="sorgen__eintrag sorgen__eintrag--1">
             <a class="sorge sorge--1" id="sorge-1" href="personal.html" data-sorge>
@@ -544,10 +605,10 @@
   <section class="abschnitt" id="zweites-paar" aria-labelledby="zweites-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="zweites-titel">Second pair</h2></div>
-      <div class="platzhalter platzhalter--abschnitt" data-platzhalter role="group" aria-label="Placeholder for the Second pair section">
+      <div class="zweites"><svg class="zweites__bild" viewBox="0 0 220 140" role="img" aria-label="Two insoles, one filled and one dashed" focusable="false"><use class="zweites__sohle" href="#sohle-form" x="40" y="10" width="46" height="120" transform="rotate(-8 63 70)"/><use class="zweites__sohle zweites__sohle--leer" href="#sohle-form" x="116" y="10" width="46" height="120" transform="rotate(8 139 70)"/><text x="190" y="82" class="zweites__frage" aria-hidden="true">?</text></svg><div class="platzhalter platzhalter--abschnitt" data-platzhalter role="group" aria-label="Placeholder for the Second pair section">
         <span class="etikett platzhalter__etikett">Placeholder</span>
         <p>Second pair section: take-back and second pair, in a few sentences. Content follows once the concept is in place.</p>
-      </div>
+      </div></div>
     </div>
   </section>
 

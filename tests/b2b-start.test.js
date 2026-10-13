@@ -83,3 +83,49 @@ test("Messwert-Symbole sind die neuen mehrfarbigen und stehen auch auf den Rolle
 test("die Fußform der Sorgen ist ein Umriss mit Zehen über den Kacheln", () => {
   for (const f of SEITEN) assert.match(lies(f), /<svg class="sorgen__umriss"[^>]*><polygon points="[^"]{200,}"/, f);
 });
+
+test("der Ablauf ist der Handy-Ablauf mit vier Schritten, Bahn-Etikett je Schritt und Knopf im Bild, ohne Bahnen-Raster", () => {
+  for (const f of SEITEN) {
+    const h = lies(f);
+    const ab = h.match(/<section class="abschnitt ablauf" id="ablauf"[\s\S]*?<\/section>/)[0];
+    assert.equal((ab.match(/<button class="ablauf__schritt"/g) || []).length, 4, f);
+    assert.equal((ab.match(/class="etikett ablauf__bahn"/g) || []).length, 4, f);
+    assert.match(ab, /<svg class="handy"/, f);
+    assert.match(ab, /<button class="knopf handy__cta" type="button" data-cta-schritt="1" data-pilot-oeffnen>/, f);
+    assert.equal((ab.match(/data-screen="\d"/g) || []).length, 4, f);
+    assert.doesNotMatch(h, /bahnen/, f);
+    assert.match(h, /<symbol id="sohle-form"/, f);
+  }
+});
+
+test("der Preis ist ein Preisschild mit Bündel aus zehn Sohlen und einem Siegel für die Haltbarkeit", () => {
+  for (const [f, zahl, bund, siegel] of [["b2b/index.html", /120 &euro;/, /10 Paare, 1\.200 Euro/, /mindestens 3 Jahre einwandfrei/], ["en/b2b/index.html", /&euro;120/, /10 pairs, EUR 1,200/, /at least 3 years/]]) {
+    const h = lies(f);
+    assert.match(h, /<p class="preisschild" aria-label="[^"]*120[^"]*">/, f);
+    assert.match(h, zahl, f);
+    assert.equal((h.match(/class="buendel__sohle"/g) || []).length, 10, f);
+    assert.match(h, bund, f);
+    assert.match(h, /<div class="siegel"><span class="siegel__rund" aria-hidden="true"><strong>3<\/strong>/, f);
+    assert.match(h, siegel, f);
+  }
+});
+
+test("Zweites Paar zeigt zwei Sohlen und bleibt als Platzhalter markiert", () => {
+  for (const f of SEITEN) {
+    const h = lies(f);
+    const z = h.match(/<section class="abschnitt" id="zweites-paar"[\s\S]*?<\/section>/)[0];
+    assert.match(z, /class="zweites__bild"/, f);
+    assert.equal((z.match(/class="zweites__sohle/g) || []).length, 2, f);
+    assert.match(z, /data-platzhalter/, f);
+  }
+});
+
+test("die FAQ hat zwei Gruppenköpfe und jede Frage ist ein details mit summary", () => {
+  for (const f of ALLE_B2B) {
+    const h = lies(f);
+    assert.ok((h.match(/<h3 class="etikett fragen__titel"/g) || []).length >= 1, f);
+    const n = (h.match(/<details class="frage">/g) || []).length;
+    assert.equal((h.match(/<summary>/g) || []).length, n, f);
+    assert.ok(n >= 8, f + ": " + n);
+  }
+});

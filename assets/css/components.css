@@ -771,43 +771,6 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 @media (max-width: 34rem) { .messwerte { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Ablauf in drei Bahnen ---------- */
-.bahnen { display: flex; flex-direction: column; gap: var(--abstand-5); }
-.bahnen__raster { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(6.5rem, auto)); gap: 0 var(--abstand-4); padding-top: var(--abstand-2); }
-.bahnen__bahn { max-width: none; grid-column: 1 / -1; align-self: stretch; padding-top: var(--abstand-2); border-top: 1px solid var(--farbe-tinte); color: var(--farbe-gedaempft); }
-.bahnen__bahn--1 { grid-row: 1; }
-.bahnen__bahn--2 { grid-row: 2; }
-.bahnen__bahn--3 { grid-row: 3; }
-.bahnen__schritt {
-  position: relative;
-  z-index: 1;
-  align-self: center;
-  display: flex;
-  align-items: center;
-  gap: var(--abstand-3);
-  padding: var(--abstand-3) var(--abstand-4);
-  margin-top: var(--abstand-5);
-  background: var(--farbe-papier);
-  color: var(--farbe-tinte);
-  border: var(--kante) solid var(--farbe-tinte);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-.bahnen__schritt strong { font-family: var(--schrift-kopf); font-weight: 700; font-size: 1.15rem; line-height: 1.1; text-transform: uppercase; }
-.bahnen__nr { font-family: var(--schrift-kopf); font-weight: 800; font-size: 2rem; line-height: 1; }
-.bahnen__schritt:hover, .bahnen__schritt[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.bahnen__schritt--1 { grid-column: 1; grid-row: 1; }
-.bahnen__schritt--2 { grid-column: 2; grid-row: 2; }
-.bahnen__schritt--3 { grid-column: 3; grid-row: 3; }
-.bahnen__schritt--4 { grid-column: 4; grid-row: 1; }
-.bahnen__text { padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); min-height: 5.5rem; font-size: 1.15rem; max-width: 62ch; }
-.bahnen__text [hidden] { display: none; }
-@media (max-width: 48rem) {
-  .bahnen__raster { display: flex; flex-direction: column; gap: var(--abstand-3); padding-top: 0; }
-  .bahnen__bahn { display: none; }
-  .bahnen__schritt { margin-top: 0; flex-wrap: wrap; }
-  .bahnen__schritt::before { content: attr(data-bahn); flex: 0 0 100%; font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; }
-}
 
 /* ---------- Preis: Rechner und Klein starten ---------- */
 .preis__werkzeuge { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 56px); margin-top: var(--abstand-7); align-items: start; }
@@ -1267,3 +1230,64 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 }
 .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: 30%; }
 @media (max-width: 56rem) { .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: var(--abstand-5); } }
+
+
+/* ---------- Ablauf (B2B): Bahn-Etikett im Schritt ---------- */
+.ablauf__bahn { display: inline-block; margin-bottom: var(--abstand-1); padding: 0.1rem 0.5rem; background: var(--farbe-tinte); color: var(--farbe-papier); }
+.ablauf__schritt:hover .ablauf__bahn, .ablauf__schritt[aria-pressed="true"] .ablauf__bahn { background: var(--farbe-papier); color: var(--farbe-tinte); }
+.ablauf__schritt span span.ablauf__bahn { margin-top: 0; font-size: var(--schrift-groesse-etikett); }
+
+/* ---------- Preis: Preisschild, Bündel, Siegel ---------- */
+.preis { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--abstand-6) clamp(24px, 5vw, 72px); align-items: center; }
+.preisschild { position: relative; margin: 0; width: min(100%, 24rem); aspect-ratio: 320 / 180; }
+.preisschild__form { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 4; stroke-linejoin: round; overflow: visible; }
+.preisschild__form circle { fill: var(--farbe-papier); }
+.preisschild__zahl { position: absolute; left: 24%; right: 6%; top: 0; bottom: 0; display: grid; place-items: center; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(3.5rem, 9vw, 6.5rem); line-height: 1; color: var(--farbe-auf-signal); }
+.preis__zusatz { display: flex; flex-direction: column; gap: var(--abstand-4); }
+.preis__je { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.08em; text-transform: uppercase; }
+.buendel { display: flex; align-items: center; gap: var(--abstand-5); margin: 0; }
+.buendel__bild { flex: none; width: min(55%, 15rem); height: auto; }
+.buendel__sohle { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 8; }
+.buendel figcaption { font-weight: 600; max-width: 28ch; }
+.siegel { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--abstand-5); padding: var(--abstand-5); background: var(--farbe-tinte); color: var(--farbe-papier); }
+.siegel__rund { flex: none; display: grid; place-content: center; width: 6.5rem; height: 6.5rem; border-radius: 50%; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-papier); text-align: center; }
+.siegel__rund strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 3rem; line-height: 0.9; }
+.siegel__rund span { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); letter-spacing: 0.1em; text-transform: uppercase; }
+.siegel .preis__halt { margin: 0; font-size: 1.2rem; max-width: 46ch; }
+@media (max-width: 56rem) { .preis { grid-template-columns: minmax(0, 1fr); } .buendel { flex-direction: column; align-items: flex-start; } .buendel__bild { width: min(70%, 15rem); } }
+@media (max-width: 36rem) { .siegel { flex-direction: column; align-items: flex-start; } }
+
+/* ---------- FAQ: farbige Gruppenköpfe, nummerierte Fragen ---------- */
+.fragen__bereich { display: flex; flex-direction: column; gap: var(--abstand-7); }
+.fragen__gruppe + .fragen__gruppe { margin-top: 0; }
+.fragen__gruppe { display: grid; grid-template-columns: minmax(12rem, 1fr) minmax(0, 3fr); gap: var(--abstand-5) var(--abstand-6); align-items: start; }
+.fragen__titel.etikett {
+  position: sticky; top: calc(var(--menue-hoehe) + var(--abstand-4));
+  margin: 0; padding: var(--abstand-5);
+  background: var(--farbe-tinte); color: var(--farbe-papier);
+  font-family: var(--schrift-kopf); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 800; letter-spacing: 0; line-height: 1.05; text-transform: uppercase;
+}
+.fragen__gruppe:nth-child(even) .fragen__titel.etikett { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.fragen { counter-reset: frage; border-bottom: 0; display: flex; flex-direction: column; gap: var(--abstand-3); }
+.fragen .frage { counter-increment: frage; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); }
+.fragen .frage[open] { border-left-width: 10px; border-left-color: var(--farbe-signal); }
+.fragen .frage summary::before { content: counter(frage, decimal-leading-zero); flex: none; font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; color: var(--farbe-signal); -webkit-text-stroke: 1px var(--farbe-tinte); }
+.fragen .frage summary { gap: var(--abstand-4); align-items: center; }
+.fragen .frage summary::after { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: var(--kante) solid var(--farbe-tinte); border-radius: 50%; font-size: 1.4rem; line-height: 1; }
+.fragen .frage__antwort { padding: 0 var(--abstand-5) var(--abstand-5) var(--abstand-5); }
+@media (max-width: 56rem) { .fragen__gruppe { grid-template-columns: minmax(0, 1fr); } .fragen__titel.etikett { position: static; } }
+
+/* ---------- Zweites Paar ---------- */
+.zweites { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-6); align-items: center; }
+.zweites__bild { width: min(100%, 15rem); height: auto; }
+.zweites__sohle { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 5; }
+.zweites__sohle--leer { fill: none; stroke-dasharray: 14 10; }
+.zweites__frage { font-family: var(--schrift-kopf); font-weight: 800; font-size: 3.5rem; fill: var(--farbe-tinte); }
+@media (max-width: 36rem) { .zweites { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Messwerte: zweite Kachel mit Pink-Kopf, Fußform ruhiger ---------- */
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(2) { border-top: 1rem solid var(--farbe-signal); }
+.sorge__kurz { text-wrap: balance; }
+.ablauf__schritt span span.ablauf__bahn { display: inline-block; }
+.fragen .frage summary { justify-content: flex-start; }
+.fragen .frage summary::after { margin-left: auto; }
