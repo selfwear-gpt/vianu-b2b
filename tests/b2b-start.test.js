@@ -57,8 +57,9 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
 test("Was Sie bekommen ist ein Reiter-Baustein mit drei Feldern und vier Chips", () => {
   for (const f of SEITEN) {
     const h = lies(f);
-    assert.equal((h.match(/role="tab"/g) || []).length, 3, f);
-    assert.equal((h.match(/role="tabpanel"/g) || []).length, 3, f);
+    assert.equal((h.match(/data-reiter="\d"/g) || []).length, 3, f);
+    assert.equal((h.match(/data-feld-nr="\d"/g) || []).length, 3, f);
+    assert.doesNotMatch(h, /role="tab(list|panel)?"/, f + ": Rollen setzt erst das Skript");
     assert.equal((h.match(/<ul class="chips chips--gross">(<li>[^<]+<\/li>){4}<\/ul>/g) || []).length, 1, f);
   }
 });

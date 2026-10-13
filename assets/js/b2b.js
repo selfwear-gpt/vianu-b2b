@@ -299,6 +299,12 @@
     var felder = wurzel.querySelectorAll("[data-feld-nr]");
     if (!reiter.length || reiter.length !== felder.length) return;
 
+    // Die Rollen setzt erst das Skript: Ohne Skript stehen alle Felder offen untereinander, die Reiter sind dann nur Überschriften
+    var liste = wurzel.querySelector(".reise__reiter");
+    if (liste) liste.setAttribute("role", "tablist");
+    Array.prototype.forEach.call(reiter, function (r) { r.setAttribute("role", "tab"); });
+    Array.prototype.forEach.call(felder, function (f) { f.setAttribute("role", "tabpanel"); f.setAttribute("tabindex", "0"); });
+
     function waehle(nr, fokus) {
       Array.prototype.forEach.call(reiter, function (r) {
         var an = r.getAttribute("data-reiter") === nr;

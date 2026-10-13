@@ -282,8 +282,7 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="ablauf-titel">Vom Start bis zur Sohle</h2>
-        <p>Der Pilot läuft in vier Schritten. Wählen Sie einen Schritt, um zu sehen, wer was tut.</p>
-        <p>In vier Schritten von der Anmeldung bis zur eigenen Sohle.</p>
+        <p>Der Pilot läuft in vier Schritten.</p>
       </div>
       <div class="bahnen" data-ablauf>
         <div class="bahnen__raster" role="group" aria-label="Die vier Schritte in drei Bahnen">
@@ -511,18 +510,18 @@
         <p>Sie bekommen drei Dinge: Unterlagen für die Freigabe, die Durchführung mit Ihrem Team und einen Bericht am Ende.</p>
       </div>
       <div class="reise" data-reise>
-        <div class="reise__reiter" role="tablist" aria-label="Die drei Teile des Programms">
-          <button class="reise__tab" type="button" role="tab" id="reise-tab-1" aria-controls="reise-feld-1" aria-selected="true" data-reiter="1"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="30" y="6" width="50" height="68" rx="4" class="f-papier"/><path d="M40 22h30M40 34h30M40 46h18"/><circle cx="82" cy="58" r="18" class="f-signal"/><path d="M73 58l7 7 12-15" stroke-width="5"/></svg><span class="reise__nr" aria-hidden="true">1</span><span class="etikett">Vor dem Start</span><strong>Freigabepaket</strong></button>
-          <button class="reise__tab" type="button" role="tab" id="reise-tab-2" aria-controls="reise-feld-2" aria-selected="false" tabindex="-1" data-reiter="2"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="12" y="10" width="34" height="58" rx="6" class="f-papier"/><circle cx="29" cy="56" r="3" class="f-tinte"/><path d="M12 22h34"/><g transform="translate(86 42) rotate(90) scale(0.25) translate(-50 -130)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-signal" stroke-width="11"/></g><path d="M52 40h14M60 33l8 7-8 7" stroke-width="4"/></svg><span class="reise__nr" aria-hidden="true">2</span><span class="etikett">Im Piloten</span><strong>Durchführung</strong></button>
-          <button class="reise__tab" type="button" role="tab" id="reise-tab-3" aria-controls="reise-feld-3" aria-selected="false" tabindex="-1" data-reiter="3"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="14" y="8" width="92" height="68" rx="4" class="f-papier"/><path d="M28 62V46h14v16zM52 62V34h14v28zM76 62V22h14v40z" class="f-signal"/><path d="M26 18h40"/></svg><span class="reise__nr" aria-hidden="true">3</span><span class="etikett">Danach</span><strong>Ergebnisbericht</strong></button>
+        <div class="reise__reiter" aria-label="Die drei Teile des Programms">
+          <button class="reise__tab" type="button" id="reise-tab-1" aria-controls="reise-feld-1" data-reiter="1"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="30" y="6" width="50" height="68" rx="4" class="f-papier"/><path d="M40 22h30M40 34h30M40 46h18"/><circle cx="82" cy="58" r="18" class="f-signal"/><path d="M73 58l7 7 12-15" stroke-width="5"/></svg><span class="reise__nr" aria-hidden="true">1</span><span class="etikett">Vor dem Start</span><strong>Freigabepaket</strong></button>
+          <button class="reise__tab" type="button" id="reise-tab-2" aria-controls="reise-feld-2" data-reiter="2"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="12" y="10" width="34" height="58" rx="6" class="f-papier"/><circle cx="29" cy="56" r="3" class="f-tinte"/><path d="M12 22h34"/><g transform="translate(86 42) rotate(90) scale(0.25) translate(-50 -130)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-signal" stroke-width="11"/></g><path d="M52 40h14M60 33l8 7-8 7" stroke-width="4"/></svg><span class="reise__nr" aria-hidden="true">2</span><span class="etikett">Im Piloten</span><strong>Durchführung</strong></button>
+          <button class="reise__tab" type="button" id="reise-tab-3" aria-controls="reise-feld-3" data-reiter="3"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="14" y="8" width="92" height="68" rx="4" class="f-papier"/><path d="M28 62V46h14v16zM52 62V34h14v28zM76 62V22h14v40z" class="f-signal"/><path d="M26 18h40"/></svg><span class="reise__nr" aria-hidden="true">3</span><span class="etikett">Danach</span><strong>Ergebnisbericht</strong></button>
         </div>
         <div class="reise__buehne">
-          <div class="reise__feld" role="tabpanel" id="reise-feld-1" aria-labelledby="reise-tab-1" data-feld-nr="1">
+          <div class="reise__feld" id="reise-feld-1" aria-labelledby="reise-tab-1" data-feld-nr="1">
             <h3>Freigabepaket</h3>
             <p>Unterlagen für die Freigabe im Unternehmen.</p>
             <ul class="unterlagen"><li class="unterlagen__eintrag"><span>Vorlage für die Betriebsvereinbarung</span><span class="etikett unterlagen__stand">In Arbeit</span></li><li class="unterlagen__eintrag"><span>Datenschutzkonzept</span><span class="etikett unterlagen__stand">In Arbeit</span></li><li class="unterlagen__eintrag"><span>Auftragsverarbeitungsvertrag</span><span class="etikett unterlagen__stand">In Arbeit</span></li></ul>
           </div>
-          <div class="reise__feld" role="tabpanel" id="reise-feld-2" aria-labelledby="reise-tab-2" data-feld-nr="2">
+          <div class="reise__feld" id="reise-feld-2" aria-labelledby="reise-tab-2" data-feld-nr="2">
             <h3>Durchführung</h3>
             <p>Ihr Team macht mit, die Sohlen kommen zu Ihnen.</p>
             <ol class="schritte3 schritte3--klein">
@@ -531,10 +530,10 @@
               <li class="schritte3__punkt schritte3__punkt--offen" data-platzhalter role="group" aria-label="Platzhalter für den Aufwand"><strong>Aufwand</strong><span>Aufwand für Ihr Personal und Aufgaben von VIANU: Angabe folgt</span></li>
             </ol>
           </div>
-          <div class="reise__feld" role="tabpanel" id="reise-feld-3" aria-labelledby="reise-tab-3" data-feld-nr="3">
+          <div class="reise__feld" id="reise-feld-3" aria-labelledby="reise-tab-3" data-feld-nr="3">
             <h3>Ergebnisbericht</h3>
             <p>Ein anonymisierter Bericht an Sie, auf Gruppenebene.</p>
-            <ul class="chips"><li>Tragequote</li><li>Wahrnehmung</li><li>Rückmeldungen</li></ul>
+            <ul class="chips"><li>Tragequote</li><li>Spürbare Verbesserung</li><li>Weiterempfehlung</li><li>Wertschätzung</li></ul>
           </div>
         </div>
         <ul class="chips chips--gross"><li>Kein Messtag</li><li>Eigenes Handy</li><li>Vorhandene Schuhe</li><li>Freiwillig</li></ul>
