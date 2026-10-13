@@ -130,17 +130,28 @@ test("die FAQ hat zwei Gruppenköpfe und jede Frage ist ein details mit summary"
   }
 });
 
-test("Roderichs Weg hat sechs Stationen mit Fußspuren, Vor und Zurück, und endet beim Pilot-Knopf", () => {
-  for (const [f, folgt] of [["b2b/index.html", /Gelernt in der Systemgastronomie[\s\S]*Lieferkette bei Yum![\s\S]*WOYTON aufgebaut[\s\S]*WOYTON verkauft[\s\S]*Mehr als 20 Jahre Gastronomie[\s\S]*Darum VIANU/], ["en/b2b/index.html", /Trained in system gastronomy[\s\S]*Supply chain at Yum![\s\S]*Built WOYTON[\s\S]*Sold WOYTON[\s\S]*More than 20 years in food service[\s\S]*That is why VIANU/]]) {
+test("Roderichs Weg läuft von heute zurück: fünf Stationen, je ein Bildplatzhalter, WOYTON und Exit in einem Schritt, Pilot-Knopf in der ersten", () => {
+  for (const [f, folgt] of [["b2b/index.html", /Darum VIANU[\s\S]*Mehr als 20 Jahre Gastronomie[\s\S]*WOYTON aufgebaut und verkauft[\s\S]*Lieferkette bei Yum![\s\S]*Gelernt in der Systemgastronomie/], ["en/b2b/index.html", /That is why VIANU[\s\S]*More than 20 years in food service[\s\S]*Built and sold WOYTON[\s\S]*Supply chain at Yum![\s\S]*Trained in system gastronomy/]]) {
     const h = lies(f);
-    assert.equal((h.match(/data-station="\d"/g) || []).length, 6, f);
-    assert.equal((h.match(/data-station-nr="\d"/g) || []).length, 6, f);
+    assert.equal((h.match(/data-station="\d"/g) || []).length, 5, f);
+    assert.equal((h.match(/data-station-nr="\d"/g) || []).length, 5, f);
+    assert.equal((h.match(/class="platzhalter weg__foto"/g) || []).length, 5, f + ": ein Bildplatzhalter je Station");
     assert.match(h, folgt, f + ": Reihenfolge");
+    assert.doesNotMatch(h, /WOYTON verkauft|Sold WOYTON/, f + ": Exit steht bei WOYTON");
     assert.match(h, /data-weg-zurueck/, f);
     assert.match(h, /data-weg-weiter/, f);
-    assert.match(h, /<article class="weg__feld" data-station-nr="6">[\s\S]*data-pilot-oeffnen/, f);
+    assert.match(h, /<article class="weg__feld" data-station-nr="1">[\s\S]*?data-pilot-oeffnen[\s\S]*?<article class="weg__feld" data-station-nr="2">/, f + ": Pilot-Knopf in Station 1");
     assert.match(h, /Eigene Angabe von Roderich|own statement/, f);
+    assert.match(h, /Mein Weg|My path/, f);
+    assert.match(h, /Kraft und Vorfreude|something to look forward to/, f + ": neuer Kopfsatz");
+    assert.match(h, /Danach taten die Füße weh|Afterwards my feet hurt/, f);
   }
+});
+
+test("Der Weg-CSS kappt die Bühne nicht: keine Höhenbegrenzung auf dem Weg-Block", () => {
+  const css = lies("assets/css/components.css");
+  assert.doesNotMatch(css, /(^|\n)\.weg \{[^}]*max-height/, "max-height nur für das SVG im Arbeitsschutz");
+  assert.doesNotMatch(css, /\.weg__buehne \{[^}]*min-height/);
 });
 
 test("Der Boden fragt, wie lange die Leute stehen: Regler von 4 bis 12 Stunden steuert die Karte, Roderichs Wert steht daneben", () => {

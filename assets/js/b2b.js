@@ -54,7 +54,7 @@
     var svg = wurzel.querySelector("svg");
     var umriss = wurzel.querySelector("[data-druck-umriss]");
     var gruppe = wurzel.querySelector("[data-druck-punkte]");
-    if (!svg || !umriss || !gruppe || !window.VianuFortschritt || !umriss.isPointInFill) return;
+    if (!svg || !umriss || !gruppe || !window.VianuFortschritt) return;
 
     function last(x, y) {
       function glocke(mx, my, sx, sy, a) {
@@ -65,26 +65,47 @@
       return 0.1 + glocke(50, 212, 26, 30, 1) + glocke(38, 84, 24, 26, 0.8) + glocke(40, 28, 14, 14, 0.45);
     }
 
-    var zufallswert = zufall(7);
-    var liste = [];
-    for (var y = 8; y < 256; y += 7) {
-      for (var x = 8; x < 96; x += 7) {
-        var px = x + (Math.floor((y - 8) / 7) % 2 ? 3.5 : 0);
-        if (!umriss.isPointInFill(new DOMPoint(px, y))) continue;
-        var w = Math.min(1, last(px, y) / 1.15);
-        liste.push({ x: px, y: y, w: w, schluessel: w + zufallswert() * 0.45 });
-      }
+    // Ohne Browser-Unterstützung für isPointInFill gilt eine Ellipse um den Fuß als Näherung
+    function innen(px, y) {
+      if (umriss.isPointInFill) return umriss.isPointInFill(new DOMPoint(px, y));
+      var dx = (px - 50) / 44;
+      var dy = (y - 134) / 128;
+      return dx * dx + dy * dy <= 1;
     }
-    // Niedrige Last zuerst, die Spitze der Belastung zuletzt
-    liste.sort(function (a, b) { return a.schluessel - b.schluessel; });
-    var kreise = liste.map(function (p) {
-      var c = punkt(p.x.toFixed(1), p.y, (0.9 + 2.3 * p.w).toFixed(2), "druck__punkt" + (p.w > 0.82 ? " druck__punkt--spitze" : ""));
-      gruppe.appendChild(c);
-      return c;
-    });
 
+    // Die Punkte entstehen erst, wenn die Karte sichtbar ist. In einem versteckten Bereich (display: none) meldet isPointInFill überall false.
+    var kreise = [];
     var sichtbar = -1;
-    function zeige(anzahl) {
+    var gewuenscht = 0;
+    function baue() {
+      if (kreise.length) return true;
+      if (!svg.getBoundingClientRect().width) return false;
+      var zufallswert = zufall(7);
+      var liste = [];
+      for (var y = 8; y < 256; y += 7) {
+        for (var x = 8; x < 96; x += 7) {
+          var px = x + (Math.floor((y - 8) / 7) % 2 ? 3.5 : 0);
+          if (!innen(px, y)) continue;
+          var w = Math.min(1, last(px, y) / 1.15);
+          liste.push({ x: px, y: y, w: w, schluessel: w + zufallswert() * 0.45 });
+        }
+      }
+      if (!liste.length) return false;
+      // Niedrige Last zuerst, die Spitze der Belastung zuletzt
+      liste.sort(function (a, b) { return a.schluessel - b.schluessel; });
+      kreise = liste.map(function (p) {
+        var c = punkt(p.x.toFixed(1), p.y, (0.9 + 2.3 * p.w).toFixed(2), "druck__punkt" + (p.w > 0.82 ? " druck__punkt--spitze" : ""));
+        gruppe.appendChild(c);
+        return c;
+      });
+      sichtbar = -1;
+      return true;
+    }
+    // anteil: 0 bis 1, wie voll die Karte sein soll
+    function zeige(anteil) {
+      gewuenscht = anteil;
+      if (!baue()) return;
+      var anzahl = window.VianuFortschritt.sichtbareAnzahl(anteil, kreise.length);
       if (anzahl === sichtbar) return;
       for (var i = 0; i < kreise.length; i++) {
         if (i < anzahl) kreise[i].removeAttribute("data-aus");
@@ -92,6 +113,11 @@
       }
       sichtbar = anzahl;
     }
+    // Wird die Karte später sichtbar, gilt der zuletzt gewünschte Stand
+    function nachziehen() { if (!kreise.length) zeige(gewuenscht); }
+    if (window.IntersectionObserver) new IntersectionObserver(nachziehen).observe(svg);
+    window.addEventListener("resize", nachziehen);
+    window.addEventListener("hashchange", nachziehen);
 
     // Mit Regler: Die Karte füllt sich nach den eingestellten Stunden (4 bis 12) statt beim Scrollen, auch bei reduzierter Bewegung
     var regler = wurzel.hasAttribute("data-druck-regler") ? (wurzel.closest("[data-boden]") || document).querySelector("[data-boden-regler]") : null;
@@ -101,7 +127,7 @@
       var gleich = abschnitt.querySelector("[data-boden-gleich]");
       var setze = function () {
         var h = Number(regler.value);
-        zeige(window.VianuFortschritt.sichtbareAnzahl((h - 2) / 10, kreise.length));
+        zeige((h - 2) / 10);
         if (zahl) zahl.textContent = String(h);
         if (gleich) gleich.hidden = h < 10;
       };
@@ -110,13 +136,13 @@
       return;
     }
     if (reduziert) {
-      zeige(kreise.length);
+      zeige(1);
       return;
     }
     beiScroll(function () {
       var r = wurzel.getBoundingClientRect();
       var f = window.VianuFortschritt.fortschrittImBild(r.top, r.height, window.innerHeight);
-      zeige(window.VianuFortschritt.sichtbareAnzahl(Math.min(1, f / 0.65), kreise.length));
+      zeige(Math.min(1, f / 0.65));
     });
   }
 

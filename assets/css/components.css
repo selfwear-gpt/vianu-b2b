@@ -422,11 +422,11 @@ button.knopf { cursor: pointer; }
 
 /* ---------- Kurz erklärt ---------- */
 .kurz { background: var(--farbe-papier); border-top: 1px solid var(--farbe-tinte); border-bottom: 1px solid var(--farbe-tinte); }
-.kurz__liste { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr); margin: 0; }
+.kurz__liste { list-style: none; padding: 0; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr); margin: 0; }
 .kurz__punkt { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5) var(--abstand-5); border-left: 1px solid var(--farbe-tinte); }
 .kurz__punkt:first-child { border-left: 0; padding-left: 0; }
-.kurz__punkt dt { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.9rem, 3.2vw, 2.75rem); line-height: 0.95; text-transform: uppercase; color: var(--farbe-tinte); }
-.kurz__punkt dd { margin: 0; font-size: var(--schrift-groesse-klein); font-weight: 400; line-height: 1.4; }
+.kurz__punkt p { margin: 0; font-size: var(--schrift-groesse-klein); font-weight: 400; line-height: 1.5; }
+.kurz__wort { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.6rem, 2.6vw, 2.3rem); line-height: 1; text-transform: uppercase; color: var(--farbe-tinte); }
 @media (max-width: 56rem) {
   .kurz__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kurz__punkt:nth-child(3) { border-left: 0; padding-left: 0; }
@@ -981,7 +981,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 /* Arbeitsschutz: Matte und Weg */
 .weg__raster { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
 .weg__bild { margin: 0; }
-.weg { width: 100%; height: auto; max-height: 34rem; }
+svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .weg__raum { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; }
 .weg__zone { fill: none; stroke: var(--farbe-tinte); stroke-width: 1.5; }
 .weg__herd { fill: var(--farbe-tinte); }
@@ -1293,9 +1293,9 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .geschichte__kapitel--weg { background: var(--farbe-papier); }
 .weg { display: flex; flex-direction: column; gap: var(--abstand-5); }
 .weg__titel { font-size: var(--schrift-groesse-h2); line-height: 1; }
-.weg__leiste { --fortschritt: 0%; position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--abstand-2); padding-top: var(--abstand-3); }
-.weg__leiste::before { content: ""; position: absolute; left: 8%; right: 8%; top: 3.15rem; border-top: 3px dashed var(--farbe-tinte); }
-.weg__leiste::after { content: ""; position: absolute; left: 8%; top: 3.15rem; width: calc((100% - 16%) * var(--fortschritt-anteil, 0)); border-top: 5px solid var(--farbe-signal); }
+.weg__leiste { --fortschritt: 0%; position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-2); padding-top: var(--abstand-3); }
+.weg__leiste::before { content: ""; position: absolute; left: 10%; right: 10%; top: 3.15rem; border-top: 3px dashed var(--farbe-tinte); }
+.weg__leiste::after { content: ""; position: absolute; left: 10%; top: 3.15rem; width: calc((100% - 20%) * var(--fortschritt-anteil, 0)); border-top: 5px solid var(--farbe-signal); }
 .weg__station { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); padding: var(--abstand-2) var(--abstand-1); background: transparent; border: 0; color: var(--farbe-tinte); font: inherit; cursor: pointer; }
 .weg__fuss { width: 1.9rem; height: 4rem; fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 7; transition: transform 0.2s, fill 0.2s; }
 .weg__station:nth-child(odd) .weg__fuss { transform: rotate(-8deg); }
@@ -1304,23 +1304,27 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .weg__station[aria-pressed="true"] .weg__fuss { transform: scale(1.25); }
 .weg__station[aria-pressed="true"] .etikett { font-weight: 700; border-bottom: var(--kante) solid var(--farbe-tinte); }
 .weg__station:hover .etikett { border-bottom: var(--kante) solid var(--farbe-signal); }
-.weg__buehne { padding: var(--abstand-6); background: var(--farbe-tinte); color: var(--farbe-papier); min-height: 16rem; }
-.weg__feld { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); }
+.weg__buehne { padding: var(--abstand-6); background: var(--farbe-tinte); color: var(--farbe-papier); }
+.weg__feld { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--abstand-6); align-items: center; }
+.weg__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); min-width: 0; overflow-wrap: anywhere; }
+.weg__foto { aspect-ratio: 4 / 3; max-width: 100%; background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); }
+.weg__foto .platzhalter__etikett { color: var(--farbe-papier); }
+.weg__knopf { margin-top: var(--abstand-2); }
 .weg__feld[hidden] { display: none; }
 .weg__feld + .weg__feld { margin-top: var(--abstand-6); }
 .weg__zeit { color: var(--farbe-signal); }
 .weg__feld h4 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; color: var(--farbe-papier); }
 .weg__satz { font-size: clamp(1.2rem, 2.2vw, 1.7rem); line-height: 1.35; max-width: 34ch; font-weight: 500; }
 .weg__hinweis { color: var(--farbe-papier); border: 1px dashed var(--farbe-papier); padding: 0.1rem 0.5rem; }
-.weg__logo { background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); max-width: 22rem; }
-.weg__logo .platzhalter__etikett { color: var(--farbe-papier); }
-.weg__steuerung { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+.weg__steuerung { display: flex; flex-wrap: wrap; gap: var(--abstand-3); clear: both; }
 .weg__steuerung [hidden] { display: none; }
 .weg__steuerung button:disabled { opacity: 0.4; cursor: default; }
 @media (max-width: 40rem) {
   .weg__leiste { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--abstand-4); }
   .weg__leiste::before, .weg__leiste::after { display: none; }
   .weg__buehne { padding: var(--abstand-5); }
+  .weg__feld { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-4); }
+  .weg__foto { aspect-ratio: 16 / 9; }
 }
 @media print { .weg__feld[hidden] { display: flex; } }
 
