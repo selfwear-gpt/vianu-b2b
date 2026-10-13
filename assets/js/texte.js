@@ -1,7 +1,6 @@
 /*
-  Meldungen, die Skripte in die Seite schreiben. Schnittstelle: text(schluessel, werte, sprache), SCHLUESSEL.
-  Die Sprache kommt aus dem lang-Attribut der Seite, Deutsch ist der Vorgabewert.
-  Reine Funktion ohne Browserbezug, bis auf den Vorgabewert der Sprache.
+  Meldungen, die Skripte in die Seite schreiben. Schnittstelle: text(schluessel, werte, sprachkuerzel oder element), sprache(element), SCHLUESSEL.
+  Die Sprache kommt aus dem nächsten lang-Attribut über dem Element, Deutsch ist der Vorgabewert.
 */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
@@ -66,13 +65,16 @@
     }
   };
 
-  function seitensprache() {
-    if (typeof document !== "undefined" && document.documentElement) return document.documentElement.lang || "de";
-    return "de";
+  // Sprache eines Elements: das nächste lang-Attribut darüber, sonst Deutsch.
+  // So stimmt sie auch, wenn mehrere Seiten in einem Dokument liegen (Gesamtvorschau).
+  function sprache(element) {
+    var knoten = element && element.closest ? element.closest("[lang]") : null;
+    return (knoten && knoten.getAttribute("lang")) || "de";
   }
 
-  function text(schluessel, werte, sprache) {
-    var s = sprache || seitensprache();
+  // Der dritte Wert ist ein Sprachkürzel oder ein Element der Seite.
+  function text(schluessel, werte, wo) {
+    var s = typeof wo === "string" ? wo : sprache(wo);
     var tabelle = SCHLUESSEL[s] || SCHLUESSEL.de;
     if (!Object.prototype.hasOwnProperty.call(SCHLUESSEL.de, schluessel)) throw new Error("Unbekannter Schlüssel: " + schluessel);
     return tabelle[schluessel].replace(/\{(\w+)\}/g, function (_, name) {
@@ -80,5 +82,5 @@
     });
   }
 
-  return { text: text, SCHLUESSEL: SCHLUESSEL };
+  return { text: text, sprache: sprache, SCHLUESSEL: SCHLUESSEL };
 });

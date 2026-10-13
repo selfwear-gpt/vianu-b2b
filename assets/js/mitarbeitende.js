@@ -23,7 +23,7 @@
         linkFeld.focus();
         linkFeld.select();
       }
-      status.textContent = window.VianuTexte.text("kopiert.fehler.link.du");
+      status.textContent = window.VianuTexte.text("kopiert.fehler.link.du", null, status);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(geklappt, nichtGeklappt);
@@ -46,17 +46,17 @@
       var b = document.createElement("button");
       b.type = "button";
       b.className = "teilen__aktion";
-      b.textContent = window.VianuTexte.text("rolle." + rolle.id);
+      b.textContent = window.VianuTexte.text("rolle." + rolle.id, null, wurzel);
       b.addEventListener("click", function () {
         var link = window.VianuTeilen.linkFuerRolle(document.baseURI, rolle.id);
-        kopiere(link, status, linkFeld, window.VianuTexte.text("kopiert.rolle", { rolle: rolle.name }));
+        kopiere(link, status, linkFeld, window.VianuTexte.text("kopiert.rolle", { rolle: window.VianuTexte.text("rolle." + rolle.id, null, wurzel) }, wurzel));
       });
       li.appendChild(b);
       liste.appendChild(li);
     });
 
     kollegen.addEventListener("click", function () {
-      kopiere(window.VianuTeilen.linkFuerKollegen(document.baseURI), status, linkFeld, window.VianuTexte.text("kopiert.link"));
+      kopiere(window.VianuTeilen.linkFuerKollegen(document.baseURI), status, linkFeld, window.VianuTexte.text("kopiert.link", null, wurzel));
     });
 
     function setze(offen) {
@@ -128,7 +128,7 @@
       if (ansage) {
         window.clearTimeout(timer);
         timer = window.setTimeout(function () {
-          ansage.textContent = leer ? "" : window.VianuTexte.text("name.ansage", { name: name });
+          ansage.textContent = leer ? "" : window.VianuTexte.text("name.ansage", { name: name }, wurzel);
         }, 500);
       }
     }
@@ -232,15 +232,15 @@
 
     knopf.addEventListener("click", function () {
       var b2b = new URL("b2b/", window.VianuTeilen.linkFuerKollegen(document.baseURI)).href;
-      var text = box.textContent.replace(window.VianuTexte.text("platzhalter.link"), b2b);
-      function geklappt() { status.textContent = window.VianuTexte.text("kopiert.text"); }
+      var text = box.textContent.replace(window.VianuTexte.text("platzhalter.link", null, wurzel), b2b);
+      function geklappt() { status.textContent = window.VianuTexte.text("kopiert.text", null, wurzel); }
       function nichtGeklappt() {
         var bereich = document.createRange();
         bereich.selectNodeContents(box);
         var auswahl = window.getSelection();
         auswahl.removeAllRanges();
         auswahl.addRange(bereich);
-        status.textContent = window.VianuTexte.text("kopiert.fehler.text.du");
+        status.textContent = window.VianuTexte.text("kopiert.fehler.text.du", null, wurzel);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(geklappt, nichtGeklappt);
       else nichtGeklappt();

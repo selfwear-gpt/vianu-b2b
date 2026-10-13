@@ -18,9 +18,10 @@ Status: geplant
 - Regeln: "Teilen" bleibt sichtbar.
 
 ### Sprachumschalter
-Status: geplant
-- Zweck: Wechsel zwischen Deutsch und Englisch, oben rechts.
-- Englische Fassung: Slogans bleiben Englisch und unverändert. Menüs und Überschriften werden übersetzt, zum Beispiel "Perspektivwechsel" zu "Change of perspective" mit der Unterzeile "For the decision-makers". Deutsch ist die Hauptsprache und steht fest im HTML.
+Status: gebaut
+- Zweck: Wechsel zwischen Deutsch und Englisch, oben rechts (`.sprache`). Der aktive Eintrag ist ein `span` mit `aria-current="true"`, der andere ein Link auf das Seitenpaar (`hreflang`, `lang`, `aria-label` in der Zielsprache).
+- Englische Fassung: eigene Seiten unter `en/` mit denselben Dateinamen (Seitenpaar), alles im HTML. Kein Erkennen der Browsersprache, keine Weiterleitung. Jede Seite trägt `hreflang` für `de`, `en` und `x-default` (relativ, bis die Domain feststeht). Slogans bleiben Englisch und unverändert. Menüs und Überschriften werden übersetzt, zum Beispiel "Perspektivwechsel" zu "Change of perspective" mit der Unterzeile "For the decision-makers".
+- Meldungen der Skripte (Kopieren, Rechner, Formular, Ablauf, Namenssohle) stehen in `assets/js/texte.js` und folgen dem `lang`-Attribut der Seite.
 - Offen: Im Konzept liegen "Teilen" und "Für Mitarbeitende ↗" ebenfalls am rechten Rand. Vorschlag: Der Umschalter sitzt ganz rechts, die beiden anderen Einträge direkt daneben. Zu bestätigen.
 
 ### Footer

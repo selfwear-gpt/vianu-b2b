@@ -31,3 +31,12 @@ test("unbekannte Sprache fällt auf Deutsch, unbekannter Schlüssel wirft", () =
   assert.equal(text("kopiert.link", null, "fr"), "Link kopiert.");
   assert.throws(() => text("gibt.es.nicht"));
 });
+
+test("die Sprache eines Elements ist das nächste lang-Attribut darüber", () => {
+  const { text: t, sprache } = require("../assets/js/texte.js");
+  const mit = (lang) => ({ closest: () => (lang ? { getAttribute: () => lang } : null) });
+  assert.equal(sprache(mit("en")), "en");
+  assert.equal(sprache(mit(null)), "de");
+  assert.equal(sprache(undefined), "de");
+  assert.equal(t("kopiert.link", null, mit("en")), "Link copied.");
+});

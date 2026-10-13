@@ -1,6 +1,6 @@
 # VIANU Website
 
-Statische Website mit zwei Bereichen: Mitarbeitende ("Du") und Entscheider im B2B-Bereich ("Sie"). Ziel des B2B-Bereichs ist die Buchung eines Piloten mit 10 Mitarbeitenden. Deutsch ist die Hauptsprache, Englisch ist über einen Umschalter erreichbar.
+Statische Website mit zwei Bereichen: Mitarbeitende ("Du") und Entscheider im B2B-Bereich ("Sie"). Ziel des B2B-Bereichs ist die Buchung eines Piloten mit 10 Mitarbeitenden. Deutsch ist die Hauptsprache, Englisch (unter `en/`) ist über einen Umschalter erreichbar.
 
 Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 
@@ -18,7 +18,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - `assets/css/`: `tokens.css` (nur Variablen), `fonts.css` (Schrifteinbindung), `base.css`, `components.css`. Kein CSS in HTML-Dateien.
 - `assets/js/`: kleine Module, jedes mit einer einfachen Schnittstelle (Menü, Sprache, Formular).
 - `assets/fonts/`: Schriften liegen hier. Keine Einbindung von Google Fonts oder anderen Fremdservern.
-- `content/de.json`, `content/en.json`: Texte. Deutsch steht zusätzlich fest im HTML.
+- `en/`: englische Fassung, zu jeder deutschen Seite eine Seite mit demselben Dateinamen (Seitenpaar), alles im HTML. `content/de.json` und `content/en.json` bleiben leer und werden nicht verwendet.
 
 ## Arbeitsregeln
 
@@ -29,7 +29,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - Bei jeder neuen Aufgabe zuerst `docs/agents/skill-auswahl.md` lesen, den passenden Skill selbst wählen und anwenden, ohne dass der Nutzer ihn nennt.
 - Texte nie erfinden. Fehlt ein Beleg, steht ein markierter Platzhalter.
 - Größere Entscheidungen kurz erklären (Was, Warum), damit sie nachvollziehbar bleiben.
-- Die Einseiter-PDFs unter `assets/downloads/rolle-*.pdf` entstehen aus den Rollenseiten: nach jeder Änderung an einer Rollenseite `NODE_PATH=$(npm root -g) CHROMIUM_PFAD=<Chromium> node scripts/erzeuge-pdf.js` ausführen und die PDFs mit committen.
+- Die Einseiter-PDFs unter `assets/downloads/rolle-*.pdf` und `role-*.pdf` (englisch) entstehen aus den Rollenseiten: nach jeder Änderung an einer Rollenseite `NODE_PATH=$(npm root -g) CHROMIUM_PFAD=<Chromium> node scripts/erzeuge-pdf.js` ausführen und die PDFs mit committen.
 
 ## Qualitätsschranken vor jedem Merge
 
@@ -43,6 +43,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - `python3 scripts/check-faq.py` ohne Fehler: FAQPage-Daten gleichen dem sichtbaren Text, keine Platzhalter in den Daten, höchstens die Hälfte Markenfragen. Ob eine Antwort für sich steht, prüft die Durchsicht (`VOICE.md`, Abschnitt "FAQ").
 - `node --test tests/*.test.js`, `python3 tests/test_check_text.py` und `python3 tests/test_check_faq.py` ohne Fehler.
 - `node scripts/browsertest.js <Adresse> <Ordner>` ohne Fehler (Überlauf, Fremdanfragen, Schriften, ein `h1`, Konsole), Bilder in Handy- und Desktopbreite angesehen.
+- Jede Seite hat ein Gegenstück in der anderen Sprache (`tests/sprachen.test.js`). Wer eine Seite ändert, ändert ihr Seitenpaar mit.
 - Alle Texte in HTML ausgeliefert (auch Kachelrückseiten und Akkordeons), ein `h1` pro Seite.
 - Kein Tracking vor Einwilligung. Keine Fremdserver beim Laden der Seite.
 

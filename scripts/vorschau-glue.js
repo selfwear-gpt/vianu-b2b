@@ -34,8 +34,6 @@
     Object.keys(seiten).forEach(function (k) { seiten[k].hidden = k !== name; });
     var gewechselt = name !== aktiv;
     aktiv = name;
-    // Die Skripte lesen die Sprache aus dem lang-Attribut der Seite, hier aus dem Container der aktiven Seite
-    document.documentElement.lang = seiten[name].getAttribute("lang") || "de";
     if (gewechselt) window.scrollTo(0, 0);
     window.dispatchEvent(new Event("resize"));
   }

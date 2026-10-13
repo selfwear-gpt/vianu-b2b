@@ -23,7 +23,7 @@
         else s.setAttribute("hidden", "");
       });
       var aktiv = wurzel.querySelector('[data-schritt="' + nummer + '"] strong');
-      if (beschreibung && aktiv) beschreibung.textContent = window.VianuTexte.text("ablauf.schritt", { nummer: nummer, text: aktiv.textContent });
+      if (beschreibung && aktiv) beschreibung.textContent = window.VianuTexte.text("ablauf.schritt", { nummer: nummer, text: aktiv.textContent }, wurzel);
       if (ecken && nummer === "2" && !reduziert) {
         ecken.style.animation = "none";
         void ecken.getBoundingClientRect();

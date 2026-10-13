@@ -7,7 +7,7 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 - **B2B-Bereich:** "Sie". Persona-Briefe sind in der Ich-Form des Gründers geschrieben und sprechen die Rolle direkt an.
 - **Mitarbeitenden-Bereich:** "du".
 - **Betriebsratsseite und Brief des Gründers:** "Sie", auch wenn der Betriebsrat für die Kolleginnen und Kollegen spricht.
-- **Englische Fassung:** Deutsch ist die Hauptsprache. Die Slogans ("Walk lightly, smile brightly", "Nothing fancy. Just a great way to get through your day.") bleiben in beiden Sprachen Englisch und unverändert. Menüs und Überschriften werden übersetzt. "Perspektivwechsel" wird zu "Change of perspective" mit der Unterzeile "For the decision-makers".
+- **Englische Fassung:** Deutsch ist die Hauptsprache. Die Slogans ("Walk lightly, smile brightly", "Nothing fancy. Just a great way to get through your day.") bleiben in beiden Sprachen Englisch und unverändert. Menüs und Überschriften werden übersetzt. "Perspektivwechsel" wird zu "Change of perspective" mit der Unterzeile "For the decision-makers". Die englischen Seiten übersetzen die deutschen, sie sagen nichts Neues. "du" und "Sie" werden beide "you", der Ton bleibt: Mitarbeitende direkt und kurz, Entscheider sachlich. Es gelten dieselben Verbote (Geviertstriche, Kontrastformeln, Floskeln, Wirkversprechen) sinngemäß, `check-text.py` prüft die englischen Muster. Amerikanische Schreibung. Wörter stehen in `GLOSSARY.md`, Abschnitt "Englische Fassung".
 
 ## Gendern
 
