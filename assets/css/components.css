@@ -438,27 +438,55 @@ button.knopf { cursor: pointer; }
   .kurz__punkt:nth-child(n+2) { border-top: 1px solid var(--farbe-tinte); }
 }
 
-/* ---------- Werteband ---------- */
+/* ---------- Werteband: Kacheln drehen sich um und zeigen die Antwort ---------- */
 .werte { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--abstand-3); }
-.wert { display: flex; flex-direction: column; gap: var(--abstand-3); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); }
+.wert { display: flex; min-width: 0; perspective: 1000px; }
+.wert__innen { position: relative; display: block; flex: 1; min-height: 16rem; transform-style: preserve-3d; transition: transform 0.6s; }
+.wert__vorn, .wert__hinten {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-3);
+  padding: var(--abstand-5);
+  border: var(--kante) solid var(--farbe-tinte);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.wert__hinten { justify-content: center; transform: rotateY(180deg); }
 .wert h3 { font-size: var(--schrift-groesse-h3); }
-.wert p { font-size: var(--schrift-groesse-klein); max-width: 40ch; }
-.wert--signal { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.wert--tinte { background: var(--farbe-tinte); color: var(--farbe-papier); }
-.wert--linie { background: var(--farbe-papier); color: var(--farbe-tinte); }
-.wert--a { grid-column: span 7; min-height: 15rem; justify-content: flex-end; }
+.wert__hinten p { font-size: 1.125rem; line-height: 1.55; max-width: 44ch; }
+.wert--signal .wert__vorn { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.wert--signal .wert__hinten { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.wert--tinte .wert__vorn { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.wert--tinte .wert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.wert--linie .wert__vorn { background: var(--farbe-papier); color: var(--farbe-tinte); }
+.wert--linie .wert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.wert:hover .wert__innen, .wert:focus-visible .wert__innen, .wert[data-gedreht="true"] .wert__innen { transform: rotateY(180deg); }
+.wert--a { grid-column: span 7; }
+.wert--a .wert__innen { min-height: 17rem; }
+.wert--a .wert__vorn { justify-content: flex-end; }
 .wert--a h3 { font-size: clamp(2rem, 4vw, 3rem); }
-.wert--b { grid-column: span 5; justify-content: flex-end; }
+.wert--b { grid-column: span 5; }
+.wert--b .wert__vorn { justify-content: flex-end; }
 .wert--c { grid-column: span 5; }
-.wert--d { grid-column: span 3; }
+.wert--d { grid-column: span 7; }
 .wert--e { grid-column: span 4; }
-.wert--f { grid-column: span 12; flex-direction: row; align-items: center; flex-wrap: wrap; gap: var(--abstand-3) var(--abstand-5); }
-.wert--f p { max-width: none; }
-.wert--f h3 { margin-right: auto; }
+.wert--f { grid-column: span 8; }
+@media (prefers-reduced-motion: reduce) {
+  .wert__innen { transform: none !important; }
+  .wert__hinten { transform: none; opacity: 0; }
+  .wert:hover .wert__hinten, .wert:focus-visible .wert__hinten, .wert[data-gedreht="true"] .wert__hinten { opacity: 1; }
+}
 @media (max-width: 56rem) {
   .werte { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .wert, .wert--a, .wert--b, .wert--c, .wert--d, .wert--e { grid-column: auto; }
+  .wert, .wert--a, .wert--b, .wert--c, .wert--d, .wert--e, .wert--f { grid-column: auto; perspective: none; }
   .wert--a, .wert--f { grid-column: 1 / -1; }
+  .wert__innen, .wert--a .wert__innen { min-height: 0; transform: none !important; transform-style: flat; transition: none; }
+  .wert__vorn, .wert__hinten { position: static; inset: auto; backface-visibility: visible; transform: none; opacity: 1; overflow: visible; }
+  .wert__vorn { border-bottom: 0; padding-bottom: var(--abstand-2); }
+  .wert__hinten { justify-content: flex-start; border-top: 0; padding-top: var(--abstand-3); }
+  .wert--a .wert__vorn, .wert--b .wert__vorn { justify-content: flex-start; }
 }
 @media (max-width: 36rem) {
   .werte { grid-template-columns: minmax(0, 1fr); }
@@ -478,9 +506,10 @@ button.knopf { cursor: pointer; }
 .uhr { width: min(100%, 18rem); height: auto; }
 .uhr__rand { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; }
 .uhr__striche line { stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; }
-.uhr__zeiger { stroke: var(--farbe-tinte); stroke-width: 4; stroke-linecap: round; transform-origin: 60px 60px; transform: rotate(var(--winkel, 30deg)); }
+.uhr__zeiger { stroke: var(--farbe-tinte); stroke-width: 4; stroke-linecap: round; transform-origin: 60px 60px; transform: rotate(var(--winkel, 240deg)); }
 .uhr__mitte { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 3; }
 .tag__stand { min-height: 1.5em; text-align: center; }
+.tag__zeit { color: var(--farbe-gedaempft); }
 .tag__moment {
   display: flex;
   flex-direction: column;
@@ -524,7 +553,6 @@ button.knopf { cursor: pointer; }
   text-transform: uppercase;
 }
 .name__feld::placeholder { color: var(--farbe-gedaempft); opacity: 1; }
-.name__hinweis { font-size: var(--schrift-groesse-klein); color: var(--farbe-gedaempft); }
 .sohle { width: 100%; height: auto; }
 .sohle__form { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 2; }
 .sohle__name {

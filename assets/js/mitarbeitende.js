@@ -1,6 +1,6 @@
 /*
   Interaktionen der Mitarbeitenden-Seite. Jedes Modul arbeitet über Datenattribute und nur innerhalb
-  seines Bereichs: initTeilen, initName, initTag, initMail. Der Ablauf liegt in ablauf.js.
+  seines Bereichs: initTeilen, initWerte, initName, initTag, initMail. Der Ablauf liegt in ablauf.js.
   Benötigt name.js (VianuName) und teilen.js (VianuTeilen). Ohne Skript bleibt der Inhalt lesbar.
 */
 (function () {
@@ -141,23 +141,31 @@
     zeige(window.VianuName.bereinigeName(feld.value));
   }
 
-  /* ---------- Ein Tag in Schichten ---------- */
+  /* ---------- Ein Tag im Schichtbetrieb ---------- */
   function initTag(wurzel) {
     var momente = wurzel.querySelectorAll("[data-moment]");
     var zeiger = wurzel.querySelector("[data-uhr-zeiger]");
     var stand = wurzel.querySelector("[data-tag-stand]");
     if (!momente.length) return;
 
+    // Die Momente mit Uhrzeit (data-stunde) legen den Weg des Zeigers fest: erster Moment bis letzter Moment
+    var mitZeit = Array.prototype.filter.call(momente, function (m) { return m.hasAttribute("data-stunde"); });
+    var von = mitZeit[0];
+    var bis = mitZeit[mitZeit.length - 1];
+    var F = window.VianuFortschritt;
     var geplant = false;
 
+    function mitteVon(el) {
+      var r = el.getBoundingClientRect();
+      return r.top + r.height / 2;
+    }
     function aktualisiere() {
       geplant = false;
       var mitte = window.innerHeight / 2;
       var naechster = momente[0];
       var abstand = Infinity;
       Array.prototype.forEach.call(momente, function (m) {
-        var r = m.getBoundingClientRect();
-        var d = Math.abs(r.top + r.height / 2 - mitte);
+        var d = Math.abs(mitteVon(m) - mitte);
         if (d < abstand) {
           abstand = d;
           naechster = m;
@@ -166,11 +174,14 @@
       Array.prototype.forEach.call(momente, function (m) {
         m.setAttribute("data-aktiv", m === naechster ? "true" : "false");
       });
-      if (stand) stand.textContent = naechster.getAttribute("data-titel") || "";
-      if (zeiger && !reduziert) {
-        var r2 = wurzel.getBoundingClientRect();
-        var fortschritt = Math.max(0, Math.min(1, (mitte - r2.top) / r2.height));
-        zeiger.style.setProperty("--winkel", 30 + fortschritt * 300 + "deg");
+      if (stand) {
+        var zeit = naechster.getAttribute("data-zeit");
+        stand.textContent = (naechster.getAttribute("data-titel") || "") + (zeit ? " · " + zeit : "");
+      }
+      if (zeiger && !reduziert && F && von && bis && von !== bis) {
+        var anteil = F.anteilZwischen(mitte, mitteVon(von), mitteVon(bis));
+        var winkel = F.zeigerWinkel(anteil, Number(von.getAttribute("data-stunde")), Number(bis.getAttribute("data-stunde")));
+        zeiger.style.setProperty("--winkel", winkel + "deg");
       }
     }
     function planen() {
@@ -182,6 +193,21 @@
     window.addEventListener("scroll", planen, { passive: true });
     window.addEventListener("resize", planen);
     aktualisiere();
+  }
+
+  /* ---------- Werte: Kacheln drehen sich ---------- */
+  function initWerte(wurzel) {
+    // Hover und Fokus drehen per CSS. Auf Geräten ohne Hover dreht ein Tippen die Kachel um und wieder zurück.
+    var ohneHover = window.matchMedia && window.matchMedia("(hover: none)").matches;
+    var kacheln = wurzel.querySelectorAll("[data-wert]");
+    Array.prototype.forEach.call(kacheln, function (k) {
+      k.addEventListener("click", function () {
+        if (!ohneHover) return;
+        var an = k.getAttribute("data-gedreht") !== "true";
+        Array.prototype.forEach.call(kacheln, function (andere) { andere.removeAttribute("data-gedreht"); });
+        if (an) k.setAttribute("data-gedreht", "true");
+      });
+    });
   }
 
   /* ---------- Mailvorlage ---------- */
@@ -210,6 +236,7 @@
 
   function start() {
     jeder("[data-teilen]", document, initTeilen);
+    jeder(".werte", document, initWerte);
     jeder("[data-name]", document, initName);
     jeder("[data-tag]", document, initTag);
     jeder("[data-mail]", document, initMail);

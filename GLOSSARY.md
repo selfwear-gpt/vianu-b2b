@@ -77,10 +77,10 @@ Die Einheit, in der wir sprechen. Texte beschreiben den Alltag in Schichten, nic
 _Avoid_: Arbeitsbelastung, Fußprobleme, Fehlstellung (als Werbeaussage)
 
 **Schichttag**:
-Die Scrollgeschichte auf der Mitarbeitenden-Seite: ein Arbeitstag vom Schichtbeginn bis zum Abend danach, erzählt in Momenten aus Küche, Service, Housekeeping, Empfang und Bar.
+Die Scrollgeschichte "Ein Tag im Schichtbetrieb" auf der Mitarbeitenden-Seite: ein Arbeitstag von 8 bis 17 Uhr und der Abend danach, erzählt in Momenten aus Küche, Service, Housekeeping, Empfang und Bar.
 
 **Namenssohle**:
-Die Mitmach-Grafik auf der Mitarbeitenden-Seite: Besucher tippen einen Namen und sehen ihn auf einer gezeichneten Sohle. Es ist eine Vorschau. Ob der Name auf die echte Sohle kommt, steht nicht fest (siehe `FACTS.md`).
+Die Mitmach-Grafik auf der Mitarbeitenden-Seite: Besucher tippen einen Namen und sehen ihn auf einer gezeichneten Sohle. Ob der Name auf die echte Sohle kommt, steht nicht fest (siehe `FACTS.md`). Der Hinweis dazu steht auf Wunsch des Nutzers (13.10.2026) nicht mehr in der Sektion.
 
 **Allgemeine Frage**:
 FAQ-Frage, in der VIANU nicht vorkommt, so wie Fremde suchen ("Was ist eine individuell angefertigte Einlegesohle?"). VIANU steht erst im letzten Satz der Antwort.

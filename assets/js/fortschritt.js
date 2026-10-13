@@ -1,6 +1,7 @@
 /*
   Scroll-Fortschritt für Bewegungen, die am Scrollen hängen. Schnittstelle:
-  fortschrittImBild(oben, hoehe, fenster), aktiverSchritt(fortschritt, anzahl), sichtbareAnzahl(fortschritt, anzahl).
+  fortschrittImBild(oben, hoehe, fenster), aktiverSchritt(fortschritt, anzahl), sichtbareAnzahl(fortschritt, anzahl),
+  anteilZwischen(wert, von, bis), zeigerWinkel(anteil, startStunde, endStunde).
   Reine Funktionen ohne Browserbezug. Der Fortschritt ist immer umkehrbar: gleicher Stand, gleiches Bild.
 */
 (function (root, factory) {
@@ -31,5 +32,24 @@
     return Math.floor(begrenze(fortschritt) * anzahl + 1e-9);
   }
 
-  return { fortschrittImBild: fortschrittImBild, aktiverSchritt: aktiverSchritt, sichtbareAnzahl: sichtbareAnzahl };
+  // Wo liegt wert zwischen von und bis: 0 davor, 1 danach, dazwischen linear. Gleicher Anfang und Ende ergibt 0.
+  function anteilZwischen(wert, von, bis) {
+    if (bis === von) return 0;
+    return begrenze((wert - von) / (bis - von));
+  }
+
+  // Winkel des Stundenzeigers in Grad, 12 Uhr oben, im Uhrzeigersinn. Der Zeiger läuft von startStunde bis endStunde,
+  // 30 Grad je Stunde. Die Werte laufen über 360 Grad hinaus, CSS rechnet das wie eine Drehung weiter.
+  function zeigerWinkel(anteil, startStunde, endStunde) {
+    var a = isNaN(anteil) ? 0 : begrenze(anteil);
+    return (startStunde % 12) * 30 + a * (endStunde - startStunde) * 30;
+  }
+
+  return {
+    fortschrittImBild: fortschrittImBild,
+    aktiverSchritt: aktiverSchritt,
+    sichtbareAnzahl: sichtbareAnzahl,
+    anteilZwischen: anteilZwischen,
+    zeigerWinkel: zeigerWinkel
+  };
 });
