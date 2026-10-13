@@ -68,7 +68,7 @@ test("Roderichs Geschichte nennt die Eckdaten des Konzepts und den Satz zur eige
   assert.equal((h.match(/<h1[\s>]/g) || []).length, 1);
   for (const wort of ["Systemgastronomie", "Yum!", "WOYTON", "2012", "2020", "20 Jahre"]) assert.match(t, new RegExp(wort.replace("!", "\\!")), wort);
   assert.match(t, /Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden/);
-  assert.match(t, /Erfahrung[\s\S]{0,120}(kein Versprechen|keine Aussage)/);
+  assert.doesNotMatch(t, /Einlegesohle[^.]{0,80}(wirkt|hilft|lindert)/i);
   assert.match(h, /href="\.\/#pilot"/);
   assert.doesNotMatch(t, /heilt|schmerzfrei|verhindert|Krankheitstage (sinken|gehen)/i);
 });
