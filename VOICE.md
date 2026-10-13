@@ -50,6 +50,19 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 - Unterschiedlich lange Sätze und Listenpunkte. Nicht jeder Punkt hat dieselbe Form.
 - Die Slogans sind festgelegt und gelten als Ausnahme von diesen Regeln.
 
+## FAQ
+
+Gilt für jede Seite mit FAQ: Mitarbeitende, B2B-Start, alle Persona-Seiten und alle künftigen Seiten. Festgelegt am 13.10.2026. Der Check `scripts/check-faq.py` prüft Punkt 6 und den Richtwert in Punkt 2.
+
+1. **Fragen, wie Fremde suchen.** Ausgeschrieben, mit dem Thema im Satz und mit Suchbegriffen aus dem Glossar (Einlegesohle, Fußscan). Keine internen Wörter ohne Erklärung (Erfassungswoche, Programm).
+2. **Zwei Arten von Fragen.** Eine *Allgemeine Frage* nennt VIANU nicht. Ihre Antwort sagt zuerst, was allgemein gilt, mit Beleg oder Begründung, und nennt VIANU erst im letzten Satz. Eine *Markenfrage* nennt VIANU in der Frage. Höchstens die Hälfte der Fragen einer Seite sind Markenfragen.
+3. **Jede Antwort steht für sich.** Ein Antwortsystem zitiert eine Passage einzeln. Der erste Satz nennt den Gegenstand beim Namen und beantwortet die Frage. Kein "das", "es" oder "dort" als Verweis auf anderen Text. Ein bis drei Sätze.
+4. **Allgemeine Antworten in neutraler Form** ("Beschäftigte", "man"). Der letzte Satz mit VIANU nutzt die Anrede des Bereichs (du oder Sie).
+5. **Nur belegte Antworten.** Ohne Zeile in `FACTS.md` steht ein Platzhalter. Studien nur mit Quelle und Gruppe, ohne Wirkversprechen.
+6. **FAQPage-Daten** (`application/ld+json`) enthalten nur beantwortete Fragen und gleichen dem sichtbaren Text wörtlich.
+7. **Auf B2B-Seiten** stammen die allgemeinen Fragen aus der Sicht der Rolle, zum Beispiel "Wie führt ein Hotel Einlegesohlen für sein Team ein?".
+8. Fragen gruppieren, wenn es mehr als sechs sind: erst die allgemeinen, dann die zu VIANU. Die Gruppenüberschrift ist eine `h3`.
+
 ## Aufbau
 
 - Höchstens 20 % eines Bildschirms sind reiner Fließtext. Alles andere zeigen wir: Icons mit ein bis drei Wörtern, Kacheln, Tabellen, kurze Stichpunkte.

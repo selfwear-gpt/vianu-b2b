@@ -23,6 +23,8 @@ Status: **frei** = darf veröffentlicht werden. **offen** = fehlt noch, bleibt P
 | Die Sohle kommt in Schuhe, die Mitarbeitende schon besitzen, und wird im Betrieb übergeben, nicht verteilt | Konzept | frei |
 | Zielgruppe der Mitarbeitenden-Seite: Teams in Hotellerie und Gastronomie (Küche, Service, Housekeeping, Empfang, Bar) | Konzept | frei |
 | Der Name der tragenden Person steht auf der Sohle | Im Konzept nur als Möglichkeit. Die Seite zeigt eine Vorschau und sagt das | offen |
+| Definition: Eine individuell angefertigte Einlegesohle ist eine Sohle, die für den Fuß einer einzelnen Person gefertigt und in Schuhe gelegt wird, die diese Person schon besitzt | eigene Formulierung, deckt sich mit `GLOSSARY.md` | frei |
+| VIANU ist ein Programm für Teams in Hotellerie und Gastronomie: Der Arbeitgeber meldet das Team an, die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, die Sohle wird im Betrieb übergeben | Konzept. Die Einzelheiten des Ablaufs sind "zu definieren" und stehen als "Entwurf" auf der Seite | frei |
 
 ## Belege für Aussagen zu Fußbeschwerden
 
@@ -33,7 +35,7 @@ Diese Angaben dürfen genannt werden, jeweils mit Quelle und genau so, wie die Q
 | In einer Befragung von 304 Pflegekräften eines Kinderkrankenhauses in Australien berichteten 55,3 % von Fuß- oder Knöchelbeschwerden innerhalb von zwölf Monaten. Nach dem unteren Rücken und dem Nacken war das die dritthäufigste Körperregion. Selbstauskunft, gilt für diese Gruppe | Reed et al. 2014, BMC Musculoskeletal Disorders 15:196, doi:10.1186/1471-2474-15-196 (Abstract am 12.10.2026 geprüft) | frei |
 | Eine Übersichtsarbeit zu Fuß- und Knöchelstörungen bei Pflegekräften in Krankenhäusern nennt Schmerz als häufigste Störung. Die berichtete Häufigkeit unterscheidet sich zwischen den Studien deutlich | Bernardes et al. 2023, Workplace Health & Safety 71(3):101-116, doi:10.1177/21650799221137646 (Prüfbericht, Volltext durch den Agenten gelesen) | prüfen |
 | In einer britischen Online-Befragung von 1.035 Beschäftigten mit Schmerzen im Unterkörper durch Arbeit im Stehen gaben die Befragten im Mittel 4,12 durch Schmerz versäumte Arbeitsstunden pro Woche an. Selbstauskunft, keine Kostenangabe. Die Studie wurde von einem Einlegesohlen-Hersteller gefördert, das muss beim Zitat dabeistehen | Smith et al. 2023, BMC Research Notes 16:186, doi:10.1186/s13104-023-06461-5 (Abstract am 12.10.2026 geprüft, Hinweis zur Förderung aus dem Prüfbericht) | prüfen |
-| Eine Übersichtsarbeit mit 10 Studien fand mäßige Belege dafür, dass gedämpfte Materialien (weichere Böden, gedämpfte Einlegesohlen) bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen. Für Einlegesohlen im Vergleich zu Matten ist die Evidenz begrenzt | Speed et al. 2018, Applied Ergonomics 70:300-314, doi:10.1016/j.apergo.2018.02.021 (Abstract am 12.10.2026 geprüft, Volltext fehlt) | prüfen |
+| Eine Übersichtsarbeit mit 10 Studien fand mäßige Belege dafür, dass gedämpfte Materialien (weichere Böden, gedämpfte Einlegesohlen) bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen. Für Einlegesohlen im Vergleich zu Matten ist die Evidenz begrenzt | Speed et al. 2018, Applied Ergonomics 70:300-314, doi:10.1016/j.apergo.2018.02.021 (Abstract am 12.10.2026 geprüft, Volltext fehlt). Auf der Mitarbeitenden-Seite (FAQ "Helfen Einlegesohlen bei langem Stehen und Gehen im Beruf?") auf Wunsch des Nutzers am 13.10.2026 vor der Volltextprüfung verwendet, nur mit den Aussagen des Abstracts | prüfen |
 | "X % unserer Nutzer berichten von weniger Fußschmerzen", gekennzeichnet als selbst berichtet | eigene Pilotdaten | offen (keine Daten) |
 
 ## Patente
@@ -73,5 +75,5 @@ Platzhalter bleiben auch auf der Live-Seite sichtbar markiert (Entscheidung vom 
 ## Regeln
 
 - Eigene Zahlen tragen den Hinweis "selbst berichtet". Gerechnete Zahlen tragen den Hinweis "gerechnet".
-- Studien erscheinen nur auf der Seite der Rolle, deren Frage sie beantworten.
+- Studien erscheinen nur auf der Seite der Rolle, deren Frage sie beantworten. Ausnahme: Speed 2018 in der FAQ der Mitarbeitenden-Seite (Entscheidung vom 13.10.2026).
 - Kein Platzhalter wird als echt dargestellt.

@@ -82,6 +82,12 @@ Die Scrollgeschichte auf der Mitarbeitenden-Seite: ein Arbeitstag vom Schichtbeg
 **Namenssohle**:
 Die Mitmach-Grafik auf der Mitarbeitenden-Seite: Besucher tippen einen Namen und sehen ihn auf einer gezeichneten Sohle. Es ist eine Vorschau. Ob der Name auf die echte Sohle kommt, steht nicht fest (siehe `FACTS.md`).
 
+**Allgemeine Frage**:
+FAQ-Frage, in der VIANU nicht vorkommt, so wie Fremde suchen ("Was ist eine individuell angefertigte Einlegesohle?"). VIANU steht erst im letzten Satz der Antwort.
+
+**Markenfrage**:
+FAQ-Frage, die VIANU nennt ("Was ist VIANU?"). Höchstens die Hälfte der Fragen einer Seite.
+
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
 _Avoid_: Dummy, Lorem ipsum, Beispielbild als echtes Bild

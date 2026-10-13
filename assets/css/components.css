@@ -593,6 +593,8 @@ button.knopf { cursor: pointer; }
 }
 
 /* ---------- Fragen ---------- */
+.fragen__gruppe + .fragen__gruppe { margin-top: var(--abstand-7); }
+.fragen__titel { margin: 0 0 var(--abstand-3); font-weight: 700; }
 .fragen { border-bottom: 1px solid var(--farbe-tinte); }
 .frage { border-top: 1px solid var(--farbe-tinte); }
 .frage summary {
