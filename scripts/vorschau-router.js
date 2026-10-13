@@ -22,6 +22,14 @@
   KENNUNG["/impressum.html"] = "#impressum";
   SEITEN.datenschutz = "datenschutz.html";
   KENNUNG["/datenschutz.html"] = "#datenschutz";
+  // Englische Fassung: jede Seite hat ein Gegenstück unter en/ mit der Kennung "en" bzw. "en-<Kennung>"
+  Object.keys(SEITEN).forEach(function (name) {
+    var datei = SEITEN[name];
+    var kennung = name === "start" ? "en" : "en-" + name;
+    SEITEN[kennung] = "en/" + datei;
+    KENNUNG["/en/" + datei] = "#" + kennung;
+    if (/index\.html$/.test(datei)) KENNUNG["/en/" + datei.replace(/index\.html$/, "")] = "#" + kennung;
+  });
   var BASIS = "http://vorschau.invalid/";
 
   function seiteFuerHash(hash) {

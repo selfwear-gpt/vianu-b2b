@@ -33,6 +33,12 @@ REGELN = [
     ("Kontrastformel", re.compile(r"\bnicht nur\b[^.!?\n]{1,80}?\bauch\b", re.IGNORECASE)),
     ("Kontrastformel", re.compile(r"\bKein(?:e|en|em)?\b[^.!?\n]{1,40}\.\s*Kein(?:e|en|em)?\b[^.!?\n]{1,40}\.\s*Nur\b")),
     ("Floskel", re.compile(r"\b(?:nahtlos|robust|revolution|ganzheitlich|wirklich)\w*", re.IGNORECASE)),
+    # Englische Fassung (siehe GLOSSARY.md, Abschnitt "Englische Fassung")
+    ("Wirkversprechen", re.compile(r"\b(?:painless|cures?|heal(?:s|ed|ing)?|patented|orthotics?|orthosis|medical device)\b", re.IGNORECASE)),
+    ("Kontrastformel", re.compile(r"\b(?:it|this|that)(?:'s|\u2019s| is) not\b[^.!?\n]{1,80}?,\s*(?:it(?:'s|\u2019s| is)|but)\b", re.IGNORECASE)),
+    ("Kontrastformel", re.compile(r"\bnot (?:just|only)\b[^.!?\n]{1,80}?\bbut\b", re.IGNORECASE)),
+    ("Kontrastformel", re.compile(r"\bNo\b[^.!?\n]{1,40}\.\s*No\b[^.!?\n]{1,40}\.\s*Just\b")),
+    ("Floskel", re.compile(r"\b(?:seamless\w*|truly|genuinely|profoundly|leverag\w+|delve\w*|tapestry|realm|game-changing|revolutionary|holistic\w*|cutting-edge)\b|here's the thing|let's dive in|worth noting that|at the end of the day|navigate the complexities|fast-paced world|\bRemember:", re.IGNORECASE)),
 ]
 
 

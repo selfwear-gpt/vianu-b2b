@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
-  Erzeugt den Einseiter jeder Rollenseite als PDF: assets/downloads/rolle-<id>.pdf.
+  Erzeugt den Einseiter jeder Rollenseite als PDF: assets/downloads/rolle-<id>.pdf (Deutsch) und role-<id>.pdf (Englisch).
   Der Druckstil in assets/css/components.css lässt nur Kopf und "Im Termin" stehen.
   Das Skript gehört nicht zur ausgelieferten Seite. Die PDFs liegen im Repo, damit der Link auf der Seite trägt.
 
@@ -25,15 +25,19 @@ function seitenZahl(puffer) {
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PFAD || undefined });
   fs.mkdirSync(path.join(ROOT, "assets", "downloads"), { recursive: true });
   let fehler = 0;
-  for (const rolle of ROLLEN) {
+  const FASSUNGEN = [
+    { ordner: "b2b", praefix: "rolle-" },
+    { ordner: path.join("en", "b2b"), praefix: "role-" }
+  ];
+  for (const f of FASSUNGEN) for (const rolle of ROLLEN) {
     const seite = await browser.newPage();
-    await seite.goto("file://" + path.join(ROOT, "b2b", rolle + ".html"));
+    await seite.goto("file://" + path.join(ROOT, f.ordner, rolle + ".html"));
     await seite.evaluate(() => document.fonts.ready);
     const pdf = await seite.pdf({ format: "A4", printBackground: true, preferCSSPageSize: true });
-    const ziel = path.join(ROOT, "assets", "downloads", "rolle-" + rolle + ".pdf");
+    const ziel = path.join(ROOT, "assets", "downloads", f.praefix + rolle + ".pdf");
     fs.writeFileSync(ziel, pdf);
     const n = seitenZahl(pdf);
-    console.log((n === 1 ? "ok     " : "FEHLER ") + "rolle-" + rolle + ".pdf: " + n + " Seite(n), " + Math.round(pdf.length / 1024) + " KB");
+    console.log((n === 1 ? "ok     " : "FEHLER ") + f.praefix + rolle + ".pdf: " + n + " Seite(n), " + Math.round(pdf.length / 1024) + " KB");
     if (n !== 1) fehler++;
     await seite.close();
   }

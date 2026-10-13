@@ -36,6 +36,8 @@ SEITEN = [
     ("impressum", "impressum.html", "i-"),
     ("datenschutz", "datenschutz.html", "d-"),
 ]
+# Englische Fassung: zu jeder Seite das Gegenstück unter en/ (Kennung "en" bzw. "en-<Kennung>", Präfix "en-<Präfix>")
+SEITEN += [("en" if k == "start" else "en-" + k, "en/" + rel, "en-" + pr) for k, rel, pr in list(SEITEN)]
 
 
 def lesen(rel):
@@ -95,7 +97,8 @@ def seite_als_container(kennung, rel, praefix, sichtbar):
     body = re.sub(r"<script\b[^>]*\bsrc=[^>]*></script>", "", body)
     body = downloads_einbetten(praefix_ids(body, praefix), rel)
     versteckt = "" if sichtbar else " hidden"
-    return f'<div data-seite="{kennung}" data-praefix="{praefix}"{versteckt}>\n{body}\n</div>'
+    sprache = re.search(r'<html[^>]*\blang="([^"]+)"', html).group(1)
+    return f'<div data-seite="{kennung}" data-praefix="{praefix}" lang="{sprache}"{versteckt}>\n{body}\n</div>'
 
 
 def skripte_der_seiten():

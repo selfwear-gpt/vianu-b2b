@@ -112,3 +112,43 @@ Impressum und Datenschutzerklärung. Solange die Angaben fehlen, sind sie Gerüs
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.
 _Avoid_: Dummy, Lorem ipsum, Beispielbild als echtes Bild
+
+## Englische Fassung
+
+Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die deutschen (**Seitenpaar**). Es gibt kein "du" und "Sie" im Englischen, beide werden zu "you". Der Ton unterscheidet sich weiter: Mitarbeitende direkt und kurz, Entscheider sachlich. Diese Wörter verwenden wir auf Englisch:
+
+| Deutsch | Englisch | Hinweis |
+|---|---|---|
+| Einlegesohle | insole | Nie "insert", "orthotic" oder "orthosis". |
+| Sohle (Überschrift) | insole, in Überschriften auch "sole" | |
+| Paar | pair | Preis: "EUR 120 per pair, plus VAT". |
+| Umsatzsteuer | VAT | |
+| Fußerfassung | foot capture | In FAQ-Fragen "foot scan", weil danach gesucht wird. |
+| Programm | program | Amerikanische Schreibung, durchgehend. |
+| Pilot | pilot | "pilot with 10 employees" |
+| Mitarbeitende | employees | Für Betriebsratsseite auch "colleagues" im Satz, wo der Betriebsrat spricht. |
+| Schicht, Schichttag | shift, shift day | |
+| Entscheidungsteam | decision-making team | |
+| Betriebsrat | works council | Bei erster Nennung je Seite "Betriebsrat (works council)" nur, wo die deutsche Rolle gemeint ist. |
+| Betriebsvereinbarung | works agreement | |
+| Personal | HR | Rollenseite: "HR". |
+| Geschäftsführung und Betrieb | management and operations | |
+| Arbeitsschutz | occupational safety | |
+| Einkauf | procurement | |
+| Perspektivwechsel | Change of perspective | Unterzeile "For the decision-makers". |
+| Namenssohle | name insole | Die Funktion, bei der der eigene Name auf die Sohle kommt. |
+| Messwerte | measures | |
+| Ergebnisbericht | results report | |
+| Rollout | rollout | |
+| Druckkarte | print card | |
+| Sorgenfuß | worry foot | Die Karte mit den Sorgen der Füße. |
+| Einseiter | one-pager | |
+| Matte und Weg | mat and route | |
+| Datenfluss | data flow | |
+| Roderichs Geschichte | Roderich's story | |
+| Impressum | Legal notice | |
+| Datenschutz | Privacy | Titel "Privacy notice". |
+| Platzhalter | placeholder | Markiert wie im Deutschen. |
+| Pilot buchen | Book a pilot | |
+
+Slogans bleiben unverändert Englisch: "Walk lightly, smile brightly" und "Nothing fancy. Just a great way to get through your day."

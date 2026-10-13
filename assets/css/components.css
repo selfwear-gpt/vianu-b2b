@@ -109,7 +109,8 @@
   text-decoration: none;
 }
 .sprache [aria-current="true"] { font-weight: 700; border-bottom: var(--kante) solid var(--farbe-tinte); }
-.sprache [aria-disabled="true"] { color: var(--farbe-gedaempft); }
+.sprache a { color: inherit; padding: var(--abstand-2) 0; min-width: 24px; text-align: center; }
+.sprache a:hover { border-bottom: var(--kante) solid var(--farbe-tinte); }
 
 .menue__knopf {
   display: none;
@@ -291,7 +292,7 @@
 .menue--mitarbeitende .menue__liste a:hover { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .menue--mitarbeitende .sprache { border-left: 1px solid var(--farbe-papier); }
 .menue--mitarbeitende .sprache [aria-current="true"] { border-bottom-color: var(--farbe-signal); }
-.menue--mitarbeitende .sprache [aria-disabled="true"] { color: var(--farbe-papier); opacity: 0.7; }
+.menue--mitarbeitende .sprache a:hover { border-bottom-color: var(--farbe-signal); }
 .menue--mitarbeitende .menue__knopf { background: var(--farbe-papier); color: var(--farbe-tinte); }
 
 .menue__perspektive {

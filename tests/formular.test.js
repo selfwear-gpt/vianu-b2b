@@ -50,3 +50,12 @@ test("anfrageAlsText nennt Unternehmen, Rolle (mit Namen) und Zahl", () => {
   assert.match(t, /Personal/);
   assert.match(t, /120/);
 });
+
+test("englische Meldungen und englischer Anfragetext", () => {
+  const r = pruefeAnfrage({ ...gut, unternehmen: "", rolle: "", mitarbeitende: "0", einwilligung: false }, "en");
+  for (const k of ["unternehmen", "rolle", "mitarbeitende", "einwilligung"]) assert.match(r.fehler[k], /^(Please|The)\b/, k);
+  const t = anfrageAlsText(gut, "en");
+  assert.match(t, /Request for the pilot with 10 employees/);
+  assert.match(t, /Role: HR/);
+  assert.doesNotMatch(t, /Anfrage|Rolle|Unternehmen/);
+});

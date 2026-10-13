@@ -199,11 +199,11 @@
 
     function rechne() {
       var n = window.VianuKosten.begrenzeSchichten(regler.value);
-      var k = window.VianuKosten.kostenJeSchicht(PREIS, n);
+      var k = window.VianuKosten.kostenJeSchicht(PREIS, n, document.documentElement.lang);
       if (!k) return;
       zahl.textContent = String(n);
       ergebnis.textContent = k.text;
-      text.textContent = PREIS + " Euro je Paar geteilt durch " + n + " Schichten";
+      text.textContent = window.VianuTexte.text("rechner.zeile", { preis: PREIS, n: n });
     }
     regler.addEventListener("input", rechne);
     rechne();
@@ -261,14 +261,14 @@
     wurzel.addEventListener("submit", function (e) {
       e.preventDefault();
       var d = daten();
-      var r = window.VianuFormular.pruefeAnfrage(d);
+      var r = window.VianuFormular.pruefeAnfrage(d, document.documentElement.lang);
       var erstes = zeigeFehler(r);
       if (!r.ok) {
         ergebnis.hidden = true;
         if (erstes) erstes.focus();
         return;
       }
-      textfeld.textContent = window.VianuFormular.anfrageAlsText(d);
+      textfeld.textContent = window.VianuFormular.anfrageAlsText(d, document.documentElement.lang);
       status.textContent = "";
       ergebnis.hidden = false;
       ergebnis.focus();
@@ -283,7 +283,7 @@
     });
     if (kopieren) {
       kopieren.addEventListener("click", function () {
-        kopierenMit(textfeld.textContent, status, "Text kopiert.", "Kopieren hat nicht geklappt. Markieren Sie den Text und kopieren Sie ihn von Hand.");
+        kopierenMit(textfeld.textContent, status, window.VianuTexte.text("kopiert.text"), window.VianuTexte.text("kopiert.fehler.text.sie"));
       });
     }
   }
@@ -299,7 +299,7 @@
       var diese = wurzel.hasAttribute("data-weiterleiten-diese-seite");
       var link = diese ? window.location.href.split("#")[0].split("?")[0] : new URL(".", document.baseURI).href;
       if (feld) feld.hidden = true;
-      kopierenMit(link, status, "Link kopiert.", "Kopieren hat nicht geklappt. Der Link steht unten, kopieren Sie ihn von Hand.", function () {
+      kopierenMit(link, status, window.VianuTexte.text("kopiert.link"), window.VianuTexte.text("kopiert.fehler.link.sie"), function () {
         if (!feld) return;
         feld.hidden = false;
         feld.value = link;

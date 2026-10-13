@@ -64,3 +64,40 @@ test("Verweise auf Rechtsseiten und die Geschichte werden zu Kennungen", () => {
   assert.equal(verweisFuerVorschau("./", "impressum"), "#");
   assert.equal(verweisFuerVorschau("b2b/", "datenschutz"), "#b2b");
 });
+
+const SEITEN_PAARE = [
+  ["start", "en", "index.html", "en/index.html"],
+  ["b2b", "en-b2b", "b2b/index.html", "en/b2b/index.html"],
+  ["impressum", "en-impressum", "impressum.html", "en/impressum.html"],
+  ["datenschutz", "en-datenschutz", "datenschutz.html", "en/datenschutz.html"],
+  ["b2b-roderich", "en-b2b-roderich", "b2b/roderich.html", "en/b2b/roderich.html"],
+  ...ROLLEN.map((r) => ["b2b-" + r, "en-b2b-" + r, "b2b/" + r + ".html", "en/b2b/" + r + ".html"])
+];
+
+test("jede englische Seite hat eine eigene Kennung", () => {
+  for (const [, en] of SEITEN_PAARE) assert.equal(seiteFuerHash("#" + en), en, en);
+  assert.equal(seiteFuerHash("#en-chef"), null);
+});
+
+test("der Umschalter führt von jeder deutschen Seite auf ihre englische und zurück", () => {
+  const nachEn = { start: "en/", b2b: "../en/b2b/", impressum: "en/impressum.html", datenschutz: "en/datenschutz.html", "b2b-roderich": "../en/b2b/roderich.html" };
+  for (const r of ROLLEN) nachEn["b2b-" + r] = "../en/b2b/" + r + ".html";
+  for (const [de, en] of SEITEN_PAARE) assert.equal(verweisFuerVorschau(nachEn[de], de), "#" + en, de);
+  const nachDe = { en: "../", "en-b2b": "../../b2b/", "en-impressum": "../impressum.html", "en-datenschutz": "../datenschutz.html", "en-b2b-roderich": "../../b2b/roderich.html" };
+  for (const r of ROLLEN) nachDe["en-b2b-" + r] = "../../b2b/" + r + ".html";
+  for (const [de, en] of SEITEN_PAARE) {
+    const ziel = nachDe[en];
+    // Die englischen Dateien stehen in en/ und en/b2b/, der Weg zurück ist relativ dazu.
+    assert.equal(verweisFuerVorschau(ziel, en), "#" + (de === "start" ? "" : de), en);
+  }
+});
+
+test("Verweise innerhalb der englischen Fassung bleiben dort", () => {
+  assert.equal(verweisFuerVorschau("b2b/", "en"), "#en-b2b");
+  assert.equal(verweisFuerVorschau("../", "en-b2b"), "#en");
+  assert.equal(verweisFuerVorschau("./", "en-b2b-personal"), "#en-b2b");
+  assert.equal(verweisFuerVorschau("einkauf.html", "en-b2b-personal"), "#en-b2b-einkauf");
+  assert.equal(verweisFuerVorschau("impressum.html", "en"), "#en-impressum");
+  assert.equal(verweisFuerVorschau("../impressum.html", "en-b2b"), "#en-impressum");
+  assert.equal(verweisFuerVorschau("../../assets/downloads/role-personal.pdf", "en-b2b-personal"), null);
+});

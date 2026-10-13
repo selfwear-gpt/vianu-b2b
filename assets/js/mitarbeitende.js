@@ -23,7 +23,7 @@
         linkFeld.focus();
         linkFeld.select();
       }
-      status.textContent = "Kopieren hat nicht geklappt. Der Link steht unten, kopiere ihn von Hand.";
+      status.textContent = window.VianuTexte.text("kopiert.fehler.link.du");
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(geklappt, nichtGeklappt);
@@ -46,17 +46,17 @@
       var b = document.createElement("button");
       b.type = "button";
       b.className = "teilen__aktion";
-      b.textContent = rolle.name;
+      b.textContent = window.VianuTexte.text("rolle." + rolle.id);
       b.addEventListener("click", function () {
         var link = window.VianuTeilen.linkFuerRolle(document.baseURI, rolle.id);
-        kopiere(link, status, linkFeld, "Link für " + rolle.name + " kopiert.");
+        kopiere(link, status, linkFeld, window.VianuTexte.text("kopiert.rolle", { rolle: rolle.name }));
       });
       li.appendChild(b);
       liste.appendChild(li);
     });
 
     kollegen.addEventListener("click", function () {
-      kopiere(window.VianuTeilen.linkFuerKollegen(document.baseURI), status, linkFeld, "Link kopiert.");
+      kopiere(window.VianuTeilen.linkFuerKollegen(document.baseURI), status, linkFeld, window.VianuTexte.text("kopiert.link"));
     });
 
     function setze(offen) {
@@ -128,7 +128,7 @@
       if (ansage) {
         window.clearTimeout(timer);
         timer = window.setTimeout(function () {
-          ansage.textContent = leer ? "" : "Deine Sohle zeigt: " + name;
+          ansage.textContent = leer ? "" : window.VianuTexte.text("name.ansage", { name: name });
         }, 500);
       }
     }
@@ -232,15 +232,15 @@
 
     knopf.addEventListener("click", function () {
       var b2b = new URL("b2b/", window.VianuTeilen.linkFuerKollegen(document.baseURI)).href;
-      var text = box.textContent.replace("[Link zur Seite]", b2b);
-      function geklappt() { status.textContent = "Text kopiert."; }
+      var text = box.textContent.replace(window.VianuTexte.text("platzhalter.link"), b2b);
+      function geklappt() { status.textContent = window.VianuTexte.text("kopiert.text"); }
       function nichtGeklappt() {
         var bereich = document.createRange();
         bereich.selectNodeContents(box);
         var auswahl = window.getSelection();
         auswahl.removeAllRanges();
         auswahl.addRange(bereich);
-        status.textContent = "Kopieren hat nicht geklappt. Der Text ist markiert, kopiere ihn von Hand.";
+        status.textContent = window.VianuTexte.text("kopiert.fehler.text.du");
       }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(geklappt, nichtGeklappt);
       else nichtGeklappt();

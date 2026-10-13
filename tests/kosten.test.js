@@ -37,3 +37,10 @@ test("begrenzeSchichten hält die Eingabe im Bereich des Reglers und ganzzahlig"
   assert.ok(SCHICHTEN.min < SCHICHTEN.start && SCHICHTEN.start < SCHICHTEN.max);
   assert.equal(SCHICHTEN.start, 220);
 });
+
+test("englisch: Punkt als Dezimalzeichen, EUR vorn", () => {
+  assert.equal(kostenJeSchicht(120, 220, "en").text, "EUR 0.55");
+  assert.equal(kostenJeSchicht(120, 240, "en").text, "EUR 0.50");
+  assert.equal(kostenJeSchicht(120, 8, "en").text, "EUR 15.00");
+  assert.equal(kostenJeSchicht(120, 220).text, "0,55 Euro");
+});
