@@ -239,6 +239,9 @@
         unternehmen: felder.unternehmen.value,
         rolle: felder.rolle.value,
         mitarbeitende: felder.mitarbeitende.value,
+        kontakt: felder.kontakt.value,
+        quelle: felder.quelle.value,
+        freitext: felder.freitext.value,
         einwilligung: felder.einwilligung.checked
       };
     }
@@ -288,6 +291,40 @@
     }
   }
 
+  /* ---------- Was Sie bekommen: Reiter und Bühne ---------- */
+  // Ohne Skript stehen alle drei Felder untereinander. Mit Skript zeigt die Bühne ein Feld: per Klick, Tastatur
+  // (Pfeiltasten, Pos1, Ende) und beim Darüberfahren mit der Maus.
+  function initReise(wurzel) {
+    var reiter = wurzel.querySelectorAll("[data-reiter]");
+    var felder = wurzel.querySelectorAll("[data-feld-nr]");
+    if (!reiter.length || reiter.length !== felder.length) return;
+
+    function waehle(nr, fokus) {
+      Array.prototype.forEach.call(reiter, function (r) {
+        var an = r.getAttribute("data-reiter") === nr;
+        r.setAttribute("aria-selected", an ? "true" : "false");
+        r.setAttribute("tabindex", an ? "0" : "-1");
+        if (an && fokus) r.focus();
+      });
+      Array.prototype.forEach.call(felder, function (f) { f.hidden = f.getAttribute("data-feld-nr") !== nr; });
+    }
+    Array.prototype.forEach.call(reiter, function (r, i) {
+      r.addEventListener("click", function () { waehle(r.getAttribute("data-reiter")); });
+      r.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") waehle(r.getAttribute("data-reiter")); });
+      r.addEventListener("keydown", function (e) {
+        var ziel = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") ziel = (i + 1) % reiter.length;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") ziel = (i - 1 + reiter.length) % reiter.length;
+        else if (e.key === "Home") ziel = 0;
+        else if (e.key === "End") ziel = reiter.length - 1;
+        if (ziel === null) return;
+        e.preventDefault();
+        waehle(reiter[ziel].getAttribute("data-reiter"), true);
+      });
+    });
+    waehle("1");
+  }
+
   /* ---------- Weiterleiten ---------- */
   function initWeiterleiten(wurzel) {
     var knopf = wurzel.querySelector("[data-weiterleiten-kopieren]");
@@ -316,6 +353,7 @@
     jeder("[data-rechner]", document, initRechner);
     jeder("[data-formular]", document, initFormular);
     jeder("[data-weiterleiten]", document, initWeiterleiten);
+    jeder("[data-reise]", document, initReise);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);

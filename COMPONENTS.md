@@ -40,15 +40,12 @@ Status: gebaut
 Status: gebaut
 - Links oben der Slogan in großer Schrift mit Unterzeile, rechts oben der Video-Platzhalter.
 
-### Gründerband
-Status: gebaut
-- Schmales Band unter dem Hero: ein Satz in der Ich-Form, eine Zeile mit Eckdaten, kleines Porträt, Link "Roderichs Geschichte". Eckdaten brauchen eine Quelle in `FACTS.md`.
-
 ## Inhalt B2B
 
-### Programmblock
+### Programmblock (Reiter)
 Status: gebaut
-- Drei Teile in zeitlicher Folge auf einer Zeitleiste (vor dem Start, im Piloten, danach): Freigabepaket, Durchführung, Ergebnisbericht. Die Unterlagen des Freigabepakets stehen als Platzhalter "In Arbeit". Darunter die vier Merkmale (kein Messtag, eigenes Handy, vorhandene Schuhe, übergeben statt verteilt) als Liste mit Trennlinien, nicht als Reihe gleicher Karten. Der Aufwand für das Personal bleibt Platzhalter, bis er validiert ist.
+- Heißt "Was Sie bekommen" und steht weit unten auf der B2B-Startseite, nach den Sorgen. Drei große Reiter (Vor dem Start, Im Piloten, Danach) mit Nummer, Symbol und Titel, darunter eine dunkle Bühne mit dem Inhalt des gewählten Reiters: Freigabepaket (drei Unterlagen als "In Arbeit"), Durchführung (Fußerfassung, Lieferung spätestens 7 Tage danach, Aufwand als Platzhalter), Ergebnisbericht (Tragequote, Wahrnehmung, Rückmeldungen). Darunter die vier Merkmale als Chips (kein Messtag, eigenes Handy, vorhandene Schuhe, freiwillig).
+- Bedienung: Klick, Tastatur (Pfeile, Pos1, Ende), beim Darüberfahren mit der Maus. Ohne Skript stehen alle drei Felder untereinander. Logik: `initReise` in `assets/js/b2b.js`.
 
 ### Messwert-Kacheln
 Status: gebaut
@@ -78,7 +75,7 @@ Status: geplant
 ### Kostenrechner
 Status: gebaut
 - Ein Regler stellt die Schichtzahl ein (20 bis 600, Schritt 10, Start 220). Die Seite rechnet 120 Euro geteilt durch diese Zahl und zeigt das Ergebnis in Euro und Cent, gekennzeichnet "gerechnet", zuzüglich Umsatzsteuer.
-- Regel: Die Seite sagt nichts zur Haltbarkeit und nennt keine Schichtzahl je Paar als Tatsache. Logik: `assets/js/kosten.js`.
+- Regel: Der Rechner nennt den Zeitraum ("Schichten in einem Jahr") und rechnet 120 Euro geteilt durch die Schichten. Er macht keine eigene Aussage zur Haltbarkeit und nennt keine Schichtzahl je Paar als Tatsache. Logik: `assets/js/kosten.js`.
 
 ### Klein starten
 Status: gebaut
@@ -126,9 +123,10 @@ Status: gebaut
 Status: gebaut
 - Frage als Überschrift, Antwort in ganzen Sätzen, der erste Satz beantwortet die Frage. Alle Antworten stehen im HTML. Aufbau, Fragearten und Gruppen wie im Baustein "Fragen-Akkordeon (Mitarbeitende)", Regeln in `VOICE.md`, Abschnitt "FAQ".
 
-### Pilotformular
+### Pilotformular (Popup)
 Status: gebaut
-- Felder: Unternehmen, Rolle, Zahl der Mitarbeitenden, Einwilligung. Der Gründer ist als Kontakt genannt. Datenschutzhinweis und Antwortzeit stehen als Platzhalter. Prüfung im Browser mit Fehlermeldung je Feld (`assets/js/formular.js`). Versand ist noch nicht angebunden: Das Formular zeigt die Anfrage als Entwurf zum Kopieren.
+- Jeder Knopf "Pilot buchen" öffnet ein Popup (`<dialog data-pilot-dialog>`, `assets/js/pilot.js`) statt zum Formular zu springen. Auch `#pilot` oder `?pilot` in der Adresse öffnen es. Esc, Schließen-Knopf oder Klick auf den Hintergrund schließen, der Fokus kehrt zum Auslöser zurück. Das Popup steht auf der B2B-Startseite und auf jeder Rollenseite.
+- Pflichtfelder: Unternehmen, Rolle, Zahl der Mitarbeitenden, E-Mail oder Telefon, "Wie sind Sie auf uns aufmerksam geworden?" (acht Antworten, überschneidungsfrei, "Anderer Weg" zuletzt: Suche mit einer KI, Suche bei Google oder einer anderen Suchmaschine, soziale Netzwerke, Empfehlung eines anderen Unternehmens, Empfehlung einer Mitarbeiterin oder eines Mitarbeiters, Kontaktaufnahme durch VIANU, Presse, Fachmedium oder Veranstaltung, Anderer Weg), Freitext dazu (höchstens 500 Zeichen), Einwilligung. Prüfung im Browser mit Fehlermeldung je Feld (`assets/js/formular.js`). Versand ist noch nicht angebunden: Das Popup zeigt die Anfrage als Entwurf zum Kopieren.
 - Regeln: Spamschutz ohne Fremdserver, Bestätigung mit klarer Antwortzeit (noch festzulegen).
 
 ### Weiterleiten
@@ -183,9 +181,22 @@ Status: gebaut
 
 ## Übergreifend
 
-### Geschichte-Seite
+### Geschichte-Abschnitt
 Status: gebaut
-- `b2b/roderich.html`: Kopf mit Porträt-Platzhalter, "Seine Stationen" als ruhige Definitionsliste (keine grafische Zeitleiste, laut Konzept bewusst weggelassen), Platzhalter für die Firmenlogos, dunkles Band "Warum VIANU" mit Roderichs Satz zur eigenen Erfahrung, "Was daraus für Sie folgt" mit Pilot-Knopf. Erreichbar über das Gründerband der B2B-Startseite und den Brief jeder Rollenseite.
+- Abschnitt `#geschichte` der B2B-Startseite (die Unterseite `b2b/roderich.html` gibt es nicht mehr). Er erzählt in Kapiteln und lässt aus der Geschichte folgen, was VIANU verkauft:
+  - Kopf (dunkel): Porträt-Platzhalter, Roderichs Satz zu 10 bis 12 Stunden auf hartem Boden, drei Kennzahlen (20+ Jahre Gastronomie, 4 Mio. Euro mit dem Hinweis "Eigene Angabe von Roderich", 2020 WOYTON im eigenen Exit verkauft), vier Stationen in einer Leiste, Platzhalter für Firmenlogos.
+  - Kapitel 1 "Der Boden": Text und Druckkarte (`data-druckkarte`) mit Legende "schematisch, keine Messung".
+  - Kapitel 2 "Die Sohle" (Signalfläche): was entsteht, drei Schritte mit Symbolen (Fußerfassung, Anfertigung, Im Schuh) und der Satz "Das verkaufen wir: individuell angefertigte Einlegesohlen für Teams, die viele Stunden am Tag auf den Beinen sind."
+  - Kapitel 3 "Ihr Unternehmen": Roderichs Satz und der Weg über den Piloten, mit Knopf "Pilot buchen".
+- Keine Wirkaussage. Roderich bestätigt den Wortlaut vor dem Live-Gang. Die Briefe der Rollenseiten verlinken auf `./#geschichte`.
+
+### Stimme (B2B-Verwendung)
+Status: gebaut (Vorlage)
+- Dieselbe Karte wie auf der Mitarbeitenden-Seite, mit Platzhaltertext zu Preis und Aufwand, Vorname und Funktion. Steht früh nach der Geschichte und noch einmal im Schlussabschnitt.
+
+### Fußform (Sorgen und Bedenken)
+Status: gebaut
+- Die sechs Sorgen-Kacheln sind auf den Umriss eines rechten Fußes von unten zugeschnitten (Ferse links, fünf Zehen rechts, Gewölbe eingezogen). Der Umriss liegt als Linie darüber (`.sorgen__umriss`). Auf dem Handy bleibt die Mini-Fußform mit den sechs Zonen. Form als Polygon in Prozent, ohne Verweise auf ids.
 
 ### Rechtsseite
 Status: gebaut

@@ -42,6 +42,7 @@
   Object.keys(seiten).forEach(function (name) {
     Array.prototype.forEach.call(seiten[name].querySelectorAll("a[href]"), function (a) {
       var href = a.getAttribute("href");
+      if (a.hasAttribute("data-pilot-oeffnen")) return;
       if (/^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(href)) return;
       if (a.hasAttribute("download")) {
         a.setAttribute("data-vorschau-download", "");
@@ -57,6 +58,7 @@
     var a = e.target.closest && e.target.closest("a[href]");
     if (!a) return;
     var href = a.getAttribute("href");
+    if (a.hasAttribute("data-pilot-oeffnen")) return;
     if (a.hasAttribute("data-vorschau-download")) {
       e.preventDefault();
       zeigeHinweis("Downloads funktionieren in der Vorschau nicht. Auf der echten Seite lädt der Link die Datei.");

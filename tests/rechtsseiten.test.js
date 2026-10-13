@@ -7,7 +7,7 @@ const path = require("node:path");
 const ROOT = path.join(__dirname, "..");
 const lies = (rel) => fs.readFileSync(path.join(ROOT, rel), "utf8");
 const sichtbar = (h) => h.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
-const ALLE = ["index.html", "impressum.html", "datenschutz.html", "b2b/index.html", "b2b/roderich.html",
+const ALLE = ["index.html", "impressum.html", "datenschutz.html", "b2b/index.html",
   "b2b/personal.html", "b2b/geschaeftsfuehrung.html", "b2b/arbeitsschutz.html", "b2b/einkauf.html", "b2b/betriebsrat.html"];
 
 test("Impressum und Datenschutz haben ein h1, eigenen Titel und bleiben bis zu echten Angaben noindex", () => {
@@ -62,18 +62,30 @@ test("jede Seite verlinkt Impressum und Datenschutz im Fuß mit dem richtigen re
   }
 });
 
-test("Roderichs Geschichte nennt die Eckdaten des Konzepts und den Satz zur eigenen Erfahrung", () => {
-  const h = lies("b2b/roderich.html");
-  const t = sichtbar(h);
-  assert.equal((h.match(/<h1[\s>]/g) || []).length, 1);
-  for (const wort of ["Systemgastronomie", "Yum!", "WOYTON", "2012", "2020", "20 Jahre"]) assert.match(t, new RegExp(wort.replace("!", "\\!")), wort);
-  assert.match(t, /Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden/);
-  assert.doesNotMatch(t, /Einlegesohle[^.]{0,80}(wirkt|hilft|lindert)/i);
-  assert.match(h, /href="\.\/#pilot"/);
-  assert.doesNotMatch(t, /heilt|schmerzfrei|verhindert|Krankheitstage (sinken|gehen)/i);
+test("Roderichs Geschichte steht auf der B2B-Startseite und nennt die Eckdaten des Konzepts, auch englisch", () => {
+  for (const [datei, woerter, satz] of [
+    ["b2b/index.html", ["Systemgastronomie", "Yum!", "WOYTON", "2012", "2020", "20+", "Eigene Angabe von Roderich"], /Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden/],
+    ["en/b2b/index.html", ["system gastronomy", "Yum!", "WOYTON", "2012", "2020", "20+", "own statement"], /I stood on hard floors for 10 to 12 hours a day myself/]
+  ]) {
+    const h = lies(datei);
+    const t = sichtbar(h);
+    assert.match(h, /<section class="geschichte" id="geschichte"/, datei);
+    assert.equal((h.match(/<h1[\s>]/g) || []).length, 1, datei);
+    for (const wort of woerter) assert.match(t, new RegExp(wort.replace("!", "\\!"), "i"), datei + " " + wort);
+    assert.match(t, satz, datei);
+    assert.doesNotMatch(t, /Einlegesohlen?[^.]{0,80}(wirkt|hilft|lindert)|insoles? (works|helps|relieves)\b/i, datei);
+    assert.doesNotMatch(t, /heilt|schmerzfrei|verhindert|Krankheitstage (sinken|gehen)|heals|pain-free|prevents/i, datei);
+    assert.match(h, /<a class="knopf" href="#pilot" data-pilot-oeffnen>/, datei + ": Knopf öffnet das Popup");
+  }
 });
 
-test("die Geschichte wird von der Gründerband und den Briefen aus erreicht", () => {
-  assert.match(lies("b2b/index.html"), /href="roderich\.html"/);
-  for (const r of ["personal", "geschaeftsfuehrung", "arbeitsschutz", "einkauf", "betriebsrat"]) assert.match(lies("b2b/" + r + ".html"), /href="roderich\.html"/, r);
+test("die Unterseite zur Geschichte gibt es nicht mehr, alle Verweise führen zum Abschnitt auf der Startseite", () => {
+  for (const f of ["b2b/roderich.html", "en/b2b/roderich.html"]) assert.equal(fs.existsSync(path.join(ROOT, f)), false, f);
+  for (const r of ["personal", "geschaeftsfuehrung", "arbeitsschutz", "einkauf", "betriebsrat"]) {
+    for (const pre of ["b2b/", "en/b2b/"]) {
+      const h = lies(pre + r + ".html");
+      assert.doesNotMatch(h, /roderich\.html/, pre + r);
+      assert.match(h, /href="\.\/#geschichte"/, pre + r);
+    }
+  }
 });

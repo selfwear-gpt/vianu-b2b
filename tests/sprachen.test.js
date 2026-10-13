@@ -6,7 +6,7 @@ const path = require("node:path");
 
 const ROOT = path.join(__dirname, "..");
 const lies = (rel) => fs.readFileSync(path.join(ROOT, rel), "utf8");
-const PAARE = ["index.html", "impressum.html", "datenschutz.html", "b2b/index.html", "b2b/roderich.html",
+const PAARE = ["index.html", "impressum.html", "datenschutz.html", "b2b/index.html",
   "b2b/personal.html", "b2b/geschaeftsfuehrung.html", "b2b/arbeitsschutz.html", "b2b/einkauf.html", "b2b/betriebsrat.html"];
 const ohneSkripte = (h) => h.replace(/<script(?![^>]*ld\+json)[\s\S]*?<\/script>/g, "").replace(/<style[\s\S]*?<\/style>/g, "");
 const sichtbar = (h) => ohneSkripte(h).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
@@ -143,9 +143,9 @@ test("das B2B-Menü hat einen Punkt Ablauf zum Abschnitt Ablauf und keinen Punkt
 });
 
 test("die Zielgruppe heißt überall Teams, deren Personal viele Stunden auf den Beinen ist", () => {
-  const erlaubt = /Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service/g;
-  // Roderichs Lebenslauf nennt die Gastronomie als Ort seiner Arbeit, das ist keine Zielgruppe
-  for (const rel of PAARE.flatMap((f) => [f, "en/" + f]).filter((r) => !/roderich/.test(r))) {
+  const erlaubt = /Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service|Jahre Gastronomie|Systemgastronomie|years in food service/g;
+  // Studienabgrenzungen und Roderichs Lebenslauf nennen Hotellerie und Gastronomie als Ort, das ist keine Zielgruppe
+  for (const rel of PAARE.flatMap((f) => [f, "en/" + f])) {
     const h = lies(rel).replace(erlaubt, "");
     assert.doesNotMatch(h, /Hotellerie|Gastronomie|hospitality|food service/, rel);
   }

@@ -1,9 +1,9 @@
 // Seam: Prüfung der Pilotanfrage (assets/js/formular.js). Eingabe aus dem Formular, Ausgabe: Fehler je Feld.
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { pruefeAnfrage, anfrageAlsText, ROLLEN } = require("../assets/js/formular.js");
+const { pruefeAnfrage, anfrageAlsText, ROLLEN, QUELLEN } = require("../assets/js/formular.js");
 
-const gut = { unternehmen: "Hotel Sonnenhof", rolle: "personal", mitarbeitende: "120", einwilligung: true };
+const gut = { unternehmen: "Hotel Sonnenhof", rolle: "personal", mitarbeitende: "120", kontakt: "anna@sonnenhof.de", quelle: "ki", freitext: "Ich habe nach Einlegesohlen für Hotelpersonal gesucht.", einwilligung: true };
 
 test("eine vollständige Anfrage ist in Ordnung", () => {
   const r = pruefeAnfrage(gut);
@@ -39,9 +39,9 @@ test("ohne Einwilligung keine Anfrage", () => {
 });
 
 test("mehrere Fehler werden zusammen gemeldet", () => {
-  const r = pruefeAnfrage({ unternehmen: "", rolle: "", mitarbeitende: "", einwilligung: false });
+  const r = pruefeAnfrage({ unternehmen: "", rolle: "", mitarbeitende: "", kontakt: "", quelle: "", freitext: "", einwilligung: false });
   assert.equal(r.ok, false);
-  assert.deepEqual(Object.keys(r.fehler).sort(), ["einwilligung", "mitarbeitende", "rolle", "unternehmen"]);
+  assert.deepEqual(Object.keys(r.fehler).sort(), ["einwilligung", "freitext", "kontakt", "mitarbeitende", "quelle", "rolle", "unternehmen"]);
 });
 
 test("anfrageAlsText nennt Unternehmen, Rolle (mit Namen) und Zahl", () => {
@@ -52,10 +52,48 @@ test("anfrageAlsText nennt Unternehmen, Rolle (mit Namen) und Zahl", () => {
 });
 
 test("englische Meldungen und englischer Anfragetext", () => {
-  const r = pruefeAnfrage({ ...gut, unternehmen: "", rolle: "", mitarbeitende: "0", einwilligung: false }, "en");
-  for (const k of ["unternehmen", "rolle", "mitarbeitende", "einwilligung"]) assert.match(r.fehler[k], /^(Please|The)\b/, k);
+  const r = pruefeAnfrage({ ...gut, unternehmen: "", rolle: "", mitarbeitende: "0", kontakt: "x", quelle: "", freitext: "", einwilligung: false }, "en");
+  for (const k of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "einwilligung"]) assert.match(r.fehler[k], /^(Please|The)\b/, k);
   const t = anfrageAlsText(gut, "en");
   assert.match(t, /Request for the pilot with 10 employees/);
   assert.match(t, /Role: HR/);
   assert.doesNotMatch(t, /Anfrage|Rolle|Unternehmen/);
+});
+
+test("Kontakt: E-Mail oder Telefonnummer, nichts anderes", () => {
+  for (const v of ["", "   ", "anna", "anna@", "@sonnenhof.de", "anna@sonnenhof", "12345", "abc 123"]) {
+    assert.ok(pruefeAnfrage({ ...gut, kontakt: v }).fehler.kontakt, v);
+  }
+  for (const v of ["anna@sonnenhof.de", " anna.lena+pilot@sonnen-hof.co.uk ", "+49 171 1234567", "0171 / 1234567", "(089) 123 45 67", "030-123456"]) {
+    assert.equal(pruefeAnfrage({ ...gut, kontakt: v }).ok, true, v);
+  }
+});
+
+test("Herkunft: genau eine der vorgegebenen Antworten", () => {
+  for (const v of ["", "irgendwas", "KI", undefined]) assert.ok(pruefeAnfrage({ ...gut, quelle: v }).fehler.quelle, String(v));
+  for (const q of QUELLEN) assert.equal(pruefeAnfrage({ ...gut, quelle: q.id }).ok, true, q.id);
+});
+
+test("die Herkunftsliste ist überschneidungsfrei: jede Kennung einmal, jeder Name einmal, 'Anderer Weg' steht zuletzt", () => {
+  const ids = QUELLEN.map((q) => q.id), namen = QUELLEN.map((q) => q.name.toLowerCase());
+  assert.equal(new Set(ids).size, ids.length);
+  assert.equal(new Set(namen).size, namen.length);
+  assert.equal(ids[ids.length - 1], "anderer");
+  assert.deepEqual(ids, ["ki", "suchmaschine", "soziale-netzwerke", "empfehlung-unternehmen", "empfehlung-mitarbeitende", "kontakt-durch-vianu", "presse-veranstaltung", "anderer"]);
+});
+
+test("Freitext: Pflicht, 1 bis 500 Zeichen, nur Leerzeichen zählt nicht", () => {
+  for (const v of ["", "   ", "x".repeat(501)]) assert.ok(pruefeAnfrage({ ...gut, freitext: v }).fehler.freitext, v.slice(0, 5));
+  for (const v of ["x", "x".repeat(500)]) assert.equal(pruefeAnfrage({ ...gut, freitext: v }).ok, true);
+});
+
+test("anfrageAlsText nennt Kontakt, Herkunft (mit Namen) und Freitext, auch englisch", () => {
+  const de = anfrageAlsText(gut);
+  assert.match(de, /Kontakt: anna@sonnenhof\.de/);
+  assert.match(de, /Aufmerksam geworden über: Suche mit einer KI/);
+  assert.match(de, /Dazu: Ich habe nach Einlegesohlen/);
+  const en = anfrageAlsText(gut, "en");
+  assert.match(en, /Contact: anna@sonnenhof\.de/);
+  assert.match(en, /Found us through: Search with an AI/);
+  assert.match(en, /More detail: /);
 });

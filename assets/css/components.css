@@ -87,6 +87,7 @@
   text-decoration: none;
 }
 .menue__cta:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
+button.menue__cta { border: 0; font-family: var(--schrift-mono); cursor: pointer; }
 .menue__zurueck {
   display: flex;
   align-items: center;
@@ -426,8 +427,8 @@ button.knopf { cursor: pointer; }
 .kurz__liste { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr); margin: 0; }
 .kurz__punkt { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5) var(--abstand-5); border-left: 1px solid var(--farbe-tinte); }
 .kurz__punkt:first-child { border-left: 0; padding-left: 0; }
-.kurz__punkt dt { color: var(--farbe-gedaempft); }
-.kurz__punkt dd { margin: 0; font-size: 1.15rem; font-weight: 500; line-height: 1.35; }
+.kurz__punkt dt { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.9rem, 3.2vw, 2.75rem); line-height: 0.95; text-transform: uppercase; color: var(--farbe-tinte); }
+.kurz__punkt dd { margin: 0; font-size: var(--schrift-groesse-klein); font-weight: 400; line-height: 1.4; }
 @media (max-width: 56rem) {
   .kurz__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kurz__punkt:nth-child(3) { border-left: 0; padding-left: 0; }
@@ -831,7 +832,10 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 
 /* ---------- Sorgen und Bedenken: Fußabdruck ---------- */
 .sorgen__mini { display: none; }
+.sorgen__buehne { position: relative; }
+/* Der Fuß: Umriss eines rechten Fußes von unten, Ferse links, Zehen rechts. Die Kacheln werden auf die Form zugeschnitten. */
 .sorgen__fuss {
+  clip-path: polygon(4.0% 54.0%, 4.0% 46.8%, 4.7% 40.2%, 5.9% 34.5%, 7.6% 29.5%, 9.8% 25.5%, 12.3% 22.5%, 15.2% 20.6%, 18.4% 20.0%, 22.2% 20.4%, 25.8% 21.5%, 29.3% 23.1%, 32.8% 24.8%, 36.3% 26.3%, 39.8% 27.6%, 43.4% 28.2%, 47.2% 28.0%, 50.4% 26.7%, 53.4% 24.7%, 56.4% 22.1%, 59.4% 19.2%, 62.5% 16.5%, 65.6% 14.2%, 69.1% 12.6%, 72.8% 12.0%, 76.1% 11.7%, 79.2% 11.6%, 82.1% 11.8%, 84.8% 12.1%, 87.1% 12.7%, 89.3% 13.5%, 91.2% 14.6%, 92.8% 16.0%, 93.9% 16.6%, 94.9% 17.8%, 95.7% 19.3%, 96.2% 21.1%, 96.6% 23.2%, 96.8% 25.4%, 96.7% 27.7%, 96.4% 30.0%, 97.2% 30.8%, 97.9% 32.2%, 98.4% 34.2%, 98.7% 36.5%, 98.7% 39.0%, 98.6% 41.5%, 98.2% 43.9%, 97.6% 46.0%, 98.4% 47.1%, 99.0% 48.8%, 99.4% 50.9%, 99.6% 53.2%, 99.6% 55.7%, 99.3% 58.1%, 98.8% 60.2%, 98.0% 62.0%, 98.7% 63.5%, 99.1% 65.5%, 99.3% 67.9%, 99.4% 70.5%, 99.1% 73.1%, 98.6% 75.5%, 97.9% 77.5%, 96.8% 79.0%, 97.5% 80.6%, 98.0% 82.9%, 98.1% 85.8%, 97.8% 88.8%, 97.2% 91.7%, 96.1% 94.2%, 94.7% 96.1%, 92.8% 97.0%, 90.1% 97.4%, 87.4% 97.3%, 84.8% 96.6%, 82.3% 95.5%, 79.9% 94.0%, 77.6% 92.2%, 75.5% 90.2%, 73.6% 88.0%, 70.1% 86.6%, 66.8% 84.3%, 63.6% 81.3%, 60.5% 78.0%, 57.4% 74.7%, 54.4% 71.7%, 51.2% 69.4%, 48.0% 68.0%, 45.1% 68.6%, 42.4% 70.3%, 39.8% 72.9%, 37.2% 76.0%, 34.6% 79.5%, 32.0% 83.2%, 29.3% 86.8%, 26.4% 90.0%, 23.0% 92.1%, 19.4% 92.5%, 15.9% 91.1%, 12.5% 87.8%, 9.5% 82.4%, 6.9% 75.1%, 5.1% 65.6%);
   display: grid;
   grid-template-columns: 22fr 28fr 20fr 30fr;
   grid-template-rows: 1fr 1fr;
@@ -902,7 +906,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .formular { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-5); }
 .formular__feld { display: flex; flex-direction: column; gap: var(--abstand-2); width: 100%; }
 .formular__feld label { font-weight: 600; }
-.formular__feld input[type="text"], .formular__feld select {
+.formular__feld input[type="text"], .formular__feld select, .formular__feld textarea {
   width: 100%;
   padding: var(--abstand-3) var(--abstand-4);
   background: var(--farbe-papier);
@@ -912,6 +916,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
   font: inherit;
   font-size: 1.1rem;
 }
+.formular__feld textarea { resize: vertical; min-height: 5.5rem; }
 .formular__feld [aria-invalid="true"] { border-width: 4px; }
 .formular__feld--haken { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--abstand-2) var(--abstand-3); }
 .formular__feld--haken input { width: 1.4rem; height: 1.4rem; margin-top: 0.15rem; accent-color: var(--farbe-tinte); }
@@ -1097,3 +1102,168 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .stimme__name strong { font-family: var(--schrift-kopf); font-weight: 800; text-transform: uppercase; font-size: 1.1rem; }
 .stimme__name span { font-size: var(--schrift-groesse-klein); color: var(--farbe-gedaempft); }
 @media (max-width: 36rem) { .stimme { padding: var(--abstand-5); box-shadow: var(--abstand-2) var(--abstand-2) 0 var(--farbe-signal); } }
+
+
+/* ---------- Dialog: Pilot-Popup ---------- */
+.dialog {
+  width: min(44rem, calc(100vw - 2 * var(--abstand-4)));
+  max-height: calc(100dvh - 2 * var(--abstand-4));
+  padding: 0;
+  background: var(--farbe-papier);
+  color: var(--farbe-tinte);
+  border: var(--kante) solid var(--farbe-tinte);
+  box-shadow: var(--abstand-4) var(--abstand-4) 0 var(--farbe-signal);
+  overflow: auto;
+}
+.dialog::backdrop { background: var(--farbe-tinte); opacity: 0.72; }
+.dialog__innen { position: relative; display: flex; flex-direction: column; gap: var(--abstand-4); padding: var(--abstand-6); }
+.dialog__innen h2 { font-size: var(--schrift-groesse-h2); padding-right: var(--abstand-7); }
+.dialog__zu {
+  position: absolute;
+  top: var(--abstand-4);
+  right: var(--abstand-4);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--farbe-signal);
+  color: var(--farbe-auf-signal);
+  border: var(--kante) solid var(--farbe-tinte);
+  cursor: pointer;
+}
+.dialog__zu:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
+@media (max-width: 36rem) { .dialog__innen { padding: var(--abstand-5) var(--abstand-4); } }
+
+/* ---------- Symbole: nur Tokens, Flächen in Signal, Tinte und Papier ---------- */
+.ico { width: 100%; max-width: 8rem; height: 5.25rem; overflow: visible; }
+.ico * { fill: none; stroke: var(--farbe-tinte); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.ico .f-signal { fill: var(--farbe-signal); }
+.ico .f-tinte { fill: var(--farbe-tinte); }
+.ico .f-papier { fill: var(--farbe-papier); }
+.ico .ico__text { fill: var(--farbe-tinte); stroke: none; font-family: var(--schrift-kopf); font-weight: 800; font-size: 20px; }
+.ico .s-pfeil { stroke: var(--farbe-signal); }
+.auf-dunkel .ico *, .messwert--dunkel .ico * { stroke: var(--farbe-papier); }
+
+/* ---------- Geschichte: ein Abschnitt in Kapiteln ---------- */
+.geschichte { border-top: 1px solid var(--farbe-tinte); }
+.geschichte__kopf { background: var(--farbe-tinte); color: var(--farbe-papier); padding-block: clamp(40px, 7vw, 88px); }
+.geschichte__marke { color: var(--farbe-signal); margin-bottom: var(--abstand-5); }
+.geschichte__kopf .band__raster { align-items: center; }
+.geschichte__satz { font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1.02; max-width: 20ch; margin-top: var(--abstand-2); }
+.geschichte__satz2 { margin-top: var(--abstand-4); font-size: clamp(1.15rem, 2.2vw, 1.6rem); font-weight: 500; max-width: 34ch; }
+.fakten { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--abstand-4); margin: var(--abstand-7) 0 0; }
+.fakten__punkt { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-papier); }
+.fakten__punkt dt { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 0.95; text-transform: uppercase; }
+.fakten__punkt dd { margin: 0; font-size: var(--schrift-groesse-klein); max-width: 34ch; }
+.fakten__punkt--signal { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-color: var(--farbe-signal); }
+.leiste { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; margin: var(--abstand-6) 0 0; padding: 0; border-top: 3px solid var(--farbe-signal); }
+.leiste__punkt { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-4) var(--abstand-4) 0 0; font-weight: 600; }
+.leiste__nr { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); color: var(--farbe-signal); letter-spacing: 0.12em; }
+.geschichte__logos { margin-top: var(--abstand-5); max-width: none; background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); }
+.geschichte__logos .platzhalter__etikett { color: var(--farbe-papier); }
+.geschichte__kapitel { padding-block: clamp(40px, 7vw, 88px); border-top: 1px solid var(--farbe-tinte); }
+.geschichte__kapitel--signal { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.kapitel__marke { margin-bottom: var(--abstand-3); }
+.geschichte__kapitel h3 { font-size: var(--schrift-groesse-h2); line-height: 1.02; }
+.kapitel__raster { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.kapitel__raster--eng { grid-template-columns: minmax(0, 7fr) auto; }
+.kapitel__text { display: flex; flex-direction: column; gap: var(--abstand-4); }
+.kapitel__text p { font-size: clamp(1.1rem, 1.9vw, 1.35rem); line-height: 1.5; max-width: 40ch; }
+.geschichte__fazit { margin-top: var(--abstand-6); padding-top: var(--abstand-5); border-top: var(--kante) solid var(--farbe-tinte); font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.08; text-transform: uppercase; max-width: 28ch; }
+.schritte3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--abstand-3); list-style: none; margin: 0; padding: 0; }
+.schritte3__punkt { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-2); padding: var(--abstand-4); background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); font-size: var(--schrift-groesse-klein); }
+.schritte3__punkt strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.25rem; text-transform: uppercase; line-height: 1.05; }
+.schritte3__punkt--offen { border-style: dashed; color: var(--farbe-gedaempft); }
+.schritte3--klein .ico { height: 4rem; }
+@media (max-width: 56rem) {
+  .fakten, .leiste { grid-template-columns: minmax(0, 1fr); }
+  .leiste__punkt { flex-direction: row; gap: var(--abstand-3); padding: var(--abstand-3) 0; border-bottom: 1px solid var(--farbe-papier); }
+  .kapitel__raster, .kapitel__raster--eng { grid-template-columns: minmax(0, 1fr); }
+  .schritte3 { grid-template-columns: minmax(0, 1fr); }
+  .schritte3__punkt { flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .schritte3__punkt .ico { max-width: 5rem; height: 3.5rem; }
+}
+
+/* ---------- Was Sie bekommen: Reiter mit Bühne ---------- */
+.reise { display: flex; flex-direction: column; gap: var(--abstand-5); }
+.reise__reiter { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--abstand-3); }
+.reise__tab {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "ico nr" "ico wann" "ico titel";
+  align-items: center;
+  column-gap: var(--abstand-4);
+  padding: var(--abstand-4) var(--abstand-5);
+  background: var(--farbe-papier);
+  color: var(--farbe-tinte);
+  border: var(--kante) solid var(--farbe-tinte);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.reise__tab .ico { grid-area: ico; width: 5.5rem; height: 4rem; }
+.reise__nr { grid-area: nr; font-family: var(--schrift-kopf); font-weight: 800; font-size: 2.5rem; line-height: 1; }
+.reise__tab .etikett { grid-area: wann; color: var(--farbe-gedaempft); }
+.reise__tab strong { grid-area: titel; font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; line-height: 1.05; }
+.reise__tab:hover, .reise__tab[aria-selected="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.reise__tab:hover .etikett, .reise__tab[aria-selected="true"] .etikett { color: var(--farbe-auf-signal); }
+.reise__buehne { padding: var(--abstand-6); background: var(--farbe-tinte); color: var(--farbe-papier); min-height: 20rem; }
+.reise__feld { display: flex; flex-direction: column; gap: var(--abstand-4); }
+.reise__feld[hidden] { display: none; }
+.reise__feld + .reise__feld { margin-top: var(--abstand-6); }
+.reise__feld h3 { font-size: var(--schrift-groesse-h2); color: var(--farbe-signal); line-height: 1; }
+.reise__feld > p { font-size: clamp(1.1rem, 1.9vw, 1.35rem); max-width: 44ch; }
+.reise__feld .unterlagen { border-top-color: var(--farbe-papier); }
+.reise__feld .unterlagen__eintrag { border-bottom-color: var(--farbe-papier); font-size: 1.1rem; }
+.reise__feld .unterlagen__stand { color: var(--farbe-papier); border-color: var(--farbe-papier); }
+.reise__feld .schritte3__punkt--offen { background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--abstand-3); list-style: none; margin: 0; padding: 0; }
+.chips li { padding: var(--abstand-2) var(--abstand-4); background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-papier); font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.chips--gross li { background: var(--farbe-papier); color: var(--farbe-tinte); border-color: var(--farbe-tinte); font-size: 1rem; padding: var(--abstand-3) var(--abstand-5); }
+@media (max-width: 56rem) {
+  .reise__reiter { grid-template-columns: minmax(0, 1fr); }
+  .reise__tab { grid-template-columns: auto 1fr; }
+  .reise__buehne { padding: var(--abstand-5); }
+}
+@media print { .reise__feld[hidden] { display: flex; } }
+
+/* ---------- Messwerte: Flächen in Farbe ---------- */
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(1) { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(1) .messwert__leer { color: var(--farbe-auf-signal); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(3) { background: var(--farbe-tinte); color: var(--farbe-papier); border-color: var(--farbe-tinte); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(3) .messwert__leer { color: var(--farbe-papier); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(3) .ico * { stroke: var(--farbe-papier); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(3) .ico .f-tinte { fill: var(--farbe-papier); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(3) .ico .f-papier { fill: var(--farbe-tinte); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(3) .ico .f-signal { fill: var(--farbe-signal); stroke: var(--farbe-signal); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(4) { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(4) .messwert__leer { color: var(--farbe-auf-signal); }
+.messwerte:not(.messwerte--rolle) .messwert:nth-child(4) .ico .f-signal { fill: var(--farbe-papier); }
+.messwerte .messwert .ico { max-width: 9rem; height: 5.75rem; }
+
+/* ---------- Preis: Haltbarkeit und Schluss ---------- */
+.preis__halt { margin-top: var(--abstand-3); font-weight: 600; max-width: 46ch; }
+.schluss .abschnitt__kopf { align-items: flex-start; }
+.schluss .abschnitt__kopf .knopf { margin-top: var(--abstand-4); }
+.stimmen .stimme { max-width: 52rem; }
+.messwert--gross .ico .f-signal { fill: var(--farbe-papier); }
+.messwert--gross .ico { max-width: 9rem; height: 5.75rem; }
+
+.sorgen__umriss { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; overflow: visible; }
+.sorgen__umriss polygon { fill: none; stroke: var(--farbe-tinte); stroke-width: 4; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.sorgen__umriss path { fill: none; stroke: var(--farbe-tinte); stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.sorgen__eintrag--5 .sorge__vorn, .sorgen__eintrag--5 .sorge__hinten, .sorgen__eintrag--6 .sorge__vorn, .sorgen__eintrag--6 .sorge__hinten { padding-right: 16%; }
+.sorgen__eintrag--1 .sorge__vorn, .sorgen__eintrag--1 .sorge__hinten { padding-left: 14%; }
+@media (max-width: 56rem) { .sorgen__umriss { display: none; } }
+.sorgen__eintrag--1, .sorgen__eintrag--2, .sorgen__eintrag--3, .sorgen__eintrag--4, .sorgen__eintrag--5, .sorgen__eintrag--6 { border-radius: 0; }
+@media print { .sorgen__fuss { clip-path: none; } .sorgen__umriss { display: none; } }
+/* Fußform: Inhalte weg von den Rändern, wo der Umriss einschneidet */
+.sorgen__eintrag--1 .sorge__vorn, .sorgen__eintrag--1 .sorge__hinten { padding-left: 34%; }
+.sorgen__eintrag--3 .sorge__vorn, .sorgen__eintrag--3 .sorge__hinten { justify-content: flex-end; padding-bottom: var(--abstand-3); }
+.sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { justify-content: flex-start; padding-top: var(--abstand-3); }
+@media (max-width: 56rem) {
+  .sorgen__eintrag--1 .sorge__vorn, .sorgen__eintrag--1 .sorge__hinten, .sorgen__eintrag--5 .sorge__vorn, .sorgen__eintrag--5 .sorge__hinten, .sorgen__eintrag--6 .sorge__vorn, .sorgen__eintrag--6 .sorge__hinten { padding-left: var(--abstand-5); padding-right: var(--abstand-5); }
+  .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten, .sorgen__eintrag--3 .sorge__vorn, .sorgen__eintrag--3 .sorge__hinten { justify-content: center; padding-block: var(--abstand-4); }
+}
+.sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: 30%; }
+@media (max-width: 56rem) { .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: var(--abstand-5); } }

@@ -98,10 +98,27 @@ test("Smith nennt die Förderung durch einen Einlegesohlen-Hersteller und die Se
   assert.match(h, /Selbstauskunft/);
 });
 
-test("keine Seite nennt die 24 Prozent oder eine Haltbarkeit", () => {
+test("keine Rollenseite nennt die 24 Prozent", () => {
   for (const r of ROLLEN) {
     const h = seite(r).replace(/<script[\s\S]*?<\/script>/g, "");
     assert.doesNotMatch(h, /24\s?%|24 Prozent/, r);
-    assert.doesNotMatch(h, /Haltbar|hält\b/i, r);
   }
+});
+
+test("B2B und B2C sagen dasselbe zu Haltbarkeit und Lieferzeit, deutsch und englisch", () => {
+  for (const [datei, halt, lief] of [
+    ["b2b/index.html", /mindestens 3 Jahre einwandfrei/, /spätestens 7 Tage nach der Fußerfassung/],
+    ["en/b2b/index.html", /at least 3 years/, /at the latest 7 days after the foot capture/],
+    ["b2b/einkauf.html", /mindestens 3 Jahre einwandfrei/, /spätestens 7 Tage nach der Fußerfassung/],
+    ["en/b2b/einkauf.html", /at least 3 years/, /at the latest 7 days after the foot capture/],
+    ["b2b/geschaeftsfuehrung.html", /mindestens 3 Jahre einwandfrei/, /spätestens 7 Tage nach der Fußerfassung/]
+  ]) {
+    const h = fs.readFileSync(path.join(__dirname, "..", datei), "utf8");
+    assert.match(h, halt, datei + " Haltbarkeit");
+    assert.match(h, lief, datei + " Lieferzeit");
+  }
+});
+
+test("die Rollenseiten haben keinen Platzhalter mehr für die Lieferzeit", () => {
+  for (const r of ROLLEN) assert.doesNotMatch(seite(r), /Antwort folgt, sobald eine Lieferzeit|Answer to follow once a delivery time/, r);
 });

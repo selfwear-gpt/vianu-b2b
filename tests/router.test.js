@@ -51,15 +51,14 @@ test("von einer Rollenseite aus führen die Verweise zurück zur B2B-Startseite 
 test("Rechtsseiten und Roderichs Geschichte haben eine eigene Kennung", () => {
   assert.equal(seiteFuerHash("#impressum"), "impressum");
   assert.equal(seiteFuerHash("#datenschutz"), "datenschutz");
-  assert.equal(seiteFuerHash("#b2b-roderich"), "b2b-roderich");
+  assert.equal(seiteFuerHash("#b2b-roderich"), null);
 });
 
 test("Verweise auf Rechtsseiten und die Geschichte werden zu Kennungen", () => {
   assert.equal(verweisFuerVorschau("impressum.html", "start"), "#impressum");
   assert.equal(verweisFuerVorschau("../datenschutz.html", "b2b"), "#datenschutz");
   assert.equal(verweisFuerVorschau("../impressum.html", "b2b-personal"), "#impressum");
-  assert.equal(verweisFuerVorschau("roderich.html", "b2b"), "#b2b-roderich");
-  assert.equal(verweisFuerVorschau("roderich.html", "b2b-einkauf"), "#b2b-roderich");
+  assert.equal(verweisFuerVorschau("roderich.html", "b2b"), null);
   assert.equal(verweisFuerVorschau("datenschutz.html", "impressum"), "#datenschutz");
   assert.equal(verweisFuerVorschau("./", "impressum"), "#");
   assert.equal(verweisFuerVorschau("b2b/", "datenschutz"), "#b2b");
@@ -70,7 +69,6 @@ const SEITEN_PAARE = [
   ["b2b", "en-b2b", "b2b/index.html", "en/b2b/index.html"],
   ["impressum", "en-impressum", "impressum.html", "en/impressum.html"],
   ["datenschutz", "en-datenschutz", "datenschutz.html", "en/datenschutz.html"],
-  ["b2b-roderich", "en-b2b-roderich", "b2b/roderich.html", "en/b2b/roderich.html"],
   ...ROLLEN.map((r) => ["b2b-" + r, "en-b2b-" + r, "b2b/" + r + ".html", "en/b2b/" + r + ".html"])
 ];
 
@@ -80,10 +78,10 @@ test("jede englische Seite hat eine eigene Kennung", () => {
 });
 
 test("der Umschalter führt von jeder deutschen Seite auf ihre englische und zurück", () => {
-  const nachEn = { start: "en/", b2b: "../en/b2b/", impressum: "en/impressum.html", datenschutz: "en/datenschutz.html", "b2b-roderich": "../en/b2b/roderich.html" };
+  const nachEn = { start: "en/", b2b: "../en/b2b/", impressum: "en/impressum.html", datenschutz: "en/datenschutz.html" };
   for (const r of ROLLEN) nachEn["b2b-" + r] = "../en/b2b/" + r + ".html";
   for (const [de, en] of SEITEN_PAARE) assert.equal(verweisFuerVorschau(nachEn[de], de), "#" + en, de);
-  const nachDe = { en: "../", "en-b2b": "../../b2b/", "en-impressum": "../impressum.html", "en-datenschutz": "../datenschutz.html", "en-b2b-roderich": "../../b2b/roderich.html" };
+  const nachDe = { en: "../", "en-b2b": "../../b2b/", "en-impressum": "../impressum.html", "en-datenschutz": "../datenschutz.html" };
   for (const r of ROLLEN) nachDe["en-b2b-" + r] = "../../b2b/" + r + ".html";
   for (const [de, en] of SEITEN_PAARE) {
     const ziel = nachDe[en];

@@ -1,5 +1,5 @@
 /*
-  Prüfung der Pilotanfrage. Schnittstelle: pruefeAnfrage(daten, sprache) -> { ok, fehler }, anfrageAlsText(daten, sprache), ROLLEN.
+  Prüfung der Pilotanfrage. Schnittstelle: pruefeAnfrage(daten, sprache) -> { ok, fehler }, anfrageAlsText(daten, sprache), ROLLEN, QUELLEN, quelleName(id, sprache).
   Reine Funktionen ohne Browserbezug. Versand gibt es noch nicht: Die Seite zeigt die Anfrage als Text.
 */
 (function (root, factory) {
@@ -14,12 +14,42 @@
     { id: "betriebsrat", name: "Betriebsrat" },
     { id: "andere", name: "Andere Rolle" }
   ];
+  // Wie die Anfrager auf VIANU aufmerksam geworden sind. Die Antworten überschneiden sich nicht (nach Weg und Auslöser getrennt)
+  // und decken alles ab: eigene Suche (KI, klassisch), soziale Netzwerke, Empfehlung (Unternehmen, Mitarbeitende),
+  // Ansprache durch uns, Presse und Veranstaltungen, sonstiges. "Anderer Weg" steht immer zuletzt.
+  var QUELLEN = [
+    { id: "ki", name: "Suche mit einer KI" },
+    { id: "suchmaschine", name: "Suche bei Google oder einer anderen Suchmaschine" },
+    { id: "soziale-netzwerke", name: "Soziale Netzwerke" },
+    { id: "empfehlung-unternehmen", name: "Empfehlung eines anderen Unternehmens" },
+    { id: "empfehlung-mitarbeitende", name: "Empfehlung einer Mitarbeiterin oder eines Mitarbeiters" },
+    { id: "kontakt-durch-vianu", name: "Kontaktaufnahme durch VIANU" },
+    { id: "presse-veranstaltung", name: "Presse, Fachmedium oder Veranstaltung" },
+    { id: "anderer", name: "Anderer Weg" }
+  ];
   var MAX_NAME = 120;
+  var MAX_FREITEXT = 500;
   var MAX_ZAHL = 100000;
 
   function rolleName(id, sprache) {
     for (var i = 0; i < ROLLEN.length; i++) if (ROLLEN[i].id === id) return sprache ? texte.text("rolle." + id, null, sprache) : ROLLEN[i].name;
     return null;
+  }
+
+  function quelleName(id, sprache) {
+    for (var i = 0; i < QUELLEN.length; i++) {
+      if (QUELLEN[i].id !== id) continue;
+      return sprache === "en" ? texte.text("quelle." + id, null, "en").replace(/ \(.*\)$/, "") : QUELLEN[i].name;
+    }
+    return null;
+  }
+
+  // E-Mail: etwas@etwas.etwas ohne Leerzeichen. Telefon: nur Ziffern und + ( ) / - und Leerzeichen, mindestens 6 Ziffern.
+  function kontaktGueltig(wert) {
+    var k = String(wert == null ? "" : wert).trim();
+    if (/^[^\s@]+@[^\s@]+\.[^\s@.]{2,}$/.test(k)) return true;
+    if (!/^\+?[\d\s()\/.-]+$/.test(k)) return false;
+    return (k.match(/\d/g) || []).length >= 6;
   }
 
   function pruefeAnfrage(daten, sprache) {
@@ -36,6 +66,11 @@
       fehler.mitarbeitende = t("formular.mitarbeitende", { max: MAX_ZAHL });
     }
 
+    if (!kontaktGueltig(daten.kontakt)) fehler.kontakt = t("formular.kontakt");
+    if (!quelleName(daten.quelle)) fehler.quelle = t("formular.quelle");
+    var frei = String(daten.freitext == null ? "" : daten.freitext).trim();
+    if (!frei || frei.length > MAX_FREITEXT) fehler.freitext = t("formular.freitext", { max: MAX_FREITEXT });
+
     if (daten.einwilligung !== true) fehler.einwilligung = t("formular.einwilligung");
 
     return { ok: Object.keys(fehler).length === 0, fehler: fehler };
@@ -48,9 +83,12 @@
       t("anfrage.titel"),
       t("anfrage.unternehmen") + ": " + String(daten.unternehmen).trim(),
       t("anfrage.rolle") + ": " + (rolleName(daten.rolle, sp) || ""),
-      t("anfrage.mitarbeitende") + ": " + String(daten.mitarbeitende).trim()
+      t("anfrage.mitarbeitende") + ": " + String(daten.mitarbeitende).trim(),
+      t("anfrage.kontakt") + ": " + String(daten.kontakt).trim(),
+      t("anfrage.quelle") + ": " + (quelleName(daten.quelle, sp) || ""),
+      t("anfrage.freitext") + ": " + String(daten.freitext).trim()
     ].join("\n");
   }
 
-  return { pruefeAnfrage: pruefeAnfrage, anfrageAlsText: anfrageAlsText, ROLLEN: ROLLEN };
+  return { pruefeAnfrage: pruefeAnfrage, anfrageAlsText: anfrageAlsText, ROLLEN: ROLLEN, QUELLEN: QUELLEN, quelleName: quelleName };
 });

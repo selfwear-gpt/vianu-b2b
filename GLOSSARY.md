@@ -51,7 +51,7 @@ Die Menschen, die die Einlegesohle tragen. Im Du-Bereich "du", im Sie-Bereich "I
 _Avoid_: Kolleg:innen, Doppelpunkt, Angestellte, Personal, User
 
 **Roderich**:
-Der Gründer. In Briefen und im Gründerband steht der Vorname, im Impressum und bei den Eckdaten der volle Name.
+Der Gründer. In Briefen und in der Geschichte steht der Vorname, im Impressum und bei den Eckdaten der volle Name.
 _Avoid_: der Gründer als Anrede im Text
 
 **Entscheidungsteam**:
@@ -104,7 +104,7 @@ Die Zeichnung auf der Arbeitsschutz-Seite: Grundriss einer Küche mit Matte am H
 Das Ablaufbild auf der Betriebsrat-Seite. Bekannte Schritte sind durchgezogen, offene sind gestrichelt und stehen als Platzhalter.
 
 **Roderichs Geschichte**:
-Die längere Seite `b2b/roderich.html` mit seinen Stationen und seiner Erfahrung. Sie spricht von Erfahrung und macht keine Aussage zur Wirkung.
+Der Abschnitt `#geschichte` der B2B-Startseite mit seinen Stationen und seiner Erfahrung, in Kapiteln erzählt. Er spricht von Erfahrung und macht keine Aussage zur Wirkung. Eine eigene Unterseite gibt es nicht.
 
 **Rechtsseiten**:
 Impressum und Datenschutzerklärung. Solange die Angaben fehlen, sind sie Gerüste mit markierten Platzhaltern.

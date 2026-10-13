@@ -19,6 +19,7 @@
 <script src="../../assets/js/formular.js" defer></script>
 <script src="../../assets/js/ablauf.js" defer></script>
 <script src="../../assets/js/b2b.js" defer></script>
+<script src="../../assets/js/pilot.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,7 +86,23 @@
       "name": "How does a pilot with VIANU work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A pilot with VIANU runs in four steps: you sign up your team, your employees do the foot capture on their own smartphone during a break, VIANU makes the insoles, and you hand them over at your business. The details of the process are not yet fixed."
+        "text": "A pilot with VIANU runs in four steps: you sign up your team, your employees do the foot capture on their own smartphone during a break, VIANU makes the insoles, and the insoles reach your employees at your business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take from the foot scan to delivery of the insoles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends on the provider. At VIANU, the insole reaches your employees at the latest 7 days after the foot capture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an insole last in everyday work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends on the provider. At VIANU, we know from our own tests that the insole holds up in perfect condition for at least 3 years."
       }
     }
   ]
@@ -126,7 +143,7 @@
       </nav>
 
       <div class="menue__rechts">
-        <a class="menue__cta" href="#pilot">Book a pilot</a>
+        <a class="menue__cta" href="#pilot" data-pilot-oeffnen>Book a pilot</a>
         <a class="menue__zurueck" href="../">For employees
           <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
         </a>
@@ -146,13 +163,11 @@
     <div class="behaelter">
       <div class="hero__raster">
         <div class="hero__text">
-          <h1 id="hero-titel">So the shift doesn't end in the feet.</h1>
-          <p class="hero__antwort">VIANU is a program for teams whose staff are on their feet for many hours a day. Your employees get custom-made insoles, and you start with a pilot with 10 employees.</p>
-          <p class="hero__slogan">Nothing fancy. Just a great way to get through your day.</p>
-          <a class="knopf" href="#pilot">Book a pilot
+          <h1 id="hero-titel" lang="en">Keep walkin’ strong, the whole day long</h1>
+          <p class="hero__slogan" lang="en">Nothing fancy. Just a great way to get through your day.</p>
+          <a class="knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
-          <p class="hero__preis etikett">Pilot with 10 employees &middot; EUR 120 per pair, plus VAT</p>
         </div>
         <div class="hero__bild">
           <div class="platzhalter platzhalter--video" data-platzhalter role="group" aria-label="Placeholder for a video">
@@ -165,147 +180,101 @@
     </div>
   </section>
 
-  <section class="kurz" aria-labelledby="kurz-titel">
-    <div class="behaelter">
-      <h2 class="sr-nur" id="kurz-titel">In brief</h2>
-      <dl class="kurz__liste">
-        <div class="kurz__punkt">
-          <dt class="etikett">Who</dt>
-          <dd>VIANU, a program for teams whose staff are on their feet for many hours a day.</dd>
-        </div>
-        <div class="kurz__punkt">
-          <dt class="etikett">The program</dt>
-          <dd>Approval package, rollout at your business and results report.</dd>
-        </div>
-        <div class="kurz__punkt">
-          <dt class="etikett">The pilot</dt>
-          <dd>10 employees, 10 pairs, EUR 1,200, plus VAT.</dd>
-        </div>
-        <div class="kurz__punkt">
-          <dt class="etikett">The price</dt>
-          <dd>EUR 120 per pair, plus VAT.</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="band auf-dunkel" aria-label="The founder">
-    <div class="behaelter">
-      <div class="band__raster">
-        <div class="platzhalter platzhalter--quadrat" data-platzhalter role="group" aria-label="Placeholder for a portrait">
-          <span class="etikett platzhalter__etikett">Placeholder</span>
-          <p>Image: portrait of Roderich, head and shoulders, calm background from the kitchen. Square.</p>
-        </div>
-        <div>
-          <p class="etikett band__name">Roderich</p>
-          <p class="band__satz">I stood on hard floors for 10 to 12 hours a day myself. In the evening I was exhausted, and the exhaustion came from my feet. I want your employees to have energy left for their lives after the shift.</p>
-          <p class="band__weiter"><a class="textlink textlink--hell" href="roderich.html">Roderich's story</a></p>
-          <div class="band__fakten">
-            <div class="platzhalter" data-platzhalter role="group" aria-label="Placeholder for key facts">
-              <span class="etikett platzhalter__etikett">Placeholder</span>
-              <p>Key facts in one line with a source, plus company logos from Roderich's career. Only after confirmation by Roderich. The sentence above is a draft from the concept.</p>
-            </div>
+  <section class="geschichte" id="geschichte" aria-labelledby="geschichte-titel">
+    <div class="geschichte__kopf auf-dunkel">
+      <div class="behaelter">
+        <p class="etikett geschichte__marke">Roderich's story</p>
+        <div class="band__raster">
+          <div class="platzhalter platzhalter--quadrat" data-platzhalter role="group" aria-label="Placeholder for a portrait">
+            <span class="etikett platzhalter__etikett">Placeholder</span>
+            <p>Image: portrait of Roderich, head and shoulders, calm background from the kitchen. Square.</p>
           </div>
+          <div>
+            <p class="etikett band__name">Roderich, founder of VIANU</p>
+            <h2 class="geschichte__satz" id="geschichte-titel">I stood on hard floors for 10 to 12 hours a day myself.</h2>
+            <p class="geschichte__satz2">In the evening I was exhausted, and the exhaustion came from my feet.</p>
+          </div>
+        </div>
+        <dl class="fakten">
+          <div class="fakten__punkt"><dt>20+</dt><dd>years in food service</dd></div>
+          <div class="fakten__punkt fakten__punkt--signal"><dt>EUR 4 million</dt><dd>Built WOYTON from zero to EUR 4 million a year (2012). Roderich’s own statement.</dd></div>
+          <div class="fakten__punkt"><dt>2020</dt><dd>Sold WOYTON in his own exit</dd></div>
+        </dl>
+        <ol class="leiste" aria-label="Roderich's milestones"><li class="leiste__punkt"><span class="leiste__nr" aria-hidden="true">1</span><span>Training in system gastronomy</span></li><li class="leiste__punkt"><span class="leiste__nr" aria-hidden="true">2</span><span>Supply chain at Yum!</span></li><li class="leiste__punkt"><span class="leiste__nr" aria-hidden="true">3</span><span>Built WOYTON</span></li><li class="leiste__punkt"><span class="leiste__nr" aria-hidden="true">4</span><span>Sold WOYTON</span></li></ol>
+        <div class="platzhalter platzhalter--klein geschichte__logos" data-platzhalter role="group" aria-label="Placeholder for company logos">
+          <span class="etikett platzhalter__etikett">Placeholder</span>
+          <p>Logos: Yum! and brands, WOYTON. Files to follow.</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="abschnitt schicht" id="schicht" aria-labelledby="schicht-titel">
-    <div class="behaelter">
-      <div class="schicht__raster">
-        <div class="schicht__text">
-          <h2 id="schicht-titel">Where a shift lands</h2>
-          <p>Kitchen, service, housekeeping, reception, bar: a shift is made of standing and walking, often on tile and stone. The map shows where the weight of a step lands on the foot.</p>
-          <p class="etikett schicht__hinweis">Schematic drawing, not a measurement. Draft of the text.</p>
-        </div>
-        <figure class="schicht__bild" data-druckkarte>
+    <div class="geschichte__kapitel">
+      <div class="behaelter">
+        <div class="schicht__raster">
+          <div class="schicht__text">
+            <p class="etikett kapitel__marke">1 · The floor</p>
+            <h3>Ten to twelve hours on hard floors</h3>
+            <p>Kitchen, service, housekeeping, reception, bar: a shift is made of standing and walking, often on tile and stone. Every step lands on the foot.</p>
+            <p class="etikett schicht__hinweis">Larger dots: this is where the weight of a step lands the most. Schematic drawing, not a measurement.</p>
+          </div>
+          <figure class="schicht__bild" data-druckkarte>
           <svg class="druck" viewBox="0 0 100 260" role="img" aria-label="Drawing of an insole made of many dots. The dots at the ball and the heel are larger, and some of them are highlighted.">
             <path class="druck__umriss" data-druck-umriss d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
             <g data-druck-punkte></g>
           </svg>
-          <figcaption class="sr-nur">Schematic print card of a foot made of dots, without numbers.</figcaption>
+          <figcaption class="sr-nur">Schematic pressure map of a foot made of dots, without numbers.</figcaption>
         </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="geschichte__kapitel geschichte__kapitel--signal">
+      <div class="behaelter">
+        <p class="etikett kapitel__marke">2 · The insole</p>
+        <div class="kapitel__raster">
+          <div class="kapitel__text">
+            <h3>An insole made individually for each foot</h3>
+            <p>Your employees photograph their feet with their own smartphone, during a break. VIANU makes an insole for each person. It goes into the shoes the person already has. Name and company logo are engraved.</p>
+          </div>
+          <ol class="schritte3">
+            <li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="38" y="6" width="44" height="72" rx="8" class="f-papier"/><path d="M52 14h16" /><circle cx="60" cy="42" r="12" class="f-signal"/><path d="M60 36v12M54 42h12"/><circle cx="60" cy="68" r="3.5" class="f-tinte"/><path d="M20 22l10 6M20 62l10-6M100 22l-10 6M100 62l-10-6"/></svg><strong>Foot capture</strong><span>With their own smartphone</span></li>
+            <li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(60 42) rotate(90) scale(0.3) translate(-50 -130)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-signal" stroke-width="10"/></g><text x="60" y="46" class="ico__text" text-anchor="middle">A</text></svg><strong>Production</strong><span>One insole per person</span></li>
+            <li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M12 62V30l16-4 12 16c10 2 22 6 34 12 14 0 30 2 34 12v2z" class="f-papier"/><path d="M12 62h96" class="f-tinte"/><path d="M34 62c4-8 18-8 26 0" class="f-signal"/><path d="M26 46l6 4M36 40l6 4"/></svg><strong>In the shoe</strong><span>Into the shoes they already have</span></li>
+          </ol>
+        </div>
+        <p class="geschichte__fazit">This is what we sell: custom-made insoles for teams whose staff are on their feet for many hours a day.</p>
+      </div>
+    </div>
+
+    <div class="geschichte__kapitel">
+      <div class="behaelter">
+        <div class="kapitel__raster kapitel__raster--eng">
+          <div class="kapitel__text">
+            <p class="etikett kapitel__marke">3 · Your business</p>
+            <h3>Start small</h3>
+            <p>Where your staff are on their feet for many hours a day, VIANU starts with the feet. Roderich: “I want your employees to have energy left for their lives after the shift.”</p>
+            <p>So you begin with a pilot: 10 employees, taking part is voluntary. After that, you decide whether and how to continue.</p>
+          </div>
+          <a class="knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="abschnitt" id="programm" aria-labelledby="programm-titel">
+  <section class="abschnitt stimmen" id="stimme-frueh" aria-labelledby="stimme-frueh-titel">
     <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="programm-titel">What you get</h2>
-        <p>You get a program in three parts: documents for the approval, the rollout with your team and a report at the end.</p>
-      </div>
-      <ol class="zeit">
-        <li class="zeit__teil">
-          <p class="etikett zeit__wann">Before the start</p>
-          <h3>Approval package</h3>
-          <p>Documents for the approval within the company.</p>
-          <ul class="unterlagen">
-            <li class="unterlagen__eintrag"><span>Template for the works agreement</span><span class="etikett unterlagen__stand">In progress</span></li>
-            <li class="unterlagen__eintrag"><span>Data protection concept</span><span class="etikett unterlagen__stand">In progress</span></li>
-            <li class="unterlagen__eintrag"><span>Data processing agreement</span><span class="etikett unterlagen__stand">In progress</span></li>
-          </ul>
-        </li>
-        <li class="zeit__teil zeit__teil--breit">
-          <p class="etikett zeit__wann">In the pilot</p>
-          <h3>Rollout at your business</h3>
-          <p>Your employees do the foot capture on their own smartphone during a break. The insoles reach your employees at your business.</p>
-          <p class="zeit__vermerk">Effort for your HR team and the tasks of VIANU at your business: details to follow.</p>
-        </li>
-        <li class="zeit__teil">
-          <p class="etikett zeit__wann">Afterward</p>
-          <h3>Results report</h3>
-          <p>An anonymized report to you, at group level, on wear rate, perception and feedback.</p>
-        </li>
-      </ol>
-      <dl class="merkmale">
-        <div class="merkmale__punkt"><dt class="etikett">No measurement day</dt><dd>The foot capture fits into a break.</dd></div>
-        <div class="merkmale__punkt"><dt class="etikett">Own phone</dt><dd>Your employees need no additional device.</dd></div>
-        <div class="merkmale__punkt"><dt class="etikett">Existing shoes</dt><dd>The insole goes into shoes your team already has.</dd></div>
-        <div class="merkmale__punkt"><dt class="etikett">Right at your business</dt><dd>Taking part is voluntary, and each person gets their insole at your business.</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>At the end of the pilot there are four answers that your participants give themselves. All values are self-reported.</p>
-      </div>
-      <ul class="messwerte">
-        <li class="messwert">
-          <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4"><circle cx="60" cy="35" r="26" stroke-dasharray="3 7"/></svg>
-          <h3 class="etikett">Wear rate</h3>
-          <p class="messwert__frage">“Are you still wearing the insoles?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
-        </li>
-        <li class="messwert">
-          <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M12 40h96"/><circle cx="34" cy="40" r="7"/><circle cx="86" cy="40" r="7" stroke-dasharray="3 5"/></svg>
-          <h3 class="etikett">Noticeable improvement</h3>
-          <p class="messwert__frage">“Do you notice a difference compared to before?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
-        </li>
-        <li class="messwert">
-          <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="20" r="8"/><path d="M10 56c0-12 6-18 14-18s14 6 14 18"/><circle cx="96" cy="20" r="8" stroke-dasharray="3 5"/><path d="M82 56c0-12 6-18 14-18s14 6 14 18" stroke-dasharray="3 5"/><path d="M46 36h28M66 28l8 8-8 8"/></svg>
-          <h3 class="etikett">Recommendation</h3>
-          <p class="messwert__frage">“Would you recommend them?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
-        </li>
-        <li class="messwert">
-          <svg class="messwert__bild" viewBox="0 0 120 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="46" cy="22" r="9"/><path d="M28 60c0-14 8-20 18-20s18 6 18 20"/><path d="M88 14c-3-5-12-3-12 4 0 6 8 10 12 14 4-4 12-8 12-14 0-7-9-9-12-4z" stroke-dasharray="3 5"/></svg>
-          <h3 class="etikett">Appreciation</h3>
-          <p class="messwert__frage">“Do you feel valued by this offer?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
-        </li>
-      </ul>
-      <p class="messwerte__grenze">These are measures of comfort and acceptance. They say nothing about sick days, turnover, performance or pain.</p>
-      <ol class="zeitstrahl" aria-label="Course of the measurement">
-        <li class="zeitstrahl__punkt"><span class="etikett">Start</span><span>Foot capture</span></li>
-        <li class="zeitstrahl__punkt zeitstrahl__punkt--offen" data-platzhalter><span class="etikett">Placeholder</span><span>Evaluation, time frame to follow</span></li>
-        <li class="zeitstrahl__punkt"><span class="etikett">Afterward</span><span>Results report to you</span></li>
-      </ol>
+      <div class="abschnitt__kopf"><h2 id="stimme-frueh-titel">Voice of a pilot customer</h2></div>
+      <figure class="stimme" data-platzhalter role="group" aria-label="Placeholder for the voice of a pilot customer">
+        <span class="etikett platzhalter__etikett">Placeholder</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>A short statement from a pilot customer on price and effort. Only with written permission, with name and role. Image to go with it: portrait of the person with first name and role.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>First name</strong><span>Role</span></span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -314,7 +283,7 @@
       <div class="abschnitt__kopf">
         <h2 id="ablauf-titel">From start to insole</h2>
         <p>The pilot runs in four steps. Choose a step to see who does what.</p>
-        <p class="etikett">Draft, the process is still being set</p>
+        <p class="etikett">Four steps from sign-up to your own insole.</p>
       </div>
       <div class="bahnen" data-ablauf>
         <div class="bahnen__raster" role="group" aria-label="The four steps in three lanes">
@@ -330,9 +299,50 @@
           <p data-screen="1">You decide which 10 employees take part in the pilot. Taking part is voluntary.</p>
           <p data-screen="2">Your employees photograph their feet with their own smartphone, during a break, with no measurement day and no additional devices.</p>
           <p data-screen="3">A custom-made insole is made for each person.</p>
-          <p data-screen="4">The insole reaches your employees at your business. It goes into shoes your employees already own.</p>
+          <p data-screen="4">The insole reaches your employees at your business at the latest 7 days after the foot capture. It goes into shoes your employees already own.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">What we measure at the end</h2>
+        <p>At the end of the pilot there are four answers that your participants give themselves. All values are self-reported.</p>
+      </div>
+      <ul class="messwerte">
+        <li class="messwert">
+          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
+          <h3 class="etikett">Wear rate</h3>
+          <p class="messwert__frage">“Are you still wearing the insoles?”</p>
+          <p class="messwert__leer etikett">No data yet</p>
+        </li>
+        <li class="messwert">
+          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
+          <h3 class="etikett">Noticeable improvement</h3>
+          <p class="messwert__frage">“Do you notice a difference compared to before?”</p>
+          <p class="messwert__leer etikett">No data yet</p>
+        </li>
+        <li class="messwert">
+          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
+          <h3 class="etikett">Recommendation</h3>
+          <p class="messwert__frage">“Would you recommend them?”</p>
+          <p class="messwert__leer etikett">No data yet</p>
+        </li>
+        <li class="messwert">
+          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
+          <h3 class="etikett">Appreciation</h3>
+          <p class="messwert__frage">“Do you feel valued by this offer?”</p>
+          <p class="messwert__leer etikett">No data yet</p>
+        </li>
+      </ul>
+      <p class="messwerte__grenze">These are measures of comfort and acceptance. They say nothing about sick days, turnover, performance or pain.</p>
+      <ol class="zeitstrahl" aria-label="Course of the measurement">
+        <li class="zeitstrahl__punkt"><span class="etikett">Start</span><span>Foot capture</span></li>
+        <li class="zeitstrahl__punkt zeitstrahl__punkt--offen" data-platzhalter><span class="etikett">Placeholder</span><span>Evaluation, time frame to follow</span></li>
+        <li class="zeitstrahl__punkt"><span class="etikett">Afterward</span><span>Results report to you</span></li>
+      </ol>
     </div>
   </section>
 
@@ -345,16 +355,17 @@
           <p>per pair, plus VAT</p>
           <p>The pilot costs the regular price: 10 pairs, EUR 1,200, plus VAT.</p>
         </div>
+        <p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p>
       </div>
       <div class="preis__werkzeuge">
         <div class="rechner" data-rechner>
-          <label class="etikett" for="rechner-schichten">Shifts over which you spread a pair</label>
+          <label class="etikett" for="rechner-schichten">Shifts in one year</label>
           <div class="rechner__regler">
             <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="220" data-rechner-regler>
             <output class="rechner__zahl" for="rechner-schichten" data-rechner-zahl>220</output>
           </div>
           <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-rechner-ergebnis>EUR 0.55</span> per shift</p>
-          <p class="etikett rechner__formel">Calculated: <span data-rechner-text>EUR 120 per pair divided by 220 shifts</span>, plus VAT</p>
+          <p class="etikett rechner__formel">Calculated: <span data-rechner-text>EUR 120 per pair divided by 220 shifts in one year</span>, plus VAT</p>
         </div>
         <div class="klein" data-klein>
           <svg class="klein__bild" viewBox="0 0 360 120" role="img" aria-label="Ten dots for the pilot, next to them growing groups for more teams and more locations. Diagram without numbers." data-klein-bild></svg>
@@ -365,10 +376,6 @@
           </ol>
         </div>
       </div>
-      <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Placeholder for a voice from the pilot">
-        <span class="etikett platzhalter__etikett">Placeholder</span>
-        <p>Short statement from a pilot customer on the price and the effort. Only with written permission, with name and role.</p>
-      </div>
     </div>
   </section>
 
@@ -378,17 +385,17 @@
         <h2 id="sorgen-titel">Worries and concerns in the decision-making team</h2>
       </div>
       <div class="sorgen__mini">
-        <svg class="mini" viewBox="0 0 260 100" focusable="false" aria-hidden="true">
-          <defs><clipPath id="mini-umriss"><polygon points="0,45 5.2,28 20.8,14 46.8,6 78,3 109.2,4 130,10 156,12 187.2,14 218.4,18 241.8,26 254.8,40 260,55 252.2,72 234,86 208,95 176.8,98 150.8,96 130,90 114.4,78 98.8,76 78,82 57.2,92 31.2,90 13,80 2.6,64"/></clipPath></defs>
+        <svg class="mini" viewBox="0 0 250 100" focusable="false" aria-hidden="true">
+          <defs><clipPath id="mini-umriss"><path d="M10 54 C8 34 24 20 46 20 C72 20 92 30 118 28 C140 26 156 12 182 12 C205 11 222 12 232 16 C240 17 244 24 241 30 C247 31 249 41 244 46 C250 48 251 58 245 62 C250 65 250 76 242 79 C248 82 246 96 232 97 C214 99 196 94 184 88 C160 86 142 70 120 68 C100 68 86 82 66 90 C44 98 14 88 10 54Z"/></clipPath></defs>
           <g clip-path="url(#mini-umriss)">
-            <rect class="mini__zone" data-zone x="0" y="0" width="57.2" height="100"/>
-            <rect class="mini__zone" data-zone x="57.2" y="50" width="72.8" height="50"/>
-            <rect class="mini__zone" data-zone x="57.2" y="0" width="72.8" height="50"/>
-            <rect class="mini__zone" data-zone x="130" y="0" width="52" height="100"/>
-            <rect class="mini__zone" data-zone x="182" y="0" width="78" height="50"/>
-            <rect class="mini__zone" data-zone x="182" y="50" width="78" height="50"/>
+            <rect class="mini__zone" data-zone x="0" y="0" width="62" height="100"/>
+            <rect class="mini__zone" data-zone x="62" y="50" width="70" height="50"/>
+            <rect class="mini__zone" data-zone x="62" y="0" width="70" height="50"/>
+            <rect class="mini__zone" data-zone x="132" y="0" width="50" height="100"/>
+            <rect class="mini__zone" data-zone x="182" y="0" width="68" height="50"/>
+            <rect class="mini__zone" data-zone x="182" y="50" width="68" height="50"/>
           </g>
-          <polygon class="mini__rand" points="0,45 5.2,28 20.8,14 46.8,6 78,3 109.2,4 130,10 156,12 187.2,14 218.4,18 241.8,26 254.8,40 260,55 252.2,72 234,86 208,95 176.8,98 150.8,96 130,90 114.4,78 98.8,76 78,82 57.2,92 31.2,90 13,80 2.6,64"/>
+          <path class="mini__rand" d="M10 54 C8 34 24 20 46 20 C72 20 92 30 118 28 C140 26 156 12 182 12 C205 11 222 12 232 16 C240 17 244 24 241 30 C247 31 249 41 244 46 C250 48 251 58 245 62 C250 65 250 76 242 79 C248 82 246 96 232 97 C214 99 196 94 184 88 C160 86 142 70 120 68 C100 68 86 82 66 90 C44 98 14 88 10 54Z"/>
         </svg>
         <div class="sorgen__punkte">
             <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 1: HR"></button>
@@ -400,6 +407,7 @@
         </div>
       </div>
       <div class="sorgen__buehne">
+        <svg class="sorgen__umriss" viewBox="0 0 250 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polygon points="10.0,54.0 10.1,46.8 11.7,40.2 14.7,34.5 19.0,29.5 24.4,25.5 30.8,22.5 38.1,20.6 46.0,20.0 55.5,20.4 64.6,21.5 73.4,23.1 82.0,24.8 90.6,26.3 99.4,27.6 108.5,28.2 118.0,28.0 126.0,26.7 133.6,24.7 141.1,22.1 148.5,19.2 156.1,16.5 164.1,14.2 172.7,12.6 182.0,12.0 190.3,11.7 198.1,11.6 205.3,11.8 211.9,12.1 217.8,12.7 223.2,13.5 227.9,14.6 232.0,16.0 234.8,16.6 237.2,17.8 239.2,19.3 240.6,21.1 241.6,23.2 242.0,25.4 241.8,27.7 241.0,30.0 243.1,30.8 244.7,32.2 245.9,34.2 246.6,36.5 246.8,39.0 246.5,41.5 245.6,43.9 244.0,46.0 246.0,47.1 247.5,48.8 248.5,50.9 249.0,53.2 248.9,55.7 248.2,58.1 246.9,60.2 245.0,62.0 246.6,63.5 247.8,65.5 248.4,67.9 248.4,70.5 247.8,73.1 246.5,75.5 244.6,77.5 242.0,79.0 243.9,80.6 244.9,82.9 245.2,85.8 244.5,88.8 242.9,91.7 240.3,94.2 236.7,96.1 232.0,97.0 225.3,97.4 218.6,97.3 212.1,96.6 205.8,95.5 199.7,94.0 194.0,92.2 188.8,90.2 184.0,88.0 175.3,86.6 167.0,84.3 159.0,81.3 151.2,78.0 143.6,74.7 135.9,71.7 128.1,69.4 120.0,68.0 112.8,68.6 105.9,70.3 99.4,72.9 93.0,76.0 86.6,79.5 80.1,83.2 73.2,86.8 66.0,90.0 57.4,92.1 48.5,92.5 39.7,91.1 31.2,87.8 23.7,82.4 17.3,75.1 12.7,65.6"/><path d="M241 30l-10 3"/><path d="M244 46l-10 3"/><path d="M245 62l-10 3"/><path d="M242 79l-10 3"/></svg>
         <ul class="sorgen__fuss" data-sorgen-liste>
           <li class="sorgen__eintrag sorgen__eintrag--1">
             <a class="sorge sorge--1" id="sorge-1" href="personal.html" data-sorge>
@@ -496,6 +504,44 @@
     </div>
   </section>
 
+  <section class="abschnitt" id="programm" aria-labelledby="programm-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="programm-titel">What you get</h2>
+        <p>You get three things: documents for approval, the rollout with your team and a report at the end.</p>
+      </div>
+      <div class="reise" data-reise>
+        <div class="reise__reiter" role="tablist" aria-label="The three parts of the program">
+          <button class="reise__tab" type="button" role="tab" id="reise-tab-1" aria-controls="reise-feld-1" aria-selected="true" data-reiter="1"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="30" y="6" width="50" height="68" rx="4" class="f-papier"/><path d="M40 22h30M40 34h30M40 46h18"/><circle cx="82" cy="58" r="18" class="f-signal"/><path d="M73 58l7 7 12-15" stroke-width="5"/></svg><span class="reise__nr" aria-hidden="true">1</span><span class="etikett">Before the start</span><strong>Approval package</strong></button>
+          <button class="reise__tab" type="button" role="tab" id="reise-tab-2" aria-controls="reise-feld-2" aria-selected="false" tabindex="-1" data-reiter="2"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="12" y="10" width="34" height="58" rx="6" class="f-papier"/><circle cx="29" cy="56" r="3" class="f-tinte"/><path d="M12 22h34"/><g transform="translate(86 42) rotate(90) scale(0.25) translate(-50 -130)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-signal" stroke-width="11"/></g><path d="M52 40h14M60 33l8 7-8 7" stroke-width="4"/></svg><span class="reise__nr" aria-hidden="true">2</span><span class="etikett">In the pilot</span><strong>Rollout</strong></button>
+          <button class="reise__tab" type="button" role="tab" id="reise-tab-3" aria-controls="reise-feld-3" aria-selected="false" tabindex="-1" data-reiter="3"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="14" y="8" width="92" height="68" rx="4" class="f-papier"/><path d="M28 62V46h14v16zM52 62V34h14v28zM76 62V22h14v40z" class="f-signal"/><path d="M26 18h40"/></svg><span class="reise__nr" aria-hidden="true">3</span><span class="etikett">Afterward</span><strong>Results report</strong></button>
+        </div>
+        <div class="reise__buehne">
+          <div class="reise__feld" role="tabpanel" id="reise-feld-1" aria-labelledby="reise-tab-1" data-feld-nr="1">
+            <h3>Approval package</h3>
+            <p>Documents for approval inside your company.</p>
+            <ul class="unterlagen"><li class="unterlagen__eintrag"><span>Template for the works agreement</span><span class="etikett unterlagen__stand">In progress</span></li><li class="unterlagen__eintrag"><span>Privacy concept</span><span class="etikett unterlagen__stand">In progress</span></li><li class="unterlagen__eintrag"><span>Data processing agreement</span><span class="etikett unterlagen__stand">In progress</span></li></ul>
+          </div>
+          <div class="reise__feld" role="tabpanel" id="reise-feld-2" aria-labelledby="reise-tab-2" data-feld-nr="2">
+            <h3>Rollout</h3>
+            <p>Your team takes part, the insoles come to you.</p>
+            <ol class="schritte3 schritte3--klein">
+              <li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="38" y="6" width="44" height="72" rx="8" class="f-papier"/><path d="M52 14h16" /><circle cx="60" cy="42" r="12" class="f-signal"/><path d="M60 36v12M54 42h12"/><circle cx="60" cy="68" r="3.5" class="f-tinte"/><path d="M20 22l10 6M20 62l10-6M100 22l-10 6M100 62l-10-6"/></svg><strong>Foot capture</strong><span>On their own smartphone during a break</span></li>
+              <li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M12 62V30l16-4 12 16c10 2 22 6 34 12 14 0 30 2 34 12v2z" class="f-papier"/><path d="M12 62h96" class="f-tinte"/><path d="M34 62c4-8 18-8 26 0" class="f-signal"/><path d="M26 46l6 4M36 40l6 4"/></svg><strong>Delivery</strong><span>The insole reaches your employees at the latest 7 days after the foot capture</span></li>
+              <li class="schritte3__punkt schritte3__punkt--offen" data-platzhalter role="group" aria-label="Placeholder for the effort"><strong>Effort</strong><span>Effort for your HR team and tasks of VIANU: details to follow</span></li>
+            </ol>
+          </div>
+          <div class="reise__feld" role="tabpanel" id="reise-feld-3" aria-labelledby="reise-tab-3" data-feld-nr="3">
+            <h3>Results report</h3>
+            <p>An anonymized report to you, at group level.</p>
+            <ul class="chips"><li>Wear rate</li><li>Perception</li><li>Feedback</li></ul>
+          </div>
+        </div>
+        <ul class="chips chips--gross"><li>No measurement day</li><li>Own smartphone</li><li>Existing shoes</li><li>Voluntary</li></ul>
+      </div>
+    </div>
+  </section>
+
   <section class="abschnitt" id="zweites-paar" aria-labelledby="zweites-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="zweites-titel">Second pair</h2></div>
@@ -565,13 +611,12 @@
             </div>
           </details>
           <details class="frage">
-            <summary>How long does it take from the foot scan to the delivery of the insoles?</summary>
-            <div class="frage__antwort">
-              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Placeholder for the answer on delivery time">
-                <span class="etikett platzhalter__etikett">Placeholder</span>
-                <p>Answer follows once a delivery time can be promised.</p>
-              </div>
-            </div>
+            <summary>How long does it take from the foot scan to delivery of the insoles?</summary>
+            <div class="frage__antwort"><p>That depends on the provider. At VIANU, the insole reaches your employees at the latest 7 days after the foot capture.</p></div>
+          </details>
+          <details class="frage">
+            <summary>How long does an insole last in everyday work?</summary>
+            <div class="frage__antwort"><p>That depends on the provider. At VIANU, we know from our own tests that the insole holds up in perfect condition for at least 3 years.</p></div>
           </details>
           </div>
         </div>
@@ -584,7 +629,7 @@
           </details>
           <details class="frage">
             <summary>How does a pilot with VIANU work?</summary>
-            <div class="frage__antwort"><p>A pilot with VIANU runs in four steps: you sign up your team, your employees do the foot capture on their own smartphone during a break, VIANU makes the insoles, and you hand them over at your business. The details of the process are not yet fixed.</p></div>
+            <div class="frage__antwort"><p>A pilot with VIANU runs in four steps: you sign up your team, your employees do the foot capture on their own smartphone during a break, VIANU makes the insoles, and the insoles reach your employees at your business.</p></div>
           </details>
           </div>
         </div>
@@ -592,14 +637,57 @@
     </div>
   </section>
 
-  <section class="abschnitt" id="pilot" aria-labelledby="pilot-titel">
+  <section class="abschnitt schluss" id="pilot" aria-labelledby="schluss-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="pilot-titel">Book a pilot</h2>
+        <h2 id="schluss-titel">Start with 10 employees</h2>
         <p>A pilot with 10 employees costs EUR 1,200, plus VAT. Roderich is your contact.</p>
+        <a class="knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </a>
       </div>
       <div class="pilot__raster">
-        <form class="formular" id="pilot-formular" novalidate data-formular>
+        <figure class="stimme" data-platzhalter role="group" aria-label="Placeholder for the voice of a pilot customer">
+        <span class="etikett platzhalter__etikett">Placeholder</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>A short statement from a pilot customer on price and effort. Only with written permission, with name and role. Image to go with it: portrait of the person with first name and role.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>First name</strong><span>Role</span></span>
+        </figcaption>
+      </figure>
+        <div class="pilot__seite">
+          <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Placeholder for privacy notice and response time">
+            <span class="etikett platzhalter__etikett">Placeholder</span>
+            <p>Privacy notice for the form and the response time to your request. Both follow once the privacy concept is in place and the response time is set. Where the request goes has not been decided yet.</p>
+          </div>
+          <div class="weiter" data-weiterleiten>
+            <h3>To the next person in the decision-making team</h3>
+            <p>Each role has its own page with a one-page PDF to pass on.</p>
+            <ul class="weiter__liste">
+          <li><a class="textlink" href="personal.html">HR</a></li>
+          <li><a class="textlink" href="geschaeftsfuehrung.html">Management and operations</a></li>
+          <li><a class="textlink" href="arbeitsschutz.html">Occupational safety</a></li>
+          <li><a class="textlink" href="einkauf.html">Procurement</a></li>
+          <li><a class="textlink" href="betriebsrat.html">Works council</a></li>
+            </ul>
+            <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Copy link to this page</button>
+            <p class="weiter__status" role="status" data-weiterleiten-status></p>
+            <input class="weiter__feld" type="text" readonly hidden aria-label="Link to this page" data-weiterleiten-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <h2 id="pilot-titel">Book a pilot</h2>
+    <p>A pilot with 10 employees costs EUR 1,200, plus VAT. Roderich is your contact. All fields are required.</p>
+    <form class="formular" id="pilot-formular" novalidate data-formular>
           <div class="formular__feld">
             <label for="f-unternehmen">Company</label>
             <input id="f-unternehmen" name="unternehmen" type="text" autocomplete="organization" required aria-describedby="f-unternehmen-fehler" data-feld="unternehmen">
@@ -623,6 +711,31 @@
             <input id="f-mitarbeitende" name="mitarbeitende" type="text" inputmode="numeric" autocomplete="off" required aria-describedby="f-mitarbeitende-fehler" data-feld="mitarbeitende">
             <p class="formular__fehler" id="f-mitarbeitende-fehler" data-fehler="mitarbeitende" hidden></p>
           </div>
+          <div class="formular__feld">
+            <label for="f-kontakt">Email or phone</label>
+            <input id="f-kontakt" name="kontakt" type="text" autocomplete="email" required aria-describedby="f-kontakt-fehler" data-feld="kontakt">
+            <p class="formular__fehler" id="f-kontakt-fehler" data-fehler="kontakt" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-quelle">How did you find out about us?</label>
+            <select id="f-quelle" name="quelle" required aria-describedby="f-quelle-fehler" data-feld="quelle">
+              <option value="">Please choose</option>
+              <option value="ki">Search with an AI (for example ChatGPT, Claude or Gemini)</option>
+              <option value="suchmaschine">Search on Google or another search engine</option>
+              <option value="soziale-netzwerke">Social networks (for example LinkedIn or Instagram)</option>
+              <option value="empfehlung-unternehmen">Recommendation from another company</option>
+              <option value="empfehlung-mitarbeitende">Recommendation from an employee</option>
+              <option value="kontakt-durch-vianu">Contact made by VIANU</option>
+              <option value="presse-veranstaltung">Press, trade media or event</option>
+              <option value="anderer">Another way (please say below)</option>
+            </select>
+            <p class="formular__fehler" id="f-quelle-fehler" data-fehler="quelle" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-freitext">What were you looking for, for example, or who recommended us?</label>
+            <textarea id="f-freitext" name="freitext" rows="3" maxlength="500" required aria-describedby="f-freitext-fehler" data-feld="freitext"></textarea>
+            <p class="formular__fehler" id="f-freitext-fehler" data-fehler="freitext" hidden></p>
+          </div>
           <div class="formular__feld formular__feld--haken">
             <input id="f-einwilligung" name="einwilligung" type="checkbox" aria-describedby="f-einwilligung-fehler" data-feld="einwilligung">
             <label for="f-einwilligung">I agree that my details are processed to handle this request. The exact wording follows with the privacy notice.</label>
@@ -637,32 +750,9 @@
             <button class="knopf knopf--dunkel" type="button" data-formular-kopieren>Copy text</button>
             <p class="formular__status" role="status" data-formular-status></p>
           </div>
-        </form>
-        <div class="pilot__seite">
-          <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Placeholder for privacy notice and response time">
-        <span class="etikett platzhalter__etikett">Placeholder</span>
-        <p>Privacy notice for the form and the response time to your request. Both follow once the data protection concept is in place and the response time is set. Where the request goes has not been decided yet.</p>
-      </div>
-          <div class="weiter" data-weiterleiten>
-            <h3>To the next person in the decision-making team</h3>
-            <p>Each role has its own page. The one-page PDF for each role follows.</p>
-            <ul class="weiter__liste">
-          <li><a class="textlink" href="personal.html">HR</a></li>
-          <li><a class="textlink" href="geschaeftsfuehrung.html">Management and operations</a></li>
-          <li><a class="textlink" href="arbeitsschutz.html">Occupational safety</a></li>
-          <li><a class="textlink" href="einkauf.html">Procurement</a></li>
-          <li><a class="textlink" href="betriebsrat.html">Works council</a></li>
-            </ul>
-            <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Copy link to this page</button>
-            <p class="weiter__status" role="status" data-weiterleiten-status></p>
-            <input class="weiter__feld" type="text" readonly hidden aria-label="Link to this page" data-weiterleiten-link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
+    </form>
+  </div>
+</dialog>
 
 <footer class="fuss auf-dunkel">
   <div class="behaelter">
