@@ -88,7 +88,7 @@ Regeln:
 - Nichts startet von selbst. Scrollen, Hover oder Tippen löst aus. Bewegung am Scrollen läuft beim Zurückscrollen rückwärts.
 - Kein Text im animierten Bild. Die Wörter stehen im HTML.
 - Leicht gebaut: Vektor, CSS oder Canvas, keine Videodateien für Effekte.
-- Nicht verwendet: Scan- oder KI-Animationen, 3D-Rotation von Schuhen, Zähler, Parallaxe in Ebenen, Hintergrundvideo in Schleife.
+- Nicht verwendet: Scan- oder KI-Animationen, 3D-Rotation von Schuhen, Zähler, Parallaxe in Ebenen, Hintergrundvideo in Schleife. Erlaubt ist das Umdrehen von Kacheln (Werteband, Sorgenfuß): Es zeigt Text auf der Rückseite, nimmt keinen Schuh als Motiv und hat einen Ruhezustand (Überblendung, im Druck untereinander).
 
 ## Bilder und Video
 

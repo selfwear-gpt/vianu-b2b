@@ -441,21 +441,20 @@ button.knopf { cursor: pointer; }
 /* ---------- Werteband: Kacheln drehen sich um und zeigen die Antwort ---------- */
 .werte { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--abstand-3); }
 .wert { display: flex; min-width: 0; perspective: 1000px; }
-.wert__innen { position: relative; display: block; flex: 1; min-height: 16rem; transform-style: preserve-3d; transition: transform 0.6s; }
+/* Vorder- und Rückseite liegen im selben Gitterfeld, die Kachel wächst mit dem längeren Text */
+.wert__innen { flex: 1; display: grid; min-height: 16rem; transform-style: preserve-3d; transition: transform 0.6s; }
 .wert__vorn, .wert__hinten {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   gap: var(--abstand-3);
   padding: var(--abstand-5);
   border: var(--kante) solid var(--farbe-tinte);
   backface-visibility: hidden;
-  overflow: hidden;
 }
 .wert__hinten { justify-content: center; transform: rotateY(180deg); }
 .wert h3 { font-size: var(--schrift-groesse-h3); }
-.wert__hinten p { font-size: 1.125rem; line-height: 1.55; max-width: 44ch; }
+.wert__hinten p { font-size: 1.125rem; line-height: 1.55; max-width: 40ch; }
 .wert--signal .wert__vorn { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .wert--signal .wert__hinten { background: var(--farbe-tinte); color: var(--farbe-papier); }
 .wert--tinte .wert__vorn { background: var(--farbe-tinte); color: var(--farbe-papier); }
@@ -463,6 +462,8 @@ button.knopf { cursor: pointer; }
 .wert--linie .wert__vorn { background: var(--farbe-papier); color: var(--farbe-tinte); }
 .wert--linie .wert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .wert:hover .wert__innen, .wert:focus-visible .wert__innen, .wert[data-gedreht="true"] .wert__innen { transform: rotateY(180deg); }
+/* Nach dem Tippen auf einem Touchgerät bleibt :hover hängen, "false" dreht dann zurück */
+.wert[data-gedreht="false"] .wert__innen { transform: none; }
 .wert--a { grid-column: span 7; }
 .wert--a .wert__innen { min-height: 17rem; }
 .wert--a .wert__vorn { justify-content: flex-end; }
@@ -474,7 +475,7 @@ button.knopf { cursor: pointer; }
 .wert--e { grid-column: span 4; }
 .wert--f { grid-column: span 8; }
 @media (prefers-reduced-motion: reduce) {
-  .wert__innen { transform: none !important; }
+  .wert__innen, .wert[data-gedreht="false"] .wert__innen { transform: none !important; }
   .wert__hinten { transform: none; opacity: 0; }
   .wert:hover .wert__hinten, .wert:focus-visible .wert__hinten, .wert[data-gedreht="true"] .wert__hinten { opacity: 1; }
 }
@@ -482,8 +483,8 @@ button.knopf { cursor: pointer; }
   .werte { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wert, .wert--a, .wert--b, .wert--c, .wert--d, .wert--e, .wert--f { grid-column: auto; perspective: none; }
   .wert--a, .wert--f { grid-column: 1 / -1; }
-  .wert__innen, .wert--a .wert__innen { min-height: 0; transform: none !important; transform-style: flat; transition: none; }
-  .wert__vorn, .wert__hinten { position: static; inset: auto; backface-visibility: visible; transform: none; opacity: 1; overflow: visible; }
+  .wert__innen, .wert--a .wert__innen { display: block; min-height: 0; transform: none !important; transform-style: flat; transition: none; }
+  .wert__vorn, .wert__hinten { backface-visibility: visible; transform: none; opacity: 1; }
   .wert__vorn { border-bottom: 0; padding-bottom: var(--abstand-2); }
   .wert__hinten { justify-content: flex-start; border-top: 0; padding-top: var(--abstand-3); }
   .wert--a .wert__vorn, .wert--b .wert__vorn { justify-content: flex-start; }
@@ -492,8 +493,16 @@ button.knopf { cursor: pointer; }
   .werte { grid-template-columns: minmax(0, 1fr); }
   .wert--a, .wert--f { grid-column: auto; }
 }
+/* Im Druck stehen Vorder- und Rückseite untereinander, damit die Antworten nicht verloren gehen */
+@media print {
+  .wert { perspective: none; }
+  .wert__innen { display: block; min-height: 0; transform: none !important; transform-style: flat; }
+  .wert__vorn, .wert__hinten { backface-visibility: visible; transform: none; opacity: 1; }
+  .wert__vorn { border-bottom: 0; }
+  .wert__hinten { border-top: 0; justify-content: flex-start; }
+}
 
-/* ---------- Ein Tag in Schichten ---------- */
+/* ---------- Ein Tag im Schichtbetrieb ---------- */
 .tag__raster { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 72px); align-items: start; }
 .tag__uhr {
   position: sticky;
@@ -510,6 +519,9 @@ button.knopf { cursor: pointer; }
 .uhr__mitte { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 3; }
 .tag__stand { min-height: 1.5em; text-align: center; }
 .tag__zeit { color: var(--farbe-gedaempft); }
+@media (prefers-reduced-motion: reduce) {
+  .tag__moment { min-height: 0; }
+}
 .tag__moment {
   display: flex;
   flex-direction: column;
@@ -894,3 +906,15 @@ button.knopf { cursor: pointer; }
 .weiter__liste { display: flex; flex-direction: column; gap: var(--abstand-2); }
 .weiter__feld { width: 100%; padding: var(--abstand-2) var(--abstand-3); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); font: inherit; font-size: var(--schrift-groesse-klein); }
 @media (max-width: 56rem) { .pilot__raster { grid-template-columns: minmax(0, 1fr); } }
+
+/* Im Druck stehen auch die Sorgen-Kacheln mit Vorder- und Rückseite untereinander */
+@media print {
+  .sorgen__mini { display: none; }
+  .sorgen__fuss { display: flex; flex-direction: column; gap: var(--abstand-4); aspect-ratio: auto; }
+  .sorgen__eintrag, .sorgen__eintrag--1, .sorgen__eintrag--4 { display: block; height: auto; align-self: auto; border-radius: 0; }
+  .sorge { border-radius: 0; perspective: none; }
+  .sorge__innen { display: block; height: auto; transform: none !important; transform-style: flat; }
+  .sorge__vorn, .sorge__hinten { position: static; inset: auto; backface-visibility: visible; transform: none; opacity: 1; overflow: visible; border-radius: 0; }
+  .sorge__hinten { border-top: 0; }
+  .sorge__vorn { border-bottom: 0; }
+}

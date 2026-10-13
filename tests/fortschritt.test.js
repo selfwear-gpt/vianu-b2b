@@ -1,7 +1,7 @@
 // Seam: Scroll-Fortschritt (assets/js/fortschritt.js). Gemeinsam für Druckkarte, Klein starten und Sorgenfuß.
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { fortschrittImBild, aktiverSchritt, sichtbareAnzahl } = require("../assets/js/fortschritt.js");
+const { fortschrittImBild, aktiverSchritt, sichtbareAnzahl, zeigerWinkel, anteilZwischen } = require("../assets/js/fortschritt.js");
 
 test("fortschrittImBild: 0 beim Eintritt, 1 beim Verlassen, dazwischen linear", () => {
   assert.equal(fortschrittImBild(800, 400, 800), 0);
@@ -40,7 +40,6 @@ test("sichtbareAnzahl: 0 bis anzahl, bei 1 sind alle sichtbar, ist umkehrbar", (
 });
 
 // Uhr des Schichttags: Zeiger von 8 Uhr (unten links) bis 17 Uhr
-const { zeigerWinkel, anteilZwischen } = require("../assets/js/fortschritt.js");
 
 test("zeigerWinkel: 8 Uhr liegt bei 240 Grad, 17 Uhr bei 510 Grad", () => {
   assert.equal(zeigerWinkel(0, 8, 17), 240);

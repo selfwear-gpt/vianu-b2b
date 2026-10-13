@@ -152,7 +152,7 @@
     var mitZeit = Array.prototype.filter.call(momente, function (m) { return m.hasAttribute("data-stunde"); });
     var von = mitZeit[0];
     var bis = mitZeit[mitZeit.length - 1];
-    var F = window.VianuFortschritt;
+    var fortschritt = window.VianuFortschritt;
     var geplant = false;
 
     function mitteVon(el) {
@@ -178,9 +178,9 @@
         var zeit = naechster.getAttribute("data-zeit");
         stand.textContent = (naechster.getAttribute("data-titel") || "") + (zeit ? " · " + zeit : "");
       }
-      if (zeiger && !reduziert && F && von && bis && von !== bis) {
-        var anteil = F.anteilZwischen(mitte, mitteVon(von), mitteVon(bis));
-        var winkel = F.zeigerWinkel(anteil, Number(von.getAttribute("data-stunde")), Number(bis.getAttribute("data-stunde")));
+      if (zeiger && !reduziert && fortschritt && von && bis) {
+        var anteil = fortschritt.anteilZwischen(mitte, mitteVon(von), mitteVon(bis));
+        var winkel = fortschritt.zeigerWinkel(anteil, Number(von.getAttribute("data-stunde")), Number(bis.getAttribute("data-stunde")));
         zeiger.style.setProperty("--winkel", winkel + "deg");
       }
     }
@@ -197,15 +197,28 @@
 
   /* ---------- Werte: Kacheln drehen sich ---------- */
   function initWerte(wurzel) {
-    // Hover und Fokus drehen per CSS. Auf Geräten ohne Hover dreht ein Tippen die Kachel um und wieder zurück.
-    var ohneHover = window.matchMedia && window.matchMedia("(hover: none)").matches;
     var kacheln = wurzel.querySelectorAll("[data-wert]");
+    var breit = window.matchMedia("(min-width: 56.01rem)");
+
+    // Fokus und damit die Drehung gibt es nur dort, wo sich die Kachel dreht. Auf dem Handy stehen beide Seiten untereinander.
+    function setzeFokus() {
+      Array.prototype.forEach.call(kacheln, function (k) {
+        if (breit.matches) k.setAttribute("tabindex", "0");
+        else k.removeAttribute("tabindex");
+      });
+    }
+    setzeFokus();
+    breit.addEventListener("change", setzeFokus);
+
+    // Hover und Fokus drehen per CSS. Ein Tippen dreht die Kachel um und wieder zurück. "false" hebt auch ein
+    // hängendes :hover auf Touchgeräten auf. Ob ein Gerät Hover kennt, wird bei jedem Tippen neu gelesen.
     Array.prototype.forEach.call(kacheln, function (k) {
-      k.addEventListener("click", function () {
-        if (!ohneHover) return;
+      k.addEventListener("click", function (e) {
+        var touch = window.matchMedia("(hover: none)").matches || e.pointerType === "touch";
+        if (!touch) return;
         var an = k.getAttribute("data-gedreht") !== "true";
-        Array.prototype.forEach.call(kacheln, function (andere) { andere.removeAttribute("data-gedreht"); });
-        if (an) k.setAttribute("data-gedreht", "true");
+        Array.prototype.forEach.call(kacheln, function (andere) { andere.setAttribute("data-gedreht", "false"); });
+        k.setAttribute("data-gedreht", an ? "true" : "false");
       });
     });
   }
