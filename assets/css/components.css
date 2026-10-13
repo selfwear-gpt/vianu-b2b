@@ -1288,3 +1288,48 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .sorge__kurz { text-wrap: balance; }
 .fragen .frage summary { justify-content: flex-start; }
 .fragen .frage summary::after { margin-left: auto; }
+
+/* ---------- Roderichs Weg: Stationen mit Fußspuren ---------- */
+.geschichte__kapitel--weg { background: var(--farbe-papier); }
+.weg { display: flex; flex-direction: column; gap: var(--abstand-5); }
+.weg__titel { font-size: var(--schrift-groesse-h2); line-height: 1; }
+.weg__leiste { --fortschritt: 0%; position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--abstand-2); padding-top: var(--abstand-3); }
+.weg__leiste::before { content: ""; position: absolute; left: 8%; right: 8%; top: 3.15rem; border-top: 3px dashed var(--farbe-tinte); }
+.weg__leiste::after { content: ""; position: absolute; left: 8%; top: 3.15rem; width: calc((100% - 16%) * var(--fortschritt-anteil, 0)); border-top: 5px solid var(--farbe-signal); }
+.weg__station { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); padding: var(--abstand-2) var(--abstand-1); background: transparent; border: 0; color: var(--farbe-tinte); font: inherit; cursor: pointer; }
+.weg__fuss { width: 1.9rem; height: 4rem; fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 7; transition: transform 0.2s, fill 0.2s; }
+.weg__station:nth-child(odd) .weg__fuss { transform: rotate(-8deg); }
+.weg__station:nth-child(even) .weg__fuss { transform: rotate(8deg); }
+.weg__station[data-erreicht="true"] .weg__fuss { fill: var(--farbe-signal); }
+.weg__station[aria-pressed="true"] .weg__fuss { transform: scale(1.25); }
+.weg__station[aria-pressed="true"] .etikett { font-weight: 700; border-bottom: var(--kante) solid var(--farbe-tinte); }
+.weg__station:hover .etikett { border-bottom: var(--kante) solid var(--farbe-signal); }
+.weg__buehne { padding: var(--abstand-6); background: var(--farbe-tinte); color: var(--farbe-papier); min-height: 16rem; }
+.weg__feld { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); }
+.weg__feld[hidden] { display: none; }
+.weg__feld + .weg__feld { margin-top: var(--abstand-6); }
+.weg__zeit { color: var(--farbe-signal); }
+.weg__feld h4 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; color: var(--farbe-papier); }
+.weg__satz { font-size: clamp(1.2rem, 2.2vw, 1.7rem); line-height: 1.35; max-width: 34ch; font-weight: 500; }
+.weg__hinweis { color: var(--farbe-papier); border: 1px dashed var(--farbe-papier); padding: 0.1rem 0.5rem; }
+.weg__logo { background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); max-width: 22rem; }
+.weg__logo .platzhalter__etikett { color: var(--farbe-papier); }
+.weg__steuerung { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+.weg__steuerung [hidden] { display: none; }
+.weg__steuerung button:disabled { opacity: 0.4; cursor: default; }
+@media (max-width: 40rem) {
+  .weg__leiste { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--abstand-4); }
+  .weg__leiste::before, .weg__leiste::after { display: none; }
+  .weg__buehne { padding: var(--abstand-5); }
+}
+@media print { .weg__feld[hidden] { display: flex; } }
+
+/* ---------- Der Boden mit Regler ---------- */
+.boden__regler { display: flex; flex-direction: column; gap: var(--abstand-2); max-width: 28rem; }
+.boden__vergleich { font-weight: 600; }
+.boden__gleich { background: var(--farbe-signal); color: var(--farbe-auf-signal); padding: 0.1rem 0.4rem; }
+.boden__chips li { background: var(--farbe-papier); color: var(--farbe-tinte); border-color: var(--farbe-tinte); }
+.boden__schluss { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.05; text-transform: uppercase; }
+.weg__feld p { color: inherit; }
+.weg__feld .weg__zeit { color: var(--farbe-signal); }
+.weg__feld h4 { margin: 0; }

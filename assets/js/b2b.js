@@ -93,6 +93,22 @@
       sichtbar = anzahl;
     }
 
+    // Mit Regler: Die Karte füllt sich nach den eingestellten Stunden (4 bis 12) statt beim Scrollen, auch bei reduzierter Bewegung
+    var regler = wurzel.hasAttribute("data-druck-regler") ? (wurzel.closest("[data-boden]") || document).querySelector("[data-boden-regler]") : null;
+    if (regler) {
+      var abschnitt = regler.closest("[data-boden]") || document;
+      var zahl = abschnitt.querySelector("[data-boden-zahl]");
+      var gleich = abschnitt.querySelector("[data-boden-gleich]");
+      var setze = function () {
+        var h = Number(regler.value);
+        zeige(window.VianuFortschritt.sichtbareAnzahl((h - 2) / 10, kreise.length));
+        if (zahl) zahl.textContent = String(h);
+        if (gleich) gleich.hidden = h < 10;
+      };
+      regler.addEventListener("input", setze);
+      setze();
+      return;
+    }
     if (reduziert) {
       zeige(kreise.length);
       return;
@@ -331,6 +347,37 @@
     waehle("1");
   }
 
+  /* ---------- Roderichs Weg: Stationen mit Fußspuren ---------- */
+  // Ohne Skript stehen alle Stationen untereinander. Mit Skript zeigt die Bühne eine Station, die Fußspuren bis dorthin sind pink.
+  function initWeg(wurzel) {
+    var stationen = wurzel.querySelectorAll("[data-station]");
+    var felder = wurzel.querySelectorAll("[data-station-nr]");
+    var leiste = wurzel.querySelector(".weg__leiste");
+    var zurueck = wurzel.querySelector("[data-weg-zurueck]");
+    var weiter = wurzel.querySelector("[data-weg-weiter]");
+    if (!stationen.length || stationen.length !== felder.length) return;
+    var aktuell = 1;
+
+    function waehle(n) {
+      aktuell = Math.max(1, Math.min(stationen.length, n));
+      Array.prototype.forEach.call(stationen, function (b, i) {
+        b.setAttribute("aria-pressed", i + 1 === aktuell ? "true" : "false");
+        b.setAttribute("data-erreicht", i + 1 <= aktuell ? "true" : "false");
+      });
+      Array.prototype.forEach.call(felder, function (f, i) { f.hidden = i + 1 !== aktuell; });
+      if (leiste) leiste.style.setProperty("--fortschritt-anteil", String((aktuell - 1) / (stationen.length - 1)));
+      if (zurueck) zurueck.disabled = aktuell === 1;
+      if (weiter) weiter.hidden = aktuell === stationen.length;
+    }
+    Array.prototype.forEach.call(stationen, function (b, i) {
+      b.addEventListener("click", function () { waehle(i + 1); });
+      b.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") waehle(i + 1); });
+    });
+    if (zurueck) zurueck.addEventListener("click", function () { waehle(aktuell - 1); });
+    if (weiter) weiter.addEventListener("click", function () { waehle(aktuell + 1); });
+    waehle(1);
+  }
+
   /* ---------- Weiterleiten ---------- */
   function initWeiterleiten(wurzel) {
     var knopf = wurzel.querySelector("[data-weiterleiten-kopieren]");
@@ -360,6 +407,7 @@
     jeder("[data-formular]", document, initFormular);
     jeder("[data-weiterleiten]", document, initWeiterleiten);
     jeder("[data-reise]", document, initReise);
+    jeder("[data-weg]", document, initWeg);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);

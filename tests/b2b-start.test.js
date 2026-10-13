@@ -129,3 +129,27 @@ test("die FAQ hat zwei Gruppenköpfe und jede Frage ist ein details mit summary"
     assert.ok(n >= 8, f + ": " + n);
   }
 });
+
+test("Roderichs Weg hat sechs Stationen mit Fußspuren, Vor und Zurück, und endet beim Pilot-Knopf", () => {
+  for (const [f, folgt] of [["b2b/index.html", /Gelernt in der Systemgastronomie[\s\S]*Lieferkette bei Yum![\s\S]*WOYTON aufgebaut[\s\S]*WOYTON verkauft[\s\S]*Mehr als 20 Jahre Gastronomie[\s\S]*Darum VIANU/], ["en/b2b/index.html", /Trained in system gastronomy[\s\S]*Supply chain at Yum![\s\S]*Built WOYTON[\s\S]*Sold WOYTON[\s\S]*More than 20 years in food service[\s\S]*That is why VIANU/]]) {
+    const h = lies(f);
+    assert.equal((h.match(/data-station="\d"/g) || []).length, 6, f);
+    assert.equal((h.match(/data-station-nr="\d"/g) || []).length, 6, f);
+    assert.match(h, folgt, f + ": Reihenfolge");
+    assert.match(h, /data-weg-zurueck/, f);
+    assert.match(h, /data-weg-weiter/, f);
+    assert.match(h, /<article class="weg__feld" data-station-nr="6">[\s\S]*data-pilot-oeffnen/, f);
+    assert.match(h, /Eigene Angabe von Roderich|own statement/, f);
+  }
+});
+
+test("Der Boden fragt, wie lange die Leute stehen: Regler von 4 bis 12 Stunden steuert die Karte, Roderichs Wert steht daneben", () => {
+  for (const f of SEITEN) {
+    const h = lies(f);
+    assert.match(h, /<div class="geschichte__kapitel" data-boden>/, f);
+    assert.match(h, /<input class="rechner__eingabe" id="boden-stunden" type="range" min="4" max="12" step="1" value="8" data-boden-regler>/, f);
+    assert.match(h, /<figure class="schicht__bild" data-druckkarte data-druck-regler>/, f);
+    assert.match(h, /data-boden-gleich hidden/, f);
+    assert.match(h, /10 (bis|to) 12/, f);
+  }
+});

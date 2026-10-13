@@ -194,12 +194,13 @@ Status: gebaut
 
 ### Geschichte-Abschnitt
 Status: gebaut
-- Abschnitt `#geschichte` der B2B-Startseite (die Unterseite `b2b/roderich.html` gibt es nicht mehr). Er erzählt in Kapiteln und lässt aus der Geschichte folgen, was VIANU verkauft:
-  - Kopf (dunkel): Porträt-Platzhalter, Roderichs Satz zu 10 bis 12 Stunden auf hartem Boden, drei Kennzahlen (20+ Jahre Gastronomie, 4 Mio. Euro mit dem Hinweis "Eigene Angabe von Roderich", 2020 WOYTON im eigenen Exit verkauft), vier Stationen in einer Leiste, Platzhalter für Firmenlogos.
-  - Kapitel 1 "Der Boden": Text und Druckkarte (`data-druckkarte`) mit Legende "schematisch, keine Messung".
-  - Kapitel 2 "Die Sohle" (Signalfläche): was entsteht, drei Schritte mit Symbolen (Fußerfassung, Anfertigung, Im Schuh) und der Satz "Das verkaufen wir: individuell angefertigte Einlegesohlen für Teams, die viele Stunden am Tag auf den Beinen sind."
-  - Kapitel 3 "Ihr Unternehmen": Roderichs Satz und der Weg über den Piloten, mit Knopf "Pilot buchen".
-- Keine Wirkaussage. Roderich bestätigt den Wortlaut vor dem Live-Gang. Die Briefe der Rollenseiten verlinken auf `./#geschichte`.
+- Abschnitt `#geschichte` der B2B-Startseite (die Unterseite `b2b/roderich.html` gibt es nicht mehr). Kurze Sätze in Roderichs Ich-Form, jeder Abschnitt mit etwas zum Anfassen:
+  - Kopf (dunkel): Porträt-Platzhalter und sein Satz zu 10 bis 12 Stunden auf hartem Boden.
+  - **Sein Weg** (`data-weg`): sechs Stationen als Fußspuren auf einer gestrichelten Linie (Ausbildung, Yum!, WOYTON, Exit, 20 Jahre, VIANU). Klick, Darüberfahren mit der Maus und Zurück/Weiter wählen eine Station, die Fußspuren bis dorthin werden pink, die Bühne darunter zeigt Überschrift und Satz. Die vierte Spur gibt "Eigene Angabe von Roderich" an (WOYTON), Logo-Platzhalter bei Yum! und WOYTON. Station 6 endet beim Knopf "Pilot buchen". Ohne Skript stehen alle Stationen untereinander. Logik: `initWeg` in `assets/js/b2b.js`.
+  - **Der Boden** (`data-boden`): "Wie lange stehen Ihre Leute?" Ein Regler (4 bis 12 Stunden pro Schicht) füllt die Druckkarte. Daneben steht Roderichs Wert (10 bis 12 Stunden), ab 10 Stunden erscheint "So lange wie bei Roderich." Die Karte ist schematisch, keine Messung. Der Regler wirkt auch bei reduzierter Bewegung.
+  - **Die Sohle** (Signalfläche): drei Schritte mit Symbolen (Fußerfassung, Anfertigung, Im Schuh) und der Satz "Wir verkaufen individuell angefertigte Einlegesohlen für Teams, die viele Stunden am Tag auf den Beinen sind."
+  - **Ihr Start**: Roderichs Satz und der Pilot mit Knopf.
+- Der rote Faden: Jede Station ist eine Spur auf dem Weg, am Ende steht die Sohle. Keine neuen Fakten, keine Wirkaussage. Roderich bestätigt den Wortlaut vor dem Live-Gang. Die Briefe der Rollenseiten verlinken auf `./#geschichte`.
 
 ### Stimme (B2B-Verwendung)
 Status: gebaut (Vorlage)
