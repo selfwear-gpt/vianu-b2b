@@ -48,8 +48,8 @@
       "rechner.zeile": "EUR {preis} per pair divided by {n} shifts",
       "platzhalter.link": "[Link to the page]",
       "rolle.personal": "HR",
-      "rolle.geschaeftsfuehrung": "Management and Operations",
-      "rolle.arbeitsschutz": "Occupational Safety",
+      "rolle.geschaeftsfuehrung": "Management and operations",
+      "rolle.arbeitsschutz": "Occupational safety",
       "rolle.einkauf": "Procurement",
       "rolle.betriebsrat": "Works council",
       "rolle.andere": "Other role",
@@ -73,7 +73,8 @@
   }
 
   // Der dritte Wert ist ein Sprachkürzel oder ein Element der Seite.
-  function text(schluessel, werte, wo) {
+  function text(schluessel, werte, sprachkuerzelOderElement) {
+    var wo = sprachkuerzelOderElement;
     var s = typeof wo === "string" ? wo : sprache(wo);
     var tabelle = SCHLUESSEL[s] || SCHLUESSEL.de;
     if (!Object.prototype.hasOwnProperty.call(SCHLUESSEL.de, schluessel)) throw new Error("Unbekannter Schlüssel: " + schluessel);

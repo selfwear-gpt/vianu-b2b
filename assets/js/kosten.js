@@ -23,9 +23,9 @@
     var cent = Math.round((p * 100) / s + 1e-9);
     var euro = Math.floor(cent / 100);
     var rest = cent % 100;
-    var zehntel = (rest < 10 ? "0" : "") + rest;
-    if (sprache === "en") return { cent: cent, text: "EUR " + euro + "." + zehntel };
-    return { cent: cent, text: euro + "," + zehntel + " Euro" };
+    var centStellen = (rest < 10 ? "0" : "") + rest;
+    if (sprache === "en") return { cent: cent, text: "EUR " + euro + "." + centStellen };
+    return { cent: cent, text: euro + "," + centStellen + " Euro" };
   }
 
   return { kostenJeSchicht: kostenJeSchicht, begrenzeSchichten: begrenzeSchichten, SCHICHTEN: SCHICHTEN };

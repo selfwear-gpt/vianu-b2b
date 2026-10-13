@@ -124,6 +124,7 @@ Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die 
 | Paar | pair | Preis: "EUR 120 per pair, plus VAT". |
 | Umsatzsteuer | VAT | |
 | Fußerfassung | foot capture | In FAQ-Fragen "foot scan", weil danach gesucht wird. |
+| Hotellerie und Gastronomie | hospitality and food service | Immer beide Wörter, auch in Studienabgrenzungen ("examines hospitality or food service"). |
 | Programm | program | Amerikanische Schreibung, durchgehend. |
 | Pilot | pilot | "pilot with 10 employees" |
 | Mitarbeitende | employees | Für Betriebsratsseite auch "colleagues" im Satz, wo der Betriebsrat spricht. |

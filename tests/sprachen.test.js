@@ -71,7 +71,7 @@ test("englische Seiten haben ein h1, eigenen Titel und Beschreibung, und noindex
 });
 
 test("im englischen Text steht kein Deutsch", () => {
-  const woerter = /\b(und|der|die|das|nicht|mit|für|ist|wir|Sie|Ihr|Ihre|auf|zu|oder|bei|nach|wird|sind|eine|einen|Euro|Schicht|Mitarbeitende\w*)\b|[äöüß]/;
+  const woerter = /\b(und|der|die|das|nicht|mit|für|ist|wir|Sie|Ihr|Ihre|auf|zu|oder|bei|nach|wird|sind|eine|einen|Euro|Schicht|Platzhalter|Mitarbeitende\w*)\b|[äöüß]/;
   for (const f of PAARE) {
     const h = lies("en/" + f);
     for (const [name, text] of [["Text", sichtbar(h)], ["Attribute", attribute(h)]]) {
@@ -110,4 +110,10 @@ test("Downloads der englischen Seiten tragen englische Namen und existieren", ()
       assert.ok(fs.existsSync(path.join(ROOT, aufloesen("en/" + f, m[1]))), "en/" + f + " " + m[1]);
     }
   }
+});
+
+test("das Textdownload gleicht der Mailvorlage auf der Seite, in beiden Sprachen", () => {
+  const vorlage = (h) => (h.match(/data-mail-text>([\s\S]*?)<\/div>/) || [])[1].replace(/&amp;/g, "&").trim();
+  assert.equal(lies("assets/downloads/mail-an-arbeitgeber.txt").trim(), vorlage(lies("index.html")));
+  assert.equal(lies("assets/downloads/mail-to-employer.txt").trim(), vorlage(lies("en/index.html")));
 });
