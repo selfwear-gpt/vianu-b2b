@@ -53,7 +53,8 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
     assert.equal((h.match(/<figure class="stimme" data-platzhalter/g) || []).length, 2, f + ": Stimmen");
     const geschichte = h.match(/<section class="geschichte" id="geschichte"[\s\S]*?<\/section>/)[0];
     const kapitel = [...geschichte.matchAll(/<div class="geschichte__kapitel([^"]*)"([^>]*)>/g)].map((m) => (m[2].match(/id="([^"]+)"|data-(boden)/) || [])[1] || (m[2].match(/data-(boden)/) || [])[1] || m[1].trim() || "start");
-    assert.deepEqual(kapitel, ["geschichte__kapitel--weg", "ablauf", "boden", "start"], f + ": Kapitel Weg, Ablauf, Boden, Start");
+    assert.deepEqual(kapitel, ["geschichte__kapitel--weg", "ablauf", "boden"], f + ": Kapitel Weg, Ablauf, Boden, kein Kapitel Ihr Start");
+    assert.doesNotMatch(h, /Fangen Sie klein an|Start small|Ihr Start|Your start|Starten Sie mit einem Piloten: 10 Mitarbeitende|Start with a pilot: 10 employees/, f + ": Kapitel Ihr Start entfällt");
     assert.doesNotMatch(h, /geschichte__kapitel--signal|<p class="etikett kapitel__marke">(Die Sohle|The insole)<\/p>/, f + ": Kapitel Die Sohle entfällt");
     assert.doesNotMatch(h, /<section class="abschnitt ablauf"/, f + ": Ablauf ist kein eigener Abschnitt mehr");
   }
@@ -110,7 +111,7 @@ test("der Ablauf ist der Handy-Ablauf mit vier Schritten, Bahn-Etikett je Schrit
 });
 
 test("der Preis: kleines Preisschild mit Klartext, 3-Jahres-Aussage klein darunter ohne Siegel, rechts der Pilot mit Knopf", () => {
-  for (const [f, zahl, bund, halt, kopf] of [["b2b/index.html", /120 &euro;/, /10 Paare, 1\.200 Euro/, /mindestens 3 Jahre einwandfrei/, /Eine individuell angefertigte Einlegesohle/], ["en/b2b/index.html", /&euro;120/, /10 pairs, EUR 1,200/, /at least 3 years/, /One custom-made insole/]]) {
+  for (const [f, zahl, bund, halt, kopf] of [["b2b/index.html", /120 &euro;/, /Ein Pilot mit bspw\. 10 Mitarbeitenden kostet: 10 Paare = 1\.200 Euro zzgl\. Umsatzsteuer\./, /mindestens 3 Jahre einwandfrei/, /Eine individuell angefertigte Einlegesohle/], ["en/b2b/index.html", /&euro;120/, /A pilot with, for example, 10 employees costs: 10 pairs = EUR 1,200 plus VAT\./, /at least 3 years/, /One custom-made insole/]]) {
     const h = lies(f);
     assert.match(h, /<p class="preisschild" aria-label="[^"]*120[^"]*">/, f);
     assert.match(h, zahl, f);
@@ -309,4 +310,14 @@ test("alle Formulare: Branche und Stunden pro Tag sind Pflichtfelder, kein Entwu
     const { BRANCHEN } = require("../assets/js/formular.js");
     assert.deepEqual(ids, BRANCHEN.map((b) => b.id), f + ": Kacheln und Branchen sind dieselbe Liste");
   }
+});
+
+test("Der Pilotpreis steht im Preisbereich in einem Satz, der alte Satz ist weg", () => {
+  for (const f of SEITEN) assert.doesNotMatch(lies(f), /Der Pilot kostet den regulären Preis|The pilot costs the regular price/, f);
+});
+
+test("Die Sohle im Kapitel klebt unter der Menüleiste und passt in das Fenster", () => {
+  const css = lies("assets/css/components.css");
+  assert.match(css, /\.geschichte__kapitel\[data-boden\] \.schicht__bild \{[^}]*position: sticky; top: calc\(var\(--menue-hoehe\) \+ var\(--abstand-4\)\)/);
+  assert.match(css, /\.geschichte__kapitel\[data-boden\] \.druck \{ max-height: min\(calc\(100vh - var\(--menue-hoehe\) - var\(--abstand-6\)\), 34rem\); \}/);
 });

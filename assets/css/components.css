@@ -1281,10 +1281,14 @@ div.weg { display: flex; flex-direction: column; gap: var(--abstand-5); }
 .strecke__schritt { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); }
 .strecke__ende { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-4); }
 .geschichte__kapitel[data-boden] .schicht__raster { align-items: start; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
-.geschichte__kapitel[data-boden] .schicht__bild { position: sticky; top: var(--abstand-5); order: -1; }
+.geschichte__kapitel[data-boden] .schicht__bild { position: sticky; top: calc(var(--menue-hoehe) + var(--abstand-4)); order: -1; }
+.geschichte__kapitel[data-boden] .druck { max-height: min(calc(100vh - var(--menue-hoehe) - var(--abstand-6)), 34rem); }
+/* Unter dem Text bleibt so viel Platz wie die Sohle hoch ist, damit sie am Ende der Strecke nicht aus dem Raster nach oben rutscht */
+.geschichte__kapitel[data-boden] .schicht__text { padding-bottom: min(calc(100vh - var(--menue-hoehe) - var(--abstand-6)), 34rem); }
 @media (max-width: 40rem) {
   .geschichte__kapitel[data-boden] .schicht__raster { grid-template-columns: minmax(0, 1fr); }
   .geschichte__kapitel[data-boden] .schicht__bild { order: 0; position: static; }
+  .geschichte__kapitel[data-boden] .schicht__text { padding-bottom: 0; }
 }
 .knopf:disabled { opacity: 0.4; cursor: default; }
 .weg__feld p { color: inherit; }

@@ -85,8 +85,9 @@
       for (var y = 8; y < 256; y += 7) {
         for (var x = 8; x < 96; x += 7) {
           var px = x + (Math.floor((y - 8) / 7) % 2 ? 3.5 : 0);
-          if (!innen(px, y)) continue;
           var w = Math.min(1, last(px, y) / 1.15);
+          // Der ganze Punkt samt Strich des Umrisses (0,75 nach innen) und etwas Luft muss im Umriss liegen
+          if (!window.VianuFortschritt.kreisInnen(innen, px, y, 0.9 + 2.3 * w, 1.1)) continue;
           liste.push({ x: px, y: y, w: w, schluessel: w + zufallswert() * 0.45 });
         }
       }

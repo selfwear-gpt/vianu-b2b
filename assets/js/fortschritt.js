@@ -1,7 +1,7 @@
 /*
   Scroll-Fortschritt für Bewegungen, die am Scrollen hängen. Schnittstelle:
   fortschrittImBild(oben, hoehe, fenster), aktiverSchritt(fortschritt, anzahl), sichtbareAnzahl(fortschritt, anzahl),
-  anteilZwischen(wert, von, bis), zeigerWinkel(anteil, startStunde, endStunde).
+  anteilZwischen(wert, von, bis), zeigerWinkel(anteil, startStunde, endStunde), kreisInnen(istInnen, cx, cy, r, abstand).
   Reine Funktionen ohne Browserbezug. Der Fortschritt ist immer umkehrbar: gleicher Stand, gleiches Bild.
 */
 (function (root, factory) {
@@ -45,7 +45,19 @@
     return (startStunde % 12) * 30 + a * (endStunde - startStunde) * 30;
   }
 
+  // Liegt ein Kreis vom Radius r um (cx, cy) samt Abstand vollständig im Umriss? istInnen(x, y) sagt, ob ein Punkt im Umriss liegt.
+  function kreisInnen(istInnen, cx, cy, r, abstand) {
+    if (!istInnen(cx, cy)) return false;
+    var radius = r + abstand;
+    for (var i = 0; i < 12; i++) {
+      var winkel = (i * Math.PI) / 6;
+      if (!istInnen(cx + Math.cos(winkel) * radius, cy + Math.sin(winkel) * radius)) return false;
+    }
+    return true;
+  }
+
   return {
+    kreisInnen: kreisInnen,
     fortschrittImBild: fortschrittImBild,
     aktiverSchritt: aktiverSchritt,
     sichtbareAnzahl: sichtbareAnzahl,

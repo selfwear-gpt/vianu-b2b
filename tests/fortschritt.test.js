@@ -1,7 +1,7 @@
 // Seam: Scroll-Fortschritt (assets/js/fortschritt.js). Gemeinsam für Druckkarte, Klein starten und Sorgenfuß.
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { fortschrittImBild, aktiverSchritt, sichtbareAnzahl, zeigerWinkel, anteilZwischen } = require("../assets/js/fortschritt.js");
+const { fortschrittImBild, aktiverSchritt, sichtbareAnzahl, zeigerWinkel, anteilZwischen, kreisInnen } = require("../assets/js/fortschritt.js");
 
 test("fortschrittImBild: 0 beim Eintritt, 1 beim Verlassen, dazwischen linear", () => {
   assert.equal(fortschrittImBild(800, 400, 800), 0);
@@ -72,4 +72,14 @@ test("anteilZwischen: 0 vor dem Beginn, 1 nach dem Ende, dazwischen linear", () 
 test("anteilZwischen: gleicher Anfang und Ende ergibt 0, Zahlen können fallen", () => {
   assert.equal(anteilZwischen(5, 5, 5), 0);
   assert.equal(anteilZwischen(300, 600, 200), 0.75);
+});
+
+test("kreisInnen: ein Punkt liegt nur dann im Umriss, wenn der ganze Kreis samt Abstand drin liegt", () => {
+  const scheibe = (x, y) => x * x + y * y <= 100; // Umriss: Kreis mit Radius 10 um 0,0
+  assert.equal(kreisInnen(scheibe, 0, 0, 2, 1), true);
+  assert.equal(kreisInnen(scheibe, 5, 0, 2, 1), true, "5 + 3 = 8 liegt innen");
+  assert.equal(kreisInnen(scheibe, 7, 0, 2, 1), true, "7 + 3 = 10 liegt gerade noch auf dem Rand");
+  assert.equal(kreisInnen(scheibe, 7.5, 0, 2, 1), false, "7,5 + 3 reicht über den Rand");
+  assert.equal(kreisInnen(scheibe, 9, 0, 0.5, 1), false, "kleiner Punkt am Rand, der Abstand reicht hinaus");
+  assert.equal(kreisInnen(scheibe, 0, 12, 1, 1), false, "Mittelpunkt außerhalb");
 });
