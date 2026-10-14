@@ -66,6 +66,20 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
   }
 });
 
+test("Ablauf-Handy auf B2B: Schritt 3 mit XY GmbH, Schritt 4 ohne Frist, dafür der Knopf Jetzt bestellen, der das Kontaktformular öffnet", () => {
+  for (const [f, knopf, frist] of [["b2b/index.html", "Jetzt bestellen", /Spätestens 7 Tage/], ["en/b2b/index.html", "Order now", /Within 7 days/]]) {
+    const h = lies(f);
+    const ab = h.match(/data-ablauf[\s\S]*?<\/section>|data-ablauf[\s\S]*?<p class="geschichte__fazit">/)[0];
+    const s3 = ab.match(/<g data-screen="3"[\s\S]*?<\/g>/)[0];
+    const s4 = ab.match(/<g data-screen="4"[\s\S]*?<\/g>/)[0];
+    assert.match(s3, /gravur--firma" x="\d+" y="\d+">XY GmbH<\/text>/, f);
+    assert.doesNotMatch(h, /Muster GmbH<\/text>/, f);
+    assert.doesNotMatch(s4, /handy__frist/, f + ": keine Frist im Bild");
+    assert.doesNotMatch(ab.replace(/<p class="sr-nur"[\s\S]*?<\/p>/, ""), frist.source === "" ? /x/ : new RegExp("<text[^>]*>" + frist.source), f);
+    assert.match(ab, new RegExp('<button class="knopf handy__cta handy__cta--unten" type="button" data-cta-schritt="4" data-pilot-oeffnen>' + knopf + "</button>"), f);
+  }
+});
+
 test("Was Sie bekommen: drei Felder, Unterlagen mit Entwurf und Download, drei Bahnen, vier Fragen als Kacheln, Preis und Frist am Knopf", () => {
   for (const f of SEITEN) {
     const h = lies(f);

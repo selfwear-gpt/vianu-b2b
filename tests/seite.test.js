@@ -65,6 +65,21 @@ test("Der Ablauf hat einen Knopf im Handybild, der das Teilen-Feld öffnet, und 
   }
 });
 
+test("Ablauf-Handy auf B2C: Schritt 3 mit Name und XY GmbH quer in der Ferse, Schritt 4 mit Paket und Frist", () => {
+  for (const [f, frist] of [["index.html", "Spätestens 7 Tage"], ["en/index.html", "Within 7 days"]]) {
+    const h = fs.readFileSync(path.join(__dirname, "..", f), "utf8");
+    const s3 = h.match(/<g data-screen="3"[\s\S]*?<\/g>/)[0];
+    const s4 = h.match(/<g data-screen="4"[\s\S]*?<\/g>/)[0];
+    assert.match(s3, /<text class="handy__gravur"[^>]*rotate\(-90[^>]*>Anna<\/text>/, f);
+    assert.match(s3, /<text class="handy__gravur handy__gravur--firma" x="\d+" y="\d+">XY GmbH<\/text>/, f + ": Firma waagerecht");
+    assert.doesNotMatch(s3, /Muster GmbH/, f + ": im Ablauf steht XY GmbH, Muster GmbH bleibt nur in der Namenssohle");
+    assert.equal((s4.match(/<use /g) || []).length, 2, f + ": zwei Sohlen im Paket");
+    assert.match(s4, new RegExp('<text class="handy__frist"[^>]*>' + frist + "</text>"), f);
+    assert.doesNotMatch(s4, /handy__haken"/, f + ": kein großer Haken auf der Karte");
+    assert.doesNotMatch(h, /data-cta-schritt="4"/, f + ": kein Knopf in Schritt 4");
+  }
+});
+
 test("Kurzsatz: nur die Wörter individuell angefertigt stehen fett", () => {
   const erwartet = {
     "index.html": ["individuell angefertigt"],

@@ -598,7 +598,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .handy__haken { fill: none; stroke: var(--farbe-tinte); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
 .handy__haken--klein { stroke-width: 3.5; }
 .handy__gravur { font-family: var(--schrift-kopf); font-weight: 800; font-size: 28px; letter-spacing: 0.04em; text-transform: uppercase; text-anchor: middle; dominant-baseline: central; fill: var(--farbe-tinte); }
-.handy__gravur--firma { font-weight: 700; font-size: 11px; letter-spacing: 0.06em; }
+.handy__gravur--firma { font-weight: 700; font-size: 9px; letter-spacing: 0.05em; }
 .handy__frist { font-family: var(--schrift-kopf); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; text-anchor: middle; fill: var(--farbe-tinte); }
 .handy__ecken { transform-box: fill-box; transform-origin: center; animation: sucher 0.7s ease-out; }
 @keyframes sucher { from { transform: scale(1.18); } to { transform: none; } }
@@ -607,6 +607,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .handy-huelle .handy { width: 100%; display: block; }
 .handy__cta { position: absolute; left: 12%; right: 12%; top: 65%; justify-content: center; padding: var(--abstand-2) var(--abstand-3); font-size: 0.66rem; letter-spacing: 0.04em; white-space: nowrap; }
 .handy__cta[hidden] { display: none; }
+.handy__cta--unten { top: 77%; }
 @media (max-width: 56rem) {
   .ablauf__raster { grid-template-columns: minmax(0, 1fr); }
   .ablauf__bild { position: static; order: -1; }

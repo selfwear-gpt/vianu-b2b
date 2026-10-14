@@ -88,7 +88,7 @@ Status: gebaut
 
 ### Handy-Ablauf (B2B)
 Status: gebaut
-- Derselbe Baustein wie auf der Mitarbeitenden-Seite (`.ablauf__*`, `.handy`, `assets/js/ablauf.js`): vier Schritte links, jeder mit Nummer, Bahn-Etikett (Ihr Betrieb, Ihr Team, VIANU, Ihr Betrieb), Überschrift und Satz, rechts ein gezeichnetes Handy. Die Schritte öffnen per Klick, Tastatur und beim Darüberfahren mit der Maus. Bei Schritt 1 sitzt im Handybild der Knopf "Pilot buchen" und öffnet das Popup. Die Ansage des Schritts steht nur für Screenreader. Keine Bahnen-Raster mehr.
+- Derselbe Baustein wie auf der Mitarbeitenden-Seite (`.ablauf__*`, `.handy`, `assets/js/ablauf.js`): vier Schritte links, jeder mit Nummer, Bahn-Etikett (Ihr Betrieb, Ihr Team, VIANU, Ihr Betrieb), Überschrift und Satz, rechts ein gezeichnetes Handy. Die Schritte öffnen per Klick, Tastatur und beim Darüberfahren mit der Maus. Bei Schritt 1 sitzt im Handybild der Knopf "Kontakt aufnehmen" und öffnet das Popup. Schritt 3 zeigt die Sohle mit dem Beispielnamen "Anna" (hochkant im Vorderfuß) und "XY GmbH" (waagerecht, klein, in der Ferse mit Abstand zum Rand). Schritt 4 zeigt ein Paket mit zwei Sohlen und Haken. Statt einer Zeitangabe sitzt dort der Knopf "Jetzt bestellen" (`handy__cta--unten`, `data-cta-schritt="4"`), der das Kontaktformular öffnet. Die Ansage des Schritts steht nur für Screenreader. Keine Bahnen-Raster mehr.
 
 ### Preisschild, Bündel und Siegel
 Status: gebaut
@@ -190,7 +190,7 @@ Status: gebaut
 ### Handy-Ablauf
 Status: gebaut
 - Vier Schritte als Knöpfe (aria-pressed) neben einem gezeichneten Handy. Der gewählte Schritt zeigt seinen Bildschirm (Ankündigung, Sucherrahmen mit Fuß, Sohle, Übergabe). Die Schritte öffnen schon beim Darüberfahren mit der Maus (`pointerenter`), beim Tippen, Klicken und per Tastatur. Die Ansage des Schritts steht nur noch für Screenreader (`sr-nur`), unter dem Handy steht keine Zeile.
-- Bei Schritt 1 sitzt im Handybild unter den beiden Karten ein Knopf "Arbeitgeber anfragen" (`data-cta-schritt="1"`, `data-teilen-oeffnen`), der das Teilen-Feld öffnet. Der Ablauf steht als fertig, nur Schritt 4 nennt eine Zeitangabe (spätestens 7 Tage nach dem Fußscan, Angabe des Nutzers).
+- Bei Schritt 1 sitzt im Handybild unter den beiden Karten ein Knopf "Arbeitgeber anfragen" (`data-cta-schritt="1"`, `data-teilen-oeffnen`), der das Teilen-Feld öffnet. Der Ablauf steht als fertig, nur Schritt 4 nennt eine Zeitangabe (spätestens 7 Tage nach dem Fußscan, Angabe des Nutzers). Schritt 3 und 4 haben dieselben Bilder wie auf der B2B-Seite (Sohle mit "Anna" und "XY GmbH", Paket mit zwei Sohlen). Auf B2C steht "Spätestens 7 Tage" im Bild, auf B2B an der Stelle der Knopf "Jetzt bestellen".
 
 ### Fragen-Akkordeon (Mitarbeitende)
 Status: gebaut
