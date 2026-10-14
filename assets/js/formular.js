@@ -1,5 +1,5 @@
 /*
-  Prüfung der Pilotanfrage. Schnittstelle: pruefeAnfrage(daten, sprache) -> { ok, fehler }, anfrageAlsText(daten, sprache), ROLLEN, QUELLEN, quelleName(id, sprache).
+  Prüfung der Pilotanfrage. Schnittstelle: pruefeAnfrage(daten, sprache) -> { ok, fehler }, anfrageAlsText(daten, sprache), ROLLEN, QUELLEN, quelleName(id, sprache), emailGueltig(wert), mitarbeitendeGueltig(wert, minimum), unternehmenGueltig(wert).
   Reine Funktionen ohne Browserbezug. Versand gibt es noch nicht: Die Seite zeigt die Anfrage als Text.
 */
 (function (root, factory) {
@@ -52,6 +52,23 @@
     return (k.match(/\d/g) || []).length >= 6;
   }
 
+  // Nur E-Mail, für die Anfrage-Strecke auf der Startseite
+  function emailGueltig(wert) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@.]{2,}$/.test(String(wert == null ? "" : wert).trim());
+  }
+
+  // Ganze Zahl von minimum (Standard 1) bis zur Obergrenze
+  function mitarbeitendeGueltig(wert, minimum) {
+    var zahl = String(wert == null ? "" : wert).trim();
+    if (!/^\d+$/.test(zahl)) return false;
+    return Number(zahl) >= (minimum || 1) && Number(zahl) <= MAX_ZAHL;
+  }
+
+  function unternehmenGueltig(wert) {
+    var name = String(wert == null ? "" : wert).trim();
+    return name.length > 0 && name.length <= MAX_NAME;
+  }
+
   function pruefeAnfrage(daten, sprache) {
     function t(k, w) { return texte.text(k, w, sprache || "de"); }
     var fehler = {};
@@ -90,5 +107,5 @@
     ].join("\n");
   }
 
-  return { pruefeAnfrage: pruefeAnfrage, anfrageAlsText: anfrageAlsText, ROLLEN: ROLLEN, QUELLEN: QUELLEN, quelleName: quelleName };
+  return { pruefeAnfrage: pruefeAnfrage, anfrageAlsText: anfrageAlsText, ROLLEN: ROLLEN, QUELLEN: QUELLEN, quelleName: quelleName, emailGueltig: emailGueltig, mitarbeitendeGueltig: mitarbeitendeGueltig, unternehmenGueltig: unternehmenGueltig };
 });

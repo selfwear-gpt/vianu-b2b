@@ -144,10 +144,10 @@ test("das B2B-Menü hat einen Punkt Ablauf zum Abschnitt Ablauf und keinen Punkt
 
 test("die Zielgruppe heißt überall Teams, deren Personal viele Stunden auf den Beinen ist", () => {
   const erlaubt = /Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service|Jahre Gastronomie|Systemgastronomie|years in food service/g;
-  // Studienabgrenzungen und Roderichs Lebenslauf nennen Hotellerie und Gastronomie als Ort, das ist keine Zielgruppe
+  // Die Tätigkeitskacheln nennen die Gastronomie als einen von vielen Bereichen. Studienabgrenzungen und Roderichs Lebenslauf nennen Hotellerie und Gastronomie als Ort, das ist keine Zielgruppe
   for (const rel of PAARE.flatMap((f) => [f, "en/" + f])) {
     // Roderichs Weg nennt die Gastronomie als Ort seiner Arbeit, das ist keine Zielgruppe
-    const h = lies(rel).replace(/<div class="weg"[\s\S]*?<\/div>\s*<div class="weg__steuerung">/, "").replace(erlaubt, "");
+    const h = lies(rel).replace(/<div class="weg"[\s\S]*?<\/div>\s*<div class="weg__steuerung">/, "").replace(/<div class="boden__kacheln"[\s\S]*?<\/ul>/, "").replace(erlaubt, "");
     assert.doesNotMatch(h, /Hotellerie|Gastronomie|hospitality|food service/, rel);
   }
 });

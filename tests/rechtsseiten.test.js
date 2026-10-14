@@ -64,8 +64,8 @@ test("jede Seite verlinkt Impressum und Datenschutz im Fuß mit dem richtigen re
 
 test("Roderichs Geschichte steht auf der B2B-Startseite und nennt die Eckdaten des Konzepts, auch englisch", () => {
   for (const [datei, woerter, satz] of [
-    ["b2b/index.html", ["Systemgastronomie", "Yum!", "WOYTON", "2012", "2020", "20+", "Eigene Angabe von Roderich"], /Ich habe es selbst erlebt: 10 bis 12 Stunden am Tag auf hartem Boden/],
-    ["en/b2b/index.html", ["system gastronomy", "Yum!", "WOYTON", "2012", "2020", "20+", "own statement"], /I felt it myself: 10 to 12 hours a day on hard floors/]
+    ["b2b/index.html", ["Systemgastronomie", "Yum!", "WOYTON", "2012", "2020", "20+", "Pizza Hut", "Café-Kette"], /Ich habe es selbst erlebt: 10 bis 12 Stunden am Tag auf hartem Boden/],
+    ["en/b2b/index.html", ["system gastronomy", "Yum!", "WOYTON", "2012", "2020", "20+", "Pizza Hut", "café chain"], /I felt it myself: 10 to 12 hours a day on hard floors/]
   ]) {
     const h = lies(datei);
     const t = sichtbar(h);

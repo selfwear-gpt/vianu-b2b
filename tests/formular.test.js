@@ -1,7 +1,7 @@
 // Seam: Prüfung der Pilotanfrage (assets/js/formular.js). Eingabe aus dem Formular, Ausgabe: Fehler je Feld.
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { pruefeAnfrage, anfrageAlsText, ROLLEN, QUELLEN } = require("../assets/js/formular.js");
+const { pruefeAnfrage, anfrageAlsText, ROLLEN, QUELLEN, emailGueltig, mitarbeitendeGueltig, unternehmenGueltig } = require("../assets/js/formular.js");
 
 const gut = { unternehmen: "Hotel Sonnenhof", rolle: "personal", mitarbeitende: "120", kontakt: "anna@sonnenhof.de", quelle: "ki", freitext: "Ich habe nach Einlegesohlen für Hotelpersonal gesucht.", einwilligung: true };
 
@@ -96,4 +96,29 @@ test("anfrageAlsText nennt Kontakt, Herkunft (mit Namen) und Freitext, auch engl
   assert.match(en, /Contact: anna@sonnenhof\.de/);
   assert.match(en, /Found us through: Search with an AI/);
   assert.match(en, /More detail: /);
+});
+
+test("emailGueltig nimmt nur E-Mail-Adressen an, keine Telefonnummern", () => {
+  assert.equal(emailGueltig("anna@sonnenhof.de"), true);
+  assert.equal(emailGueltig("  anna@sonnenhof.de "), true);
+  for (const schlecht of ["", "anna", "anna@", "anna@sonnenhof", "anna@sonnenhof.d", "an na@sonnenhof.de", "+49 170 1234567", null, undefined]) assert.equal(emailGueltig(schlecht), false, String(schlecht));
+});
+
+test("mitarbeitendeGueltig verlangt eine ganze Zahl ab dem Minimum und höchstens die Obergrenze", () => {
+  assert.equal(mitarbeitendeGueltig("11", 11), true);
+  assert.equal(mitarbeitendeGueltig("10", 11), false);
+  assert.equal(mitarbeitendeGueltig("120", 11), true);
+  assert.equal(mitarbeitendeGueltig("100000", 11), true);
+  assert.equal(mitarbeitendeGueltig("100001", 11), false);
+  for (const schlecht of ["", "elf", "11,5", "-12", "1e3", null, undefined]) assert.equal(mitarbeitendeGueltig(schlecht, 11), false, String(schlecht));
+  assert.equal(mitarbeitendeGueltig("1"), true, "ohne Minimum gilt ab 1");
+  assert.equal(mitarbeitendeGueltig("0"), false);
+});
+
+test("unternehmenGueltig: nicht leer, höchstens 120 Zeichen", () => {
+  assert.equal(unternehmenGueltig("Hotel Sonnenhof"), true);
+  assert.equal(unternehmenGueltig("   "), false);
+  assert.equal(unternehmenGueltig(""), false);
+  assert.equal(unternehmenGueltig("x".repeat(121)), false);
+  assert.equal(unternehmenGueltig("x".repeat(120)), true);
 });

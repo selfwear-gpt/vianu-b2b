@@ -1,6 +1,6 @@
 /*
   Interaktionen der B2B-Startseite. Jedes Modul arbeitet über Datenattribute und nur innerhalb seines Bereichs:
-  initDruckkarte, initKlein, initSorgen, initRechner, initFormular, initWeiterleiten.
+  initDruckkarte, initAnfrageStrecke, initKlein, initSorgen, initRechner, initFormular, initWeiterleiten.
   Benötigt fortschritt.js, kosten.js und formular.js. Ohne Skript bleibt der Inhalt lesbar (Ruhezustände).
   Bewegungen hängen am Scrollen, laufen beim Zurückscrollen rückwärts und stehen bei reduzierter Bewegung
   im Endzustand.
@@ -119,18 +119,40 @@
     window.addEventListener("resize", nachziehen);
     window.addEventListener("hashchange", nachziehen);
 
-    // Mit Regler: Die Karte füllt sich nach den eingestellten Stunden (4 bis 12) statt beim Scrollen, auch bei reduzierter Bewegung
+    // Mit Regler: Die Karte füllt sich nach den eingestellten Stunden (0 bis 12) statt beim Scrollen, auch bei reduzierter Bewegung.
+    // Ab 4 Stunden erscheinen die Tätigkeitskacheln, nach einer Auswahl die Anfrage, ab 10 Stunden Roderichs Satz.
     var regler = wurzel.hasAttribute("data-druck-regler") ? (wurzel.closest("[data-boden]") || document).querySelector("[data-boden-regler]") : null;
     if (regler) {
       var abschnitt = regler.closest("[data-boden]") || document;
       var zahl = abschnitt.querySelector("[data-boden-zahl]");
-      var gleich = abschnitt.querySelector("[data-boden-gleich]");
+      var roderich = abschnitt.querySelector("[data-boden-roderich]");
+      var kacheln = abschnitt.querySelector("[data-boden-kacheln]");
+      var anfrage = abschnitt.querySelector("[data-boden-anfrage]");
+      var knoepfe = abschnitt.querySelectorAll("[data-taetigkeit]");
+      var gewaehlt = false;
+      var zeigeAnfrage = function () {
+        if (anfrage) anfrage.hidden = !(gewaehlt && Number(regler.value) >= 4);
+      };
       var setze = function () {
         var h = Number(regler.value);
-        zeige((h - 2) / 10);
+        zeige(h / 12);
         if (zahl) zahl.textContent = String(h);
-        if (gleich) gleich.hidden = h < 10;
+        if (roderich) roderich.hidden = h < 10;
+        if (kacheln) kacheln.hidden = h < 4;
+        if (h < 4 && gewaehlt) {
+          gewaehlt = false;
+          Array.prototype.forEach.call(knoepfe, function (k) { k.setAttribute("aria-pressed", "false"); });
+          abschnitt.dispatchEvent(new CustomEvent("boden-zurueck"));
+        }
+        zeigeAnfrage();
       };
+      Array.prototype.forEach.call(knoepfe, function (k) {
+        k.addEventListener("click", function () {
+          Array.prototype.forEach.call(knoepfe, function (andere) { andere.setAttribute("aria-pressed", andere === k ? "true" : "false"); });
+          gewaehlt = true;
+          zeigeAnfrage();
+        });
+      });
       regler.addEventListener("input", setze);
       setze();
       return;
@@ -333,6 +355,104 @@
     }
   }
 
+  /* ---------- Anfrage-Strecke im Boden-Kapitel ---------- */
+  // Fünf Fragen nacheinander. Eine Frage erscheint erst, wenn die davor gültig beantwortet und auf Weiter geklickt wurde.
+  // Wird eine Antwort danach ungültig oder fällt der Regler unter 4 Stunden, verschwindet alles dahinter wieder.
+  function initAnfrageStrecke(wurzel) {
+    var F = window.VianuFormular;
+    if (!F) return;
+    var schritte = wurzel.querySelectorAll("[data-schritt]");
+    var weiter = wurzel.querySelectorAll("[data-weiter]");
+    var ende = wurzel.querySelector("[data-strecke-ende]");
+    var absenden = wurzel.querySelector("[data-absenden]");
+    var ansage = wurzel.querySelector("[data-strecke-ansage]");
+    var ergebnis = wurzel.querySelector("[data-strecke-ergebnis]");
+    var textfeld = wurzel.querySelector("[data-strecke-text]");
+    var kopieren = wurzel.querySelector("[data-strecke-kopieren]");
+    var status = wurzel.querySelector("[data-strecke-status]");
+    var felder = {};
+    jeder("[data-feld]", wurzel, function (f) { felder[f.getAttribute("data-feld")] = f; });
+    if (schritte.length !== 5 || weiter.length !== 4 || !ende || !absenden || !ergebnis || !textfeld) return;
+    var erreicht = 1;
+
+    var gueltig = [
+      function () { return F.mitarbeitendeGueltig(felder.mitarbeitende.value, 11); },
+      function () { return felder.rolle.value !== ""; },
+      function () { return F.unternehmenGueltig(felder.unternehmen.value); },
+      function () { return F.emailGueltig(felder.kontakt.value); }
+    ];
+    function daten() {
+      return {
+        unternehmen: felder.unternehmen.value,
+        rolle: felder.rolle.value,
+        mitarbeitende: felder.mitarbeitende.value,
+        kontakt: felder.kontakt.value,
+        quelle: felder.quelle.value,
+        freitext: felder.freitext.value,
+        einwilligung: felder.einwilligung.checked
+      };
+    }
+    function aktualisiere() {
+      for (var i = 0; i < erreicht - 1 && i < gueltig.length; i++) {
+        if (!gueltig[i]()) { erreicht = i + 1; break; }
+      }
+      Array.prototype.forEach.call(schritte, function (s, i) { s.hidden = i + 1 > erreicht; });
+      Array.prototype.forEach.call(weiter, function (w, i) {
+        w.hidden = i + 1 < erreicht;
+        w.disabled = !gueltig[i]();
+      });
+      ende.hidden = erreicht < 5;
+      var fertig = erreicht === 5 && gueltig.every(function (g) { return g(); }) && F.pruefeAnfrage(daten(), window.VianuTexte.sprache(wurzel)).ok;
+      absenden.disabled = !fertig;
+      if (!fertig) ergebnis.hidden = true;
+    }
+    function vor(i) {
+      if (!gueltig[i]()) return;
+      erreicht = i + 2;
+      aktualisiere();
+      var ziel = schritte[i + 1].querySelector("input, select, textarea");
+      var frage = schritte[i + 1].querySelector("label");
+      if (ansage && frage) ansage.textContent = frage.textContent;
+      if (ziel) ziel.focus();
+    }
+    Array.prototype.forEach.call(weiter, function (w, i) { w.addEventListener("click", function () { vor(i); }); });
+    Object.keys(felder).forEach(function (name) {
+      felder[name].addEventListener("input", aktualisiere);
+      felder[name].addEventListener("change", aktualisiere);
+    });
+    // Enter in einem Feld geht zur nächsten Frage
+    wurzel.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" || !e.target || e.target.tagName !== "INPUT" || e.target.type === "checkbox") return;
+      e.preventDefault();
+      var i = Number(e.target.closest("[data-schritt]").getAttribute("data-schritt")) - 1;
+      if (i < weiter.length && !weiter[i].hidden) vor(i);
+    });
+    wurzel.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = daten();
+      var sprache = window.VianuTexte.sprache(wurzel);
+      if (absenden.disabled || !F.pruefeAnfrage(d, sprache).ok) return;
+      textfeld.textContent = F.anfrageAlsText(d, sprache);
+      if (status) status.textContent = "";
+      ergebnis.hidden = false;
+      ergebnis.focus();
+    });
+    if (kopieren) {
+      kopieren.addEventListener("click", function () {
+        kopierenMit(textfeld.textContent, status, window.VianuTexte.text("kopiert.text", null, wurzel), window.VianuTexte.text("kopiert.fehler.text.sie", null, wurzel));
+      });
+    }
+    var kapitel = wurzel.closest("[data-boden]");
+    if (kapitel) {
+      kapitel.addEventListener("boden-zurueck", function () {
+        wurzel.reset();
+        erreicht = 1;
+        aktualisiere();
+      });
+    }
+    aktualisiere();
+  }
+
   /* ---------- Was Sie bekommen: Reiter und Bühne ---------- */
   // Ohne Skript stehen alle drei Felder untereinander. Mit Skript zeigt die Bühne ein Feld: per Klick, Tastatur
   // (Pfeiltasten, Pos1, Ende) und beim Darüberfahren mit der Maus.
@@ -375,12 +495,14 @@
 
   /* ---------- Roderichs Weg: Stationen mit Fußspuren ---------- */
   // Ohne Skript stehen alle Stationen untereinander. Mit Skript zeigt die Bühne eine Station, die Fußspuren bis dorthin sind pink.
+  // Auf der letzten Station (Darum VIANU) steht statt Weiter der Knopf Pilot buchen.
   function initWeg(wurzel) {
     var stationen = wurzel.querySelectorAll("[data-station]");
     var felder = wurzel.querySelectorAll("[data-station-nr]");
     var leiste = wurzel.querySelector(".weg__leiste");
     var zurueck = wurzel.querySelector("[data-weg-zurueck]");
     var weiter = wurzel.querySelector("[data-weg-weiter]");
+    var pilot = wurzel.querySelector("[data-weg-pilot]");
     if (!stationen.length || stationen.length !== felder.length) return;
     var aktuell = 1;
 
@@ -394,6 +516,7 @@
       if (leiste) leiste.style.setProperty("--fortschritt-anteil", String((aktuell - 1) / (stationen.length - 1)));
       if (zurueck) zurueck.disabled = aktuell === 1;
       if (weiter) weiter.hidden = aktuell === stationen.length;
+      if (pilot) pilot.hidden = aktuell !== stationen.length;
     }
     Array.prototype.forEach.call(stationen, function (b, i) {
       b.addEventListener("click", function () { waehle(i + 1); });
@@ -427,6 +550,7 @@
 
   function start() {
     jeder("[data-druckkarte]", document, initDruckkarte);
+    jeder("[data-strecke]", document, initAnfrageStrecke);
     jeder("[data-klein]", document, initKlein);
     jeder("[data-sorgen]", document, initSorgen);
     jeder("[data-rechner]", document, initRechner);

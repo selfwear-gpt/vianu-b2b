@@ -867,7 +867,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .formular { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-5); }
 .formular__feld { display: flex; flex-direction: column; gap: var(--abstand-2); width: 100%; }
 .formular__feld label { font-weight: 600; }
-.formular__feld input[type="text"], .formular__feld select, .formular__feld textarea {
+.formular__feld input[type="text"], .formular__feld input[type="email"], .formular__feld select, .formular__feld textarea {
   width: 100%;
   padding: var(--abstand-3) var(--abstand-4);
   background: var(--farbe-papier);
@@ -1107,11 +1107,14 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 
 /* ---------- Geschichte: ein Abschnitt in Kapiteln ---------- */
 .geschichte { border-top: 1px solid var(--farbe-tinte); }
-.geschichte__kopf { background: var(--farbe-tinte); color: var(--farbe-papier); padding-block: clamp(40px, 7vw, 88px); }
-.geschichte__marke { color: var(--farbe-signal); margin-bottom: var(--abstand-5); }
-.geschichte__kopf .band__raster { align-items: center; }
-.geschichte__satz { font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1.02; max-width: 20ch; margin-top: var(--abstand-2); }
-.geschichte__satz2 { margin-top: var(--abstand-4); font-size: clamp(1.15rem, 2.2vw, 1.6rem); font-weight: 500; max-width: 34ch; }
+.geschichte__kopf { background: var(--farbe-tinte); color: var(--farbe-papier); padding-block: clamp(24px, 3.5vw, 44px); }
+.geschichte__marke { color: var(--farbe-signal); margin-bottom: var(--abstand-3); }
+.geschichte__satz { font-size: clamp(1.7rem, 3.8vw, 3.25rem); line-height: 1.04; max-width: none; margin: 0; }
+.geschichte__sprecher { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: var(--abstand-5); align-items: center; margin-top: var(--abstand-4); }
+.geschichte__sprecher .platzhalter { padding: var(--abstand-2); }
+.geschichte__sprecher .platzhalter p { font-size: 0.7rem; line-height: 1.3; }
+.geschichte__satz2 { margin-top: var(--abstand-2); font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 500; max-width: 48ch; }
+@media (max-width: 30rem) { .geschichte__sprecher { grid-template-columns: minmax(0, 1fr); } .geschichte__sprecher .platzhalter { max-width: 9rem; } }
 .fakten { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--abstand-4); margin: var(--abstand-7) 0 0; }
 .fakten__punkt { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-papier); }
 .fakten__punkt dt { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 0.95; text-transform: uppercase; }
@@ -1309,13 +1312,12 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .weg__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); min-width: 0; overflow-wrap: anywhere; }
 .weg__foto { aspect-ratio: 4 / 3; max-width: 100%; background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); }
 .weg__foto .platzhalter__etikett { color: var(--farbe-papier); }
-.weg__knopf { margin-top: var(--abstand-2); }
 .weg__feld[hidden] { display: none; }
 .weg__feld + .weg__feld { margin-top: var(--abstand-6); }
 .weg__zeit { color: var(--farbe-signal); }
 .weg__feld h4 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; color: var(--farbe-papier); }
 .weg__satz { font-size: clamp(1.2rem, 2.2vw, 1.7rem); line-height: 1.35; max-width: 34ch; font-weight: 500; }
-.weg__hinweis { color: var(--farbe-papier); border: 1px dashed var(--farbe-papier); padding: 0.1rem 0.5rem; }
+.weg__jahr { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); font-weight: 700; }
 .weg__steuerung { display: flex; flex-wrap: wrap; gap: var(--abstand-3); clear: both; }
 .weg__steuerung [hidden] { display: none; }
 .weg__steuerung button:disabled { opacity: 0.4; cursor: default; }
@@ -1330,10 +1332,23 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 
 /* ---------- Der Boden mit Regler ---------- */
 .boden__regler { display: flex; flex-direction: column; gap: var(--abstand-2); max-width: 28rem; }
-.boden__vergleich { font-weight: 600; }
-.boden__gleich { background: var(--farbe-signal); color: var(--farbe-auf-signal); padding: 0.1rem 0.4rem; }
-.boden__chips li { background: var(--farbe-papier); color: var(--farbe-tinte); border-color: var(--farbe-tinte); }
-.boden__schluss { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.05; text-transform: uppercase; }
+.boden__roderich { align-self: flex-start; padding: var(--abstand-2) var(--abstand-3); background: var(--farbe-signal); color: var(--farbe-auf-signal); font-weight: 700; }
+.schicht__text p.boden__roderich { max-width: 34ch; font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.35; }
+.boden__kacheln { display: flex; flex-direction: column; gap: var(--abstand-3); }
+.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: var(--abstand-3); list-style: none; margin: 0; padding: 0; }
+.kachel { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-1); width: 100%; height: 100%; padding: var(--abstand-3) var(--abstand-4); background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); font: inherit; text-align: left; cursor: pointer; }
+.kachel strong { font-family: var(--schrift-kopf); font-size: 1.2rem; line-height: 1.05; text-transform: uppercase; }
+.kachel span { font-size: var(--schrift-groesse-klein); line-height: 1.35; }
+.kachel:hover { border-color: var(--farbe-signal); }
+.kachel[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-color: var(--farbe-tinte); }
+.boden__anfrage { display: flex; flex-direction: column; gap: var(--abstand-5); }
+.schicht__text p.boden__hinweis { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.05; text-transform: uppercase; max-width: 22ch; }
+.strecke { display: flex; flex-direction: column; gap: var(--abstand-5); max-width: 32rem; }
+.strecke__schritt { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); }
+.strecke__ende { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-4); }
+.geschichte__kapitel[data-boden] .schicht__raster { align-items: start; }
+.geschichte__kapitel[data-boden] .schicht__bild { position: sticky; top: var(--abstand-5); }
+.knopf:disabled { opacity: 0.4; cursor: default; }
 .weg__feld p { color: inherit; }
 .weg__feld .weg__zeit { color: var(--farbe-signal); }
 .weg__feld h4 { margin: 0; }
