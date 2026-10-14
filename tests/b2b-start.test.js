@@ -140,20 +140,21 @@ test("der Ablauf ist der Handy-Ablauf mit vier Schritten, Bahn-Etikett je Schrit
   }
 });
 
-test("der Preis: kleines Preisschild mit Klartext, 3-Jahres-Aussage klein darunter ohne Siegel, rechts der Pilot mit Knopf", () => {
-  for (const [f, zahl, bund, halt, kopf] of [["b2b/index.html", /120 &euro;/, /Ein Pilot mit bspw\. 10 Mitarbeitenden kostet: 10 Paare = 1\.200 Euro zzgl\. Umsatzsteuer\./, /mindestens 3 Jahre einwandfrei/, /Eine individuell angefertigte Einlegesohle/], ["en/b2b/index.html", /&euro;120/, /A pilot with, for example, 10 employees costs: 10 pairs = EUR 1,200 plus VAT\./, /at least 3 years/, /One custom-made insole/]]) {
+test("der Preis: Preisschild mit Klartext und 3-Jahres-Aussage, rechts nur der Pilot-Satz, darunter der Regler und ein Satz zu weiteren Teams, nichts davon im Rahmen oder mit Knopf", () => {
+  for (const [f, zahl, bund, halt, kopf, danach] of [["b2b/index.html", /120 &euro;/, /Ein Pilot mit bspw\. 10 Mitarbeitenden kostet: 10 Paare = 1\.200 Euro zzgl\. Umsatzsteuer\./, /mindestens 3 Jahre einwandfrei/, /Eine individuell angefertigte Einlegesohle/, /Danach entscheiden Sie über weitere Teams\. Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung\./], ["en/b2b/index.html", /&euro;120/, /A pilot with, for example, 10 employees costs: 10 pairs = EUR 1,200 plus VAT\./, /at least 3 years/, /One custom-made insole/, /After that, you decide about further teams\. After a successful introduction, the rollout is available to you\./]]) {
     const h = lies(f);
-    assert.match(h, /<p class="preisschild" aria-label="[^"]*120[^"]*">/, f);
-    assert.match(h, zahl, f);
-    assert.match(h, kopf, f + ": sagt, wofür der Preis gilt");
-    assert.equal((h.match(/class="buendel__sohle"/g) || []).length, 10, f);
-    assert.match(h, bund, f);
-    assert.doesNotMatch(h, /class="siegel/, f + ": kein eigener Streifen");
-    const links = h.match(/<div class="preis__links">[\s\S]*?<div class="preis__pilot">/)[0];
+    const preis = h.match(/<section class="abschnitt" id="preis"[\s\S]*?<\/section>/)[0];
+    assert.match(preis, /<p class="preisschild" aria-label="[^"]*120[^"]*">/, f);
+    assert.match(preis, zahl, f);
+    assert.match(preis, kopf, f + ": sagt, wofür der Preis gilt");
+    assert.match(preis, bund, f);
+    assert.match(preis, danach, f + ": Satz zu weiteren Teams und Rollout");
+    assert.doesNotMatch(preis, /buendel|class="klein|data-klein|data-pilot-oeffnen|class="knopf|preis__pilot"/, f + ": kein Bündel, keine Punktgrafik, kein Kasten, kein Knopf");
+    assert.doesNotMatch(preis, /class="siegel/, f + ": kein eigener Streifen");
+    assert.equal((preis.match(/data-rechner-regler/g) || []).length, 1, f + ": ein Regler");
+    assert.match(preis.match(/<div class="rechner"[^>]*>/)[0], /^<div class="rechner" data-rechner>$/, f + ": Rechner ohne Zusatzklassen");
+    const links = preis.match(/<div class="preis__links">[\s\S]*?<p class="preis__pilot-satz">/)[0];
     assert.match(links, halt, f + ": 3-Jahres-Aussage unter dem Preis");
-    const rechts = h.match(/<div class="preis__pilot">[\s\S]*?<\/div>\s*<\/div>/)[0];
-    assert.match(rechts, /(Der Pilot|The pilot)<\/p>/, f);
-    assert.match(rechts, /<a class="knopf" href="#pilot" data-pilot-oeffnen>/, f + ": Knopf zum Pilot buchen");
   }
 });
 
@@ -288,15 +289,6 @@ test("Die deutschen B2B-Seiten sprechen durchgehend Sie, keine Du-Formen im sich
   for (const f of fs.readdirSync(path.join(__dirname, "..", "b2b")).filter((n) => n.endsWith(".html")).map((n) => "b2b/" + n)) {
     const t = lies(f).replace(/<(script|style)[\s\S]*?<\/\1>/g, "").replace(/<[^>]+>/g, " ").replace(/„[^“]*“/g, "");
     assert.doesNotMatch(t, du, f);
-  }
-});
-
-test("Weitere Teams und Weitere Standorte sind Knöpfe, die das Formular öffnen, mit dem Rollout-Satz", () => {
-  for (const [f, satz] of [["b2b/index.html", /Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung/], ["en/b2b/index.html", /After a successful introduction, the rollout is available to you/]]) {
-    const h = lies(f);
-    assert.equal((h.match(/<button class="klein__knopf" type="button" data-pilot-oeffnen>/g) || []).length, 3, f);
-    assert.match(h, satz, f);
-    assert.doesNotMatch(h.match(/<ol class="klein__stufen">[\s\S]*?<\/ol>/)[0], /Auf einen Rollout legen Sie sich|do not commit to a rollout/, f);
   }
 });
 

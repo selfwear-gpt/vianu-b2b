@@ -59,7 +59,7 @@ Status: gebaut
 
 ### Preisblock
 Status: gebaut
-- Links ein kleines Preisetikett mit Klartext ("Eine individuell angefertigte Einlegesohle", 120 € je Paar, zuzüglich Umsatzsteuer) und die 3-Jahres-Aussage klein darunter, ohne eigenen Streifen. Rechts "Der Pilot" mit dem Bündel aus zehn Sohlen und dem Knopf "Kontakt aufnehmen". Darunter der Kostenrechner ("Wie viele Schichten hat ein Mitarbeiter im Jahr?", Ergebnis je Schicht pro Person) und "Klein starten": Pilot, Weitere Teams und Weitere Standorte sind Knöpfe, die das Formular öffnen. Bei den Standorten steht "Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung". Kosten je Monat gibt es nicht, weil sie eine Tragedauer voraussetzen.
+- Oben links ein kleines Preisetikett mit Klartext ("Eine individuell angefertigte Einlegesohle", 120 € je Paar, zuzüglich Umsatzsteuer) und die 3-Jahres-Aussage klein darunter, ohne eigenen Streifen. Rechts daneben nur der Pilot-Satz ("Ein Pilot mit bspw. 10 Mitarbeitenden kostet: 10 Paare = 1.200 Euro zzgl. Umsatzsteuer."), ohne Kasten, ohne Sohlenbündel und ohne Knopf. Darunter der Kostenrechner ohne Rahmen ("Wie viele Schichten hat ein Mitarbeiter im Jahr?", Ergebnis je Schicht pro Person) und rechts ein Satz: "Danach entscheiden Sie über weitere Teams. Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung." Die Punktgrafik "Klein starten" gibt es nur noch auf der Rollenseite der Geschäftsführung. Kosten je Monat gibt es nicht, weil sie eine Tragedauer voraussetzen.
 - Regel: Der Preis steht als "120 Euro je Paar, zuzüglich Umsatzsteuer". Mengenpreise bleiben verborgen.
 
 ### Fußabdruck "Sorgen und Bedenken im Entscheidungsteam"
