@@ -1,0 +1,31 @@
+RESULTS REPORT, SAMPLE
+Status: draft. This sample contains no values and no customer names.
+
+Header
+Company: [Placeholder: name]
+Group: [Placeholder: label]
+Number of participants: [Placeholder]
+Period: [Placeholder]
+
+How to read the report
+The report is anonymized and shows the group. All values are self-reported by the participants. They say something about how the group experienced the insoles. They are not proof of an effect. Minimum group size for showing a value: [Placeholder: not yet decided.]
+
+The four questions
+1. Wear rate
+   Question: "Are you still wearing the insoles?"
+   Value: [Placeholder: comes from your pilot]
+2. Noticeable improvement
+   Question: "Do you notice a difference compared to before?"
+   Value: [Placeholder: comes from your pilot]
+3. Recommendation
+   Question: "Would you recommend them?"
+   Value: [Placeholder: comes from your pilot]
+4. Appreciation
+   Question: "Do you feel valued by this offer?"
+   Value: [Placeholder: comes from your pilot]
+
+Comments in the participants' own words
+[Placeholder: free answers from the participants, anonymized, if collected.]
+
+Next step
+You decide whether more teams take part.

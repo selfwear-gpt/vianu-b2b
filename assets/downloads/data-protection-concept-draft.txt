@@ -1,0 +1,39 @@
+DATA PROTECTION CONCEPT FOR THE PILOT WITH VIANU
+Status: draft. Not legal advice.
+
+How to use this
+This draft shows which points a data protection concept for the pilot must settle, and it enters what is known today. Everything else is marked as open. The concept has not been reviewed by a lawyer. Have your data protection officer and your legal counsel review it. As long as points are open, VIANU makes no promise about them.
+
+1. Purpose and scope
+The pilot checks whether custom-made insoles make a difference for 10 employees who take part. This concept describes which data is created for that.
+
+2. Which data is created
+- Photos of the feet, taken with the participant's own smartphone during a break.
+- The details needed to make the insole. [Placeholder: exact details, for example name and company logo for the engraving, to be confirmed by VIANU.]
+- Four answers at the end of the pilot: wear rate, noticeable improvement, recommendation and appreciation. The participants answer them themselves.
+
+3. Data flow
+a) The participant takes the photos and releases them. Taking part is voluntary.
+b) VIANU makes the insole.
+c) The insole reaches the person at the workplace.
+d) At the end the employer receives an anonymized report at group level.
+[Placeholder: route of the photos from capture to production, to be described technically.]
+
+4. Roles and responsibility
+[Placeholder: whether VIANU is a processor or its own controller is open and must be clarified legally.]
+
+5. Processing location, storage period, access and deletion
+[Placeholder: processing location, open.]
+[Placeholder: storage period, open.]
+[Placeholder: access of the participants to their data, open.]
+[Placeholder: deletion after the pilot, open.]
+[Placeholder: what the employer learns about individual participants, open.]
+
+6. Rights of the data subjects
+[Placeholder: access, correction, deletion, objection, contact person, to be reviewed legally.]
+
+7. Technical and organizational measures
+[Placeholder: measures to protect the data, to be described by VIANU.]
+
+8. Contact
+Roderich, VIANU. [Placeholder: contact details.]

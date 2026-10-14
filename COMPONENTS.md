@@ -44,7 +44,12 @@ Status: gebaut
 
 ### Programmblock (Reiter)
 Status: gebaut
-- Heißt "Was Sie bekommen" und steht weit unten auf der B2B-Startseite, nach den Sorgen. Drei große Reiter (Vor dem Start, Im Piloten, Danach) mit Nummer, Symbol und Titel, darunter eine dunkle Bühne mit dem Inhalt des gewählten Reiters: Freigabepaket (drei Unterlagen als "In Arbeit"), Durchführung (Fußerfassung, Lieferung spätestens 7 Tage danach, Aufwand als Platzhalter), Ergebnisbericht (Tragequote, Wahrnehmung, Rückmeldungen). Darunter die vier Merkmale als Chips (kein Messtag, eigenes Handy, vorhandene Schuhe, freiwillig).
+- Heißt "Was Sie bekommen", Einleitung nennt die Reihenfolge (Freigabe im Haus, Pilot mit 10 Mitarbeitenden, Bericht am Ende). Drei große Reiter (Vor dem Start, Im Piloten, Danach) mit Nummer, Symbol und Titel, darunter eine dunkle Bühne mit dem Inhalt des gewählten Reiters:
+  - **Freigabepaket** ("Die Unterlagen, mit denen Sie intern freigeben"): drei Unterlagen mit Nutzen, Stand "Entwurf" und Download als Textdatei (`assets/downloads/`: Vorlage Betriebsvereinbarung, Datenschutzkonzept, Auftragsverarbeitungsvertrag). Hinweis, dass sie nicht rechtlich geprüft sind.
+  - **Durchführung** ("Was im Betrieb passiert"): drei Bahnen (Ihr Betrieb, Ihr Team, VIANU), Platzhalter für Aufwand und Zeitraum, Download "Ablauf und Aufgaben".
+  - **Ergebnisbericht** ("Am Ende sehen Sie vier Antworten Ihres Teams"): die vier umdrehbaren Messwert-Kacheln, Hinweis auf Anonymisierung und Selbstauskunft, Download "Muster des Berichts" (ohne Werte).
+  - Unter der Bühne stehen Preis und Antwortfrist (1.200 Euro zuzüglich Umsatzsteuer, Antwort innerhalb von 5 Werktagen) und der Knopf "Kontakt aufnehmen". Die vier Merkmal-Chips entfallen.
+- Alle Downloads sind Textdateien (bearbeitbar, ohne Build-Schritt), jeweils mit englischer Fassung. Jede trägt den Vermerk "Stand: Entwurf", Rechtsunterlagen zusätzlich "Keine Rechtsberatung". Nicht belegte Aussagen stehen als `[Platzhalter: ...]`. Haltbarkeit und Beispielzahlen kommen in keiner Datei vor.
 - Bedienung: Klick, Tastatur (Pfeile, Pos1, Ende), beim Darüberfahren mit der Maus. Ohne Skript stehen alle drei Felder untereinander. Logik: `initReise` in `assets/js/b2b.js`.
 
 ### Messwert-Kacheln

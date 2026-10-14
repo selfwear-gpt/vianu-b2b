@@ -1,0 +1,31 @@
+ERGEBNISBERICHT, MUSTER
+Stand: Entwurf. Dieses Muster enthält keine Werte und keine Kundennamen.
+
+Kopf
+Unternehmen: [Platzhalter: Name]
+Gruppe: [Platzhalter: Bezeichnung]
+Zahl der Teilnehmenden: [Platzhalter]
+Zeitraum: [Platzhalter]
+
+Wie Sie den Bericht lesen
+Der Bericht ist anonymisiert und zeigt die Gruppe. Alle Werte sind Selbstauskünfte der Teilnehmenden. Sie sagen etwas darüber, wie die Gruppe die Einlegesohlen erlebt hat. Sie sind kein Nachweis einer Wirkung. Mindestgröße der Gruppe für die Anzeige eines Wertes: [Platzhalter: noch nicht festgelegt.]
+
+Die vier Fragen
+1. Tragequote
+   Frage: "Tragen Sie die Einlegesohlen noch?"
+   Wert: [Platzhalter: folgt aus Ihrem Piloten]
+2. Spürbare Verbesserung
+   Frage: "Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?"
+   Wert: [Platzhalter: folgt aus Ihrem Piloten]
+3. Weiterempfehlung
+   Frage: "Würden Sie sie weiterempfehlen?"
+   Wert: [Platzhalter: folgt aus Ihrem Piloten]
+4. Wertschätzung
+   Frage: "Fühlen Sie sich mit dem Angebot wertgeschätzt?"
+   Wert: [Platzhalter: folgt aus Ihrem Piloten]
+
+Rückmeldungen im Wortlaut
+[Platzhalter: freie Antworten der Teilnehmenden, anonymisiert, falls erhoben.]
+
+Nächster Schritt
+Sie entscheiden, ob weitere Teams teilnehmen.

@@ -1,0 +1,52 @@
+TEMPLATE: WORKS AGREEMENT FOR THE PILOT WITH VIANU
+Status: draft. Not legal advice.
+
+How to use this
+This text is a starting point for the discussion with your works council. It has not been reviewed by a lawyer. Have your legal counsel and your data protection officer review it before you use it. Passages in square brackets are placeholders. They must be completed by your company or confirmed by VIANU. This text does not say whether the pilot needs a works agreement. Clarify that with your legal counsel.
+
+Between
+[Placeholder: company name, address] (the "Employer")
+and
+[Placeholder: name of the works council] (the "Works Council")
+the following agreement is made.
+
+1. Purpose
+The Employer runs a pilot with custom-made insoles from VIANU. The pilot should show whether the insoles make a difference for the employees who take part. The insoles are a supplementary comfort offer. They do not replace any protective measure or workplace design.
+
+2. Scope
+This agreement applies to [Placeholder: site, department or group] and to up to [Placeholder: number] employees. The pilot is planned for 10 employees.
+
+3. Voluntary participation
+Taking part is voluntary. Anyone who does not take part has no disadvantages. Anyone who takes part can end their participation. [Placeholder: rule on withdrawal and on data already collected, to be reviewed legally.]
+
+4. Process
+a) The Employer decides which employees can take part.
+b) The employees who take part photograph their feet with their own smartphone during a break. There is no measurement day and there are no additional devices.
+c) VIANU makes a custom-made insole for each person who takes part. [Placeholder: engraving of name and company logo, to be confirmed by VIANU.]
+d) The insole reaches the employees at the workplace, at the latest 7 days after the foot capture. [Placeholder: evidence from VIANU for the delivery time.]
+e) The insole goes into shoes the employees already own.
+f) The employees pay nothing. The Employer bears the cost.
+
+5. Data processing
+Which data is created, where it is processed and how long it is stored is set out in the data protection concept (Annex 1). [Placeholder: processing location, storage period, access and deletion, open and not yet decided.] The Employer receives no photos of the employees. [Placeholder: statement from VIANU, to be confirmed.]
+
+6. Results report
+At the end of the pilot the Employer receives an anonymized report at group level. The participants answer four questions themselves: wear rate, noticeable improvement, recommendation and appreciation. The values are self-reported. [Placeholder: minimum group size from which a value is shown.] The report contains no statements about individual people. [Placeholder: to be confirmed. What the Employer learns about individual participants is open.]
+
+7. Monitoring of performance and behavior
+[Placeholder: rule that the results are not used to monitor performance or behavior, to be reviewed legally.]
+
+8. Rights of the Works Council
+[Placeholder: rights to information and access, to be reviewed legally.]
+
+9. Term and end
+The agreement applies from [Placeholder: date]. The pilot ends with the evaluation. [Placeholder: period until the evaluation, not yet decided.] After that the Employer decides together with the Works Council whether more teams take part.
+
+10. Final provisions
+[Placeholder: written form, severability clause, to be reviewed legally.]
+
+Place, date
+For the Employer: ______________________
+For the Works Council: ______________________
+
+Annex 1: Data protection concept (see the draft in the file "data-protection-concept-draft.txt")

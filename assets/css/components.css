@@ -1466,3 +1466,27 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
   .weg__fuss { transition: none; }
   .weg__station[aria-pressed="true"] .weg__fuss { transform: none; }
 }
+
+/* Was Sie bekommen: Unterlagen mit Nutzen, Stand und Download */
+.unterlagen__nutzen { display: block; margin-top: var(--abstand-1); font-size: 0.9rem; font-weight: 400; max-width: 46ch; }
+.unterlagen__rechts { display: flex; flex-direction: column; align-items: flex-end; gap: var(--abstand-1); flex: none; }
+.reise__feld .unterlagen__stand { border-style: solid; }
+.reise__feld .schritte3__offen { padding: var(--abstand-3); border: 1px dashed var(--farbe-papier); max-width: 44ch; }
+.reise__download { margin: 0; }
+.reise__feld .messwerte--flip { margin: 0; }
+.reise__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-3) var(--abstand-5); }
+.reise__cta p { margin: 0; max-width: 46ch; font-weight: 600; }
+@media (max-width: 40rem) {
+  .unterlagen__eintrag { flex-wrap: wrap; }
+  .unterlagen__rechts { align-items: flex-start; }
+}
+.reise__feld .messwert h3 { font-size: var(--schrift-groesse-etikett); line-height: 1.2; color: inherit; }
+.reise__feld .messwerte--flip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(2):nth-child(n) { border-top: 0; }
+@media (max-width: 56rem) {
+  .reise__feld .messwerte--flip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 40rem) {
+  .reise__feld .messwerte--flip { grid-template-columns: minmax(0, 1fr); }
+}
+.reise__feld .messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(n) .messwert__vorn, .reise__feld .messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(n) .messwert__hinten { border-color: var(--farbe-papier); }

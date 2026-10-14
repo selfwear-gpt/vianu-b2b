@@ -66,17 +66,41 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
   }
 });
 
-test("Was Sie bekommen ist ein Reiter-Baustein mit drei Feldern, Symbolen im Bericht und einem Knopf", () => {
+test("Was Sie bekommen: drei Felder, Unterlagen mit Entwurf und Download, drei Bahnen, vier Fragen als Kacheln, Preis und Frist am Knopf", () => {
   for (const f of SEITEN) {
     const h = lies(f);
-    assert.equal((h.match(/data-reiter="\d"/g) || []).length, 3, f);
-    assert.equal((h.match(/data-feld-nr="\d"/g) || []).length, 3, f);
-    assert.doesNotMatch(h, /role="tab(list|panel)?"/, f + ": Rollen setzt erst das Skript");
-    assert.doesNotMatch(h, /chips--gross/, f + ": die vier Kacheln unter den Inhalten entfallen");
-    assert.doesNotMatch(h, /Kein Messtag|No measurement day/, f);
-    assert.equal((h.match(/<ul class="messwerte messwerte--klein">(<li class="messwert messwert--klein"><svg class="ico messwert__bild"[\s\S]*?<strong>[^<]+<\/strong><\/li>){4}<\/ul>/g) || []).length, 1, f + ": Symbole im Ergebnisbericht");
-    assert.match(h, /<div class="reise__cta"><a class="knopf" href="#pilot" data-pilot-oeffnen>(Kontakt aufnehmen|Get in touch)/, f + ": Knopf unter den Inhalten");
+    const de = !f.startsWith("en/");
+    const abschnitt = h.match(/<section class="abschnitt" id="programm"[\s\S]*?<\/section>/)[0];
+    assert.equal((abschnitt.match(/data-reiter="\d"/g) || []).length, 3, f);
+    assert.equal((abschnitt.match(/data-feld-nr="\d"/g) || []).length, 3, f);
+    assert.doesNotMatch(abschnitt, /role="tab(list|panel)?"/, f + ": Rollen setzt erst das Skript");
+    assert.doesNotMatch(abschnitt, /unterlagen__stand">(In Arbeit|In progress)/, f + ": kein In Arbeit mehr");
+    assert.equal((abschnitt.match(/<li class="unterlagen__eintrag">/g) || []).length, 3, f + ": drei Unterlagen");
+    const links = [...abschnitt.matchAll(/href="((?:\.\.\/)+assets\/downloads\/[^"]+\.txt)" download/g)].map((m) => m[1]);
+    assert.equal(links.length, 5, f + ": fünf Downloads");
+    for (const l of links) assert.ok(fs.existsSync(path.join(__dirname, "..", path.dirname(f), l)), f + " " + l);
+    assert.equal((abschnitt.match(/<li class="schritte3__punkt">/g) || []).length, 3, f + ": drei Bahnen");
+    assert.equal((abschnitt.match(/<li class="messwert messwert--dreh"/g) || []).length, 4, f + ": vier Fragen als Kacheln");
+    assert.doesNotMatch(abschnitt, /chips--gross/, f);
+    assert.doesNotMatch(abschnitt, /Kein Messtag|No measurement day/, f);
+    assert.match(abschnitt, de ? /1\.200 Euro zuzüglich Umsatzsteuer\. Roderich antwortet innerhalb von 5 Werktagen\./ : /EUR 1,200 plus VAT\. Roderich replies within 5 working days\./, f + ": Preis und Frist");
+    assert.match(abschnitt, /<div class="reise__cta"><p>[\s\S]*?<\/p><a class="knopf" href="#pilot" data-pilot-oeffnen>(Kontakt aufnehmen|Get in touch)/, f + ": Knopf unter den Inhalten");
   }
+});
+
+test("die Download-Texte tragen den Vermerk Entwurf, enthalten Platzhalter und die Rechtsunterlagen den Hinweis auf Prüfung", () => {
+  const dateien = {
+    "vorlage-betriebsvereinbarung.txt": true, "datenschutzkonzept-entwurf.txt": true, "vorlage-auftragsverarbeitungsvertrag.txt": true, "ablauf-und-aufgaben.txt": false, "ergebnisbericht-muster.txt": false,
+    "works-agreement-template.txt": true, "data-protection-concept-draft.txt": true, "data-processing-agreement-template.txt": true, "process-and-tasks.txt": false, "results-report-sample.txt": false
+  };
+  for (const [name, recht] of Object.entries(dateien)) {
+    const t = lies("assets/downloads/" + name);
+    assert.match(t, /(Stand: Entwurf|Status: draft)/, name);
+    assert.match(t, /\[Placeholder|\[Platzhalter/, name);
+    if (recht) assert.match(t, /Keine Rechtsberatung|Not legal advice/, name);
+    assert.doesNotMatch(t, /3 Jahre|3 years/, name + ": Haltbarkeit ohne Beleg");
+  }
+  assert.doesNotMatch(lies("assets/downloads/ergebnisbericht-muster.txt"), /\d+ ?%/, "keine Beispielzahlen im Muster");
 });
 
 test("der Rechner nennt den Zeitraum der Schichten: in einem Jahr", () => {

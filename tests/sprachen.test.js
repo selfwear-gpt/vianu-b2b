@@ -106,7 +106,7 @@ test("Downloads der englischen Seiten tragen englische Namen und existieren", ()
   for (const f of PAARE) {
     const h = lies("en/" + f);
     for (const m of h.matchAll(/href="((?:\.\.\/)+assets\/downloads\/[^"]+)"/g)) {
-      assert.match(m[1], /role-|mail-to-employer/, "en/" + f);
+      assert.match(m[1], /role-|mail-to-employer|works-agreement-template|data-protection-concept-draft|data-processing-agreement-template|process-and-tasks|results-report-sample/, "en/" + f);
       assert.ok(fs.existsSync(path.join(ROOT, aufloesen("en/" + f, m[1]))), "en/" + f + " " + m[1]);
     }
   }
