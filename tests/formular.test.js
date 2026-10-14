@@ -105,12 +105,12 @@ test("emailGueltig nimmt nur E-Mail-Adressen an, keine Telefonnummern", () => {
 });
 
 test("mitarbeitendeGueltig verlangt eine ganze Zahl ab dem Minimum und höchstens die Obergrenze", () => {
-  assert.equal(mitarbeitendeGueltig("11", 11), true);
-  assert.equal(mitarbeitendeGueltig("10", 11), false);
-  assert.equal(mitarbeitendeGueltig("120", 11), true);
-  assert.equal(mitarbeitendeGueltig("100000", 11), true);
-  assert.equal(mitarbeitendeGueltig("100001", 11), false);
-  for (const schlecht of ["", "elf", "11,5", "-12", "1e3", null, undefined]) assert.equal(mitarbeitendeGueltig(schlecht, 11), false, String(schlecht));
+  assert.equal(mitarbeitendeGueltig("10", 10), true);
+  assert.equal(mitarbeitendeGueltig("9", 10), false);
+  assert.equal(mitarbeitendeGueltig("120", 10), true);
+  assert.equal(mitarbeitendeGueltig("100000", 10), true);
+  assert.equal(mitarbeitendeGueltig("100001", 10), false);
+  for (const schlecht of ["", "zehn", "10,5", "-12", "1e3", null, undefined]) assert.equal(mitarbeitendeGueltig(schlecht, 10), false, String(schlecht));
   assert.equal(mitarbeitendeGueltig("1"), true, "ohne Minimum gilt ab 1");
   assert.equal(mitarbeitendeGueltig("0"), false);
 });

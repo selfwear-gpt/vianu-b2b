@@ -376,7 +376,7 @@
     var erreicht = 1;
 
     var gueltig = [
-      function () { return F.mitarbeitendeGueltig(felder.mitarbeitende.value, 11); },
+      function () { return F.mitarbeitendeGueltig(felder.mitarbeitende.value, 10); },
       function () { return felder.rolle.value !== ""; },
       function () { return F.unternehmenGueltig(felder.unternehmen.value); },
       function () { return F.emailGueltig(felder.kontakt.value); }

@@ -230,3 +230,16 @@ test("Anfrage-Strecke: fünf Schritte mit Pflichtfeldern, nur der erste ist sich
   for (const frage of ["Anzahl der Mitarbeitenden", "Ihre Rolle im Unternehmen", "Wie heißt Ihr Unternehmen?", "Wie können wir Sie per Mail erreichen?", "Wie sind Sie auf uns aufmerksam geworden?"]) assert.match(de, new RegExp(frage.replace("?", "\\?")));
   assert.ok(de.indexOf("Anzahl der Mitarbeitenden") < de.indexOf("Ihre Rolle im Unternehmen") && de.indexOf("Ihre Rolle im Unternehmen") < de.indexOf("Wie heißt Ihr Unternehmen?") && de.indexOf("Wie heißt Ihr Unternehmen?") < de.indexOf("per Mail erreichen") && de.indexOf("per Mail erreichen") < de.indexOf("aufmerksam geworden"), "Reihenfolge der Fragen");
 });
+
+test("Die Anfrage-Strecke geht ab 10 Mitarbeitenden weiter", () => {
+  const js = lies("assets/js/b2b.js");
+  assert.match(js, /mitarbeitendeGueltig\(felder\.mitarbeitende\.value, 10\)/);
+});
+
+test("Die deutschen B2B-Seiten sprechen durchgehend Sie, keine Du-Formen im sichtbaren Text", () => {
+  const du = /\b(du|dein|deine|deinen|deinem|deiner|deines|dir|dich|wähle|wähl|lass|schau|kannst|musst|bist|hast|willst|kopiere)\b/i;
+  for (const f of fs.readdirSync(path.join(__dirname, "..", "b2b")).filter((n) => n.endsWith(".html")).map((n) => "b2b/" + n)) {
+    const t = lies(f).replace(/<(script|style)[\s\S]*?<\/\1>/g, "").replace(/<[^>]+>/g, " ").replace(/„[^“]*“/g, "");
+    assert.doesNotMatch(t, du, f);
+  }
+});
