@@ -18,6 +18,7 @@
 <script src="../../assets/js/fortschritt.js" defer></script>
 <script src="../../assets/js/formular.js" defer></script>
 <script src="../../assets/js/b2b.js" defer></script>
+<script src="../../assets/js/bausteine.js" defer></script>
 <script src="../../assets/js/pilot.js" defer></script>
 <script src="../../assets/js/rollen.js" defer></script>
 <script type="application/ld+json">
@@ -87,6 +88,13 @@
 </head>
 <body class="rollenseite">
 
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
 <header class="menue" data-menue>
   <div class="behaelter">
     <div class="menue__innen">
@@ -150,106 +158,6 @@
     </div>
   </section>
 
-  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="termin-titel">What you need to be able to stand behind in the meeting</h2>
-      </div>
-      <dl class="termin">
-        <div class="termin__zeile"><dt class="etikett">The role's question</dt><dd>Is the solution responsible in daily work and clearly delimited?</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Core message</dt><dd>“Explained openly. Clearly delimited. Designed for daily work.”</dd></div>
-        <div class="termin__zeile"><dt class="etikett">How this page sees it</dt><dd>First the scope: a supplementary comfort offer that replaces no protective measure. Then how data is handled. Then the evidence, at the level it can support.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">The pilot counts as a success if</dt><dd>the limits of the product are clear to the participants, no avoidable objections on hygiene or data arise and the pilot is not read as a replacement for other protective measures.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">What is needed before approval</dt><dd>Material and hygiene information, exclusion criteria and the data process.</dd></div>
-      </dl>
-      <p class="einseiter__fuss druck-nur">Contact: Roderich. Book a pilot on the VIANU B2B page.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
-    <div class="behaelter">
-      <div class="brief">
-        <h2 id="brief-titel" class="etikett brief__an">Roderich to Occupational safety</h2>
-        <div class="brief__text">
-          <p>Let me say it clearly up front: VIANU is a comfort offer. I make no claim about sick days, pain or protection, and the insole replaces no workplace design measure. It adds to what you already have, for example an anti-fatigue mat in a fixed spot.</p>
-          <p>I stood on hard floors for 10 to 12 hours a day myself. What matters to me is that your team has an insole in the shoe along the whole route of a shift. On material, hygiene and data handling I will say something once it is settled.</p>
-        </div>
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="belege-titel">Evidence</h2>
-        <p>Two reviews on cushioning during standing and on foot complaints among nurses.</p>
-      </div>
-      <div class="belege">
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Speed et al. 2018</p>
-            <h3>Cushioning during long standing at work</h3>
-            <p>A review of 10 studies found moderate evidence that cushioned materials (softer floors, cushioned insoles) go along with less discomfort and fatigue during long standing at work. For insoles compared with anti-fatigue mats, the evidence is limited.</p>
-            <p class="beleg__zitat">Speed et al. 2018, Applied Ergonomics 70:300-314, <a class="textlink" href="https://doi.org/10.1016/j.apergo.2018.02.021" rel="noopener">doi:10.1016/j.apergo.2018.02.021</a></p>
-          </article>
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Bernardes et al. 2023</p>
-            <h3>Foot and ankle disorders among nurses</h3>
-            <p>A review of foot and ankle disorders among nurses in hospitals names pain as the most common disorder. The reported frequency differs clearly between the studies.</p>
-            <p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p>
-          </article>
-          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Placeholder for a statement from an orthopedist">
-            <span class="etikett platzhalter__etikett">Placeholder</span>
-            <p>Statement from an orthopedist on the scope of the insole. Only with approval, with name and function.</p>
-          </div>
-      </div>
-      <p class="belege__hinweis">None of these studies examines hospitality or food service, and none examines insoles as a measure against absences, sick days or pain. VIANU does not transfer the figures to other groups.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>For occupational safety, noticeable improvement and wear rate matter most. At the end of the pilot, participants give all four answers themselves. All values are self-reported.</p>
-      </div>
-      <ul class="messwerte messwerte--rolle">
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-            <h3 class="etikett">Wear rate</h3>
-            <p class="messwert__frage">“Are you still wearing the insoles?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-            <h3 class="etikett">Noticeable improvement</h3>
-            <p class="messwert__frage">“Do you notice a difference compared to before?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-            <h3 class="etikett">Recommendation</h3>
-            <p class="messwert__frage">“Would you recommend them?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-            <h3 class="etikett">Appreciation</h3>
-            <p class="messwert__frage">“Do you feel valued by this offer?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-      </ul>
-      <p class="messwerte__erfolg"><strong>The pilot counts as a success if</strong> the limits of the product are clear to the participants, no avoidable objections on hygiene or data arise and the pilot is not read as a replacement for other protective measures.</p>
-      <p class="messwerte__grenze">These are values on comfort and acceptance. They say nothing about sick days, turnover, performance or pain.</p>
-    </div>
-  </section>
-
-<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
-  <symbol id="sohle-form" viewBox="0 0 100 260">
-    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
-  </symbol>
-</svg>
   <section class="abschnitt" id="weg" aria-labelledby="weg-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
@@ -285,6 +193,108 @@
           <li>Storeroom</li>
           <li>Dish room</li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="belege-titel">Evidence</h2>
+        <p>Two reviews on cushioning during standing and on foot complaints among nurses.</p>
+      </div>
+      <div class="studienkarten">
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Speed et al. 2018</p><h3>Cushioning during long standing at work</h3></div>
+            <div class="dreh__hinten"><p>A review of 10 studies found moderate evidence that cushioned materials (softer floors, cushioned insoles) go along with less discomfort and fatigue during long standing at work. For insoles compared with anti-fatigue mats, the evidence is limited.</p><p class="beleg__zitat">Speed et al. 2018, Applied Ergonomics 70:300-314, <a class="textlink" href="https://doi.org/10.1016/j.apergo.2018.02.021" rel="noopener">doi:10.1016/j.apergo.2018.02.021</a></p></div>
+          </div>
+        </article>
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Bernardes et al. 2023</p><h3>Foot and ankle disorders among nurses</h3></div>
+            <div class="dreh__hinten"><p>A review of foot and ankle disorders among nurses in hospitals names pain as the most common disorder. The reported frequency differs clearly between the studies.</p><p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p></div>
+          </div>
+        </article>
+        <div class="dreh studienkarte beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Placeholder for a statement from an orthopedist">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Placeholder</span><strong>Evidence</strong></div>
+            <div class="dreh__hinten"><p>Statement from an orthopedist on the scope of the insole. Only with approval, with name and function.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="belege__hinweis">None of these studies examines hospitality or food service, and none examines insoles as a measure against absences, sick days or pain. VIANU does not transfer the figures to other groups.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="termin-titel">What you need to be able to stand behind in the meeting</h2>
+      </div>
+      <div class="pruefliste" data-pruefliste>
+        <p class="pruefliste__zaehler" aria-live="polite"><strong data-pruefliste-zahl>0</strong> of 5 checked</p>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">The role's question</span><span class="pruefliste__dd">Is the solution responsible in daily work and clearly delimited?</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Core message</span><span class="pruefliste__dd">“Explained openly. Clearly delimited. Designed for daily work.”</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">How this page sees it</span><span class="pruefliste__dd">First the scope: a supplementary comfort offer that replaces no protective measure. Then how data is handled. Then the evidence, at the level it can support.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">The pilot counts as a success if</span><span class="pruefliste__dd">the limits of the product are clear to the participants, no avoidable objections on hygiene or data arise and the pilot is not read as a replacement for other protective measures.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">What is needed before approval</span><span class="pruefliste__dd">Material and hygiene information, exclusion criteria and the data process.</span></span></button>
+      </div>
+      <p class="einseiter__fuss druck-nur">Contact: Roderich. Book a pilot on the VIANU B2B page.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">What we measure at the end</h2>
+        <p>For occupational safety, noticeable improvement and wear rate matter most. At the end of the pilot, participants give all four answers themselves.</p>
+      </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Wear rate</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Are you still wearing the insoles?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Noticeable improvement</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you notice a difference compared to before?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Recommendation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Would you recommend them?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Appreciation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you feel valued by this offer?”</p></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+    <div class="behaelter">
+      <div class="zitatkarte">
+        <h2 id="brief-titel" class="etikett brief__an">Roderich to Occupational safety</h2>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Placeholder for a portrait">
+            <span class="etikett platzhalter__etikett">Placeholder</span>
+            <p>Image: portrait of Roderich, head and shoulders, calm background from the kitchen. Square.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>Let me say it clearly up front: VIANU is a comfort offer. I make no claim about sick days, pain or protection, and the insole replaces no workplace design measure. It adds to what you already have, for example an anti-fatigue mat in a fixed spot.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>I stood on hard floors for 10 to 12 hours a day myself. What matters to me is that your team has an insole in the shoe along the whole route of a shift. On material, hygiene and data handling I will say something once it is settled.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

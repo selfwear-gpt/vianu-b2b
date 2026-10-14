@@ -18,6 +18,7 @@
 <script src="../assets/js/fortschritt.js" defer></script>
 <script src="../assets/js/formular.js" defer></script>
 <script src="../assets/js/b2b.js" defer></script>
+<script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
 <script type="application/ld+json">
 {
@@ -94,6 +95,13 @@
 </head>
 <body class="rollenseite">
 
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
 <header class="menue" data-menue>
   <div class="behaelter">
     <div class="menue__innen">
@@ -157,32 +165,142 @@
     </div>
   </section>
 
+  <section class="abschnitt" id="aufgaben" aria-labelledby="aufgaben-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="aufgaben-titel">Ihre Aufgaben im Piloten</h2>
+        <p>Der Pilot braucht von Ihnen wenige Schritte. Wie viel Zeit sie kosten, ist noch nicht festgelegt.</p>
+      </div>
+      <div class="weg weg--vier" data-weg>
+        <div class="weg__leiste" role="group" aria-label="Ihre Aufgaben im Piloten"><button class="weg__station" type="button" aria-pressed="true" data-station="1"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">1 / 4</span></button><button class="weg__station" type="button" aria-pressed="false" data-station="2"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">2 / 4</span></button><button class="weg__station" type="button" aria-pressed="false" data-station="3"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">3 / 4</span></button><button class="weg__station" type="button" aria-pressed="false" data-station="4"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">4 / 4</span></button></div>
+        <div class="weg__buehne" aria-live="polite">
+          <article class="weg__feld weg__feld--text" data-station-nr="1">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">1 / 4</p>
+              <h4>Testgruppe festlegen</h4>
+              <p class="weg__satz">Sie legen fest, welche 10 Mitarbeitenden am Piloten teilnehmen. Die Teilnahme ist freiwillig.</p>
+            </div>
+          </article>
+          <article class="weg__feld weg__feld--text" data-station-nr="2">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">2 / 4</p>
+              <h4>Teilnehmende ansprechen</h4>
+              <p class="weg__satz">Wie Sie die Teilnehmenden ansprechen, wird noch festgelegt.</p>
+            </div>
+          </article>
+          <article class="weg__feld weg__feld--text" data-station-nr="3">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">3 / 4</p>
+              <h4>Sohlen erreichen den Betrieb</h4>
+              <p class="weg__satz">Die Sohle erreicht die Mitarbeitenden im Betrieb. Sie kommt in Schuhe, die Ihre Mitarbeitenden schon besitzen.</p>
+            </div>
+          </article>
+          <article class="weg__feld weg__feld--text" data-station-nr="4">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">4 / 4</p>
+              <h4>Ergebnisbericht lesen</h4>
+              <p class="weg__satz">Ein anonymisierter Bericht auf Gruppenebene über Tragequote, Wahrnehmung und Rückmeldungen.</p>
+            </div>
+          </article>
+        </div>
+        <div class="weg__steuerung">
+          <button class="knopf knopf--dunkel" type="button" data-weg-zurueck>Zurück</button>
+          <button class="knopf" type="button" data-weg-weiter>Weiter
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        </div>
+      </div>
+      <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Platzhalter für den Aufwand der Personalabteilung">
+        <span class="etikett platzhalter__etikett">Platzhalter</span>
+        <p>Aufwand für Ihr Personal in Stunden. Die Angabe folgt, sobald sie geprüft ist.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
+        <p>Für Personal zählen vor allem Tragequote, Weiterempfehlung und Wertschätzung. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst.</p>
+      </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Tragequote</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Weiterempfehlung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Wertschätzung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Spürbare Verbesserung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
       </div>
-      <dl class="termin">
-        <div class="termin__zeile"><dt class="etikett">Die Frage der Rolle</dt><dd>Wie stärke ich Bindung und Wertschätzung ohne Zusatzaufwand?</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Kernbotschaft</dt><dd>„Ein Benefit, den Ihr Team in jeder Schicht wahrnimmt.“</dd></div>
-        <div class="termin__zeile"><dt class="etikett">So sieht die Seite es</dt><dd>Starten Sie mit einer klar begrenzten Pilotgruppe, erfassen Sie Komfort und Annahme und entscheiden Sie danach über die Ausweitung.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Der Pilot gilt als Erfolg, wenn</dt><dd>die Teilnahme frei von Druck ist, die Rückmeldungen zum Komfort überwiegend positiv ausfallen und Schichtleitungen keinen zusätzlichen Abstimmungsaufwand melden.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Das braucht es vor der Freigabe</dt><dd>Pilotablauf, Ansprache der Teilnehmenden, Datenschutz, individuelle Zuordnung und eine einfache Logik für die Rückmeldung.</dd></div>
-      </dl>
+      <div class="reise reise--termin" data-reise>
+        <div class="reise__reiter" aria-label="Was Sie im Termin vertreten können müssen"><button class="reise__tab" type="button" id="termin-tab-1" aria-controls="termin-feld-1" data-reiter="1"><span class="reise__nr" aria-hidden="true">1</span><strong>Die Frage der Rolle</strong></button><button class="reise__tab" type="button" id="termin-tab-2" aria-controls="termin-feld-2" data-reiter="2"><span class="reise__nr" aria-hidden="true">2</span><strong>Kernbotschaft</strong></button><button class="reise__tab" type="button" id="termin-tab-3" aria-controls="termin-feld-3" data-reiter="3"><span class="reise__nr" aria-hidden="true">3</span><strong>So sieht die Seite es</strong></button><button class="reise__tab" type="button" id="termin-tab-4" aria-controls="termin-feld-4" data-reiter="4"><span class="reise__nr" aria-hidden="true">4</span><strong>Der Pilot gilt als Erfolg, wenn</strong></button><button class="reise__tab" type="button" id="termin-tab-5" aria-controls="termin-feld-5" data-reiter="5"><span class="reise__nr" aria-hidden="true">5</span><strong>Das braucht es vor der Freigabe</strong></button></div>
+        <div class="reise__buehne">
+          <div class="reise__feld" id="termin-feld-1" aria-labelledby="termin-tab-1" data-feld-nr="1">
+            <h3 class="etikett">Die Frage der Rolle</h3>
+            <p>Wie stärke ich Bindung und Wertschätzung ohne Zusatzaufwand?</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-2" aria-labelledby="termin-tab-2" data-feld-nr="2">
+            <h3 class="etikett">Kernbotschaft</h3>
+            <p>„Ein Benefit, den Ihr Team in jeder Schicht wahrnimmt.“</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-3" aria-labelledby="termin-tab-3" data-feld-nr="3">
+            <h3 class="etikett">So sieht die Seite es</h3>
+            <p>Starten Sie mit einer klar begrenzten Pilotgruppe, erfassen Sie Komfort und Annahme und entscheiden Sie danach über die Ausweitung.</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-4" aria-labelledby="termin-tab-4" data-feld-nr="4">
+            <h3 class="etikett">Der Pilot gilt als Erfolg, wenn</h3>
+            <p>die Teilnahme frei von Druck ist, die Rückmeldungen zum Komfort überwiegend positiv ausfallen und Schichtleitungen keinen zusätzlichen Abstimmungsaufwand melden.</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-5" aria-labelledby="termin-tab-5" data-feld-nr="5">
+            <h3 class="etikett">Das braucht es vor der Freigabe</h3>
+            <p>Pilotablauf, Ansprache der Teilnehmenden, Datenschutz, individuelle Zuordnung und eine einfache Logik für die Rückmeldung.</p>
+          </div>
+        </div>
+      </div>
       <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Pilot buchen auf der B2B-Seite von VIANU.</p>
     </div>
   </section>
 
   <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
     <div class="behaelter">
-      <div class="brief">
+      <div class="zitatkarte">
         <h2 id="brief-titel" class="etikett brief__an">Roderich an Personal</h2>
-        <div class="brief__text">
-          <p>Sie haben schon genug Projekte auf dem Tisch. Deshalb ist der Pilot klein: 10 Mitarbeitende, eine Fußerfassung mit dem eigenen Smartphone in einer Pause, kein Messtag, keine zusätzlichen Geräte. Die Teilnahme ist freiwillig, und die Sohle kommt in Schuhe, die Ihre Mitarbeitenden schon haben.</p>
-          <p>Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden. Deshalb soll der Pilot in den Schichtalltag passen. Er soll Ihnen zeigen, ob Ihr Team die Sohle trägt und wertschätzt, bevor Sie sich auf mehr festlegen. Wie viel Aufwand er für Ihr Personal bedeutet, kann ich Ihnen heute noch nicht in Stunden nennen.</p>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Platzhalter für ein Porträt">
+            <span class="etikett platzhalter__etikett">Platzhalter</span>
+            <p>Bild: Porträt von Roderich, Schulterbild, ruhiger Hintergrund aus der Küche. Quadratisch.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>Sie haben schon genug Projekte auf dem Tisch. Deshalb ist der Pilot klein: 10 Mitarbeitende, eine Fußerfassung mit dem eigenen Smartphone in einer Pause, kein Messtag, keine zusätzlichen Geräte. Die Teilnahme ist freiwillig, und die Sohle kommt in Schuhe, die Ihre Mitarbeitenden schon haben.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden. Deshalb soll der Pilot in den Schichtalltag passen. Er soll Ihnen zeigen, ob Ihr Team die Sohle trägt und wertschätzt, bevor Sie sich auf mehr festlegen. Wie viel Aufwand er für Ihr Personal bedeutet, kann ich Ihnen heute noch nicht in Stunden nennen.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
+          </div>
         </div>
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
       </div>
     </div>
   </section>
@@ -193,81 +311,27 @@
         <h2 id="belege-titel">Belege</h2>
         <p>Zwei Studien zu Pflegekräften, einem Beruf mit viel Stehen und Gehen.</p>
       </div>
-      <div class="belege">
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Reed et al. 2014</p>
-            <h3>Fuß- und Knöchelbeschwerden bei Pflegekräften</h3>
-            <p>In einer Befragung von 304 Pflegekräften eines Kinderkrankenhauses in Australien berichteten 55,3 % von Fuß- oder Knöchelbeschwerden innerhalb von zwölf Monaten. Nach dem unteren Rücken und dem Nacken war das die dritthäufigste Körperregion. Es ist eine Selbstauskunft, die Zahl gilt für diese Gruppe.</p>
-            <p class="beleg__zitat">Reed et al. 2014, BMC Musculoskeletal Disorders 15:196, <a class="textlink" href="https://doi.org/10.1186/1471-2474-15-196" rel="noopener">doi:10.1186/1471-2474-15-196</a></p>
-          </article>
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Bernardes et al. 2023</p>
-            <h3>Fuß- und Knöchelstörungen bei Pflegekräften</h3>
-            <p>Eine Übersichtsarbeit zu Fuß- und Knöchelstörungen bei Pflegekräften in Krankenhäusern nennt Schmerz als häufigste Störung. Die berichtete Häufigkeit unterscheidet sich zwischen den Studien deutlich.</p>
-            <p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p>
-          </article>
-          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Pilotkunden">
-            <span class="etikett platzhalter__etikett">Platzhalter</span>
-            <p>Aussage eines Pilotkunden zu Aufwand und Annahme im Team. Nur mit schriftlicher Erlaubnis, mit Namen und Funktion.</p>
+      <div class="studienkarten">
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Reed et al. 2014</p><h3>Fuß- und Knöchelbeschwerden bei Pflegekräften</h3></div>
+            <div class="dreh__hinten"><p>In einer Befragung von 304 Pflegekräften eines Kinderkrankenhauses in Australien berichteten 55,3 % von Fuß- oder Knöchelbeschwerden innerhalb von zwölf Monaten. Nach dem unteren Rücken und dem Nacken war das die dritthäufigste Körperregion. Es ist eine Selbstauskunft, die Zahl gilt für diese Gruppe.</p><p class="beleg__zitat">Reed et al. 2014, BMC Musculoskeletal Disorders 15:196, <a class="textlink" href="https://doi.org/10.1186/1471-2474-15-196" rel="noopener">doi:10.1186/1471-2474-15-196</a></p></div>
           </div>
+        </article>
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Bernardes et al. 2023</p><h3>Fuß- und Knöchelstörungen bei Pflegekräften</h3></div>
+            <div class="dreh__hinten"><p>Eine Übersichtsarbeit zu Fuß- und Knöchelstörungen bei Pflegekräften in Krankenhäusern nennt Schmerz als häufigste Störung. Die berichtete Häufigkeit unterscheidet sich zwischen den Studien deutlich.</p><p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p></div>
+          </div>
+        </article>
+        <div class="dreh studienkarte beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Pilotkunden">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Platzhalter</span><strong>Belege</strong></div>
+            <div class="dreh__hinten"><p>Aussage eines Pilotkunden zu Aufwand und Annahme im Team. Nur mit schriftlicher Erlaubnis, mit Namen und Funktion.</p></div>
+          </div>
+        </div>
       </div>
       <p class="belege__hinweis">Keine dieser Studien untersucht Hotellerie oder Gastronomie, und keine untersucht Einlegesohlen als Maßnahme gegen Fehlzeiten, Krankheitstage oder Schmerzen. VIANU überträgt die Zahlen nicht auf andere Gruppen.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
-        <p>Für Personal zählen vor allem Tragequote, Weiterempfehlung und Wertschätzung. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst. Alle Werte sind selbst berichtet.</p>
-      </div>
-      <ul class="messwerte messwerte--rolle">
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-            <h3 class="etikett">Tragequote</h3>
-            <p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-            <h3 class="etikett">Weiterempfehlung</h3>
-            <p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-            <h3 class="etikett">Wertschätzung</h3>
-            <p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-            <h3 class="etikett">Spürbare Verbesserung</h3>
-            <p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-      </ul>
-      <p class="messwerte__erfolg"><strong>Der Pilot gilt als Erfolg, wenn</strong> die Teilnahme frei von Druck ist, die Rückmeldungen zum Komfort überwiegend positiv ausfallen und Schichtleitungen keinen zusätzlichen Abstimmungsaufwand melden.</p>
-      <p class="messwerte__grenze">Das sind Werte zu Komfort und Annahme. Sie sagen nichts über Krankheitstage, Fluktuation, Leistung oder Schmerz.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="aufgaben" aria-labelledby="aufgaben-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="aufgaben-titel">Ihre Aufgaben im Piloten</h2>
-        <p>Der Pilot braucht von Ihnen wenige Schritte. Wie viel Zeit sie kosten, ist noch nicht festgelegt.</p>
-      </div>
-      <ol class="aufgaben">
-        <li class="aufgaben__schritt"><strong>Testgruppe festlegen</strong><span>Sie legen fest, welche 10 Mitarbeitenden am Piloten teilnehmen. Die Teilnahme ist freiwillig.</span></li>
-        <li class="aufgaben__schritt"><strong>Teilnehmende ansprechen</strong><span>Wie Sie die Teilnehmenden ansprechen, wird noch festgelegt.</span></li>
-        <li class="aufgaben__schritt"><strong>Sohlen erreichen den Betrieb</strong><span>Die Sohle erreicht die Mitarbeitenden im Betrieb. Sie kommt in Schuhe, die Ihre Mitarbeitenden schon besitzen.</span></li>
-        <li class="aufgaben__schritt"><strong>Ergebnisbericht lesen</strong><span>Ein anonymisierter Bericht auf Gruppenebene über Tragequote, Wahrnehmung und Rückmeldungen.</span></li>
-      </ol>
-      <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Platzhalter für den Aufwand der Personalabteilung">
-        <span class="etikett platzhalter__etikett">Platzhalter</span>
-        <p>Aufwand für Ihr Personal in Stunden. Die Angabe folgt, sobald sie geprüft ist.</p>
-      </div>
     </div>
   </section>
 

@@ -18,6 +18,7 @@
 <script src="../../assets/js/fortschritt.js" defer></script>
 <script src="../../assets/js/formular.js" defer></script>
 <script src="../../assets/js/b2b.js" defer></script>
+<script src="../../assets/js/bausteine.js" defer></script>
 <script src="../../assets/js/pilot.js" defer></script>
 <script type="application/ld+json">
 {
@@ -94,6 +95,13 @@
 </head>
 <body class="rollenseite">
 
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
 <header class="menue" data-menue>
   <div class="behaelter">
     <div class="menue__innen">
@@ -157,32 +165,142 @@
     </div>
   </section>
 
+  <section class="abschnitt" id="aufgaben" aria-labelledby="aufgaben-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="aufgaben-titel">Your tasks in the pilot</h2>
+        <p>The pilot needs only a few steps from you. How much time they take has not been set yet.</p>
+      </div>
+      <div class="weg weg--vier" data-weg>
+        <div class="weg__leiste" role="group" aria-label="Your tasks in the pilot"><button class="weg__station" type="button" aria-pressed="true" data-station="1"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">1 / 4</span></button><button class="weg__station" type="button" aria-pressed="false" data-station="2"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">2 / 4</span></button><button class="weg__station" type="button" aria-pressed="false" data-station="3"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">3 / 4</span></button><button class="weg__station" type="button" aria-pressed="false" data-station="4"><svg class="weg__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><use href="#sohle-form"/></svg><span class="etikett">4 / 4</span></button></div>
+        <div class="weg__buehne" aria-live="polite">
+          <article class="weg__feld weg__feld--text" data-station-nr="1">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">1 / 4</p>
+              <h4>Define the test group</h4>
+              <p class="weg__satz">You decide which 10 employees take part in the pilot. Participation is voluntary.</p>
+            </div>
+          </article>
+          <article class="weg__feld weg__feld--text" data-station-nr="2">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">2 / 4</p>
+              <h4>Approach participants</h4>
+              <p class="weg__satz">How you approach the participants is still to be determined.</p>
+            </div>
+          </article>
+          <article class="weg__feld weg__feld--text" data-station-nr="3">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">3 / 4</p>
+              <h4>Insoles arrive on site</h4>
+              <p class="weg__satz">The insole reaches the employees on site. It goes into shoes your employees already own.</p>
+            </div>
+          </article>
+          <article class="weg__feld weg__feld--text" data-station-nr="4">
+            <div class="weg__text">
+              <p class="etikett weg__zeit">4 / 4</p>
+              <h4>Read the results report</h4>
+              <p class="weg__satz">An anonymized report at group level on wear rate, perception and feedback.</p>
+            </div>
+          </article>
+        </div>
+        <div class="weg__steuerung">
+          <button class="knopf knopf--dunkel" type="button" data-weg-zurueck>Back</button>
+          <button class="knopf" type="button" data-weg-weiter>Next
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        </div>
+      </div>
+      <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Placeholder for the effort of the HR team">
+        <span class="etikett platzhalter__etikett">Placeholder</span>
+        <p>Effort for your HR team in hours. The figure follows once it has been checked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">What we measure at the end</h2>
+        <p>For HR, the wear rate, recommendation and appreciation matter most. At the end of the pilot, participants provide all four answers themselves.</p>
+      </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Wear rate</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Are you still wearing the insoles?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Recommendation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Would you recommend them?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Appreciation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you feel valued by this offer?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Noticeable improvement</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you notice a difference compared to before?”</p></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="termin-titel">What you need to be able to represent in the meeting</h2>
       </div>
-      <dl class="termin">
-        <div class="termin__zeile"><dt class="etikett">The role's question</dt><dd>How do I strengthen retention and appreciation without extra effort?</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Core message</dt><dd>“A benefit your team notices in every shift.”</dd></div>
-        <div class="termin__zeile"><dt class="etikett">How this page sees it</dt><dd>Start with a clearly limited pilot group, record comfort and acceptance, and then decide on expansion.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">The pilot counts as a success if</dt><dd>participation is free of pressure, feedback on comfort is mostly positive, and shift leads report no additional coordination effort.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">What it takes before approval</dt><dd>Pilot process, how participants are approached, data protection, individual assignment and a simple logic for feedback.</dd></div>
-      </dl>
+      <div class="reise reise--termin" data-reise>
+        <div class="reise__reiter" aria-label="What you need to be able to represent in the meeting"><button class="reise__tab" type="button" id="termin-tab-1" aria-controls="termin-feld-1" data-reiter="1"><span class="reise__nr" aria-hidden="true">1</span><strong>The role's question</strong></button><button class="reise__tab" type="button" id="termin-tab-2" aria-controls="termin-feld-2" data-reiter="2"><span class="reise__nr" aria-hidden="true">2</span><strong>Core message</strong></button><button class="reise__tab" type="button" id="termin-tab-3" aria-controls="termin-feld-3" data-reiter="3"><span class="reise__nr" aria-hidden="true">3</span><strong>How this page sees it</strong></button><button class="reise__tab" type="button" id="termin-tab-4" aria-controls="termin-feld-4" data-reiter="4"><span class="reise__nr" aria-hidden="true">4</span><strong>The pilot counts as a success if</strong></button><button class="reise__tab" type="button" id="termin-tab-5" aria-controls="termin-feld-5" data-reiter="5"><span class="reise__nr" aria-hidden="true">5</span><strong>What it takes before approval</strong></button></div>
+        <div class="reise__buehne">
+          <div class="reise__feld" id="termin-feld-1" aria-labelledby="termin-tab-1" data-feld-nr="1">
+            <h3 class="etikett">The role's question</h3>
+            <p>How do I strengthen retention and appreciation without extra effort?</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-2" aria-labelledby="termin-tab-2" data-feld-nr="2">
+            <h3 class="etikett">Core message</h3>
+            <p>“A benefit your team notices in every shift.”</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-3" aria-labelledby="termin-tab-3" data-feld-nr="3">
+            <h3 class="etikett">How this page sees it</h3>
+            <p>Start with a clearly limited pilot group, record comfort and acceptance, and then decide on expansion.</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-4" aria-labelledby="termin-tab-4" data-feld-nr="4">
+            <h3 class="etikett">The pilot counts as a success if</h3>
+            <p>participation is free of pressure, feedback on comfort is mostly positive, and shift leads report no additional coordination effort.</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-5" aria-labelledby="termin-tab-5" data-feld-nr="5">
+            <h3 class="etikett">What it takes before approval</h3>
+            <p>Pilot process, how participants are approached, data protection, individual assignment and a simple logic for feedback.</p>
+          </div>
+        </div>
+      </div>
       <p class="einseiter__fuss druck-nur">Contact: Roderich. Book a pilot on the VIANU B2B page.</p>
     </div>
   </section>
 
   <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
     <div class="behaelter">
-      <div class="brief">
+      <div class="zitatkarte">
         <h2 id="brief-titel" class="etikett brief__an">Roderich to HR</h2>
-        <div class="brief__text">
-          <p>You already have enough projects on your desk. That is why the pilot is small: 10 employees, a foot capture with their own smartphone during a break, no measurement day, no additional devices. Participation is voluntary, and the insole goes into shoes your employees already have.</p>
-          <p>I have stood on hard floors for 10 to 12 hours a day myself. That is why the pilot should fit into the shift routine. It should show you whether your team wears and values the insole before you commit to more. How much effort it means for your HR team, I cannot yet tell you in hours.</p>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Placeholder for a portrait">
+            <span class="etikett platzhalter__etikett">Placeholder</span>
+            <p>Image: portrait of Roderich, head and shoulders, calm background from the kitchen. Square.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>You already have enough projects on your desk. That is why the pilot is small: 10 employees, a foot capture with their own smartphone during a break, no measurement day, no additional devices. Participation is voluntary, and the insole goes into shoes your employees already have.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>I have stood on hard floors for 10 to 12 hours a day myself. That is why the pilot should fit into the shift routine. It should show you whether your team wears and values the insole before you commit to more. How much effort it means for your HR team, I cannot yet tell you in hours.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
+          </div>
         </div>
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
       </div>
     </div>
   </section>
@@ -193,81 +311,27 @@
         <h2 id="belege-titel">Evidence</h2>
         <p>Two studies on nurses, a profession with a lot of standing and walking.</p>
       </div>
-      <div class="belege">
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Reed et al. 2014</p>
-            <h3>Foot and ankle complaints among nurses</h3>
-            <p>In a survey of 304 nurses at a children's hospital in Australia, 55.3% reported foot or ankle complaints within twelve months. After the lower back and the neck, it was the third most common body region. The figure is self-reported and applies to this group.</p>
-            <p class="beleg__zitat">Reed et al. 2014, BMC Musculoskeletal Disorders 15:196, <a class="textlink" href="https://doi.org/10.1186/1471-2474-15-196" rel="noopener">doi:10.1186/1471-2474-15-196</a></p>
-          </article>
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Bernardes et al. 2023</p>
-            <h3>Foot and ankle disorders among nurses</h3>
-            <p>A review of foot and ankle disorders among nurses in hospitals names pain as the most common disorder. The reported frequency differs markedly between the studies.</p>
-            <p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p>
-          </article>
-          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Placeholder for a pilot customer's statement">
-            <span class="etikett platzhalter__etikett">Placeholder</span>
-            <p>A pilot customer's statement on effort and acceptance in the team. Only with written permission, with name and role.</p>
+      <div class="studienkarten">
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Reed et al. 2014</p><h3>Foot and ankle complaints among nurses</h3></div>
+            <div class="dreh__hinten"><p>In a survey of 304 nurses at a children's hospital in Australia, 55.3% reported foot or ankle complaints within twelve months. After the lower back and the neck, it was the third most common body region. The figure is self-reported and applies to this group.</p><p class="beleg__zitat">Reed et al. 2014, BMC Musculoskeletal Disorders 15:196, <a class="textlink" href="https://doi.org/10.1186/1471-2474-15-196" rel="noopener">doi:10.1186/1471-2474-15-196</a></p></div>
           </div>
+        </article>
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Bernardes et al. 2023</p><h3>Foot and ankle disorders among nurses</h3></div>
+            <div class="dreh__hinten"><p>A review of foot and ankle disorders among nurses in hospitals names pain as the most common disorder. The reported frequency differs markedly between the studies.</p><p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p></div>
+          </div>
+        </article>
+        <div class="dreh studienkarte beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Placeholder for a pilot customer's statement">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Placeholder</span><strong>Evidence</strong></div>
+            <div class="dreh__hinten"><p>A pilot customer's statement on effort and acceptance in the team. Only with written permission, with name and role.</p></div>
+          </div>
+        </div>
       </div>
       <p class="belege__hinweis">None of these studies examines hospitality or food service, and none examines insoles as a measure against absences, sick days or pain. VIANU does not transfer the figures to other groups.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>For HR, the wear rate, recommendation and appreciation matter most. At the end of the pilot, participants provide all four answers themselves. All values are self-reported.</p>
-      </div>
-      <ul class="messwerte messwerte--rolle">
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-            <h3 class="etikett">Wear rate</h3>
-            <p class="messwert__frage">“Are you still wearing the insoles?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-            <h3 class="etikett">Recommendation</h3>
-            <p class="messwert__frage">“Would you recommend them?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-            <h3 class="etikett">Appreciation</h3>
-            <p class="messwert__frage">“Do you feel valued by this offer?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-            <h3 class="etikett">Noticeable improvement</h3>
-            <p class="messwert__frage">“Do you notice a difference compared to before?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-      </ul>
-      <p class="messwerte__erfolg"><strong>The pilot counts as a success if</strong> participation is free of pressure, feedback on comfort is mostly positive, and shift leads report no additional coordination effort.</p>
-      <p class="messwerte__grenze">These are values on comfort and acceptance. They say nothing about sick days, turnover, performance or pain.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="aufgaben" aria-labelledby="aufgaben-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="aufgaben-titel">Your tasks in the pilot</h2>
-        <p>The pilot needs only a few steps from you. How much time they take has not been set yet.</p>
-      </div>
-      <ol class="aufgaben">
-        <li class="aufgaben__schritt"><strong>Define the test group</strong><span>You decide which 10 employees take part in the pilot. Participation is voluntary.</span></li>
-        <li class="aufgaben__schritt"><strong>Approach participants</strong><span>How you approach the participants is still to be determined.</span></li>
-        <li class="aufgaben__schritt"><strong>Insoles arrive on site</strong><span>The insole reaches the employees on site. It goes into shoes your employees already own.</span></li>
-        <li class="aufgaben__schritt"><strong>Read the results report</strong><span>An anonymized report at group level on wear rate, perception and feedback.</span></li>
-      </ol>
-      <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Placeholder for the effort of the HR team">
-        <span class="etikett platzhalter__etikett">Placeholder</span>
-        <p>Effort for your HR team in hours. The figure follows once it has been checked.</p>
-      </div>
     </div>
   </section>
 

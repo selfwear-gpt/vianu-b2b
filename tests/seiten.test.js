@@ -35,9 +35,9 @@ test("die Rollenseiten sind für Suchmaschinen offen", () => {
 test("jede Rollenseite trägt Im Termin, Brief mit Unterschrift, Messwerte, FAQ und Weiterleiten", () => {
   for (const r of ROLLEN) {
     const h = seite(r);
-    assert.match(h, /class="termin"/, r + ": Im Termin");
-    assert.match(h, /class="brief"[\s\S]*?<p class="brief__unterschrift">Roderich<\/p>/, r + ": Brief");
-    assert.equal((h.match(/class="messwert\b/g) || []).length, 4, r + ": vier Messwert-Kacheln");
+    assert.match(h, /<section class="abschnitt einseiter" id="termin"/, r + ": Im Termin");
+    assert.match(h, /class="zitatkarte"[\s\S]*?<p class="brief__unterschrift">Roderich<\/p>/, r + ": Brief");
+    assert.equal((h.match(/<li class="messwert messwert--dreh/g) || []).length, 4, r + ": vier Messwert-Kacheln");
     assert.match(h, /class="fragen__gruppe"/, r + ": FAQ");
     assert.match(h, /data-weiterleiten/, r + ": Weiterleiten");
     assert.match(h, new RegExp('href="\\.\\./assets/downloads/rolle-' + r + '\\.pdf"'), r + ": PDF-Verweis");
@@ -55,10 +55,10 @@ test("die Rollenseiten tragen FAQPage-Daten mit beantworteten Fragen", () => {
   }
 });
 
-test("jede Rolle stellt ihre Messwerte nach vorn (messwert--gross), nicht alle", () => {
+test("jede Rolle hebt ihre wichtigen Messwerte hervor (messwert--wichtig), nicht alle", () => {
   const erwartet = { personal: 3, geschaeftsfuehrung: 2, arbeitsschutz: 2, einkauf: 2, betriebsrat: 2 };
   for (const r of ROLLEN) {
-    const n = (seite(r).match(/class="messwert messwert--gross"/g) || []).length;
+    const n = (seite(r).match(/class="messwert messwert--dreh messwert--wichtig"/g) || []).length;
     assert.equal(n, erwartet[r], r + ": " + n + " große Kacheln");
   }
 });
@@ -88,8 +88,11 @@ test("Der Link zum Datenschutz-Block der Betriebsratsseite findet sein Ziel", ()
   assert.match(seite("betriebsrat"), new RegExp(`id="${m[2]}"`));
 });
 
-test("das Erfolgskriterium steht unter den Messwerten", () => {
-  for (const r of ROLLEN) assert.match(seite(r), /class="messwerte__erfolg"><strong>Der Pilot gilt als Erfolg, wenn<\/strong>/, r);
+test("das Erfolgskriterium steht im Termin und nicht mehr doppelt unter den Messwerten", () => {
+  for (const r of ROLLEN) {
+    assert.match(seite(r), /Der Pilot gilt als Erfolg, wenn/, r);
+    assert.doesNotMatch(seite(r), /messwerte__erfolg/, r);
+  }
 });
 
 test("Smith nennt die Förderung durch einen Einlegesohlen-Hersteller und die Selbstauskunft", () => {

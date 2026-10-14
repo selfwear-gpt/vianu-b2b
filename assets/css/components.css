@@ -1400,3 +1400,155 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .weg__feld p { color: inherit; }
 .weg__feld .weg__zeit { color: var(--farbe-signal); }
 .weg__feld h4 { margin: 0; }
+
+/* ---------- Rollenseiten: umdrehbare Karten (Studien, Fragen, Unterlagen) ---------- */
+.dreh { perspective: 900px; }
+.dreh__innen { display: grid; height: 100%; transform-style: preserve-3d; transition: transform 0.5s; }
+.dreh__vorn, .dreh__hinten { grid-area: 1 / 1; display: flex; flex-direction: column; justify-content: center; gap: var(--abstand-3); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.dreh__vorn { background: var(--farbe-papier); color: var(--farbe-tinte); }
+.dreh__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); transform: rotateY(180deg); }
+.dreh:hover .dreh__innen, .dreh:focus-visible .dreh__innen, .dreh:focus-within .dreh__innen { transform: rotateY(180deg); }
+.dreh:focus-visible { outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .dreh__innen { transform: none !important; transition: none; }
+  .dreh__hinten { transform: none; opacity: 0; transition: opacity 0.2s; }
+  .dreh:hover .dreh__hinten, .dreh:focus-within .dreh__hinten { opacity: 1; }
+}
+@media (hover: none) {
+  .dreh__innen { display: flex; flex-direction: column; transform: none !important; }
+  .dreh__vorn, .dreh__hinten { transform: none; opacity: 1; backface-visibility: visible; }
+  .dreh__vorn { border-bottom: 0; }
+  .dreh__hinten { background: var(--farbe-papier); color: var(--farbe-tinte); border-top: 0; }
+}
+.studienkarten { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--abstand-4); }
+.studienkarte--breit { grid-column: 1 / -1; }
+.studienkarte .dreh__vorn h3 { font-size: var(--schrift-groesse-h3); }
+.studienkarte .dreh__hinten p { font-size: var(--schrift-groesse-klein); max-width: 56ch; }
+.studienkarte .beleg__zitat { margin-top: var(--abstand-2); color: inherit; overflow-wrap: anywhere; }
+.studienkarte .dreh__hinten a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.studienkarte .beleg__quelle { color: var(--farbe-gedaempft); }
+.studienkarte.beleg--offen .dreh__vorn { border-style: dashed; border-color: var(--farbe-gedaempft); }
+.studienkarte .unterlagen { width: 100%; }
+.fragenkarten--raster { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--abstand-4); }
+.fragenkarten--reihe { display: flex; flex-direction: column; gap: var(--abstand-3); }
+.fragenkarte__nr { font-family: var(--schrift-kopf); font-weight: 800; font-size: 2.5rem; line-height: 1; }
+.fragenkarte .dreh__vorn strong { font-size: 1.05rem; color: var(--farbe-tinte); }
+.fragenkarten--reihe .dreh__vorn { flex-direction: row; align-items: center; gap: var(--abstand-5); }
+.fragenkarte .dreh__hinten p { font-size: 1.1rem; line-height: 1.4; max-width: 60ch; }
+.fragenkarten .dreh:nth-child(2) .dreh__hinten p { font-family: var(--schrift-kopf); font-weight: 700; font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.1; text-transform: uppercase; }
+.belege--akkordeon { grid-template-columns: minmax(0, 1fr); }
+details.beleg { padding: 0; }
+details.beleg > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--abstand-2) var(--abstand-4); padding: var(--abstand-4) var(--abstand-5); cursor: pointer; list-style: none; }
+details.beleg > summary::-webkit-details-marker { display: none; }
+details.beleg > summary strong { font-family: var(--schrift-kopf); font-size: var(--schrift-groesse-h3); text-transform: uppercase; line-height: 1.05; }
+details.beleg > summary::after { content: "+"; margin-left: auto; font-family: var(--schrift-kopf); font-size: 1.75rem; line-height: 1; }
+details.beleg[open] > summary::after { content: "\2212"; }
+details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
+.beleg__inhalt { display: flex; flex-direction: column; gap: var(--abstand-3); padding: 0 var(--abstand-5) var(--abstand-5); }
+
+/* ---------- Rollenseiten: Messwerte umdrehbar ---------- */
+.messwerte--flip.messwerte--rolle .messwert:nth-child(n) { background: none; color: var(--farbe-tinte); border: 0; }
+.messwerte--flip.messwerte--rolle .messwert__vorn { background: var(--farbe-papier); }
+.messwerte--flip.messwerte--rolle .messwert--wichtig .messwert__vorn { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.messwerte--flip.messwerte--rolle .messwert--wichtig .ico .f-signal { fill: var(--farbe-papier); }
+.messwerte--flip.messwerte--rolle .messwert__hinten { background: var(--farbe-tinte); color: var(--farbe-papier); border-color: var(--farbe-tinte); }
+
+/* ---------- Rollenseiten: Termin als Reiter, Prüfliste ---------- */
+.reise--termin .reise__reiter { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-2); }
+.reise--termin .reise__tab { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-2); padding: var(--abstand-3); }
+.reise--termin .reise__tab strong { font-size: 1.05rem; }
+.reise--termin .reise__nr { font-size: 1.75rem; }
+.reise--termin .reise__buehne { min-height: 0; }
+.reise--termin .reise__feld h3 { font-size: var(--schrift-groesse-etikett); letter-spacing: 0.1em; }
+.reise--termin .reise__feld > p { font-size: clamp(1.25rem, 2.4vw, 1.8rem); max-width: 52ch; }
+@media (max-width: 56rem) { .reise--termin .reise__reiter { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pruefliste { display: flex; flex-direction: column; gap: var(--abstand-3); }
+.pruefliste__zaehler { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.08em; text-transform: uppercase; }
+.pruefliste__zaehler strong { font-family: var(--schrift-kopf); font-size: 2rem; letter-spacing: 0; }
+.pruefliste__zeile { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-4); align-items: start; width: 100%; padding: var(--abstand-4); background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); font: inherit; text-align: left; cursor: pointer; }
+.pruefliste__kasten { position: relative; width: 1.75rem; height: 1.75rem; border: 3px solid var(--farbe-tinte); background: var(--farbe-papier); }
+.pruefliste__zeile[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.pruefliste__zeile[aria-pressed="true"] .pruefliste__kasten::after { content: ""; position: absolute; left: 6px; top: -3px; width: 8px; height: 16px; border: solid var(--farbe-tinte); border-width: 0 4px 4px 0; transform: rotate(40deg); }
+.pruefliste__text { display: flex; flex-direction: column; gap: var(--abstand-1); }
+.pruefliste__dd { font-size: 1.15rem; line-height: 1.45; max-width: 62ch; }
+
+/* ---------- Rollenseiten: Brief als Zitatkarte ---------- */
+.zitatkarte { padding: clamp(24px, 5vw, 56px); background: var(--farbe-tinte); color: var(--farbe-papier); }
+.zitatkarte .brief__an { color: var(--farbe-signal); }
+.zitatkarte__raster { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: var(--abstand-5); align-items: start; }
+.zitatkarte__bild { background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); }
+.zitatkarte__bild .platzhalter__etikett { color: var(--farbe-papier); }
+.zitatkarte__text { display: flex; flex-direction: column; gap: var(--abstand-4); }
+.zitatkarte__absatz { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-4); padding: var(--abstand-4); border: var(--kante) solid var(--farbe-papier); transition: background 0.2s, color 0.2s; }
+.zitatkarte__absatz:hover { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-color: var(--farbe-signal); }
+.zitatkarte__nr { font-family: var(--schrift-kopf); font-weight: 800; font-size: 2.5rem; line-height: 1; color: var(--farbe-signal); }
+.zitatkarte__absatz:hover .zitatkarte__nr { color: var(--farbe-auf-signal); }
+.zitatkarte__absatz p { max-width: 56ch; font-size: clamp(1.1rem, 1.8vw, 1.3rem); line-height: 1.5; }
+.zitatkarte .brief__unterschrift { margin-top: var(--abstand-3); }
+@media (max-width: 40rem) { .zitatkarte__raster { grid-template-columns: minmax(0, 1fr); } .zitatkarte__bild { max-width: 9rem; } }
+
+/* ---------- Rollenseiten: Aufgaben als Weg mit vier Stationen ---------- */
+.weg__feld--text { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 40.01rem) {
+  .weg--vier .weg__leiste { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .weg--vier .weg__leiste::before { left: 12.5%; right: 12.5%; }
+  .weg--vier .weg__leiste::after { left: 12.5%; width: calc((100% - 25%) * var(--fortschritt-anteil, 0)); }
+}
+@media (max-width: 40rem) { .weg--vier .weg__leiste { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ---------- Rollenseiten: Einkauf, Rechnung, Lieferzeit, Filter ---------- */
+.rechnung { display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-4); margin-bottom: var(--abstand-6); }
+.rechnung__teil { display: flex; flex-direction: column; gap: var(--abstand-2); margin: 0; }
+.rechnung__teil strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; }
+.rechnung__teil .buendel__bild { width: 9rem; height: auto; }
+.rechnung__teil--summe strong { padding: 0 var(--abstand-3); background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.rechnung__zeichen { font-family: var(--schrift-kopf); font-weight: 800; font-size: 2.5rem; line-height: 1; }
+.lieferung { margin-bottom: var(--abstand-6); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); }
+.lieferung__strahl { list-style: none; margin: var(--abstand-5) 0 var(--abstand-4); padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 4px solid var(--farbe-tinte); }
+.lieferung__punkt { position: relative; display: flex; flex-direction: column; gap: var(--abstand-1); padding: var(--abstand-4) var(--abstand-4) 0 0; }
+.lieferung__punkt::before { content: ""; position: absolute; top: -14px; left: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--farbe-papier); border: var(--kante) solid var(--farbe-tinte); }
+.lieferung__punkt--ziel::before { background: var(--farbe-signal); }
+.lieferung__punkt strong { font-family: var(--schrift-kopf); font-weight: 700; font-size: 1.25rem; line-height: 1.05; text-transform: uppercase; }
+.lieferung__punkt .etikett:empty { display: none; }
+.lieferung__satz { font-weight: 600; }
+@media (max-width: 40rem) { .lieferung__strahl { grid-template-columns: minmax(0, 1fr); border-top: 0; border-left: 4px solid var(--farbe-tinte); margin-left: 10px; } .lieferung__punkt { padding: var(--abstand-3) 0 var(--abstand-3) var(--abstand-5); } .lieferung__punkt::before { top: var(--abstand-3); left: -14px; } }
+.filter { display: flex; flex-wrap: wrap; gap: var(--abstand-2); margin: var(--abstand-5) 0 var(--abstand-3); }
+.filter__knopf { padding: var(--abstand-2) var(--abstand-4); background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+.filter__knopf[aria-pressed="true"] { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.stand__zeile[hidden] { display: none; }
+
+/* ---------- Rollenseiten: Datenfluss zum Anklicken ---------- */
+.fluss--klick { display: flex; flex-direction: column; gap: var(--abstand-5); }
+.fluss__liste { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-5); }
+.fluss--klick .fluss__knoten { display: flex; flex-direction: column; align-items: flex-start; width: 100%; font: inherit; text-align: left; cursor: pointer; }
+.fluss--klick .fluss__knoten:last-child::after { display: block; }
+.fluss__liste li:last-child .fluss__knoten::after { display: none; }
+.fluss__nr { font-family: var(--schrift-kopf); font-weight: 800; font-size: 2rem; line-height: 1; }
+.fluss--klick .fluss__knoten[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-color: var(--farbe-tinte); }
+.fluss--klick .fluss__knoten[aria-pressed="true"] .etikett { color: var(--farbe-auf-signal); }
+.fluss__details { padding: var(--abstand-6); background: var(--farbe-tinte); color: var(--farbe-papier); min-height: 8rem; }
+.fluss__feld p { font-size: clamp(1.2rem, 2.2vw, 1.6rem); max-width: 52ch; }
+.fluss__feld--offen { padding-left: var(--abstand-5); border-left: 6px dashed var(--farbe-papier); }
+.fluss__feld[hidden] { display: none; }
+@media (max-width: 56rem) { .fluss__liste { grid-template-columns: minmax(0, 1fr); } .fluss__liste li .fluss__knoten::after { display: none; } }
+
+/* ---------- Rollenseiten im Druck: der Termin steht offen ---------- */
+@media print {
+  .reise--termin .reise__reiter { display: none; }
+  .reise--termin .reise__buehne { padding: 0; background: none; color: inherit; min-height: 0; }
+  .reise--termin .reise__feld[hidden], .reise--termin .reise__feld { display: grid !important; }
+  .reise--termin .reise__feld { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--abstand-4); padding: var(--abstand-3) 0; border-bottom: 1px solid var(--farbe-tinte); }
+  .reise--termin .reise__feld + .reise__feld { margin-top: 0; }
+  .reise--termin .reise__feld h3 { font-size: 0.8rem; color: var(--farbe-gedaempft); }
+  .reise--termin .reise__feld > p { font-size: 1rem; }
+  .reise--termin .reise__feld:nth-child(2) > p { font-family: var(--schrift-kopf); font-weight: 700; font-size: 1.3rem; text-transform: uppercase; }
+  .fragenkarten--raster, .fragenkarten--reihe { display: block; }
+  .dreh__innen { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--abstand-4); padding: var(--abstand-2) 0; border-bottom: 1px solid var(--farbe-tinte); transform: none; }
+  .dreh__vorn, .dreh__hinten { grid-area: auto; flex-direction: row; align-items: baseline; gap: var(--abstand-3); transform: none; opacity: 1; backface-visibility: visible; background: none; color: inherit; border: 0; padding: 0; }
+  .fragenkarten .dreh:nth-child(2) .dreh__hinten p { font-size: 1.2rem; }
+  .fragenkarte .dreh__hinten p { font-size: 1rem; }
+  .fragenkarte__nr { font-size: 1.2rem; }
+  .pruefliste__zeile { padding: var(--abstand-2) 0; border: 0; border-bottom: 1px solid var(--farbe-tinte); background: none; }
+  .pruefliste__zaehler { display: none; }
+  .pruefliste__dd { font-size: 1rem; }
+}

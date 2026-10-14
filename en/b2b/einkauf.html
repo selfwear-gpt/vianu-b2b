@@ -18,6 +18,7 @@
 <script src="../../assets/js/fortschritt.js" defer></script>
 <script src="../../assets/js/formular.js" defer></script>
 <script src="../../assets/js/b2b.js" defer></script>
+<script src="../../assets/js/bausteine.js" defer></script>
 <script src="../../assets/js/pilot.js" defer></script>
 <script type="application/ld+json">
 {
@@ -69,6 +70,13 @@
 </script>
 </head>
 <body class="rollenseite">
+
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
 
 <header class="menue" data-menue>
   <div class="behaelter">
@@ -133,33 +141,121 @@
     </div>
   </section>
 
+  <section class="abschnitt" id="beschaffung" aria-labelledby="beschaffung-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="beschaffung-titel">Price and procurement</h2>
+        <p>This is what is settled for procurement and what is still open. Open points stay placeholders until there is an approved statement.</p>
+      </div>
+      <div class="rechnung">
+        <p class="rechnung__teil"><strong>€120</strong><span class="etikett">per pair</span></p>
+        <span class="rechnung__zeichen" aria-hidden="true">×</span>
+        <p class="rechnung__teil"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Ten insoles for the pilot" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><span class="etikett">10 pairs in the pilot</span></p>
+        <span class="rechnung__zeichen" aria-hidden="true">=</span>
+        <p class="rechnung__teil rechnung__teil--summe"><strong>€1,200</strong><span class="etikett">Pilot, plus VAT</span></p>
+      </div>
+      <div class="lieferung" role="group" aria-label="Course from the foot capture to delivery">
+        <p class="etikett lieferung__titel">Delivery time</p>
+        <ol class="lieferung__strahl">
+          <li class="lieferung__punkt"><span class="etikett">Day 0</span><strong>Foot capture</strong></li>
+          <li class="lieferung__punkt"><span class="etikett"></span><strong>VIANU makes the insoles</strong></li>
+          <li class="lieferung__punkt lieferung__punkt--ziel"><span class="etikett">Day 7 (at the latest)</span><strong>Insoles arrive at your business</strong></li>
+        </ol>
+        <p class="lieferung__satz">At the latest 7 days after the foot capture</p>
+      </div>
+      <div data-filter>
+      <div class="filter" role="group" aria-label="Price and procurement">
+        <button class="filter__knopf" type="button" aria-pressed="true" data-filter-wert="">All</button>
+        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="fest">Settled</button>
+        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="offen">Open</button>
+      </div>
+      <ul class="stand stand--filter">
+          <li class="stand__zeile" data-status="fest"><span>Price: EUR 120 per pair, plus VAT</span><span class="etikett stand__status">Settled</span></li>
+          <li class="stand__zeile" data-status="fest"><span>Pilot: 10 pairs, EUR 1,200 plus VAT</span><span class="etikett stand__status">Settled</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Minimum quantities</span><span class="etikett stand__status">Open</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Ordering route and contact for orders</span><span class="etikett stand__status">Open</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Delivery and service terms</span><span class="etikett stand__status">Open</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Complaints process</span><span class="etikett stand__status">Open</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Design and brand</span><span class="etikett stand__status">Open</span></li>
+          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Replacement and second pair</span><span class="etikett stand__status">Open</span></li>
+      </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="termin-titel">What you need to be able to stand behind in the meeting</h2>
       </div>
-      <dl class="termin">
-        <div class="termin__zeile"><dt class="etikett">The role's question</dt><dd>Is it standardized, clearly priced and easy to procure?</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Core message</dt><dd>“Easy to procure. Rolled out uniformly. Visibly on brand.”</dd></div>
-        <div class="termin__zeile"><dt class="etikett">How this page sees it</dt><dd>The pilot needs a defined test group, a documented ordering route and clear statements on price, quantities, design and service framework.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">The pilot counts as a success if</dt><dd>an order is possible without a special case, queries are answered clearly and the test group causes no unplanned effort at the sites.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">What is needed before approval</dt><dd>Price and quantity logic, design options, ordering route, complaints process and delivery and service terms that have been specifically approved.</dd></div>
-      </dl>
+      <div class="fragenkarten fragenkarten--raster">
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">The role's question</strong></div>
+            <div class="dreh__hinten"><p>Is it standardized, clearly priced and easy to procure?</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Core message</strong></div>
+            <div class="dreh__hinten"><p>“Easy to procure. Rolled out uniformly. Visibly on brand.”</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">How this page sees it</strong></div>
+            <div class="dreh__hinten"><p>The pilot needs a defined test group, a documented ordering route and clear statements on price, quantities, design and service framework.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">The pilot counts as a success if</strong></div>
+            <div class="dreh__hinten"><p>an order is possible without a special case, queries are answered clearly and the test group causes no unplanned effort at the sites.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">What is needed before approval</strong></div>
+            <div class="dreh__hinten"><p>Price and quantity logic, design options, ordering route, complaints process and delivery and service terms that have been specifically approved.</p></div>
+          </div>
+        </div>
+      </div>
       <p class="einseiter__fuss druck-nur">Contact: Roderich. Book a pilot on the VIANU B2B page.</p>
     </div>
   </section>
 
-  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
     <div class="behaelter">
-      <div class="brief">
-        <h2 id="brief-titel" class="etikett brief__an">Roderich to Procurement</h2>
-        <div class="brief__text">
-          <p>I want you to be able to handle the pilot like any other procurement. The price is stated here: EUR 120 per pair, plus VAT. The pilot with 10 pairs costs EUR 1,200 plus VAT.</p>
-          <p>Ordering route, delivery and service terms, quantity logic and complaints process are still open. I list them below so you know what is coming, and I claim nothing about them that is not settled. I stood on hard floors for 10 to 12 hours a day myself, and I know that a pilot at a business has to run without special cases.</p>
-        </div>
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">What we measure at the end</h2>
+        <p>For procurement, wear rate and recommendation matter most. At the end of the pilot, participants give all four answers themselves.</p>
       </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Wear rate</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Are you still wearing the insoles?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Recommendation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Would you recommend them?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Noticeable improvement</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you notice a difference compared to before?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Appreciation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you feel valued by this offer?”</p></div>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -169,68 +265,34 @@
         <h2 id="belege-titel">Evidence</h2>
         <p>There is no evidence for procurement yet that we are allowed to name.</p>
       </div>
-      <div class="belege">
-          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Placeholder for evidence on procurement">
-            <span class="etikett platzhalter__etikett">Placeholder</span>
-            <p>Evidence on procurement, for example data sheets. It follows once it has been approved.</p>
+      <div class="studienkarten">
+        <div class="dreh studienkarte beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Placeholder for evidence on procurement">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Placeholder</span><strong>Evidence</strong></div>
+            <div class="dreh__hinten"><p>Evidence on procurement, for example data sheets. It follows once it has been approved.</p></div>
           </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
     <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>For procurement, wear rate and recommendation matter most. At the end of the pilot, participants give all four answers themselves. All values are self-reported.</p>
+      <div class="zitatkarte">
+        <h2 id="brief-titel" class="etikett brief__an">Roderich to Procurement</h2>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Placeholder for a portrait">
+            <span class="etikett platzhalter__etikett">Placeholder</span>
+            <p>Image: portrait of Roderich, head and shoulders, calm background from the kitchen. Square.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>I want you to be able to handle the pilot like any other procurement. The price is stated here: EUR 120 per pair, plus VAT. The pilot with 10 pairs costs EUR 1,200 plus VAT.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>Ordering route, delivery and service terms, quantity logic and complaints process are still open. I list them below so you know what is coming, and I claim nothing about them that is not settled. I stood on hard floors for 10 to 12 hours a day myself, and I know that a pilot at a business has to run without special cases.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
+          </div>
+        </div>
       </div>
-      <ul class="messwerte messwerte--rolle">
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-            <h3 class="etikett">Wear rate</h3>
-            <p class="messwert__frage">“Are you still wearing the insoles?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-            <h3 class="etikett">Recommendation</h3>
-            <p class="messwert__frage">“Would you recommend them?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-            <h3 class="etikett">Noticeable improvement</h3>
-            <p class="messwert__frage">“Do you notice a difference compared to before?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-            <h3 class="etikett">Appreciation</h3>
-            <p class="messwert__frage">“Do you feel valued by this offer?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-      </ul>
-      <p class="messwerte__erfolg"><strong>The pilot counts as a success if</strong> an order is possible without a special case, queries are answered clearly and the test group causes no unplanned effort at the sites.</p>
-      <p class="messwerte__grenze">These are values on comfort and acceptance. They say nothing about sick days, turnover, performance or pain.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="beschaffung" aria-labelledby="beschaffung-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="beschaffung-titel">Price and procurement</h2>
-        <p>This is what is settled for procurement and what is still open. Open points stay placeholders until there is an approved statement.</p>
-      </div>
-      <ul class="stand">
-          <li class="stand__zeile"><span>Price: EUR 120 per pair, plus VAT</span><span class="etikett stand__status">Settled</span></li>
-          <li class="stand__zeile"><span>Pilot: 10 pairs, EUR 1,200 plus VAT</span><span class="etikett stand__status">Settled</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Minimum quantities</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Ordering route and contact for orders</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Delivery and service terms</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Complaints process</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Design and brand</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-platzhalter><span>Replacement and second pair</span><span class="etikett stand__status">Open</span></li>
-      </ul>
     </div>
   </section>
 

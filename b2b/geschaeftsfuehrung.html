@@ -19,6 +19,7 @@
 <script src="../assets/js/kosten.js" defer></script>
 <script src="../assets/js/formular.js" defer></script>
 <script src="../assets/js/b2b.js" defer></script>
+<script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
 <script type="application/ld+json">
 {
@@ -87,6 +88,13 @@
 </head>
 <body class="rollenseite">
 
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
 <header class="menue" data-menue>
   <div class="behaelter">
     <div class="menue__innen">
@@ -150,95 +158,6 @@
     </div>
   </section>
 
-  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
-      </div>
-      <dl class="termin">
-        <div class="termin__zeile"><dt class="etikett">Die Frage der Rolle</dt><dd>Wie halte ich Schichten stabil und das Team leistungsfähig?</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Kernbotschaft</dt><dd>„Starten Sie klein. Entscheiden Sie fundiert. Skalieren Sie nur bei Akzeptanz.“</dd></div>
-        <div class="termin__zeile"><dt class="etikett">So sieht die Seite es</dt><dd>Eine kleine Testgruppe, klare Rückmeldung und erst dann eine fundierte Entscheidung über die Ausweitung.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Der Pilot gilt als Erfolg, wenn</dt><dd>der Pilot in den Schichtalltag passt, die Mitarbeitenden ihn annehmen und Schichtleitungen keine störende Unterbrechung melden.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Das braucht es vor der Freigabe</dt><dd>Ein Einseiter zum Ablauf, der Zeitbedarf je Team, Verantwortlichkeiten, klare Produktgrenzen und der Termin der Auswertung.</dd></div>
-      </dl>
-      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Pilot buchen auf der B2B-Seite von VIANU.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
-    <div class="behaelter">
-      <div class="brief">
-        <h2 id="brief-titel" class="etikett brief__an">Roderich an Geschäftsführung und Betrieb</h2>
-        <div class="brief__text">
-          <p>Sie kennen Ihren Betrieb besser als jeder Anbieter, und ich will Ihnen nichts vorschreiben. Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden. Deshalb ist der Pilot so gebaut: Die Fußerfassung passt in eine Pause, es gibt keinen Messtag, und die Sohle kommt in vorhandene Schuhe.</p>
-          <p>Starten Sie mit 10 Mitarbeitenden für 1.200 Euro zuzüglich Umsatzsteuer. Danach entscheiden Sie, ob und wie Sie ausweiten. Vorher legen Sie sich auf nichts fest.</p>
-        </div>
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="belege-titel">Belege</h2>
-        <p>Eine Studie zu versäumten Arbeitsstunden bei Arbeit im Stehen.</p>
-      </div>
-      <div class="belege">
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Smith et al. 2023</p>
-            <h3>Durch Schmerz versäumte Arbeitsstunden</h3>
-            <p>In einer britischen Online-Befragung von 1.035 Beschäftigten mit Schmerzen im Unterkörper durch Arbeit im Stehen gaben die Befragten im Mittel 4,12 durch Schmerz versäumte Arbeitsstunden pro Woche an. Die Angaben sind Selbstauskunft und enthalten keine Kosten. Die Studie wurde von einem Einlegesohlen-Hersteller gefördert.</p>
-            <p class="beleg__zitat">Smith et al. 2023, BMC Research Notes 16:186, <a class="textlink" href="https://doi.org/10.1186/s13104-023-06461-5" rel="noopener">doi:10.1186/s13104-023-06461-5</a></p>
-          </article>
-          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Pilotkunden">
-            <span class="etikett platzhalter__etikett">Platzhalter</span>
-            <p>Aussage eines Pilotkunden zu Aufwand und Annahme im Betrieb. Nur mit schriftlicher Erlaubnis, mit Namen und Funktion.</p>
-          </div>
-      </div>
-      <p class="belege__hinweis">Diese Studie untersucht weder Hotellerie noch Gastronomie, und sie untersucht Einlegesohlen nicht als Maßnahme gegen Fehlzeiten, Krankheitstage oder Schmerzen. VIANU überträgt die Zahl nicht auf andere Gruppen.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
-        <p>Für Geschäftsführung und Betrieb zählen vor allem Tragequote und Spürbare Verbesserung. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst. Alle Werte sind selbst berichtet.</p>
-      </div>
-      <ul class="messwerte messwerte--rolle">
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-            <h3 class="etikett">Tragequote</h3>
-            <p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-            <h3 class="etikett">Spürbare Verbesserung</h3>
-            <p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-            <h3 class="etikett">Weiterempfehlung</h3>
-            <p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-            <h3 class="etikett">Wertschätzung</h3>
-            <p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-      </ul>
-      <p class="messwerte__erfolg"><strong>Der Pilot gilt als Erfolg, wenn</strong> der Pilot in den Schichtalltag passt, die Mitarbeitenden ihn annehmen und Schichtleitungen keine störende Unterbrechung melden.</p>
-      <p class="messwerte__grenze">Das sind Werte zu Komfort und Annahme. Sie sagen nichts über Krankheitstage, Fluktuation, Leistung oder Schmerz.</p>
-    </div>
-  </section>
-
   <section class="abschnitt" id="kosten" aria-labelledby="kosten-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
@@ -267,6 +186,115 @@
       <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Platzhalter für die steuerliche Behandlung">
         <span class="etikett platzhalter__etikett">Platzhalter</span>
         <p>Steuerliche Behandlung beim Arbeitgeber. Die Angabe folgt, sobald eine Steuerberatung den Weg bestätigt hat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
+      </div>
+      <div class="reise reise--termin" data-reise>
+        <div class="reise__reiter" aria-label="Was Sie im Termin vertreten können müssen"><button class="reise__tab" type="button" id="termin-tab-1" aria-controls="termin-feld-1" data-reiter="1"><span class="reise__nr" aria-hidden="true">1</span><strong>Die Frage der Rolle</strong></button><button class="reise__tab" type="button" id="termin-tab-2" aria-controls="termin-feld-2" data-reiter="2"><span class="reise__nr" aria-hidden="true">2</span><strong>Kernbotschaft</strong></button><button class="reise__tab" type="button" id="termin-tab-3" aria-controls="termin-feld-3" data-reiter="3"><span class="reise__nr" aria-hidden="true">3</span><strong>So sieht die Seite es</strong></button><button class="reise__tab" type="button" id="termin-tab-4" aria-controls="termin-feld-4" data-reiter="4"><span class="reise__nr" aria-hidden="true">4</span><strong>Der Pilot gilt als Erfolg, wenn</strong></button><button class="reise__tab" type="button" id="termin-tab-5" aria-controls="termin-feld-5" data-reiter="5"><span class="reise__nr" aria-hidden="true">5</span><strong>Das braucht es vor der Freigabe</strong></button></div>
+        <div class="reise__buehne">
+          <div class="reise__feld" id="termin-feld-1" aria-labelledby="termin-tab-1" data-feld-nr="1">
+            <h3 class="etikett">Die Frage der Rolle</h3>
+            <p>Wie halte ich Schichten stabil und das Team leistungsfähig?</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-2" aria-labelledby="termin-tab-2" data-feld-nr="2">
+            <h3 class="etikett">Kernbotschaft</h3>
+            <p>„Starten Sie klein. Entscheiden Sie fundiert. Skalieren Sie nur bei Akzeptanz.“</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-3" aria-labelledby="termin-tab-3" data-feld-nr="3">
+            <h3 class="etikett">So sieht die Seite es</h3>
+            <p>Eine kleine Testgruppe, klare Rückmeldung und erst dann eine fundierte Entscheidung über die Ausweitung.</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-4" aria-labelledby="termin-tab-4" data-feld-nr="4">
+            <h3 class="etikett">Der Pilot gilt als Erfolg, wenn</h3>
+            <p>der Pilot in den Schichtalltag passt, die Mitarbeitenden ihn annehmen und Schichtleitungen keine störende Unterbrechung melden.</p>
+          </div>
+          <div class="reise__feld" id="termin-feld-5" aria-labelledby="termin-tab-5" data-feld-nr="5">
+            <h3 class="etikett">Das braucht es vor der Freigabe</h3>
+            <p>Ein Einseiter zum Ablauf, der Zeitbedarf je Team, Verantwortlichkeiten, klare Produktgrenzen und der Termin der Auswertung.</p>
+          </div>
+        </div>
+      </div>
+      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Pilot buchen auf der B2B-Seite von VIANU.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
+        <p>Für Geschäftsführung und Betrieb zählen vor allem Tragequote und Spürbare Verbesserung. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst.</p>
+      </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Tragequote</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Spürbare Verbesserung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Weiterempfehlung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Wertschätzung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="belege-titel">Belege</h2>
+        <p>Eine Studie zu versäumten Arbeitsstunden bei Arbeit im Stehen.</p>
+      </div>
+      <div class="belege belege--akkordeon">
+        <details class="beleg" open>
+          <summary><span class="etikett beleg__quelle">Smith et al. 2023</span><strong>Durch Schmerz versäumte Arbeitsstunden</strong></summary>
+          <div class="beleg__inhalt"><p>In einer britischen Online-Befragung von 1.035 Beschäftigten mit Schmerzen im Unterkörper durch Arbeit im Stehen gaben die Befragten im Mittel 4,12 durch Schmerz versäumte Arbeitsstunden pro Woche an. Die Angaben sind Selbstauskunft und enthalten keine Kosten. Die Studie wurde von einem Einlegesohlen-Hersteller gefördert.</p><p class="beleg__zitat">Smith et al. 2023, BMC Research Notes 16:186, <a class="textlink" href="https://doi.org/10.1186/s13104-023-06461-5" rel="noopener">doi:10.1186/s13104-023-06461-5</a></p></div>
+        </details>
+        <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Pilotkunden">
+            <span class="etikett platzhalter__etikett">Platzhalter</span>
+            <p>Aussage eines Pilotkunden zu Aufwand und Annahme im Betrieb. Nur mit schriftlicher Erlaubnis, mit Namen und Funktion.</p>
+          </div>
+      </div>
+      <p class="belege__hinweis">Diese Studie untersucht weder Hotellerie noch Gastronomie, und sie untersucht Einlegesohlen nicht als Maßnahme gegen Fehlzeiten, Krankheitstage oder Schmerzen. VIANU überträgt die Zahl nicht auf andere Gruppen.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+    <div class="behaelter">
+      <div class="zitatkarte">
+        <h2 id="brief-titel" class="etikett brief__an">Roderich an Geschäftsführung und Betrieb</h2>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Platzhalter für ein Porträt">
+            <span class="etikett platzhalter__etikett">Platzhalter</span>
+            <p>Bild: Porträt von Roderich, Schulterbild, ruhiger Hintergrund aus der Küche. Quadratisch.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>Sie kennen Ihren Betrieb besser als jeder Anbieter, und ich will Ihnen nichts vorschreiben. Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden. Deshalb ist der Pilot so gebaut: Die Fußerfassung passt in eine Pause, es gibt keinen Messtag, und die Sohle kommt in vorhandene Schuhe.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>Starten Sie mit 10 Mitarbeitenden für 1.200 Euro zuzüglich Umsatzsteuer. Danach entscheiden Sie, ob und wie Sie ausweiten. Vorher legen Sie sich auf nichts fest.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

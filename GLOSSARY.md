@@ -148,6 +148,10 @@ Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die 
 | Sorgenfuß | worry foot | Die Karte mit den Sorgen der Füße. |
 | Einseiter | one-pager | |
 | Matte und Weg | mat and route | |
+| Studienkarte | study card | |
+| Fragenkarte | question card | |
+| Prüfliste | checklist | |
+| Datenfluss | data flow | |
 | Datenfluss | data flow | |
 | Roderichs Geschichte | Roderich's story | |
 | Impressum | Legal notice | |
@@ -157,3 +161,15 @@ Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die 
 | Pilot buchen | Book a pilot | |
 
 Slogans bleiben unverändert Englisch: "Walk lightly, smile brightly" und "Nothing fancy. Just a great way to get through your day."
+
+**Studienkarte**:
+Umdrehbare Karte auf einer Rollenseite. Vorn stehen Quelle und Titel einer Studie, hinten die Aussage und die Fundstelle. Eine Studienkarte nennt nur, was die Studie sagt.
+
+**Fragenkarte**:
+Umdrehbare Karte im Abschnitt "Was Sie im Termin vertreten können müssen". Vorn steht das Etikett der Zeile, hinten der Text.
+
+**Prüfliste**:
+Die fünf Zeilen des Termins auf der Arbeitsschutz-Seite als Schalter zum Abhaken. Sie dient der Ansicht und speichert nichts.
+
+**Datenfluss**:
+Das klickbare Schaubild auf der Betriebsrat-Seite: fünf Knoten, bekannte durchgezogen, offene gestrichelt.

@@ -18,6 +18,7 @@
 <script src="../assets/js/fortschritt.js" defer></script>
 <script src="../assets/js/formular.js" defer></script>
 <script src="../assets/js/b2b.js" defer></script>
+<script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
 <script src="../assets/js/rollen.js" defer></script>
 <script type="application/ld+json">
@@ -87,6 +88,13 @@
 </head>
 <body class="rollenseite">
 
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
 <header class="menue" data-menue>
   <div class="behaelter">
     <div class="menue__innen">
@@ -150,106 +158,6 @@
     </div>
   </section>
 
-  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
-      </div>
-      <dl class="termin">
-        <div class="termin__zeile"><dt class="etikett">Die Frage der Rolle</dt><dd>Ist die Lösung im Arbeitsalltag verantwortbar und sauber abgegrenzt?</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Kernbotschaft</dt><dd>„Transparent erklärt. Klar abgegrenzt. Arbeitsnah gedacht.“</dd></div>
-        <div class="termin__zeile"><dt class="etikett">So sieht die Seite es</dt><dd>Zuerst der Umfang: ein ergänzendes Komfortangebot, das keine Schutzmaßnahme ersetzt. Dann der Umgang mit Daten. Dann die Belege auf dem Stand, den sie tragen.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Der Pilot gilt als Erfolg, wenn</dt><dd>die Grenzen des Produkts für die Teilnehmenden klar sind, keine vermeidbaren Einwände zu Hygiene oder Daten auftreten und der Pilot nicht als Ersatz für andere Schutzmaßnahmen gelesen wird.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Das braucht es vor der Freigabe</dt><dd>Material- und Hygieneinformationen, Ausschlusskriterien und der Datenprozess.</dd></div>
-      </dl>
-      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Pilot buchen auf der B2B-Seite von VIANU.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
-    <div class="behaelter">
-      <div class="brief">
-        <h2 id="brief-titel" class="etikett brief__an">Roderich an Arbeitsschutz</h2>
-        <div class="brief__text">
-          <p>Ich sage es vorab klar: VIANU ist ein Komfortangebot. Ich mache keine Aussage zu Krankheitstagen, Schmerz oder Schutz, und die Sohle ersetzt keine Maßnahme zur Arbeitsplatzgestaltung. Sie ergänzt, was Sie schon haben, zum Beispiel eine Arbeitsplatzmatte an einem festen Platz.</p>
-          <p>Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden. Mir geht es darum, dass Ihr Team auf dem ganzen Weg der Schicht eine Sohle im Schuh hat. Zu Material, Hygiene und Datenumgang sage ich erst etwas, wenn es feststeht.</p>
-        </div>
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="belege-titel">Belege</h2>
-        <p>Zwei Übersichtsarbeiten zu Dämpfung beim Stehen und zu Fußbeschwerden bei Pflegekräften.</p>
-      </div>
-      <div class="belege">
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Speed et al. 2018</p>
-            <h3>Dämpfung bei langem Stehen im Beruf</h3>
-            <p>Eine Übersichtsarbeit mit 10 Studien fand mäßige Belege dafür, dass gedämpfte Materialien (weichere Böden, gedämpfte Einlegesohlen) bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen. Für Einlegesohlen im Vergleich zu Arbeitsplatzmatten ist die Evidenz begrenzt.</p>
-            <p class="beleg__zitat">Speed et al. 2018, Applied Ergonomics 70:300-314, <a class="textlink" href="https://doi.org/10.1016/j.apergo.2018.02.021" rel="noopener">doi:10.1016/j.apergo.2018.02.021</a></p>
-          </article>
-          <article class="beleg">
-            <p class="etikett beleg__quelle">Bernardes et al. 2023</p>
-            <h3>Fuß- und Knöchelstörungen bei Pflegekräften</h3>
-            <p>Eine Übersichtsarbeit zu Fuß- und Knöchelstörungen bei Pflegekräften in Krankenhäusern nennt Schmerz als häufigste Störung. Die berichtete Häufigkeit unterscheidet sich zwischen den Studien deutlich.</p>
-            <p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p>
-          </article>
-          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Orthopäden">
-            <span class="etikett platzhalter__etikett">Platzhalter</span>
-            <p>Aussage eines Orthopäden zur Abgrenzung der Einlegesohle. Nur mit Freigabe, mit Namen und Funktion.</p>
-          </div>
-      </div>
-      <p class="belege__hinweis">Keine dieser Studien untersucht Hotellerie oder Gastronomie, und keine untersucht Einlegesohlen als Maßnahme gegen Fehlzeiten, Krankheitstage oder Schmerzen. VIANU überträgt die Zahlen nicht auf andere Gruppen.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
-        <p>Für Arbeitsschutz zählen vor allem Spürbare Verbesserung und Tragequote. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst. Alle Werte sind selbst berichtet.</p>
-      </div>
-      <ul class="messwerte messwerte--rolle">
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-            <h3 class="etikett">Tragequote</h3>
-            <p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-            <h3 class="etikett">Spürbare Verbesserung</h3>
-            <p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-            <h3 class="etikett">Weiterempfehlung</h3>
-            <p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-            <h3 class="etikett">Wertschätzung</h3>
-            <p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p>
-            <p class="messwert__leer etikett">Noch keine Daten</p>
-          </li>
-      </ul>
-      <p class="messwerte__erfolg"><strong>Der Pilot gilt als Erfolg, wenn</strong> die Grenzen des Produkts für die Teilnehmenden klar sind, keine vermeidbaren Einwände zu Hygiene oder Daten auftreten und der Pilot nicht als Ersatz für andere Schutzmaßnahmen gelesen wird.</p>
-      <p class="messwerte__grenze">Das sind Werte zu Komfort und Annahme. Sie sagen nichts über Krankheitstage, Fluktuation, Leistung oder Schmerz.</p>
-    </div>
-  </section>
-
-<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
-  <symbol id="sohle-form" viewBox="0 0 100 260">
-    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
-  </symbol>
-</svg>
   <section class="abschnitt" id="weg" aria-labelledby="weg-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
@@ -285,6 +193,108 @@
           <li>Lager</li>
           <li>Spülküche</li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="belege-titel">Belege</h2>
+        <p>Zwei Übersichtsarbeiten zu Dämpfung beim Stehen und zu Fußbeschwerden bei Pflegekräften.</p>
+      </div>
+      <div class="studienkarten">
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Speed et al. 2018</p><h3>Dämpfung bei langem Stehen im Beruf</h3></div>
+            <div class="dreh__hinten"><p>Eine Übersichtsarbeit mit 10 Studien fand mäßige Belege dafür, dass gedämpfte Materialien (weichere Böden, gedämpfte Einlegesohlen) bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen. Für Einlegesohlen im Vergleich zu Arbeitsplatzmatten ist die Evidenz begrenzt.</p><p class="beleg__zitat">Speed et al. 2018, Applied Ergonomics 70:300-314, <a class="textlink" href="https://doi.org/10.1016/j.apergo.2018.02.021" rel="noopener">doi:10.1016/j.apergo.2018.02.021</a></p></div>
+          </div>
+        </article>
+        <article class="dreh studienkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><p class="etikett beleg__quelle">Bernardes et al. 2023</p><h3>Fuß- und Knöchelstörungen bei Pflegekräften</h3></div>
+            <div class="dreh__hinten"><p>Eine Übersichtsarbeit zu Fuß- und Knöchelstörungen bei Pflegekräften in Krankenhäusern nennt Schmerz als häufigste Störung. Die berichtete Häufigkeit unterscheidet sich zwischen den Studien deutlich.</p><p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p></div>
+          </div>
+        </article>
+        <div class="dreh studienkarte beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Orthopäden">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Platzhalter</span><strong>Belege</strong></div>
+            <div class="dreh__hinten"><p>Aussage eines Orthopäden zur Abgrenzung der Einlegesohle. Nur mit Freigabe, mit Namen und Funktion.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="belege__hinweis">Keine dieser Studien untersucht Hotellerie oder Gastronomie, und keine untersucht Einlegesohlen als Maßnahme gegen Fehlzeiten, Krankheitstage oder Schmerzen. VIANU überträgt die Zahlen nicht auf andere Gruppen.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
+      </div>
+      <div class="pruefliste" data-pruefliste>
+        <p class="pruefliste__zaehler" aria-live="polite"><strong data-pruefliste-zahl>0</strong> von 5 geprüft</p>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Die Frage der Rolle</span><span class="pruefliste__dd">Ist die Lösung im Arbeitsalltag verantwortbar und sauber abgegrenzt?</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Kernbotschaft</span><span class="pruefliste__dd">„Transparent erklärt. Klar abgegrenzt. Arbeitsnah gedacht.“</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">So sieht die Seite es</span><span class="pruefliste__dd">Zuerst der Umfang: ein ergänzendes Komfortangebot, das keine Schutzmaßnahme ersetzt. Dann der Umgang mit Daten. Dann die Belege auf dem Stand, den sie tragen.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Der Pilot gilt als Erfolg, wenn</span><span class="pruefliste__dd">die Grenzen des Produkts für die Teilnehmenden klar sind, keine vermeidbaren Einwände zu Hygiene oder Daten auftreten und der Pilot nicht als Ersatz für andere Schutzmaßnahmen gelesen wird.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Das braucht es vor der Freigabe</span><span class="pruefliste__dd">Material- und Hygieneinformationen, Ausschlusskriterien und der Datenprozess.</span></span></button>
+      </div>
+      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Pilot buchen auf der B2B-Seite von VIANU.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
+        <p>Für Arbeitsschutz zählen vor allem Spürbare Verbesserung und Tragequote. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst.</p>
+      </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Tragequote</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Spürbare Verbesserung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Weiterempfehlung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Wertschätzung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+    <div class="behaelter">
+      <div class="zitatkarte">
+        <h2 id="brief-titel" class="etikett brief__an">Roderich an Arbeitsschutz</h2>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Platzhalter für ein Porträt">
+            <span class="etikett platzhalter__etikett">Platzhalter</span>
+            <p>Bild: Porträt von Roderich, Schulterbild, ruhiger Hintergrund aus der Küche. Quadratisch.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>Ich sage es vorab klar: VIANU ist ein Komfortangebot. Ich mache keine Aussage zu Krankheitstagen, Schmerz oder Schutz, und die Sohle ersetzt keine Maßnahme zur Arbeitsplatzgestaltung. Sie ergänzt, was Sie schon haben, zum Beispiel eine Arbeitsplatzmatte an einem festen Platz.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden. Mir geht es darum, dass Ihr Team auf dem ganzen Weg der Schicht eine Sohle im Schuh hat. Zu Material, Hygiene und Datenumgang sage ich erst etwas, wenn es feststeht.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

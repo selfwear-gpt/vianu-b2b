@@ -141,7 +141,7 @@ test("die FAQ hat zwei Gruppenköpfe und jede Frage ist ein details mit summary"
     const h = lies(f);
     assert.ok((h.match(/<h3 class="etikett fragen__titel"/g) || []).length >= 1, f);
     const n = (h.match(/<details class="frage">/g) || []).length;
-    assert.equal((h.match(/<summary>/g) || []).length, n, f);
+    assert.equal((h.match(/<details class="frage">\s*<summary>/g) || []).length, n, f);
     assert.ok(n >= 8, f + ": " + n);
   }
 });

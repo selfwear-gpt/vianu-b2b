@@ -18,6 +18,7 @@
 <script src="../../assets/js/fortschritt.js" defer></script>
 <script src="../../assets/js/formular.js" defer></script>
 <script src="../../assets/js/b2b.js" defer></script>
+<script src="../../assets/js/bausteine.js" defer></script>
 <script src="../../assets/js/pilot.js" defer></script>
 <script type="application/ld+json">
 {
@@ -77,6 +78,13 @@
 </script>
 </head>
 <body class="rollenseite">
+
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
 
 <header class="menue" data-menue>
   <div class="behaelter">
@@ -141,33 +149,104 @@
     </div>
   </section>
 
+  <section class="abschnitt" id="datenfluss" aria-labelledby="datenfluss-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="datenfluss-titel">Data and data protection</h2>
+        <p>This is how the foot capture works, in plain words. What is settled is shown with a solid line. What is still open is dashed and will only come with the data protection concept.</p>
+      </div>
+      <div class="fluss fluss--klick" data-fluss>
+        <ol class="fluss__liste">
+          <li><button class="fluss__knoten" type="button" aria-pressed="true" data-fluss-knoten="1"><span class="fluss__nr" aria-hidden="true">1</span><span class="etikett">Employees</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="2" data-platzhalter><span class="fluss__nr" aria-hidden="true">2</span><span class="etikett">Open</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="3"><span class="fluss__nr" aria-hidden="true">3</span><span class="etikett">VIANU</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="4"><span class="fluss__nr" aria-hidden="true">4</span><span class="etikett">Your company</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="5" data-platzhalter><span class="fluss__nr" aria-hidden="true">5</span><span class="etikett">Open</span></button></li>
+        </ol>
+        <div class="fluss__details" aria-live="polite">
+          <div class="fluss__feld" data-fluss-feld="1"><p>Take the photos of their feet with their own smartphone, during a break. Taking part is voluntary.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="2"><p>Where the photos are processed, who can see them and how long they are stored.</p></div>
+          <div class="fluss__feld" data-fluss-feld="3"><p>Makes the custom-made insole.</p></div>
+          <div class="fluss__feld" data-fluss-feld="4"><p>Receives the insoles for its employees and an anonymized results report at group level.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="5"><p>What your company learns about the participation of individual people. There is no statement on this yet.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="termin-titel">What you need to be able to represent in the meeting</h2>
       </div>
-      <dl class="termin">
-        <div class="termin__zeile"><dt class="etikett">The role's question</dt><dd>What happens to the data of our colleagues?</dd></div>
-        <div class="termin__zeile"><dt class="etikett">Core message</dt><dd>“Voluntary for every person. The rules settled with you in advance.”</dd></div>
-        <div class="termin__zeile"><dt class="etikett">How this page sees it</dt><dd>The data flow in plain words: what is settled and what is still open. Who sees what and what is deleted when will come with the data protection concept. The template for the works agreement is in progress.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">The pilot counts as a success if</dt><dd>taking part is voluntary and free of pressure, no complaint reaches the works council, the employer sees only what the agreement allows, and the works agreement is signed before the start.</dd></div>
-        <div class="termin__zeile"><dt class="etikett">What is needed before approval</dt><dd>Template for the works agreement, data protection concept, data processing agreement, what is stored and for how long, who can see it, and a clear line on the evaluation of individual people.</dd></div>
-      </dl>
+      <div class="fragenkarten fragenkarten--reihe">
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">The role's question</strong></div>
+            <div class="dreh__hinten"><p>What happens to the data of our colleagues?</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Core message</strong></div>
+            <div class="dreh__hinten"><p>“Voluntary for every person. The rules settled with you in advance.”</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">How this page sees it</strong></div>
+            <div class="dreh__hinten"><p>The data flow in plain words: what is settled and what is still open. Who sees what and what is deleted when will come with the data protection concept. The template for the works agreement is in progress.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">The pilot counts as a success if</strong></div>
+            <div class="dreh__hinten"><p>taking part is voluntary and free of pressure, no complaint reaches the works council, the employer sees only what the agreement allows, and the works agreement is signed before the start.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">What is needed before approval</strong></div>
+            <div class="dreh__hinten"><p>Template for the works agreement, data protection concept, data processing agreement, what is stored and for how long, who can see it, and a clear line on the evaluation of individual people.</p></div>
+          </div>
+        </div>
+      </div>
       <p class="einseiter__fuss druck-nur">Contact: Roderich. Book a pilot on the VIANU B2B page.</p>
     </div>
   </section>
 
-  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
     <div class="behaelter">
-      <div class="brief">
-        <h2 id="brief-titel" class="etikett brief__an">Roderich to the works council</h2>
-        <div class="brief__text">
-          <p>I understand the objection. So first of all: taking part is voluntary, for every single person. The results report to the company is anonymized and shows results for the group as a whole.</p>
-          <p>How the photos of the foot capture are processed, how long they are stored and who sees them, I will settle with you before a pilot starts. I will say something about this only once it is settled in a binding way. I myself stood on hard floors 10 to 12 hours a day, and I want your colleagues to have energy left for their lives after the shift.</p>
-        </div>
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">What we measure at the end</h2>
+        <p>For the works council, wear rate and appreciation matter most. At the end of the pilot, the participants give all four answers themselves.</p>
       </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Wear rate</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Are you still wearing the insoles?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Appreciation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you feel valued by this offer?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Noticeable improvement</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you notice a difference compared to before?”</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Recommendation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Would you recommend them?”</p></div>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -177,65 +256,34 @@
         <h2 id="belege-titel">Evidence</h2>
         <p>For the works council, documents matter most. They are in progress.</p>
       </div>
-      <div class="belege">
-          <div class="platzhalter platzhalter--klein beleg beleg--offen" data-platzhalter role="group" aria-label="Placeholder for the documents on the works agreement">
-            <span class="etikett platzhalter__etikett">Placeholder</span>
-            <p>Template for the works agreement, data protection concept and data processing agreement. All three are in progress and will appear here once they are finished.</p>
+      <div class="studienkarten">
+        <div class="dreh studienkarte studienkarte--breit beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Placeholder for the documents on the works agreement">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Placeholder</span><ul class="unterlagen"><li class="unterlagen__eintrag"><span>Template for the works agreement</span><span class="etikett unterlagen__stand">In progress</span></li><li class="unterlagen__eintrag"><span>Privacy concept</span><span class="etikett unterlagen__stand">In progress</span></li><li class="unterlagen__eintrag"><span>Data processing agreement</span><span class="etikett unterlagen__stand">In progress</span></li></ul></div>
+            <div class="dreh__hinten"><p>Template for the works agreement, data protection concept and data processing agreement. All three are in progress and will appear here once they are finished.</p></div>
           </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
     <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>For the works council, wear rate and appreciation matter most. At the end of the pilot, the participants give all four answers themselves. All values are self-reported.</p>
+      <div class="zitatkarte">
+        <h2 id="brief-titel" class="etikett brief__an">Roderich to the works council</h2>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Placeholder for a portrait">
+            <span class="etikett platzhalter__etikett">Placeholder</span>
+            <p>Image: portrait of Roderich, head and shoulders, calm background from the kitchen. Square.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>I understand the objection. So first of all: taking part is voluntary, for every single person. The results report to the company is anonymized and shows results for the group as a whole.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>How the photos of the foot capture are processed, how long they are stored and who sees them, I will settle with you before a pilot starts. I will say something about this only once it is settled in a binding way. I myself stood on hard floors 10 to 12 hours a day, and I want your colleagues to have energy left for their lives after the shift.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
+          </div>
+        </div>
       </div>
-      <ul class="messwerte messwerte--rolle">
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-            <h3 class="etikett">Wear rate</h3>
-            <p class="messwert__frage">“Are you still wearing the insoles?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert messwert--gross">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-            <h3 class="etikett">Appreciation</h3>
-            <p class="messwert__frage">“Do you feel valued by this offer?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-            <h3 class="etikett">Noticeable improvement</h3>
-            <p class="messwert__frage">“Do you notice a difference compared to before?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-          <li class="messwert">
-            <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-            <h3 class="etikett">Recommendation</h3>
-            <p class="messwert__frage">“Would you recommend them?”</p>
-            <p class="messwert__leer etikett">No data yet</p>
-          </li>
-      </ul>
-      <p class="messwerte__erfolg"><strong>The pilot counts as a success if</strong> taking part is voluntary and free of pressure, no complaint reaches the works council, the employer sees only what the agreement allows, and the works agreement is signed before the start.</p>
-      <p class="messwerte__grenze">These are values on comfort and acceptance. They say nothing about sick days, turnover, performance or pain.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="datenfluss" aria-labelledby="datenfluss-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="datenfluss-titel">Data and data protection</h2>
-        <p>This is how the foot capture works, in plain words. What is settled is shown with a solid line. What is still open is dashed and will only come with the data protection concept.</p>
-      </div>
-      <ol class="fluss">
-        <li class="fluss__knoten"><span class="etikett">Employees</span><p>Take the photos of their feet with their own smartphone, during a break. Taking part is voluntary.</p></li>
-        <li class="fluss__knoten fluss__knoten--offen" data-platzhalter><span class="etikett">Open</span><p>Where the photos are processed, who can see them and how long they are stored.</p></li>
-        <li class="fluss__knoten"><span class="etikett">VIANU</span><p>Makes the custom-made insole.</p></li>
-        <li class="fluss__knoten"><span class="etikett">Your company</span><p>Receives the insoles for its employees and an anonymized results report at group level.</p></li>
-        <li class="fluss__knoten fluss__knoten--offen" data-platzhalter><span class="etikett">Open</span><p>What your company learns about the participation of individual people. There is no statement on this yet.</p></li>
-      </ol>
     </div>
   </section>
 

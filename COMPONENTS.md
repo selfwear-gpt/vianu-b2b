@@ -102,21 +102,25 @@ Status: gebaut
 
 ### Persona-Seite
 Status: gebaut
-- Aufbau: Kopf (Rolle, Kernbotschaft, Antwortsatz), "Im Termin", Brief von Roderich, Belege, Messwert-Kacheln (wichtige Werte vorn und größer), rollenspezifischer Baustein, FAQ in zwei Gruppen (die vier wichtigsten zuerst), Weiterleiten mit Einseiter-PDF und Link zum Pilotformular.
+- Aufbau: Jede Seite hat eine eigene Reihenfolge und ein eigenes Leitelement, kein Abschnitt besteht nur aus Fließtext. Gemeinsam sind nur Kopf (Einseiter) vorn sowie FAQ in zwei Gruppen und Weiterleiten mit Einseiter-PDF am Ende. Reihenfolgen: Personal: Aufgaben (Weg), Messwerte, Termin (Reiter), Brief, Belege. Geschäftsführung: Kosten, Termin (Reiter), Messwerte, Belege (Akkordeon), Brief. Arbeitsschutz: Weg (Grundriss), Belege (Studienkarten), Termin (Prüfliste), Messwerte, Brief. Einkauf: Beschaffung, Termin (Fragenkarten als Raster), Messwerte, Belege, Brief. Betriebsrat: Datenfluss, Termin (Fragenkarten als Reihe), Messwerte, Belege, Brief. Test: `tests/rollen.test.js`.
 - Fünf Seiten: Personal, Geschäftsführung und Betrieb, Arbeitsschutz, Einkauf, Betriebsrat. Jede hat einen eigenen Titel, eine eigene Beschreibung und FAQPage-Daten. Seitentest: `tests/seiten.test.js`.
-- Rollenspezifisch: Personal "Ihre Aufgaben im Piloten", Geschäftsführung Kostenrechner und "Klein starten", Arbeitsschutz "Matte und Weg", Einkauf "Preis und Beschaffung" (steht fest und offen), Betriebsrat "Daten und Datenschutz" (Datenfluss).
+- Rollenspezifisch: Personal "Ihre Aufgaben im Piloten" (Stationenweg mit vier Stationen, `weg--vier`), Geschäftsführung Kostenrechner und "Klein starten", Arbeitsschutz "Wo die Arbeitsplatzmatte endet" (Grundriss), Einkauf "Preis und Beschaffung" (Rechnung, Lieferzeit, Statusliste mit Filter), Betriebsrat "Daten und Datenschutz" (klickbarer Datenfluss). Alle Rollenseiten tragen die gemeinsame Sohlenzeichnung (`#sohle-form`), die Fußspuren, Weg und Bündel verwenden.
 
 ### Im Termin
 Status: gebaut
-- Definitionsliste mit fünf Zeilen: "Die Frage der Rolle", Kernbotschaft (steht groß), "So sieht die Seite es", "Der Pilot gilt als Erfolg, wenn", "Das braucht es vor der Freigabe". Die Frage steht hier und nicht im Kopf, damit sie nicht direkt vor der Kernbotschaft steht (Regel "keine Frage mit direkt folgender Antwort"). Der Block ist der Inhalt des Einseiters.
+- Fünf Inhalte: "Die Frage der Rolle", Kernbotschaft, "So sieht die Seite es", "Der Pilot gilt als Erfolg, wenn", "Das braucht es vor der Freigabe". Der Abschnitt bleibt `einseiter` und liefert die Einseiter-PDF. Alle fünf Inhalte stehen im HTML, im Druck stehen sie offen untereinander. Die Form wechselt je Seite: Reiter (`reise--termin`, Personal und Geschäftsführung), umdrehbare Fragenkarten (`fragenkarten--raster` auf Einkauf, `fragenkarten--reihe` auf Betriebsrat, Vorderseite Nummer und Etikett, Rückseite der Text) und Prüfliste (`pruefliste`, Arbeitsschutz: fünf Schalter zum Abhaken mit Zähler, nur Ansicht, nichts wird gespeichert). Logik: `initReise` in `b2b.js`, `initPruefliste` in `bausteine.js`.
 
 ### Brief
 Status: gebaut
-- Dunkle Fläche mit dem Brief von Roderich an die Rolle: Etikett, zwei Absätze, Unterschrift in Signalfarbe. Der Brief greift den Einwand der Rolle auf und nennt nur Aussagen aus `FACTS.md`. Wortlaut von Roderich zu bestätigen.
+- Zitatkarte (`zitatkarte`): dunkle Fläche mit Etikett "Roderich an <Rolle>", Porträt-Platzhalter, jeder der zwei Absätze in einer eigenen nummerierten Karte (Hover hebt sie hervor), Unterschrift in Signalfarbe und Link zu Roderichs Geschichte. Der Brief greift den Einwand der Rolle auf und nennt nur Aussagen aus `FACTS.md`. Wortlaut von Roderich zu bestätigen.
 
 ### Beleg-Block
 Status: gebaut
-- Karten mit Quelle, Titel, Aussage und Zitat mit Link auf die DOI, daneben markierte Platzhalter (Pilotkunde, Orthopäde, Patent, Betriebsvereinbarung). Darunter der Hinweis, dass keine Studie Hotellerie oder Gastronomie untersucht. Studien stehen nur auf der Seite der Rolle, deren Frage sie beantworten.
+- Je nach Seite Studienkarten (`dreh studienkarte`, Vorderseite Quelle und Titel, Rückseite Aussage und Fundstelle mit Link auf die DOI, Personal und Arbeitsschutz), Akkordeon (`details.beleg`, Geschäftsführung) oder eine umdrehbare Platzhalterkarte (Einkauf, Betriebsrat mit den drei Unterlagen "In Arbeit"). Daneben der markierte Platzhalter für den Pilotkunden. Unter den Studien steht der Hinweis, dass keine Studie Hotellerie oder Gastronomie untersucht. Studien stehen nur auf den Seiten, deren Rolle sie braucht. Mit Tastatur erreichbar, die Karte dreht bei Fokus.
+
+### Umdrehbare Karte (`dreh`)
+Status: gebaut
+- Eine Zelle mit zwei Seiten (Raster mit gleicher Zelle, deshalb gleich hoch): Vorderseite Papier, Rückseite Signal. Dreht bei Hover und Fokus (`:focus-within`), bei reduzierter Bewegung wird überblendet, ohne Hover (Touch) stehen beide Seiten untereinander, im Druck nebeneinander. Verwandt: `messwert--dreh` (Messwerte) und `.sorge` (Fußform).
 
 ### Matte und Weg
 Status: gebaut
@@ -124,7 +128,11 @@ Status: gebaut
 
 ### Datenfluss
 Status: gebaut
-- Fünf Knoten mit Pfeilen: Mitarbeitende, offen (Verarbeitung der Fotos), VIANU, Ihr Betrieb, offen (Einsicht in die Teilnahme). Bekannte Knoten sind durchgezogen, offene gestrichelt und gedämpft. Auf schmalen Bildschirmen stehen sie untereinander. Keine Datenschutzzusage.
+- Fünf Knoten als Schalter mit Pfeilen: Mitarbeitende, offen (Verarbeitung der Fotos), VIANU, Ihr Betrieb, offen (Einsicht in die Teilnahme). Der gewählte Knoten zeigt seinen Text im dunklen Feld darunter, Pfeiltasten wechseln den Knoten. Bekannte Knoten sind durchgezogen, offene gestrichelt, ihr Text hat einen gestrichelten Rand. Ohne Skript stehen alle Texte untereinander. Auf schmalen Bildschirmen stehen die Knoten untereinander. Keine Datenflüsse, die nicht in `FACTS.md` stehen. Logik: `initFluss` in `assets/js/bausteine.js`.
+
+### Preis und Beschaffung (Einkauf)
+Status: gebaut
+- Rechnung "120 € mal 10 Paare (Bündel) gleich 1.200 €" mit Zusatz zuzüglich Umsatzsteuer, Zeitstrahl "Fußerfassung, VIANU fertigt, Sohlen erreichen den Betrieb" (spätestens 7 Tage), Statusliste mit Filterknöpfen Alle, Steht fest, Offen (`data-filter`, `initFilter` in `bausteine.js`). Die Zeile "Ersatz und zweites Paar" steht dort als Offen.
 
 ### Einseiter
 Status: gebaut
