@@ -65,10 +65,10 @@ test("Der Ablauf hat einen Knopf im Handybild, der das Teilen-Feld öffnet, und 
   }
 });
 
-test("Kurzsatz: Einlegesohlen, individuell angefertigt und für Teams stehen alle fett", () => {
+test("Kurzsatz: nur die Wörter individuell angefertigt stehen fett", () => {
   const erwartet = {
-    "index.html": ["Einlegesohlen,", "individuell angefertigt,", "für Teams, die mehrere Stunden auf den Beinen sind."],
-    "en/index.html": ["Insoles,", "custom-made,", "for teams that are on their feet for several hours."]
+    "index.html": ["individuell angefertigt"],
+    "en/index.html": ["custom-made"]
   };
   for (const f of Object.keys(erwartet)) {
     const h = fs.readFileSync(path.join(__dirname, "..", f), "utf8");

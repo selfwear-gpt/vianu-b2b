@@ -120,6 +120,9 @@
     var frei = String(daten.freitext == null ? "" : daten.freitext).trim();
     if (!frei || frei.length > MAX_FREITEXT) fehler.freitext = t("formular.freitext", { max: MAX_FREITEXT });
 
+    var anliegen = String(daten.anliegen == null ? "" : daten.anliegen).trim();
+    if (!anliegen || anliegen.length > MAX_FREITEXT) fehler.anliegen = t("formular.anliegen", { max: MAX_FREITEXT });
+
     if (daten.einwilligung !== true) fehler.einwilligung = t("formular.einwilligung");
 
     return { ok: Object.keys(fehler).length === 0, fehler: fehler };
@@ -137,7 +140,8 @@
       t("anfrage.stunden") + ": " + String(daten.stunden).trim(),
       t("anfrage.kontakt") + ": " + String(daten.kontakt).trim(),
       t("anfrage.quelle") + ": " + (quelleName(daten.quelle, sp) || ""),
-      t("anfrage.freitext") + ": " + String(daten.freitext).trim()
+      t("anfrage.freitext") + ": " + String(daten.freitext).trim(),
+      t("anfrage.anliegen") + ": " + String(daten.anliegen).trim()
     ].join("\n");
   }
 

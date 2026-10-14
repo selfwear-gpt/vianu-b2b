@@ -596,6 +596,10 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .handy__ecken path { fill: none; stroke: var(--farbe-tinte); stroke-width: 4; stroke-linecap: round; }
 .handy__ausloeser { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 3; }
 .handy__haken { fill: none; stroke: var(--farbe-tinte); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.handy__haken--klein { stroke-width: 3.5; }
+.handy__gravur { font-family: var(--schrift-kopf); font-weight: 800; font-size: 28px; letter-spacing: 0.04em; text-transform: uppercase; text-anchor: middle; dominant-baseline: central; fill: var(--farbe-tinte); }
+.handy__gravur--firma { font-weight: 700; font-size: 11px; letter-spacing: 0.06em; }
+.handy__frist { font-family: var(--schrift-kopf); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; text-anchor: middle; fill: var(--farbe-tinte); }
 .handy__ecken { transform-box: fill-box; transform-origin: center; animation: sucher 0.7s ease-out; }
 @keyframes sucher { from { transform: scale(1.18); } to { transform: none; } }
 /* Der Knopf im Handybild sitzt über der Fläche von Schritt 1, Maße in Prozent der Handyfläche (viewBox 200 x 380) */
@@ -1142,6 +1146,14 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: 38%; }
 @media (max-width: 56rem) {
   .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: var(--abstand-5); }
+}
+/* Karte "Wer sieht meine Fotos?": liegt am Rand des Fußumrisses, der Text bleibt in der oberen linken Ecke und hält Abstand zur Linie */
+@media (min-width: 56.0625rem) {
+  .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { gap: var(--abstand-1); padding-top: var(--abstand-2); padding-right: 48%; }
+  .sorgen__eintrag--2 .sorge__hinten { padding-right: 40%; }
+  .sorgen__eintrag--2 .sorge__frage { font-size: clamp(0.7rem, 1vw, 0.9rem); }
+  .sorgen__eintrag--2 .sorge__weiter { font-size: clamp(0.6rem, 0.85vw, 0.72rem); }
+  .sorgen__eintrag--2 .sorge__weiter { max-width: 9em; }
 }
 /* ---------- Ablauf (B2B): Bahn-Etikett im Schritt ---------- */
 .ablauf__bahn { display: inline-block; margin-bottom: var(--abstand-1); padding: 0.1rem 0.5rem; background: var(--farbe-tinte); color: var(--farbe-papier); }

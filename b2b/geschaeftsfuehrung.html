@@ -127,7 +127,7 @@
       </nav>
 
       <div class="menue__rechts">
-        <a class="menue__cta" href="./#pilot" data-pilot-oeffnen>Pilot buchen</a>
+        <a class="menue__cta" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen</a>
         <a class="menue__zurueck" href="../">Für Mitarbeitende
           <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
         </a>
@@ -151,7 +151,7 @@
         <h1 id="hero-titel">Geschäftsführung und Betrieb</h1>
         <p class="rolle__kern">Starten Sie klein. Entscheiden Sie fundiert. Skalieren Sie nur bei Akzeptanz.</p>
         <p class="rolle__lead">Sie legen sich nicht auf einen Rollout fest: Ein Pilot mit 10 Mitarbeitenden zeigt, ob Ihr Team die Einlegesohle annimmt, und erst danach entscheiden Sie über mehr. VIANU macht keine Aussage zu Krankheitstagen, Fluktuation oder Leistung.</p>
-        <a class="knopf" href="./#pilot" data-pilot-oeffnen>Pilot buchen
+        <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
           <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
         </a>
       </div>
@@ -220,7 +220,7 @@
           </div>
         </div>
       </div>
-      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Pilot buchen auf der B2B-Seite von VIANU.</p>
+      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
     </div>
   </section>
 
@@ -373,7 +373,7 @@
         <div class="weiter__aktionen">
           <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-geschaeftsfuehrung.pdf" download>Einseiter als PDF</a>
           <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Link zu dieser Seite kopieren</button>
-          <a class="knopf" href="./#pilot" data-pilot-oeffnen>Pilot buchen
+          <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
         </div>
@@ -395,8 +395,8 @@
 <dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
-    <h2 id="pilot-titel">Pilot buchen</h2>
-    <p>Ein Pilot mit 10 Mitarbeitenden kostet 1.200 Euro zuzüglich Umsatzsteuer. Roderich ist Ihr Ansprechpartner. Alle Felder sind Pflicht.</p>
+    <h2 id="pilot-titel">Kontaktanfrage stellen</h2>
+    <p>Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich ist Ihr Ansprechpartner.</p>
     <form class="formular" id="pilot-formular" novalidate data-formular>
           <div class="formular__feld">
             <label for="f-unternehmen">Unternehmen</label>
@@ -471,6 +471,11 @@
             <label for="f-freitext">Was haben Sie zum Beispiel gesucht, oder wer hat Sie empfohlen?</label>
             <textarea id="f-freitext" name="freitext" rows="3" maxlength="500" required aria-describedby="f-freitext-fehler" data-feld="freitext"></textarea>
             <p class="formular__fehler" id="f-freitext-fehler" data-fehler="freitext" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-anliegen">Ihr Anliegen</label>
+            <textarea id="f-anliegen" name="anliegen" rows="3" maxlength="500" required placeholder="Ich möchte mehr Infos erhalten für einen ersten möglichen Pilottest für 10 Mitarbeitende." aria-describedby="f-anliegen-fehler" data-feld="anliegen"></textarea>
+            <p class="formular__fehler" id="f-anliegen-fehler" data-fehler="anliegen" hidden></p>
           </div>
           <div class="formular__feld formular__feld--haken">
             <input id="f-einwilligung" name="einwilligung" type="checkbox" aria-describedby="f-einwilligung-fehler" data-feld="einwilligung">

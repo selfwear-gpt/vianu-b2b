@@ -18,19 +18,25 @@ test("die große Überschrift ist der neue englische Slogan, Unterüberschrift u
   }
 });
 
-test("jeder Knopf Pilot buchen öffnet das Popup, es gibt genau ein Popup je Seite mit allen Pflichtfeldern", () => {
+test("jeder Knopf Kontakt aufnehmen öffnet das Popup, es gibt genau ein Popup je Seite mit allen Pflichtfeldern", () => {
   for (const f of ALLE_B2B) {
     const h = lies(f);
     const links = [...h.matchAll(/<a [^>]*href="(?:\.\/)?#pilot"[^>]*>/g)].map((m) => m[0]);
     assert.ok(links.length >= 2, f + ": Pilot-Verweise");
     for (const l of links) assert.match(l, /data-pilot-oeffnen/, f + ": " + l);
     assert.equal((h.match(/<dialog /g) || []).length, 1, f);
-    for (const feld of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "einwilligung"]) {
+    for (const feld of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "anliegen", "einwilligung"]) {
       assert.match(h, new RegExp('data-feld="' + feld + '"'), f + " " + feld);
     }
-    for (const feld of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext"]) {
+    for (const feld of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "anliegen"]) {
       assert.match(h, new RegExp('name="' + feld + '"[^>]* required|required[^>]*name="' + feld + '"'), f + " Pflicht " + feld);
     }
+    const dialog = h.match(/<dialog[\s\S]*?<\/dialog>/)[0];
+    const de = !f.startsWith("en/");
+    assert.match(dialog, de ? /<h2 id="pilot-titel">Kontaktanfrage stellen<\/h2>/ : /<h2 id="pilot-titel">Send a contact request<\/h2>/, f + ": Titel");
+    assert.match(dialog, de ? /Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich ist Ihr Ansprechpartner\./ : /We will get back to you within 5 working days, promise! Roderich is your contact\./, f + ": Einleitung");
+    assert.match(dialog, de ? /placeholder="Ich möchte mehr Infos erhalten für einen ersten möglichen Pilottest für 10 Mitarbeitende\."/ : /placeholder="I would like more information about a possible first pilot test for 10 employees\."/, f + ": Platzhalter im Anliegen");
+    assert.doesNotMatch(h, /Pilot buchen|Book a pilot|Datenschutzhinweis zum Formular|privacy notice for the form/, f + ": nichts mit Pilot buchen, kein Platzhalter");
     assert.match(h, /pilot\.js/, f + ": Skript");
     assert.match(h, /formular\.js/, f + ": Skript");
   }
@@ -46,14 +52,14 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
   for (const f of SEITEN) {
     const h = lies(f);
     assert.doesNotMatch(h, /class="kurz"/, f);
-    const reihe = ["geschichte", "stimme-frueh", "messwerte", "preis", "wer-entscheidet-mit", "programm", "zweites-paar", "faq", "pilot"];
+    const reihe = ["geschichte", "messwerte", "preis", "wer-entscheidet-mit", "programm", "zweites-paar", "faq", "pilot"];
     const pos = reihe.map((id) => h.indexOf('<section class="' ) >= 0 ? h.search(new RegExp('<section[^>]*id="' + id + '"')) : -1);
     assert.ok(pos.every((p) => p > 0), f + " " + pos);
     assert.deepEqual([...pos].sort((a, b) => a - b), pos, f + ": Reihenfolge");
     assert.equal((h.match(/<figure class="stimme" data-platzhalter/g) || []).length, 2, f + ": Stimmen");
     const geschichte = h.match(/<section class="geschichte" id="geschichte"[\s\S]*?<\/section>/)[0];
     const kapitel = [...geschichte.matchAll(/<div class="geschichte__kapitel([^"]*)"([^>]*)>/g)].map((m) => (m[2].match(/id="([^"]+)"|data-(boden)/) || [])[1] || (m[2].match(/data-(boden)/) || [])[1] || m[1].trim() || "start");
-    assert.deepEqual(kapitel, ["geschichte__kapitel--weg", "ablauf", "boden"], f + ": Kapitel Weg, Ablauf, Boden, kein Kapitel Ihr Start");
+    assert.deepEqual(kapitel, ["geschichte__kapitel--weg", "ablauf", "stimme-frueh", "boden"], f + ": Kapitel Weg, Ablauf, Stimme, Boden, kein Kapitel Ihr Start");
     assert.doesNotMatch(h, /Fangen Sie klein an|Start small|Ihr Start|Your start|Starten Sie mit einem Piloten: 10 Mitarbeitende|Start with a pilot: 10 employees/, f + ": Kapitel Ihr Start entfällt");
     assert.doesNotMatch(h, /geschichte__kapitel--signal|<p class="etikett kapitel__marke">(Die Sohle|The insole)<\/p>/, f + ": Kapitel Die Sohle entfällt");
     assert.doesNotMatch(h, /<section class="abschnitt ablauf"/, f + ": Ablauf ist kein eigener Abschnitt mehr");
@@ -69,7 +75,7 @@ test("Was Sie bekommen ist ein Reiter-Baustein mit drei Feldern, Symbolen im Ber
     assert.doesNotMatch(h, /chips--gross/, f + ": die vier Kacheln unter den Inhalten entfallen");
     assert.doesNotMatch(h, /Kein Messtag|No measurement day/, f);
     assert.equal((h.match(/<ul class="messwerte messwerte--klein">(<li class="messwert messwert--klein"><svg class="ico messwert__bild"[\s\S]*?<strong>[^<]+<\/strong><\/li>){4}<\/ul>/g) || []).length, 1, f + ": Symbole im Ergebnisbericht");
-    assert.match(h, /<div class="reise__cta"><a class="knopf" href="#pilot" data-pilot-oeffnen>(Pilot anfragen|Request a pilot)/, f + ": Knopf unter den Inhalten");
+    assert.match(h, /<div class="reise__cta"><a class="knopf" href="#pilot" data-pilot-oeffnen>(Kontakt aufnehmen|Get in touch)/, f + ": Knopf unter den Inhalten");
   }
 });
 

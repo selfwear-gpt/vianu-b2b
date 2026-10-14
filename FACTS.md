@@ -11,6 +11,7 @@ Status: **frei** = darf veröffentlicht werden. **offen** = fehlt noch, bleibt P
 | Preis: 120 Euro je Paar, zuzüglich Umsatzsteuer | Festlegung im Konzept, Steuerangabe entschieden am 12.10.2026 | frei |
 | Preisangabe auf der Seite: "zuzüglich Umsatzsteuer" | Entscheidung am 12.10.2026 | frei |
 | Pilot: 10 Paare, 1.200 EUR zuzüglich Umsatzsteuer. Der Pilot kostet den regulären Preis | Rechnung 10 x 120 EUR, Pilotpreis entschieden am 12.10.2026 | frei |
+| Antwort auf eine Kontaktanfrage: innerhalb von 5 Werktagen, Ansprechpartner ist Roderich. Der Nutzer hat den Satz am 14.10.2026 vorgegeben. Den Ablauf, der die Frist einhält, muss das Team vor dem Start sicherstellen | Entscheidung des Nutzers am 14.10.2026 | frei |
 | Rund 55 Cent je Schicht (120 Euro zuzüglich Umsatzsteuer über etwa 220 Schichten) | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
 | Rund 10 EUR je Mitarbeitendem und Monat | eigene Rechnung, als "gerechnet" kennzeichnen | prüfen |
 | Zeitraum bis zur Auswertung des Piloten | Entscheidung am 12.10.2026: kein Zeitraum auf der Seite, bis er entschieden ist | offen |

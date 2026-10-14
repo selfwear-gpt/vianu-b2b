@@ -151,7 +151,7 @@
       </nav>
 
       <div class="menue__rechts">
-        <a class="menue__cta" href="#pilot" data-pilot-oeffnen>Book a pilot</a>
+        <a class="menue__cta" href="#pilot" data-pilot-oeffnen>Get in touch</a>
         <a class="menue__zurueck" href="../">For employees
           <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
         </a>
@@ -173,7 +173,7 @@
         <div class="hero__text">
           <h1 id="hero-titel" lang="en">Keep walkin’ strong, the whole day long</h1>
           <p class="hero__slogan" lang="en">Nothing fancy. Just a great way to get through your day.</p>
-          <a class="knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
+          <a class="knopf" href="#pilot" data-pilot-oeffnen>Get in touch
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
         </div>
@@ -256,7 +256,7 @@
             <button class="knopf knopf--dunkel" type="button" data-weg-zurueck>Back</button>
             <button class="knopf" type="button" data-weg-weiter>Next
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-            <a class="knopf" href="#pilot" data-weg-pilot data-pilot-oeffnen>Book a pilot
+            <a class="knopf" href="#pilot" data-weg-pilot data-pilot-oeffnen>Get in touch
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
           </div>
         </div>
@@ -325,22 +325,41 @@
 
               <g data-screen="3" hidden>
                 <use class="handy__fuss handy__fuss--signal" href="#sohle-form" x="52" y="62" width="96" height="250"/>
-                <rect class="handy__zeile handy__zeile--dunkel" x="70" y="318" width="60" height="6" rx="3"/>
+                <text class="handy__gravur" x="96" y="150" transform="rotate(-90 96 150)">Anna</text>
+                <text class="handy__gravur handy__gravur--firma" x="97" y="258" transform="rotate(-90 97 258)">Muster GmbH</text>
               </g>
 
               <g data-screen="4" hidden>
-                <rect class="handy__karte" x="46" y="120" width="108" height="86" rx="6"/>
-                <path class="handy__haken" d="M76 164l16 16 34-36"/>
-                <rect class="handy__zeile" x="62" y="234" width="76" height="6" rx="3"/>
-                <rect class="handy__zeile" x="78" y="250" width="44" height="6" rx="3"/>
+                <rect class="handy__karte" x="38" y="86" width="124" height="164" rx="6"/>
+                <use class="handy__fuss handy__fuss--signal" href="#sohle-form" x="48" y="98" width="46" height="120" transform="rotate(-4 71 158)"/>
+                <use class="handy__fuss handy__fuss--signal" href="#sohle-form" x="106" y="98" width="46" height="120" transform="rotate(4 129 158)"/>
+                <rect class="handy__zeile" x="50" y="230" width="52" height="6" rx="3"/>
+                <circle class="handy__punkt" cx="148" cy="250" r="17"/>
+                <path class="handy__haken handy__haken--klein" d="M140 250l6 6 12-13"/>
+                <text class="handy__frist" x="100" y="302">Within 7 days</text>
               </g>
             </svg>
-            <button class="knopf handy__cta" type="button" data-cta-schritt="1" data-pilot-oeffnen>Book a pilot</button>
+            <button class="knopf handy__cta" type="button" data-cta-schritt="1" data-pilot-oeffnen>Get in touch</button>
             </div>
             <p class="sr-nur" role="status" aria-live="polite" data-ablauf-beschreibung>1: You decide who takes part</p>
           </div>
         <p class="geschichte__fazit">We sell custom-made insoles for teams whose staff are on their feet for many hours a day.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="geschichte__kapitel geschichte__kapitel--stimme stimmen" id="stimme-frueh" aria-labelledby="stimme-frueh-titel">
+      <div class="behaelter">
+        <div class="abschnitt__kopf"><h3 id="stimme-frueh-titel">How our customers see us</h3></div>
+      <figure class="stimme" data-platzhalter role="group" aria-label="Placeholder for the voice of a pilot customer">
+        <span class="etikett platzhalter__etikett">Placeholder</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>A short statement from a pilot customer on price and effort. Only with written permission, with name and role. Image to go with it: portrait of the person with first name and role.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>First name</strong><span>Role</span></span>
+        </figcaption>
+      </figure>
       </div>
     </div>
 
@@ -439,6 +458,10 @@
               <label for="b-freitext">What were you looking for, for example, or who recommended us?</label>
               <textarea id="b-freitext" name="freitext" rows="3" maxlength="500" required data-feld="freitext"></textarea>
             </div>
+            <div class="formular__feld">
+              <label for="b-anliegen">Your request</label>
+              <textarea id="b-anliegen" name="anliegen" rows="3" maxlength="500" required placeholder="I would like more information about a possible first pilot test for 10 employees." data-feld="anliegen"></textarea>
+            </div>
             <div class="strecke__ende" data-strecke-ende hidden>
               <div class="formular__feld formular__feld--haken">
                 <input id="b-einwilligung" name="einwilligung" type="checkbox" data-feld="einwilligung">
@@ -464,21 +487,6 @@
       </div>
     </div>
 
-  </section>
-
-  <section class="abschnitt stimmen" id="stimme-frueh" aria-labelledby="stimme-frueh-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf"><h2 id="stimme-frueh-titel">Voice of a pilot customer</h2></div>
-      <figure class="stimme" data-platzhalter role="group" aria-label="Placeholder for the voice of a pilot customer">
-        <span class="etikett platzhalter__etikett">Placeholder</span>
-        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
-        <blockquote class="stimme__text"><p>A short statement from a pilot customer on price and effort. Only with written permission, with name and role. Image to go with it: portrait of the person with first name and role.</p></blockquote>
-        <figcaption class="stimme__person">
-          <span class="stimme__bild" aria-hidden="true"></span>
-          <span class="stimme__name"><strong>First name</strong><span>Role</span></span>
-        </figcaption>
-      </figure>
-    </div>
   </section>
 
   <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
@@ -529,7 +537,7 @@
         <div class="preis__pilot">
           <p class="etikett preis__kopf">The pilot</p>
           <figure class="buendel"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Ten insoles for the pilot" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><figcaption>A pilot with, for example, 10 employees costs: 10 pairs = EUR 1,200 plus VAT.</figcaption></figure>
-          <a class="knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
+          <a class="knopf" href="#pilot" data-pilot-oeffnen>Get in touch
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
         </div>
@@ -714,7 +722,7 @@
             <ul class="messwerte messwerte--klein"><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><strong>Wear rate</strong></li><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><strong>Noticeable improvement</strong></li><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><strong>Recommendation</strong></li><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><strong>Appreciation</strong></li></ul>
           </div>
         </div>
-        <div class="reise__cta"><a class="knopf" href="#pilot" data-pilot-oeffnen>Request a pilot
+        <div class="reise__cta"><a class="knopf" href="#pilot" data-pilot-oeffnen>Get in touch
           <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
         </a></div>
       </div>
@@ -821,7 +829,7 @@
       <div class="abschnitt__kopf">
         <h2 id="schluss-titel">Start with 10 employees</h2>
         <p>A pilot with 10 employees costs EUR 1,200, plus VAT. Roderich is your contact.</p>
-        <a class="knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
+        <a class="knopf" href="#pilot" data-pilot-oeffnen>Get in touch
           <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
         </a>
       </div>
@@ -836,10 +844,6 @@
         </figcaption>
       </figure>
         <div class="pilot__seite">
-          <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Placeholder for privacy notice and response time">
-            <span class="etikett platzhalter__etikett">Placeholder</span>
-            <p>Privacy notice for the form and the response time to your request. Both follow once the privacy concept is in place and the response time is set. Where the request goes has not been decided yet.</p>
-          </div>
           <div class="weiter" data-weiterleiten>
             <h3>To the next person in the decision-making team</h3>
             <p>Each role has its own page with a one-page PDF to pass on.</p>
@@ -864,8 +868,8 @@
 <dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
-    <h2 id="pilot-titel">Book a pilot</h2>
-    <p>A pilot with 10 employees costs EUR 1,200, plus VAT. Roderich is your contact. All fields are required.</p>
+    <h2 id="pilot-titel">Send a contact request</h2>
+    <p>We will get back to you within 5 working days, promise! Roderich is your contact.</p>
     <form class="formular" id="pilot-formular" novalidate data-formular>
           <div class="formular__feld">
             <label for="f-unternehmen">Company</label>
@@ -940,6 +944,11 @@
             <label for="f-freitext">What were you looking for, for example, or who recommended us?</label>
             <textarea id="f-freitext" name="freitext" rows="3" maxlength="500" required aria-describedby="f-freitext-fehler" data-feld="freitext"></textarea>
             <p class="formular__fehler" id="f-freitext-fehler" data-fehler="freitext" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-anliegen">Your request</label>
+            <textarea id="f-anliegen" name="anliegen" rows="3" maxlength="500" required placeholder="I would like more information about a possible first pilot test for 10 employees." aria-describedby="f-anliegen-fehler" data-feld="anliegen"></textarea>
+            <p class="formular__fehler" id="f-anliegen-fehler" data-fehler="anliegen" hidden></p>
           </div>
           <div class="formular__feld formular__feld--haken">
             <input id="f-einwilligung" name="einwilligung" type="checkbox" aria-describedby="f-einwilligung-fehler" data-feld="einwilligung">

@@ -9,8 +9,8 @@ Alle Bausteine nutzen nur Tokens aus `DESIGN.md` und die Begriffe aus `GLOSSARY.
 ### Menü B2B-Bereich
 Status: gebaut
 - Zweck: Orientierung und Hauptaktion in einem festen Balken.
-- Aufbau von links nach rechts: Logo, Programm, Ablauf, Preis, "Wer entscheidet mit?" (Auswahl mit fünf Persona-Seiten), FAQ, "Pilot buchen" (hervorgehoben), "Für Mitarbeitende ↗".
-- Regeln: bleibt fest, wird nie überdeckt, "Pilot buchen" bleibt auch auf dem Handy sichtbar. Jeder Eintrag der Persona-Auswahl zeigt die Frage der Rolle als Unterzeile.
+- Aufbau von links nach rechts: Logo, Programm, Ablauf, Preis, "Wer entscheidet mit?" (Auswahl mit fünf Persona-Seiten), FAQ, "Kontakt aufnehmen" (hervorgehoben), "Für Mitarbeitende ↗".
+- Regeln: bleibt fest, wird nie überdeckt, "Kontakt aufnehmen" bleibt auch auf dem Handy sichtbar. Jeder Eintrag der Persona-Auswahl zeigt die Frage der Rolle als Unterzeile.
 
 ### Menü Mitarbeitenden-Bereich
 Status: geplant
@@ -32,7 +32,7 @@ Status: gebaut
 
 ### Hero B2B
 Status: gebaut
-- Links die Überschrift in Schichtsprache und der Button "Pilot buchen". Rechts ein Video-Platzhalter mit dem Gründer (Vorschaubild, Start auf Klick, mit Ton).
+- Links die Überschrift in Schichtsprache und der Button "Kontakt aufnehmen". Rechts ein Video-Platzhalter mit dem Gründer (Vorschaubild, Start auf Klick, mit Ton).
 - Der Slogan steht unter der Überschrift. Die endgültige Überschrift ist offen.
 - Regel: kein zentrierter Hero mit zwei Buttons.
 
@@ -54,7 +54,7 @@ Status: gebaut
 
 ### Preisblock
 Status: gebaut
-- Links ein kleines Preisetikett mit Klartext ("Eine individuell angefertigte Einlegesohle", 120 € je Paar, zuzüglich Umsatzsteuer) und die 3-Jahres-Aussage klein darunter, ohne eigenen Streifen. Rechts "Der Pilot" mit dem Bündel aus zehn Sohlen und dem Knopf "Pilot buchen". Darunter der Kostenrechner ("Wie viele Schichten hat ein Mitarbeiter im Jahr?", Ergebnis je Schicht pro Person) und "Klein starten": Pilot, Weitere Teams und Weitere Standorte sind Knöpfe, die das Formular öffnen. Bei den Standorten steht "Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung". Kosten je Monat gibt es nicht, weil sie eine Tragedauer voraussetzen.
+- Links ein kleines Preisetikett mit Klartext ("Eine individuell angefertigte Einlegesohle", 120 € je Paar, zuzüglich Umsatzsteuer) und die 3-Jahres-Aussage klein darunter, ohne eigenen Streifen. Rechts "Der Pilot" mit dem Bündel aus zehn Sohlen und dem Knopf "Kontakt aufnehmen". Darunter der Kostenrechner ("Wie viele Schichten hat ein Mitarbeiter im Jahr?", Ergebnis je Schicht pro Person) und "Klein starten": Pilot, Weitere Teams und Weitere Standorte sind Knöpfe, die das Formular öffnen. Bei den Standorten steht "Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung". Kosten je Monat gibt es nicht, weil sie eine Tragedauer voraussetzen.
 - Regel: Der Preis steht als "120 Euro je Paar, zuzüglich Umsatzsteuer". Mengenpreise bleiben verborgen.
 
 ### Fußabdruck "Sorgen und Bedenken im Entscheidungsteam"
@@ -144,9 +144,10 @@ Status: gebaut
 
 ### Pilotformular (Popup)
 Status: gebaut
-- Jeder Knopf "Pilot buchen" öffnet ein Popup (`<dialog data-pilot-dialog>`, `assets/js/pilot.js`) statt zum Formular zu springen. Auch `#pilot` oder `?pilot` in der Adresse öffnen es. Esc, Schließen-Knopf oder Klick auf den Hintergrund schließen, der Fokus kehrt zum Auslöser zurück. Das Popup steht auf der B2B-Startseite und auf jeder Rollenseite.
+- Jeder Knopf "Kontakt aufnehmen" öffnet ein Popup (`<dialog data-pilot-dialog>`, `assets/js/pilot.js`) statt zum Formular zu springen. Auch `#pilot` oder `?pilot` in der Adresse öffnen es. Esc, Schließen-Knopf oder Klick auf den Hintergrund schließen, der Fokus kehrt zum Auslöser zurück. Das Popup steht auf der B2B-Startseite und auf jeder Rollenseite.
 - Pflichtfelder: Unternehmen, Rolle, Zahl der Mitarbeitenden, Stunden pro Tag auf den Beinen (1 bis 12), Branche (14 Einträge, `BRANCHEN` in `formular.js`, dieselbe Liste wie die Tätigkeitskacheln), E-Mail oder Telefon, "Wie sind Sie auf uns aufmerksam geworden?" (acht Antworten, überschneidungsfrei, "Anderer Weg" zuletzt: Suche mit einer KI, Suche bei Google oder einer anderen Suchmaschine, soziale Netzwerke, Empfehlung eines anderen Unternehmens, Empfehlung einer Mitarbeiterin oder eines Mitarbeiters, Kontaktaufnahme durch VIANU, Presse, Fachmedium oder Veranstaltung, Anderer Weg), Freitext dazu (höchstens 500 Zeichen), Einwilligung. Prüfung im Browser mit Fehlermeldung je Feld (`assets/js/formular.js`). Versand ist noch nicht angebunden: Nach gültiger Eingabe steht unter dem Knopf nur "Tool zur Erfassung fehlt noch.", die Angaben werden nicht angezeigt.
-- Regeln: Spamschutz ohne Fremdserver, Bestätigung mit klarer Antwortzeit (noch festzulegen).
+- Titel "Kontaktanfrage stellen", Einleitung "Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich ist Ihr Ansprechpartner." Zusätzlich Pflichtfeld "Ihr Anliegen" (Textfeld mit Beispieltext als Platzhalter, höchstens 500 Zeichen, auch im letzten Schritt der Anfrage-Strecke). Der Schluss-Abschnitt trägt keinen Platzhalter zu Datenschutzhinweis und Antwortzeit mehr.
+- Regeln: Spamschutz ohne Fremdserver.
 
 ### Weiterleiten
 Status: gebaut
@@ -206,6 +207,7 @@ Status: gebaut
   - Kopf (dunkel): Porträt-Platzhalter und sein Satz zu Kraft und Vorfreude nach der Schicht, dazu "Lassen Sie mich erklären".
   - **Kopf**: Roderichs Satz als `h2` in Anführungszeichen über die volle Breite, darunter in einer Zeile ein kleines Porträt-Platzhalterbild (`geschichte__sprecher`), "Roderich, Gründer von VIANU" und der Folgesatz. Niedrige grüne Fläche, damit "Mein Weg" im ersten Bild sichtbar bleibt.
   - **Mein Weg** (`data-stationenweg`): fünf Stationen als Fußspuren auf einer gestrichelten Linie, links nach rechts: 20 Jahre, WOYTON, Yum!, Ausbildung, VIANU. Unter dem Etikett jedes Schuhs steht die Jahreszahl (`weg__jahr`, bei "20 Jahre" keine), im Feld steht sie über der Überschrift. Klick, Darüberfahren mit der Maus und Zurück/Weiter wählen eine Station, die Fußspuren bis dorthin werden pink. Die Bühne zeigt links Überschrift und Satz, rechts einen Bildplatzhalter (`weg__foto`, 4:3, auf dem Handy darunter). Auf der letzten Station (Darum VIANU) steht in der Steuerung statt "Weiter" der Knopf "Pilot buchen" (`data-weg-pilot`). Die Bühne hat keine feste Höhe. Ohne Skript stehen alle Stationen untereinander. Logik: `initWeg` in `assets/js/b2b.js`.
+  - **So sehen unsere Kunden uns** (`#stimme-frueh`, Kapitel vor "Ihre Schicht"): die Stimme eines Pilotkunden als Platzhalter (Zitat nur mit schriftlicher Erlaubnis, mit Namen und Funktion).
   - **Ihre Schicht** (`data-boden`): "Wie lange stehen Ihre Leute?" Ein Regler (0 bis 12 Stunden, Vorgabe 1) füllt die Druckkarte: bei 0 keine Punkte, bei 1 wenige vereinzelte. Ab 4 Stunden erscheinen die Tätigkeitskacheln (`data-boden-kacheln`, `.kachel` als Buttons mit `aria-pressed`, Einfachauswahl, Gliederung und Quellen in `docs/research/taetigkeiten.md`). Nach einer Auswahl erscheinen der Hinweis "Genau für Ihre Mitarbeitenden gibt es unsere Sohle." und die Anfrage-Strecke. Ab 10 Stunden erscheint Roderichs Satz auf pinkem Grund (`boden__roderich`). Fällt der Regler unter 4, ist alles dahinter wieder verborgen und zurückgesetzt. Die Karte bleibt schematisch (Bildbeschreibung und Bildunterschrift für Screenreader). Der Regler wirkt auch bei reduzierter Bewegung. Die Punkte entstehen erst, wenn die Karte sichtbar ist (`initDruckkarte` in `assets/js/b2b.js`), sonst bliebe sie in versteckten Bereichen leer. Jeder Punkt liegt vollständig im Umriss (Abstand zum Strich, `kreisInnen`). Die Sohle klebt unter der Menüleiste und ist so hoch begrenzt, dass sie ganz sichtbar bleibt; unter dem Text bleibt dafür Platz.
   - **Anfrage-Strecke** (`data-strecke`, `initAnfrageStrecke`): fünf Pflichtfragen nacheinander (Anzahl der Mitarbeitenden ab 10, Rolle, Unternehmen, E-Mail, Weg der Aufmerksamkeit mit Freitext). Jeder Schritt erscheint erst nach gültiger Antwort und Klick auf "Weiter" (Enter geht auch). Wird eine Antwort ungültig, verschwindet alles dahinter. Am Ende erscheinen Einwilligung und "Anfrage absenden", der Knopf ist gesperrt, bis alles gültig ist. Versand gibt es noch nicht, unter dem Knopf steht nur "Tool zur Erfassung fehlt noch.". Stunden und Branche kommen aus Regler und Kachel. Prüfregeln in `assets/js/formular.js` (`emailGueltig`, `mitarbeitendeGueltig`, `unternehmenGueltig`).
   - **Die Sohle** (Signalfläche): drei Schritte mit Symbolen (Fußerfassung, Anfertigung, Im Schuh) und der Satz "Wir verkaufen individuell angefertigte Einlegesohlen für Teams, die viele Stunden am Tag auf den Beinen sind."

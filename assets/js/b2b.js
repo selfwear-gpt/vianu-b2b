@@ -380,6 +380,7 @@
         kontakt: felder.kontakt.value,
         quelle: felder.quelle.value,
         freitext: felder.freitext.value,
+        anliegen: felder.anliegen.value,
         einwilligung: felder.einwilligung.checked
       };
     }
@@ -458,6 +459,7 @@
         kontakt: felder.kontakt.value,
         quelle: felder.quelle.value,
         freitext: felder.freitext.value,
+        anliegen: felder.anliegen.value,
         einwilligung: felder.einwilligung.checked
       };
     }
@@ -554,7 +556,7 @@
 
   /* ---------- Roderichs Weg: Stationen mit Fußspuren ---------- */
   // Ohne Skript stehen alle Stationen untereinander. Mit Skript zeigt die Bühne eine Station, die Fußspuren bis dorthin sind pink.
-  // Auf der letzten Station (Darum VIANU) steht statt Weiter der Knopf Pilot buchen.
+  // Auf der letzten Station (Darum VIANU) steht statt Weiter der Knopf Kontakt aufnehmen.
   function initWeg(wurzel) {
     var stationen = wurzel.querySelectorAll("[data-station]");
     var felder = wurzel.querySelectorAll("[data-station-nr]");

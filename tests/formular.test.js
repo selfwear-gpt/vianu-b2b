@@ -3,7 +3,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { pruefeAnfrage, anfrageAlsText, ROLLEN, QUELLEN, emailGueltig, mitarbeitendeGueltig, unternehmenGueltig, BRANCHEN, stundenGueltig } = require("../assets/js/formular.js");
 
-const gut = { unternehmen: "Hotel Sonnenhof", rolle: "personal", mitarbeitende: "120", kontakt: "anna@sonnenhof.de", quelle: "ki", freitext: "Ich habe nach Einlegesohlen für Hotelpersonal gesucht.", einwilligung: true, branche: "hotel-gastronomie", stunden: "8" };
+const gut = { unternehmen: "Hotel Sonnenhof", rolle: "personal", mitarbeitende: "120", kontakt: "anna@sonnenhof.de", quelle: "ki", freitext: "Ich habe nach Einlegesohlen für Hotelpersonal gesucht.", einwilligung: true, branche: "hotel-gastronomie", stunden: "8", anliegen: "Ich möchte mehr Infos zu einem Pilot." };
 
 test("eine vollständige Anfrage ist in Ordnung", () => {
   const r = pruefeAnfrage(gut);
@@ -39,9 +39,9 @@ test("ohne Einwilligung keine Anfrage", () => {
 });
 
 test("mehrere Fehler werden zusammen gemeldet", () => {
-  const r = pruefeAnfrage({ unternehmen: "", rolle: "", mitarbeitende: "", kontakt: "", quelle: "", freitext: "", einwilligung: false, branche: "", stunden: "" });
+  const r = pruefeAnfrage({ unternehmen: "", rolle: "", mitarbeitende: "", kontakt: "", quelle: "", freitext: "", anliegen: "", einwilligung: false, branche: "", stunden: "" });
   assert.equal(r.ok, false);
-  assert.deepEqual(Object.keys(r.fehler).sort(), ["branche", "einwilligung", "freitext", "kontakt", "mitarbeitende", "quelle", "rolle", "stunden", "unternehmen"]);
+  assert.deepEqual(Object.keys(r.fehler).sort(), ["anliegen", "branche", "einwilligung", "freitext", "kontakt", "mitarbeitende", "quelle", "rolle", "stunden", "unternehmen"]);
 });
 
 test("anfrageAlsText nennt Unternehmen, Rolle (mit Namen) und Zahl", () => {
@@ -52,8 +52,8 @@ test("anfrageAlsText nennt Unternehmen, Rolle (mit Namen) und Zahl", () => {
 });
 
 test("englische Meldungen und englischer Anfragetext", () => {
-  const r = pruefeAnfrage({ ...gut, unternehmen: "", rolle: "", mitarbeitende: "0", kontakt: "x", quelle: "", freitext: "", einwilligung: false, branche: "", stunden: "0" }, "en");
-  for (const k of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "einwilligung", "branche", "stunden"]) assert.match(r.fehler[k], /^(Please|The)\b/, k);
+  const r = pruefeAnfrage({ ...gut, unternehmen: "", rolle: "", mitarbeitende: "0", kontakt: "x", quelle: "", freitext: "", anliegen: "", einwilligung: false, branche: "", stunden: "0" }, "en");
+  for (const k of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "anliegen", "einwilligung", "branche", "stunden"]) assert.match(r.fehler[k], /^(Please|The)\b/, k);
   const t = anfrageAlsText(gut, "en");
   assert.match(t, /Request for the pilot with 10 employees/);
   assert.match(t, /Role: HR/);
@@ -143,4 +143,11 @@ test("anfrageAlsText nennt Branche (mit Namen) und Stunden, auch englisch", () =
   assert.match(anfrageAlsText(gut), /Stunden pro Tag auf den Beinen: 8/);
   assert.match(anfrageAlsText(gut, "en"), /Industry: Hotels and restaurants/);
   assert.match(anfrageAlsText(gut, "en"), /Hours per day on their feet: 8/);
+});
+
+test("Anliegen: Pflicht, 1 bis 500 Zeichen, nur Leerzeichen zählt nicht, steht im Entwurf", () => {
+  for (const v of ["", "   ", "x".repeat(501)]) assert.ok(pruefeAnfrage({ ...gut, anliegen: v }).fehler.anliegen, v.slice(0, 5));
+  for (const v of ["x", "x".repeat(500)]) assert.equal(pruefeAnfrage({ ...gut, anliegen: v }).ok, true);
+  assert.match(anfrageAlsText(gut), /Anliegen: Ich möchte mehr Infos zu einem Pilot\./);
+  assert.match(anfrageAlsText(gut, "en"), /Request: Ich möchte/);
 });

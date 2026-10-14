@@ -158,7 +158,7 @@ Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die 
 | Datenschutz | Privacy | Titel "Privacy notice". |
 | Stimme | voice | Die Rezensionskarte. |
 | Platzhalter | placeholder | Markiert wie im Deutschen. |
-| Pilot buchen | Book a pilot | |
+| Kontakt aufnehmen | Get in touch | Beschriftung aller Knöpfe, die das Kontaktformular öffnen. "Pilot buchen" steht nicht mehr auf der Seite, weil Menschen auch aus anderen Gründen Kontakt aufnehmen. |
 
 Slogans bleiben unverändert Englisch: "Walk lightly, smile brightly" und "Nothing fancy. Just a great way to get through your day."
 
