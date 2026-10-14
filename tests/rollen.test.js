@@ -12,7 +12,7 @@ const abschnitte = (h) => [...h.matchAll(/<section class="([^"]*)"(?: id="([^"]+
 const text = (h) => h.replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<svg[\s\S]*?<\/svg>/g, " ").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&euro;/g, "€").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
 const folge = (f) => abschnitte(lies(f)).map((a) => a.id).filter((id) => id !== "stimme-frueh");
 
-const BAUSTEIN = /data-reise|class="dreh|messwert--dreh|data-pruefliste|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|class="zitatkarte"|class="weg__raster"/;
+const BAUSTEIN = /data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|class="zitatkarte"|class="weg__raster"/;
 
 test("jede Rollenseite hat ihre eigene Reihenfolge, Deutsch und Englisch gleich", () => {
   const de = ROLLEN.map((r) => folge("b2b/" + r + ".html").join(">"));

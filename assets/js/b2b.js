@@ -150,7 +150,7 @@
         if (liste) liste.removeAttribute("data-gewaehlt");
         Array.prototype.forEach.call(knoepfe, function (k) {
           k.setAttribute("aria-pressed", "false");
-          k.parentNode.removeAttribute("data-weg");
+          k.parentNode.removeAttribute("data-ausblenden");
           k.parentNode.hidden = false;
         });
       }
@@ -177,7 +177,7 @@
         laeuft = true;
         if (!gewaehlt) {
           // Auswahl: Die anderen blenden aus, die gewählte wandert nach oben links
-          andere.forEach(function (x) { x.setAttribute("data-weg", ""); });
+          andere.forEach(function (x) { x.setAttribute("data-ausblenden", ""); });
           setTimeout(function () {
             andere.forEach(function (x) { x.hidden = true; });
             gleite(li, function () { liste.setAttribute("data-gewaehlt", ""); });
@@ -196,9 +196,9 @@
             andere.forEach(function (x) { x.hidden = false; });
           });
           if (dauer) {
-            setTimeout(function () { andere.forEach(function (x) { x.removeAttribute("data-weg"); }); }, 20);
+            setTimeout(function () { andere.forEach(function (x) { x.removeAttribute("data-ausblenden"); }); }, 20);
           } else {
-            andere.forEach(function (x) { x.removeAttribute("data-weg"); });
+            andere.forEach(function (x) { x.removeAttribute("data-ausblenden"); });
           }
           Array.prototype.forEach.call(knoepfe, function (n) { n.setAttribute("aria-pressed", "false"); });
           gewaehlt = null;
@@ -615,7 +615,7 @@
     jeder("[data-formular]", document, initFormular);
     jeder("[data-weiterleiten]", document, initWeiterleiten);
     jeder("[data-reise]", document, initReise);
-    jeder("[data-weg]", document, initWeg);
+    jeder("[data-stationenweg]", document, initWeg);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);

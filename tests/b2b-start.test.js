@@ -186,7 +186,7 @@ test("Der Weg-CSS kappt die Bühne nicht: keine Höhenbegrenzung auf dem Weg-Blo
   assert.doesNotMatch(css, /\.weg__buehne \{[^}]*min-height/);
 });
 
-test("Der Boden: Regler von 0 bis 12 Stunden startet bei 1, die alten Hinweise sind weg, Kacheln und Anfrage sind zunächst verborgen", () => {
+test("Ihre Schicht: Regler von 0 bis 12 Stunden mit Vorgabe 1, die alten Hinweise sind weg, Kacheln und Anfrage sind zunächst verborgen", () => {
   for (const f of SEITEN) {
     const h = lies(f);
     assert.match(h, /<div class="geschichte__kapitel" data-boden>/, f);

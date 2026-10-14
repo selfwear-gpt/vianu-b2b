@@ -46,3 +46,13 @@ test("die Ansage der Sohle nennt auch die Firma, wenn eine da ist", () => {
   assert.equal(text("name.ansage.firma", { name: "Mia", firma: "Hotel Adler" }, "en"), "Your insole shows: Mia, Hotel Adler");
   assert.equal(text("name.ansage.nurfirma", { firma: "Hotel Adler" }), "Deine Sohle zeigt: Hotel Adler");
 });
+
+test("Deutsch und Englisch haben dieselben Schlüssel, bis auf die Anredevarianten der Mitarbeitenden-Seite", () => {
+  const src = require("node:fs").readFileSync(require("node:path").join(__dirname, "..", "assets/js/texte.js"), "utf8");
+  const schluessel = (block) => [...block.matchAll(/^\s*"([a-z0-9.-]+)":/gm)].map((m) => m[1]);
+  const de = src.slice(src.indexOf("de: {"), src.indexOf("en: {"));
+  const en = src.slice(src.indexOf("en: {"));
+  const a = schluessel(de), b = schluessel(en);
+  assert.deepEqual(a.filter((k) => !b.includes(k)), [], "Englisch fehlt");
+  assert.deepEqual(b.filter((k) => !a.includes(k)), [], "Deutsch fehlt");
+});
