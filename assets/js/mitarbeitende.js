@@ -107,7 +107,7 @@
     var BASIS = 40;
     var MAX_BREITE = 165;
     var FIRMA_BASIS = 13;
-    var FIRMA_MAX_LAENGE = 46;
+    var FIRMA_MAX_LAENGE = 54;
     var timer = null;
     var aktuellerName = "";
     var aktuelleFirma = "";
@@ -122,7 +122,7 @@
       }, 500);
     }
 
-    // Firmenname hochkant auf der Sohle: schrumpft, wenn er die Länge der Sohle überschreitet
+    // Firmenname hochkant im breiten Zehenbereich links auf der Sohle: schrumpft, wenn er die Länge dort überschreitet (54 Einheiten bei x=46, 5 Einheiten Abstand zum Umriss)
     function zeigeFirma(firma) {
       var leer = firma === "";
       aktuelleFirma = firma;

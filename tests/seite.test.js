@@ -64,3 +64,30 @@ test("Der Ablauf hat einen Knopf im Handybild, der das Teilen-Feld öffnet, und 
     assert.doesNotMatch(h, /Entwurf, der Ablauf|Draft, the process/, f);
   }
 });
+
+test("Kurzsatz: Einlegesohlen, individuell angefertigt und für Teams stehen alle fett", () => {
+  const erwartet = {
+    "index.html": ["Einlegesohlen,", "individuell angefertigt,", "für Teams, die mehrere Stunden auf den Beinen sind."],
+    "en/index.html": ["Insoles,", "custom-made,", "for teams that are on their feet for several hours."]
+  };
+  for (const f of Object.keys(erwartet)) {
+    const h = fs.readFileSync(path.join(__dirname, "..", f), "utf8");
+    const punkt = h.match(/<li class="kurz__punkt">\s*<p>([\s\S]*?)<\/p>/)[1];
+    const fett = [...punkt.matchAll(/<strong class="kurz__wort">([^<]+)<\/strong>/g)].map((m) => m[1]);
+    assert.deepEqual(fett, erwartet[f], f);
+  }
+});
+
+test("Namenssohle: keine Einleitung, Firmenfeld ohne optional, Firmenname links auf der Sohle", () => {
+  for (const f of ["index.html", "en/index.html"]) {
+    const h = fs.readFileSync(path.join(__dirname, "..", f), "utf8");
+    const abschnitt = h.match(/<section class="abschnitt name"[\s\S]*?<\/section>/)[0];
+    assert.doesNotMatch(abschnitt, /Tipp deinen Namen|Type in your name/, f);
+    assert.doesNotMatch(abschnitt, /<\/h2>\s*<p>/, f + ": kein Absatz unter der Überschrift");
+    assert.doesNotMatch(abschnitt, /optional/i, f);
+    assert.match(abschnitt, /<label class="etikett" for="firma-feld">(Dein Unternehmen|Your company)<\/label>/, f);
+    assert.match(abschnitt, /<g transform="rotate\(90 46 67\.5\)">\s*<text class="sohle__firma sohle__firma--licht" x="46\.6" y="68\.5"/, f);
+    assert.match(abschnitt, /<text class="sohle__firma" x="46" y="67\.5"/, f);
+    assert.doesNotMatch(abschnitt, /rotate\(90 244 62\)/, f);
+  }
+});

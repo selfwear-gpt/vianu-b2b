@@ -162,7 +162,7 @@ Status: gebaut
 ### Name auf der Sohle
 Status: gebaut
 - Besucher tippen einen Namen (höchstens 14 Zeichen, nur Buchstaben, Leerzeichen, Apostroph und Bindestrich) und sehen ihn sofort auf der Sohle. Nichts wird gespeichert, der Name bleibt im Browser. Die Buchstaben drücken sich beim Tippen leicht ein. Ein Hinweis zur Vorschau steht auf Wunsch des Nutzers (13.10.2026) nicht mehr in der Sektion. Ob der Name auf die echte Sohle kommt, ist weiter offen (`FACTS.md`). Der Ablauf-Schritt "Deine Sohle entsteht" trägt den Vorbehalt.
-- Zweites Feld "Dein Unternehmen" (höchstens 18 Zeichen, Buchstaben, Ziffern, Leerzeichen und `& . - '`). Der Firmenname steht klein und hochkant am Fersenende der Sohle, in derselben Gravur-Optik, und schrumpft bei langen Namen. Die Ansage für Screenreader nennt beides.
+- Zweites Feld "Dein Unternehmen" (höchstens 18 Zeichen, Buchstaben, Ziffern, Leerzeichen und `& . - '`). Der Firmenname steht klein und hochkant ganz links im breiten Zehenbereich der Sohle (54 Einheiten lang, mit Abstand zum Umriss), in derselben Gravur-Optik, und schrumpft bei langen Namen, ohne den Rand zu überschreiten. Das Feld trägt kein "optional", der Abschnitt hat keinen Einleitungstext. Die Ansage für Screenreader nennt beides.
 - Logik: `assets/js/name.js` (`bereinigeName`, `bereinigeFirma`), Test in `tests/name.test.js`.
 
 ### Werteband
