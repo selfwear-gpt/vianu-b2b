@@ -129,29 +129,103 @@
       var kacheln = abschnitt.querySelector("[data-boden-kacheln]");
       var anfrage = abschnitt.querySelector("[data-boden-anfrage]");
       var knoepfe = abschnitt.querySelectorAll("[data-taetigkeit]");
-      var gewaehlt = false;
-      var zeigeAnfrage = function () {
+      var liste = kacheln ? kacheln.querySelector(".kacheln") : null;
+      var gewaehlt = null;
+      var stufe = 1;
+      var laeuft = false;
+      var dauer = reduziert ? 0 : 400;
+
+      // Anteil der gefüllten Karte: der Reglerwert, mit jedem erreichten Schritt der Anfrage ein Stück mehr, bei Schritt 5 voll
+      function anteil() {
+        var basis = Number(regler.value) / 12;
+        if (!gewaehlt) return basis;
+        return basis + (1 - basis) * (stufe - 1) / 4;
+      }
+      function zeigeAnfrage() {
         if (anfrage) anfrage.hidden = !(gewaehlt && Number(regler.value) >= 4);
-      };
+      }
+      function setzeKachelnZurueck() {
+        gewaehlt = null;
+        stufe = 1;
+        if (liste) liste.removeAttribute("data-gewaehlt");
+        Array.prototype.forEach.call(knoepfe, function (k) {
+          k.setAttribute("aria-pressed", "false");
+          k.parentNode.removeAttribute("data-weg");
+          k.parentNode.hidden = false;
+        });
+      }
+      // FLIP: Das Element springt per Layout an die neue Stelle und gleitet von der alten dorthin
+      function gleite(el, aendern) {
+        var vor = el.getBoundingClientRect();
+        aendern();
+        if (!dauer) return;
+        var nach = el.getBoundingClientRect();
+        var dx = vor.left - nach.left;
+        var dy = vor.top - nach.top;
+        if (!dx && !dy) return;
+        el.style.transition = "none";
+        el.style.transform = "translate(" + dx + "px," + dy + "px)";
+        el.getBoundingClientRect();
+        el.style.transition = "transform " + dauer + "ms ease";
+        el.style.transform = "";
+        setTimeout(function () { el.style.transition = ""; }, dauer + 50);
+      }
+      function waehleKachel(k) {
+        if (laeuft || !liste) return;
+        var li = k.parentNode;
+        var andere = Array.prototype.filter.call(liste.children, function (x) { return x !== li; });
+        laeuft = true;
+        if (!gewaehlt) {
+          // Auswahl: Die anderen blenden aus, die gewählte wandert nach oben links
+          andere.forEach(function (x) { x.setAttribute("data-weg", ""); });
+          setTimeout(function () {
+            andere.forEach(function (x) { x.hidden = true; });
+            gleite(li, function () { liste.setAttribute("data-gewaehlt", ""); });
+            Array.prototype.forEach.call(knoepfe, function (n) { n.setAttribute("aria-pressed", n === k ? "true" : "false"); });
+            gewaehlt = k;
+            stufe = 1;
+            zeigeAnfrage();
+            setze();
+            laeuft = false;
+          }, dauer ? 220 : 0);
+        } else {
+          // Zurück zur Auswahl: Eingaben und Karte werden wie unter 4 Stunden zurückgesetzt
+          abschnitt.dispatchEvent(new CustomEvent("boden-zurueck"));
+          gleite(li, function () {
+            liste.removeAttribute("data-gewaehlt");
+            andere.forEach(function (x) { x.hidden = false; });
+          });
+          if (dauer) {
+            setTimeout(function () { andere.forEach(function (x) { x.removeAttribute("data-weg"); }); }, 20);
+          } else {
+            andere.forEach(function (x) { x.removeAttribute("data-weg"); });
+          }
+          Array.prototype.forEach.call(knoepfe, function (n) { n.setAttribute("aria-pressed", "false"); });
+          gewaehlt = null;
+          stufe = 1;
+          zeigeAnfrage();
+          setze();
+          setTimeout(function () { laeuft = false; }, dauer);
+        }
+      }
       var setze = function () {
         var h = Number(regler.value);
-        zeige(h / 12);
         if (zahl) zahl.textContent = String(h);
         if (roderich) roderich.hidden = h < 10;
         if (kacheln) kacheln.hidden = h < 4;
-        if (h < 4 && gewaehlt) {
-          gewaehlt = false;
-          Array.prototype.forEach.call(knoepfe, function (k) { k.setAttribute("aria-pressed", "false"); });
+        if (h < 4 && (gewaehlt || (liste && liste.hasAttribute("data-gewaehlt")))) {
+          setzeKachelnZurueck();
           abschnitt.dispatchEvent(new CustomEvent("boden-zurueck"));
         }
         zeigeAnfrage();
+        zeige(anteil());
       };
       Array.prototype.forEach.call(knoepfe, function (k) {
-        k.addEventListener("click", function () {
-          Array.prototype.forEach.call(knoepfe, function (andere) { andere.setAttribute("aria-pressed", andere === k ? "true" : "false"); });
-          gewaehlt = true;
-          zeigeAnfrage();
-        });
+        k.addEventListener("click", function () { waehleKachel(k); });
+      });
+      abschnitt.addEventListener("strecke-schritt", function (e) {
+        stufe = e.detail && e.detail.schritt ? e.detail.schritt : 1;
+        zeige(anteil());
       });
       regler.addEventListener("input", setze);
       setze();
@@ -361,7 +435,7 @@
   function initAnfrageStrecke(wurzel) {
     var F = window.VianuFormular;
     if (!F) return;
-    var schritte = wurzel.querySelectorAll("[data-schritt]");
+    var schritte = wurzel.querySelectorAll("[data-frage]");
     var weiter = wurzel.querySelectorAll("[data-weiter]");
     var ende = wurzel.querySelector("[data-strecke-ende]");
     var absenden = wurzel.querySelector("[data-absenden]");
@@ -402,6 +476,7 @@
         w.disabled = !gueltig[i]();
       });
       ende.hidden = erreicht < 5;
+      wurzel.dispatchEvent(new CustomEvent("strecke-schritt", { bubbles: true, detail: { schritt: erreicht } }));
       var fertig = erreicht === 5 && gueltig.every(function (g) { return g(); }) && F.pruefeAnfrage(daten(), window.VianuTexte.sprache(wurzel)).ok;
       absenden.disabled = !fertig;
       if (!fertig) ergebnis.hidden = true;
@@ -424,7 +499,7 @@
     wurzel.addEventListener("keydown", function (e) {
       if (e.key !== "Enter" || !e.target || e.target.tagName !== "INPUT" || e.target.type === "checkbox") return;
       e.preventDefault();
-      var i = Number(e.target.closest("[data-schritt]").getAttribute("data-schritt")) - 1;
+      var i = Number(e.target.closest("[data-frage]").getAttribute("data-frage")) - 1;
       if (i < weiter.length && !weiter[i].hidden) vor(i);
     });
     wurzel.addEventListener("submit", function (e) {

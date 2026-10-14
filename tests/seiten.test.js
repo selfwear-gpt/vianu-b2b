@@ -65,7 +65,7 @@ test("jede Rolle stellt ihre Messwerte nach vorn (messwert--gross), nicht alle",
 
 test("rollenspezifische Bausteine: Matte und Weg, Datenfluss, Rechner", () => {
   assert.match(seite("arbeitsschutz"), /data-weg/);
-  assert.match(seite("arbeitsschutz"), /Die Sohle ergänzt die Matte und ersetzt sie nicht\./);
+  assert.match(seite("arbeitsschutz"), /Die Sohle ergänzt die Arbeitsplatzmatte\./);
   assert.match(seite("betriebsrat"), /id="datenfluss"/);
   assert.match(seite("betriebsrat"), /class="fluss__knoten fluss__knoten--offen"/);
   assert.match(seite("geschaeftsfuehrung"), /data-rechner/);

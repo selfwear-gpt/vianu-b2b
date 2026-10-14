@@ -98,7 +98,7 @@ Die sechs Kacheln "Sorgen und Bedenken im Entscheidungsteam" auf der B2B-Startse
 Die einseitige PDF einer Rollenseite zum Weiterleiten an die nächste Person im Entscheidungsteam. Sie enthält Rolle, Frage, Kernbotschaft und den Block "Im Termin".
 
 **Matte und Weg**:
-Die Zeichnung auf der Arbeitsschutz-Seite: Grundriss einer Küche mit Matte am Herd und dem Weg einer Schicht. Die Sohle ergänzt die Matte und ersetzt sie nicht.
+Die Zeichnung auf der Arbeitsschutz-Seite: Grundriss einer Küche mit Arbeitsplatzmatte am Herd und dem Weg einer Schicht. Die Sohle ergänzt die Arbeitsplatzmatte. Auf der Seite steht der Fachbegriff "Arbeitsplatzmatte" (englisch "anti-fatigue mat", Quelle `docs/research/matte.md`), nicht "Matte".
 
 **Datenfluss**:
 Das Ablaufbild auf der Betriebsrat-Seite. Bekannte Schritte sind durchgezogen, offene sind gestrichelt und stehen als Platzhalter.

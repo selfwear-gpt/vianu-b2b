@@ -69,7 +69,7 @@ Status: gebaut
 
 ### Matte-und-Weg (Grafik)
 Status: geplant
-- Grundriss einer Küche mit einer Matte am Herd. Eine gepunktete Linie zeigt den Weg einer Schicht, beim Scrollen wird sie Station für Station gezeichnet. Ein Satz daneben: "Die Sohle ergänzt die Matte und ersetzt sie nicht." Im Ruhezustand ist die Zeichnung fertig.
+- Grundriss einer Küche mit einer Arbeitsplatzmatte am Herd. Eine gepunktete Linie zeigt den Weg einer Schicht, beim Scrollen wird sie Station für Station gezeichnet. Ein Satz daneben: "Die Sohle ergänzt die Arbeitsplatzmatte." Im Ruhezustand ist die Zeichnung fertig.
 - Nur auf der Arbeitsschutz-Seite.
 
 ### Kostenrechner
@@ -120,7 +120,7 @@ Status: gebaut
 
 ### Matte und Weg
 Status: gebaut
-- Grundriss einer Küche als Vektorzeichnung, Matte am Herd, gepunktete Linie und Fußspuren entlang des Weges einer Schicht. Beim Scrollen wird der Weg Station für Station gezeichnet, beim Zurückscrollen läuft er rückwärts. Die Stationen stehen als nummerierte Liste (die Reihenfolge ist der Weg), kein Text in der Zeichnung. Bei reduzierter Bewegung ist die Zeichnung fertig. Logik: `assets/js/rollen.js`.
+- Grundriss einer Küche als Vektorzeichnung, Arbeitsplatzmatte am Herd, gepunktete Linie und Fußspuren entlang des Weges einer Schicht. Beim Scrollen wird der Weg Station für Station gezeichnet, beim Zurückscrollen läuft er rückwärts. Die Stationen stehen als nummerierte Liste (die Reihenfolge ist der Weg), kein Text in der Zeichnung. Bei reduzierter Bewegung ist die Zeichnung fertig. Logik: `assets/js/rollen.js`.
 
 ### Datenfluss
 Status: gebaut

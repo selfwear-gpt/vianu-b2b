@@ -46,11 +46,16 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
   for (const f of SEITEN) {
     const h = lies(f);
     assert.doesNotMatch(h, /class="kurz"/, f);
-    const reihe = ["geschichte", "stimme-frueh", "ablauf", "messwerte", "preis", "wer-entscheidet-mit", "programm", "zweites-paar", "faq", "pilot"];
+    const reihe = ["geschichte", "stimme-frueh", "messwerte", "preis", "wer-entscheidet-mit", "programm", "zweites-paar", "faq", "pilot"];
     const pos = reihe.map((id) => h.indexOf('<section class="' ) >= 0 ? h.search(new RegExp('<section[^>]*id="' + id + '"')) : -1);
     assert.ok(pos.every((p) => p > 0), f + " " + pos);
     assert.deepEqual([...pos].sort((a, b) => a - b), pos, f + ": Reihenfolge");
     assert.equal((h.match(/<figure class="stimme" data-platzhalter/g) || []).length, 2, f + ": Stimmen");
+    const geschichte = h.match(/<section class="geschichte" id="geschichte"[\s\S]*?<\/section>/)[0];
+    const kapitel = [...geschichte.matchAll(/<div class="geschichte__kapitel([^"]*)"([^>]*)>/g)].map((m) => (m[2].match(/id="([^"]+)"|data-(boden)/) || [])[1] || (m[2].match(/data-(boden)/) || [])[1] || m[1].trim() || "start");
+    assert.deepEqual(kapitel, ["geschichte__kapitel--weg", "ablauf", "boden", "start"], f + ": Kapitel Weg, Ablauf, Boden, Start");
+    assert.doesNotMatch(h, /geschichte__kapitel--signal|<p class="etikett kapitel__marke">(Die Sohle|The insole)<\/p>/, f + ": Kapitel Die Sohle entfällt");
+    assert.doesNotMatch(h, /<section class="abschnitt ablauf"/, f + ": Ablauf ist kein eigener Abschnitt mehr");
   }
 });
 
@@ -87,7 +92,9 @@ test("die Fußform der Sorgen ist ein Umriss mit Zehen über den Kacheln", () =>
 test("der Ablauf ist der Handy-Ablauf mit vier Schritten, Bahn-Etikett je Schritt und Knopf im Bild, ohne Bahnen-Raster", () => {
   for (const f of SEITEN) {
     const h = lies(f);
-    const ab = h.match(/<section class="abschnitt ablauf" id="ablauf"[\s\S]*?<\/section>/)[0];
+    const ab = h.match(/<div class="geschichte__kapitel ablauf" id="ablauf"[\s\S]*?<p class="geschichte__fazit">[^<]+<\/p>/)[0];
+    assert.match(ab, /(Wir verkaufen individuell angefertigte Einlegesohlen für Teams|We sell custom-made insoles for teams)/, f + ": sagt, was verkauft wird");
+    assert.doesNotMatch(ab, /10 Mitarbeitenden|10 employees/, f + ": nicht auf den Piloten verengt");
     assert.equal((ab.match(/<button class="ablauf__schritt"/g) || []).length, 4, f);
     assert.equal((ab.match(/class="etikett ablauf__bahn"/g) || []).length, 4, f);
     assert.match(ab, /<svg class="handy"/, f);
@@ -138,7 +145,7 @@ test("Roderichs Weg: fünf Stationen von 20 Jahre Gastro bis Darum VIANU, Jahre 
     assert.equal((h.match(/class="platzhalter weg__foto"/g) || []).length, 5, f + ": ein Bildplatzhalter je Station");
     assert.match(h, folgt, f + ": Reihenfolge");
     const leiste = h.match(/<div class="weg__leiste"[\s\S]*?<\/div>\s*<div class="weg__buehne"/)[0];
-    assert.deepEqual([...leiste.matchAll(/<span class="weg__jahr">(\d{4})<\/span>/g)].map((m) => m[1]), ["2020", "2012", "2010", "2026"], f + ": Jahre unter den Schuhen, 20 Jahre ohne Jahr");
+    assert.deepEqual([...leiste.matchAll(/<span class="weg__jahr">(\d{4})<\/span>/g)].map((m) => m[1]), ["2020", "2012", "2010"], f + ": Jahre unter den Schuhen, 20 Jahre und VIANU ohne Jahr");
     for (const jahr of ["2020", "2012", "2010", "2026"]) assert.match(h, new RegExp('<p class="etikett weg__zeit">' + jahr + "</p>"), f + ": Jahr im Feld " + jahr);
     assert.doesNotMatch(h, /Eigene Angabe von Roderich|own statement/, f + ": Hinweis unter WOYTON entfällt");
     assert.doesNotMatch(h, /weg__hinweis/, f);
@@ -156,7 +163,7 @@ test("Roderichs Weg: fünf Stationen von 20 Jahre Gastro bis Darum VIANU, Jahre 
 });
 
 test("Kopf der Geschichte: Zitat in Anführungszeichen, Name direkt darunter, dann der Folgesatz ausgeschrieben", () => {
-  for (const [f, zitat, folge] of [["b2b/index.html", /<h2 class="geschichte__satz" id="geschichte-titel">„Ich möchte, dass nach der Schicht für jeden noch Kraft und Vorfreude auf Familie, Sport und Freunde da sind\.“<\/h2>/, /Darauf arbeite ich hin\. Lassen Sie mich erklären, wie ich dahin gekommen bin\./], ["en/b2b/index.html", /<h2 class="geschichte__satz" id="geschichte-titel">“I want everyone to have energy and something to look forward to after the shift, for family, sport and friends\.”<\/h2>/, /That is what I work towards\. Let me explain how I got here\./]]) {
+  for (const [f, zitat, folge] of [["b2b/index.html", /<h2 class="geschichte__satz" id="geschichte-titel">„Ich möchte, dass nach der Schicht für jeden noch Kraft und Vorfreude auf Familie, Sport und Freunde da sind\.“<\/h2>/, /Darauf arbeite ich hin\. Lassen Sie mich erklären…/], ["en/b2b/index.html", /<h2 class="geschichte__satz" id="geschichte-titel">“I want everyone to have energy and something to look forward to after the shift, for family, sport and friends\.”<\/h2>/, /That is what I work towards\. Let me explain…/]]) {
     const h = lies(f);
     assert.match(h, zitat, f);
     assert.match(h, /geschichte-titel">[^<]+<\/h2>\s*<div class="geschichte__sprecher">[\s\S]*?<p class="etikett band__name">Roderich, (Gründer von VIANU|founder of VIANU)<\/p>[\s\S]*?geschichte__satz2/, f + ": Name unter dem Zitat");
@@ -206,7 +213,7 @@ test("Anfrage-Strecke: fünf Schritte mit Pflichtfeldern, nur der erste ist sich
     const form = h.match(/<form class="strecke"[\s\S]*?<\/form>/)[0];
     assert.match(form, /novalidate data-strecke aria-label="[^"]+">/, f);
     assert.doesNotMatch(form, /data-formular(\s|>)/, f + ": nicht das Popup-Formular");
-    const schritte = [...form.matchAll(/<div class="strecke__schritt" data-schritt="(\d)"( hidden)?>/g)];
+    const schritte = [...form.matchAll(/<div class="strecke__schritt" data-frage="(\d)"( hidden)?>/g)];
     assert.deepEqual(schritte.map((m) => m[1]), ["1", "2", "3", "4", "5"], f);
     assert.deepEqual(schritte.map((m) => !!m[2]), [false, true, true, true, true], f + ": ab Schritt 2 verborgen");
     assert.equal((form.match(/data-weiter disabled/g) || []).length, 4, f + ": Weiter in Schritt 1 bis 4, gesperrt");

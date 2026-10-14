@@ -1335,19 +1335,36 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .boden__roderich { align-self: flex-start; padding: var(--abstand-2) var(--abstand-3); background: var(--farbe-signal); color: var(--farbe-auf-signal); font-weight: 700; }
 .schicht__text p.boden__roderich { max-width: 34ch; font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.35; }
 .boden__kacheln { display: flex; flex-direction: column; gap: var(--abstand-3); }
-.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: var(--abstand-3); list-style: none; margin: 0; padding: 0; }
-.kachel { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-1); width: 100%; height: 100%; padding: var(--abstand-3) var(--abstand-4); background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); font: inherit; text-align: left; cursor: pointer; }
-.kachel strong { font-family: var(--schrift-kopf); font-size: 1.2rem; line-height: 1.05; text-transform: uppercase; }
-.kachel span { font-size: var(--schrift-groesse-klein); line-height: 1.35; }
-.kachel:hover { border-color: var(--farbe-signal); }
+.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr)); gap: var(--abstand-2); list-style: none; margin: 0; padding: 0; }
+.kacheln[data-gewaehlt] { grid-template-columns: minmax(8.75rem, 11rem); }
+.kacheln li { display: flex; transition: opacity 0.2s ease, transform 0.2s ease; }
+.kacheln li[data-weg] { opacity: 0; transform: scale(0.92); pointer-events: none; }
+.kacheln[data-gewaehlt] li:not([hidden]) { order: -1; }
+.kachel { position: relative; display: grid; align-items: center; width: 100%; padding: var(--abstand-2) var(--abstand-3); background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); font: inherit; text-align: left; cursor: pointer; }
+.kachel__name, .kachel__text { grid-area: 1 / 1; transition: opacity 0.15s ease; }
+.kachel__name { font-family: var(--schrift-kopf); font-size: 1.05rem; line-height: 1.05; text-transform: uppercase; }
+.kachel__text { font-size: 0.78rem; line-height: 1.25; opacity: 0; }
+.kachel:hover, .kachel:focus-visible { border-color: var(--farbe-signal); background: var(--farbe-papier); }
+.kachel:hover .kachel__name, .kachel:focus-visible .kachel__name { opacity: 0; }
+.kachel:hover .kachel__text, .kachel:focus-visible .kachel__text { opacity: 1; }
 .kachel[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-color: var(--farbe-tinte); }
+.kachel[aria-pressed="true"]:hover .kachel__name, .kachel[aria-pressed="true"]:focus-visible .kachel__name { opacity: 1; }
+.kachel[aria-pressed="true"]:hover .kachel__text, .kachel[aria-pressed="true"]:focus-visible .kachel__text { opacity: 0; }
+@media (hover: none) {
+  .kacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kachel { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-1); }
+  .kachel__name, .kachel__text { opacity: 1; }
+  .kachel:hover .kachel__name, .kachel:focus-visible .kachel__name { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .kacheln li, .kachel__name, .kachel__text { transition: none; } }
 .boden__anfrage { display: flex; flex-direction: column; gap: var(--abstand-5); }
 .schicht__text p.boden__hinweis { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.05; text-transform: uppercase; max-width: 22ch; }
 .strecke { display: flex; flex-direction: column; gap: var(--abstand-5); max-width: 32rem; }
 .strecke__schritt { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); }
 .strecke__ende { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-4); }
-.geschichte__kapitel[data-boden] .schicht__raster { align-items: start; }
-.geschichte__kapitel[data-boden] .schicht__bild { position: sticky; top: var(--abstand-5); }
+.geschichte__kapitel[data-boden] .schicht__raster { align-items: start; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+@media (max-width: 40rem) { .geschichte__kapitel[data-boden] .schicht__raster { grid-template-columns: minmax(0, 1fr); } .geschichte__kapitel[data-boden] .schicht__bild { order: 0; position: static; } }
+.geschichte__kapitel[data-boden] .schicht__bild { position: sticky; top: var(--abstand-5); order: -1; }
 .knopf:disabled { opacity: 0.4; cursor: default; }
 .weg__feld p { color: inherit; }
 .weg__feld .weg__zeit { color: var(--farbe-signal); }
