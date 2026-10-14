@@ -363,9 +363,6 @@
 
   function initFormular(wurzel) {
     if (!window.VianuFormular) return;
-    var ergebnis = wurzel.querySelector("[data-formular-ergebnis]");
-    var textfeld = wurzel.querySelector("[data-formular-text]");
-    var kopieren = wurzel.querySelector("[data-formular-kopieren]");
     var status = wurzel.querySelector("[data-formular-status]");
     var felder = {};
     var fehler = {};
@@ -377,6 +374,8 @@
         unternehmen: felder.unternehmen.value,
         rolle: felder.rolle.value,
         mitarbeitende: felder.mitarbeitende.value,
+        stunden: felder.stunden.value,
+        branche: felder.branche.value,
         kontakt: felder.kontakt.value,
         quelle: felder.quelle.value,
         freitext: felder.freitext.value,
@@ -399,34 +398,28 @@
       return erstes;
     }
 
+    // Versand gibt es noch nicht: Nach gültiger Eingabe steht nur die Meldung unter dem Knopf, die Angaben werden nicht angezeigt
     wurzel.addEventListener("submit", function (e) {
       e.preventDefault();
-      var d = daten();
-      var r = window.VianuFormular.pruefeAnfrage(d, window.VianuTexte.sprache(wurzel));
+      var sprache = window.VianuTexte.sprache(wurzel);
+      var r = window.VianuFormular.pruefeAnfrage(daten(), sprache);
       var erstes = zeigeFehler(r);
       if (!r.ok) {
-        ergebnis.hidden = true;
+        if (status) status.textContent = "";
         if (erstes) erstes.focus();
         return;
       }
-      textfeld.textContent = window.VianuFormular.anfrageAlsText(d, window.VianuTexte.sprache(wurzel));
-      status.textContent = "";
-      ergebnis.hidden = false;
-      ergebnis.focus();
+      if (status) status.textContent = window.VianuTexte.text("formular.versand", null, wurzel);
     });
     Object.keys(felder).forEach(function (name) {
       felder[name].addEventListener("input", function () {
+        if (status) status.textContent = "";
         if (fehler[name] && !fehler[name].hidden) {
           fehler[name].hidden = true;
           felder[name].removeAttribute("aria-invalid");
         }
       });
     });
-    if (kopieren) {
-      kopieren.addEventListener("click", function () {
-        kopierenMit(textfeld.textContent, status, window.VianuTexte.text("kopiert.text", null, wurzel), window.VianuTexte.text("kopiert.fehler.text.sie", null, wurzel));
-      });
-    }
   }
 
   /* ---------- Anfrage-Strecke im Boden-Kapitel ---------- */
@@ -440,13 +433,11 @@
     var ende = wurzel.querySelector("[data-strecke-ende]");
     var absenden = wurzel.querySelector("[data-absenden]");
     var ansage = wurzel.querySelector("[data-strecke-ansage]");
-    var ergebnis = wurzel.querySelector("[data-strecke-ergebnis]");
-    var textfeld = wurzel.querySelector("[data-strecke-text]");
-    var kopieren = wurzel.querySelector("[data-strecke-kopieren]");
     var status = wurzel.querySelector("[data-strecke-status]");
     var felder = {};
     jeder("[data-feld]", wurzel, function (f) { felder[f.getAttribute("data-feld")] = f; });
-    if (schritte.length !== 5 || weiter.length !== 4 || !ende || !absenden || !ergebnis || !textfeld) return;
+    if (schritte.length !== 5 || weiter.length !== 4 || !ende || !absenden) return;
+    var kapitel = wurzel.closest("[data-boden]");
     var erreicht = 1;
 
     var gueltig = [
@@ -460,6 +451,9 @@
         unternehmen: felder.unternehmen.value,
         rolle: felder.rolle.value,
         mitarbeitende: felder.mitarbeitende.value,
+        // Stunden und Branche kommen vom Regler und von der gewählten Kachel
+        stunden: kapitel && kapitel.querySelector("[data-boden-regler]") ? kapitel.querySelector("[data-boden-regler]").value : "",
+        branche: kapitel && kapitel.querySelector('[data-taetigkeit][aria-pressed="true"]') ? kapitel.querySelector('[data-taetigkeit][aria-pressed="true"]').getAttribute("data-taetigkeit") : "",
         kontakt: felder.kontakt.value,
         quelle: felder.quelle.value,
         freitext: felder.freitext.value,
@@ -479,7 +473,7 @@
       wurzel.dispatchEvent(new CustomEvent("strecke-schritt", { bubbles: true, detail: { schritt: erreicht } }));
       var fertig = erreicht === 5 && gueltig.every(function (g) { return g(); }) && F.pruefeAnfrage(daten(), window.VianuTexte.sprache(wurzel)).ok;
       absenden.disabled = !fertig;
-      if (!fertig) ergebnis.hidden = true;
+      if (!fertig && status) status.textContent = "";
     }
     function vor(i) {
       if (!gueltig[i]()) return;
@@ -504,20 +498,9 @@
     });
     wurzel.addEventListener("submit", function (e) {
       e.preventDefault();
-      var d = daten();
-      var sprache = window.VianuTexte.sprache(wurzel);
-      if (absenden.disabled || !F.pruefeAnfrage(d, sprache).ok) return;
-      textfeld.textContent = F.anfrageAlsText(d, sprache);
-      if (status) status.textContent = "";
-      ergebnis.hidden = false;
-      ergebnis.focus();
+      if (absenden.disabled || !F.pruefeAnfrage(daten(), window.VianuTexte.sprache(wurzel)).ok) return;
+      if (status) status.textContent = window.VianuTexte.text("formular.versand", null, wurzel);
     });
-    if (kopieren) {
-      kopieren.addEventListener("click", function () {
-        kopierenMit(textfeld.textContent, status, window.VianuTexte.text("kopiert.text", null, wurzel), window.VianuTexte.text("kopiert.fehler.text.sie", null, wurzel));
-      });
-    }
-    var kapitel = wurzel.closest("[data-boden]");
     if (kapitel) {
       kapitel.addEventListener("boden-zurueck", function () {
         wurzel.reset();

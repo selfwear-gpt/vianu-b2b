@@ -59,28 +59,32 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
   }
 });
 
-test("Was Sie bekommen ist ein Reiter-Baustein mit drei Feldern und vier Chips", () => {
+test("Was Sie bekommen ist ein Reiter-Baustein mit drei Feldern, Symbolen im Bericht und einem Knopf", () => {
   for (const f of SEITEN) {
     const h = lies(f);
     assert.equal((h.match(/data-reiter="\d"/g) || []).length, 3, f);
     assert.equal((h.match(/data-feld-nr="\d"/g) || []).length, 3, f);
     assert.doesNotMatch(h, /role="tab(list|panel)?"/, f + ": Rollen setzt erst das Skript");
-    assert.equal((h.match(/<ul class="chips chips--gross">(<li>[^<]+<\/li>){4}<\/ul>/g) || []).length, 1, f);
+    assert.doesNotMatch(h, /chips--gross/, f + ": die vier Kacheln unter den Inhalten entfallen");
+    assert.doesNotMatch(h, /Kein Messtag|No measurement day/, f);
+    assert.equal((h.match(/<ul class="messwerte messwerte--klein">(<li class="messwert messwert--klein"><svg class="ico messwert__bild"[\s\S]*?<strong>[^<]+<\/strong><\/li>){4}<\/ul>/g) || []).length, 1, f + ": Symbole im Ergebnisbericht");
+    assert.match(h, /<div class="reise__cta"><a class="knopf" href="#pilot" data-pilot-oeffnen>(Pilot anfragen|Request a pilot)/, f + ": Knopf unter den Inhalten");
   }
 });
 
 test("der Rechner nennt den Zeitraum der Schichten: in einem Jahr", () => {
-  for (const [f, label] of [["b2b/index.html", /Schichten in einem Jahr/], ["en/b2b/index.html", /Shifts in one year/]]) {
+  for (const [f, label] of [["b2b/index.html", /Wie viele Schichten hat ein Mitarbeiter im Jahr\?/], ["en/b2b/index.html", /How many shifts does an employee work per year\?/]]) {
     const h = lies(f);
     assert.match(h, label, f);
-    assert.match(h, /data-rechner-text>[^<]*(in einem Jahr|in one year)/, f);
+    assert.match(h, /data-rechner-text>[^<]*(pro Person und Jahr|per person and year)/, f);
+    assert.match(h, /(je Schicht pro Person|per shift per person)<\/p>/, f);
   }
 });
 
 test("Messwert-Symbole sind die neuen mehrfarbigen und stehen auch auf den Rollenseiten", () => {
   for (const f of [...SEITEN, ...ROLLEN.map((r) => "b2b/" + r + ".html")]) {
     const h = lies(f);
-    assert.equal((h.match(/class="ico messwert__bild"/g) || []).length, 4, f);
+    assert.equal((h.match(/class="ico messwert__bild"/g) || []).length, f.endsWith("b2b/index.html") ? 8 : 4, f);
     assert.doesNotMatch(h, /<svg class="messwert__bild"/, f);
   }
 });
@@ -105,15 +109,20 @@ test("der Ablauf ist der Handy-Ablauf mit vier Schritten, Bahn-Etikett je Schrit
   }
 });
 
-test("der Preis ist ein Preisschild mit Bündel aus zehn Sohlen und einem Siegel für die Haltbarkeit", () => {
-  for (const [f, zahl, bund, siegel] of [["b2b/index.html", /120 &euro;/, /10 Paare, 1\.200 Euro/, /mindestens 3 Jahre einwandfrei/], ["en/b2b/index.html", /&euro;120/, /10 pairs, EUR 1,200/, /at least 3 years/]]) {
+test("der Preis: kleines Preisschild mit Klartext, 3-Jahres-Aussage klein darunter ohne Siegel, rechts der Pilot mit Knopf", () => {
+  for (const [f, zahl, bund, halt, kopf] of [["b2b/index.html", /120 &euro;/, /10 Paare, 1\.200 Euro/, /mindestens 3 Jahre einwandfrei/, /Eine individuell angefertigte Einlegesohle/], ["en/b2b/index.html", /&euro;120/, /10 pairs, EUR 1,200/, /at least 3 years/, /One custom-made insole/]]) {
     const h = lies(f);
     assert.match(h, /<p class="preisschild" aria-label="[^"]*120[^"]*">/, f);
     assert.match(h, zahl, f);
+    assert.match(h, kopf, f + ": sagt, wofür der Preis gilt");
     assert.equal((h.match(/class="buendel__sohle"/g) || []).length, 10, f);
     assert.match(h, bund, f);
-    assert.match(h, /<div class="siegel"><span class="siegel__rund" aria-hidden="true"><strong>3<\/strong>/, f);
-    assert.match(h, siegel, f);
+    assert.doesNotMatch(h, /class="siegel/, f + ": kein eigener Streifen");
+    const links = h.match(/<div class="preis__links">[\s\S]*?<div class="preis__pilot">/)[0];
+    assert.match(links, halt, f + ": 3-Jahres-Aussage unter dem Preis");
+    const rechts = h.match(/<div class="preis__pilot">[\s\S]*?<\/div>\s*<\/div>/)[0];
+    assert.match(rechts, /(Der Pilot|The pilot)<\/p>/, f);
+    assert.match(rechts, /<a class="knopf" href="#pilot" data-pilot-oeffnen>/, f + ": Knopf zum Pilot buchen");
   }
 });
 
@@ -248,5 +257,56 @@ test("Die deutschen B2B-Seiten sprechen durchgehend Sie, keine Du-Formen im sich
   for (const f of fs.readdirSync(path.join(__dirname, "..", "b2b")).filter((n) => n.endsWith(".html")).map((n) => "b2b/" + n)) {
     const t = lies(f).replace(/<(script|style)[\s\S]*?<\/\1>/g, "").replace(/<[^>]+>/g, " ").replace(/„[^“]*“/g, "");
     assert.doesNotMatch(t, du, f);
+  }
+});
+
+test("Weitere Teams und Weitere Standorte sind Knöpfe, die das Formular öffnen, mit dem Rollout-Satz", () => {
+  for (const [f, satz] of [["b2b/index.html", /Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung/], ["en/b2b/index.html", /After a successful introduction, the rollout is available to you/]]) {
+    const h = lies(f);
+    assert.equal((h.match(/<button class="klein__knopf" type="button" data-pilot-oeffnen>/g) || []).length, 3, f);
+    assert.match(h, satz, f);
+    assert.doesNotMatch(h.match(/<ol class="klein__stufen">[\s\S]*?<\/ol>/)[0], /Auf einen Rollout legen Sie sich|do not commit to a rollout/, f);
+  }
+});
+
+test("Was wir am Ende messen: vier umdrehbare Kacheln, keine Platzhalter und keine Abgrenzungssätze", () => {
+  for (const [f, satz] of [["b2b/index.html", /Am Ende des Piloten sehen Sie durch vier einfache Fragen, ob es für Ihre Mitarbeitenden einen Effekt hatte\./], ["en/b2b/index.html", /four simple questions show you whether it had an effect/]]) {
+    const h = lies(f);
+    const blk = h.match(/<section class="abschnitt" id="messwerte"[\s\S]*?<\/section>/)[0];
+    assert.equal((blk.match(/<li class="messwert messwert--dreh" tabindex="0">/g) || []).length, 4, f);
+    assert.equal((blk.match(/class="messwert__vorn"/g) || []).length, 4, f);
+    assert.equal((blk.match(/class="messwert__hinten"/g) || []).length, 4, f);
+    assert.match(blk, satz, f);
+    assert.doesNotMatch(blk, /Noch keine Daten|No data yet|zeitstrahl|messwerte__grenze|Krankheitstage|sick days|selbst berichtet|self-reported/, f);
+  }
+});
+
+test("Betriebsrat trägt nirgends eine Entwurfsmarke", () => {
+  for (const f of ["b2b/index.html", "en/b2b/index.html", "b2b/betriebsrat.html", "en/b2b/betriebsrat.html"]) {
+    const h = lies(f);
+    assert.doesNotMatch(h, /Betriebsrat \(Entwurf\)|Works council \(draft\)|rollen__entwurf|description" content="[^"]*(Entwurf|Draft)\.">/, f);
+  }
+});
+
+test("alle Formulare: Branche und Stunden pro Tag sind Pflichtfelder, kein Entwurf, nur die Meldung unter dem Knopf", () => {
+  const texte = fs.readFileSync(path.join(__dirname, "..", "assets/js/texte.js"), "utf8");
+  assert.match(texte, /"formular\.versand": "Tool zur Erfassung fehlt noch\."/);
+  assert.match(texte, /"formular\.versand": "The tool to capture requests is not available yet\."/);
+  for (const f of ALLE_B2B) {
+    const h = lies(f);
+    const form = h.match(/<form class="formular" id="pilot-formular"[\s\S]*?<\/form>/)[0];
+    assert.match(form, /name="stunden"[^>]* required/, f);
+    assert.match(form, /name="branche" required/, f);
+    assert.equal((form.match(/<select id="f-branche"[\s\S]*?<\/select>/)[0].match(/<option value="[a-z-]+">/g) || []).length, 14, f);
+    assert.doesNotMatch(form, /data-formular-ergebnis|data-formular-text|data-formular-kopieren|Entwurf|Draft|Text kopieren|Copy text/, f);
+    assert.match(form, /<p class="formular__status" role="status" data-formular-status><\/p>/, f);
+  }
+  for (const f of SEITEN) {
+    const strecke = lies(f).match(/<form class="strecke"[\s\S]*?<\/form>/)[0];
+    assert.doesNotMatch(strecke, /data-strecke-ergebnis|data-strecke-text|data-strecke-kopieren|Entwurf|Draft/, f);
+    assert.match(strecke, /<p class="formular__status" role="status" data-strecke-status><\/p>/, f);
+    const ids = [...lies(f).match(/<div class="boden__kacheln"[\s\S]*?<\/ul>/)[0].matchAll(/data-taetigkeit="([a-z-]+)"/g)].map((m) => m[1]);
+    const { BRANCHEN } = require("../assets/js/formular.js");
+    assert.deepEqual(ids, BRANCHEN.map((b) => b.id), f + ": Kacheln und Branchen sind dieselbe Liste");
   }
 });

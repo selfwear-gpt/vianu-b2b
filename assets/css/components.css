@@ -266,7 +266,6 @@ button.menue__cta { border: 0; font-family: var(--schrift-mono); cursor: pointer
 .rollen a:hover, .rollen a:focus-visible { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .rollen__name { font-family: var(--schrift-kopf); font-weight: 700; font-size: var(--schrift-groesse-h3); text-transform: uppercase; line-height: 1; }
 .rollen__frage { font-size: var(--schrift-groesse-klein); }
-.rollen__entwurf { margin-left: var(--abstand-2); padding: 0.1rem 0.4rem; border: 1px solid currentColor; vertical-align: middle; }
 @media (max-width: 50rem) {
   .rollen a { grid-template-columns: minmax(0, 1fr) auto; gap: var(--abstand-2) var(--abstand-4); }
   .rollen__frage { grid-column: 1; }
@@ -717,7 +716,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 }
 
 /* ---------- Programm: Zeitleiste und Merkmale ---------- */
-.zeit, .zeitstrahl, .klein__stufen, .messwerte, .sorgen__fuss, .unterlagen, .weiter__liste { list-style: none; margin: 0; padding: 0; }
+.zeit, .klein__stufen, .messwerte, .sorgen__fuss, .unterlagen, .weiter__liste { list-style: none; margin: 0; padding: 0; }
 .zeit { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 4fr); border-top: 3px solid var(--farbe-tinte); }
 .zeit__teil { position: relative; display: flex; flex-direction: column; gap: var(--abstand-3); padding: var(--abstand-6) var(--abstand-5) var(--abstand-6) 0; }
 .zeit__teil + .zeit__teil { padding-left: var(--abstand-5); }
@@ -762,12 +761,28 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .messwert__frage { font-family: var(--schrift-kopf); font-weight: 700; font-size: 1.35rem; line-height: 1.15; }
 .messwert__leer { margin-top: auto; color: var(--farbe-gedaempft); }
 .messwerte__grenze { margin-top: var(--abstand-5); max-width: 62ch; color: var(--farbe-gedaempft); }
-.zeitstrahl { display: flex; flex-wrap: wrap; margin-top: var(--abstand-6); border-top: 3px solid var(--farbe-tinte); }
-.zeitstrahl__punkt { display: flex; flex-direction: column; gap: var(--abstand-1); flex: 1 1 12rem; padding: var(--abstand-4) var(--abstand-5) 0 0; font-size: var(--schrift-groesse-klein); }
-.zeitstrahl__punkt--offen { color: var(--farbe-gedaempft); }
 @media (max-width: 62rem) { .messwerte { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 34rem) { .messwerte { grid-template-columns: minmax(0, 1fr); } }
 
+/* Umdrehbare Messwert-Kacheln: Vorderseite Symbol und Titel, Rückseite die Frage */
+.messwert--dreh { padding: 0; perspective: 900px; border: 0; background: none; cursor: default; min-height: 11rem; }
+.messwert__innen { position: relative; display: block; width: 100%; height: 100%; min-height: inherit; transform-style: preserve-3d; transition: transform 0.5s; }
+.messwert__vorn, .messwert__hinten { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: var(--abstand-3); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.messwert__vorn { background: var(--farbe-papier); }
+.messwert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); transform: rotateY(180deg); }
+.messwert--dreh:hover .messwert__innen, .messwert--dreh:focus-visible .messwert__innen, .messwert--dreh:focus-within .messwert__innen { transform: rotateY(180deg); }
+.messwert--dreh:focus-visible { outline-offset: 4px; }
+.messwerte--klein { grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); gap: var(--abstand-3); }
+.messwert--klein { align-items: flex-start; padding: var(--abstand-3); }
+.messwert--klein .messwert__bild { height: 3rem; }
+.messwert--klein strong { font-family: var(--schrift-kopf); font-size: 1.05rem; line-height: 1.05; text-transform: uppercase; }
+.reise__cta { margin-top: var(--abstand-5); }
+@media (prefers-reduced-motion: reduce) {
+  .messwert__innen { transform: none !important; transition: none; }
+  .messwert__hinten { transform: none; opacity: 0; transition: opacity 0.2s; }
+  .messwert--dreh:hover .messwert__hinten, .messwert--dreh:focus-within .messwert__hinten { opacity: 1; }
+}
+@media (hover: none) { .messwert--dreh { min-height: 0; } .messwert__innen { transform: none !important; display: flex; flex-direction: column; } .messwert__vorn, .messwert__hinten { position: static; transform: none; backface-visibility: visible; border-bottom: 0; } .messwert__hinten { border-top: 0; background: var(--farbe-papier); color: var(--farbe-tinte); } }
 /* ---------- Ablauf in drei Bahnen ---------- */
 
 /* ---------- Preis: Rechner und Klein starten ---------- */
@@ -788,6 +803,10 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .klein__stufe { display: flex; flex-direction: column; gap: var(--abstand-1); padding-top: var(--abstand-3); border-top: 3px solid var(--farbe-tinte); font-size: var(--schrift-groesse-klein); transition: opacity 0.25s; }
 .klein__stufe strong { font-family: var(--schrift-kopf); font-size: 1.25rem; text-transform: uppercase; }
 .klein__stufe[data-aktiv="false"] { opacity: 0.45; }
+.klein__stufe:hover, .klein__stufe:focus-within { opacity: 1; }
+.klein__knopf { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-1); width: 100%; padding: 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.klein__knopf strong { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.klein__knopf:hover strong, .klein__knopf:focus-visible strong { text-decoration-color: var(--farbe-signal); }
 @media (max-width: 56rem) { .preis__werkzeuge { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 34rem) { .klein__stufen { grid-template-columns: minmax(0, 1fr); } }
 
@@ -804,7 +823,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
   aspect-ratio: 2.5 / 1;
 }
 .sorgen__eintrag { display: flex; min-width: 0; min-height: 0; }
-.sorgen__eintrag--1 { grid-column: 1; grid-row: 1 / span 2; align-self: center; height: 82%; border-radius: 56% 14px 14px 56% / 48% 14px 14px 48%; }
+.sorgen__eintrag--1 { grid-column: 1; grid-row: 1 / span 2; align-self: stretch; height: auto; border-radius: 56% 14px 14px 56% / 48% 14px 14px 48%; }
 .sorgen__eintrag--2 { grid-column: 2; grid-row: 2; border-radius: 14px 14px 14px 56px; }
 .sorgen__eintrag--3 { grid-column: 2; grid-row: 1; border-radius: 56px 14px 14px 14px; }
 .sorgen__eintrag--4 { grid-column: 3; grid-row: 1 / span 2; align-self: start; height: 88%; border-radius: 14px; }
@@ -1183,7 +1202,6 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .reise__feld .schritte3__punkt--offen { background: transparent; color: var(--farbe-papier); border-color: var(--farbe-papier); }
 .chips { display: flex; flex-wrap: wrap; gap: var(--abstand-3); list-style: none; margin: 0; padding: 0; }
 .chips li { padding: var(--abstand-2) var(--abstand-4); background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-papier); font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-.chips--gross li { background: var(--farbe-papier); color: var(--farbe-tinte); border-color: var(--farbe-tinte); font-size: 1rem; padding: var(--abstand-3) var(--abstand-5); }
 @media (max-width: 56rem) {
   .reise__reiter { grid-template-columns: minmax(0, 1fr); }
   .reise__tab { grid-template-columns: auto 1fr; }
@@ -1204,9 +1222,18 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .messwerte:not(.messwerte--rolle) .messwert:nth-child(4) .messwert__leer { color: var(--farbe-auf-signal); }
 .messwerte:not(.messwerte--rolle) .messwert:nth-child(4) .ico .f-signal { fill: var(--farbe-papier); }
 .messwerte .messwert .ico { max-width: 9rem; height: 5.75rem; }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(n) { background: none; color: var(--farbe-tinte); border: 0; }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(1) .messwert__vorn, .messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(4) .messwert__vorn { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(3) .messwert__vorn { background: var(--farbe-tinte); color: var(--farbe-papier); border-color: var(--farbe-tinte); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(3) .ico * { stroke: var(--farbe-papier); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(3) .ico .f-tinte { fill: var(--farbe-papier); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(3) .ico .f-papier { fill: var(--farbe-tinte); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(3) .ico .f-signal { fill: var(--farbe-signal); stroke: var(--farbe-signal); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(4) .ico .f-signal { fill: var(--farbe-papier); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(n) .messwert__hinten { background: var(--farbe-tinte); color: var(--farbe-papier); border-color: var(--farbe-tinte); }
+.messwerte--flip:not(.messwerte--rolle) .messwert:nth-child(3) .messwert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 
 /* ---------- Preis: Haltbarkeit und Schluss ---------- */
-.preis__halt { margin-top: var(--abstand-3); font-weight: 600; max-width: 46ch; }
 .schluss .abschnitt__kopf { align-items: flex-start; }
 .schluss .abschnitt__kopf .knopf { margin-top: var(--abstand-4); }
 .stimmen .stimme { max-width: 52rem; }
@@ -1215,13 +1242,17 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 
 .sorgen__umriss { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; overflow: visible; }
 .sorgen__umriss polygon { fill: none; stroke: var(--farbe-tinte); stroke-width: 4; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
-.sorgen__umriss path { fill: none; stroke: var(--farbe-tinte); stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .sorgen__eintrag--5 .sorge__vorn, .sorgen__eintrag--5 .sorge__hinten, .sorgen__eintrag--6 .sorge__vorn, .sorgen__eintrag--6 .sorge__hinten { padding-right: 16%; }
 .sorgen__eintrag--1 .sorge__vorn, .sorgen__eintrag--1 .sorge__hinten { padding-left: 14%; }
 @media (max-width: 56rem) { .sorgen__umriss { display: none; } }
 .sorgen__eintrag--1, .sorgen__eintrag--2, .sorgen__eintrag--3, .sorgen__eintrag--4, .sorgen__eintrag--5, .sorgen__eintrag--6 { border-radius: 0; }
 @media print { .sorgen__fuss { clip-path: none; } .sorgen__umriss { display: none; } }
 /* Fußform: Inhalte weg von den Rändern, wo der Umriss einschneidet */
+.sorgen__eintrag--1 .sorge__vorn, .sorgen__eintrag--1 .sorge__hinten { border-width: 0 var(--kante) 0 0; }
+.sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: 38%; padding-bottom: clamp(1.25rem, 3vw, 2.25rem); }
+.sorgen__eintrag--5 .sorge__vorn, .sorgen__eintrag--5 .sorge__hinten { padding-top: clamp(1.5rem, 3.4vw, 2.75rem); padding-left: clamp(1.5rem, 3vw, 2.5rem); }
+.sorgen__eintrag--6 .sorge__vorn, .sorgen__eintrag--6 .sorge__hinten { padding-bottom: clamp(1.75rem, 4vw, 3.25rem); padding-left: clamp(1.5rem, 3vw, 2.5rem); }
+.sorge__kurz { hyphens: manual; }
 .sorgen__eintrag--1 .sorge__vorn, .sorgen__eintrag--1 .sorge__hinten { padding-left: 34%; }
 .sorgen__eintrag--3 .sorge__vorn, .sorgen__eintrag--3 .sorge__hinten { justify-content: flex-end; padding-bottom: var(--abstand-3); }
 .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { justify-content: flex-start; padding-top: var(--abstand-3); }
@@ -1229,7 +1260,7 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
   .sorgen__eintrag--1 .sorge__vorn, .sorgen__eintrag--1 .sorge__hinten, .sorgen__eintrag--5 .sorge__vorn, .sorgen__eintrag--5 .sorge__hinten, .sorgen__eintrag--6 .sorge__vorn, .sorgen__eintrag--6 .sorge__hinten { padding-left: var(--abstand-5); padding-right: var(--abstand-5); }
   .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten, .sorgen__eintrag--3 .sorge__vorn, .sorgen__eintrag--3 .sorge__hinten { justify-content: center; padding-block: var(--abstand-4); }
 }
-.sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: 30%; }
+.sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: 38%; }
 @media (max-width: 56rem) { .sorgen__eintrag--2 .sorge__vorn, .sorgen__eintrag--2 .sorge__hinten { padding-right: var(--abstand-5); } }
 
 
@@ -1239,24 +1270,23 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .ablauf__schritt span span.ablauf__bahn { display: inline-block; margin-top: 0; font-size: var(--schrift-groesse-etikett); }
 
 /* ---------- Preis: Preisschild, Bündel, Siegel ---------- */
-.preis { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--abstand-6) clamp(24px, 5vw, 72px); align-items: center; }
-.preisschild { position: relative; margin: 0; width: min(100%, 24rem); aspect-ratio: 320 / 180; }
+.preis { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--abstand-6) clamp(24px, 5vw, 72px); align-items: start; }
+.preis__links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); }
+.preis__kopf { color: var(--farbe-tinte); }
+.preisschild { position: relative; margin: 0; width: min(100%, 13rem); aspect-ratio: 320 / 180; }
 .preisschild__form { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 4; stroke-linejoin: round; overflow: visible; }
 .preisschild__form circle { fill: var(--farbe-papier); }
-.preisschild__zahl { position: absolute; left: 24%; right: 6%; top: 0; bottom: 0; display: grid; place-items: center; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(3.5rem, 9vw, 6.5rem); line-height: 1; color: var(--farbe-auf-signal); }
+.preisschild__zahl { position: absolute; left: 24%; right: 6%; top: 0; bottom: 0; display: grid; place-items: center; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(2.1rem, 4.6vw, 3.2rem); line-height: 1; color: var(--farbe-auf-signal); }
+.preis__pilot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-4); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); }
+.preis__halt { margin: 0; font-size: var(--schrift-groesse-klein); font-weight: 500; max-width: 40ch; }
 .preis__zusatz { display: flex; flex-direction: column; gap: var(--abstand-4); }
 .preis__je { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.08em; text-transform: uppercase; }
+@media (max-width: 40rem) { .preis { grid-template-columns: minmax(0, 1fr); } }
 .buendel { display: flex; align-items: center; gap: var(--abstand-5); margin: 0; }
-.buendel__bild { flex: none; width: min(55%, 15rem); height: auto; }
+.buendel__bild { flex: none; width: min(50%, 11rem); height: auto; }
 .buendel__sohle { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 8; }
 .buendel figcaption { font-weight: 600; max-width: 28ch; }
-.siegel { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--abstand-5); padding: var(--abstand-5); background: var(--farbe-tinte); color: var(--farbe-papier); }
-.siegel__rund { flex: none; display: grid; place-content: center; width: 6.5rem; height: 6.5rem; border-radius: 50%; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-papier); text-align: center; }
-.siegel__rund strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 3rem; line-height: 0.9; }
-.siegel__rund span { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); letter-spacing: 0.1em; text-transform: uppercase; }
-.siegel .preis__halt { margin: 0; font-size: 1.2rem; max-width: 46ch; }
 @media (max-width: 56rem) { .preis { grid-template-columns: minmax(0, 1fr); } .buendel { flex-direction: column; align-items: flex-start; } .buendel__bild { width: min(70%, 15rem); } }
-@media (max-width: 36rem) { .siegel { flex-direction: column; align-items: flex-start; } }
 
 /* ---------- FAQ: farbige Gruppenköpfe, nummerierte Fragen ---------- */
 .fragen__bereich { display: flex; flex-direction: column; gap: var(--abstand-7); }
@@ -1350,11 +1380,12 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .kachel[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-color: var(--farbe-tinte); }
 .kachel[aria-pressed="true"]:hover .kachel__name, .kachel[aria-pressed="true"]:focus-visible .kachel__name { opacity: 1; }
 .kachel[aria-pressed="true"]:hover .kachel__text, .kachel[aria-pressed="true"]:focus-visible .kachel__text { opacity: 0; }
-@media (hover: none) {
+@media (hover: none), (max-width: 40rem) {
   .kacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kachel { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-1); }
   .kachel__name, .kachel__text { opacity: 1; }
   .kachel:hover .kachel__name, .kachel:focus-visible .kachel__name { opacity: 1; }
+  .kachel:hover .kachel__text, .kachel:focus-visible .kachel__text { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .kacheln li, .kachel__name, .kachel__text { transition: none; } }
 .boden__anfrage { display: flex; flex-direction: column; gap: var(--abstand-5); }
@@ -1363,8 +1394,8 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .strecke__schritt { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-3); }
 .strecke__ende { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-4); }
 .geschichte__kapitel[data-boden] .schicht__raster { align-items: start; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
-@media (max-width: 40rem) { .geschichte__kapitel[data-boden] .schicht__raster { grid-template-columns: minmax(0, 1fr); } .geschichte__kapitel[data-boden] .schicht__bild { order: 0; position: static; } }
 .geschichte__kapitel[data-boden] .schicht__bild { position: sticky; top: var(--abstand-5); order: -1; }
+@media (max-width: 40rem) { .geschichte__kapitel[data-boden] .schicht__raster { grid-template-columns: minmax(0, 1fr); } .geschichte__kapitel[data-boden] .schicht__bild { order: 0; position: static; } }
 .knopf:disabled { opacity: 0.4; cursor: default; }
 .weg__feld p { color: inherit; }
 .weg__feld .weg__zeit { color: var(--farbe-signal); }

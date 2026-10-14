@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VIANU for the works council | Voluntary and data flow</title>
-<meta name="description" content="Taking part is voluntary. The data flow of the foot capture for insoles in plain words: what is settled and what is still open. Draft.">
+<meta name="description" content="Taking part is voluntary. The data flow of the foot capture for insoles in plain words: what is settled and what is still open.">
 <link rel="alternate" hreflang="de" href="../../b2b/betriebsrat.html">
 <link rel="alternate" hreflang="en" href="betriebsrat.html">
 <link rel="alternate" hreflang="x-default" href="../../b2b/betriebsrat.html">
@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../../assets/css/components.css">
 <script src="../../assets/js/texte.js" defer></script>
 <script src="../../assets/js/site.js" defer></script>
+<script src="../../assets/js/position.js" defer></script>
 <script src="../../assets/js/fortschritt.js" defer></script>
 <script src="../../assets/js/formular.js" defer></script>
 <script src="../../assets/js/b2b.js" defer></script>
@@ -129,7 +130,7 @@
     <div class="behaelter">
       <div class="hero__text">
         <p class="etikett druck-nur">VIANU</p>
-        <p class="etikett rolle__ueber">Who decides with you? <span class="etikett rollen__entwurf">Draft</span></p>
+        <p class="etikett rolle__ueber">Who decides with you?</p>
         <h1 id="hero-titel">Works council</h1>
         <p class="rolle__kern">Voluntary for every person. The rules settled with you in advance.</p>
         <p class="rolle__lead">Taking part is voluntary, for every person. How the photos of the foot capture are processed is not settled yet. There will be a statement on this once the data protection concept is in place.</p>
@@ -375,6 +376,32 @@
             <p class="formular__fehler" id="f-mitarbeitende-fehler" data-fehler="mitarbeitende" hidden></p>
           </div>
           <div class="formular__feld">
+            <label for="f-stunden">Roughly how many hours a day are your employees on their feet?</label>
+            <input id="f-stunden" name="stunden" type="text" inputmode="numeric" autocomplete="off" required aria-describedby="f-stunden-fehler" data-feld="stunden">
+            <p class="formular__fehler" id="f-stunden-fehler" data-fehler="stunden" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-branche">Industry</label>
+            <select id="f-branche" name="branche" required aria-describedby="f-branche-fehler" data-feld="branche">
+              <option value="">Please choose</option>
+              <option value="hotel-gastronomie">Hotels and restaurants</option>
+              <option value="einzelhandel">Retail</option>
+              <option value="lager-logistik">Warehouse and logistics</option>
+              <option value="produktion-industrie">Production and industry</option>
+              <option value="pflege-gesundheit">Care and health</option>
+              <option value="handwerk-bau">Trades and construction</option>
+              <option value="reinigung-facility">Cleaning and facility</option>
+              <option value="sicherheit-empfang">Security and reception</option>
+              <option value="bildung-betreuung">Education and childcare</option>
+              <option value="koerpernahe-dienste">Personal care services</option>
+              <option value="verkehr-flughafen">Transport and airports</option>
+              <option value="landwirtschaft-gartenbau">Agriculture and horticulture</option>
+              <option value="veranstaltung-messe">Events and trade fairs</option>
+              <option value="andere-taetigkeit">Other work</option>
+            </select>
+            <p class="formular__fehler" id="f-branche-fehler" data-fehler="branche" hidden></p>
+          </div>
+          <div class="formular__feld">
             <label for="f-kontakt">Email or phone</label>
             <input id="f-kontakt" name="kontakt" type="text" autocomplete="email" required aria-describedby="f-kontakt-fehler" data-feld="kontakt">
             <p class="formular__fehler" id="f-kontakt-fehler" data-fehler="kontakt" hidden></p>
@@ -404,15 +431,10 @@
             <label for="f-einwilligung">I agree that my details are processed to handle this request. The exact wording follows with the privacy notice.</label>
             <p class="formular__fehler" id="f-einwilligung-fehler" data-fehler="einwilligung" hidden></p>
           </div>
-          <button class="knopf" type="submit">Prepare request
+          <button class="knopf" type="submit">Send request
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
-          <div class="formular__ergebnis" data-formular-ergebnis hidden tabindex="-1" role="group" aria-label="Draft of the request">
-            <p class="etikett">Draft, the request is not sent yet</p>
-            <pre class="formular__text" data-formular-text></pre>
-            <button class="knopf knopf--dunkel" type="button" data-formular-kopieren>Copy text</button>
-            <p class="formular__status" role="status" data-formular-status></p>
-          </div>
+          <p class="formular__status" role="status" data-formular-status></p>
     </form>
   </div>
 </dialog>

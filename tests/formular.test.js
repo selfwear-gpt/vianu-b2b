@@ -1,9 +1,9 @@
 // Seam: Prüfung der Pilotanfrage (assets/js/formular.js). Eingabe aus dem Formular, Ausgabe: Fehler je Feld.
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { pruefeAnfrage, anfrageAlsText, ROLLEN, QUELLEN, emailGueltig, mitarbeitendeGueltig, unternehmenGueltig } = require("../assets/js/formular.js");
+const { pruefeAnfrage, anfrageAlsText, ROLLEN, QUELLEN, emailGueltig, mitarbeitendeGueltig, unternehmenGueltig, BRANCHEN, stundenGueltig } = require("../assets/js/formular.js");
 
-const gut = { unternehmen: "Hotel Sonnenhof", rolle: "personal", mitarbeitende: "120", kontakt: "anna@sonnenhof.de", quelle: "ki", freitext: "Ich habe nach Einlegesohlen für Hotelpersonal gesucht.", einwilligung: true };
+const gut = { unternehmen: "Hotel Sonnenhof", rolle: "personal", mitarbeitende: "120", kontakt: "anna@sonnenhof.de", quelle: "ki", freitext: "Ich habe nach Einlegesohlen für Hotelpersonal gesucht.", einwilligung: true, branche: "hotel-gastronomie", stunden: "8" };
 
 test("eine vollständige Anfrage ist in Ordnung", () => {
   const r = pruefeAnfrage(gut);
@@ -39,9 +39,9 @@ test("ohne Einwilligung keine Anfrage", () => {
 });
 
 test("mehrere Fehler werden zusammen gemeldet", () => {
-  const r = pruefeAnfrage({ unternehmen: "", rolle: "", mitarbeitende: "", kontakt: "", quelle: "", freitext: "", einwilligung: false });
+  const r = pruefeAnfrage({ unternehmen: "", rolle: "", mitarbeitende: "", kontakt: "", quelle: "", freitext: "", einwilligung: false, branche: "", stunden: "" });
   assert.equal(r.ok, false);
-  assert.deepEqual(Object.keys(r.fehler).sort(), ["einwilligung", "freitext", "kontakt", "mitarbeitende", "quelle", "rolle", "unternehmen"]);
+  assert.deepEqual(Object.keys(r.fehler).sort(), ["branche", "einwilligung", "freitext", "kontakt", "mitarbeitende", "quelle", "rolle", "stunden", "unternehmen"]);
 });
 
 test("anfrageAlsText nennt Unternehmen, Rolle (mit Namen) und Zahl", () => {
@@ -52,8 +52,8 @@ test("anfrageAlsText nennt Unternehmen, Rolle (mit Namen) und Zahl", () => {
 });
 
 test("englische Meldungen und englischer Anfragetext", () => {
-  const r = pruefeAnfrage({ ...gut, unternehmen: "", rolle: "", mitarbeitende: "0", kontakt: "x", quelle: "", freitext: "", einwilligung: false }, "en");
-  for (const k of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "einwilligung"]) assert.match(r.fehler[k], /^(Please|The)\b/, k);
+  const r = pruefeAnfrage({ ...gut, unternehmen: "", rolle: "", mitarbeitende: "0", kontakt: "x", quelle: "", freitext: "", einwilligung: false, branche: "", stunden: "0" }, "en");
+  for (const k of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "einwilligung", "branche", "stunden"]) assert.match(r.fehler[k], /^(Please|The)\b/, k);
   const t = anfrageAlsText(gut, "en");
   assert.match(t, /Request for the pilot with 10 employees/);
   assert.match(t, /Role: HR/);
@@ -121,4 +121,26 @@ test("unternehmenGueltig: nicht leer, höchstens 120 Zeichen", () => {
   assert.equal(unternehmenGueltig(""), false);
   assert.equal(unternehmenGueltig("x".repeat(121)), false);
   assert.equal(unternehmenGueltig("x".repeat(120)), true);
+});
+
+test("Branche: eine der 14 Tätigkeitskacheln, Auffangkachel zuletzt", () => {
+  assert.equal(BRANCHEN.length, 14);
+  assert.equal(BRANCHEN[BRANCHEN.length - 1].id, "andere-taetigkeit");
+  assert.equal(new Set(BRANCHEN.map((b) => b.id)).size, 14);
+  for (const b of BRANCHEN) assert.equal(pruefeAnfrage({ ...gut, branche: b.id }).ok, true, b.id);
+  for (const v of ["", "irgendwas", null, undefined]) assert.ok(pruefeAnfrage({ ...gut, branche: v }).fehler.branche, String(v));
+});
+
+test("Stunden pro Tag: ganze Zahl von 1 bis 12", () => {
+  for (const v of ["1", "8", "12", " 10 "]) assert.equal(stundenGueltig(v), true, v);
+  for (const v of ["", "0", "13", "-1", "1,5", "acht", null, undefined]) assert.equal(stundenGueltig(v), false, String(v));
+  assert.ok(pruefeAnfrage({ ...gut, stunden: "13" }).fehler.stunden);
+  assert.ok(pruefeAnfrage({ ...gut, stunden: "" }).fehler.stunden);
+});
+
+test("anfrageAlsText nennt Branche (mit Namen) und Stunden, auch englisch", () => {
+  assert.match(anfrageAlsText(gut), /Branche: Hotel und Gastronomie/);
+  assert.match(anfrageAlsText(gut), /Stunden pro Tag auf den Beinen: 8/);
+  assert.match(anfrageAlsText(gut, "en"), /Industry: Hotels and restaurants/);
+  assert.match(anfrageAlsText(gut, "en"), /Hours per day on their feet: 8/);
 });

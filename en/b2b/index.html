@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../../assets/css/components.css">
 <script src="../../assets/js/texte.js" defer></script>
 <script src="../../assets/js/site.js" defer></script>
+<script src="../../assets/js/position.js" defer></script>
 <script src="../../assets/js/fortschritt.js" defer></script>
 <script src="../../assets/js/kosten.js" defer></script>
 <script src="../../assets/js/formular.js" defer></script>
@@ -445,15 +446,10 @@
               </div>
               <button class="knopf" type="submit" data-absenden disabled>Send request
               <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+              <p class="formular__status" role="status" data-strecke-status></p>
             </div>
           </div>
           <p class="sr-nur" role="status" data-strecke-ansage></p>
-          <div class="formular__ergebnis" data-strecke-ergebnis hidden tabindex="-1" role="group" aria-label="Draft of the request">
-            <p class="etikett">Draft, the request is not sent yet</p>
-            <pre class="formular__text" data-strecke-text></pre>
-            <button class="knopf knopf--dunkel" type="button" data-strecke-kopieren>Copy text</button>
-            <p class="formular__status" role="status" data-strecke-status></p>
-          </div>
         </form>
             </div>
           </div>
@@ -504,40 +500,34 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>At the end of the pilot there are four answers that your participants give themselves. All values are self-reported.</p>
+        <p>At the end of the pilot, four simple questions show you whether it had an effect for your employees.</p>
       </div>
-      <ul class="messwerte">
-        <li class="messwert">
-          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg>
-          <h3 class="etikett">Wear rate</h3>
-          <p class="messwert__frage">“Are you still wearing the insoles?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
+      <ul class="messwerte messwerte--flip">
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Wear rate</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Are you still wearing the insoles?”</p></div>
+          </div>
         </li>
-        <li class="messwert">
-          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg>
-          <h3 class="etikett">Noticeable improvement</h3>
-          <p class="messwert__frage">“Do you notice a difference compared to before?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Noticeable improvement</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you notice a difference compared to before?”</p></div>
+          </div>
         </li>
-        <li class="messwert">
-          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg>
-          <h3 class="etikett">Recommendation</h3>
-          <p class="messwert__frage">“Would you recommend them?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Recommendation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Would you recommend them?”</p></div>
+          </div>
         </li>
-        <li class="messwert">
-          <svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg>
-          <h3 class="etikett">Appreciation</h3>
-          <p class="messwert__frage">“Do you feel valued by this offer?”</p>
-          <p class="messwert__leer etikett">No data yet</p>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Appreciation</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">“Do you feel valued by this offer?”</p></div>
+          </div>
         </li>
       </ul>
-      <p class="messwerte__grenze">These are measures of comfort and acceptance. They say nothing about sick days, turnover, performance or pain.</p>
-      <ol class="zeitstrahl" aria-label="Course of the measurement">
-        <li class="zeitstrahl__punkt"><span class="etikett">Start</span><span>Foot capture</span></li>
-        <li class="zeitstrahl__punkt zeitstrahl__punkt--offen" data-platzhalter><span class="etikett">Placeholder</span><span>Evaluation, time frame to follow</span></li>
-        <li class="zeitstrahl__punkt"><span class="etikett">Afterward</span><span>Results report to you</span></li>
-      </ol>
     </div>
   </section>
 
@@ -545,29 +535,36 @@
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="preis-titel">Price</h2></div>
       <div class="preis">
-        <p class="preisschild" aria-label="EUR 120 per pair"><svg class="preisschild__form" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><path d="M18 90L74 14H296a12 12 0 0 1 12 12v128a12 12 0 0 1-12 12H74z"/><circle cx="66" cy="90" r="10"/></svg><span class="preisschild__zahl">&euro;120</span></p>
-        <div class="preis__zusatz">
+        <div class="preis__links">
+          <p class="etikett preis__kopf">One custom-made insole</p>
+          <p class="preisschild" aria-label="EUR 120 per pair, plus VAT"><svg class="preisschild__form" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><path d="M18 90L74 14H296a12 12 0 0 1 12 12v128a12 12 0 0 1-12 12H74z"/><circle cx="66" cy="90" r="10"/></svg><span class="preisschild__zahl">&euro;120</span></p>
           <p class="preis__je">per pair, plus VAT</p>
-          <figure class="buendel"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Ten insoles for the pilot" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><figcaption>The pilot costs the regular price: 10 pairs, EUR 1,200, plus VAT.</figcaption></figure>
+          <p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p>
         </div>
-        <div class="siegel"><span class="siegel__rund" aria-hidden="true"><strong>3</strong><span>years</span></span><p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p></div>
+        <div class="preis__pilot">
+          <p class="etikett preis__kopf">The pilot</p>
+          <figure class="buendel"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Ten insoles for the pilot" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><figcaption>The pilot costs the regular price: 10 pairs, EUR 1,200, plus VAT.</figcaption></figure>
+          <a class="knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+        </div>
       </div>
       <div class="preis__werkzeuge">
         <div class="rechner" data-rechner>
-          <label class="etikett" for="rechner-schichten">Shifts in one year</label>
+          <label class="etikett" for="rechner-schichten">How many shifts does an employee work per year?</label>
           <div class="rechner__regler">
             <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="220" data-rechner-regler>
             <output class="rechner__zahl" for="rechner-schichten" data-rechner-zahl>220</output>
           </div>
-          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-rechner-ergebnis>EUR 0.55</span> per shift</p>
-          <p class="etikett rechner__formel">Calculated: <span data-rechner-text>EUR 120 per pair divided by 220 shifts in one year</span>, plus VAT</p>
+          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-rechner-ergebnis>EUR 0.55</span> per shift per person</p>
+          <p class="etikett rechner__formel">Calculated: <span data-rechner-text>EUR 120 per pair divided by 220 shifts per person and year</span>, plus VAT</p>
         </div>
         <div class="klein" data-klein>
           <svg class="klein__bild" viewBox="0 0 360 120" role="img" aria-label="Ten dots for the pilot, next to them growing groups for more teams and more locations. Diagram without numbers." data-klein-bild></svg>
           <ol class="klein__stufen">
-            <li class="klein__stufe" data-klein-stufe><strong>Pilot</strong><span>10 employees</span></li>
-            <li class="klein__stufe" data-klein-stufe><strong>More teams</strong><span>You decide after the pilot</span></li>
-            <li class="klein__stufe" data-klein-stufe><strong>More locations</strong><span>You do not commit to a rollout beforehand</span></li>
+            <li class="klein__stufe" data-klein-stufe><button class="klein__knopf" type="button" data-pilot-oeffnen><strong>Pilot</strong><span>10 employees</span></button></li>
+            <li class="klein__stufe" data-klein-stufe><button class="klein__knopf" type="button" data-pilot-oeffnen><strong>More teams</strong><span>You decide after the pilot</span></button></li>
+            <li class="klein__stufe" data-klein-stufe><button class="klein__knopf" type="button" data-pilot-oeffnen><strong>More locations</strong><span>After a successful introduction, the rollout is available to you</span></button></li>
           </ol>
         </div>
       </div>
@@ -595,14 +592,14 @@
         <div class="sorgen__punkte">
             <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 1: HR"></button>
             <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 2: Employees"></button>
-            <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 3: Works council (draft)"></button>
+            <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 3: Works council"></button>
             <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 4: Occupational safety"></button>
             <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 5: Management and operations"></button>
             <button class="sorgen__punkt" type="button" data-sorgen-punkt aria-label="Worry 6: Procurement"></button>
         </div>
       </div>
       <div class="sorgen__buehne">
-        <svg class="sorgen__umriss" viewBox="0 0 250 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polygon points="10.0,54.0 10.1,46.8 11.7,40.2 14.7,34.5 19.0,29.5 24.4,25.5 30.8,22.5 38.1,20.6 46.0,20.0 55.5,20.4 64.6,21.5 73.4,23.1 82.0,24.8 90.6,26.3 99.4,27.6 108.5,28.2 118.0,28.0 126.0,26.7 133.6,24.7 141.1,22.1 148.5,19.2 156.1,16.5 164.1,14.2 172.7,12.6 182.0,12.0 190.3,11.7 198.1,11.6 205.3,11.8 211.9,12.1 217.8,12.7 223.2,13.5 227.9,14.6 232.0,16.0 234.8,16.6 237.2,17.8 239.2,19.3 240.6,21.1 241.6,23.2 242.0,25.4 241.8,27.7 241.0,30.0 243.1,30.8 244.7,32.2 245.9,34.2 246.6,36.5 246.8,39.0 246.5,41.5 245.6,43.9 244.0,46.0 246.0,47.1 247.5,48.8 248.5,50.9 249.0,53.2 248.9,55.7 248.2,58.1 246.9,60.2 245.0,62.0 246.6,63.5 247.8,65.5 248.4,67.9 248.4,70.5 247.8,73.1 246.5,75.5 244.6,77.5 242.0,79.0 243.9,80.6 244.9,82.9 245.2,85.8 244.5,88.8 242.9,91.7 240.3,94.2 236.7,96.1 232.0,97.0 225.3,97.4 218.6,97.3 212.1,96.6 205.8,95.5 199.7,94.0 194.0,92.2 188.8,90.2 184.0,88.0 175.3,86.6 167.0,84.3 159.0,81.3 151.2,78.0 143.6,74.7 135.9,71.7 128.1,69.4 120.0,68.0 112.8,68.6 105.9,70.3 99.4,72.9 93.0,76.0 86.6,79.5 80.1,83.2 73.2,86.8 66.0,90.0 57.4,92.1 48.5,92.5 39.7,91.1 31.2,87.8 23.7,82.4 17.3,75.1 12.7,65.6"/><path d="M241 30l-17 5"/><path d="M244 46l-17 5"/><path d="M245 62l-17 5"/><path d="M242 79l-17 5"/></svg>
+        <svg class="sorgen__umriss" viewBox="0 0 250 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polygon points="10.0,54.0 10.1,46.8 11.7,40.2 14.7,34.5 19.0,29.5 24.4,25.5 30.8,22.5 38.1,20.6 46.0,20.0 55.5,20.4 64.6,21.5 73.4,23.1 82.0,24.8 90.6,26.3 99.4,27.6 108.5,28.2 118.0,28.0 126.0,26.7 133.6,24.7 141.1,22.1 148.5,19.2 156.1,16.5 164.1,14.2 172.7,12.6 182.0,12.0 190.3,11.7 198.1,11.6 205.3,11.8 211.9,12.1 217.8,12.7 223.2,13.5 227.9,14.6 232.0,16.0 234.8,16.6 237.2,17.8 239.2,19.3 240.6,21.1 241.6,23.2 242.0,25.4 241.8,27.7 241.0,30.0 243.1,30.8 244.7,32.2 245.9,34.2 246.6,36.5 246.8,39.0 246.5,41.5 245.6,43.9 244.0,46.0 246.0,47.1 247.5,48.8 248.5,50.9 249.0,53.2 248.9,55.7 248.2,58.1 246.9,60.2 245.0,62.0 246.6,63.5 247.8,65.5 248.4,67.9 248.4,70.5 247.8,73.1 246.5,75.5 244.6,77.5 242.0,79.0 243.9,80.6 244.9,82.9 245.2,85.8 244.5,88.8 242.9,91.7 240.3,94.2 236.7,96.1 232.0,97.0 225.3,97.4 218.6,97.3 212.1,96.6 205.8,95.5 199.7,94.0 194.0,92.2 188.8,90.2 184.0,88.0 175.3,86.6 167.0,84.3 159.0,81.3 151.2,78.0 143.6,74.7 135.9,71.7 128.1,69.4 120.0,68.0 112.8,68.6 105.9,70.3 99.4,72.9 93.0,76.0 86.6,79.5 80.1,83.2 73.2,86.8 66.0,90.0 57.4,92.1 48.5,92.5 39.7,91.1 31.2,87.8 23.7,82.4 17.3,75.1 12.7,65.6"/></svg>
         <ul class="sorgen__fuss" data-sorgen-liste>
           <li class="sorgen__eintrag sorgen__eintrag--1">
             <a class="sorge sorge--1" id="sorge-1" href="personal.html" data-sorge>
@@ -639,7 +636,7 @@
               <span class="sorge__innen">
                 <span class="sorge__vorn">
                   <svg class="sorge__icon" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14c4-6 8-8 12-8s8 2 12 8c-4 6-8 8-12 8S6 20 2 14z"/><circle cx="14" cy="14" r="3"/><path d="M4 24L24 4"/></svg>
-                  <span class="etikett sorge__rolle">Works council (draft)</span>
+                  <span class="etikett sorge__rolle">Works council</span>
                   <span class="sorge__kurz">Data protection &amp; control?</span>
                 </span>
                 <span class="sorge__hinten">
@@ -729,10 +726,12 @@
           <div class="reise__feld" id="reise-feld-3" aria-labelledby="reise-tab-3" data-feld-nr="3">
             <h3>Results report</h3>
             <p>An anonymized report to you, at group level.</p>
-            <ul class="chips"><li>Wear rate</li><li>Noticeable improvement</li><li>Recommendation</li><li>Appreciation</li></ul>
+            <ul class="messwerte messwerte--klein"><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><strong>Wear rate</strong></li><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><strong>Noticeable improvement</strong></li><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><strong>Recommendation</strong></li><li class="messwert messwert--klein"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><strong>Appreciation</strong></li></ul>
           </div>
         </div>
-        <ul class="chips chips--gross"><li>No measurement day</li><li>Own smartphone</li><li>Existing shoes</li><li>Voluntary</li></ul>
+        <div class="reise__cta"><a class="knopf" href="#pilot" data-pilot-oeffnen>Request a pilot
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </a></div>
       </div>
     </div>
   </section>
@@ -907,6 +906,32 @@
             <p class="formular__fehler" id="f-mitarbeitende-fehler" data-fehler="mitarbeitende" hidden></p>
           </div>
           <div class="formular__feld">
+            <label for="f-stunden">Roughly how many hours a day are your employees on their feet?</label>
+            <input id="f-stunden" name="stunden" type="text" inputmode="numeric" autocomplete="off" required aria-describedby="f-stunden-fehler" data-feld="stunden">
+            <p class="formular__fehler" id="f-stunden-fehler" data-fehler="stunden" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-branche">Industry</label>
+            <select id="f-branche" name="branche" required aria-describedby="f-branche-fehler" data-feld="branche">
+              <option value="">Please choose</option>
+              <option value="hotel-gastronomie">Hotels and restaurants</option>
+              <option value="einzelhandel">Retail</option>
+              <option value="lager-logistik">Warehouse and logistics</option>
+              <option value="produktion-industrie">Production and industry</option>
+              <option value="pflege-gesundheit">Care and health</option>
+              <option value="handwerk-bau">Trades and construction</option>
+              <option value="reinigung-facility">Cleaning and facility</option>
+              <option value="sicherheit-empfang">Security and reception</option>
+              <option value="bildung-betreuung">Education and childcare</option>
+              <option value="koerpernahe-dienste">Personal care services</option>
+              <option value="verkehr-flughafen">Transport and airports</option>
+              <option value="landwirtschaft-gartenbau">Agriculture and horticulture</option>
+              <option value="veranstaltung-messe">Events and trade fairs</option>
+              <option value="andere-taetigkeit">Other work</option>
+            </select>
+            <p class="formular__fehler" id="f-branche-fehler" data-fehler="branche" hidden></p>
+          </div>
+          <div class="formular__feld">
             <label for="f-kontakt">Email or phone</label>
             <input id="f-kontakt" name="kontakt" type="text" autocomplete="email" required aria-describedby="f-kontakt-fehler" data-feld="kontakt">
             <p class="formular__fehler" id="f-kontakt-fehler" data-fehler="kontakt" hidden></p>
@@ -936,15 +961,10 @@
             <label for="f-einwilligung">I agree that my details are processed to handle this request. The exact wording follows with the privacy notice.</label>
             <p class="formular__fehler" id="f-einwilligung-fehler" data-fehler="einwilligung" hidden></p>
           </div>
-          <button class="knopf" type="submit">Prepare request
+          <button class="knopf" type="submit">Send request
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
-          <div class="formular__ergebnis" data-formular-ergebnis hidden tabindex="-1" role="group" aria-label="Draft of the request">
-            <p class="etikett">Draft, the request is not sent yet</p>
-            <pre class="formular__text" data-formular-text></pre>
-            <button class="knopf knopf--dunkel" type="button" data-formular-kopieren>Copy text</button>
-            <p class="formular__status" role="status" data-formular-status></p>
-          </div>
+          <p class="formular__status" role="status" data-formular-status></p>
     </form>
   </div>
 </dialog>

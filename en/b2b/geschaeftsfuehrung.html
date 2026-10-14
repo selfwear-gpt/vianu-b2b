@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../../assets/css/components.css">
 <script src="../../assets/js/texte.js" defer></script>
 <script src="../../assets/js/site.js" defer></script>
+<script src="../../assets/js/position.js" defer></script>
 <script src="../../assets/js/fortschritt.js" defer></script>
 <script src="../../assets/js/kosten.js" defer></script>
 <script src="../../assets/js/formular.js" defer></script>
@@ -246,20 +247,20 @@
       </div>
       <div class="preis__werkzeuge">
         <div class="rechner" data-rechner>
-          <label class="etikett" for="rechner-schichten">Shifts in one year</label>
+          <label class="etikett" for="rechner-schichten">How many shifts does an employee work per year?</label>
           <div class="rechner__regler">
             <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="220" data-rechner-regler>
             <output class="rechner__zahl" for="rechner-schichten" data-rechner-zahl>220</output>
           </div>
-          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-rechner-ergebnis>EUR 0.55</span> per shift</p>
-          <p class="etikett rechner__formel">Calculated: <span data-rechner-text>EUR 120 per pair divided by 220 shifts in one year</span>, plus VAT</p>
+          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-rechner-ergebnis>EUR 0.55</span> per shift per person</p>
+          <p class="etikett rechner__formel">Calculated: <span data-rechner-text>EUR 120 per pair divided by 220 shifts per person and year</span>, plus VAT</p>
         </div>
         <div class="klein" data-klein>
           <svg class="klein__bild" viewBox="0 0 360 120" role="img" aria-label="Ten dots for the pilot, next to them growing groups for further teams and further sites. Diagram without numbers." data-klein-bild></svg>
           <ol class="klein__stufen">
-            <li class="klein__stufe" data-klein-stufe><strong>Pilot</strong><span>10 employees</span></li>
-            <li class="klein__stufe" data-klein-stufe><strong>Further teams</strong><span>You decide after the pilot</span></li>
-            <li class="klein__stufe" data-klein-stufe><strong>Further sites</strong><span>You do not commit to a rollout beforehand</span></li>
+            <li class="klein__stufe" data-klein-stufe><button class="klein__knopf" type="button" data-pilot-oeffnen><strong>Pilot</strong><span>10 employees</span></button></li>
+            <li class="klein__stufe" data-klein-stufe><button class="klein__knopf" type="button" data-pilot-oeffnen><strong>Further teams</strong><span>You decide after the pilot</span></button></li>
+            <li class="klein__stufe" data-klein-stufe><button class="klein__knopf" type="button" data-pilot-oeffnen><strong>Further sites</strong><span>After a successful introduction, the rollout is available to you</span></button></li>
           </ol>
         </div>
       </div>
@@ -393,6 +394,32 @@
             <p class="formular__fehler" id="f-mitarbeitende-fehler" data-fehler="mitarbeitende" hidden></p>
           </div>
           <div class="formular__feld">
+            <label for="f-stunden">Roughly how many hours a day are your employees on their feet?</label>
+            <input id="f-stunden" name="stunden" type="text" inputmode="numeric" autocomplete="off" required aria-describedby="f-stunden-fehler" data-feld="stunden">
+            <p class="formular__fehler" id="f-stunden-fehler" data-fehler="stunden" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-branche">Industry</label>
+            <select id="f-branche" name="branche" required aria-describedby="f-branche-fehler" data-feld="branche">
+              <option value="">Please choose</option>
+              <option value="hotel-gastronomie">Hotels and restaurants</option>
+              <option value="einzelhandel">Retail</option>
+              <option value="lager-logistik">Warehouse and logistics</option>
+              <option value="produktion-industrie">Production and industry</option>
+              <option value="pflege-gesundheit">Care and health</option>
+              <option value="handwerk-bau">Trades and construction</option>
+              <option value="reinigung-facility">Cleaning and facility</option>
+              <option value="sicherheit-empfang">Security and reception</option>
+              <option value="bildung-betreuung">Education and childcare</option>
+              <option value="koerpernahe-dienste">Personal care services</option>
+              <option value="verkehr-flughafen">Transport and airports</option>
+              <option value="landwirtschaft-gartenbau">Agriculture and horticulture</option>
+              <option value="veranstaltung-messe">Events and trade fairs</option>
+              <option value="andere-taetigkeit">Other work</option>
+            </select>
+            <p class="formular__fehler" id="f-branche-fehler" data-fehler="branche" hidden></p>
+          </div>
+          <div class="formular__feld">
             <label for="f-kontakt">Email or phone</label>
             <input id="f-kontakt" name="kontakt" type="text" autocomplete="email" required aria-describedby="f-kontakt-fehler" data-feld="kontakt">
             <p class="formular__fehler" id="f-kontakt-fehler" data-fehler="kontakt" hidden></p>
@@ -422,15 +449,10 @@
             <label for="f-einwilligung">I agree that my details are processed to handle this request. The exact wording follows with the privacy notice.</label>
             <p class="formular__fehler" id="f-einwilligung-fehler" data-fehler="einwilligung" hidden></p>
           </div>
-          <button class="knopf" type="submit">Prepare request
+          <button class="knopf" type="submit">Send request
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
-          <div class="formular__ergebnis" data-formular-ergebnis hidden tabindex="-1" role="group" aria-label="Draft of the request">
-            <p class="etikett">Draft, the request is not sent yet</p>
-            <pre class="formular__text" data-formular-text></pre>
-            <button class="knopf knopf--dunkel" type="button" data-formular-kopieren>Copy text</button>
-            <p class="formular__status" role="status" data-formular-status></p>
-          </div>
+          <p class="formular__status" role="status" data-formular-status></p>
     </form>
   </div>
 </dialog>

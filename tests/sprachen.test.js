@@ -147,7 +147,7 @@ test("die Zielgruppe heißt überall Teams, deren Personal viele Stunden auf den
   // Die Tätigkeitskacheln nennen die Gastronomie als einen von vielen Bereichen. Studienabgrenzungen und Roderichs Lebenslauf nennen Hotellerie und Gastronomie als Ort, das ist keine Zielgruppe
   for (const rel of PAARE.flatMap((f) => [f, "en/" + f])) {
     // Roderichs Weg nennt die Gastronomie als Ort seiner Arbeit, das ist keine Zielgruppe
-    const h = lies(rel).replace(/<div class="weg"[\s\S]*?<\/div>\s*<div class="weg__steuerung">/, "").replace(/<div class="boden__kacheln"[\s\S]*?<\/ul>/, "").replace(erlaubt, "");
+    const h = lies(rel).replace(/<div class="weg"[\s\S]*?<\/div>\s*<div class="weg__steuerung">/, "").replace(/<div class="boden__kacheln"[\s\S]*?<\/ul>/, "").replace(/<select id="f-branche"[\s\S]*?<\/select>/, "").replace(erlaubt, "");
     assert.doesNotMatch(h, /Hotellerie|Gastronomie|hospitality|food service/, rel);
   }
 });
