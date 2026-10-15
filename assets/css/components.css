@@ -1705,3 +1705,32 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
   .fragenkarten--fuenf .dreh:nth-child(n+4) { grid-column: span 3; }
 }
 @media print { .fragenkarten--fuenf .dreh:nth-child(2) .dreh__hinten p { font-size: 0.95rem; } }
+
+/* ---------- Betriebsrat: Kasten "Steht fest / Noch offen", Etikett am Knoten, Dokumentkacheln ---------- */
+.stand-kasten { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand-5) var(--abstand-6); margin-top: var(--abstand-6); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); }
+.stand-kasten__titel { margin: 0 0 var(--abstand-3); color: var(--farbe-tinte); }
+.stand-kasten .stand__zeile { justify-content: flex-start; gap: var(--abstand-3); padding: var(--abstand-3) 0; font-size: 1.05rem; }
+.stand-kasten .stand__zeile::before { content: ""; flex: none; width: 0.8rem; height: 0.8rem; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-signal); }
+.stand-kasten .stand__zeile--offen::before { border: 2px dashed var(--farbe-gedaempft); background: transparent; }
+.fluss__offen { margin-top: auto; padding: 0.1rem 0.5rem; border: 1px dashed currentColor; }
+.fluss--klick .fluss__knoten[aria-pressed="true"] .fluss__offen { border-style: solid; }
+.dokumente { display: flex; flex-direction: column; gap: var(--abstand-4); margin: 0; padding: 0; list-style: none; }
+.dokument { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--abstand-5); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); }
+.dokument__bild { width: 3.75rem; height: auto; flex: none; }
+.dokument__blatt { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; }
+.dokument__ecke { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; }
+.dokument__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 3; stroke-linecap: round; }
+.dokument__titel { margin: 0; font-family: var(--schrift-kopf); font-weight: 800; font-size: var(--schrift-groesse-h3); line-height: 1; text-transform: uppercase; }
+.dokument__nutzen { margin: var(--abstand-2) 0 0; font-size: 1.1rem; max-width: 60ch; }
+.dokument__knopf { display: inline-flex; align-items: center; gap: var(--abstand-2); }
+@media (max-width: 40rem) {
+  .stand-kasten { grid-template-columns: minmax(0, 1fr); }
+  .dokument { grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-3); padding: var(--abstand-4); }
+  .dokument__bild { width: 2.75rem; }
+  .dokument__titel { font-size: 1.1rem; overflow-wrap: anywhere; }
+  .dokument__knopf { grid-column: 1 / -1; justify-content: center; }
+}
+@media print {
+  .stand-kasten { margin-top: var(--abstand-3); padding: var(--abstand-3); }
+  .dokumente { display: none; }
+}

@@ -35,6 +35,14 @@
     },
     {
       "@type": "Question",
+      "name": "Wer entscheidet über die Teilnahme an einem Einlegesohlen-Programm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Über die Teilnahme an einem Einlegesohlen-Programm kann jede Person selbst entscheiden, wenn das Angebot freiwillig ist. Ob ein Betrieb ein solches Programm anbietet, entscheidet der Arbeitgeber, der es bezahlt. Bei VIANU ist die Teilnahme freiwillig, für jede Person."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Wird die Leistung einzelner Personen ausgewertet?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -136,15 +144,54 @@
 
   <section class="hero rolle einseiter" aria-labelledby="hero-titel">
     <div class="behaelter">
-      <div class="hero__text">
-        <p class="etikett druck-nur">VIANU</p>
-        <p class="etikett rolle__ueber">Wer entscheidet mit?</p>
-        <h1 id="hero-titel">Betriebsrat</h1>
-        <p class="rolle__kern">Freiwillig für jede Person. Die Regeln vorab mit Ihnen geklärt.</p>
-        <p class="rolle__lead">Die Teilnahme ist freiwillig, für jede Person. Wie die Fotos der Fußerfassung verarbeitet werden, steht noch nicht fest. Dazu gibt es erst eine Aussage, wenn das Datenschutzkonzept steht.</p>
-        <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
-          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-        </a>
+      <div class="rolle__raster">
+        <div class="hero__text">
+          <p class="etikett druck-nur">VIANU</p>
+          <p class="etikett rolle__ueber">Wer entscheidet mit?</p>
+          <h1 id="hero-titel">Betriebsrat</h1>
+          <p class="rolle__kern">Freiwillig für jede Person. Die Regeln vorab mit Ihnen geklärt.</p>
+          <p class="rolle__lead">Die Teilnahme ist freiwillig. Was mit den Fotos geschieht, klären wir mit Ihnen, bevor ein Pilot startet.</p>
+          <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+        </div>
+        <figure class="rolle__motiv">
+          <svg class="motiv" viewBox="0 0 400 300" role="img" aria-label="Ein Smartphone mit Fußfoto führt über einen durchgezogenen Pfeil zur Sohle und von der Sohle zum Bericht für die Gruppe. Ein gestrichelter Pfeil vom Smartphone führt zu einem Kasten Verarbeitung: offen." focusable="false">
+            <g class="m-pop m-d0"><rect class="motiv__papier" x="24" y="76" width="78" height="140" rx="12"/><path class="motiv__linie" d="M52 88h22"/></g>
+            <use class="motiv__fuss m-pop m-d1" href="#sohle-form" x="49" y="108" width="28" height="70"/>
+            <path class="motiv__linie m-zeichnen m-d2" pathLength="1" d="M108 146H168M158 138l10 8-10 8"/>
+            <use class="motiv__fuss m-pop m-d4" href="#sohle-form" x="177" y="86" width="46" height="120"/>
+            <path class="motiv__linie m-zeichnen m-d5" pathLength="1" d="M232 146H292M282 138l10 8-10 8"/>
+            <g class="m-pop m-d7"><path class="motiv__papier" d="M302 76h56l24 24v116H302z"/><path class="motiv__linie" d="M358 76v24h24"/></g>
+            <g class="m-auf m-d8"><path class="motiv__linie" d="M318 124h48M318 142h48"/><circle class="motiv__signal" cx="326" cy="178" r="9"/><circle class="motiv__signal" cx="346" cy="178" r="9"/><circle class="motiv__signal" cx="366" cy="178" r="9"/></g>
+            <text class="m-auf m-d1" x="63" y="240" text-anchor="middle">Foto</text>
+            <text class="m-auf m-d3" x="138" y="130" text-anchor="middle">Fertigung</text>
+            <text class="m-auf m-d4" x="200" y="226" text-anchor="middle">Sohle</text>
+            <text class="m-auf m-d8" x="342" y="240" text-anchor="middle">Bericht</text>
+            <g class="m-auf m-d10"><rect class="motiv__strich" x="124" y="14" width="168" height="38" rx="4"/><path class="motiv__strich" d="M63 76V33H116"/><path class="motiv__linie" d="M108 25l10 8-10 8"/><text x="208" y="38" text-anchor="middle">Verarbeitung: offen</text></g>
+          </svg>
+        </figure>
+      </div>
+      <div class="stand-kasten">
+        <div class="stand-kasten__spalte">
+          <p class="etikett stand-kasten__titel" id="kasten-fest">Steht fest</p>
+          <ul class="stand" aria-labelledby="kasten-fest">
+            <li class="stand__zeile">Teilnahme ist freiwillig</li>
+            <li class="stand__zeile">Fotos mit dem eigenen Smartphone in einer Pause</li>
+            <li class="stand__zeile">Der Arbeitgeber bezahlt, für Mitarbeitende entstehen keine Kosten</li>
+            <li class="stand__zeile">Ergebnisbericht anonymisiert auf Gruppenebene</li>
+          </ul>
+        </div>
+        <div class="stand-kasten__spalte">
+          <p class="etikett stand-kasten__titel" id="kasten-offen">Noch offen</p>
+          <ul class="stand" aria-labelledby="kasten-offen">
+            <li class="stand__zeile stand__zeile--offen">Wo die Fotos verarbeitet werden</li>
+            <li class="stand__zeile stand__zeile--offen">Wie lange sie gespeichert bleiben</li>
+            <li class="stand__zeile stand__zeile--offen">Wer sie sehen kann</li>
+            <li class="stand__zeile stand__zeile--offen">Was der Betrieb über einzelne Teilnehmende erfährt</li>
+            <li class="stand__zeile stand__zeile--offen">Mindestgröße der Gruppe</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -153,22 +200,22 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="datenfluss-titel">Daten und Datenschutz</h2>
-        <p>So läuft die Fußerfassung in einfachen Worten. Was feststeht, ist durchgezogen. Was noch offen ist, ist gestrichelt und kommt erst mit dem Datenschutzkonzept.</p>
+        <p>Was feststeht, ist durchgezogen. Was noch offen ist, ist gestrichelt.</p>
       </div>
       <div class="fluss fluss--klick" data-fluss>
         <ol class="fluss__liste">
           <li><button class="fluss__knoten" type="button" aria-pressed="true" data-fluss-knoten="1"><span class="fluss__nr" aria-hidden="true">1</span><span class="etikett">Mitarbeitende</span></button></li>
-          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="2" data-platzhalter><span class="fluss__nr" aria-hidden="true">2</span><span class="etikett">Offen</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="2"><span class="fluss__nr" aria-hidden="true">2</span><span class="etikett">Verarbeitung</span><span class="etikett fluss__offen">Offen</span></button></li>
           <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="3"><span class="fluss__nr" aria-hidden="true">3</span><span class="etikett">VIANU</span></button></li>
           <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="4"><span class="fluss__nr" aria-hidden="true">4</span><span class="etikett">Ihr Betrieb</span></button></li>
-          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="5" data-platzhalter><span class="fluss__nr" aria-hidden="true">5</span><span class="etikett">Offen</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="5"><span class="fluss__nr" aria-hidden="true">5</span><span class="etikett">Einsicht des Betriebs</span><span class="etikett fluss__offen">Offen</span></button></li>
         </ol>
         <div class="fluss__details" aria-live="polite">
           <div class="fluss__feld" data-fluss-feld="1"><p>Machen die Fotos ihrer Füße mit dem eigenen Smartphone, in einer Pause. Die Teilnahme ist freiwillig.</p></div>
-          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="2"><p>Wo die Fotos verarbeitet werden, wer sie sehen kann und wie lange sie gespeichert bleiben.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="2"><p>Wo die Fotos verarbeitet werden, wie lange sie gespeichert bleiben und wer sie sehen kann, steht noch nicht fest. Dazu gibt es erst eine Aussage, wenn das Datenschutzkonzept steht.</p></div>
           <div class="fluss__feld" data-fluss-feld="3"><p>Fertigt die individuell angefertigte Einlegesohle.</p></div>
           <div class="fluss__feld" data-fluss-feld="4"><p>Bekommt die Sohlen für die Mitarbeitenden und einen anonymisierten Ergebnisbericht auf Gruppenebene.</p></div>
-          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="5"><p>Was Ihr Betrieb über die Teilnahme einzelner Personen erfährt. Dazu gibt es noch keine Aussage.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="5"><p>Was Ihr Betrieb über einzelne Teilnehmende erfährt, steht noch nicht fest. Das klären wir mit Ihnen, bevor ein Pilot startet.</p></div>
         </div>
       </div>
     </div>
@@ -177,112 +224,123 @@
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
+        <h2 id="termin-titel">Was Sie in der Betriebsratssitzung klären können</h2>
       </div>
       <div class="fragenkarten fragenkarten--reihe">
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Die Frage der Rolle</strong></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Ihre Frage</strong></div>
             <div class="dreh__hinten"><p>Was passiert mit den Daten unserer Kolleginnen und Kollegen?</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Kernbotschaft</strong></div>
-            <div class="dreh__hinten"><p>„Freiwillig für jede Person. Die Regeln vorab mit Ihnen geklärt.“</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Was feststeht</strong></div>
+            <div class="dreh__hinten"><p>Freiwillig für jede Person. Fotos mit dem eigenen Smartphone in einer Pause. Bericht anonymisiert auf Gruppenebene.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">So sieht die Seite es</strong></div>
-            <div class="dreh__hinten"><p>Der Datenfluss in einfachen Worten: was feststeht und was noch offen ist. Wer was sieht und was wann gelöscht wird, kommt mit dem Datenschutzkonzept. Die Vorlage für die Betriebsvereinbarung ist in Arbeit.</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">Was noch offen ist</strong></div>
+            <div class="dreh__hinten"><p>Verarbeitungsort, Speicherdauer, Einsicht, Mindestgröße der Gruppe. Dazu gibt es erst eine Aussage, wenn das Datenschutzkonzept steht.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">Der Pilot gilt als Erfolg, wenn</strong></div>
-            <div class="dreh__hinten"><p>die Teilnahme freiwillig und frei von Druck ist, keine Beschwerde beim Betriebsrat eingeht, der Arbeitgeber nur sieht, was die Vereinbarung erlaubt, und die Betriebsvereinbarung vor dem Start unterschrieben ist.</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">Was Sie von uns erhalten</strong></div>
+            <div class="dreh__hinten"><p>Entwurf der Betriebsvereinbarung, Datenschutzkonzept, Auftragsverarbeitungsvertrag zum Download.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Das braucht es vor der Freigabe</strong></div>
-            <div class="dreh__hinten"><p>Vorlage für die Betriebsvereinbarung, Datenschutzkonzept, Auftragsverarbeitungsvertrag, was gespeichert wird und wie lange, wer es sehen kann und eine klare Linie zur Auswertung einzelner Personen.</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Wer ansprechbar ist</strong></div>
+            <div class="dreh__hinten"><p>Roderich antwortet innerhalb von 5 Werktagen.</p></div>
           </div>
         </div>
       </div>
-      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
+      <p class="einseiter__fuss druck-nur">Nächster Schritt: Betriebsvereinbarung, Datenschutzkonzept und Auftragsverarbeitungsvertrag vor der Freigabe klären. Ansprechpartner: Roderich. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
     </div>
   </section>
 
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+  <section class="abschnitt" id="unterlagen" aria-labelledby="unterlagen-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
-        <p>Für den Betriebsrat zählen vor allem Tragequote und Wertschätzung. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst.</p>
+        <h2 id="unterlagen-titel">Was Sie von uns erhalten</h2>
       </div>
-      <ul class="messwerte messwerte--flip messwerte--rolle">
-        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Tragequote</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p></div>
-          </div>
+      <ul class="dokumente">
+        <li class="dokument">
+          <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
+          <div class="dokument__text"><h3 class="dokument__titel">Vorlage für die Betriebsvereinbarung</h3><p class="dokument__nutzen">Ausgangstext für die Verhandlung der Betriebsvereinbarung.</p></div>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/vorlage-betriebsvereinbarung.txt" download>Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
-        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Wertschätzung</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p></div>
-          </div>
+        <li class="dokument">
+          <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
+          <div class="dokument__text"><h3 class="dokument__titel">Datenschutzkonzept</h3><p class="dokument__nutzen">Zeigt, welche Daten bei der Fußerfassung entstehen.</p></div>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/datenschutzkonzept-entwurf.txt" download>Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
-        <li class="messwert messwert--dreh" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Spürbare Verbesserung</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p></div>
-          </div>
-        </li>
-        <li class="messwert messwert--dreh" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Weiterempfehlung</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p></div>
-          </div>
+        <li class="dokument">
+          <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
+          <div class="dokument__text"><h3 class="dokument__titel">Auftragsverarbeitungsvertrag</h3><p class="dokument__nutzen">Vertragsvorlage zur Verarbeitung im Auftrag des Betriebs.</p></div>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/vorlage-auftragsverarbeitungsvertrag.txt" download>Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="belege-titel">Belege</h2>
-        <p>Für den Betriebsrat zählen vor allem Unterlagen. Sie sind in Arbeit.</p>
-      </div>
-      <div class="studienkarten">
-        <div class="dreh studienkarte studienkarte--breit beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Platzhalter für die Unterlagen zur Betriebsvereinbarung">
-          <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Platzhalter</span><ul class="unterlagen"><li class="unterlagen__eintrag"><span>Vorlage für die Betriebsvereinbarung</span><span class="etikett unterlagen__stand">In Arbeit</span></li><li class="unterlagen__eintrag"><span>Datenschutzkonzept</span><span class="etikett unterlagen__stand">In Arbeit</span></li><li class="unterlagen__eintrag"><span>Auftragsverarbeitungsvertrag</span><span class="etikett unterlagen__stand">In Arbeit</span></li></ul></div>
-            <div class="dreh__hinten"><p>Vorlage für die Betriebsvereinbarung, Datenschutzkonzept und Auftragsverarbeitungsvertrag. Alle drei sind in Arbeit und stehen hier, sobald sie fertig sind.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
     <div class="behaelter">
-      <div class="zitatkarte">
-        <h2 id="brief-titel" class="etikett brief__an">Roderich an den Betriebsrat</h2>
-        <div class="zitatkarte__raster">
-          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Platzhalter für ein Porträt">
-            <span class="etikett platzhalter__etikett">Platzhalter</span>
-            <p>Bild: Porträt von Roderich, Schulterbild, ruhiger Hintergrund aus der Küche. Quadratisch.</p>
-          </div>
-          <div class="zitatkarte__text">
-          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>Ich verstehe den Einwand. Deshalb gilt zuerst: Die Teilnahme ist freiwillig, für jede einzelne Person. Der Ergebnisbericht an den Betrieb ist anonymisiert und zeigt die Gruppe, keine einzelnen Personen.</p></div>
-          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>Wie die Fotos der Fußerfassung verarbeitet werden, wie lange sie gespeichert bleiben und wer sie sieht, kläre ich mit Ihnen, bevor ein Pilot startet. Dazu sage ich erst etwas, wenn es verbindlich geregelt ist. Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden und will, dass Ihre Kolleginnen und Kollegen nach der Schicht noch Kraft für ihr Leben haben.</p></div>
-            <p class="brief__unterschrift">Roderich</p>
-            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
+      <div class="chat" data-chat>
+        <div class="chat__buehne">
+          <div class="chat__fenster">
+            <div class="chat__kopf">
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <div><h2 id="brief-titel" class="chat__titel">Roderich an den Betriebsrat</h2><span class="etikett chat__unter">Antwort innerhalb von 5 Werktagen</span></div>
+            </div>
+            <ol class="chat__verlauf" aria-live="polite">
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Was passiert mit den Fotos der Füße unserer Kolleginnen und Kollegen?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Die Teilnahme ist freiwillig, für jede Person.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Wer sieht die Fotos, und wie lange bleiben sie gespeichert?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Das steht noch nicht fest. Ich sage dazu erst etwas, wenn es verbindlich geregelt ist.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Sieht der Arbeitgeber einzelne Personen?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Der Bericht zeigt die Gruppe, anonymisiert. Was der Betrieb über Einzelne erfährt, steht noch nicht fest.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Den Entwurf der Betriebsvereinbarung können Sie herunterladen.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+            </li>
+            </ol>
+            <div class="chat__fuss">
+              <span class="chat__feld" aria-hidden="true">Nachricht an Roderich</span>
+              <button class="knopf knopf--dunkel chat__weiter" type="button" data-chat-weiter>Weiter <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+              <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="chat__unterschrift">
+        <p class="brief__unterschrift">Roderich</p>
+        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
       </div>
     </div>
   </section>
@@ -297,6 +355,10 @@
           <details class="frage">
             <summary>Ist die Teilnahme an einem Einlegesohlen-Programm freiwillig?</summary>
             <div class="frage__antwort"><p>Die Teilnahme an einem Einlegesohlen-Programm kann freiwillig sein. Bei VIANU ist sie freiwillig, jede Person entscheidet selbst.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Wer entscheidet über die Teilnahme an einem Einlegesohlen-Programm?</summary>
+            <div class="frage__antwort"><p>Über die Teilnahme an einem Einlegesohlen-Programm kann jede Person selbst entscheiden, wenn das Angebot freiwillig ist. Ob ein Betrieb ein solches Programm anbietet, entscheidet der Arbeitgeber, der es bezahlt. Bei VIANU ist die Teilnahme freiwillig, für jede Person.</p></div>
           </details>
           <details class="frage">
             <summary>Was passiert mit den Daten der Mitarbeitenden bei einem Fußscan für Einlegesohlen?</summary>

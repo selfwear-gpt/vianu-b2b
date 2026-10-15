@@ -35,6 +35,14 @@
     },
     {
       "@type": "Question",
+      "name": "Who decides on taking part in an insole program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each person can decide for themselves whether to take part in an insole program if the offer is voluntary. Whether a company offers such a program is decided by the employer who pays for it. At VIANU, taking part is voluntary, for every person."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is the performance of individual employees evaluated?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -136,15 +144,54 @@
 
   <section class="hero rolle einseiter" aria-labelledby="hero-titel">
     <div class="behaelter">
-      <div class="hero__text">
-        <p class="etikett druck-nur">VIANU</p>
-        <p class="etikett rolle__ueber">Who decides with you?</p>
-        <h1 id="hero-titel">Works council</h1>
-        <p class="rolle__kern">Voluntary for every person. The rules settled with you in advance.</p>
-        <p class="rolle__lead">Taking part is voluntary, for every person. How the photos of the foot capture are processed is not settled yet. There will be a statement on this once the data protection concept is in place.</p>
-        <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch
-          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-        </a>
+      <div class="rolle__raster">
+        <div class="hero__text">
+          <p class="etikett druck-nur">VIANU</p>
+          <p class="etikett rolle__ueber">Who decides with you?</p>
+          <h1 id="hero-titel">Works council</h1>
+          <p class="rolle__kern">Voluntary for every person. The rules settled with you in advance.</p>
+          <p class="rolle__lead">Taking part is voluntary. What happens to the photos, we settle with you before a pilot starts.</p>
+          <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+        </div>
+        <figure class="rolle__motiv">
+          <svg class="motiv" viewBox="0 0 400 300" role="img" aria-label="A smartphone with a foot photo leads along a solid arrow to the insole, and from the insole to the report for the group. A dashed arrow from the smartphone leads to a box labeled processing: open." focusable="false">
+            <g class="m-pop m-d0"><rect class="motiv__papier" x="24" y="76" width="78" height="140" rx="12"/><path class="motiv__linie" d="M52 88h22"/></g>
+            <use class="motiv__fuss m-pop m-d1" href="#sohle-form" x="49" y="108" width="28" height="70"/>
+            <path class="motiv__linie m-zeichnen m-d2" pathLength="1" d="M108 146H168M158 138l10 8-10 8"/>
+            <use class="motiv__fuss m-pop m-d4" href="#sohle-form" x="177" y="86" width="46" height="120"/>
+            <path class="motiv__linie m-zeichnen m-d5" pathLength="1" d="M232 146H292M282 138l10 8-10 8"/>
+            <g class="m-pop m-d7"><path class="motiv__papier" d="M302 76h56l24 24v116H302z"/><path class="motiv__linie" d="M358 76v24h24"/></g>
+            <g class="m-auf m-d8"><path class="motiv__linie" d="M318 124h48M318 142h48"/><circle class="motiv__signal" cx="326" cy="178" r="9"/><circle class="motiv__signal" cx="346" cy="178" r="9"/><circle class="motiv__signal" cx="366" cy="178" r="9"/></g>
+            <text class="m-auf m-d1" x="63" y="240" text-anchor="middle">Photo</text>
+            <text class="m-auf m-d3" x="138" y="130" text-anchor="middle">Making</text>
+            <text class="m-auf m-d4" x="200" y="226" text-anchor="middle">Insole</text>
+            <text class="m-auf m-d8" x="342" y="240" text-anchor="middle">Report</text>
+            <g class="m-auf m-d10"><rect class="motiv__strich" x="124" y="14" width="168" height="38" rx="4"/><path class="motiv__strich" d="M63 76V33H116"/><path class="motiv__linie" d="M108 25l10 8-10 8"/><text x="208" y="38" text-anchor="middle">Processing: open</text></g>
+          </svg>
+        </figure>
+      </div>
+      <div class="stand-kasten">
+        <div class="stand-kasten__spalte">
+          <p class="etikett stand-kasten__titel" id="kasten-fest">Settled</p>
+          <ul class="stand" aria-labelledby="kasten-fest">
+            <li class="stand__zeile">Taking part is voluntary</li>
+            <li class="stand__zeile">Photos with their own smartphone during a break</li>
+            <li class="stand__zeile">The employer pays, employees bear no cost</li>
+            <li class="stand__zeile">Results report anonymized at group level</li>
+          </ul>
+        </div>
+        <div class="stand-kasten__spalte">
+          <p class="etikett stand-kasten__titel" id="kasten-offen">Still open</p>
+          <ul class="stand" aria-labelledby="kasten-offen">
+            <li class="stand__zeile stand__zeile--offen">Where the photos are processed</li>
+            <li class="stand__zeile stand__zeile--offen">How long they are stored</li>
+            <li class="stand__zeile stand__zeile--offen">Who can see them</li>
+            <li class="stand__zeile stand__zeile--offen">What the company learns about individual participants</li>
+            <li class="stand__zeile stand__zeile--offen">Minimum size of the group</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -153,22 +200,22 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="datenfluss-titel">Data and data protection</h2>
-        <p>This is how the foot capture works, in plain words. What is settled is shown with a solid line. What is still open is dashed and will only come with the data protection concept.</p>
+        <p>What is settled is solid. What is still open is dashed.</p>
       </div>
       <div class="fluss fluss--klick" data-fluss>
         <ol class="fluss__liste">
           <li><button class="fluss__knoten" type="button" aria-pressed="true" data-fluss-knoten="1"><span class="fluss__nr" aria-hidden="true">1</span><span class="etikett">Employees</span></button></li>
-          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="2" data-platzhalter><span class="fluss__nr" aria-hidden="true">2</span><span class="etikett">Open</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="2"><span class="fluss__nr" aria-hidden="true">2</span><span class="etikett">Processing</span><span class="etikett fluss__offen">Open</span></button></li>
           <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="3"><span class="fluss__nr" aria-hidden="true">3</span><span class="etikett">VIANU</span></button></li>
           <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="4"><span class="fluss__nr" aria-hidden="true">4</span><span class="etikett">Your company</span></button></li>
-          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="5" data-platzhalter><span class="fluss__nr" aria-hidden="true">5</span><span class="etikett">Open</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="5"><span class="fluss__nr" aria-hidden="true">5</span><span class="etikett">Company access</span><span class="etikett fluss__offen">Open</span></button></li>
         </ol>
         <div class="fluss__details" aria-live="polite">
           <div class="fluss__feld" data-fluss-feld="1"><p>Take the photos of their feet with their own smartphone, during a break. Taking part is voluntary.</p></div>
-          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="2"><p>Where the photos are processed, who can see them and how long they are stored.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="2"><p>Where the photos are processed, how long they are stored and who can see them is not settled yet. There will be a statement once the data protection concept is in place.</p></div>
           <div class="fluss__feld" data-fluss-feld="3"><p>Makes the custom-made insole.</p></div>
           <div class="fluss__feld" data-fluss-feld="4"><p>Receives the insoles for its employees and an anonymized results report at group level.</p></div>
-          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="5"><p>What your company learns about the participation of individual people. There is no statement on this yet.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="5"><p>What your company learns about individual participants is not settled yet. We settle it with you before a pilot starts.</p></div>
         </div>
       </div>
     </div>
@@ -177,112 +224,123 @@
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="termin-titel">What you need to be able to represent in the meeting</h2>
+        <h2 id="termin-titel">What you can clarify in the works council meeting</h2>
       </div>
       <div class="fragenkarten fragenkarten--reihe">
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">The role's question</strong></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Your question</strong></div>
             <div class="dreh__hinten"><p>What happens to the data of our colleagues?</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Core message</strong></div>
-            <div class="dreh__hinten"><p>“Voluntary for every person. The rules settled with you in advance.”</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">What is settled</strong></div>
+            <div class="dreh__hinten"><p>Voluntary for every person. Photos with their own smartphone during a break. Results report anonymized at group level.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">How this page sees it</strong></div>
-            <div class="dreh__hinten"><p>The data flow in plain words: what is settled and what is still open. Who sees what and what is deleted when will come with the data protection concept. The template for the works agreement is in progress.</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">What is still open</strong></div>
+            <div class="dreh__hinten"><p>Processing location, storage period, access, minimum size of the group. There will be a statement on these only once the data protection concept is in place.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">The pilot counts as a success if</strong></div>
-            <div class="dreh__hinten"><p>taking part is voluntary and free of pressure, no complaint reaches the works council, the employer sees only what the agreement allows, and the works agreement is signed before the start.</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">What you receive from us</strong></div>
+            <div class="dreh__hinten"><p>Draft works agreement, data protection concept, data processing agreement to download.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">What is needed before approval</strong></div>
-            <div class="dreh__hinten"><p>Template for the works agreement, data protection concept, data processing agreement, what is stored and for how long, who can see it, and a clear line on the evaluation of individual people.</p></div>
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Who you can contact</strong></div>
+            <div class="dreh__hinten"><p>Roderich replies within 5 working days.</p></div>
           </div>
         </div>
       </div>
-      <p class="einseiter__fuss druck-nur">Contact: Roderich. Get in touch on the VIANU B2B page.</p>
+      <p class="einseiter__fuss druck-nur">Next step: Settle the works agreement, the data protection concept and the data processing agreement before approval. Contact: Roderich. Get in touch on the VIANU B2B page.</p>
     </div>
   </section>
 
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+  <section class="abschnitt" id="unterlagen" aria-labelledby="unterlagen-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>For the works council, wear rate and appreciation matter most. At the end of the pilot, the participants give all four answers themselves.</p>
+        <h2 id="unterlagen-titel">What you receive from us</h2>
       </div>
-      <ul class="messwerte messwerte--flip messwerte--rolle">
-        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Wear rate</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">“Are you still wearing the insoles?”</p></div>
-          </div>
+      <ul class="dokumente">
+        <li class="dokument">
+          <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
+          <div class="dokument__text"><h3 class="dokument__titel">Template for the works agreement</h3><p class="dokument__nutzen">A starting text for negotiating the works agreement.</p></div>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../../assets/downloads/works-agreement-template.txt" download>Download (text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
-        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Appreciation</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">“Do you feel valued by this offer?”</p></div>
-          </div>
+        <li class="dokument">
+          <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
+          <div class="dokument__text"><h3 class="dokument__titel">Data protection concept</h3><p class="dokument__nutzen">Shows which data is created during the foot capture.</p></div>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../../assets/downloads/data-protection-concept-draft.txt" download>Download (text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
-        <li class="messwert messwert--dreh" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Noticeable improvement</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">“Do you notice a difference compared to before?”</p></div>
-          </div>
-        </li>
-        <li class="messwert messwert--dreh" tabindex="0">
-          <div class="messwert__innen">
-            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Recommendation</h3></div>
-            <div class="messwert__hinten"><p class="messwert__frage">“Would you recommend them?”</p></div>
-          </div>
+        <li class="dokument">
+          <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
+          <div class="dokument__text"><h3 class="dokument__titel">Data processing agreement</h3><p class="dokument__nutzen">A contract template for data processing on behalf of the company.</p></div>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../../assets/downloads/data-processing-agreement-template.txt" download>Download (text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="belege-titel">Evidence</h2>
-        <p>For the works council, documents matter most. They are in progress.</p>
-      </div>
-      <div class="studienkarten">
-        <div class="dreh studienkarte studienkarte--breit beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Placeholder for the documents on the works agreement">
-          <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Placeholder</span><ul class="unterlagen"><li class="unterlagen__eintrag"><span>Template for the works agreement</span><span class="etikett unterlagen__stand">In progress</span></li><li class="unterlagen__eintrag"><span>Privacy concept</span><span class="etikett unterlagen__stand">In progress</span></li><li class="unterlagen__eintrag"><span>Data processing agreement</span><span class="etikett unterlagen__stand">In progress</span></li></ul></div>
-            <div class="dreh__hinten"><p>Template for the works agreement, data protection concept and data processing agreement. All three are in progress and will appear here once they are finished.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
     <div class="behaelter">
-      <div class="zitatkarte">
-        <h2 id="brief-titel" class="etikett brief__an">Roderich to the works council</h2>
-        <div class="zitatkarte__raster">
-          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Placeholder for a portrait">
-            <span class="etikett platzhalter__etikett">Placeholder</span>
-            <p>Image: portrait of Roderich, head and shoulders, calm background from the kitchen. Square.</p>
-          </div>
-          <div class="zitatkarte__text">
-          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>I understand the objection. So first of all: taking part is voluntary, for every single person. The results report to the company is anonymized and shows results for the group as a whole.</p></div>
-          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>How the photos of the foot capture are processed, how long they are stored and who sees them, I will settle with you before a pilot starts. I will say something about this only once it is settled in a binding way. I myself stood on hard floors 10 to 12 hours a day, and I want your colleagues to have energy left for their lives after the shift.</p></div>
-            <p class="brief__unterschrift">Roderich</p>
-            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
+      <div class="chat" data-chat>
+        <div class="chat__buehne">
+          <div class="chat__fenster">
+            <div class="chat__kopf">
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <div><h2 id="brief-titel" class="chat__titel">Roderich to the works council</h2><span class="etikett chat__unter">Reply within 5 working days</span></div>
+            </div>
+            <ol class="chat__verlauf" aria-live="polite">
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">What happens to the photos of our colleagues' feet?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Taking part is voluntary, for every person.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Who sees the photos, and how long are they stored?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">That is not settled yet. I will only say more once it is settled in a binding way.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Does the employer see individual people?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">The report shows the group, anonymized. What the company learns about individuals is not settled yet.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">You can download the draft works agreement.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">I have stood on hard floors for 10 to 12 hours a day myself.</p>
+              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
+            </li>
+            </ol>
+            <div class="chat__fuss">
+              <span class="chat__feld" aria-hidden="true">Message to Roderich</span>
+              <button class="knopf knopf--dunkel chat__weiter" type="button" data-chat-weiter>Next <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+              <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="chat__unterschrift">
+        <p class="brief__unterschrift">Roderich</p>
+        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
       </div>
     </div>
   </section>
@@ -297,6 +355,10 @@
           <details class="frage">
             <summary>Is taking part in an insole program voluntary?</summary>
             <div class="frage__antwort"><p>Taking part in an insole program can be voluntary. At VIANU it is voluntary, and each person decides for themselves.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Who decides on taking part in an insole program?</summary>
+            <div class="frage__antwort"><p>Each person can decide for themselves whether to take part in an insole program if the offer is voluntary. Whether a company offers such a program is decided by the employer who pays for it. At VIANU, taking part is voluntary, for every person.</p></div>
           </details>
           <details class="frage">
             <summary>What happens to employee data during a foot scan for insoles?</summary>
