@@ -45,7 +45,7 @@ Status: gebaut
 ### Programmblock (Reiter)
 Status: gebaut
 - Heißt "Was Sie bekommen", Einleitung nennt die Reihenfolge (Freigabe im Haus, Pilot mit 10 Mitarbeitenden, Bericht am Ende). Drei große Reiter (Vor dem Start, Im Piloten, Danach) mit Nummer, Symbol und Titel, darunter eine dunkle Bühne mit dem Inhalt des gewählten Reiters:
-  - **Freigabepaket** ("Die Unterlagen, mit denen Sie intern freigeben"): drei Unterlagen mit Nutzen, Stand "Entwurf" und Download als Textdatei (`assets/downloads/`: Vorlage Betriebsvereinbarung, Datenschutzkonzept, Auftragsverarbeitungsvertrag). Hinweis, dass sie nicht rechtlich geprüft sind.
+  - **Freigabepaket** ("Die Unterlagen, mit denen Sie intern freigeben"): drei Unterlagen mit Nutzen, Stand "Entwurf" und Download als Textdatei (`assets/downloads/`: Vorlage Betriebsvereinbarung, Datenschutzkonzept, Auftragsverarbeitungsvertrag). Kein Einleitungs- oder Prüfhinweis über der Liste (Entscheidung des Nutzers am 15.10.2026). Der Stand "Entwurf" an jeder Unterlage bleibt.
   - **Durchführung** ("Was im Betrieb passiert"): drei Bahnen (Ihr Betrieb, Ihr Team, VIANU), Platzhalter für Aufwand und Zeitraum, Download "Ablauf und Aufgaben".
   - **Ergebnisbericht** ("Am Ende sehen Sie vier Antworten Ihres Teams"): die vier umdrehbaren Messwert-Kacheln, Hinweis auf Anonymisierung und Selbstauskunft, Download "Muster des Berichts" (ohne Werte).
   - Unter der Bühne stehen Preis und Antwortfrist (1.200 Euro zuzüglich Umsatzsteuer, Antwort innerhalb von 5 Werktagen) und der Knopf "Kontakt aufnehmen". Die vier Merkmal-Chips entfallen.
