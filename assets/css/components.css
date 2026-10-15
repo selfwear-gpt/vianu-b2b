@@ -1566,7 +1566,9 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 
 /* ---------- Chat-Brief ---------- */
 .chat { --schritte: 8; --chat-hoehe: min(38rem, calc(100svh - var(--menue-hoehe) - var(--abstand-6))); position: relative; }
-.chat--aktiv { height: calc(var(--chat-hoehe) + var(--schritte) * 26svh); }
+.chat--aktiv { height: calc(var(--chat-hoehe) + var(--schritte) * 14rem); }
+.chat--aktiv.chat--ohnescroll { height: auto; }
+.chat--aktiv.chat--ohnescroll .chat__buehne { position: static; height: var(--chat-hoehe); }
 .chat__buehne { max-width: 44rem; margin-inline: auto; }
 .chat--aktiv .chat__buehne { position: sticky; top: calc(var(--menue-hoehe) + var(--abstand-3)); height: var(--chat-hoehe); }
 .chat__fenster { display: flex; flex-direction: column; height: 100%; background: var(--farbe-tinte); color: var(--farbe-papier); border: var(--kante) solid var(--farbe-tinte); }

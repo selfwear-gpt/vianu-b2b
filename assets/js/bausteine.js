@@ -102,7 +102,30 @@
       z = Math.min(z, n);
       if (z > ziel) { ziel = z; if (!laeuft) zeigeNaechste(); }
     }
+    // Läuft die Seite in einem Rahmen ohne eigenes Scrollen (zum Beispiel einer Vorschau, die sich auf die volle Höhe streckt),
+    // gibt es kein Scroll-Signal. Dann starten die Nachrichten automatisch, sobald der Chat im Bild ist.
+    var ohneScroll = false, beobachter = null;
+    function scrollt() {
+      var d = document.documentElement;
+      return d.scrollHeight > (window.innerHeight || d.clientHeight) + 40;
+    }
+    function beobachte() {
+      if (beobachter) return;
+      if (!("IntersectionObserver" in window)) { setzeZiel(1); return; }
+      beobachter = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (e) {
+          if (e.isIntersecting) { setzeZiel(n); beobachter.disconnect(); }
+        });
+      }, { threshold: 0.6 });
+      beobachter.observe(buehne);
+    }
     function beiScroll() {
+      if (!scrollt()) {
+        if (!ohneScroll) { ohneScroll = true; wurzel.classList.add("chat--ohnescroll"); }
+        beobachte();
+        return;
+      }
+      if (ohneScroll) { ohneScroll = false; wurzel.classList.remove("chat--ohnescroll"); }
       var r = wurzel.getBoundingClientRect();
       var vh = window.innerHeight || document.documentElement.clientHeight;
       if (r.top > vh * 0.55) return;
@@ -113,11 +136,18 @@
       setzeZiel(1 + Math.floor(p * (n - 1) + 0.001));
     }
     var wartet = false;
-    window.addEventListener("scroll", function () {
+    function planeScroll() {
       if (wartet) return;
       wartet = true;
       window.requestAnimationFrame(function () { wartet = false; beiScroll(); });
-    }, { passive: true });
+    }
+    window.addEventListener("scroll", planeScroll, { passive: true });
+    window.addEventListener("resize", planeScroll);
+    window.addEventListener("load", planeScroll);
+    buehne.addEventListener("click", function (ev) {
+      if (ev.target.closest && ev.target.closest("a, button")) return;
+      setzeZiel(Math.max(ziel, 0) + 1);
+    });
     if (weiter) weiter.addEventListener("click", function () { setzeZiel(Math.max(ziel, 0) + 1); });
     beiScroll();
   }
