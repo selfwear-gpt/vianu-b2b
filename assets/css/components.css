@@ -1749,3 +1749,14 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 @media print {
   .rubriken--breit .rubrik { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); }
 }
+
+/* ---------- Ergebnisbild allein in einer Zeile: Bild links, Aussage rechts ---------- */
+@media (min-width: 56rem) {
+  .ergebnisse > .ergebnis:only-child { max-width: none; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); column-gap: var(--abstand-6); align-content: start; }
+  .ergebnisse > .ergebnis:only-child .ergebnis__quelle { grid-column: 1; grid-row: 1; }
+  .ergebnisse > .ergebnis:only-child .ergebnis__titel { grid-column: 1; grid-row: 2; }
+  .ergebnisse > .ergebnis:only-child .ergebnis__bild { grid-column: 1; grid-row: 3 / span 3; align-self: start; }
+  .ergebnisse > .ergebnis:only-child .ergebnis__satz { grid-column: 2; grid-row: 2 / span 2; align-self: end; font-size: 1.3rem; max-width: 30ch; }
+  .ergebnisse > .ergebnis:only-child .ergebnis__fuss { grid-column: 2; grid-row: 4; align-self: end; }
+  .ergebnisse > .ergebnis:only-child .beleg__zitat { grid-column: 2; grid-row: 5; }
+}
