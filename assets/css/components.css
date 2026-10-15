@@ -1495,7 +1495,7 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 .unterlagen__nutzen { display: block; margin-top: var(--abstand-1); font-size: 0.9rem; font-weight: 400; max-width: 46ch; }
 .unterlagen__rechts { display: flex; flex-direction: column; align-items: flex-end; gap: var(--abstand-1); flex: none; }
 .reise__feld .unterlagen__stand { border-style: solid; }
-.reise__feld .schritte3__offen { padding: var(--abstand-3); border: 1px dashed var(--farbe-papier); max-width: 44ch; }
+.reise__feld .schritte3__offen { margin: var(--abstand-4) 0 0; max-width: 60ch; }
 .reise__download { margin: 0; }
 .reise__feld .messwerte--flip { margin: 0; }
 .reise__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-3) var(--abstand-5); }
