@@ -527,26 +527,24 @@
   <section class="abschnitt" id="preis" aria-labelledby="preis-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="preis-titel">Price</h2></div>
+      <div class="rechner" data-rechner>
+        <label class="etikett" for="rechner-schichten">How many shifts does an employee work per year?</label>
+        <div class="rechner__regler">
+          <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="210" data-rechner-regler>
+          <output class="rechner__zahl" for="rechner-schichten" data-rechner-zahl>210</output>
+        </div>
+        <p class="rechner__ergebnis"><span class="rechner__wert" data-rechner-ergebnis aria-live="polite" aria-atomic="true">EUR 0.57</span><span class="rechner__einheit">per shift per person<span class="info"><button class="info__knopf" type="button" aria-describedby="rechner-info" aria-label="Show how this is calculated">i</button><span class="info__text" id="rechner-info" role="tooltip">Calculated: <span data-rechner-text>EUR 120 per pair divided by 210 shifts per person and year</span>, plus VAT</span></span></span></p>
+        <p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p>
+      </div>
       <div class="preis">
         <div class="preis__links">
-          <p class="etikett preis__kopf">One custom-made insole</p>
-          <p class="preisschild" aria-label="EUR 120 per pair, plus VAT"><svg class="preisschild__form" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><path d="M18 90L74 14H296a12 12 0 0 1 12 12v128a12 12 0 0 1-12 12H74z"/><circle cx="66" cy="90" r="10"/></svg><span class="preisschild__zahl">&euro;120</span></p>
-          <p class="preis__je">per pair, plus VAT</p>
-          <p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p>
+          <p class="preisschild" aria-label="EUR 120 per custom-made pair (plus VAT)"><svg class="preisschild__form" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><path d="M18 90L74 14H296a12 12 0 0 1 12 12v128a12 12 0 0 1-12 12H74z"/><circle cx="66" cy="90" r="10"/></svg><span class="preisschild__zahl">&euro;120</span></p>
+          <p class="preis__je">per custom-made pair (plus VAT)</p>
         </div>
         <p class="preis__pilot-satz">A pilot with, for example, 10 employees costs: 10 pairs = EUR 1,200 plus VAT.</p>
-      </div>
-      <div class="preis__werkzeuge">
-        <div class="rechner" data-rechner>
-          <label class="etikett" for="rechner-schichten">How many shifts does an employee work per year?</label>
-          <div class="rechner__regler">
-            <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="220" data-rechner-regler>
-            <output class="rechner__zahl" for="rechner-schichten" data-rechner-zahl>220</output>
-          </div>
-          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-rechner-ergebnis>EUR 0.55</span> per shift per person</p>
-          <p class="etikett rechner__formel">Calculated: <span data-rechner-text>EUR 120 per pair divided by 220 shifts per person and year</span>, plus VAT</p>
-        </div>
-        <p class="preis__danach">After that, you decide about further teams. After a successful introduction, the rollout is available to you.</p>
+        <a class="knopf preis__knopf" href="#pilot" data-pilot-oeffnen>Book a pilot
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </a>
       </div>
     </div>
   </section>

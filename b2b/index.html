@@ -527,26 +527,24 @@
   <section class="abschnitt" id="preis" aria-labelledby="preis-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="preis-titel">Preis</h2></div>
+      <div class="rechner" data-rechner>
+        <label class="etikett" for="rechner-schichten">Wie viele Schichten hat ein Mitarbeiter im Jahr?</label>
+        <div class="rechner__regler">
+          <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="210" data-rechner-regler>
+          <output class="rechner__zahl" for="rechner-schichten" data-rechner-zahl>210</output>
+        </div>
+        <p class="rechner__ergebnis"><span class="rechner__wert" data-rechner-ergebnis aria-live="polite" aria-atomic="true">0,57 Euro</span><span class="rechner__einheit">je Schicht pro Person<span class="info"><button class="info__knopf" type="button" aria-describedby="rechner-info" aria-label="Rechenweg anzeigen">i</button><span class="info__text" id="rechner-info" role="tooltip">Gerechnet: <span data-rechner-text>120 Euro je Paar geteilt durch 210 Schichten pro Person und Jahr</span>, zuzüglich Umsatzsteuer</span></span></span></p>
+        <p class="preis__halt">Aus eigenen Tests wissen wir, dass die Sohle mindestens 3 Jahre einwandfrei hält.</p>
+      </div>
       <div class="preis">
         <div class="preis__links">
-          <p class="etikett preis__kopf">Eine individuell angefertigte Einlegesohle</p>
-          <p class="preisschild" aria-label="120 Euro je Paar, zuzüglich Umsatzsteuer"><svg class="preisschild__form" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><path d="M18 90L74 14H296a12 12 0 0 1 12 12v128a12 12 0 0 1-12 12H74z"/><circle cx="66" cy="90" r="10"/></svg><span class="preisschild__zahl">120 &euro;</span></p>
-          <p class="preis__je">je Paar, zuzüglich Umsatzsteuer</p>
-          <p class="preis__halt">Aus eigenen Tests wissen wir, dass die Sohle mindestens 3 Jahre einwandfrei hält.</p>
+          <p class="preisschild" aria-label="120 Euro je individuell gefertigtes Paar (zzgl. Umsatzsteuer)"><svg class="preisschild__form" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><path d="M18 90L74 14H296a12 12 0 0 1 12 12v128a12 12 0 0 1-12 12H74z"/><circle cx="66" cy="90" r="10"/></svg><span class="preisschild__zahl">120 &euro;</span></p>
+          <p class="preis__je">je individuell gefertigtes Paar (zzgl. Umsatzsteuer)</p>
         </div>
         <p class="preis__pilot-satz">Ein Pilot mit bspw. 10 Mitarbeitenden kostet: 10 Paare = 1.200 Euro zzgl. Umsatzsteuer.</p>
-      </div>
-      <div class="preis__werkzeuge">
-        <div class="rechner" data-rechner>
-          <label class="etikett" for="rechner-schichten">Wie viele Schichten hat ein Mitarbeiter im Jahr?</label>
-          <div class="rechner__regler">
-            <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="220" data-rechner-regler>
-            <output class="rechner__zahl" for="rechner-schichten" data-rechner-zahl>220</output>
-          </div>
-          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-rechner-ergebnis>0,55 Euro</span> je Schicht pro Person</p>
-          <p class="etikett rechner__formel">Gerechnet: <span data-rechner-text>120 Euro je Paar geteilt durch 220 Schichten pro Person und Jahr</span>, zuzüglich Umsatzsteuer</p>
-        </div>
-        <p class="preis__danach">Danach entscheiden Sie über weitere Teams. Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung.</p>
+        <a class="knopf preis__knopf" href="#pilot" data-pilot-oeffnen>Pilot buchen
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </a>
       </div>
     </div>
   </section>

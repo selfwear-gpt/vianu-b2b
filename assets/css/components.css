@@ -1174,6 +1174,26 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .preis__werkzeuge { align-items: center; column-gap: clamp(24px, 5vw, 72px); }
 .preis__halt { margin: 0; font-size: var(--schrift-groesse-klein); font-weight: 500; max-width: 40ch; }
 .preis__je { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.08em; text-transform: uppercase; }
+/* ---------- Preisblock: Regler oben, Preis und Pilot darunter, i-Hinweis ---------- */
+.behaelter > .rechner { padding: 0; border: 0; margin-bottom: var(--abstand-7); max-width: 40rem; }
+.behaelter > .rechner .rechner__ergebnis { position: relative; }
+.rechner__einheit { display: inline-flex; align-items: center; gap: var(--abstand-2); }
+.preis .preis__links { grid-row: span 2; }
+.preis .preis__knopf { grid-column: 2; justify-self: start; align-self: start; }
+.info { position: relative; display: inline-flex; align-self: center; }
+.info__knopf { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; padding: 0; border: var(--kante) solid var(--farbe-tinte); border-radius: 50%; background: var(--farbe-papier); color: var(--farbe-tinte); font-family: var(--schrift-mono); font-size: 0.8rem; font-weight: 700; line-height: 1; cursor: help; }
+.info__knopf:hover, .info__knopf:focus-visible { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.info__text { position: absolute; left: 0; top: calc(100% + var(--abstand-2)); z-index: 5; width: min(22rem, calc(100vw - 2 * var(--abstand-4))); padding: var(--abstand-3) var(--abstand-4); background: var(--farbe-tinte); color: var(--farbe-papier); font-size: var(--schrift-groesse-klein); font-weight: 500; line-height: 1.4; text-transform: none; letter-spacing: 0; visibility: hidden; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+.info:hover .info__text, .info:focus-within .info__text { visibility: visible; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .info__text { transition: none; }
+}
+@media (max-width: 40rem) {
+  .info { position: static; }
+  .info__text { left: 0; right: 0; width: auto; }
+  .preis .preis__links { grid-row: auto; }
+  .preis .preis__knopf { grid-column: auto; }
+}
 @media (max-width: 40rem) {
   .preis { grid-template-columns: minmax(0, 1fr); }
 }

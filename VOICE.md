@@ -16,7 +16,7 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 
 ## Preis
 
-- "120 Euro je Paar, zuzüglich Umsatzsteuer". Nie "je Einlage", nie "netto" oder "brutto" allein.
+- "120 Euro je Paar, zuzüglich Umsatzsteuer". Nie "je Einlage", nie "netto" oder "brutto" allein. Unter dem Preisschild im Preisblock: "je individuell gefertigtes Paar (zzgl. Umsatzsteuer)".
 - Gerechnete Werte (Kosten je Schicht, je Monat) tragen den Hinweis "gerechnet".
 - Zum steuerlichen Weg beim Arbeitgeber steht nichts auf der Seite, bis eine Steuerberatung ihn bestätigt hat.
 

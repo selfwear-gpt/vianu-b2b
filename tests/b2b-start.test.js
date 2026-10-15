@@ -18,7 +18,7 @@ test("die große Überschrift ist der neue englische Slogan, Unterüberschrift u
   }
 });
 
-test("jeder Knopf Kontakt aufnehmen öffnet das Popup, es gibt genau ein Popup je Seite mit allen Pflichtfeldern", () => {
+test("jeder Knopf zum Kontakt (Kontakt aufnehmen, im Preisblock Pilot buchen) öffnet das Popup, es gibt genau ein Popup je Seite mit allen Pflichtfeldern", () => {
   for (const f of ALLE_B2B) {
     const h = lies(f);
     const links = [...h.matchAll(/<a [^>]*href="(?:\.\/)?#pilot"[^>]*>/g)].map((m) => m[0]);
@@ -36,7 +36,8 @@ test("jeder Knopf Kontakt aufnehmen öffnet das Popup, es gibt genau ein Popup j
     assert.match(dialog, de ? /<h2 id="pilot-titel">Kontaktanfrage stellen<\/h2>/ : /<h2 id="pilot-titel">Send a contact request<\/h2>/, f + ": Titel");
     assert.match(dialog, de ? /Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich ist Ihr Ansprechpartner\./ : /We will get back to you within 5 working days, promise! Roderich is your contact\./, f + ": Einleitung");
     assert.match(dialog, de ? /placeholder="Ich möchte mehr Infos erhalten für einen ersten möglichen Pilottest für 10 Mitarbeitende\."/ : /placeholder="I would like more information about a possible first pilot test for 10 employees\."/, f + ": Platzhalter im Anliegen");
-    assert.doesNotMatch(h, /Pilot buchen|Book a pilot|Datenschutzhinweis zum Formular|privacy notice for the form/, f + ": nichts mit Pilot buchen, kein Platzhalter");
+    assert.doesNotMatch(h, /Datenschutzhinweis zum Formular|privacy notice for the form/, f + ": kein Platzhalter");
+    assert.equal((h.match(/>(Pilot buchen|Book a pilot)\s/g) || []).length, f.endsWith("b2b/index.html") ? 1 : 0, f + ": \"Pilot buchen\" steht nur im Preisblock der Startseite");
     assert.match(h, /pilot\.js/, f + ": Skript");
     assert.match(h, /formular\.js/, f + ": Skript");
   }
@@ -122,7 +123,7 @@ test("der Rechner nennt den Zeitraum der Schichten: in einem Jahr", () => {
     const h = lies(f);
     assert.match(h, label, f);
     assert.match(h, /data-rechner-text>[^<]*(pro Person und Jahr|per person and year)/, f);
-    assert.match(h, /(je Schicht pro Person|per shift per person)<\/p>/, f);
+    assert.match(h, /(je Schicht pro Person|per shift per person)<span class="info">/, f);
   }
 });
 
@@ -154,21 +155,32 @@ test("der Ablauf ist der Handy-Ablauf mit vier Schritten, Bahn-Etikett je Schrit
   }
 });
 
-test("der Preis: Preisschild mit Klartext und 3-Jahres-Aussage, rechts nur der Pilot-Satz, darunter der Regler und ein Satz zu weiteren Teams, nichts davon im Rahmen oder mit Knopf", () => {
-  for (const [f, zahl, bund, halt, kopf, danach] of [["b2b/index.html", /120 &euro;/, /Ein Pilot mit bspw\. 10 Mitarbeitenden kostet: 10 Paare = 1\.200 Euro zzgl\. Umsatzsteuer\./, /mindestens 3 Jahre einwandfrei/, /Eine individuell angefertigte Einlegesohle/, /Danach entscheiden Sie über weitere Teams\. Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung\./], ["en/b2b/index.html", /&euro;120/, /A pilot with, for example, 10 employees costs: 10 pairs = EUR 1,200 plus VAT\./, /at least 3 years/, /One custom-made insole/, /After that, you decide about further teams\. After a successful introduction, the rollout is available to you\./]]) {
+test("der Preis: oben der Regler mit i-Hinweis und 3-Jahres-Satz, darunter Preisschild, Pilot-Satz und Knopf", () => {
+  for (const [f, zahl, je, bund, halt, knopf, rechnung] of [
+    ["b2b/index.html", /120 &euro;/, /je individuell gefertigtes Paar \(zzgl\. Umsatzsteuer\)/, /Ein Pilot mit bspw\. 10 Mitarbeitenden kostet: 10 Paare = 1\.200 Euro zzgl\. Umsatzsteuer\./, /Aus eigenen Tests wissen wir, dass die Sohle mindestens 3 Jahre einwandfrei hält\./, />Pilot buchen\s/, /Gerechnet: <span data-rechner-text>120 Euro je Paar geteilt durch 210 Schichten pro Person und Jahr<\/span>, zuzüglich Umsatzsteuer/],
+    ["en/b2b/index.html", /&euro;120/, /per custom-made pair \(plus VAT\)/, /A pilot with, for example, 10 employees costs: 10 pairs = EUR 1,200 plus VAT\./, /From our own tests we know that the insole holds up in perfect condition for at least 3 years\./, />Book a pilot\s/, /Calculated: <span data-rechner-text>EUR 120 per pair divided by 210 shifts per person and year<\/span>, plus VAT/]]) {
     const h = lies(f);
     const preis = h.match(/<section class="abschnitt" id="preis"[\s\S]*?<\/section>/)[0];
+    const pos = (re) => preis.search(re);
     assert.match(preis, /<p class="preisschild" aria-label="[^"]*120[^"]*">/, f);
     assert.match(preis, zahl, f);
-    assert.match(preis, kopf, f + ": sagt, wofür der Preis gilt");
+    assert.match(preis, je, f + ": Preiszeile");
     assert.match(preis, bund, f);
-    assert.match(preis, danach, f + ": Satz zu weiteren Teams und Rollout");
-    assert.doesNotMatch(preis, /buendel|class="klein|data-klein|data-pilot-oeffnen|class="knopf|preis__pilot"/, f + ": kein Bündel, keine Punktgrafik, kein Kasten, kein Knopf");
-    assert.doesNotMatch(preis, /class="siegel/, f + ": kein eigener Streifen");
+    assert.match(preis, halt, f + ": 3-Jahres-Aussage");
+    assert.doesNotMatch(preis, /preis__kopf|Eine individuell angefertigte Einlegesohle|One custom-made insole/, f + ": keine Zeile über dem Preis");
+    assert.doesNotMatch(preis, /preis__danach|Rollout|rollout|weitere Teams|further teams/, f + ": kein Satz zu weiteren Teams und Rollout");
+    assert.doesNotMatch(preis, /buendel|class="klein|data-klein|class="siegel|rechner__formel/, f + ": kein Bündel, keine Punktgrafik, kein Streifen, keine sichtbare Formelzeile");
     assert.equal((preis.match(/data-rechner-regler/g) || []).length, 1, f + ": ein Regler");
+    assert.match(preis, /value="210"[^>]*data-rechner-regler/, f + ": Regler startet bei 210");
     assert.match(preis.match(/<div class="rechner"[^>]*>/)[0], /^<div class="rechner" data-rechner>$/, f + ": Rechner ohne Zusatzklassen");
-    const links = preis.match(/<div class="preis__links">[\s\S]*?<p class="preis__pilot-satz">/)[0];
-    assert.match(links, halt, f + ": 3-Jahres-Aussage unter dem Preis");
+    assert.match(preis, /<button class="info__knopf" type="button" aria-describedby="rechner-info"/, f + ": i-Knopf mit Beschreibung");
+    assert.match(preis, /<span class="info__text" id="rechner-info" role="tooltip">/, f + ": Hinweistext mit Rolle");
+    assert.match(preis, rechnung, f + ": Rechenweg im Hinweis");
+    assert.equal((preis.match(/data-pilot-oeffnen/g) || []).length, 1, f + ": ein Knopf");
+    assert.match(preis, knopf, f + ": Knopf-Beschriftung");
+    assert.ok(pos(/data-rechner-regler/) < pos(/mindestens 3 Jahre|at least 3 years/), f + ": 3-Jahres-Satz unter dem Regler");
+    assert.ok(pos(/mindestens 3 Jahre|at least 3 years/) < pos(/class="preisschild"/), f + ": Regler und Satz stehen über dem Preisschild");
+    assert.ok(pos(/class="preis__pilot-satz"/) < pos(/data-pilot-oeffnen/), f + ": Knopf nach dem Pilot-Satz");
   }
 });
 

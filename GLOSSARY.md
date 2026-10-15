@@ -13,7 +13,7 @@ Eine Einlegesohle für beide Füße. Preise gelten je Paar.
 _Avoid_: je Einlage, je Stück
 
 **Preis**:
-120 Euro je Paar, zuzüglich Umsatzsteuer. So steht er überall auf der Seite.
+120 Euro je Paar, zuzüglich Umsatzsteuer. So steht er überall auf der Seite. Im Preisblock der B2B-Startseite steht die Zeile unter dem Preisschild als "je individuell gefertigtes Paar (zzgl. Umsatzsteuer)".
 _Avoid_: netto oder brutto ohne diesen Zusatz
 
 **Fußerfassung**:
@@ -158,7 +158,7 @@ Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die 
 | Datenschutz | Privacy | Titel "Privacy notice". |
 | Stimme | voice | Die Rezensionskarte. |
 | Platzhalter | placeholder | Markiert wie im Deutschen. |
-| Kontakt aufnehmen | Get in touch | Beschriftung aller Knöpfe, die das Kontaktformular öffnen. "Pilot buchen" steht nicht mehr auf der Seite, weil Menschen auch aus anderen Gründen Kontakt aufnehmen. Einzige Ausnahme: der Knopf im Handybild des Ablaufs (Schritt 4) heißt "Jetzt bestellen" / "Order now", auf Wunsch des Nutzers. |
+| Kontakt aufnehmen | Get in touch | Beschriftung aller Knöpfe, die das Kontaktformular öffnen. Die Beschriftung richtet sich nach der Umgebung. Im Preisblock der B2B-Startseite heißt der Knopf "Pilot buchen" / "Book a pilot", weil dort der Preis des Piloten steht (Entscheidung des Nutzers am 15.10.2026). Überall sonst bleibt es bei "Kontakt aufnehmen", weil Menschen auch aus anderen Gründen Kontakt aufnehmen. Einzige Ausnahme: der Knopf im Handybild des Ablaufs (Schritt 4) heißt "Jetzt bestellen" / "Order now", auf Wunsch des Nutzers. |
 
 Slogans bleiben unverändert Englisch: "Walk lightly, smile brightly" und "Nothing fancy. Just a great way to get through your day."
 

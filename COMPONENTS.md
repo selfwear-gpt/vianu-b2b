@@ -59,7 +59,7 @@ Status: gebaut
 
 ### Preisblock
 Status: gebaut
-- Oben links ein kleines Preisetikett mit Klartext ("Eine individuell angefertigte Einlegesohle", 120 € je Paar, zuzüglich Umsatzsteuer) und die 3-Jahres-Aussage klein darunter, ohne eigenen Streifen. Rechts daneben nur der Pilot-Satz ("Ein Pilot mit bspw. 10 Mitarbeitenden kostet: 10 Paare = 1.200 Euro zzgl. Umsatzsteuer."), ohne Kasten, ohne Sohlenbündel und ohne Knopf. Darunter der Kostenrechner ohne Rahmen ("Wie viele Schichten hat ein Mitarbeiter im Jahr?", Ergebnis je Schicht pro Person) und rechts ein Satz: "Danach entscheiden Sie über weitere Teams. Nach erfolgreicher Einführung steht Ihnen der Rollout zur Verfügung." Die Punktgrafik "Klein starten" gibt es nur noch auf der Rollenseite der Geschäftsführung. Kosten je Monat gibt es nicht, weil sie eine Tragedauer voraussetzen.
+- Reihenfolge von oben nach unten: erst der Kostenrechner ohne Rahmen ("Wie viele Schichten hat ein Mitarbeiter im Jahr?", Ergebnis je Schicht pro Person, dahinter ein kleines i), direkt darunter die 3-Jahres-Aussage. Das i zeigt beim Darüberfahren und bei Tastaturfokus den Rechenweg ("Gerechnet: 120 Euro je Paar geteilt durch 210 Schichten pro Person und Jahr, zuzüglich Umsatzsteuer", folgt dem Regler, `info`, `info__knopf`, `info__text`). Darunter links das Preisschild "120 €" mit der Zeile "je individuell gefertigtes Paar (zzgl. Umsatzsteuer)", rechts der Pilot-Satz ("Ein Pilot mit bspw. 10 Mitarbeitenden kostet: 10 Paare = 1.200 Euro zzgl. Umsatzsteuer.") und der Knopf "Pilot buchen", der das Kontaktformular öffnet. Es gibt keine Zeile über dem Preisschild, keinen Satz zu weiteren Teams und zum Rollout, keinen Kasten und kein Sohlenbündel. Die Punktgrafik "Klein starten" gibt es nur noch auf der Rollenseite der Geschäftsführung. Kosten je Monat gibt es nicht, weil sie eine Tragedauer voraussetzen.
 - Regel: Der Preis steht als "120 Euro je Paar, zuzüglich Umsatzsteuer". Mengenpreise bleiben verborgen.
 
 ### Fußabdruck "Sorgen und Bedenken im Entscheidungsteam"
@@ -79,7 +79,7 @@ Status: geplant
 
 ### Kostenrechner
 Status: gebaut
-- Ein Regler stellt die Schichtzahl ein (20 bis 600, Schritt 10, Start 220). Die Seite rechnet 120 Euro geteilt durch diese Zahl und zeigt das Ergebnis in Euro und Cent, gekennzeichnet "gerechnet", zuzüglich Umsatzsteuer.
+- Ein Regler stellt die Schichtzahl ein (20 bis 600, Schritt 10, Start 210). Die Seite rechnet 120 Euro geteilt durch diese Zahl und zeigt das Ergebnis in Euro und Cent, gekennzeichnet "gerechnet", zuzüglich Umsatzsteuer.
 - Regel: Der Rechner nennt den Zeitraum ("Schichten in einem Jahr") und rechnet 120 Euro geteilt durch die Schichten. Er macht keine eigene Aussage zur Haltbarkeit und nennt keine Schichtzahl je Paar als Tatsache. Logik: `assets/js/kosten.js`.
 
 ### Klein starten

@@ -7,7 +7,7 @@
   if (typeof module === "object" && module.exports) module.exports = factory();
   else root.VianuKosten = factory();
 })(this, function () {
-  var SCHICHTEN = { min: 20, max: 600, start: 220 };
+  var SCHICHTEN = { min: 20, max: 600, start: 210 };
 
   function begrenzeSchichten(wert) {
     var n = Number(wert);
