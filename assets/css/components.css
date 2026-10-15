@@ -933,12 +933,15 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
   .druck-nur { display: block; }
   .rollenseite > header, .rollenseite > footer { display: none; }
   .rollenseite main > section:not(.einseiter) { display: none; }
+  .rollenseite main { zoom: 0.85; }
   .rolle { padding-block: 0 var(--abstand-5); }
   .rolle .knopf { display: none; }
-  .rolle h1 { font-size: 2.6rem; }
-  .rolle__kern { font-size: 1.6rem; }
-  .abschnitt.einseiter { border-top: 0; padding-block: var(--abstand-4) 0; }
-  .einseiter__fuss { margin-top: var(--abstand-5); font-weight: 600; }
+  .rolle h1 { font-size: 2.2rem; }
+  .rolle__kern { font-size: 1.35rem; }
+  .rolle__lead { font-size: 0.95rem; line-height: 1.35; }
+  .abschnitt.einseiter { border-top: 0; padding-block: var(--abstand-3) 0; }
+  .abschnitt.einseiter h2 { font-size: 1.5rem; }
+  .einseiter__fuss { margin-top: var(--abstand-3); font-weight: 600; }
 }
 /* ================= Roderichs Geschichte, Rechtsseiten, Fuß ================= */
 .fuss__recht { display: flex; flex-wrap: wrap; gap: var(--abstand-2) var(--abstand-5); }
@@ -1474,17 +1477,19 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
   .reise--termin .reise__feld { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--abstand-4); padding: var(--abstand-3) 0; border-bottom: 1px solid var(--farbe-tinte); }
   .reise--termin .reise__feld + .reise__feld { margin-top: 0; }
   .reise--termin .reise__feld h3 { font-size: 0.8rem; color: var(--farbe-gedaempft); }
-  .reise--termin .reise__feld > p { font-size: 1rem; }
+  .reise--termin .reise__feld > p { grid-column: 2; max-width: none; font-size: 0.95rem; line-height: 1.35; margin: var(--abstand-1) 0 0; }
+  .reise--termin .reise__feld > h3 { grid-column: 1; grid-row: 1; }
   .reise--termin .reise__feld:nth-child(2) > p { font-family: var(--schrift-kopf); font-weight: 700; font-size: 1.3rem; text-transform: uppercase; }
   .fragenkarten--raster, .fragenkarten--reihe { display: block; }
   .dreh__innen { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--abstand-4); padding: var(--abstand-2) 0; border-bottom: 1px solid var(--farbe-tinte); transform: none; }
   .dreh__vorn, .dreh__hinten { grid-area: auto; flex-direction: row; align-items: baseline; gap: var(--abstand-3); transform: none; opacity: 1; backface-visibility: visible; background: none; color: inherit; border: 0; padding: 0; }
   .fragenkarten .dreh:nth-child(2) .dreh__hinten p { font-size: 1.2rem; }
-  .fragenkarte .dreh__hinten p { font-size: 1rem; }
+  .fragenkarte .dreh__hinten { flex-direction: column; align-items: flex-start; gap: var(--abstand-1); }
+  .fragenkarte .dreh__hinten p { font-size: 0.95rem; margin: 0; }
   .fragenkarte__nr { font-size: 1.2rem; }
   .pruefliste__zeile { padding: var(--abstand-2) 0; border: 0; border-bottom: 1px solid var(--farbe-tinte); background: none; }
   .pruefliste__zaehler { display: none; }
-  .pruefliste__dd { font-size: 1rem; }
+  .pruefliste__dd { font-size: 0.95rem; line-height: 1.35; }
 }
 /* Roderichs Weg und die Aufgaben-Stationen: bei reduzierter Bewegung ohne Übergänge */
 @media (prefers-reduced-motion: reduce) {
