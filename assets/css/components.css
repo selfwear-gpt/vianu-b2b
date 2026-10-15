@@ -1693,3 +1693,15 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 /* ---------- Arbeitsschutz: Küchengrundriss im Kopf-Motiv ---------- */
 .motiv__zonen rect { fill: none; stroke: var(--farbe-tinte); stroke-width: 1.5; opacity: 0.55; }
 .m-zeichnen.m-lang { animation-duration: 2s; }
+
+/* ---------- Einkauf: Motiv mit Preisschild, Sohlenbündel und Lieferleiste ---------- */
+.motiv text.motiv__zahl { font-family: var(--schrift-kopf); font-weight: 800; font-size: 54px; letter-spacing: 0; text-transform: none; }
+.motiv__fuss--buendel { stroke-width: 12; stroke-linejoin: round; }
+/* Fünf Fragenkarten ohne verwaiste Zeile: drei oben, zwei breite unten. Die zweite Karte trägt hier normalen Text. */
+.fragenkarten--fuenf .dreh:nth-child(2) .dreh__hinten p { font-family: var(--schrift-text); font-weight: 400; font-size: 1.1rem; line-height: 1.4; text-transform: none; }
+@media screen and (min-width: 56.01rem) {
+  .fragenkarten--fuenf { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .fragenkarten--fuenf .dreh { grid-column: span 2; }
+  .fragenkarten--fuenf .dreh:nth-child(n+4) { grid-column: span 3; }
+}
+@media print { .fragenkarten--fuenf .dreh:nth-child(2) .dreh__hinten p { font-size: 0.95rem; } }
