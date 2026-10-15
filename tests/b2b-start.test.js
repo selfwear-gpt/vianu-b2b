@@ -127,10 +127,10 @@ test("der Rechner nennt den Zeitraum der Schichten: in einem Jahr", () => {
   }
 });
 
-test("Messwert-Symbole sind die neuen mehrfarbigen und stehen auch auf den Rollenseiten", () => {
-  for (const f of [...SEITEN, ...ROLLEN.map((r) => "b2b/" + r + ".html")]) {
+test("Messwert-Symbole der Startseiten sind die neuen mehrfarbigen", () => {
+  for (const f of SEITEN) {
     const h = lies(f);
-    assert.equal((h.match(/class="ico messwert__bild"/g) || []).length, f.endsWith("b2b/index.html") ? 8 : 4, f);
+    assert.equal((h.match(/class="ico messwert__bild"/g) || []).length, 8, f);
     assert.doesNotMatch(h, /<svg class="messwert__bild"/, f);
   }
 });

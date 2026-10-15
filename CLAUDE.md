@@ -41,6 +41,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - `python3 scripts/check-extern.py` ohne Fehler: keine Schriften oder Bibliotheken von Fremdservern.
 - `python3 scripts/check-struktur.py` ohne Fehler: keine Inline-Stile, keine Inline-Skripte, keine absoluten Pfade, keine Verweise auf fehlende Dateien.
 - `python3 scripts/check-text.py` ohne Fehler: keine verbotenen Wörter, keine Geviertstriche, keine Kontrastformeln, kein Gendern mit Sonderzeichen. Dreierlisten und Frage-Antwort-Muster prüft die Durchsicht.
+- `python3 scripts/check-textanteil.py` ohne Fehler: auf den Entscheider-Seiten höchstens zwei Absätze mit 12 oder mehr Wörtern je Abschnitt und höchstens 18 Wörter je Chat-Nachricht (Näherung der Regel "höchstens 20 Prozent eines Bildschirms ist Fließtext" aus `VOICE.md`).
 - `python3 scripts/check-faq.py` ohne Fehler: FAQPage-Daten gleichen dem sichtbaren Text, keine Platzhalter in den Daten, höchstens die Hälfte Markenfragen. Ob eine Antwort für sich steht, prüft die Durchsicht (`VOICE.md`, Abschnitt "FAQ").
 - `node --test tests/*.test.js`, `python3 tests/test_check_text.py` und `python3 tests/test_check_faq.py` ohne Fehler.
 - `node scripts/browsertest.js <Adresse> <Ordner>` ohne Fehler (Überlauf, Fremdanfragen, Schriften, ein `h1`, Konsole), Bilder in Handy- und Desktopbreite angesehen.

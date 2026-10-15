@@ -61,6 +61,15 @@ _Avoid_: Stakeholder, Zielgruppe
 **Persona-Seite**:
 Unterseite im B2B-Bereich für genau eine Rolle des Entscheidungsteams, mit eigenem Brief, eigenen Fragen und eigenem Erfolgskriterium.
 
+**Chat-Brief**:
+Der Brief "Roderich an <Rolle>" auf den Persona-Seiten, als Chat gebaut: links schreibt die Rolle mit ihrer Sorge, rechts antwortet Roderich. Die Nachrichten erscheinen beim Scrollen oder per Knopf "Weiter" nacheinander.
+
+**Motiv**:
+Die animierte Zeichnung rechts neben dem Kopf einer Persona-Seite. Sie läuft beim Laden einmal einige Sekunden und ruht dann.
+
+**Ergebnisbild**:
+Die Darstellung einer Studie als Zeichnung mit Fußleiste (Gruppe, Selbstauskunft, Quelle), statt als Text.
+
 **Betriebsrat** und **Betriebsvereinbarung**:
 Interessenvertretung der Beschäftigten und die Vereinbarung, die den Piloten regelt.
 

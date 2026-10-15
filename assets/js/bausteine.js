@@ -2,6 +2,9 @@
   Bausteine der Rollenseiten. Schnittstelle: Elemente mit [data-pruefliste], [data-fluss] und [data-filter] arbeiten für sich.
   Prüfliste: Schalter zum Abhaken, nur Ansicht, nichts wird gespeichert. Datenfluss: ein Feld pro Knoten, der gewählte Knoten zeigt seinen Text.
   Filter: blendet Zeilen der Statusliste nach Status ein und aus. Ohne Skript stehen alle Inhalte lesbar da.
+  Chat-Brief [data-chat]: die Nachrichten stehen im HTML, das Skript blendet sie beim Scrollen oder per Knopf "Weiter" nacheinander ein, vorher erscheinen Tippen-Punkte.
+  Bei reduzierter Bewegung und ohne Skript stehen alle Nachrichten sofort da. Ergebnisbild [data-ergebnis]: der Balken baut sich beim Sichtbarwerden auf.
+  Umfrage [data-umfrage]: Antworten sind nur zur Ansicht antippbar, nichts wird gespeichert.
 */
 (function () {
   function jeder(selektor, fn) { Array.prototype.forEach.call(document.querySelectorAll(selektor), fn); }
@@ -61,10 +64,97 @@
     });
   }
 
+  function ruhig() { return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); }
+
+  function initChat(wurzel) {
+    var liste = wurzel.querySelector(".chat__verlauf");
+    var buehne = wurzel.querySelector(".chat__buehne");
+    var nachrichten = Array.prototype.slice.call(wurzel.querySelectorAll("[data-chat-nachricht]"));
+    var weiter = wurzel.querySelector("[data-chat-weiter]");
+    var n = nachrichten.length;
+    if (!liste || !buehne || !n || ruhig()) return;
+    wurzel.classList.add("chat--aktiv");
+    wurzel.style.setProperty("--schritte", String(n));
+    nachrichten.forEach(function (m) { m.classList.add("chat__nachricht--aus"); });
+    var gezeigt = 0, ziel = 0, laeuft = false;
+
+    function fertig() {
+      if (gezeigt >= n) wurzel.classList.add("chat--fertig");
+    }
+    function zeigeNaechste() {
+      if (gezeigt >= ziel) { laeuft = false; fertig(); return; }
+      laeuft = true;
+      var m = nachrichten[gezeigt];
+      var tippen = document.createElement("li");
+      tippen.className = "chat__tippen chat__tippen--" + (m.classList.contains("chat__nachricht--roderich") ? "roderich" : "rolle");
+      tippen.setAttribute("aria-hidden", "true");
+      tippen.innerHTML = "<span></span><span></span><span></span>";
+      liste.appendChild(tippen);
+      window.setTimeout(function () {
+        if (tippen.parentNode) tippen.parentNode.removeChild(tippen);
+        m.classList.remove("chat__nachricht--aus");
+        m.classList.add("chat__nachricht--neu");
+        gezeigt++;
+        zeigeNaechste();
+      }, 850);
+    }
+    function setzeZiel(z) {
+      z = Math.min(z, n);
+      if (z > ziel) { ziel = z; if (!laeuft) zeigeNaechste(); }
+    }
+    function beiScroll() {
+      var r = wurzel.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      if (r.top > vh * 0.55) return;
+      if (r.bottom < vh) { setzeZiel(n); return; }
+      var strecke = r.height - buehne.offsetHeight;
+      var p = strecke > 0 ? Math.min(1, Math.max(0, -(r.top - (parseFloat(window.getComputedStyle(buehne).top) || 0)) / strecke)) : 1;
+      p = Math.min(1, p / 0.85);
+      setzeZiel(1 + Math.floor(p * (n - 1) + 0.001));
+    }
+    var wartet = false;
+    window.addEventListener("scroll", function () {
+      if (wartet) return;
+      wartet = true;
+      window.requestAnimationFrame(function () { wartet = false; beiScroll(); });
+    }, { passive: true });
+    if (weiter) weiter.addEventListener("click", function () { setzeZiel(Math.max(ziel, 0) + 1); });
+    beiScroll();
+  }
+
+  function initErgebnis(wurzel) {
+    if (ruhig() || !("IntersectionObserver" in window)) return;
+    wurzel.classList.add("ergebnis--bereit");
+    var o = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (e.isIntersecting) {
+          wurzel.classList.add("ergebnis--zeigt");
+          wurzel.classList.remove("ergebnis--bereit");
+          o.disconnect();
+        }
+      });
+    }, { threshold: 0.35 });
+    o.observe(wurzel);
+  }
+
+  function initUmfrage(wurzel) {
+    Array.prototype.forEach.call(wurzel.querySelectorAll(".umfrage__frage"), function (frage) {
+      var knoepfe = frage.querySelectorAll(".umfrage__antwort");
+      Array.prototype.forEach.call(knoepfe, function (k) {
+        k.addEventListener("click", function () {
+          Array.prototype.forEach.call(knoepfe, function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); });
+        });
+      });
+    });
+  }
+
   function start() {
     jeder("[data-pruefliste]", initPruefliste);
     jeder("[data-fluss]", initFluss);
     jeder("[data-filter]", initFilter);
+    jeder("[data-chat]", initChat);
+    jeder("[data-ergebnis]", initErgebnis);
+    jeder("[data-umfrage]", initUmfrage);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();

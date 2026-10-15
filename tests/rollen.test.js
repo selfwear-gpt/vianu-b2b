@@ -12,7 +12,7 @@ const abschnitte = (h) => [...h.matchAll(/<section class="([^"]*)"(?: id="([^"]+
 const text = (h) => h.replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<svg[\s\S]*?<\/svg>/g, " ").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&euro;/g, "€").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
 const folge = (f) => abschnitte(lies(f)).map((a) => a.id).filter((id) => id !== "stimme-frueh");
 
-const BAUSTEIN = /data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|class="zitatkarte"|class="weg__raster"/;
+const BAUSTEIN = /data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
 
 test("jede Rollenseite hat ihre eigene Reihenfolge, Deutsch und Englisch gleich", () => {
   const de = ROLLEN.map((r) => folge("b2b/" + r + ".html").join(">"));
@@ -51,15 +51,19 @@ test("der Wortlaut der bisherigen Seiten bleibt erhalten (Termin, Brief, Belege,
   }
 });
 
-test("Messwerte der Rollenseiten: vier umdrehbare Kacheln, keine alten Platzhalter oder Abgrenzungssätze", () => {
-  for (const f of SEITEN) {
-    const m = abschnitte(lies(f)).find((x) => x.id === "messwerte").html;
-    assert.equal((m.match(/<li class="messwert[^"]*messwert--dreh[^"]*" tabindex="0">/g) || []).length, 4, f);
-    assert.doesNotMatch(m, /Noch keine Daten|No data yet|messwert__leer|messwerte__erfolg|messwerte__grenze|Komfort und Annahme|comfort and acceptance|selbst berichtet|self-reported/, f);
+test("Messwerte als Umfrage im Smartphone nur auf Personal, Geschäftsführung und Arbeitsschutz", () => {
+  const fragen = { personal: 3, geschaeftsfuehrung: 2, arbeitsschutz: 2 };
+  for (const r of ROLLEN) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
+    const m = abschnitte(lies(f)).find((x) => x.id === "messwerte");
+    if (!fragen[r]) { assert.equal(m, undefined, f + ": keine Messwerte"); continue; }
+    assert.match(m.html, /data-umfrage/, f);
+    assert.equal((m.html.match(/<div class="umfrage__frage">/g) || []).length, fragen[r], f + ": Fragen im Telefon");
+    assert.equal((m.html.match(/<li( data-wichtig)?><strong>/g) || []).length, 4, f + ": vier Messwerte in der Liste");
+    assert.equal((m.html.match(/<li data-wichtig>/g) || []).length, fragen[r] === 3 ? 3 : 2, f + ": wichtige Messwerte");
+    assert.doesNotMatch(m.html, /Noch keine Daten|No data yet|messwert__leer|Entwurf|ungeprüft|unverified/, f);
   }
   for (const f of SEITEN) assert.doesNotMatch(lies(f), /zeitstrahl|rollen__entwurf|Entwurf\)|\(draft\)/, f);
 });
-
 test("umdrehbare Karten sind mit der Tastatur erreichbar, Schalter tragen aria-pressed und sind Buttons", () => {
   for (const f of SEITEN) {
     const h = lies(f);
@@ -77,15 +81,14 @@ test("Personal: Aufgaben als Stationenweg mit vier Stationen", () => {
   }
 });
 
-test("Termin als Reiter auf Personal und Geschäftsführung, alle fünf Felder im HTML", () => {
+test("Termin als Rubriken auf Personal und Geschäftsführung mit eigenem Titel", () => {
   for (const r of ["personal", "geschaeftsfuehrung"]) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const t = abschnitte(lies(f)).find((x) => x.id === "termin").html;
-    assert.match(t, /class="reise reise--termin" data-reise/, f);
-    assert.equal((t.match(/data-reiter="\d"/g) || []).length, 5, f);
-    assert.equal((t.match(/data-feld-nr="\d"/g) || []).length, 5, f);
+    assert.match(t, /<dl class="rubriken[ "]/, f);
+    assert.equal((t.match(/<div class="rubrik">/g) || []).length, 5, f);
+    assert.doesNotMatch(t, /data-reise|data-feld-nr/, f + ": keine Reiter mehr");
   }
 });
-
 test("Termin als Fragenkarten (Einkauf, Betriebsrat) und als Prüfliste (Arbeitsschutz)", () => {
   for (const r of ["einkauf", "betriebsrat"]) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const t = abschnitte(lies(f)).find((x) => x.id === "termin").html;
@@ -98,25 +101,63 @@ test("Termin als Fragenkarten (Einkauf, Betriebsrat) und als Prüfliste (Arbeits
   }
 });
 
-test("Belege: Studienkarten, Akkordeon oder Platzhalterkarte, je nach Seite", () => {
-  const erwartet = { personal: /class="dreh studienkarte"/, arbeitsschutz: /class="dreh studienkarte"/, geschaeftsfuehrung: /<details class="beleg"/, einkauf: /class="dreh studienkarte beleg--offen"/, betriebsrat: /class="dreh studienkarte studienkarte--breit beleg--offen"/ };
+test("Belege als Ergebnisbilder: Personal zwei, Geschäftsführung eine, Arbeitsschutz zwei, sonst keine", () => {
+  const erwartet = { personal: 2, geschaeftsfuehrung: 1, arbeitsschutz: 2 };
   for (const r of ROLLEN) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
-    const b = abschnitte(lies(f)).find((x) => x.id === "belege").html;
-    assert.match(b, erwartet[r], f);
-    if (["personal", "arbeitsschutz", "geschaeftsfuehrung"].includes(r)) assert.match(b, /doi\.org/, f + ": Fundstellen bleiben");
+    const b = abschnitte(lies(f)).find((x) => x.id === "belege");
+    if (!erwartet[r]) { assert.equal(b, undefined, f + ": keine Belege"); continue; }
+    assert.equal((b.html.match(/<figure class="ergebnis" data-ergebnis>/g) || []).length, erwartet[r], f);
+    assert.equal((b.html.match(/<svg class="ergebnis__bild"[^>]*role="img" aria-label="[^"]+"/g) || []).length, erwartet[r], f + ": Alternativtext");
+    assert.equal((b.html.match(/class="etikett ergebnis__fuss"/g) || []).length, erwartet[r], f + ": Fußleiste mit Gruppe");
+    assert.match(b.html, /doi\.org/, f + ": Fundstellen bleiben");
+    assert.doesNotMatch(b.html, /Entwurf|ungeprüft|unverified|class="dreh studienkarte/, f);
   }
 });
-
-test("Brief als Zitatkarte mit Unterschrift und Link zu Roderichs Geschichte", () => {
+test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Weiter-Knopf, Antwortfeld, Unterschrift", () => {
   for (const f of SEITEN) {
     const b = abschnitte(lies(f)).find((x) => x.id === "brief").html;
-    assert.match(b, /class="zitatkarte"/, f);
-    assert.equal((b.match(/class="zitatkarte__absatz"/g) || []).length, 2, f);
+    assert.match(b, /<div class="chat" data-chat>/, f);
+    assert.doesNotMatch(b, /zitatkarte/, f);
+    const rolle = (b.match(/chat__nachricht chat__nachricht--rolle" data-chat-nachricht/g) || []).length;
+    const roderich = (b.match(/chat__nachricht chat__nachricht--roderich" data-chat-nachricht/g) || []).length;
+    assert.ok(rolle >= 2 && roderich >= 3 && rolle + roderich >= 6 && rolle + roderich <= 10, f + ": " + rolle + " und " + roderich + " Nachrichten");
+    assert.ok(b.indexOf("chat__nachricht--rolle") < b.indexOf("chat__nachricht--roderich"), f + ": die Rolle schreibt zuerst");
+    assert.equal((b.match(/chat__avatar--roderich" data-platzhalter role="img"/g) || []).length, roderich, f + ": Foto-Platzhalter an jeder Antwort");
+    assert.match(b, /data-chat-weiter/, f);
+    assert.match(b, /<a class="knopf" href="\.\/#pilot" data-pilot-oeffnen>/, f + ": Antwortfeld mit Kontaktknopf");
     assert.match(b, /class="brief__unterschrift"/, f);
     assert.match(b, /#geschichte/, f);
+    for (const m of b.matchAll(/<p class="chat__blase">(.*?)(?:<span class="sr-nur">|<\/p>)/g)) assert.ok(m[1].split(/\s+/).length <= 18, f + ": zu lang: " + m[1]);
   }
 });
 
+test("Kopf mit Motiv (Alternativtext, Animation) und Preisstreifen außer beim Betriebsrat", () => {
+  for (const f of SEITEN) {
+    const h = lies(f);
+    assert.match(h, /<figure class="rolle__motiv">\s*<svg class="motiv"[^>]*role="img" aria-label="[^"]{20,}"/, f + ": Motiv");
+    assert.match(h, /class="[^"]*\bm-(zeichnen|pop|auf|blatt)\b/, f + ": Motiv ist animiert");
+    const streifen = h.match(/<ul class="preisstreifen">([\s\S]*?)<\/ul>/);
+    if (f.includes("betriebsrat")) { assert.equal(streifen, null, f); continue; }
+    assert.ok(streifen, f + ": Preisstreifen");
+    assert.equal((streifen[1].match(/<li>/g) || []).length, 3, f);
+    assert.match(streifen[1], /1[.,]200/, f);
+  }
+  const css = fs.readFileSync(path.join(ROOT, "assets/css/components.css"), "utf8");
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.m-zeichnen, \.m-auf, \.m-pop, \.m-blatt \{ animation: none/, "Bewegung ruht bei reduzierter Bewegung");
+});
+
+test("jede Seite hat einen eigenen, konkreten Titel im Termin-Abschnitt und keine gleichen Rubriken", () => {
+  const titel = [];
+  for (const f of SEITEN.filter((x) => x.startsWith("b2b/"))) {
+    const t = abschnitte(lies(f)).find((x) => x.id === "termin").html;
+    titel.push(t.match(/<h2 id="termin-titel">([^<]*)<\/h2>/)[1]);
+    assert.doesNotMatch(t, /Was Sie im Termin vertreten können müssen|So sieht die Seite es|Kernbotschaft/, f);
+  }
+  assert.equal(new Set(titel).size, 5, titel.join(" | "));
+  for (const f of SEITEN.filter((x) => x.startsWith("en/"))) {
+    assert.doesNotMatch(abschnitte(lies(f)).find((x) => x.id === "termin").html, /What you need to be able to stand behind|How this page sees it/, f);
+  }
+});
 test("Geschäftsführung: Rechner und Klein starten; Einkauf: Rechnung, Lieferzeit und gefilterte Statusliste; Betriebsrat: klickbarer Datenfluss", () => {
   for (const f of ["b2b/geschaeftsfuehrung.html", "en/b2b/geschaeftsfuehrung.html"]) {
     const k = abschnitte(lies(f)).find((x) => x.id === "kosten").html;
@@ -129,7 +170,7 @@ test("Geschäftsführung: Rechner und Klein starten; Einkauf: Rechnung, Lieferze
     assert.equal((b.match(/<button class="filter__knopf" type="button" aria-pressed="(true|false)" data-filter-wert="[a-z]*">/g) || []).length, 3, f);
     assert.match(b, /class="lieferung"/, f);
     assert.match(b, /class="rechnung"/, f);
-    assert.equal((b.match(/<li class="stand__zeile/g) || []).length, 8, f);
+    assert.equal((b.match(/<li class="stand__zeile/g) || []).length, 9, f);
   }
   for (const f of ["b2b/betriebsrat.html", "en/b2b/betriebsrat.html"]) {
     const d = abschnitte(lies(f)).find((x) => x.id === "datenfluss").html;
