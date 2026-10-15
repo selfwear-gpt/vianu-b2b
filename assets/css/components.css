@@ -1689,3 +1689,7 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
   .rubrik dt { font-size: 1rem; }
   .rubrik dd { font-size: 0.95rem; line-height: 1.35; }
 }
+
+/* ---------- Arbeitsschutz: Küchengrundriss im Kopf-Motiv ---------- */
+.motiv__zonen rect { fill: none; stroke: var(--farbe-tinte); stroke-width: 1.5; opacity: 0.55; }
+.m-zeichnen.m-lang { animation-duration: 2s; }
