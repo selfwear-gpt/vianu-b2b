@@ -1734,3 +1734,18 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
   .stand-kasten { margin-top: var(--abstand-3); padding: var(--abstand-3); }
   .dokumente { display: none; }
 }
+
+/* ---------- Geschäftsführung: Motiv mit Zehnerstapel und Kalenderblatt, Kostenwert, Lieferung und Haltbarkeit ---------- */
+.motiv text.motiv__riesig { font-family: var(--schrift-kopf); font-weight: 800; letter-spacing: 0; text-transform: none; font-size: 180px; fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 3; paint-order: stroke; }
+.m-blatt.m-d11 { animation-delay: 2.2s; }
+.rechner__marke { display: block; margin-top: var(--abstand-1); color: var(--farbe-gedaempft); text-transform: none; letter-spacing: 0.04em; }
+.kostenfakten { display: flex; flex-wrap: wrap; gap: var(--abstand-3); margin: var(--abstand-5) 0 0; padding: 0; list-style: none; }
+.kostenfakten li { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--abstand-2); padding: 0.5rem 0.9rem; border: var(--kante) solid var(--farbe-tinte); font-size: var(--schrift-groesse-klein); }
+.kostenfakten strong { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); letter-spacing: 0.08em; text-transform: uppercase; }
+.ergebnisse > .ergebnis:only-child { max-width: 36rem; }
+@media (min-width: 40.01rem) {
+  .rubriken--breit .rubrik { grid-template-columns: minmax(0, 21rem) minmax(0, 1fr); }
+}
+@media print {
+  .rubriken--breit .rubrik { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); }
+}
