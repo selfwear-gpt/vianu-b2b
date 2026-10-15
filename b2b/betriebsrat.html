@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIANU für den Betriebsrat | Freiwillig und Datenfluss</title>
+<meta name="description" content="Die Teilnahme ist freiwillig. Der Datenfluss der Fußerfassung für Einlegesohlen in einfachen Worten: was feststeht und was noch offen ist.">
+<link rel="alternate" hreflang="de" href="betriebsrat.html">
+<link rel="alternate" hreflang="en" href="../en/b2b/betriebsrat.html">
+<link rel="alternate" hreflang="x-default" href="betriebsrat.html">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<script src="../assets/js/texte.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/position.js" defer></script>
+<script src="../assets/js/fortschritt.js" defer></script>
+<script src="../assets/js/formular.js" defer></script>
+<script src="../assets/js/b2b.js" defer></script>
+<script src="../assets/js/bausteine.js" defer></script>
+<script src="../assets/js/pilot.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ist die Teilnahme an einem Einlegesohlen-Programm freiwillig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Teilnahme an einem Einlegesohlen-Programm kann freiwillig sein. Bei VIANU ist sie freiwillig, jede Person entscheidet selbst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wird die Leistung einzelner Personen ausgewertet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Am Ende eines Einlegesohlen-Piloten berichten die Teilnehmenden Angaben zu Komfort und Annahme, eine Leistung wird dabei nicht gemessen. Der Ergebnisbericht ist anonymisiert und zeigt die Gruppe. Wie VIANU einzelne Antworten behandelt, steht erst mit dem Datenschutzkonzept fest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie funktioniert ein Fußscan mit dem Smartphone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beim Fußscan mit dem Smartphone werden die Füße mit dem eigenen Handy fotografiert. Ein Messtag und zusätzliche Geräte sind nicht nötig. VIANU nennt das Fußerfassung: Sie läuft in einer Pause, ohne Messtag und ohne zusätzliche Geräte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist VIANU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, ohne Messtag."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert es von der Fußerfassung bis zur Lieferung der Einlegesohlen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das hängt vom Anbieter ab. Bei VIANU erreicht die Sohle Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange hält eine Einlegesohle im Arbeitsalltag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das hängt vom Anbieter ab. Bei VIANU wissen wir aus eigenen Tests, dass die Sohle mindestens 3 Jahre einwandfrei hält."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="rollenseite">
+
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
+<header class="menue" data-menue>
+  <div class="behaelter">
+    <div class="menue__innen">
+      <a class="menue__logo" href="./" aria-label="VIANU, zur Startseite">VIANU</a>
+
+      <nav class="menue__nav" id="menue-nav" aria-label="Hauptmenü" data-menue-nav data-offen="false">
+        <ul class="menue__liste">
+          <li><a href="./#ablauf">Ablauf</a></li>
+          <li><a href="./#preis">Preis</a></li>
+          <li>
+            <button class="menue__auswahl-knopf" type="button" aria-expanded="false" aria-controls="persona-liste" data-auswahl-knopf>
+              Wer entscheidet mit?
+              <svg class="pfeil-unten" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </button>
+            <ul class="menue__panel" id="persona-liste">
+              <li><a href="personal.html"><strong>Personal</strong><span>Wie stärke ich Bindung und Wertschätzung ohne Zusatzaufwand?</span></a></li>
+              <li><a href="geschaeftsfuehrung.html"><strong>Geschäftsführung und Betrieb</strong><span>Wie halte ich Schichten stabil und das Team leistungsfähig?</span></a></li>
+              <li><a href="arbeitsschutz.html"><strong>Arbeitsschutz</strong><span>Ist die Lösung im Arbeitsalltag verantwortbar und sauber abgegrenzt?</span></a></li>
+              <li><a href="einkauf.html"><strong>Einkauf</strong><span>Ist das standardisiert, preislich klar und leicht beschaffbar?</span></a></li>
+              <li><a href="betriebsrat.html"><strong>Betriebsrat</strong><span>Was passiert mit den Daten unserer Kolleginnen und Kollegen?</span></a></li>
+            </ul>
+          </li>
+          <li><a href="./#faq">FAQ</a></li>
+        </ul>
+        <div class="menue__nav-extra">
+          <a class="menue__zurueck" href="../">Für Mitarbeitende
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </a>
+        </div>
+      </nav>
+
+      <div class="menue__rechts">
+        <a class="menue__cta" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen</a>
+        <a class="menue__zurueck" href="../">Für Mitarbeitende
+          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+        <div class="sprache" role="group" aria-label="Sprache">
+          <span aria-current="true" lang="de">DE</span>
+          <a href="../en/b2b/betriebsrat.html" lang="en" hreflang="en" aria-label="English version">EN</a>
+        </div>
+        <button class="menue__knopf" type="button" aria-expanded="false" aria-controls="menue-nav" data-menue-knopf>Menü</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero rolle einseiter" aria-labelledby="hero-titel">
+    <div class="behaelter">
+      <div class="hero__text">
+        <p class="etikett druck-nur">VIANU</p>
+        <p class="etikett rolle__ueber">Wer entscheidet mit?</p>
+        <h1 id="hero-titel">Betriebsrat</h1>
+        <p class="rolle__kern">Freiwillig für jede Person. Die Regeln vorab mit Ihnen geklärt.</p>
+        <p class="rolle__lead">Die Teilnahme ist freiwillig, für jede Person. Wie die Fotos der Fußerfassung verarbeitet werden, steht noch nicht fest. Dazu gibt es erst eine Aussage, wenn das Datenschutzkonzept steht.</p>
+        <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="datenfluss" aria-labelledby="datenfluss-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="datenfluss-titel">Daten und Datenschutz</h2>
+        <p>So läuft die Fußerfassung in einfachen Worten. Was feststeht, ist durchgezogen. Was noch offen ist, ist gestrichelt und kommt erst mit dem Datenschutzkonzept.</p>
+      </div>
+      <div class="fluss fluss--klick" data-fluss>
+        <ol class="fluss__liste">
+          <li><button class="fluss__knoten" type="button" aria-pressed="true" data-fluss-knoten="1"><span class="fluss__nr" aria-hidden="true">1</span><span class="etikett">Mitarbeitende</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="2" data-platzhalter><span class="fluss__nr" aria-hidden="true">2</span><span class="etikett">Offen</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="3"><span class="fluss__nr" aria-hidden="true">3</span><span class="etikett">VIANU</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="4"><span class="fluss__nr" aria-hidden="true">4</span><span class="etikett">Ihr Betrieb</span></button></li>
+          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="5" data-platzhalter><span class="fluss__nr" aria-hidden="true">5</span><span class="etikett">Offen</span></button></li>
+        </ol>
+        <div class="fluss__details" aria-live="polite">
+          <div class="fluss__feld" data-fluss-feld="1"><p>Machen die Fotos ihrer Füße mit dem eigenen Smartphone, in einer Pause. Die Teilnahme ist freiwillig.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="2"><p>Wo die Fotos verarbeitet werden, wer sie sehen kann und wie lange sie gespeichert bleiben.</p></div>
+          <div class="fluss__feld" data-fluss-feld="3"><p>Fertigt die individuell angefertigte Einlegesohle.</p></div>
+          <div class="fluss__feld" data-fluss-feld="4"><p>Bekommt die Sohlen für die Mitarbeitenden und einen anonymisierten Ergebnisbericht auf Gruppenebene.</p></div>
+          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="5"><p>Was Ihr Betrieb über die Teilnahme einzelner Personen erfährt. Dazu gibt es noch keine Aussage.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="termin-titel">Was Sie im Termin vertreten können müssen</h2>
+      </div>
+      <div class="fragenkarten fragenkarten--reihe">
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Die Frage der Rolle</strong></div>
+            <div class="dreh__hinten"><p>Was passiert mit den Daten unserer Kolleginnen und Kollegen?</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Kernbotschaft</strong></div>
+            <div class="dreh__hinten"><p>„Freiwillig für jede Person. Die Regeln vorab mit Ihnen geklärt.“</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">So sieht die Seite es</strong></div>
+            <div class="dreh__hinten"><p>Der Datenfluss in einfachen Worten: was feststeht und was noch offen ist. Wer was sieht und was wann gelöscht wird, kommt mit dem Datenschutzkonzept. Die Vorlage für die Betriebsvereinbarung ist in Arbeit.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">Der Pilot gilt als Erfolg, wenn</strong></div>
+            <div class="dreh__hinten"><p>die Teilnahme freiwillig und frei von Druck ist, keine Beschwerde beim Betriebsrat eingeht, der Arbeitgeber nur sieht, was die Vereinbarung erlaubt, und die Betriebsvereinbarung vor dem Start unterschrieben ist.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Das braucht es vor der Freigabe</strong></div>
+            <div class="dreh__hinten"><p>Vorlage für die Betriebsvereinbarung, Datenschutzkonzept, Auftragsverarbeitungsvertrag, was gespeichert wird und wie lange, wer es sehen kann und eine klare Linie zur Auswertung einzelner Personen.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="einseiter__fuss druck-nur">Ansprechpartner: Roderich. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
+        <p>Für den Betriebsrat zählen vor allem Tragequote und Wertschätzung. Am Ende des Piloten machen die Teilnehmenden alle vier Angaben selbst.</p>
+      </div>
+      <ul class="messwerte messwerte--flip messwerte--rolle">
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><g transform="translate(10 8) scale(0.27)"><path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z" class="f-tinte" stroke-width="9"/></g><circle cx="76" cy="44" r="26" class="f-papier"/><path d="M64 45l9 9 17-20" stroke-width="6"/></svg><h3 class="etikett">Tragequote</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Tragen Sie die Einlegesohlen noch?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh messwert--wichtig" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M14 70V54h20v16zM42 70V38h20v32zM70 70V22h20v48z" class="f-papier"/><path d="M70 70V22h20v48z" class="f-tinte"/><path d="M26 40l22-18 14 10 30-22" stroke-width="5" class="s-pfeil"/><path d="M82 8h14v14"/></svg><h3 class="etikett">Wertschätzung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Fühlen Sie sich mit dem Angebot wertgeschätzt?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><circle cx="30" cy="30" r="12" class="f-tinte"/><path d="M8 72c0-18 10-26 22-26s22 8 22 26z" class="f-tinte"/><circle cx="88" cy="30" r="12" class="f-papier"/><path d="M66 72c0-18 10-26 22-26s22 8 22 26z" class="f-papier"/><path d="M42 10h36a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H62l-8 8v-8H42a6 6 0 0 1-6-6v-8a6 6 0 0 1 6-6z" class="f-signal"/></svg><h3 class="etikett">Spürbare Verbesserung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p></div>
+          </div>
+        </li>
+        <li class="messwert messwert--dreh" tabindex="0">
+          <div class="messwert__innen">
+            <div class="messwert__vorn"><svg class="ico messwert__bild" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M60 74C20 50 14 32 24 20c10-12 28-6 36 8 8-14 26-20 36-8 10 12 4 30-36 54z" class="f-signal"/><path d="M96 12l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" class="f-tinte"/><path d="M16 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" class="f-papier"/></svg><h3 class="etikett">Weiterempfehlung</h3></div>
+            <div class="messwert__hinten"><p class="messwert__frage">„Würden Sie sie weiterempfehlen?“</p></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="belege-titel">Belege</h2>
+        <p>Für den Betriebsrat zählen vor allem Unterlagen. Sie sind in Arbeit.</p>
+      </div>
+      <div class="studienkarten">
+        <div class="dreh studienkarte studienkarte--breit beleg--offen" tabindex="0" data-platzhalter role="group" aria-label="Platzhalter für die Unterlagen zur Betriebsvereinbarung">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><span class="etikett platzhalter__etikett">Platzhalter</span><ul class="unterlagen"><li class="unterlagen__eintrag"><span>Vorlage für die Betriebsvereinbarung</span><span class="etikett unterlagen__stand">In Arbeit</span></li><li class="unterlagen__eintrag"><span>Datenschutzkonzept</span><span class="etikett unterlagen__stand">In Arbeit</span></li><li class="unterlagen__eintrag"><span>Auftragsverarbeitungsvertrag</span><span class="etikett unterlagen__stand">In Arbeit</span></li></ul></div>
+            <div class="dreh__hinten"><p>Vorlage für die Betriebsvereinbarung, Datenschutzkonzept und Auftragsverarbeitungsvertrag. Alle drei sind in Arbeit und stehen hier, sobald sie fertig sind.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+    <div class="behaelter">
+      <div class="zitatkarte">
+        <h2 id="brief-titel" class="etikett brief__an">Roderich an den Betriebsrat</h2>
+        <div class="zitatkarte__raster">
+          <div class="platzhalter platzhalter--quadrat zitatkarte__bild" data-platzhalter role="group" aria-label="Platzhalter für ein Porträt">
+            <span class="etikett platzhalter__etikett">Platzhalter</span>
+            <p>Bild: Porträt von Roderich, Schulterbild, ruhiger Hintergrund aus der Küche. Quadratisch.</p>
+          </div>
+          <div class="zitatkarte__text">
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">1</span><p>Ich verstehe den Einwand. Deshalb gilt zuerst: Die Teilnahme ist freiwillig, für jede einzelne Person. Der Ergebnisbericht an den Betrieb ist anonymisiert und zeigt die Gruppe, keine einzelnen Personen.</p></div>
+          <div class="zitatkarte__absatz"><span class="zitatkarte__nr" aria-hidden="true">2</span><p>Wie die Fotos der Fußerfassung verarbeitet werden, wie lange sie gespeichert bleiben und wer sie sieht, kläre ich mit Ihnen, bevor ein Pilot startet. Dazu sage ich erst etwas, wenn es verbindlich geregelt ist. Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden und will, dass Ihre Kolleginnen und Kollegen nach der Schicht noch Kraft für ihr Leben haben.</p></div>
+            <p class="brief__unterschrift">Roderich</p>
+            <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="fragen-rolle" aria-labelledby="fragen-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf"><h2 id="fragen-titel">Häufige Fragen</h2></div>
+      <div class="fragen__bereich">
+        <div class="fragen__gruppe">
+          <h3 class="etikett fragen__titel" id="fragen-wichtig">Das Wichtigste</h3>
+          <div class="fragen" role="group" aria-labelledby="fragen-wichtig">
+          <details class="frage">
+            <summary>Ist die Teilnahme an einem Einlegesohlen-Programm freiwillig?</summary>
+            <div class="frage__antwort"><p>Die Teilnahme an einem Einlegesohlen-Programm kann freiwillig sein. Bei VIANU ist sie freiwillig, jede Person entscheidet selbst.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Was passiert mit den Daten der Mitarbeitenden bei einem Fußscan für Einlegesohlen?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zu den Daten beim Fußscan">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt, sobald das Datenschutzkonzept steht. Bis dahin machen wir dazu keine Zusage.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Sieht der Arbeitgeber, wer an einem Einlegesohlen-Pilot teilnimmt?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort, ob der Arbeitgeber die Teilnahme sieht">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt, sobald das Datenschutzkonzept steht und die Betriebsvereinbarung geklärt ist.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Wird die Leistung einzelner Personen ausgewertet?</summary>
+            <div class="frage__antwort"><p>Am Ende eines Einlegesohlen-Piloten berichten die Teilnehmenden Angaben zu Komfort und Annahme, eine Leistung wird dabei nicht gemessen. Der Ergebnisbericht ist anonymisiert und zeigt die Gruppe. Wie VIANU einzelne Antworten behandelt, steht erst mit dem Datenschutzkonzept fest.</p></div>
+          </details>
+          </div>
+        </div>
+        <div class="fragen__gruppe">
+          <h3 class="etikett fragen__titel" id="fragen-weitere">Weitere Fragen</h3>
+          <div class="fragen" role="group" aria-labelledby="fragen-weitere">
+          <details class="frage">
+            <summary>Braucht ein Einlegesohlen-Programm eine Betriebsvereinbarung?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zur Betriebsvereinbarung">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt nach der rechtlichen Prüfung und sobald die Vorlage für die Betriebsvereinbarung steht.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Wie lange werden Fotos vom Fußscan gespeichert?</summary>
+            <div class="frage__antwort">
+              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zur Speicherdauer">
+                <span class="etikett platzhalter__etikett">Platzhalter</span>
+                <p>Antwort folgt, sobald das Datenschutzkonzept steht. Bis dahin nennen wir keine Frist.</p>
+              </div>
+            </div>
+          </details>
+          <details class="frage">
+            <summary>Wie funktioniert ein Fußscan mit dem Smartphone?</summary>
+            <div class="frage__antwort"><p>Beim Fußscan mit dem Smartphone werden die Füße mit dem eigenen Handy fotografiert. Ein Messtag und zusätzliche Geräte sind nicht nötig. VIANU nennt das Fußerfassung: Sie läuft in einer Pause, ohne Messtag und ohne zusätzliche Geräte.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Was ist VIANU?</summary>
+            <div class="frage__antwort"><p>VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, ohne Messtag.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Wie lange dauert es von der Fußerfassung bis zur Lieferung der Einlegesohlen?</summary>
+            <div class="frage__antwort"><p>Das hängt vom Anbieter ab. Bei VIANU erreicht die Sohle Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung.</p></div>
+          </details>
+          <details class="frage">
+            <summary>Wie lange hält eine Einlegesohle im Arbeitsalltag?</summary>
+            <div class="frage__antwort"><p>Das hängt vom Anbieter ab. Bei VIANU wissen wir aus eigenen Tests, dass die Sohle mindestens 3 Jahre einwandfrei hält.</p></div>
+          </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="weiterleiten" aria-labelledby="weiterleiten-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="weiterleiten-titel">An die nächste Person im Entscheidungsteam</h2>
+        <p>Jede Rolle hat eine eigene Seite. Diese Seite gibt es auch als Einseiter zum Weiterleiten.</p>
+      </div>
+      <div class="weiter" data-weiterleiten data-weiterleiten-diese-seite>
+        <div class="weiter__aktionen">
+          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-betriebsrat.pdf" download>Einseiter als PDF</a>
+          <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Link zu dieser Seite kopieren</button>
+          <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+        </div>
+        <p class="weiter__status" role="status" data-weiterleiten-status></p>
+        <input class="weiter__feld" type="text" readonly hidden aria-label="Link zu dieser Seite" data-weiterleiten-link>
+        <h3>Die anderen Rollen</h3>
+        <ul class="weiter__liste">
+          <li><a class="textlink" href="personal.html">Personal</a></li>
+          <li><a class="textlink" href="geschaeftsfuehrung.html">Geschäftsführung und Betrieb</a></li>
+          <li><a class="textlink" href="arbeitsschutz.html">Arbeitsschutz</a></li>
+          <li><a class="textlink" href="einkauf.html">Einkauf</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <h2 id="pilot-titel">Kontaktanfrage stellen</h2>
+    <p>Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich ist Ihr Ansprechpartner.</p>
+    <form class="formular" id="pilot-formular" novalidate data-formular>
+          <div class="formular__feld">
+            <label for="f-unternehmen">Unternehmen</label>
+            <input id="f-unternehmen" name="unternehmen" type="text" autocomplete="organization" required aria-describedby="f-unternehmen-fehler" data-feld="unternehmen">
+            <p class="formular__fehler" id="f-unternehmen-fehler" data-fehler="unternehmen" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-rolle">Ihre Rolle</label>
+            <select id="f-rolle" name="rolle" required aria-describedby="f-rolle-fehler" data-feld="rolle">
+              <option value="">Bitte wählen</option>
+              <option value="personal">Personal</option>
+              <option value="geschaeftsfuehrung">Geschäftsführung und Betrieb</option>
+              <option value="arbeitsschutz">Arbeitsschutz</option>
+              <option value="einkauf">Einkauf</option>
+              <option value="betriebsrat">Betriebsrat</option>
+              <option value="andere">Andere Rolle</option>
+            </select>
+            <p class="formular__fehler" id="f-rolle-fehler" data-fehler="rolle" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-mitarbeitende">Mitarbeitende im Unternehmen</label>
+            <input id="f-mitarbeitende" name="mitarbeitende" type="text" inputmode="numeric" autocomplete="off" required aria-describedby="f-mitarbeitende-fehler" data-feld="mitarbeitende">
+            <p class="formular__fehler" id="f-mitarbeitende-fehler" data-fehler="mitarbeitende" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-stunden">Wie viele Stunden stehen Ihre Mitarbeitenden ungefähr pro Tag?</label>
+            <input id="f-stunden" name="stunden" type="text" inputmode="numeric" autocomplete="off" required aria-describedby="f-stunden-fehler" data-feld="stunden">
+            <p class="formular__fehler" id="f-stunden-fehler" data-fehler="stunden" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-branche">Branche</label>
+            <select id="f-branche" name="branche" required aria-describedby="f-branche-fehler" data-feld="branche">
+              <option value="">Bitte wählen</option>
+              <option value="hotel-gastronomie">Hotel und Gastronomie</option>
+              <option value="einzelhandel">Einzelhandel</option>
+              <option value="lager-logistik">Lager und Logistik</option>
+              <option value="produktion-industrie">Produktion und Industrie</option>
+              <option value="pflege-gesundheit">Pflege und Gesundheit</option>
+              <option value="handwerk-bau">Handwerk und Bau</option>
+              <option value="reinigung-facility">Reinigung und Facility</option>
+              <option value="sicherheit-empfang">Sicherheit und Empfang</option>
+              <option value="bildung-betreuung">Bildung und Betreuung</option>
+              <option value="koerpernahe-dienste">Körpernahe Dienste</option>
+              <option value="verkehr-flughafen">Verkehr und Flughafen</option>
+              <option value="landwirtschaft-gartenbau">Landwirtschaft und Gartenbau</option>
+              <option value="veranstaltung-messe">Veranstaltung und Messe</option>
+              <option value="andere-taetigkeit">Andere Tätigkeit</option>
+            </select>
+            <p class="formular__fehler" id="f-branche-fehler" data-fehler="branche" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-kontakt">E-Mail oder Telefon</label>
+            <input id="f-kontakt" name="kontakt" type="text" autocomplete="email" required aria-describedby="f-kontakt-fehler" data-feld="kontakt">
+            <p class="formular__fehler" id="f-kontakt-fehler" data-fehler="kontakt" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-quelle">Wie sind Sie auf uns aufmerksam geworden?</label>
+            <select id="f-quelle" name="quelle" required aria-describedby="f-quelle-fehler" data-feld="quelle">
+              <option value="">Bitte wählen</option>
+              <option value="ki">Suche mit einer KI (zum Beispiel ChatGPT, Claude oder Gemini)</option>
+              <option value="suchmaschine">Suche bei Google oder einer anderen Suchmaschine</option>
+              <option value="soziale-netzwerke">Soziale Netzwerke (zum Beispiel LinkedIn oder Instagram)</option>
+              <option value="empfehlung-unternehmen">Empfehlung eines anderen Unternehmens</option>
+              <option value="empfehlung-mitarbeitende">Empfehlung einer Mitarbeiterin oder eines Mitarbeiters</option>
+              <option value="kontakt-durch-vianu">Kontaktaufnahme durch VIANU</option>
+              <option value="presse-veranstaltung">Presse, Fachmedium oder Veranstaltung</option>
+              <option value="anderer">Anderer Weg (bitte unten nennen)</option>
+            </select>
+            <p class="formular__fehler" id="f-quelle-fehler" data-fehler="quelle" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-freitext">Was haben Sie zum Beispiel gesucht, oder wer hat Sie empfohlen?</label>
+            <textarea id="f-freitext" name="freitext" rows="3" maxlength="500" required aria-describedby="f-freitext-fehler" data-feld="freitext"></textarea>
+            <p class="formular__fehler" id="f-freitext-fehler" data-fehler="freitext" hidden></p>
+          </div>
+          <div class="formular__feld">
+            <label for="f-anliegen">Ihr Anliegen</label>
+            <textarea id="f-anliegen" name="anliegen" rows="3" maxlength="500" required placeholder="Ich möchte mehr Infos erhalten für einen ersten möglichen Pilottest für 10 Mitarbeitende." aria-describedby="f-anliegen-fehler" data-feld="anliegen"></textarea>
+            <p class="formular__fehler" id="f-anliegen-fehler" data-fehler="anliegen" hidden></p>
+          </div>
+          <div class="formular__feld formular__feld--haken">
+            <input id="f-einwilligung" name="einwilligung" type="checkbox" aria-describedby="f-einwilligung-fehler" data-feld="einwilligung">
+            <label for="f-einwilligung">Ich stimme zu, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden. Der genaue Wortlaut folgt mit dem Datenschutzhinweis.</label>
+            <p class="formular__fehler" id="f-einwilligung-fehler" data-fehler="einwilligung" hidden></p>
+          </div>
+          <button class="knopf" type="submit">Anfrage absenden
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+          <p class="formular__status" role="status" data-formular-status></p>
+    </form>
+  </div>
+</dialog>
+
+<footer class="fuss auf-dunkel">
+  <div class="behaelter">
+    <div class="fuss__innen">
+      <a class="fuss__logo" href="./">VIANU</a>
+      <nav class="fuss__recht" aria-label="Rechtliches">
+        <a class="textlink textlink--hell" href="../impressum.html">Impressum</a>
+        <a class="textlink textlink--hell" href="../datenschutz.html">Datenschutz</a>
+      </nav>
+      <a class="textlink textlink--hell" href="../">Für Mitarbeitende</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

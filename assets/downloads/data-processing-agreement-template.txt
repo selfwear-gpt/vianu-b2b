@@ -1,0 +1,38 @@
+TEMPLATE: DATA PROCESSING AGREEMENT
+Status: draft. Not legal advice.
+
+How to use this
+This template is meant for the legal department or legal counsel of your company. It has not been reviewed by a lawyer. It assumes that VIANU acts as a processor in the pilot. Whether that is so is open and must be clarified legally. Passages in square brackets are placeholders.
+
+Between
+[Placeholder: company name, address] (the "Controller")
+and
+[Placeholder: company name and address of the VIANU entity, open] (the "Processor")
+
+1. Subject and term
+The subject is the processing of data in the pilot with custom-made insoles for 10 employees of the Controller. The term follows the pilot. [Placeholder: period until the evaluation, not yet decided.]
+
+2. Type of data and data subjects
+The data subjects are the employees who take part. The data processed are photos of the feet, details needed for production and four answers from the participants at the end of the pilot. [Placeholder: complete list of data types, to be confirmed by VIANU.]
+
+3. Instructions
+The Processor processes the data only on documented instructions from the Controller. [Placeholder: rule on instructions, to be reviewed legally.]
+
+4. Subprocessors
+[Placeholder: list of subprocessors, to be named by VIANU.]
+
+5. Technical and organizational measures
+[Placeholder: measures, to be described by VIANU.]
+
+6. Return and deletion
+[Placeholder: return and deletion of the data after the pilot, open.]
+
+7. Liability
+[Placeholder: liability, to be reviewed legally.]
+
+8. Final provisions
+[Placeholder: to be reviewed legally.]
+
+Place, date
+For the Controller: ______________________
+For the Processor: ______________________

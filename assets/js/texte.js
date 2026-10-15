@@ -1,0 +1,161 @@
+/*
+  Meldungen, die Skripte in die Seite schreiben. Schnittstelle: text(schluessel, werte, sprachkuerzel oder element), sprache(element), SCHLUESSEL.
+  Die Sprache kommt aus dem nächsten lang-Attribut über dem Element, Deutsch ist der Vorgabewert.
+*/
+(function (root, factory) {
+  if (typeof module === "object" && module.exports) module.exports = factory();
+  else root.VianuTexte = factory();
+})(this, function () {
+  var SCHLUESSEL = {
+    de: {
+      "kopiert.text": "Text kopiert.",
+      "kopiert.link": "Link kopiert.",
+      "kopiert.rolle": "Link für {rolle} kopiert.",
+      "kopiert.fehler.link.du": "Kopieren hat nicht geklappt. Der Link steht unten, kopiere ihn von Hand.",
+      "kopiert.fehler.link.sie": "Kopieren hat nicht geklappt. Der Link steht unten, kopieren Sie ihn von Hand.",
+      "kopiert.fehler.text.du": "Kopieren hat nicht geklappt. Der Text ist markiert, kopiere ihn von Hand.",
+      "kopiert.fehler.text.sie": "Kopieren hat nicht geklappt. Markieren Sie den Text und kopieren Sie ihn von Hand.",
+      "name.ansage": "Deine Sohle zeigt: {name}",
+      "name.ansage.firma": "Deine Sohle zeigt: {name}, {firma}",
+      "name.ansage.nurfirma": "Deine Sohle zeigt: {firma}",
+      "ablauf.schritt": "Schritt {nummer}: {text}",
+      "rechner.zeile": "{preis} Euro je Paar geteilt durch {n} Schichten pro Person und Jahr",
+      "platzhalter.link": "[Link zur Seite]",
+      "rolle.personal": "Personal",
+      "rolle.geschaeftsfuehrung": "Geschäftsführung und Betrieb",
+      "rolle.arbeitsschutz": "Arbeitsschutz",
+      "rolle.einkauf": "Einkauf",
+      "rolle.betriebsrat": "Betriebsrat",
+      "rolle.andere": "Andere Rolle",
+      "formular.unternehmen.leer": "Bitte tragen Sie den Namen Ihres Unternehmens ein.",
+      "formular.unternehmen.lang": "Der Name ist zu lang (höchstens {max} Zeichen).",
+      "formular.rolle": "Bitte wählen Sie Ihre Rolle.",
+      "formular.mitarbeitende": "Bitte geben Sie die Zahl der Mitarbeitenden als ganze Zahl von 1 bis {max} an.",
+      "formular.einwilligung": "Bitte stimmen Sie der Verarbeitung Ihrer Angaben zu.",
+      "formular.kontakt": "Bitte geben Sie eine E-Mail-Adresse oder eine Telefonnummer an, unter der wir Sie erreichen.",
+      "formular.quelle": "Bitte wählen Sie, wie Sie auf VIANU aufmerksam geworden sind.",
+      "formular.freitext": "Bitte beschreiben Sie kurz, was Sie gesucht haben oder wer Sie empfohlen hat (höchstens {max} Zeichen).",
+      "anfrage.kontakt": "Kontakt",
+      "anfrage.quelle": "Aufmerksam geworden über",
+      "anfrage.freitext": "Dazu",
+      "anfrage.anliegen": "Anliegen",
+      "formular.anliegen": "Bitte beschreiben Sie kurz Ihr Anliegen (höchstens {max} Zeichen).",
+      "quelle.ki": "Suche mit einer KI (zum Beispiel ChatGPT, Claude oder Gemini)",
+      "quelle.suchmaschine": "Suche bei Google oder einer anderen Suchmaschine",
+      "quelle.soziale-netzwerke": "Soziale Netzwerke (zum Beispiel LinkedIn oder Instagram)",
+      "quelle.empfehlung-unternehmen": "Empfehlung eines anderen Unternehmens",
+      "quelle.empfehlung-mitarbeitende": "Empfehlung einer Mitarbeiterin oder eines Mitarbeiters",
+      "quelle.kontakt-durch-vianu": "Kontaktaufnahme durch VIANU",
+      "quelle.presse-veranstaltung": "Presse, Fachmedium oder Veranstaltung",
+      "quelle.anderer": "Anderer Weg (bitte unten nennen)",
+      "branche.hotel-gastronomie": "Hotel und Gastronomie",
+      "branche.einzelhandel": "Einzelhandel",
+      "branche.lager-logistik": "Lager und Logistik",
+      "branche.produktion-industrie": "Produktion und Industrie",
+      "branche.pflege-gesundheit": "Pflege und Gesundheit",
+      "branche.handwerk-bau": "Handwerk und Bau",
+      "branche.reinigung-facility": "Reinigung und Facility",
+      "branche.sicherheit-empfang": "Sicherheit und Empfang",
+      "branche.bildung-betreuung": "Bildung und Betreuung",
+      "branche.koerpernahe-dienste": "Körpernahe Dienste",
+      "branche.verkehr-flughafen": "Verkehr und Flughafen",
+      "branche.landwirtschaft-gartenbau": "Landwirtschaft und Gartenbau",
+      "branche.veranstaltung-messe": "Veranstaltung und Messe",
+      "branche.andere-taetigkeit": "Andere Tätigkeit",
+      "formular.branche": "Bitte wählen Sie Ihre Branche.",
+      "formular.stunden": "Bitte geben Sie die Stunden pro Tag als ganze Zahl von 1 bis {max} an.",
+      "formular.versand": "Tool zur Erfassung fehlt noch.",
+      "anfrage.branche": "Branche",
+      "anfrage.stunden": "Stunden pro Tag auf den Beinen",
+      "anfrage.titel": "Anfrage für den Piloten mit 10 Mitarbeitenden",
+      "anfrage.unternehmen": "Unternehmen",
+      "anfrage.rolle": "Rolle",
+      "anfrage.mitarbeitende": "Mitarbeitende im Unternehmen"
+    },
+    en: {
+      "kopiert.text": "Text copied.",
+      "kopiert.link": "Link copied.",
+      "kopiert.rolle": "Link for {rolle} copied.",
+      "kopiert.fehler.link.du": "Copying did not work. The link is below. Copy it by hand.",
+      "kopiert.fehler.link.sie": "Copying did not work. The link is below. Copy it by hand.",
+      "kopiert.fehler.text.du": "Copying did not work. The text is selected. Copy it by hand.",
+      "kopiert.fehler.text.sie": "Copying did not work. Select the text and copy it by hand.",
+      "name.ansage": "Your insole shows: {name}",
+      "name.ansage.firma": "Your insole shows: {name}, {firma}",
+      "name.ansage.nurfirma": "Your insole shows: {firma}",
+      "ablauf.schritt": "Step {nummer}: {text}",
+      "rechner.zeile": "EUR {preis} per pair divided by {n} shifts per person and year",
+      "platzhalter.link": "[Link to the page]",
+      "rolle.personal": "HR",
+      "rolle.geschaeftsfuehrung": "Management and operations",
+      "rolle.arbeitsschutz": "Occupational safety",
+      "rolle.einkauf": "Procurement",
+      "rolle.betriebsrat": "Works council",
+      "rolle.andere": "Other role",
+      "formular.unternehmen.leer": "Please enter the name of your company.",
+      "formular.unternehmen.lang": "The name is too long (at most {max} characters).",
+      "formular.rolle": "Please choose your role.",
+      "formular.mitarbeitende": "Please enter the number of employees as a whole number from 1 to {max}.",
+      "formular.einwilligung": "Please agree to the processing of your details.",
+      "formular.kontakt": "Please enter an email address or a phone number where we can reach you.",
+      "formular.quelle": "Please choose how you found out about VIANU.",
+      "formular.freitext": "Please briefly say what you were looking for or who recommended us (at most {max} characters).",
+      "anfrage.kontakt": "Contact",
+      "anfrage.quelle": "Found us through",
+      "anfrage.freitext": "More detail",
+      "anfrage.anliegen": "Request",
+      "formular.anliegen": "Please briefly describe what you need (at most {max} characters).",
+      "quelle.ki": "Search with an AI (for example ChatGPT, Claude or Gemini)",
+      "quelle.suchmaschine": "Search on Google or another search engine",
+      "quelle.soziale-netzwerke": "Social networks (for example LinkedIn or Instagram)",
+      "quelle.empfehlung-unternehmen": "Recommendation from another company",
+      "quelle.empfehlung-mitarbeitende": "Recommendation from an employee",
+      "quelle.kontakt-durch-vianu": "Contact made by VIANU",
+      "quelle.presse-veranstaltung": "Press, trade media or event",
+      "quelle.anderer": "Another way (please say below)",
+      "branche.hotel-gastronomie": "Hotels and restaurants",
+      "branche.einzelhandel": "Retail",
+      "branche.lager-logistik": "Warehouse and logistics",
+      "branche.produktion-industrie": "Production and industry",
+      "branche.pflege-gesundheit": "Care and health",
+      "branche.handwerk-bau": "Trades and construction",
+      "branche.reinigung-facility": "Cleaning and facility",
+      "branche.sicherheit-empfang": "Security and reception",
+      "branche.bildung-betreuung": "Education and childcare",
+      "branche.koerpernahe-dienste": "Personal care services",
+      "branche.verkehr-flughafen": "Transport and airports",
+      "branche.landwirtschaft-gartenbau": "Agriculture and horticulture",
+      "branche.veranstaltung-messe": "Events and trade fairs",
+      "branche.andere-taetigkeit": "Other work",
+      "formular.branche": "Please choose your industry.",
+      "formular.stunden": "Please enter the hours per day as a whole number from 1 to {max}.",
+      "formular.versand": "The tool to capture requests is not available yet.",
+      "anfrage.branche": "Industry",
+      "anfrage.stunden": "Hours per day on their feet",
+      "anfrage.titel": "Request for the pilot with 10 employees",
+      "anfrage.unternehmen": "Company",
+      "anfrage.rolle": "Role",
+      "anfrage.mitarbeitende": "Employees in the company"
+    }
+  };
+
+  // Sprache eines Elements: das nächste lang-Attribut darüber, sonst Deutsch.
+  // So stimmt sie auch, wenn mehrere Seiten in einem Dokument liegen (Gesamtvorschau).
+  function sprache(element) {
+    var knoten = element && element.closest ? element.closest("[lang]") : null;
+    return (knoten && knoten.getAttribute("lang")) || "de";
+  }
+
+  // Der dritte Wert ist ein Sprachkürzel oder ein Element der Seite.
+  function text(schluessel, werte, sprachkuerzelOderElement) {
+    var wo = sprachkuerzelOderElement;
+    var s = typeof wo === "string" ? wo : sprache(wo);
+    var tabelle = SCHLUESSEL[s] || SCHLUESSEL.de;
+    if (!Object.prototype.hasOwnProperty.call(SCHLUESSEL.de, schluessel)) throw new Error("Unbekannter Schlüssel: " + schluessel);
+    return tabelle[schluessel].replace(/\{(\w+)\}/g, function (_, name) {
+      return werte && werte[name] != null ? String(werte[name]) : "{" + name + "}";
+    });
+  }
+
+  return { text: text, sprache: sprache, SCHLUESSEL: SCHLUESSEL };
+});

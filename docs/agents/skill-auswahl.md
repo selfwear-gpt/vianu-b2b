@@ -36,5 +36,6 @@ Pläne, Spezifikationen und Aufgaben liegen als Markdown-Dateien unter `.scratch
 ## Immer zusätzlich
 
 - Texte für die Seite: erst `VOICE.md`, `GLOSSARY.md` und `FACTS.md` lesen.
+- Seiten mit FAQ: dazu `VOICE.md`, Abschnitt "FAQ" (Fragen wie Fremde suchen, VIANU erst am Ende der allgemeinen Antworten), danach `python3 scripts/check-faq.py`.
 - Gestaltung und Bausteine: erst `DESIGN.md` und `COMPONENTS.md` lesen.
 - Jede Regeländerung kommt in die zuständige Datei, nicht in `CLAUDE.md`.

@@ -7,7 +7,7 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 - **B2B-Bereich:** "Sie". Persona-Briefe sind in der Ich-Form des Gründers geschrieben und sprechen die Rolle direkt an.
 - **Mitarbeitenden-Bereich:** "du".
 - **Betriebsratsseite und Brief des Gründers:** "Sie", auch wenn der Betriebsrat für die Kolleginnen und Kollegen spricht.
-- **Englische Fassung:** Deutsch ist die Hauptsprache. Die Slogans ("Walk lightly, smile brightly", "Nothing fancy. Just a great way to get through your day.") bleiben in beiden Sprachen Englisch und unverändert. Menüs und Überschriften werden übersetzt. "Perspektivwechsel" wird zu "Change of perspective" mit der Unterzeile "For the decision-makers".
+- **Englische Fassung:** Deutsch ist die Hauptsprache. Die Slogans ("Walk lightly, smile brightly", "Nothing fancy. Just a great way to get through your day.") bleiben in beiden Sprachen Englisch und unverändert. Menüs und Überschriften werden übersetzt. "Perspektivwechsel" wird zu "Change of perspective" mit der Unterzeile "For the decision-makers". Die englischen Seiten übersetzen die deutschen, sie sagen nichts Neues. "du" und "Sie" werden beide "you", der Ton bleibt: Mitarbeitende direkt und kurz, Entscheider sachlich. Es gelten dieselben Verbote (Geviertstriche, Kontrastformeln, Floskeln, Wirkversprechen) sinngemäß, `check-text.py` prüft die englischen Muster. Amerikanische Schreibung. Wörter stehen in `GLOSSARY.md`, Abschnitt "Englische Fassung".
 
 ## Gendern
 
@@ -16,7 +16,7 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 
 ## Preis
 
-- "120 Euro je Paar, zuzüglich Umsatzsteuer". Nie "je Einlage", nie "netto" oder "brutto" allein.
+- "120 Euro je Paar, zuzüglich Umsatzsteuer". Nie "je Einlage", nie "netto" oder "brutto" allein. Unter dem Preisschild im Preisblock: "je individuell gefertigtes Paar (zzgl. Umsatzsteuer)".
 - Gerechnete Werte (Kosten je Schicht, je Monat) tragen den Hinweis "gerechnet".
 - Zum steuerlichen Weg beim Arbeitgeber steht nichts auf der Seite, bis eine Steuerberatung ihn bestätigt hat.
 
@@ -30,7 +30,7 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 - Wir sprechen in Schichten: Küche, Service, Housekeeping, Empfang, Bar. Böden aus Fliesen und Stein, nicht aus Beton.
 - Kurze Sätze, ein Gedanke pro Satz. Konkrete Wörter statt Fachwörter. Keine Orthopädie-Begriffe wie Pronation oder Gewölbe.
 - Die Technik (Scan, KI, 3D-Druck) steht nie im Vordergrund. Sie taucht nur auf, wenn sie einen Nutzen belegt, zum Beispiel "Fotos mit dem eigenen Handy in der Pause".
-- Die Merkmale, die wir wiederholen: kein Messtag, die Einlegesohle kommt in Schuhe, die die Mitarbeitenden schon besitzen, sie wird übergeben und nicht verteilt.
+- Die Merkmale, die wir wiederholen: kein Messtag, die Einlegesohle kommt in Schuhe, die die Mitarbeitenden schon besitzen, sie erreicht die Mitarbeitenden im Betrieb ("übergeben" sagen wir nicht).
 
 ## Verboten
 
@@ -49,6 +49,19 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 - Keine Füllwörter wie "wirklich", "echt", "nahtlos", "robust", "revolutionär", "ganzheitlich".
 - Unterschiedlich lange Sätze und Listenpunkte. Nicht jeder Punkt hat dieselbe Form.
 - Die Slogans sind festgelegt und gelten als Ausnahme von diesen Regeln.
+
+## FAQ
+
+Gilt für jede Seite mit FAQ: Mitarbeitende, B2B-Start, alle Persona-Seiten und alle künftigen Seiten. Festgelegt am 13.10.2026. Der Check `scripts/check-faq.py` prüft Punkt 6 und den Richtwert in Punkt 2.
+
+1. **Fragen, wie Fremde suchen.** Ausgeschrieben, mit dem Thema im Satz und mit Suchbegriffen aus dem Glossar (Einlegesohle, Fußscan). Keine internen Wörter ohne Erklärung (Erfassungswoche, Programm).
+2. **Zwei Arten von Fragen.** Eine *Allgemeine Frage* nennt VIANU nicht. Ihre Antwort sagt zuerst, was allgemein gilt, mit Beleg oder Begründung, und nennt VIANU erst im letzten Satz. Eine *Markenfrage* nennt VIANU in der Frage. Höchstens die Hälfte der Fragen einer Seite sind Markenfragen.
+3. **Jede Antwort steht für sich.** Ein Antwortsystem zitiert eine Passage einzeln. Der erste Satz nennt den Gegenstand beim Namen und beantwortet die Frage. Kein "das", "es" oder "dort" als Verweis auf anderen Text. Ein bis drei Sätze.
+4. **Allgemeine Antworten in neutraler Form** ("Beschäftigte", "man"). Der letzte Satz mit VIANU nutzt die Anrede des Bereichs (du oder Sie).
+5. **Nur belegte Antworten.** Ohne Zeile in `FACTS.md` steht ein Platzhalter. Studien nur mit Quelle und Gruppe, ohne Wirkversprechen.
+6. **FAQPage-Daten** (`application/ld+json`) enthalten nur beantwortete Fragen und gleichen dem sichtbaren Text wörtlich.
+7. **Auf B2B-Seiten** stammen die allgemeinen Fragen aus der Sicht der Rolle, zum Beispiel "Wie führt ein Hotel Einlegesohlen für sein Team ein?".
+8. Fragen gruppieren, wenn es mehr als sechs sind: erst die allgemeinen, dann die zu VIANU. Die Gruppenüberschrift ist eine `h3`.
 
 ## Aufbau
 

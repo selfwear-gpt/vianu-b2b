@@ -71,7 +71,7 @@ Regeln:
 - Fließtext ist höchstens etwa 65 Zeichen breit. Überschriften nutzen `text-wrap: balance`.
 - Pfeile (↗ →) fehlen in den Schriften und werden als SVG-Symbol gesetzt, nicht als Zeichen.
 - Neue Sonderzeichen vorab gegen `unicode-range` in `assets/css/fonts.css` prüfen.
-- Größenstufen (Vorschlag, zu bestätigen): Slogan und Hero-Überschrift groß und fett, Abschnittsüberschrift mittel, Fließtext etwa 17 px, Etiketten etwa 11 bis 12 px. Die Stufen werden mit der ersten Seite festgelegt und dann als Tokens ergänzt.
+- Größenstufen sind Tokens in `tokens.css`: `--schrift-groesse-display` (Hero-Überschrift, 3 bis 6,75 rem), `--schrift-groesse-h2`, `--schrift-groesse-h3`, `--schrift-groesse-text` (17 px), `--schrift-groesse-klein`, `--schrift-groesse-etikett`. Sie wurden mit der ersten Seite festgelegt und sind noch Vorschläge, bis die Identität steht.
 
 ## Raster und Layout
 
@@ -88,7 +88,7 @@ Regeln:
 - Nichts startet von selbst. Scrollen, Hover oder Tippen löst aus. Bewegung am Scrollen läuft beim Zurückscrollen rückwärts.
 - Kein Text im animierten Bild. Die Wörter stehen im HTML.
 - Leicht gebaut: Vektor, CSS oder Canvas, keine Videodateien für Effekte.
-- Nicht verwendet: Scan- oder KI-Animationen, 3D-Rotation von Schuhen, Zähler, Parallaxe in Ebenen, Hintergrundvideo in Schleife.
+- Nicht verwendet: Scan- oder KI-Animationen, 3D-Rotation von Schuhen, Zähler, Parallaxe in Ebenen, Hintergrundvideo in Schleife. Erlaubt ist das Umdrehen von Kacheln (Werteband, Sorgenfuß): Es zeigt Text auf der Rückseite, nimmt keinen Schuh als Motiv und hat einen Ruhezustand (Überblendung, im Druck untereinander).
 
 ## Bilder und Video
 

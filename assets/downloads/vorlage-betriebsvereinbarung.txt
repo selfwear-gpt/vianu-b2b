@@ -1,0 +1,52 @@
+VORLAGE: BETRIEBSVEREINBARUNG ZUM PILOTEN MIT VIANU
+Stand: Entwurf. Keine Rechtsberatung.
+
+Hinweis zur Verwendung
+Dieser Text ist ein Ausgangspunkt für die Verhandlung mit Ihrem Betriebsrat. Er ist nicht rechtlich geprüft. Lassen Sie ihn vor der Verwendung von Ihrer Rechtsberatung und Ihrem Datenschutzbeauftragten prüfen. Stellen in eckigen Klammern sind Platzhalter. Sie müssen im Unternehmen ergänzt oder von VIANU bestätigt werden. Dieser Text sagt nicht, ob für den Piloten eine Betriebsvereinbarung nötig ist. Das klären Sie mit Ihrer Rechtsberatung.
+
+Zwischen
+[Platzhalter: Name des Unternehmens, Anschrift] (im Folgenden "Arbeitgeber")
+und
+[Platzhalter: Name des Betriebsrats] (im Folgenden "Betriebsrat")
+wird folgende Vereinbarung geschlossen.
+
+1. Ziel
+Der Arbeitgeber führt einen Piloten mit individuell angefertigten Einlegesohlen von VIANU durch. Der Pilot soll zeigen, ob die Einlegesohlen für die teilnehmenden Mitarbeitenden einen Unterschied machen. Die Einlegesohlen sind ein ergänzendes Komfortangebot. Sie ersetzen keine Schutzmaßnahme und keine Arbeitsplatzgestaltung.
+
+2. Geltungsbereich
+Die Vereinbarung gilt für [Platzhalter: Standort, Abteilung oder Gruppe] und für bis zu [Platzhalter: Zahl] Mitarbeitende. Im Piloten sind 10 Mitarbeitende vorgesehen.
+
+3. Freiwilligkeit
+Die Teilnahme ist freiwillig. Wer nicht teilnimmt, hat keine Nachteile. Wer teilnimmt, kann die Teilnahme beenden. [Platzhalter: Regelung zum Widerruf und zu bereits erhobenen Daten, rechtlich zu prüfen.]
+
+4. Ablauf
+a) Der Arbeitgeber legt fest, welche Mitarbeitenden teilnehmen können.
+b) Die teilnehmenden Mitarbeitenden fotografieren ihre Füße mit dem eigenen Smartphone in einer Pause. Es gibt keinen Messtag und keine zusätzlichen Geräte.
+c) VIANU fertigt für jede teilnehmende Person eine individuell angefertigte Einlegesohle. [Platzhalter: Gravur von Name und Firmenlogo, von VIANU zu bestätigen.]
+d) Die Einlegesohle erreicht die Mitarbeitenden im Betrieb, spätestens 7 Tage nach der Fußerfassung. [Platzhalter: Beleg von VIANU zur Lieferzeit.]
+e) Die Einlegesohle kommt in Schuhe, die die Mitarbeitenden schon besitzen.
+f) Für die Mitarbeitenden entstehen keine Kosten. Der Arbeitgeber trägt sie.
+
+5. Datenverarbeitung
+Welche Daten entstehen, wo sie verarbeitet werden und wie lange sie gespeichert werden, regelt das Datenschutzkonzept (Anlage 1). [Platzhalter: Verarbeitungsort, Speicherdauer, Einsicht und Löschung, offen und noch nicht festgelegt.] Der Arbeitgeber erhält keine Fotos der Mitarbeitenden. [Platzhalter: Aussage von VIANU zu bestätigen.]
+
+6. Ergebnisbericht
+Am Ende des Piloten erhält der Arbeitgeber einen anonymisierten Bericht auf Gruppenebene. Die Teilnehmenden beantworten vier Fragen selbst: Tragequote, spürbare Verbesserung, Weiterempfehlung und Wertschätzung. Die Werte sind Selbstauskünfte. [Platzhalter: Mindestgröße der Gruppe, ab der ein Wert gezeigt wird.] Aussagen über einzelne Personen enthält der Bericht nicht. [Platzhalter: zu bestätigen. Was der Arbeitgeber über einzelne Teilnehmende erfährt, ist offen.]
+
+7. Leistungs- und Verhaltenskontrolle
+[Platzhalter: Regelung, dass die Ergebnisse nicht zur Leistungs- und Verhaltenskontrolle verwendet werden, rechtlich zu prüfen.]
+
+8. Rechte des Betriebsrats
+[Platzhalter: Informations- und Einsichtsrechte, rechtlich zu prüfen.]
+
+9. Laufzeit und Beendigung
+Die Vereinbarung gilt ab [Platzhalter: Datum]. Der Pilot endet mit der Auswertung. [Platzhalter: Zeitraum bis zur Auswertung, noch nicht festgelegt.] Danach entscheidet der Arbeitgeber gemeinsam mit dem Betriebsrat, ob weitere Teams teilnehmen.
+
+10. Schlussbestimmungen
+[Platzhalter: Schriftform, Salvatorische Klausel, rechtlich zu prüfen.]
+
+Ort, Datum
+Für den Arbeitgeber: ______________________
+Für den Betriebsrat: ______________________
+
+Anlage 1: Datenschutzkonzept (Entwurf siehe Datei "datenschutzkonzept-entwurf.txt")

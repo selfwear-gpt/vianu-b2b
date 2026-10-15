@@ -1,0 +1,38 @@
+VORLAGE: AUFTRAGSVERARBEITUNGSVERTRAG
+Stand: Entwurf. Keine Rechtsberatung.
+
+Hinweis zur Verwendung
+Diese Vorlage ist für die Rechtsabteilung oder die Rechtsberatung Ihres Unternehmens gedacht. Sie ist nicht rechtlich geprüft. Sie setzt voraus, dass VIANU im Piloten als Auftragsverarbeiter handelt. Ob das so ist, ist offen und rechtlich zu klären. Stellen in eckigen Klammern sind Platzhalter.
+
+Zwischen
+[Platzhalter: Name des Unternehmens, Anschrift] (im Folgenden "Auftraggeber")
+und
+[Platzhalter: Firma und Anschrift der VIANU-Gesellschaft, offen] (im Folgenden "Auftragnehmer")
+
+1. Gegenstand und Dauer
+Gegenstand ist die Verarbeitung von Daten im Piloten mit individuell angefertigten Einlegesohlen für 10 Mitarbeitende des Auftraggebers. Die Dauer richtet sich nach dem Piloten. [Platzhalter: Zeitraum bis zur Auswertung, noch nicht festgelegt.]
+
+2. Art der Daten und Kreis der Betroffenen
+Betroffen sind die teilnehmenden Mitarbeitenden. Verarbeitet werden Fotos der Füße, Angaben für die Fertigung und vier Antworten der Teilnehmenden am Ende des Piloten. [Platzhalter: Vollständige Liste der Datenarten, von VIANU zu bestätigen.]
+
+3. Weisungen
+Der Auftragnehmer verarbeitet die Daten nur auf dokumentierte Weisung des Auftraggebers. [Platzhalter: Regelung zu Weisungen, rechtlich zu prüfen.]
+
+4. Unterauftragnehmer
+[Platzhalter: Liste der Unterauftragnehmer, von VIANU zu nennen.]
+
+5. Technische und organisatorische Maßnahmen
+[Platzhalter: Maßnahmen, von VIANU zu beschreiben.]
+
+6. Rückgabe und Löschung
+[Platzhalter: Rückgabe und Löschung der Daten nach dem Piloten, offen.]
+
+7. Haftung
+[Platzhalter: Haftung, rechtlich zu prüfen.]
+
+8. Schlussbestimmungen
+[Platzhalter: rechtlich zu prüfen.]
+
+Ort, Datum
+Für den Auftraggeber: ______________________
+Für den Auftragnehmer: ______________________
