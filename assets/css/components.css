@@ -243,6 +243,7 @@ button.menue__cta { border: 0; font-family: var(--schrift-mono); cursor: pointer
 .fuss { background: var(--farbe-tinte); color: var(--farbe-papier); padding-block: var(--abstand-6); }
 .fuss__innen { display: flex; flex-wrap: wrap; gap: var(--abstand-4) var(--abstand-6); align-items: center; justify-content: space-between; }
 .fuss__logo { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; }
+a.fuss__logo { color: inherit; text-decoration: none; }
 /* ======================================================================
    Mitarbeitenden-Bereich
    ====================================================================== */

@@ -118,15 +118,24 @@ test("das Textdownload gleicht der Mailvorlage auf der Seite, in beiden Sprachen
   assert.equal(lies("assets/downloads/mail-to-employer.txt").trim(), vorlage(lies("en/index.html")));
 });
 
-test("das Logo führt auf jeder Seite zur Startseite der eigenen Sprache und nach oben", () => {
+test("das Logo führt im Menü und im Fuß zur Startseite des eigenen Bereichs und der eigenen Sprache", () => {
   for (const rel of PAARE.flatMap((f) => [f, "en/" + f])) {
     const h = lies(rel);
     const m = h.match(/<a class="menue__logo" href="([^"]+)" aria-label="([^"]+)"/);
     assert.ok(m, rel + ": Logo");
-    const start = rel.startsWith("en/") ? "en/index.html" : "index.html";
-    const selbst = rel === start;
+    const sprache = rel.startsWith("en/") ? "en/" : "";
+    const b2b = rel.startsWith(sprache + "b2b/");
+    const start = sprache + (b2b ? "b2b/index.html" : "index.html");
+    const selbst = rel === sprache + "index.html" || rel === sprache + "b2b/index.html";
     assert.equal(selbst ? m[1] : ziel(rel, m[1]), selbst ? "#" : path.normalize(start), rel + ": Ziel des Logos");
-    assert.match(m[2], rel.startsWith("en/") ? /^VIANU, to the home page$/ : /^VIANU, zur Startseite$/, rel + ": aria-label");
+    assert.match(m[2], sprache ? /^VIANU, to the home page$/ : /^VIANU, zur Startseite$/, rel + ": aria-label");
+    if (b2b) {
+      const fuss = h.match(/<a class="fuss__logo" href="([^"]+)"[^>]*>VIANU<\/a>/);
+      assert.ok(fuss, rel + ": Logo im Fuß ist ein Link");
+      assert.equal(selbst ? fuss[1] : ziel(rel, fuss[1]), selbst ? "#" : path.normalize(start), rel + ": Ziel des Logos im Fuß");
+    } else {
+      assert.match(h, /<span class="fuss__logo">VIANU<\/span>/, rel + ": Logo im Fuß bleibt ohne Link");
+    }
   }
 });
 
