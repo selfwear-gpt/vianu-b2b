@@ -22,8 +22,8 @@ Alle Texte der Website folgen diesen Regeln. Bestätigt am 12.10.2026.
 
 ## Gründer
 
-- Briefe und Gründerband: "Roderich", in der Ich-Form.
-- Impressum und Eckdaten: voller Name.
+- Im Sie-Bereich (B2B): überall der volle Name "Roderich Körner-Rehn", in Briefen in der Ich-Form. Chat-Kopf: "Der Vianu Gründer Roderich Körner-Rehn".
+- Im Du-Bereich: "Roderich".
 
 ## Sprache des Alltags
 

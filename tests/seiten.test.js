@@ -32,11 +32,11 @@ test("die Rollenseiten sind für Suchmaschinen offen", () => {
   for (const r of ROLLEN) assert.doesNotMatch(seite(r), /noindex/, r);
 });
 
-test("jede Rollenseite trägt Termin, Chat-Brief mit Unterschrift, FAQ und Weiterleiten", () => {
+test("jede Rollenseite trägt Termin, Chat-Brief mit Link zur Geschichte, FAQ und Weiterleiten", () => {
   for (const r of ROLLEN) {
     const h = seite(r);
     assert.match(h, /<section class="abschnitt einseiter" id="termin"/, r + ": Im Termin");
-    assert.match(h, /data-chat>[\s\S]*?<p class="brief__unterschrift">Roderich<\/p>/, r + ": Brief");
+    assert.match(h, /data-chat>[\s\S]*?<div class="chat__unterschrift">[\s\S]*?#geschichte/, r + ": Brief");
     assert.match(h, /class="fragen__gruppe"/, r + ": FAQ");
     assert.match(h, /data-weiterleiten/, r + ": Weiterleiten");
     assert.match(h, new RegExp('href="\\.\\./assets/downloads/rolle-' + r + '\\.pdf"'), r + ": PDF-Verweis");
@@ -55,11 +55,12 @@ test("die Rollenseiten tragen FAQPage-Daten mit beantworteten Fragen", () => {
 });
 
 test("Messwerte (Umfrage) stehen nur auf Personal, Geschäftsführung und Arbeitsschutz, mit wichtigen Messwerten", () => {
-  const erwartet = { personal: 3, geschaeftsfuehrung: 2, arbeitsschutz: 2, einkauf: 0, betriebsrat: 0 };
+  const erwartet = { personal: 0, geschaeftsfuehrung: 2, arbeitsschutz: 2, einkauf: 0, betriebsrat: 0 };
+  const mitUmfrage = ["personal", "geschaeftsfuehrung", "arbeitsschutz"];
   for (const r of ROLLEN) {
     const n = (seite(r).match(/<li data-wichtig>/g) || []).length;
     assert.equal(n, erwartet[r], r + ": " + n + " wichtige Messwerte");
-    assert.equal(/data-umfrage/.test(seite(r)), erwartet[r] > 0, r + ": Umfrage");
+    assert.equal(/data-umfrage/.test(seite(r)), mitUmfrage.includes(r), r + ": Umfrage");
   }
 });
 
@@ -67,12 +68,13 @@ test("rollenspezifische Bausteine: Matte und Weg, Datenfluss, Rechner", () => {
   assert.match(seite("arbeitsschutz"), /data-weg/);
   assert.match(seite("arbeitsschutz"), /Die Sohle ergänzt die Arbeitsplatzmatte\./);
   assert.match(seite("betriebsrat"), /id="datenfluss"/);
-  assert.match(seite("betriebsrat"), /class="fluss__knoten fluss__knoten--offen"/);
+  assert.doesNotMatch(seite("betriebsrat"), /fluss__knoten--offen|fluss__offen/, "keine offenen Stationen mehr im Datenfluss");
+  assert.match(seite("betriebsrat"), /(3D-Druck|3D printing)/, "Druck in Deutschland steht im Datenfluss");
   assert.match(seite("geschaeftsfuehrung"), /data-rechner/);
 });
 
 test("die Studien stehen nur auf den Seiten der Rolle, deren Frage sie beantworten", () => {
-  const erlaubt = { Reed: ["personal"], Bernardes: ["personal", "arbeitsschutz"], Smith: ["geschaeftsfuehrung"], Speed: ["arbeitsschutz"] };
+  const erlaubt = { Abdelsalam: ["personal"], Tarrade: ["personal", "arbeitsschutz"], Kang: ["arbeitsschutz"], Speed: [], Reed: [], Bernardes: [], Smith: [] };
   for (const [studie, seiten] of Object.entries(erlaubt)) {
     for (const r of ROLLEN) {
       const text = seite(r).replace(/<script[\s\S]*?<\/script>/g, "");
@@ -94,10 +96,17 @@ test("der Termin-Abschnitt nennt je Seite seinen eigenen Inhalt und keine Standa
   }
 });
 
-test("Smith nennt die Förderung durch einen Einlegesohlen-Hersteller und die Selbstauskunft", () => {
-  const h = seite("geschaeftsfuehrung");
-  assert.match(h, /Einlegesohlen-Hersteller/);
-  assert.match(h, /Selbstauskunft/);
+test("Studienkarten: auf der Rückseite steht nur die Aussage, verständlich ohne die Vorderseite, und darunter Autoren mit Jahr", () => {
+  for (const [r, n] of [["personal", 2], ["arbeitsschutz", 2]]) {
+    const h = seite(r);
+    const rueck = [...h.matchAll(/<div class="dreh__hinten">([\s\S]*?)<\/div>/g)].map((m) => m[1]).filter((x) => /studie__aussage/.test(x));
+    assert.equal(rueck.length, n, r);
+    for (const x of rueck) {
+      assert.doesNotMatch(x, /Vergleichsgruppe|Selbstauskunft|Stichprobe|Methode|control group|self-reported/, r + ": nichts zu Methode oder Aussagekraft");
+      const aussage = x.match(/<p class="studie__aussage">([^<]*)</)[1];
+      assert.ok(aussage.split(/\s+/).length >= 15, r + ": die Aussage steht für sich: " + aussage);
+    }
+  }
 });
 
 test("keine Rollenseite nennt die 24 Prozent", () => {

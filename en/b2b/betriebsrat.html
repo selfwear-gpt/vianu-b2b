@@ -27,10 +27,42 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How is a custom insole made?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A custom insole can be made with 3D printing from the photos of the feet. At VIANU, it is printed locally in Germany and made within 48 hours. It reaches your employees at the latest 7 days after the foot capture."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is taking part in an insole program voluntary?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Taking part in an insole program can be voluntary. At VIANU it is voluntary, and each person decides for themselves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long are photos from a foot scan stored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "How long photos stay stored depends on the provider. At VIANU, they are used only to make the insole and deleted after production. The insole is printed within 48 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the employer see who takes part in an insole pilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whether an employer sees who takes part depends on the program. At VIANU, the business knows the participant list, because it receives the insoles for these people. It sees the answers of the survey only as an anonymized report at group level, never individually."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to employee data during a foot scan for insoles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "During a foot scan, employees photograph their feet voluntarily with their own smartphone. At VIANU, the photos are processed in the EU, used only to make the insole and deleted afterwards. VIANU and its manufacturing partners can see them."
       }
     },
     {
@@ -54,7 +86,7 @@
       "name": "How does a foot scan with a smartphone work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For a foot scan with a smartphone, the feet are photographed with your own phone. A measurement day and extra devices are not needed. VIANU calls this foot capture. It takes place during a break, with no measurement day and no extra devices."
+        "text": "For a foot scan with a smartphone, the feet are photographed with your own phone. A measurement day and extra devices are not needed. VIANU calls this foot capture. It takes place for example during a break, with no measurement day and no extra devices."
       }
     },
     {
@@ -62,7 +94,7 @@
       "name": "What is VIANU?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on the employee's own smartphone during a break, with no measurement day."
+        "text": "VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on the employee's own smartphone, for example during a break, with no measurement day."
       }
     },
     {
@@ -149,8 +181,7 @@
           <p class="etikett druck-nur">VIANU</p>
           <p class="etikett rolle__ueber">Who decides with you?</p>
           <h1 id="hero-titel">Works council</h1>
-          <p class="rolle__kern">Voluntary for every person. The rules settled with you in advance.</p>
-          <p class="rolle__lead">Taking part is voluntary. What happens to the photos, we settle with you before a pilot starts.</p>
+          <p class="rolle__lead">VIANU makes custom insoles for employees. For that, they photograph their feet with their own smartphone, and taking part is voluntary. What happens to the photos, we settle with you before a pilot starts.</p>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
@@ -177,7 +208,7 @@
           <p class="etikett stand-kasten__titel" id="kasten-fest">Settled</p>
           <ul class="stand" aria-labelledby="kasten-fest">
             <li class="stand__zeile">Taking part is voluntary</li>
-            <li class="stand__zeile">Photos with their own smartphone during a break</li>
+            <li class="stand__zeile">Photos with their own smartphone, for example during a break</li>
             <li class="stand__zeile">The employer pays, employees bear no cost</li>
             <li class="stand__zeile">Results report anonymized at group level</li>
           </ul>
@@ -200,24 +231,117 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="datenfluss-titel">Data and data protection</h2>
-        <p>What is settled is solid. What is still open is dashed.</p>
+        <p>This is how the data runs from the foot capture to the report.</p>
       </div>
       <div class="fluss fluss--klick" data-fluss>
         <ol class="fluss__liste">
-          <li><button class="fluss__knoten" type="button" aria-pressed="true" data-fluss-knoten="1"><span class="fluss__nr" aria-hidden="true">1</span><span class="etikett">Employees</span></button></li>
-          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="2"><span class="fluss__nr" aria-hidden="true">2</span><span class="etikett">Processing</span><span class="etikett fluss__offen">Open</span></button></li>
-          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="3"><span class="fluss__nr" aria-hidden="true">3</span><span class="etikett">VIANU</span></button></li>
-          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="4"><span class="fluss__nr" aria-hidden="true">4</span><span class="etikett">Your company</span></button></li>
-          <li><button class="fluss__knoten fluss__knoten--offen" type="button" aria-pressed="false" data-fluss-knoten="5"><span class="fluss__nr" aria-hidden="true">5</span><span class="etikett">Company access</span><span class="etikett fluss__offen">Open</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="true" data-fluss-knoten="1"><svg class="fluss__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 19h2"/></svg><span class="etikett">Employees</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="2"><svg class="fluss__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span class="etikett">Processing</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="3"><svg class="fluss__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3c-3 0-5 3-5 7 0 4 2 5 2 9 0 2 1.5 3 3 3s3-1 3-4c0-4 2-5 2-8 0-4-2-7-5-7z"/></svg><span class="etikett">VIANU</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="4"><svg class="fluss__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21V9l6 3V9l6 3V4h6v17zM8 17h.01M13 17h.01M18 17h.01"/></svg><span class="etikett">Your company</span></button></li>
+          <li><button class="fluss__knoten" type="button" aria-pressed="false" data-fluss-knoten="5"><svg class="fluss__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg><span class="etikett">Company access</span></button></li>
         </ol>
         <div class="fluss__details" aria-live="polite">
-          <div class="fluss__feld" data-fluss-feld="1"><p>Take the photos of their feet with their own smartphone, during a break. Taking part is voluntary.</p></div>
-          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="2"><p>Where the photos are processed, how long they are stored and who can see them is not settled yet. There will be a statement once the data protection concept is in place.</p></div>
-          <div class="fluss__feld" data-fluss-feld="3"><p>Makes the custom-made insole.</p></div>
-          <div class="fluss__feld" data-fluss-feld="4"><p>Receives the insoles for its employees and an anonymized results report at group level.</p></div>
-          <div class="fluss__feld fluss__knoten--offen" data-fluss-feld="5"><p>What your company learns about individual participants is not settled yet. We settle it with you before a pilot starts.</p></div>
+          <div class="fluss__feld" data-fluss-feld="1"><p>Take the photos of their feet with their own smartphone, for example during a break. Taking part is voluntary.</p></div>
+          <div class="fluss__feld" data-fluss-feld="2"><p>The photos are processed in the EU, used only to make the insole and deleted afterwards. VIANU and its manufacturing partners can see them.</p></div>
+          <div class="fluss__feld" data-fluss-feld="3"><p>Prints the custom-made insole with 3D printing, locally in Germany, and makes it within 48 hours.</p></div>
+          <div class="fluss__feld" data-fluss-feld="4"><p>Receives the insoles for the employees and an anonymized results report at group level.</p></div>
+          <div class="fluss__feld" data-fluss-feld="5"><p>Your business knows the participant list. It sees the answers of the survey only as a group, anonymous, never individually.</p></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+    <div class="behaelter">
+      <div class="chat" data-chat>
+        <div class="chat__buehne">
+          <div class="chat__fenster">
+            <div class="chat__kopf">
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+              <h2 id="brief-titel" class="chat__titel">The VIANU founder Roderich Körner-Rehn</h2>
+              <div class="chat__aktionen">
+                <a class="chat__icon" href="./#pilot" data-pilot-oeffnen aria-label="Get in touch"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                <div class="chat__menuehuelle">
+                  <button class="chat__icon" type="button" aria-label="Chat menu" aria-haspopup="true" aria-expanded="false" data-chat-menue-knopf data-label-menue="Chat menu" data-label-neu="Restart chat"><span class="chat__punkte"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span><svg class="chat__wieder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg></button>
+                  <ul class="chat__menue" hidden data-chat-menue><li><button type="button" data-chat-neu>Restart chat</button></li></ul>
+                </div>
+              </div>
+            </div>
+            <ol class="chat__verlauf" aria-live="polite">
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">And what is VIANU in the first place?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">We make custom insoles. For that, employees voluntarily photograph their feet with their own smartphone.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">What happens to the photos of our colleagues' feet?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">They are used only to make the insole and deleted afterwards.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Does everyone have to take part?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">No. Taking part is voluntary, for every person.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Who sees the photos?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Only VIANU and its manufacturing partners. Printing happens locally in Germany.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
+              <p class="chat__blase">Does the employer see individuals?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">The business knows the participant list. Answers appear only as a group, anonymous.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase chat__blase--link">You can reach me directly here: <a class="chat__link" href="./#pilot" data-pilot-oeffnen>Get in touch</a></p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            </ol>
+            <div class="chat__fuss">
+              <p class="chat__hinweis" data-chat-hinweis>Scroll for the next message</p>
+              <div class="chat__zeile">
+                <label class="chat__eingabe chat__eingabe--leer"><span class="sr-nur">Your message</span><input type="text" maxlength="280" autocomplete="off" placeholder="Type your message here" data-chat-eingabe><span class="chat__cursor" aria-hidden="true"></span></label>
+                <button class="chat__senden" type="button" aria-label="Enter a message" data-label-leer="Enter a message" data-label-text="Send message" data-chat-senden><svg class="chat__mikro" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg><svg class="chat__flieger" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chat__unterschrift">
+        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">The story of Roderich Körner-Rehn</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="stimme" aria-labelledby="stimme-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf"><h2 id="stimme-titel">How our customers see us</h2></div>
+      <figure class="stimme" data-platzhalter role="group" aria-label="Placeholder for the voice of a works council member">
+        <span class="etikett platzhalter__etikett">Placeholder</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>A short statement from a works council member on voluntariness and data protection. Only with written permission, with name and role. Image to go with it: portrait of the person with first name and role.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>First name</strong><span>Role</span></span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -229,36 +353,36 @@
       <div class="fragenkarten fragenkarten--reihe">
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Your question</strong></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"/></svg><strong class="etikett">Your question</strong></div>
             <div class="dreh__hinten"><p>What happens to the data of our colleagues?</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">What is settled</strong></div>
-            <div class="dreh__hinten"><p>Voluntary for every person. Photos with their own smartphone during a break. Results report anonymized at group level.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><strong class="etikett">What is settled</strong></div>
+            <div class="dreh__hinten"><p>Voluntary for every person. Photos with their own smartphone, for example during a break, used only to make the insole and deleted afterwards. Processing in the EU, printed locally in Germany. Report anonymous at group level.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">What is still open</strong></div>
-            <div class="dreh__hinten"><p>Processing location, storage period, access, minimum size of the group. There will be a statement on these only once the data protection concept is in place.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg><strong class="etikett">What is still open</strong></div>
+            <div class="dreh__hinten"><p>Minimum group size for the report and retention of the survey answers.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">What you receive from us</strong></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg><strong class="etikett">What you receive from us</strong></div>
             <div class="dreh__hinten"><p>Draft works agreement, data protection concept, data processing agreement to download.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Who you can contact</strong></div>
-            <div class="dreh__hinten"><p>Roderich replies within 5 working days.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg><strong class="etikett">Who you can contact</strong></div>
+            <div class="dreh__hinten"><p>Roderich Körner-Rehn replies within 5 working days.</p></div>
           </div>
         </div>
       </div>
-      <p class="einseiter__fuss druck-nur">Next step: Settle the works agreement, the data protection concept and the data processing agreement before approval. Contact: Roderich. Get in touch on the VIANU B2B page.</p>
+      <p class="einseiter__fuss druck-nur">Next step: Settle the works agreement, the data protection concept and the data processing agreement before approval. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.</p>
     </div>
   </section>
 
@@ -287,64 +411,6 @@
     </div>
   </section>
 
-  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
-    <div class="behaelter">
-      <div class="chat" data-chat>
-        <div class="chat__buehne">
-          <div class="chat__fenster">
-            <div class="chat__kopf">
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
-              <div><h2 id="brief-titel" class="chat__titel">Roderich to the works council</h2><span class="etikett chat__unter">Reply within 5 working days</span></div>
-            </div>
-            <ol class="chat__verlauf" aria-live="polite">
-            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
-              <p class="chat__blase">What happens to the photos of our colleagues' feet?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Taking part is voluntary, for every person.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
-              <p class="chat__blase">Who sees the photos, and how long are they stored?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">That is not settled yet. I will only say more once it is settled in a binding way.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle class="f-signal" cx="8.5" cy="8" r="3.5"/><path d="M2 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.2c3 0 5.5 1.8 5.5 5"/></svg></span>
-              <p class="chat__blase">Does the employer see individual people?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">The report shows the group, anonymized. What the company learns about individuals is not settled yet.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">You can download the draft works agreement.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">I have stood on hard floors for 10 to 12 hours a day myself.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            </ol>
-            <div class="chat__fuss">
-              <span class="chat__feld" aria-hidden="true">Message to Roderich</span>
-              <button class="knopf knopf--dunkel chat__weiter" type="button" data-chat-weiter>Next <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-              <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="chat__unterschrift">
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
-      </div>
-    </div>
-  </section>
-
   <section class="abschnitt" id="fragen-rolle" aria-labelledby="fragen-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="fragen-titel">Frequently asked questions</h2></div>
@@ -362,21 +428,11 @@
           </details>
           <details class="frage">
             <summary>What happens to employee data during a foot scan for insoles?</summary>
-            <div class="frage__antwort">
-              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Placeholder for the answer on data in the foot scan">
-                <span class="etikett platzhalter__etikett">Placeholder</span>
-                <p>Answer to follow once the data protection concept is in place. Until then, we make no commitment on this.</p>
-              </div>
-            </div>
+            <div class="frage__antwort"><p>During a foot scan, employees photograph their feet voluntarily with their own smartphone. At VIANU, the photos are processed in the EU, used only to make the insole and deleted afterwards. VIANU and its manufacturing partners can see them.</p></div>
           </details>
           <details class="frage">
             <summary>Does the employer see who takes part in an insole pilot?</summary>
-            <div class="frage__antwort">
-              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Placeholder for the answer on whether the employer sees who takes part">
-                <span class="etikett platzhalter__etikett">Placeholder</span>
-                <p>Answer to follow once the data protection concept is in place and the works agreement is settled.</p>
-              </div>
-            </div>
+            <div class="frage__antwort"><p>Whether an employer sees who takes part depends on the program. At VIANU, the business knows the participant list, because it receives the insoles for these people. It sees the answers of the survey only as an anonymized report at group level, never individually.</p></div>
           </details>
           <details class="frage">
             <summary>Is the performance of individual employees evaluated?</summary>
@@ -397,21 +453,20 @@
             </div>
           </details>
           <details class="frage">
+            <summary>How is a custom insole made?</summary>
+            <div class="frage__antwort"><p>A custom insole can be made with 3D printing from the photos of the feet. At VIANU, it is printed locally in Germany and made within 48 hours. It reaches your employees at the latest 7 days after the foot capture.</p></div>
+          </details>
+          <details class="frage">
             <summary>How long are photos from a foot scan stored?</summary>
-            <div class="frage__antwort">
-              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Placeholder for the answer on storage time">
-                <span class="etikett platzhalter__etikett">Placeholder</span>
-                <p>Answer to follow once the data protection concept is in place. Until then, we name no time limit.</p>
-              </div>
-            </div>
+            <div class="frage__antwort"><p>How long photos stay stored depends on the provider. At VIANU, they are used only to make the insole and deleted after production. The insole is printed within 48 hours.</p></div>
           </details>
           <details class="frage">
             <summary>How does a foot scan with a smartphone work?</summary>
-            <div class="frage__antwort"><p>For a foot scan with a smartphone, the feet are photographed with your own phone. A measurement day and extra devices are not needed. VIANU calls this foot capture. It takes place during a break, with no measurement day and no extra devices.</p></div>
+            <div class="frage__antwort"><p>For a foot scan with a smartphone, the feet are photographed with your own phone. A measurement day and extra devices are not needed. VIANU calls this foot capture. It takes place for example during a break, with no measurement day and no extra devices.</p></div>
           </details>
           <details class="frage">
             <summary>What is VIANU?</summary>
-            <div class="frage__antwort"><p>VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on the employee's own smartphone during a break, with no measurement day.</p></div>
+            <div class="frage__antwort"><p>VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on the employee's own smartphone, for example during a break, with no measurement day.</p></div>
           </details>
           <details class="frage">
             <summary>How long does it take from the foot scan to delivery of the insoles?</summary>
@@ -460,7 +515,7 @@
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     <h2 id="pilot-titel">Send a contact request</h2>
-    <p>We will get back to you within 5 working days, promise! Roderich is your contact.</p>
+    <p>We will get back to you within 5 working days, promise! Roderich Körner-Rehn is your contact.</p>
     <form class="formular" id="pilot-formular" novalidate data-formular>
           <div class="formular__feld">
             <label for="f-unternehmen">Company</label>

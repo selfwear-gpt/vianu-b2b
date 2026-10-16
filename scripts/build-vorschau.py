@@ -90,11 +90,22 @@ def downloads_einbetten(body, seite_rel):
     return re.sub(r'href="((?:\.\./)*assets/downloads/[^"?#]+\.txt)"', ersetze, body)
 
 
+def bilder_einbetten(body, seite_rel):
+    """Bilder aus assets/img werden als Data-URI eingebettet, weil die Vorschau keine Nachbardateien hat."""
+    def ersetze(m):
+        ziel = (ROOT / seite_rel).parent / m.group(2)
+        if ROOT / "assets" / "img" not in ziel.resolve().parents or not ziel.is_file():
+            return m.group(0)
+        art = {".jpg": "jpeg", ".jpeg": "jpeg", ".png": "png", ".webp": "webp", ".svg": "svg+xml"}.get(ziel.suffix.lower(), "jpeg")
+        return f'{m.group(1)}data:image/{art};base64,{base64.b64encode(ziel.read_bytes()).decode()}"'
+    return re.sub(r'(src=")((?:\.\./)*assets/img/[^"?#]+)"', ersetze, body)
+
+
 def seite_als_container(kennung, rel, praefix, sichtbar):
     html = lesen(rel)
     body = re.search(r"<body[^>]*>(.*)</body>", html, flags=re.S).group(1)
     body = re.sub(r"<script\b[^>]*\bsrc=[^>]*></script>", "", body)
-    body = downloads_einbetten(praefix_ids(body, praefix), rel)
+    body = bilder_einbetten(downloads_einbetten(praefix_ids(body, praefix), rel), rel)
     versteckt = "" if sichtbar else " hidden"
     sprache = re.search(r'<html[^>]*\blang="([^"]+)"', html).group(1)
     return f'<div data-seite="{kennung}" data-praefix="{praefix}" lang="{sprache}"{versteckt}>\n{body}\n</div>'

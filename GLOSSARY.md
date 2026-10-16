@@ -51,7 +51,7 @@ Die Menschen, die die Einlegesohle tragen. Im Du-Bereich "du", im Sie-Bereich "I
 _Avoid_: Kolleg:innen, Doppelpunkt, Angestellte, Personal, User
 
 **Roderich**:
-Der Gründer. In Briefen und in der Geschichte steht der Vorname, im Impressum und bei den Eckdaten der volle Name.
+Der Gründer, Roderich Körner-Rehn. Im Sie-Bereich (B2B) steht überall der volle Name, im Du-Bereich der Vorname.
 _Avoid_: der Gründer als Anrede im Text
 
 **Entscheidungsteam**:
@@ -62,7 +62,7 @@ _Avoid_: Stakeholder, Zielgruppe
 Unterseite im B2B-Bereich für genau eine Rolle des Entscheidungsteams, mit eigenem Brief, eigenen Fragen und eigenem Erfolgskriterium.
 
 **Chat-Brief**:
-Der Brief "Roderich an <Rolle>" auf den Persona-Seiten, als Chat gebaut: links schreibt die Rolle mit ihrer Sorge, rechts antwortet Roderich. Die Nachrichten erscheinen beim Scrollen oder per Knopf "Weiter" nacheinander.
+Der Brief "Roderich an <Rolle>" auf den Persona-Seiten, als Chat gebaut: links schreibt die Rolle mit ihrer Sorge, rechts antwortet Roderich. Der Rahmen sieht aus wie ein Handy (Kopf mit Hörer-Symbol und Drei-Punkte-Menü "Chat von vorne starten", unten Eingabefeld mit Mikro-Knopf, der bei Text zum Senden wird und das Kontaktformular mit der Nachricht öffnet). Die Nachrichten erscheinen beim Scrollen oder per Knopf "Weiter" nacheinander.
 
 **Motiv**:
 Die animierte Zeichnung rechts neben dem Kopf einer Persona-Seite. Sie läuft beim Laden einmal einige Sekunden und ruht dann.
@@ -162,7 +162,7 @@ Die englischen Seiten liegen unter `en/` und haben dieselben Dateinamen wie die 
 | Prüfliste | checklist | |
 | Datenfluss | data flow | |
 | Datenfluss | data flow | |
-| Roderichs Geschichte | Roderich's story | |
+| Roderichs Geschichte | Roderich's story | Link im Chat: "Die Geschichte von Roderich Körner-Rehn" |
 | Impressum | Legal notice | |
 | Datenschutz | Privacy | Titel "Privacy notice". |
 | Stimme | voice | Die Rezensionskarte. |

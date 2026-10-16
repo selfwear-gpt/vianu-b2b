@@ -348,6 +348,35 @@
     rechne();
   }
 
+  /* ---------- Break-even: Pilotpreis gegen Fehltage, mit Zahlen des Besuchers ---------- */
+  function initBreakEven(wurzel) {
+    var kosten = wurzel.querySelector("[data-be-kosten]");
+    var tage = wurzel.querySelector("[data-be-tage]");
+    var kostenZahl = wurzel.querySelector("[data-be-kosten-zahl]");
+    var tageZahl = wurzel.querySelector("[data-be-tage-zahl]");
+    var ergTage = wurzel.querySelector("[data-be-tage-gesamt]");
+    var ergSumme = wurzel.querySelector("[data-be-summe]");
+    var ergAnteil = wurzel.querySelector("[data-be-anteil]");
+    if (!kosten || !tage || !ergTage || !ergSumme || !ergAnteil || !window.VianuKosten) return;
+    var PILOT = 1200, TEILNEHMENDE = 10;
+    var K = window.VianuKosten, T = window.VianuTexte;
+    function rechne() {
+      var sprache = T.sprache(wurzel);
+      var k = Number(kosten.value), t = Number(tage.value);
+      if (kostenZahl) kostenZahl.textContent = K.euro(k, sprache);
+      if (tageZahl) tageZahl.textContent = String(t);
+      var n = TEILNEHMENDE * t;
+      ergTage.textContent = n === 1 ? T.text("breakeven.tag1", null, wurzel) : T.text("breakeven.tage", { n: n }, wurzel);
+      var summe = K.fehlzeitKosten(TEILNEHMENDE, t, k);
+      ergSumme.textContent = summe === null ? T.text("breakeven.leer", null, wurzel) : K.euro(summe, sprache);
+      var anteil = K.anteilPreis(PILOT, summe);
+      ergAnteil.textContent = anteil === null ? T.text("breakeven.leer", null, wurzel) : (anteil > 999 ? "> 999 %" : anteil + " %");
+    }
+    kosten.addEventListener("input", rechne);
+    tage.addEventListener("input", rechne);
+    rechne();
+  }
+
   /* ---------- Pilotformular ---------- */
   // Kopiert text in die Zwischenablage. Gelingt das nicht, meldet status den Rückfall und rueckfall() läuft.
   function kopierenMit(text, status, ok, fehler, rueckfall) {
@@ -615,6 +644,7 @@
     jeder("[data-klein]", document, initKlein);
     jeder("[data-sorgen]", document, initSorgen);
     jeder("[data-rechner]", document, initRechner);
+    jeder("[data-breakeven]", document, initBreakEven);
     jeder("[data-formular]", document, initFormular);
     jeder("[data-weiterleiten]", document, initWeiterleiten);
     jeder("[data-reise]", document, initReise);

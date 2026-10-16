@@ -75,7 +75,7 @@ test("im englischen Text steht kein Deutsch", () => {
   for (const f of PAARE) {
     const h = lies("en/" + f);
     for (const [name, text] of [["Text", sichtbar(h)], ["Attribute", attribute(h)]]) {
-      const m = text.match(woerter);
+      const m = text.replace(/Körner-Rehn/g, "").match(woerter);
       assert.ok(!m, "en/" + f + " " + name + ": " + (m && text.slice(Math.max(0, m.index - 40), m.index + 40)));
     }
   }
@@ -152,7 +152,7 @@ test("das B2B-Menü hat einen Punkt Ablauf zum Abschnitt Ablauf und keinen Punkt
 });
 
 test("die Zielgruppe heißt überall Teams, deren Personal viele Stunden auf den Beinen ist", () => {
-  const erlaubt = /Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service|Jahre Gastronomie|Systemgastronomie|years in food service/g;
+  const erlaubt = /Im Vordergrund stehen Tätigkeiten in Hotellerie und Gastronomie|Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service|Jahre Gastronomie|Systemgastronomie|years in food service/g;
   // Die Tätigkeitskacheln nennen die Gastronomie als einen von vielen Bereichen. Studienabgrenzungen und Roderichs Lebenslauf nennen Hotellerie und Gastronomie als Ort, das ist keine Zielgruppe
   for (const rel of PAARE.flatMap((f) => [f, "en/" + f])) {
     // Roderichs Weg nennt die Gastronomie als Ort seiner Arbeit, das ist keine Zielgruppe

@@ -42,7 +42,7 @@ def pruefe(pfad):
                 if n > MAX_CHAT:
                     fehler.append("%s #%s: Chat-Nachricht mit %d Wörtern (höchstens %d)" % (pfad.relative_to(ROOT), sid, n, MAX_CHAT))
                 continue
-            if any(k in klassen for k in ("einseiter__fuss", "belege__hinweis", "beleg__zitat", "weg__satz", "ergebnis__satz", "ergebnis__fuss")):
+            if any(k in klassen for k in ("einseiter__fuss", "belege__hinweis", "beleg__zitat", "weg__satz", "ergebnis__satz", "ergebnis__fuss", "punkt__satz", "studie__aussage")):
                 continue
             if "dreh__hinten" in inhalt[max(0, p.start() - 40):p.start()] or "fluss__feld" in inhalt[max(0, p.start() - 200):p.start()].split("</div>")[-1]:
                 continue

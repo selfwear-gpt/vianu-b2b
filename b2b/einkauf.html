@@ -27,6 +27,14 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Wie wird eine individuelle Einlegesohle gefertigt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine individuelle Einlegesohle kann per 3D-Druck nach den Fotos der Füße gefertigt werden. Bei VIANU wird sie lokal in Deutschland gedruckt und ist innerhalb von 48 Stunden gefertigt. Sie erreicht Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Welche Rückfragen und Sonderfälle entstehen bei der Beschaffung von Einlegesohlen für mehrere Standorte?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -54,7 +62,7 @@
       "name": "Was ist VIANU?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet, und besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, ohne Messtag."
+        "text": "VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet, und besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, ohne Messtag."
       }
     },
     {
@@ -141,8 +149,7 @@
           <p class="etikett druck-nur">VIANU</p>
           <p class="etikett rolle__ueber">Wer entscheidet mit? </p>
           <h1 id="hero-titel">Einkauf</h1>
-          <p class="rolle__kern">Einfach beschaffen. Einheitlich ausrollen. Sichtbar zur Marke passend.</p>
-          <p class="rolle__lead">Sie steuern Lieferanten und Beschaffung für mehrere Standorte. Ein Pilot mit 10 Paaren zeigt, ob Bestellung und Lieferung ohne Sonderfall laufen.</p>
+          <p class="rolle__lead">VIANU fertigt individuelle Einlegesohlen für Beschäftigte, die viele Stunden stehen und gehen. Sie steuern Lieferanten und Beschaffung für mehrere Standorte. Ein Pilot mit 10 Paaren zeigt, ob Bestellung und Lieferung ohne Sonderfall laufen.</p>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
@@ -173,11 +180,6 @@
           </svg>
         </figure>
       </div>
-      <ul class="preisstreifen">
-          <li>10 Paare · 1.200 Euro zzgl. Umsatzsteuer</li>
-          <li>Mitarbeitende zahlen nichts</li>
-          <li>Lieferung spätestens 7 Tage nach der Fußerfassung</li>
-      </ul>
     </div>
   </section>
 
@@ -185,87 +187,49 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="beschaffung-titel">Preis und Beschaffung</h2>
-        <p>Was feststeht und was offen ist. Offene Punkte bleiben Platzhalter.</p>
+        <p>Was Sie für die Bestellung wissen müssen.</p>
       </div>
-      <div class="rechnung">
+      <div class="rechnung" id="e-preis">
         <p class="rechnung__teil"><strong>120 €</strong><span class="etikett">je Paar</span></p>
         <span class="rechnung__zeichen" aria-hidden="true">×</span>
         <p class="rechnung__teil"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Zehn Sohlen für den Piloten" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><span class="etikett">10 Paare im Piloten</span></p>
         <span class="rechnung__zeichen" aria-hidden="true">=</span>
         <p class="rechnung__teil rechnung__teil--summe"><strong>1.200 €</strong><span class="etikett">Pilot, zuzüglich Umsatzsteuer</span></p>
       </div>
-      <div class="lieferung" role="group" aria-label="Ablauf von der Fußerfassung bis zur Lieferung">
+      <div class="lieferung" id="e-lieferung" role="group" aria-label="Ablauf von der Fußerfassung bis zur Lieferung">
         <p class="etikett lieferung__titel">Lieferzeit</p>
         <ol class="lieferung__strahl">
           <li class="lieferung__punkt"><span class="etikett">Tag 0</span><strong>Fußerfassung</strong></li>
-          <li class="lieferung__punkt"><strong>VIANU fertigt die Einlegesohlen</strong></li>
+          <li class="lieferung__punkt"><span class="etikett">innerhalb von 48 Stunden</span><strong>VIANU druckt die Sohlen per 3D-Druck, lokal in Deutschland</strong></li>
           <li class="lieferung__punkt lieferung__punkt--ziel"><span class="etikett">Tag 7 (spätestens)</span><strong>Sohlen erreichen den Betrieb</strong></li>
         </ol>
         <p class="lieferung__satz">Spätestens 7 Tage nach der Fußerfassung</p>
       </div>
-      <div data-filter>
-      <div class="filter" role="group" aria-label="Preis und Beschaffung">
-        <button class="filter__knopf" type="button" aria-pressed="true" data-filter-wert="">Alle</button>
-        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="fest">Steht fest</button>
-        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="offen">Offen</button>
-      </div>
-      <ul class="stand stand--filter">
-          <li class="stand__zeile" data-status="fest"><span>Preis: 120 Euro je Paar, zuzüglich Umsatzsteuer</span><span class="etikett stand__status">Steht fest</span></li>
-          <li class="stand__zeile" data-status="fest"><span>Pilot: 10 Paare, 1.200 Euro zuzüglich Umsatzsteuer</span><span class="etikett stand__status">Steht fest</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Mindestmengen</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Bestellweg und Ansprechpartner für die Bestellung</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Liefer- und Servicebedingungen</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Reklamationsprozess</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Gestaltung und Marke</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Ersatz und zweites Paar</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Datenblätter</span><span class="etikett stand__status">Offen</span></li>
+      <nav class="sprung" aria-label="Zu den Punkten springen"><a class="sprung__link" href="#e-preis">Preis</a><a class="sprung__link" href="#e-lieferung">Lieferzeit</a><a class="sprung__link" href="#e-menge">Mindestmenge</a><a class="sprung__link" href="#e-bestellung">Bestellung und Zahlung</a><a class="sprung__link" href="#e-nachfertigung">Nachfertigung</a><a class="sprung__link" href="#e-marke">Marke</a><a class="sprung__link" href="#e-datenblatt">Datenblatt</a></nav>
+      <ul class="punkte">
+        <li class="punkt" id="e-menge">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8l9-5 9 5-9 5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg>
+          <div class="punkt__text"><h3>Mindestmenge</h3><p class="punkt__satz">Außer im Piloten gibt es keine Mindestmenge. Einzelpersonen werden nicht beliefert.</p></div>
+        </li>
+        <li class="punkt" id="e-bestellung">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <div class="punkt__text"><h3>Bestellung und Zahlung</h3><p class="punkt__satz">Sie nehmen über das Kontaktformular Kontakt auf, bei Bedarf folgt ein Videomeeting. Das Angebot kommt per E-Mail, bezahlt wird auf Rechnung mit 14 Tagen Zahlungsziel.</p></div>
+        </li>
+        <li class="punkt" id="e-nachfertigung">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg>
+          <div class="punkt__text"><h3>Nachfertigung</h3><p class="punkt__satz">Passt eine Sohle nicht, fertigen wir sie neu, innerhalb von 7 Tagen.</p></div>
+        </li>
+        <li class="punkt" id="e-marke">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12V4h8l10 10-8 8L3 12zM7.5 8.5h.01"/></svg>
+          <div class="punkt__text"><h3>Marke</h3><p class="punkt__satz">Name und Firmenlogo werden auf die Sohle gedruckt.</p></div>
+        </li>
+        <li class="punkt" id="e-datenblatt">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6zM15 3v4h4M9 12h7M9 16h7"/></svg>
+          <div class="punkt__text"><h3>Datenblatt</h3><p class="punkt__satz">Material- und Hygieneangaben bekommen Sie als Datenblatt vor der Bestellung.</p><span class="etikett punkt__status">Folgt vor der Bestellung</span></div>
+        </li>
       </ul>
-      </div>
-    </div>
+          </div>
   </section>
-
-  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Zahlen, die Sie im Einkaufsgespräch brauchen</h2>
-      </div>
-      <div class="fragenkarten fragenkarten--raster fragenkarten--fuenf">
-        <div class="dreh fragenkarte" tabindex="0" role="group">
-          <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Preis</strong></div>
-            <div class="dreh__hinten"><p>120 Euro je Paar, zzgl. Umsatzsteuer.</p></div>
-          </div>
-        </div>
-        <div class="dreh fragenkarte" tabindex="0" role="group">
-          <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Pilot</strong></div>
-            <div class="dreh__hinten"><p>10 Paare, 1.200 Euro zzgl. Umsatzsteuer. Mindestmengen: offen.</p></div>
-          </div>
-        </div>
-        <div class="dreh fragenkarte" tabindex="0" role="group">
-          <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">Lieferzeit</strong></div>
-            <div class="dreh__hinten"><p>Spätestens 7 Tage nach der Fußerfassung.</p></div>
-          </div>
-        </div>
-        <div class="dreh fragenkarte" tabindex="0" role="group">
-          <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">Marke und Gravur</strong></div>
-            <div class="dreh__hinten"><p>Name und Firmenlogo werden eingraviert. Die Fertigung ist noch zu bestätigen.</p></div>
-          </div>
-        </div>
-        <div class="dreh fragenkarte" tabindex="0" role="group">
-          <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Offen</strong></div>
-            <div class="dreh__hinten"><p>Bestellweg, Reklamationsprozess sowie Liefer- und Servicebedingungen stehen noch nicht fest.</p></div>
-          </div>
-        </div>
-      </div>
-      <p class="einseiter__fuss druck-nur">Nächster Schritt: Das Pilotangebot gegen die Beschaffungsstandards prüfen und die Freigabe an einen klaren Prozess knüpfen. Ansprechpartner: Roderich. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
-    </div>
-  </section>
-
-
 
   <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
     <div class="behaelter">
@@ -273,55 +237,131 @@
         <div class="chat__buehne">
           <div class="chat__fenster">
             <div class="chat__kopf">
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span>
-              <div><h2 id="brief-titel" class="chat__titel">Roderich an Einkauf</h2><span class="etikett chat__unter">Antwort innerhalb von 5 Werktagen</span></div>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+              <h2 id="brief-titel" class="chat__titel">Der Vianu Gründer Roderich Körner-Rehn</h2>
+              <div class="chat__aktionen">
+                <a class="chat__icon" href="./#pilot" data-pilot-oeffnen aria-label="Kontakt aufnehmen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                <div class="chat__menuehuelle">
+                  <button class="chat__icon" type="button" aria-label="Chat-Menü" aria-haspopup="true" aria-expanded="false" data-chat-menue-knopf data-label-menue="Chat-Menü" data-label-neu="Chat von vorne starten"><span class="chat__punkte"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span><svg class="chat__wieder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg></button>
+                  <ul class="chat__menue" hidden data-chat-menue><li><button type="button" data-chat-neu>Chat von vorne starten</button></li></ul>
+                </div>
+              </div>
             </div>
             <ol class="chat__verlauf" aria-live="polite">
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span>
+              <p class="chat__blase">Was genau bestelle ich da eigentlich?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Individuell angefertigte Einlegesohlen, nach Fotos der Füße gefertigt. Beim Pilot sind es 10 Paare.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
             <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
               <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span>
               <p class="chat__blase">Ich brauche einen klaren Ablauf ohne Überraschungen nach der Freigabe.<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Sie bestellen wie bei jeder anderen Beschaffung. Der Pilot kostet den regulären Preis.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">10 Paare, 1.200 Euro zzgl. Umsatzsteuer.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+              <p class="chat__blase">Sie bestellen wie bei jeder Beschaffung: 120 Euro je Paar zzgl. Umsatzsteuer.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
             </li>
             <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
               <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span>
-              <p class="chat__blase">Wie viele Rückfragen und Reklamationen bringt das?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+              <p class="chat__blase">Und wenn Sohlen nicht passen?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Bestellweg, Reklamationsprozess und Mindestmengen sind noch offen. Ich nenne sie Ihnen, damit Sie wissen, was kommt.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+              <p class="chat__blase">Dann fertigen wir sie neu.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span>
+              <p class="chat__blase">Wie schnell kommt die Lieferung?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Die Lieferung dauert spätestens 7 Tage nach der Fußerfassung.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+              <p class="chat__blase">Spätestens 7 Tage nach der Fußerfassung. Gedruckt wird in Deutschland, fertig in 48 Stunden.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span>
+              <p class="chat__blase">Und Mindestmengen oder Rahmenverträge?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Name und Firmenlogo kommen auf die Sohle. Die Fertigung ist noch zu bestätigen.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+              <p class="chat__blase">Das steht noch nicht fest. Ich nenne es Ihnen, bevor Sie über mehr entscheiden.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Ich habe selbst 10 bis 12 Stunden am Tag auf hartem Boden gestanden.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Platzhalter für ein Foto von Roderich">Foto</span>
+              <p class="chat__blase chat__blase--link">Hier erreichen Sie mich direkt: <a class="chat__link" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen</a></p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
             </li>
             </ol>
             <div class="chat__fuss">
-              <span class="chat__feld" aria-hidden="true">Nachricht an Roderich</span>
-              <button class="knopf knopf--dunkel chat__weiter" type="button" data-chat-weiter>Weiter <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-              <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+              <p class="chat__hinweis" data-chat-hinweis>Scrollen für die nächste Nachricht</p>
+              <div class="chat__zeile">
+                <label class="chat__eingabe chat__eingabe--leer"><span class="sr-nur">Ihre Nachricht</span><input type="text" maxlength="280" autocomplete="off" placeholder="Tippen Sie hier Ihre Nachricht ein" data-chat-eingabe><span class="chat__cursor" aria-hidden="true"></span></label>
+                <button class="chat__senden" type="button" aria-label="Nachricht eingeben" data-label-leer="Nachricht eingeben" data-label-text="Nachricht senden" data-chat-senden><svg class="chat__mikro" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg><svg class="chat__flieger" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="chat__unterschrift">
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderichs Geschichte</a></p>
+        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Die Geschichte von Roderich Körner-Rehn</a></p>
       </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="stimme" aria-labelledby="stimme-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf"><h2 id="stimme-titel">So sehen unsere Kunden uns</h2></div>
+      <figure class="stimme" data-platzhalter role="group" aria-label="Platzhalter für die Stimme einer Einkaufsleitung">
+        <span class="etikett platzhalter__etikett">Platzhalter</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>Kurze Aussage einer Einkaufsleitung zu Bestellweg und Lieferung. Nur mit schriftlicher Erlaubnis, mit Namen und Funktion. Bild dazu: Porträt der Person mit Vorname und Funktion.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>Vorname</strong><span>Funktion</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="termin-titel">Was Sie im Einkaufsgespräch brauchen</h2>
+      </div>
+      <div class="fragenkarten fragenkarten--raster fragenkarten--fuenf">
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.7-.8-1.7-1.2-2.8-1.2-2 0-3.2 1.6-3.2 4s1.2 4 3.2 4c1.1 0 2.1-.4 2.8-1.2M7.5 11h5M7.5 13.5h5"/></svg><strong class="etikett">Preis</strong></div>
+            <div class="dreh__hinten"><p>120 Euro je Paar, zzgl. Umsatzsteuer. Pilot: 10 Paare, 1.200 Euro zzgl. Umsatzsteuer.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8l9-5 9 5-9 5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg><strong class="etikett">Menge</strong></div>
+            <div class="dreh__hinten"><p>Außer im Piloten keine Mindestmenge. Einzelpersonen werden nicht beliefert.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><strong class="etikett">Bestellung</strong></div>
+            <div class="dreh__hinten"><p>Kontaktformular, bei Bedarf Videomeeting, Angebot per E-Mail, Zahlung auf Rechnung in 14 Tagen.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7M7 19.5a1.5 1.5 0 1 0 0-.01M17 19.5a1.5 1.5 0 1 0 0-.01"/></svg><strong class="etikett">Lieferung</strong></div>
+            <div class="dreh__hinten"><p>Gedruckt in Deutschland innerhalb von 48 Stunden, geliefert spätestens 7 Tage nach der Fußerfassung. Nachfertigung innerhalb von 7 Tagen.</p></div>
+          </div>
+        </div>
+        <div class="dreh fragenkarte" tabindex="0" role="group">
+          <div class="dreh__innen">
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12V4h8l10 10-8 8L3 12zM7.5 8.5h.01"/></svg><strong class="etikett">Marke</strong></div>
+            <div class="dreh__hinten"><p>Name und Firmenlogo werden auf die Sohle gedruckt.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="einseiter__fuss druck-nur">Nächster Schritt: Das Pilotangebot gegen die Beschaffungsstandards prüfen und die Freigabe an einen klaren Prozess knüpfen. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
     </div>
   </section>
 
@@ -373,6 +413,10 @@
           <h3 class="etikett fragen__titel" id="fragen-weitere">Weitere Fragen</h3>
           <div class="fragen" role="group" aria-labelledby="fragen-weitere">
           <details class="frage">
+            <summary>Wie wird eine individuelle Einlegesohle gefertigt?</summary>
+            <div class="frage__antwort"><p>Eine individuelle Einlegesohle kann per 3D-Druck nach den Fotos der Füße gefertigt werden. Bei VIANU wird sie lokal in Deutschland gedruckt und ist innerhalb von 48 Stunden gefertigt. Sie erreicht Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung.</p></div>
+          </details>
+          <details class="frage">
             <summary>Wie lange dauert es von der Fußerfassung bis zur Lieferung der Einlegesohlen?</summary>
             <div class="frage__antwort"><p>Die Lieferzeit von Einlegesohlen nach der Fußerfassung unterscheidet sich je nach Anbieter. Bei VIANU erreicht die Sohle Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung.</p></div>
           </details>
@@ -395,7 +439,7 @@
           </details>
           <details class="frage">
             <summary>Was ist VIANU?</summary>
-            <div class="frage__antwort"><p>VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet, und besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone in einer Pause, ohne Messtag.</p></div>
+            <div class="frage__antwort"><p>VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet, und besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, ohne Messtag.</p></div>
           </details>
           </div>
         </div>
@@ -436,7 +480,7 @@
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     <h2 id="pilot-titel">Kontaktanfrage stellen</h2>
-    <p>Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich ist Ihr Ansprechpartner.</p>
+    <p>Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich Körner-Rehn ist Ihr Ansprechpartner.</p>
     <form class="formular" id="pilot-formular" novalidate data-formular>
           <div class="formular__feld">
             <label for="f-unternehmen">Unternehmen</label>

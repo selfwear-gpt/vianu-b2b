@@ -20,6 +20,7 @@
 <script src="../../assets/js/b2b.js" defer></script>
 <script src="../../assets/js/bausteine.js" defer></script>
 <script src="../../assets/js/pilot.js" defer></script>
+<script src="../../assets/js/studien.js" defer></script>
 <script src="../../assets/js/rollen.js" defer></script>
 <script type="application/ld+json">
 {
@@ -28,10 +29,18 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How is a custom insole made?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A custom insole can be made with 3D printing from the photos of the feet. At VIANU, it is printed locally in Germany and made within 48 hours. It reaches your employees at the latest 7 days after the foot capture."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Do insoles replace anti-fatigue mats?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. An anti-fatigue mat lies in one fixed spot. An insole is in the shoe along the whole route of a shift. VIANU sees the insole as a complement to the anti-fatigue mat and makes no comparison of effect."
+        "text": "No. An anti-fatigue mat lies in one fixed spot. An insole is in the shoe along the whole route of a shift. VIANU sees the insole as a complement to the anti-fatigue mat."
       }
     },
     {
@@ -47,7 +56,7 @@
       "name": "Which employees can take part in an insole program?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "An insole program can include employees from kitchen, service, housekeeping, reception, banquet and bar. At VIANU, taking part is voluntary, and your business decides whether to join."
+        "text": "An insole program suits all employees who stand or walk for many hours a day. The focus is on work in hotels and restaurants, such as kitchen, service, housekeeping, reception, banquet and bar. All other industries with a lot of standing and walking are just as welcome, for example care, retail, production, logistics and cleaning. At VIANU, taking part is voluntary, and your business decides whether to join."
       }
     },
     {
@@ -63,7 +72,7 @@
       "name": "What is VIANU?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on their own smartphone during a break, with no measurement day."
+        "text": "VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on their own smartphone, for example during a break, with no measurement day."
       }
     },
     {
@@ -150,8 +159,7 @@
           <p class="etikett druck-nur">VIANU</p>
           <p class="etikett rolle__ueber">Who decides with you? </p>
           <h1 id="hero-titel">Occupational safety</h1>
-          <p class="rolle__kern">Explained openly. Clearly delimited. Designed for daily work.</p>
-          <p class="rolle__lead">VIANU is a supplementary comfort offer for work and professional shoes. It replaces no protective measure and no workplace design. At the site inspection, you can name the limits clearly.</p>
+          <p class="rolle__lead">VIANU makes custom insoles for employees who stand and walk for many hours. The insole sits in the person's own work shoe. It is a comfort offer and replaces no protective measure and no workplace design. In your on-site safety inspection, you can name the limits clearly.</p>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
@@ -177,11 +185,6 @@
           </svg>
         </figure>
       </div>
-      <ul class="preisstreifen">
-          <li>10 pairs · EUR 1,200 plus VAT</li>
-          <li>No cost for employees</li>
-          <li>Delivery within 7 days of the foot capture at the latest</li>
-      </ul>
     </div>
   </section>
 
@@ -224,47 +227,169 @@
     </div>
   </section>
 
+  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
+    <div class="behaelter">
+      <div class="chat" data-chat>
+        <div class="chat__buehne">
+          <div class="chat__fenster">
+            <div class="chat__kopf">
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+              <h2 id="brief-titel" class="chat__titel">The VIANU founder Roderich Körner-Rehn</h2>
+              <div class="chat__aktionen">
+                <a class="chat__icon" href="./#pilot" data-pilot-oeffnen aria-label="Get in touch"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                <div class="chat__menuehuelle">
+                  <button class="chat__icon" type="button" aria-label="Chat menu" aria-haspopup="true" aria-expanded="false" data-chat-menue-knopf data-label-menue="Chat menu" data-label-neu="Restart chat"><span class="chat__punkte"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span><svg class="chat__wieder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg></button>
+                  <ul class="chat__menue" hidden data-chat-menue><li><button type="button" data-chat-neu>Restart chat</button></li></ul>
+                </div>
+              </div>
+            </div>
+            <ol class="chat__verlauf" aria-live="polite">
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <p class="chat__blase">I do not know VIANU yet. What is it, and where are the limits?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">We make custom insoles for employees who stand a lot. The insole sits in their own shoe.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">It is a comfort offer and replaces no protective measure.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <p class="chat__blase">Does the insole replace our anti-fatigue mats, the mats at fixed standing spots?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">No. The mat lies in one place, the insole is with you all the way.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <p class="chat__blase">And if the insole presses?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Then we make it again. Taking part is voluntary.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
+              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <p class="chat__blase">And what happens to the photos of the feet?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">The photos are used only to make the insole and are deleted afterwards.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase chat__blase--link">You can reach me directly here: <a class="chat__link" href="./#pilot" data-pilot-oeffnen>Get in touch</a></p>
+              <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            </ol>
+            <div class="chat__fuss">
+              <p class="chat__hinweis" data-chat-hinweis>Scroll for the next message</p>
+              <div class="chat__zeile">
+                <label class="chat__eingabe chat__eingabe--leer"><span class="sr-nur">Your message</span><input type="text" maxlength="280" autocomplete="off" placeholder="Type your message here" data-chat-eingabe><span class="chat__cursor" aria-hidden="true"></span></label>
+                <button class="chat__senden" type="button" aria-label="Enter a message" data-label-leer="Enter a message" data-label-text="Send message" data-chat-senden><svg class="chat__mikro" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg><svg class="chat__flieger" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chat__unterschrift">
+        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">The story of Roderich Körner-Rehn</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="stimme" aria-labelledby="stimme-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf"><h2 id="stimme-titel">How our customers see us</h2></div>
+      <figure class="stimme" data-platzhalter role="group" aria-label="Placeholder for the voice of a safety officer">
+        <span class="etikett platzhalter__etikett">Placeholder</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>A short statement from a safety officer on how the insole is delimited. Only with written permission, with name and role. Image to go with it: portrait of the person with first name and role.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>First name</strong><span>Role</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="belege-titel">Evidence</h2>
-        <p>Two reviews on cushioning during standing and on foot complaints among nurses.</p>
       </div>
       <div class="ergebnisse">
-        <figure class="ergebnis" data-ergebnis>
-          <p class="etikett ergebnis__quelle">Speed et al. 2018</p>
-          <h3 class="ergebnis__titel">Cushioning during long standing at work</h3>
-          <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="Scale with three levels, weak, moderate and strong. The marker sits at moderate: The evidence in the review is moderate." focusable="false">
-            <rect class="ergebnis__stufe" x="2" y="30" width="100" height="34"/>
-            <text x="52" y="52" text-anchor="middle">weak</text>
-            <rect class="ergebnis__stufe ergebnis__stufe--an" x="108" y="30" width="100" height="34"/>
-            <text x="158" y="52" text-anchor="middle">moderate</text>
-            <rect class="ergebnis__stufe" x="214" y="30" width="100" height="34"/>
-            <text x="264" y="52" text-anchor="middle">strong</text>
-            <path class="ergebnis__marke" d="M158 70l-8 12h16z"/>
-            <text x="158" y="100" text-anchor="middle">Evidence in the review</text>
+                <article class="dreh studienkarte" data-ergebnis tabindex="0" role="group" aria-label="Tarrade et al. 2019">
+          <div class="dreh__innen">
+            <div class="dreh__vorn">
+              <div class="studie__kopf">
+                <h3 class="ergebnis__titel">Custom-made insoles for workers who stand</h3>
+                <svg class="studie__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg>
+              </div>
+              <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="Two columns: the reported pain is lower after three weeks than at the start." focusable="false">
+                <text x="160" y="12" text-anchor="middle">Pain, discomfort, heavy legs</text>
+                <rect class="ergebnis__rest" x="50" y="24" width="90" height="62"/>
+                <rect class="ergebnis__stunde" x="180" y="55" width="90" height="31"/>
+                <text x="95" y="104" text-anchor="middle">Start</text>
+                <text x="225" y="104" text-anchor="middle">after 3 weeks</text>
+              </svg>
+            </div>
+            <div class="dreh__hinten">
+              <p class="studie__aussage">34 workers with foot pain reported less pain, discomfort and heaviness in the legs after three weeks with custom-made insoles.</p>
+              <p class="studie__autoren">Tarrade et al. 2019</p>
+              <button class="knopf knopf--dunkel" type="button" data-studie-datei="../../assets/downloads/studien/tarrade-et-al-2019.pdf" data-studie-name="Tarrade et al. 2019 - Are custom-made foot orthoses of any interest on the treatment of foot pain for prolonged standing workers.pdf" data-studie-titel="Custom-made insoles for workers who stand">Download study <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+            </div>
+          </div>
+        </article>
+                <article class="dreh studienkarte" data-ergebnis tabindex="0" role="group" aria-label="Kang et al. 2025">
+          <div class="dreh__innen">
+            <div class="dreh__vorn">
+              <div class="studie__kopf">
+                <h3 class="ergebnis__titel">Shoes and insoles for long standing at work</h3>
+                <svg class="studie__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg>
+              </div>
+              <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="26 boxes, one per study: the review covers 26 studies." focusable="false">
+            <text class="ergebnis__zahl" x="2" y="38">26 studies</text>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="2" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="26" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="50" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="74" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="98" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="122" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="146" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="170" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="194" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="218" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="242" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="266" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="290" y="46" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="2" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="26" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="50" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="74" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="98" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="122" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="146" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="170" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="194" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="218" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="242" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="266" y="72" width="18" height="18"/>
+            <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="290" y="72" width="18" height="18"/>
+            <text x="2" y="108">721 participants in total</text>
           </svg>
-          <p class="ergebnis__satz">Moderate evidence that cushioned materials (softer floors, cushioned insoles) go along with less discomfort and fatigue during long standing at work. For insoles compared with anti-fatigue mats, the evidence is limited.</p>
-          <p class="etikett ergebnis__fuss">Review of 10 studies · employees who stand at work · applies to this group</p>
-          <p class="beleg__zitat">Speed et al. 2018, Applied Ergonomics 70:300-314, <a class="textlink" href="https://doi.org/10.1016/j.apergo.2018.02.021" rel="noopener">doi:10.1016/j.apergo.2018.02.021</a></p>
-        </figure>
-        <figure class="ergebnis" data-ergebnis>
-          <p class="etikett ergebnis__quelle">Bernardes et al. 2023</p>
-          <h3 class="ergebnis__titel">Foot and ankle disorders among nurses</h3>
-          <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="Scale without numbers: The reported frequency of foot and ankle disorders differs clearly between the studies." focusable="false">
-            <path class="ergebnis__linie" d="M8 56h304M8 56l10-8M8 56l10 8M312 56l-10-8M312 56l-10 8"/>
-            <path class="ergebnis__linie" d="M8 40v32M312 40v32"/>
-            <rect class="ergebnis__wert" x="86" y="42" width="148" height="28"/>
-            <text x="8" y="92">less often</text>
-            <text x="312" y="92" text-anchor="end">more often</text>
-            <text x="160" y="25" text-anchor="middle">Frequency across studies</text>
-          </svg>
-          <p class="ergebnis__satz">Pain is the most common disorder. How common it is differs clearly between the studies.</p>
-          <p class="etikett ergebnis__fuss">Review on nurses in hospitals · no figure taken over</p>
-          <p class="beleg__zitat">Bernardes et al. 2023, Workplace Health &amp; Safety 71(3):101-116, <a class="textlink" href="https://doi.org/10.1177/21650799221137646" rel="noopener">doi:10.1177/21650799221137646</a></p>
-        </figure>
+            </div>
+            <div class="dreh__hinten">
+              <p class="studie__aussage">In 26 reviewed studies on shoes and insoles for long standing at work, custom-fitted insoles did better on comfort and balance than standard insoles.</p>
+              <p class="studie__autoren">Kang et al. 2025</p>
+              <button class="knopf knopf--dunkel" type="button" data-studie-datei="../../assets/downloads/studien/kang-et-al-2025.pdf" data-studie-name="Kang et al. 2025 - Influence of Footwear on Foot Comfort of Workers Engaged in Prolonged Standing Occupations.pdf" data-studie-titel="Shoes and insoles for long standing at work">Download study <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+            </div>
+          </div>
+        </article>
       </div>
-      <p class="belege__hinweis">None of these studies examines hospitality or food service, and none examines insoles as a measure against absences, sick days or pain. VIANU does not transfer the figures to other groups.</p>
       <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Placeholder for a statement from an orthopedist">
         <span class="etikett platzhalter__etikett">Placeholder</span>
         <p>Statement from an orthopedist on the scope of the insole. Only with approval, with name and function.</p>
@@ -275,17 +400,17 @@
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="termin-titel">What you present at the site inspection</h2>
+        <h2 id="termin-titel">What you need for your safety inspection</h2>
       </div>
       <div class="pruefliste" data-pruefliste>
         <p class="pruefliste__zaehler" aria-live="polite"><strong data-pruefliste-zahl>0</strong> of 5 checked</p>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Scope</span><span class="pruefliste__dd">A supplementary comfort offer for work and professional shoes. It replaces no protective measure and no workplace design.</span></span></button>
-          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Difference from the mat</span><span class="pruefliste__dd">The anti-fatigue mat lies in one fixed spot, the insole is there along the whole route of a shift. It complements the mat.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">What the insole does not replace</span><span class="pruefliste__dd">An anti-fatigue mat (a mat at a fixed standing spot, for example at the stove) lies in one place. The insole is with you along the whole route of a shift and complements the mat.</span></span></button>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Material and hygiene</span><span class="pruefliste__dd"><span class="etikett rubrik__status">Open</span>There will be a statement on this once the information is available.</span></span></button>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Exclusion criteria and data process</span><span class="pruefliste__dd"><span class="etikett rubrik__status">Open</span>There will be a statement on this once the information is available.</span></span></button>
-          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Test group and risk assessment</span><span class="pruefliste__dd">Check the pilot scope against the risk assessment and give the test group technical approval. Taking part is voluntary.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Test group and risk assessment</span><span class="pruefliste__dd">Check the pilot scope against the risk assessment (your evaluation of the risks at the workplace) and give the test group technical approval. Taking part is voluntary.</span></span></button>
       </div>
-      <p class="einseiter__fuss druck-nur">Next step: Check the pilot scope against the risk assessment and give the test group technical approval. Contact: Roderich. Get in touch on the VIANU B2B page.</p>
+      <p class="einseiter__fuss druck-nur">Next step: Check the pilot scope against the risk assessment and give the test group technical approval. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.</p>
     </div>
   </section>
 
@@ -293,7 +418,7 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="messwerte-titel">What we measure at the end</h2>
-        <p>At the end of the pilot, the participants answer four questions. Two matter most for occupational safety.</p>
+        <p>The report at the end of the pilot summarizes the survey of the participants, including these four questions. Two matter most for occupational safety.</p>
       </div>
       <div class="umfrage" data-umfrage>
         <div class="umfrage__telefon">
@@ -304,7 +429,7 @@
           </div>
         </div>
         <div class="umfrage__erklaerung">
-          <h3>Four questions, four answers</h3>
+          <h3>Four measures from the report</h3>
           <ul class="umfrage__liste">
           <li data-wichtig><strong>Wear rate</strong><span>Who still wears the insole.</span></li>
           <li data-wichtig><strong>Noticeable improvement</strong><span>Who notices a difference from before.</span></li>
@@ -312,64 +437,6 @@
           <li><strong>Appreciation</strong><span>Who feels valued by the offer.</span></li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
-    <div class="behaelter">
-      <div class="chat" data-chat>
-        <div class="chat__buehne">
-          <div class="chat__fenster">
-            <div class="chat__kopf">
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <div><h2 id="brief-titel" class="chat__titel">Roderich to Occupational safety</h2><span class="etikett chat__unter">Reply within 5 working days</span></div>
-            </div>
-            <ol class="chat__verlauf" aria-live="polite">
-            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <p class="chat__blase">I cannot back a solution with unclear product limits.<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">VIANU is a comfort offer. It replaces no protective measure.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <p class="chat__blase">Does the insole replace our anti-fatigue mats?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">No. The mat lies in one spot, the insole is there along the whole route.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
-              <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <p class="chat__blase">And material, hygiene and data handling?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">I will say something on that once it is settled.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">I make no statement on sick days, pain or protection.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">I have stood on hard floors for 10 to 12 hours a day myself.</p>
-              <span class="chat__avatar chat__avatar--roderich" data-platzhalter role="img" aria-label="Placeholder for a photo of Roderich">Photo</span>
-            </li>
-            </ol>
-            <div class="chat__fuss">
-              <span class="chat__feld" aria-hidden="true">Message to Roderich</span>
-              <button class="knopf knopf--dunkel chat__weiter" type="button" data-chat-weiter>Next <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-              <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="chat__unterschrift">
-        <p class="brief__unterschrift">Roderich</p>
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Roderich's story</a></p>
       </div>
     </div>
   </section>
@@ -383,7 +450,7 @@
           <div class="fragen" role="group" aria-labelledby="fragen-wichtig">
           <details class="frage">
             <summary>Do insoles replace anti-fatigue mats?</summary>
-            <div class="frage__antwort"><p>No. An anti-fatigue mat lies in one fixed spot. An insole is in the shoe along the whole route of a shift. VIANU sees the insole as a complement to the anti-fatigue mat and makes no comparison of effect.</p></div>
+            <div class="frage__antwort"><p>No. An anti-fatigue mat lies in one fixed spot. An insole is in the shoe along the whole route of a shift. VIANU sees the insole as a complement to the anti-fatigue mat.</p></div>
           </details>
           <details class="frage">
             <summary>Do insoles replace occupational safety measures at work?</summary>
@@ -414,7 +481,7 @@
           <div class="fragen" role="group" aria-labelledby="fragen-weitere">
           <details class="frage">
             <summary>Which employees can take part in an insole program?</summary>
-            <div class="frage__antwort"><p>An insole program can include employees from kitchen, service, housekeeping, reception, banquet and bar. At VIANU, taking part is voluntary, and your business decides whether to join.</p></div>
+            <div class="frage__antwort"><p>An insole program suits all employees who stand or walk for many hours a day. The focus is on work in hotels and restaurants, such as kitchen, service, housekeeping, reception, banquet and bar. All other industries with a lot of standing and walking are just as welcome, for example care, retail, production, logistics and cleaning. At VIANU, taking part is voluntary, and your business decides whether to join.</p></div>
           </details>
           <details class="frage">
             <summary>Do employees have to buy new shoes for insoles?</summary>
@@ -431,7 +498,11 @@
           </details>
           <details class="frage">
             <summary>What is VIANU?</summary>
-            <div class="frage__antwort"><p>VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on their own smartphone during a break, with no measurement day.</p></div>
+            <div class="frage__antwort"><p>VIANU is a program for teams whose staff are on their feet for many hours a day. Employees get custom-made insoles. VIANU is a comfort and appreciation offer that starts as a limited pilot. It consists of an approval package, the rollout at your business and a results report. The foot capture runs on their own smartphone, for example during a break, with no measurement day.</p></div>
+          </details>
+          <details class="frage">
+            <summary>How is a custom insole made?</summary>
+            <div class="frage__antwort"><p>A custom insole can be made with 3D printing from the photos of the feet. At VIANU, it is printed locally in Germany and made within 48 hours. It reaches your employees at the latest 7 days after the foot capture.</p></div>
           </details>
           <details class="frage">
             <summary>How long does an insole last in everyday work?</summary>
@@ -480,7 +551,7 @@
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     <h2 id="pilot-titel">Send a contact request</h2>
-    <p>We will get back to you within 5 working days, promise! Roderich is your contact.</p>
+    <p>We will get back to you within 5 working days, promise! Roderich Körner-Rehn is your contact.</p>
     <form class="formular" id="pilot-formular" novalidate data-formular>
           <div class="formular__feld">
             <label for="f-unternehmen">Company</label>
@@ -570,6 +641,23 @@
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
           <p class="formular__status" role="status" data-formular-status></p>
+    </form>
+  </div>
+</dialog>
+
+<dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-studie-schliessen aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <p class="etikett">Download study</p>
+    <h2 id="studie-titel" data-studie-titel></h2>
+    <p>Don't worry, we will not send you any spam.</p>
+    <form class="formular" novalidate>
+      <div class="formular__feld">
+        <label>Your email address<input type="email" name="email" autocomplete="email" maxlength="254" placeholder="name@company.com" required data-studie-email aria-describedby="studie-fehler"></label>
+        <p class="formular__fehler" id="studie-fehler" data-studie-fehler hidden></p>
+      </div>
+      <p class="etikett">Once you have entered your email address, the PDF will be made available to you.</p>
+      <button class="knopf" type="submit" data-studie-absenden>Download now <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
     </form>
   </div>
 </dialog>

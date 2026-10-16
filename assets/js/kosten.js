@@ -1,6 +1,7 @@
 /*
   Kostenrechner: Preis je Paar geteilt durch die Schichten, die Besucher einstellen.
-  Schnittstelle: kostenJeSchicht(preis, schichten, sprache) -> { cent, text } oder null, begrenzeSchichten(wert), SCHICHTEN.
+  Schnittstelle: kostenJeSchicht(preis, schichten, sprache) -> { cent, text } oder null, begrenzeSchichten(wert), SCHICHTEN,
+  fehltageFuerPreis(preis, kostenJeTag), fehlzeitKosten(personen, tage, kostenJeTag), anteilPreis(preis, gesamt), euro(betrag, sprache).
   Reine Funktionen ohne Browserbezug. Die Seite nennt das Ergebnis "gerechnet" und macht keine Aussage zur Haltbarkeit.
 */
 (function (root, factory) {
@@ -28,5 +29,30 @@
     return { cent: cent, text: euro + "," + centStellen + " Euro" };
   }
 
-  return { kostenJeSchicht: kostenJeSchicht, begrenzeSchichten: begrenzeSchichten, SCHICHTEN: SCHICHTEN };
+  // Break-even: wie viele Fehltage entsprechen dem Pilotpreis, wenn ein Fehltag so viel kostet, wie der Besucher einträgt.
+  // Reine Rechnung mit Besucherzahlen. VIANU nennt keine Fehltagequote und keine Wirkung.
+  function fehltageFuerPreis(preis, kostenJeTag) {
+    var p = Number(preis), k = Number(kostenJeTag);
+    if (!isFinite(p) || !isFinite(k) || k <= 0 || p < 0) return null;
+    return Math.ceil(p / k - 1e-9);
+  }
+  function fehlzeitKosten(personen, tage, kostenJeTag) {
+    var n = Number(personen), t = Number(tage), k = Number(kostenJeTag);
+    if (!isFinite(n) || !isFinite(t) || !isFinite(k) || n < 0 || t < 0 || k < 0) return null;
+    return Math.round(n * t * k);
+  }
+  function anteilPreis(preis, gesamt) {
+    var p = Number(preis), g = Number(gesamt);
+    if (!isFinite(p) || !isFinite(g) || g <= 0) return null;
+    return Math.round((p / g) * 100);
+  }
+  function euro(betrag, sprache) {
+    var n = Math.round(Number(betrag));
+    if (!isFinite(n)) return null;
+    var teile = String(Math.abs(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sprache === "en" ? "," : ".");
+    var vorzeichen = n < 0 ? "-" : "";
+    return sprache === "en" ? vorzeichen + "EUR " + teile : vorzeichen + teile + " Euro";
+  }
+
+  return { kostenJeSchicht: kostenJeSchicht, begrenzeSchichten: begrenzeSchichten, SCHICHTEN: SCHICHTEN, fehltageFuerPreis: fehltageFuerPreis, fehlzeitKosten: fehlzeitKosten, anteilPreis: anteilPreis, euro: euro };
 });

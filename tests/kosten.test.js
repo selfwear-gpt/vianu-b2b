@@ -44,3 +44,28 @@ test("englisch: Punkt als Dezimalzeichen, EUR vorn", () => {
   assert.equal(kostenJeSchicht(120, 8, "en").text, "EUR 15.00");
   assert.equal(kostenJeSchicht(120, 210).text, "0,57 Euro");
 });
+
+const { fehltageFuerPreis, fehlzeitKosten, anteilPreis, euro } = require("../assets/js/kosten.js");
+
+test("Break-even: Pilotpreis in Fehltagen, aufgerundet", () => {
+  assert.equal(fehltageFuerPreis(1200, 200), 6);
+  assert.equal(fehltageFuerPreis(1200, 250), 5);
+  assert.equal(fehltageFuerPreis(1200, 1000), 2);
+  assert.equal(fehltageFuerPreis(1200, 0), null);
+  assert.equal(fehltageFuerPreis("x", 200), null);
+});
+
+test("Break-even: Fehlzeitkosten und Anteil des Pilotpreises", () => {
+  assert.equal(fehlzeitKosten(10, 10, 200), 20000);
+  assert.equal(fehlzeitKosten(10, 0, 200), 0);
+  assert.equal(anteilPreis(1200, 20000), 6);
+  assert.equal(anteilPreis(1200, 0), null);
+  assert.equal(fehlzeitKosten(-1, 3, 3), null);
+});
+
+test("Euro-Schreibweise deutsch mit Punkt, englisch mit Komma", () => {
+  assert.equal(euro(1200, "de"), "1.200 Euro");
+  assert.equal(euro(20000), "20.000 Euro");
+  assert.equal(euro(1200, "en"), "EUR 1,200");
+  assert.equal(euro(50, "de"), "50 Euro");
+});
