@@ -73,7 +73,7 @@ test("rollenspezifische Bausteine: Matte und Weg, Datenfluss, Rechner", () => {
 });
 
 test("die Studien stehen nur auf den Seiten der Rolle, deren Frage sie beantworten", () => {
-  const erlaubt = { Abdelsalam: ["personal"], Tarrade: ["personal"], Kang: ["arbeitsschutz"], Speed: ["arbeitsschutz"], Reed: [], Bernardes: [], Smith: [] };
+  const erlaubt = { Abdelsalam: ["personal"], Tarrade: ["personal", "arbeitsschutz"], Kang: ["arbeitsschutz"], Speed: [], Reed: [], Bernardes: [], Smith: [] };
   for (const [studie, seiten] of Object.entries(erlaubt)) {
     for (const r of ROLLEN) {
       const text = seite(r).replace(/<script[\s\S]*?<\/script>/g, "");
