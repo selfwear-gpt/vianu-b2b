@@ -319,7 +319,7 @@ test("Die deutschen B2B-Seiten sprechen durchgehend Sie, keine Du-Formen im sich
 });
 
 test("Was wir am Ende messen: vier umdrehbare Kacheln, keine Platzhalter und keine Abgrenzungssätze", () => {
-  for (const [f, satz] of [["b2b/index.html", /Am Ende des Piloten sehen Sie durch vier einfache Fragen, ob es für Ihre Mitarbeitenden einen Effekt hatte\./], ["en/b2b/index.html", /four simple questions show you whether it had an effect/]]) {
+  for (const [f, satz] of [["b2b/index.html", /Am Ende des Piloten bekommen Sie einen Bericht, der unter anderem mit vier einfachen Fragen zeigt, ob es für Ihre Mitarbeitenden einen Effekt hatte\./], ["en/b2b/index.html", /among other things with four simple questions, whether it had an effect/]]) {
     const h = lies(f);
     const blk = h.match(/<section class="abschnitt" id="messwerte"[\s\S]*?<\/section>/)[0];
     assert.equal((blk.match(/<li class="messwert messwert--dreh" tabindex="0">/g) || []).length, 4, f);

@@ -1836,14 +1836,45 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .chat__kopf img.chat__avatar--roderich { border-color: var(--farbe-papier); }
 @media (prefers-reduced-motion: reduce) { .chat--hinweis .chat__hinweis { animation: none; } }
 
-/* ---------- Studienkarten: Vorderseite Titel und Bild, Rückseite Erklärtext und Download ---------- */
-.ergebnisse .studienkarte { min-height: 26rem; }
-.studienkarte .dreh__vorn { justify-content: space-between; align-items: stretch; }
-.studienkarte .dreh__hinten { justify-content: space-between; }
-.studienkarte .dreh__hinten .knopf { align-self: stretch; justify-content: center; gap: var(--abstand-2); }
-.studienkarte .ergebnis__fuss, .studienkarte__quelle { color: inherit; }
-.studienkarte__quelle { font-weight: 700; margin: 0; }
-.studie__icon { align-self: center; width: 2rem; height: 2rem; fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.studie__icon--klein { width: 1.1rem; height: 1.1rem; stroke: currentColor; }
-.studienkarte .ergebnis__satz { font-size: 1.1rem; line-height: 1.4; max-width: none; }
-[data-studie-dialog] h2 { font-size: var(--schrift-groesse-h3); }
+/* ---------- Studienkarten: Vorderseite Titel und Bild, Rückseite nur die Aussage ---------- */
+.studienkarte .dreh__vorn { justify-content: flex-start; align-items: stretch; gap: var(--abstand-3); }
+.studie__kopf { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--abstand-3); }
+.studie__icon { flex: none; width: 1.1rem; height: 1.1rem; margin-top: 0.15rem; fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.studie__icon--klein { margin: 0; stroke: currentColor; }
+.studienkarte .dreh__hinten { justify-content: center; align-items: center; text-align: center; gap: var(--abstand-3); }
+.studienkarte .dreh__hinten .studie__aussage { margin: 0; max-width: 34ch; font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.35; font-weight: 500; }
+.studie__autoren { margin: 0; font-family: var(--schrift-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.studienkarte .dreh__hinten .knopf { align-self: center; gap: var(--abstand-2); }
+.studienkarte[data-warte] .dreh__innen { transform: none !important; }
+.studienkarte .ergebnis__stunde { transition-duration: 0.9s; }
+.ergebnis__marke { transition: transform 0.8s ease-out 0.2s, opacity 0.8s ease-out 0.2s; }
+.ergebnis--bereit .ergebnis__marke { transform: translateX(-90px); opacity: 0; }
+.ergebnis__kasten { transform-box: fill-box; transform-origin: center; transition: transform 0.3s ease-out; }
+.ergebnis--bereit .ergebnis__kasten { transform: scale(0); }
+.ergebnis__kasten:nth-of-type(1) { transition-delay: 0ms; }
+.ergebnis__kasten:nth-of-type(2) { transition-delay: 40ms; }
+.ergebnis__kasten:nth-of-type(3) { transition-delay: 80ms; }
+.ergebnis__kasten:nth-of-type(4) { transition-delay: 120ms; }
+.ergebnis__kasten:nth-of-type(5) { transition-delay: 160ms; }
+.ergebnis__kasten:nth-of-type(6) { transition-delay: 200ms; }
+.ergebnis__kasten:nth-of-type(7) { transition-delay: 240ms; }
+.ergebnis__kasten:nth-of-type(8) { transition-delay: 280ms; }
+.ergebnis__kasten:nth-of-type(9) { transition-delay: 320ms; }
+.ergebnis__kasten:nth-of-type(10) { transition-delay: 360ms; }
+.ergebnis__kasten:nth-of-type(11) { transition-delay: 400ms; }
+.ergebnis__kasten:nth-of-type(12) { transition-delay: 440ms; }
+.ergebnis__kasten:nth-of-type(13) { transition-delay: 480ms; }
+.ergebnis__kasten:nth-of-type(14) { transition-delay: 520ms; }
+.ergebnis__kasten:nth-of-type(15) { transition-delay: 560ms; }
+.ergebnis__kasten:nth-of-type(16) { transition-delay: 600ms; }
+.ergebnis__kasten:nth-of-type(17) { transition-delay: 640ms; }
+.ergebnis__kasten:nth-of-type(18) { transition-delay: 680ms; }
+.ergebnis__kasten:nth-of-type(19) { transition-delay: 720ms; }
+.ergebnis__kasten:nth-of-type(20) { transition-delay: 760ms; }
+.ergebnis__kasten:nth-of-type(21) { transition-delay: 800ms; }
+.ergebnis__kasten:nth-of-type(22) { transition-delay: 840ms; }
+.ergebnis__kasten:nth-of-type(23) { transition-delay: 880ms; }
+.ergebnis__kasten:nth-of-type(24) { transition-delay: 920ms; }
+.ergebnis__kasten:nth-of-type(25) { transition-delay: 960ms; }
+.ergebnis__kasten:nth-of-type(26) { transition-delay: 1000ms; }
+@media (prefers-reduced-motion: reduce) { .ergebnis__marke, .ergebnis__kasten { transition: none; } }

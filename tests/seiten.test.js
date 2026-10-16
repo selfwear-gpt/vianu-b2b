@@ -95,12 +95,17 @@ test("der Termin-Abschnitt nennt je Seite seinen eigenen Inhalt und keine Standa
   }
 });
 
-test("Studien nennen ihre Grenzen: Tarrade ohne Vergleichsgruppe und mit Anbieter-Autoren, Kang mit Herstellerförderung", () => {
-  const p = seite("personal");
-  assert.match(p, /keine Vergleichsgruppe/);
-  assert.match(p, /Selbstauskunft/);
-  assert.match(p, /Unternehmen für individuelle 3D-Sohlen/);
-  assert.match(seite("arbeitsschutz"), /gefördert von einem Schuhhersteller/);
+test("Studienkarten: auf der Rückseite steht nur die Aussage, verständlich ohne die Vorderseite, und darunter Autoren mit Jahr", () => {
+  for (const [r, n] of [["personal", 2], ["arbeitsschutz", 2]]) {
+    const h = seite(r);
+    const rueck = [...h.matchAll(/<div class="dreh__hinten">([\s\S]*?)<\/div>/g)].map((m) => m[1]).filter((x) => /studie__aussage/.test(x));
+    assert.equal(rueck.length, n, r);
+    for (const x of rueck) {
+      assert.doesNotMatch(x, /Vergleichsgruppe|Selbstauskunft|Stichprobe|Methode|control group|self-reported/, r + ": nichts zu Methode oder Aussagekraft");
+      const aussage = x.match(/<p class="studie__aussage">([^<]*)</)[1];
+      assert.ok(aussage.split(/\s+/).length >= 15, r + ": die Aussage steht für sich: " + aussage);
+    }
+  }
 });
 
 test("keine Rollenseite nennt die 24 Prozent", () => {

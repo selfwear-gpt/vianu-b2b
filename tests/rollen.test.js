@@ -114,7 +114,7 @@ test("Termin als Rubriken auf Personal und Geschäftsführung mit eigenem Titel"
   for (const r of ["personal", "geschaeftsfuehrung"]) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const t = abschnitte(lies(f)).find((x) => x.id === "termin").html;
     assert.match(t, /<dl class="rubriken[ "]/, f);
-    assert.equal((t.match(/<div class="rubrik">/g) || []).length, 5, f);
+    assert.equal((t.match(/<div class="rubrik">/g) || []).length, r === "personal" ? 5 : 4, f);
     assert.doesNotMatch(t, /data-reise|data-feld-nr/, f + ": keine Reiter mehr");
   }
 });
@@ -137,7 +137,9 @@ test("Belege als drehbare Studienkarten mit PDF-Download: Personal zwei, Arbeits
     if (!erwartet[r]) { assert.equal(b, undefined, f + ": keine Belege"); continue; }
     assert.equal((b.html.match(/<article class="dreh studienkarte" data-ergebnis tabindex="0" role="group"/g) || []).length, erwartet[r], f);
     assert.equal((b.html.match(/<svg class="ergebnis__bild"[^>]*role="img" aria-label="[^"]+"/g) || []).length, erwartet[r], f + ": Alternativtext");
-    assert.equal((b.html.match(/class="etikett ergebnis__fuss"/g) || []).length, erwartet[r], f + ": Gruppe und Grenzen auf der Rückseite");
+    assert.equal((b.html.match(/class="studie__aussage"/g) || []).length, erwartet[r], f + ": Rückseite trägt die Aussage");
+    assert.equal((b.html.match(/class="studie__autoren">[A-Z][a-z]+ et al\. \d{4}</g) || []).length, erwartet[r], f + ": darunter Autoren mit Jahr");
+    assert.doesNotMatch(b.html, /ergebnis__fuss|Skala ohne Zahlen|scale without numbers/, f + ": sonst nichts auf der Rückseite");
     assert.equal((b.html.match(/data-studie-datei="(\.\.\/)+assets\/downloads\/studien\/[a-z-]+-\d{4}\.pdf" data-studie-name="[^"]+\.pdf"/g) || []).length, erwartet[r], f + ": Download-Knopf mit Dateiname");
     assert.doesNotMatch(b.html, /belege__hinweis|<p>[^<]*Studien?:/, f + ": kein Hinweis und keine Unterüberschrift");
     assert.doesNotMatch(b.html, /Entwurf|ungeprüft|unverified|class="dreh studienkarte"[^>]*beleg--offen/, f);
