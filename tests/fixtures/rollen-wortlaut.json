@@ -18,7 +18,9 @@
     "Wenige Stunden: Testgruppe festlegen, Teilnehmende ansprechen, Vorgehen erklären.",
     "Wir testen erstmal in kleiner Runde mit 10 Mitarbeitenden. Das wären nur Kosten von 1.200 Euro zzgl. Umsatzsteuer.",
     "Am Ende bekommen Sie einen Bericht, wie hilfreich die Sohlen waren und wie zufrieden das Team ist.",
-    "Den können Sie dann auch der Geschäftsführung vorlegen."
+    "Den können Sie dann auch der Geschäftsführung vorlegen.",
+    "Und was ist VIANU genau?",
+    "Individuelle Einlegesohlen für Ihr Team, angefertigt nach Fotos der Füße, die jede Person selbst macht."
   ],
   "en/b2b/personal.html": [
     "What you present to your management",
@@ -38,7 +40,9 @@
     "A few hours: define the test group, approach the participants, explain the process.",
     "We start with a small group of 10 employees. That would be only EUR 1,200 plus VAT.",
     "At the end you get a report: how helpful the insoles were, how satisfied the team is.",
-    "You can then show it to management as well."
+    "You can then show it to management as well.",
+    "And what exactly is VIANU?",
+    "Custom insoles for your team, made from photos of the feet that each person takes themselves."
   ],
   "b2b/geschaeftsfuehrung.html": [
     "Was Sie für Ihre Entscheidung brauchen",
@@ -54,7 +58,9 @@
     "Die Fußerfassung wird nachgeholt, die Sohlen kommen trotzdem normal.",
     "Was kostet das, und was bindet mich?",
     "1.200 Euro zzgl. Umsatzsteuer. Über mehr entscheiden Sie erst danach.",
-    "Am Ende bekommen Sie einen Bericht, wie hilfreich die Sohlen waren und wie zufrieden das Team ist."
+    "Am Ende bekommen Sie einen Bericht, wie hilfreich die Sohlen waren und wie zufrieden das Team ist.",
+    "Und was genau bekommt mein Betrieb?",
+    "Individuell angefertigte Einlegesohlen für Ihr Team. Der Pilot startet mit 10 Mitarbeitenden."
   ],
   "en/b2b/geschaeftsfuehrung.html": [
     "What you need for your decision",
@@ -70,35 +76,35 @@
     "The foot capture is made up later, and the insoles are still delivered as normal.",
     "What does it cost, and what ties me down?",
     "EUR 1,200 plus VAT. You decide on more only afterwards.",
-    "At the end you get a report: how helpful the insoles were, how satisfied the team is."
+    "At the end you get a report: how helpful the insoles were, how satisfied the team is.",
+    "And what exactly does my business get?",
+    "Custom-made insoles for your team. The pilot starts with 10 employees."
   ],
   "b2b/arbeitsschutz.html": [
     "Transparent erklärt. Klar abgegrenzt. Arbeitsnah gedacht.",
-    "Was Sie bei der Begehung vorlegen",
-    "Ich darf keine Lösung mit unklaren Produktgrenzen mittragen.",
-    "VIANU ist ein Komfortangebot. Es ersetzt keine Schutzmaßnahme.",
-    "Ersetzt die Sohle unsere Arbeitsplatzmatten?",
     "Nein. Die Matte liegt an einem Platz, die Sohle ist auf dem ganzen Weg dabei.",
-    "Und Material, Hygiene und Datenumgang?",
     "Nächster Schritt: Den Pilotumfang gegen die Gefährdungsbeurteilung spiegeln und die Testgruppe fachlich freigeben. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.",
     "Und wenn die Sohle drückt?",
     "Dann fertigen wir sie neu. Die Teilnahme ist freiwillig.",
-    "Die Fotos werden nach der Herstellung gelöscht.",
-    "Material- und Hygieneangaben bekommen Sie vor Ihrer Entscheidung."
+    "Ich kenne VIANU noch nicht. Was ist das, und wo liegen die Grenzen?",
+    "Wir fertigen individuelle Einlegesohlen für Beschäftigte, die lange stehen. Die Sohle liegt im eigenen Schuh.",
+    "Sie ist ein Komfortangebot und ersetzt keine Schutzmaßnahme.",
+    "Ersetzt die Sohle unsere Arbeitsplatzmatten, also die Matten an festen Standplätzen?",
+    "Und was passiert mit den Fotos der Füße?",
+    "Die Fotos werden nur für die Anfertigung der Sohle verwendet und danach gelöscht."
   ],
   "en/b2b/arbeitsschutz.html": [
     "Explained openly. Clearly delimited. Designed for daily work.",
-    "What you present at the site inspection",
-    "I cannot back a solution with unclear product limits.",
-    "VIANU is a comfort offer. It replaces no protective measure.",
-    "Does the insole replace our anti-fatigue mats?",
-    "And material, hygiene and data handling?",
     "Next step: Check the pilot scope against the risk assessment and give the test group technical approval. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
     "No. The mat lies in one place, the insole is with you all the way.",
     "And if the insole presses?",
     "Then we make it again. Taking part is voluntary.",
-    "The photos are deleted after production.",
-    "You get material and hygiene details before you decide."
+    "I do not know VIANU yet. What is it, and where are the limits?",
+    "It is a comfort offer and replaces no protective measure.",
+    "Does the insole replace our anti-fatigue mats, the mats at fixed standing spots?",
+    "And what happens to the photos of the feet?",
+    "The photos are used only to make the insole and are deleted afterwards.",
+    "We make custom insoles for employees who stand a lot. The insole sits in their own shoe."
   ],
   "b2b/einkauf.html": [
     "Einfach beschaffen. Einheitlich ausrollen. Sichtbar zur Marke passend.",
@@ -112,7 +118,9 @@
     "Wie schnell kommt die Lieferung?",
     "Spätestens 7 Tage nach der Fußerfassung.",
     "Und Mindestmengen oder Rahmenverträge?",
-    "Das steht noch nicht fest. Ich nenne es Ihnen, bevor Sie über mehr entscheiden."
+    "Das steht noch nicht fest. Ich nenne es Ihnen, bevor Sie über mehr entscheiden.",
+    "Was genau bestelle ich da eigentlich?",
+    "Individuell angefertigte Einlegesohlen, nach Fotos der Füße gefertigt. Beim Pilot sind es 10 Paare."
   ],
   "en/b2b/einkauf.html": [
     "Easy to procure. Rolled out uniformly. Visibly on brand.",
@@ -126,7 +134,9 @@
     "How fast does delivery come?",
     "At the latest 7 days after the foot capture.",
     "And minimum quantities or framework contracts?",
-    "That is not settled yet. I will tell you before you decide on more."
+    "That is not settled yet. I will tell you before you decide on more.",
+    "What exactly am I ordering here?",
+    "Custom-made insoles, made from photos of the feet. In the pilot, it is 10 pairs."
   ],
   "b2b/betriebsrat.html": [
     "Freiwillig für jede Person. Die Regeln vorab mit Ihnen geklärt.",
@@ -140,7 +150,9 @@
     "Nein. Die Teilnahme ist freiwillig, für jede Person.",
     "Wer sieht die Fotos?",
     "Das legen wir in der Betriebsvereinbarung fest. Den Entwurf können Sie herunterladen.",
-    "Der Bericht zeigt nur die Gruppe, anonymisiert."
+    "Der Bericht zeigt nur die Gruppe, anonymisiert.",
+    "Und was ist VIANU überhaupt?",
+    "Wir fertigen individuelle Einlegesohlen. Dafür fotografieren Beschäftigte freiwillig ihre Füße mit dem eigenen Smartphone."
   ],
   "en/b2b/betriebsrat.html": [
     "Voluntary for every person. The rules settled with you in advance.",
@@ -154,6 +166,8 @@
     "Who sees the photos?",
     "We settle that in the works agreement. You can download the draft.",
     "Does the employer see individuals?",
-    "The report shows only the group, anonymized."
+    "The report shows only the group, anonymized.",
+    "And what is VIANU in the first place?",
+    "We make custom insoles. For that, employees voluntarily photograph their feet with their own smartphone."
   ]
 }

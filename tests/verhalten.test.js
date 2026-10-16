@@ -61,7 +61,7 @@ test("Chat-Handy: erste Nachricht allein, Scrollen zeigt weitere, Neustart setzt
     await p.evaluate(([t, h]) => window.scrollTo(0, t + (h - innerHeight) * 0.5), info);
     await p.waitForTimeout(4000);
     const mitte = await sichtbar();
-    assert.ok(mitte > 1 && mitte < 10, "in der Mitte ein Teil: " + mitte);
+    assert.ok(mitte > 1 && mitte < 12, "in der Mitte ein Teil: " + mitte);
     await p.evaluate(([t, h]) => window.scrollTo(0, t + h), info);
     await p.waitForTimeout(9000);
     assert.equal(await p.locator("[data-chat] .chat__link:visible").count(), 1, "am Ende die Link-Nachricht");
@@ -93,14 +93,14 @@ test("Chat: Hinweis erst nach 3 Sekunden Ruhe, nach dem Ende bleibt der Verlauf 
     assert.equal(await p.locator("[data-chat]").evaluate((c) => c.classList.contains("chat--hinweis")), false, "Scrollen blendet ihn aus");
     // ans Ende scrollen und weiter nach unten, dann Strecke kürzen
     await p.evaluate(([t, h]) => window.scrollTo(0, t + h), info);
-    await p.waitForTimeout(9500);
+    await p.waitForTimeout(12000);
     await p.evaluate(([t, h]) => window.scrollTo(0, t + h + 1500), info);
     await p.waitForTimeout(600);
     await p.evaluate(() => window.scrollBy(0, 5));
     await p.waitForTimeout(400);
     const hoehe = await p.locator("[data-chat]").evaluate((c) => Math.round(c.getBoundingClientRect().height));
     assert.ok(hoehe < 1000, "Chat-Strecke ist gekürzt: " + hoehe);
-    assert.equal(await p.locator("[data-chat] .chat__nachricht:not(.chat__nachricht--aus)").count(), 10, "Endzustand bleibt stehen");
+    assert.equal(await p.locator("[data-chat] .chat__nachricht:not(.chat__nachricht--aus)").count(), 12, "Endzustand bleibt stehen");
   });
 });
 

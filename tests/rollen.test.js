@@ -156,7 +156,7 @@ test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Link-Nachr
     assert.doesNotMatch(b, /zitatkarte/, f);
     const rolle = (b.match(/chat__nachricht chat__nachricht--rolle" data-chat-nachricht/g) || []).length;
     const roderich = (b.match(/chat__nachricht chat__nachricht--roderich" data-chat-nachricht/g) || []).length;
-    assert.ok(rolle >= 2 && roderich >= 3 && rolle + roderich >= 6 && rolle + roderich <= 10, f + ": " + rolle + " und " + roderich + " Nachrichten");
+    assert.ok(rolle >= 2 && roderich >= 3 && rolle + roderich >= 6 && rolle + roderich <= 12, f + ": " + rolle + " und " + roderich + " Nachrichten");
     // Handy-Rahmen: Name im Kopf, Hörer und Menü, Eingabe mit Begrenzung, Sprach- und Sendeknopf
     assert.match(b, /<h2 id="brief-titel" class="chat__titel">(Der Vianu Gründer Roderich Körner-Rehn|The VIANU founder Roderich Körner-Rehn)<\/h2>/, f + ": Name im Kopf");
     assert.match(b, /<a class="chat__icon" href="\.\/#pilot" data-pilot-oeffnen/, f + ": Hörer öffnet das Formular");
