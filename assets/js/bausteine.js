@@ -2,7 +2,7 @@
   Bausteine der Rollenseiten. Schnittstelle: Elemente mit [data-pruefliste], [data-fluss] und [data-filter] arbeiten für sich.
   Prüfliste: Schalter zum Abhaken, nur Ansicht, nichts wird gespeichert. Datenfluss: ein Feld pro Knoten, der gewählte Knoten zeigt seinen Text.
   Filter: blendet Zeilen der Statusliste nach Status ein und aus. Ohne Skript stehen alle Inhalte lesbar da.
-  Chat-Brief [data-chat]: die Nachrichten stehen im HTML, das Skript blendet sie beim Scrollen oder per Knopf "Weiter" nacheinander ein, vorher erscheinen Tippen-Punkte.
+  Chat-Brief [data-chat]: die Nachrichten stehen im HTML, das Skript blendet sie beim Scrollen nacheinander ein (in Rahmen ohne Scrollen per Mausrad, Wisch oder Tipp), vorher erscheinen Tippen-Punkte.
   Das Menü "Chat von vorne starten" setzt zurück. Eingabefeld, Mikro- und Sendeknopf öffnen das Kontaktformular (Nachricht im Feld "Anliegen").
   Versteckte Seiten der Gesamtvorschau starten erst, wenn sie sichtbar werden. Bei reduzierter Bewegung und ohne Skript stehen alle Nachrichten sofort da. Ergebnisbild [data-ergebnis]: der Balken baut sich beim Sichtbarwerden auf.
   Umfrage [data-umfrage]: Antworten sind nur zur Ansicht antippbar, nichts wird gespeichert. Ab drei Antworten erscheint [data-umfrage-pilot].
@@ -140,7 +140,6 @@
     var liste = wurzel.querySelector(".chat__verlauf");
     var buehne = wurzel.querySelector(".chat__buehne");
     var nachrichten = Array.prototype.slice.call(wurzel.querySelectorAll("[data-chat-nachricht]"));
-    var weiter = wurzel.querySelector("[data-chat-weiter]");
     var n = nachrichten.length;
     if (!liste || !buehne || !n) return;
     if (ruhig()) {
@@ -180,28 +179,26 @@
       if (z > ziel) { ziel = z; if (!laeuft) zeigeNaechste(); }
     }
     // Läuft die Seite in einem Rahmen ohne eigenes Scrollen (zum Beispiel einer Vorschau, die sich auf die volle Höhe streckt),
-    // gibt es kein Scroll-Signal. Dann starten die Nachrichten automatisch, sobald der Chat im Bild ist.
-    var ohneScroll = false, beobachter = null;
+    // gibt es kein Scroll-Signal. Dann zeigt der Chat die erste Nachricht, und je ein Mausrad-Impuls, Wisch oder Tipp über dem Chat
+    // schaltet eine Nachricht weiter. Es gibt keinen Selbstlauf: In so einem Rahmen gilt jeder Chat als sichtbar, er wäre durchgelaufen, bevor jemand ihn erreicht.
+    var ohneScroll = false;
     function scrollt() {
       var d = document.documentElement;
       return d.scrollHeight > (window.innerHeight || d.clientHeight) + 40;
     }
-    function beobachte() {
-      if (beobachter) return;
-      if (!("IntersectionObserver" in window)) { setzeZiel(1); return; }
-      beobachter = new IntersectionObserver(function (eintraege) {
-        eintraege.forEach(function (e) {
-          if (e.isIntersecting) { setzeZiel(n); beobachter.disconnect(); }
-        });
-      }, { threshold: 0.6 });
-      beobachter.observe(buehne);
+    var letzterSchritt = 0;
+    function schritt() {
+      var jetzt = Date.now();
+      if (jetzt - letzterSchritt < 900) return;
+      letzterSchritt = jetzt;
+      setzeZiel(Math.max(ziel, 1) + 1);
     }
     function beiScroll() {
       // Versteckte Seiten (Gesamtvorschau) haben keine Größe: dort darf nichts ablaufen, sonst steht der Chat beim Öffnen schon am Ende.
       if (sperre || !wurzel.getClientRects().length) return;
       if (!scrollt()) {
         if (!ohneScroll) { ohneScroll = true; wurzel.classList.add("chat--ohnescroll"); }
-        beobachte();
+        setzeZiel(1);
         return;
       }
       if (ohneScroll) { ohneScroll = false; wurzel.classList.remove("chat--ohnescroll"); }
@@ -221,7 +218,6 @@
       nachrichten.forEach(function (m) { m.classList.add("chat__nachricht--aus"); m.classList.remove("chat__nachricht--neu"); });
       gezeigt = 0; ziel = 0; laeuft = false;
       wurzel.classList.remove("chat--fertig");
-      if (beobachter) { beobachter.disconnect(); beobachter = null; }
       sperre = true;
       var wartezeit = 0;
       if (scrollt() && !ohneScroll) {
@@ -246,10 +242,17 @@
     // Wird eine versteckte Seite sichtbar, gibt es kein Scroll-Signal: der Beobachter stößt die Berechnung an.
     if ("IntersectionObserver" in window) new IntersectionObserver(planeScroll).observe(wurzel);
     buehne.addEventListener("click", function (ev) {
-      if (ev.target.closest && ev.target.closest("a, button")) return;
+      if (ev.target.closest && ev.target.closest("a, button, input")) return;
       setzeZiel(Math.max(ziel, 0) + 1);
     });
-    if (weiter) weiter.addEventListener("click", function () { setzeZiel(Math.max(ziel, 0) + 1); });
+    // Nur in Rahmen ohne eigenes Scrollen: Mausrad und Wischen über dem Chat ersetzen das Scrollen.
+    buehne.addEventListener("wheel", function () { if (ohneScroll) schritt(); }, { passive: true });
+    var startY = null;
+    buehne.addEventListener("touchstart", function (e) { startY = e.touches && e.touches[0] ? e.touches[0].clientY : null; }, { passive: true });
+    buehne.addEventListener("touchmove", function (e) {
+      if (!ohneScroll || startY === null || !e.touches || !e.touches[0]) return;
+      if (Math.abs(e.touches[0].clientY - startY) > 24) { startY = e.touches[0].clientY; schritt(); }
+    }, { passive: true });
     beiScroll();
   }
 

@@ -152,7 +152,7 @@ test("das B2B-Menü hat einen Punkt Ablauf zum Abschnitt Ablauf und keinen Punkt
 });
 
 test("die Zielgruppe heißt überall Teams, deren Personal viele Stunden auf den Beinen ist", () => {
-  const erlaubt = /Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service|Jahre Gastronomie|Systemgastronomie|years in food service/g;
+  const erlaubt = /Im Vordergrund stehen Tätigkeiten in Hotellerie und Gastronomie|Keine dieser Studien untersucht Hotellerie oder Gastronomie|Diese Studie untersucht weder Hotellerie noch Gastronomie|examines hospitality or food service|examines neither hospitality nor food service|Jahre Gastronomie|Systemgastronomie|years in food service/g;
   // Die Tätigkeitskacheln nennen die Gastronomie als einen von vielen Bereichen. Studienabgrenzungen und Roderichs Lebenslauf nennen Hotellerie und Gastronomie als Ort, das ist keine Zielgruppe
   for (const rel of PAARE.flatMap((f) => [f, "en/" + f])) {
     // Roderichs Weg nennt die Gastronomie als Ort seiner Arbeit, das ist keine Zielgruppe

@@ -20,6 +20,15 @@ test("jede Rollenseite hat ihre eigene Reihenfolge, Deutsch und Englisch gleich"
   for (const r of ROLLEN) assert.equal(folge("en/b2b/" + r + ".html").join(">"), folge("b2b/" + r + ".html").join(">"), r);
 });
 
+test("der Chat steht auf jeder Rollenseite an dritter Stelle, nie direkt unter dem Kopf", () => {
+  for (const f of SEITEN) assert.equal(folge(f).indexOf("brief"), 2, f);
+  for (const f of ["b2b/personal.html", "en/b2b/personal.html"]) {
+    const ids = folge(f);
+    assert.deepEqual(ids.slice(-3), ["messwerte", "fragen-rolle", "weiterleiten"], f + ": Messwerte kommen direkt vor der FAQ");
+    assert.equal(ids[1], "aufgaben", f);
+  }
+});
+
 test("Hero und Termin bleiben Einseiter, FAQ und Weiterleiten stehen am Ende", () => {
   for (const f of SEITEN) {
     const a = abschnitte(lies(f));
@@ -123,7 +132,7 @@ test("Belege als Ergebnisbilder: Personal zwei, Arbeitsschutz zwei, sonst keine"
     assert.doesNotMatch(b.html, /Entwurf|ungeprüft|unverified|class="dreh studienkarte/, f);
   }
 });
-test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Weiter-Knopf, Antwortfeld, Unterschrift", () => {
+test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Link-Nachricht am Ende, Antwortfeld", () => {
   for (const f of SEITEN) {
     const b = abschnitte(lies(f)).find((x) => x.id === "brief").html;
     assert.match(b, /<div class="chat" data-chat>/, f);
@@ -140,23 +149,22 @@ test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Weiter-Kno
     assert.doesNotMatch(b, /5 Werktagen|5 working days|brief__unterschrift/, f + ": kein Hinweis auf die Antwortfrist, kein rosa Name");
     assert.ok(b.indexOf("chat__nachricht--rolle") < b.indexOf("chat__nachricht--roderich"), f + ": die Rolle schreibt zuerst");
     assert.equal((b.match(/chat__avatar--roderich" data-platzhalter role="img"/g) || []).length, roderich + 1, f + ": Foto-Platzhalter an jeder Antwort und im Kopf");
-    assert.match(b, /data-chat-weiter/, f);
-    assert.match(b, /<a class="knopf" href="\.\/#pilot" data-pilot-oeffnen>/, f + ": Antwortfeld mit Kontaktknopf");
+    assert.doesNotMatch(b, /data-chat-weiter|chat__leiste|<a class="knopf"/, f + ": keine Dauerknöpfe im Chat");
+    assert.match(b, /data-chat-hinweis>(Scrollen für die nächste Nachricht|Scroll for the next message)</, f + ": Hinweis zum Scrollen");
+    const letzte = b.slice(b.lastIndexOf('data-chat-nachricht>'));
+    assert.match(letzte, /chat__blase chat__blase--link[\s\S]*<a class="chat__link" href="\.\/#pilot" data-pilot-oeffnen>/, f + ": letzte Nachricht ist der Link zum Kontaktformular");
     assert.match(b, /#geschichte/, f);
     for (const m of b.matchAll(/<p class="chat__blase">(.*?)(?:<span class="sr-nur">|<\/p>)/g)) assert.ok(m[1].split(/\s+/).length <= 18, f + ": zu lang: " + m[1]);
   }
 });
 
-test("Kopf mit Motiv (Alternativtext, Animation) und Preisstreifen außer bei Betriebsrat und Personal", () => {
+test("Kopf mit Motiv (Alternativtext, Animation) und ohne Preiskacheln", () => {
   for (const f of SEITEN) {
     const h = lies(f);
+    if (f.includes("geschaeftsfuehrung")) { assert.match(h, /<div class="rolle__motiv breakeven" data-breakeven>/, f + ": Break-even-Rechner statt Motiv"); continue; }
     assert.match(h, /<figure class="rolle__motiv">\s*<svg class="motiv"[^>]*role="img" aria-label="[^"]{20,}"/, f + ": Motiv");
     assert.match(h, /class="[^"]*\bm-(zeichnen|pop|auf|blatt)\b/, f + ": Motiv ist animiert");
-    const streifen = h.match(/<ul class="preisstreifen">([\s\S]*?)<\/ul>/);
-    if (f.includes("betriebsrat") || f.includes("personal")) { assert.equal(streifen, null, f); continue; }
-    assert.ok(streifen, f + ": Preisstreifen");
-    assert.equal((streifen[1].match(/<li>/g) || []).length, 3, f);
-    assert.match(streifen[1], /1[.,]200/, f);
+    assert.doesNotMatch(h, /preisstreifen/, f + ": keine Preiskacheln unter dem Kopf");
   }
   const css = fs.readFileSync(path.join(ROOT, "assets/css/components.css"), "utf8");
   assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.m-zeichnen, \.m-auf, \.m-pop, \.m-blatt \{ animation: none/, "Bewegung ruht bei reduzierter Bewegung");

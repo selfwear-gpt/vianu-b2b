@@ -50,21 +50,43 @@ test("Personal: Pilot anfragen erscheint ab drei beantworteten Fragen", { skip: 
   });
 });
 
-test("Chat-Handy: erste Nachricht allein, Weiter zeigt die nächste, Neustart setzt zurück", { skip: ueberspringen }, async () => {
+test("Chat-Handy: erste Nachricht allein, Scrollen zeigt weitere, Neustart setzt zurück, am Ende steht der Link", { skip: ueberspringen }, async () => {
   await mitSeite("b2b/personal.html", 1280, async (p) => {
     const sichtbar = () => p.evaluate(() => document.querySelectorAll("[data-chat] .chat__nachricht:not(.chat__nachricht--aus)").length);
-    await p.evaluate(() => document.querySelector("[data-chat]").scrollIntoView());
+    assert.equal(await p.locator("[data-chat-weiter]").count(), 0, "kein Weiter-Knopf");
+    const info = await p.evaluate(() => { const c = document.querySelector("[data-chat]"); return [c.getBoundingClientRect().top + window.scrollY, c.getBoundingClientRect().height]; });
+    await p.evaluate(([t]) => window.scrollTo(0, t - 80), info);
     await p.waitForTimeout(1500);
     assert.equal(await sichtbar(), 1, "nur die erste Nachricht");
-    await p.locator("[data-chat-weiter]").click();
-    await p.waitForTimeout(1300);
-    assert.equal(await sichtbar(), 2);
+    await p.evaluate(([t, h]) => window.scrollTo(0, t + (h - innerHeight) * 0.5), info);
+    await p.waitForTimeout(4000);
+    const mitte = await sichtbar();
+    assert.ok(mitte > 1 && mitte < 9, "in der Mitte ein Teil: " + mitte);
+    await p.evaluate(([t, h]) => window.scrollTo(0, t + h), info);
+    await p.waitForTimeout(9000);
+    assert.equal(await p.locator("[data-chat] .chat__link:visible").count(), 1, "am Ende die Link-Nachricht");
     await p.locator("[data-chat-menue-knopf]").click();
     assert.equal(await p.locator("[data-chat-menue]").isVisible(), true);
     await p.locator("[data-chat-neu]").click();
-    await p.waitForTimeout(2000);
+    await p.waitForTimeout(2200);
     assert.equal(await sichtbar(), 1, "nach dem Neustart wieder nur die erste");
   });
+});
+
+test("Chat im Rahmen ohne Scrollen: kein Selbstlauf, das Mausrad schaltet eine Nachricht weiter", { skip: ueberspringen }, async () => {
+  const b = await chromium.launch(PFAD ? { executablePath: PFAD } : {});
+  try {
+    const p = await (await b.newContext({ viewport: { width: 1100, height: 40000 } })).newPage();
+    await p.goto(url("b2b/personal.html"));
+    await p.waitForTimeout(6000);
+    const sichtbar = () => p.evaluate(() => document.querySelectorAll("[data-chat] .chat__nachricht:not(.chat__nachricht--aus)").length);
+    assert.equal(await sichtbar(), 1, "nach sechs Sekunden immer noch nur die erste");
+    const box = await p.locator(".chat__fenster").boundingBox();
+    await p.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await p.mouse.wheel(0, 100);
+    await p.waitForTimeout(1300);
+    assert.equal(await sichtbar(), 2, "ein Rad-Impuls zeigt genau eine weitere");
+  } finally { await b.close(); }
 });
 
 test("Chat-Handy: Mikro vergrößert das Feld, Text wird zum Senden und füllt das Formular vor", { skip: ueberspringen }, async () => {

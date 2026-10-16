@@ -1559,10 +1559,6 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
   .rolle__motiv { justify-self: start; max-width: 24rem; }
 }
 
-/* ---------- Preisstreifen unter dem Kopf ---------- */
-.preisstreifen { display: flex; flex-wrap: wrap; gap: var(--abstand-2); margin: var(--abstand-6) 0 0; padding: 0; list-style: none; }
-.preisstreifen li { padding: 0.5rem 0.9rem; border: var(--kante) solid var(--farbe-tinte); font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-.preisstreifen li:first-child { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 
 /* ---------- Chat-Brief ---------- */
 .chat { --schritte: 8; --chat-hoehe: min(38rem, calc(100svh - var(--menue-hoehe) - var(--abstand-6))); position: relative; }
@@ -1615,8 +1611,6 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 @keyframes chat-punkt { 0%, 100% { opacity: 0.35; transform: none; } 40% { opacity: 1; transform: translateY(-0.25rem); } }
 /* Fuß: Knöpfe darüber, Eingabe wie im Messenger darunter */
 .chat__fuss { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-3); background: var(--farbe-papier); color: var(--farbe-tinte); border-top: var(--kante) solid var(--farbe-tinte); }
-.chat__leiste { display: flex; gap: var(--abstand-2); }
-.chat__leiste .knopf { flex: 1 1 0; justify-content: center; gap: 0.4rem; padding: 0.55rem 0.5rem; font-size: 0.72rem; letter-spacing: 0.04em; white-space: nowrap; }
 .chat__zeile { display: flex; align-items: center; gap: var(--abstand-2); }
 .chat__eingabe { position: relative; flex: 1; min-width: 0; display: block; }
 .chat__eingabe input { display: block; width: 100%; box-sizing: border-box; padding: 0.7rem 0.9rem 0.7rem 1.2rem; border: var(--kante) solid var(--farbe-tinte); border-radius: 1.6rem; background: var(--farbe-papier); color: var(--farbe-tinte); font: inherit; font-size: var(--schrift-groesse-klein); transition: padding 0.2s, box-shadow 0.2s; }
@@ -1632,9 +1626,16 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 .chat__senden--text .chat__mikro { display: none; }
 .chat__senden--text .chat__flieger { display: block; }
 .chat__senden:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
-.chat:not(.chat--aktiv) .chat__weiter { display: none; }
-.chat--fertig .chat__weiter { display: none; }
-.chat__unterschrift { margin: var(--abstand-5) auto 0; max-width: 25rem; justify-content: center; display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--abstand-2) var(--abstand-5); }
+.chat__hinweis { margin: 0; text-align: center; font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); letter-spacing: 0.08em; text-transform: uppercase; color: var(--farbe-gedaempft); }
+.chat:not(.chat--aktiv) .chat__hinweis, .chat--fertig .chat__hinweis { display: none; }
+/* Link-Nachricht wie im Messenger: Text und darunter eine Vorschaukarte */
+.chat__blase--link { display: flex; flex-direction: column; gap: 0.4rem; }
+.chat__link { display: flex; flex-direction: column; gap: 0.1rem; padding: 0.5rem 0.7rem; background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); border-left-width: 0.4rem; border-radius: 0.6rem; text-decoration: none; }
+.chat__link strong { font-family: var(--schrift-kopf); font-size: 1.15rem; text-transform: uppercase; line-height: 1.1; }
+.chat__link span { font-size: var(--schrift-groesse-klein); text-decoration: underline; color: var(--farbe-gedaempft); }
+.chat__link:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.chat__link:hover span { color: var(--farbe-papier); }
+.chat__link:focus-visible { outline: 3px solid var(--farbe-tinte); outline-offset: 2px; }.chat__unterschrift { margin: var(--abstand-5) auto 0; max-width: 25rem; justify-content: center; display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--abstand-2) var(--abstand-5); }
 .chat__unterschrift .brief__unterschrift { margin: 0; }
 @media (max-width: 40rem) {
   .chat { --chat-hoehe: min(34rem, calc(100svh - var(--menue-hoehe) - var(--abstand-5))); }
@@ -1713,8 +1714,6 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 @media print {
   .rolle__motiv { display: none; }
   .rolle__raster { display: block; }
-  .preisstreifen { margin-top: var(--abstand-3); }
-  .preisstreifen li { padding: 0.15rem 0.5rem; }
   .rubrik { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); padding: var(--abstand-2) 0; }
   .rubrik dt { font-size: 1rem; }
   .rubrik dd { font-size: 0.95rem; line-height: 1.35; }
@@ -1816,3 +1815,12 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
   .rubriken--icons .rubrik { transition: none; }
   .rubriken--icons .rubrik:hover { transform: none; }
 }
+
+/* ---------- Geschäftsführung: Break-even-Rechner im Kopf ---------- */
+.breakeven { display: flex; flex-direction: column; gap: var(--abstand-4); padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); }
+.breakeven__feld { display: flex; flex-direction: column; gap: var(--abstand-2); }
+.breakeven .rechner__ergebnis { font-size: 1.05rem; }
+.breakeven .rechner__wert { font-size: clamp(2.25rem, 4.5vw, 3.25rem); }
+.breakeven__zeile { margin: 0; font-size: 1.05rem; }
+.breakeven__zeile strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.35rem; }
+@media print { .breakeven { display: none; } }
