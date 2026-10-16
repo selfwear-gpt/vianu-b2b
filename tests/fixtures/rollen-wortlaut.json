@@ -97,7 +97,6 @@
     "We make custom insoles for employees who stand a lot. The insole sits in their own shoe."
   ],
   "b2b/einkauf.html": [
-    "Zahlen, die Sie im Einkaufsgespräch brauchen",
     "Ich brauche einen klaren Ablauf ohne Überraschungen nach der Freigabe.",
     "10 Paare, 1.200 Euro zzgl. Umsatzsteuer.",
     "Nächster Schritt: Das Pilotangebot gegen die Beschaffungsstandards prüfen und die Freigabe an einen klaren Prozess knüpfen. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.",
@@ -109,10 +108,10 @@
     "Und Mindestmengen oder Rahmenverträge?",
     "Das steht noch nicht fest. Ich nenne es Ihnen, bevor Sie über mehr entscheiden.",
     "Was genau bestelle ich da eigentlich?",
-    "Individuell angefertigte Einlegesohlen, nach Fotos der Füße gefertigt. Beim Pilot sind es 10 Paare."
+    "Individuell angefertigte Einlegesohlen, nach Fotos der Füße gefertigt. Beim Pilot sind es 10 Paare.",
+    "Spätestens 7 Tage nach der Fußerfassung. Gedruckt wird in Deutschland, fertig in 48 Stunden."
   ],
   "en/b2b/einkauf.html": [
-    "Figures you need in the procurement conversation",
     "I need a clear process with no surprises after approval.",
     "10 pairs, EUR 1,200 plus VAT.",
     "Next step: Check the pilot offer against the procurement standards and tie the approval to a clear process. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
@@ -124,7 +123,8 @@
     "And minimum quantities or framework contracts?",
     "That is not settled yet. I will tell you before you decide on more.",
     "What exactly am I ordering here?",
-    "Custom-made insoles, made from photos of the feet. In the pilot, it is 10 pairs."
+    "Custom-made insoles, made from photos of the feet. In the pilot, it is 10 pairs.",
+    "At the latest 7 days after the foot capture. Printed in Germany, ready in 48 hours."
   ],
   "b2b/betriebsrat.html": [
     "Was Sie in der Betriebsratssitzung klären können",
@@ -132,28 +132,28 @@
     "Die Teilnahme ist freiwillig, für jede Person.",
     "Sieht der Arbeitgeber einzelne Personen?",
     "Nächster Schritt: Betriebsvereinbarung, Datenschutzkonzept und Auftragsverarbeitungsvertrag vor der Freigabe klären. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.",
-    "Sie werden nach der Herstellung der Sohle gelöscht.",
     "Muss jeder mitmachen?",
     "Nein. Die Teilnahme ist freiwillig, für jede Person.",
     "Wer sieht die Fotos?",
-    "Das legen wir in der Betriebsvereinbarung fest. Den Entwurf können Sie herunterladen.",
-    "Der Bericht zeigt nur die Gruppe, anonymisiert.",
     "Und was ist VIANU überhaupt?",
-    "Wir fertigen individuelle Einlegesohlen. Dafür fotografieren Beschäftigte freiwillig ihre Füße mit dem eigenen Smartphone."
+    "Wir fertigen individuelle Einlegesohlen. Dafür fotografieren Beschäftigte freiwillig ihre Füße mit dem eigenen Smartphone.",
+    "Sie werden nur für die Anfertigung der Sohle verwendet und danach gelöscht.",
+    "Nur VIANU und ihre Fertigungspartner. Gedruckt wird lokal in Deutschland.",
+    "Der Betrieb kennt die Teilnehmerliste. Antworten erscheinen nur als Gruppe, anonym."
   ],
   "en/b2b/betriebsrat.html": [
     "What you can clarify in the works council meeting",
     "What happens to the photos of our colleagues' feet?",
     "Taking part is voluntary, for every person.",
     "Next step: Settle the works agreement, the data protection concept and the data processing agreement before approval. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
-    "They are deleted after the insole is made.",
     "Does everyone have to take part?",
     "No. Taking part is voluntary, for every person.",
     "Who sees the photos?",
-    "We settle that in the works agreement. You can download the draft.",
     "Does the employer see individuals?",
-    "The report shows only the group, anonymized.",
     "And what is VIANU in the first place?",
-    "We make custom insoles. For that, employees voluntarily photograph their feet with their own smartphone."
+    "We make custom insoles. For that, employees voluntarily photograph their feet with their own smartphone.",
+    "They are used only to make the insole and deleted afterwards.",
+    "Only VIANU and its manufacturing partners. Printing happens locally in Germany.",
+    "The business knows the participant list. Answers appear only as a group, anonymous."
   ]
 }

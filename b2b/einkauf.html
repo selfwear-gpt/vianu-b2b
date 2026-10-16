@@ -27,6 +27,14 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Wie wird eine individuelle Einlegesohle gefertigt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine individuelle Einlegesohle kann per 3D-Druck nach den Fotos der Füße gefertigt werden. Bei VIANU wird sie lokal in Deutschland gedruckt und ist innerhalb von 48 Stunden gefertigt. Sie erreicht Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Welche Rückfragen und Sonderfälle entstehen bei der Beschaffung von Einlegesohlen für mehrere Standorte?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -179,43 +187,48 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="beschaffung-titel">Preis und Beschaffung</h2>
-        <p>Was feststeht und was offen ist. Offene Punkte bleiben Platzhalter.</p>
+        <p>Was Sie für die Bestellung wissen müssen.</p>
       </div>
-      <div class="rechnung">
+      <div class="rechnung" id="e-preis">
         <p class="rechnung__teil"><strong>120 €</strong><span class="etikett">je Paar</span></p>
         <span class="rechnung__zeichen" aria-hidden="true">×</span>
         <p class="rechnung__teil"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Zehn Sohlen für den Piloten" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><span class="etikett">10 Paare im Piloten</span></p>
         <span class="rechnung__zeichen" aria-hidden="true">=</span>
         <p class="rechnung__teil rechnung__teil--summe"><strong>1.200 €</strong><span class="etikett">Pilot, zuzüglich Umsatzsteuer</span></p>
       </div>
-      <div class="lieferung" role="group" aria-label="Ablauf von der Fußerfassung bis zur Lieferung">
+      <div class="lieferung" id="e-lieferung" role="group" aria-label="Ablauf von der Fußerfassung bis zur Lieferung">
         <p class="etikett lieferung__titel">Lieferzeit</p>
         <ol class="lieferung__strahl">
           <li class="lieferung__punkt"><span class="etikett">Tag 0</span><strong>Fußerfassung</strong></li>
-          <li class="lieferung__punkt"><strong>VIANU fertigt die Einlegesohlen</strong></li>
+          <li class="lieferung__punkt"><span class="etikett">innerhalb von 48 Stunden</span><strong>VIANU druckt die Sohlen per 3D-Druck, lokal in Deutschland</strong></li>
           <li class="lieferung__punkt lieferung__punkt--ziel"><span class="etikett">Tag 7 (spätestens)</span><strong>Sohlen erreichen den Betrieb</strong></li>
         </ol>
         <p class="lieferung__satz">Spätestens 7 Tage nach der Fußerfassung</p>
       </div>
-      <div data-filter>
-      <div class="filter" role="group" aria-label="Preis und Beschaffung">
-        <button class="filter__knopf" type="button" aria-pressed="true" data-filter-wert="">Alle</button>
-        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="fest">Steht fest</button>
-        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="offen">Offen</button>
-      </div>
-      <ul class="stand stand--filter">
-          <li class="stand__zeile" data-status="fest"><span>Preis: 120 Euro je Paar, zuzüglich Umsatzsteuer</span><span class="etikett stand__status">Steht fest</span></li>
-          <li class="stand__zeile" data-status="fest"><span>Pilot: 10 Paare, 1.200 Euro zuzüglich Umsatzsteuer</span><span class="etikett stand__status">Steht fest</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Mindestmengen</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Bestellweg und Ansprechpartner für die Bestellung</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Liefer- und Servicebedingungen</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Reklamationsprozess</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Gestaltung und Marke</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Ersatz und zweites Paar</span><span class="etikett stand__status">Offen</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Datenblätter</span><span class="etikett stand__status">Offen</span></li>
+      <nav class="sprung" aria-label="Zu den Punkten springen"><a class="sprung__link" href="#e-preis">Preis</a><a class="sprung__link" href="#e-lieferung">Lieferzeit</a><a class="sprung__link" href="#e-menge">Mindestmenge</a><a class="sprung__link" href="#e-bestellung">Bestellung und Zahlung</a><a class="sprung__link" href="#e-nachfertigung">Nachfertigung</a><a class="sprung__link" href="#e-marke">Marke</a><a class="sprung__link" href="#e-datenblatt">Datenblatt</a></nav>
+      <ul class="punkte">
+        <li class="punkt" id="e-menge">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8l9-5 9 5-9 5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg>
+          <div class="punkt__text"><h3>Mindestmenge</h3><p class="punkt__satz">Außer im Piloten gibt es keine Mindestmenge. Einzelpersonen werden nicht beliefert.</p></div>
+        </li>
+        <li class="punkt" id="e-bestellung">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <div class="punkt__text"><h3>Bestellung und Zahlung</h3><p class="punkt__satz">Sie nehmen über das Kontaktformular Kontakt auf, bei Bedarf folgt ein Videomeeting. Das Angebot kommt per E-Mail, bezahlt wird auf Rechnung mit 14 Tagen Zahlungsziel.</p></div>
+        </li>
+        <li class="punkt" id="e-nachfertigung">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg>
+          <div class="punkt__text"><h3>Nachfertigung</h3><p class="punkt__satz">Passt eine Sohle nicht, fertigen wir sie neu, innerhalb von 7 Tagen.</p></div>
+        </li>
+        <li class="punkt" id="e-marke">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12V4h8l10 10-8 8L3 12zM7.5 8.5h.01"/></svg>
+          <div class="punkt__text"><h3>Marke</h3><p class="punkt__satz">Name und Firmenlogo werden auf die Sohle gedruckt.</p></div>
+        </li>
+        <li class="punkt" id="e-datenblatt">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6zM15 3v4h4M9 12h7M9 16h7"/></svg>
+          <div class="punkt__text"><h3>Datenblatt</h3><p class="punkt__satz">Material- und Hygieneangaben bekommen Sie als Datenblatt vor der Bestellung.</p><span class="etikett punkt__status">Folgt vor der Bestellung</span></div>
+        </li>
       </ul>
-      </div>
-    </div>
+          </div>
   </section>
 
   <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
@@ -264,7 +277,7 @@
               <p class="chat__blase">Wie schnell kommt die Lieferung?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Spätestens 7 Tage nach der Fußerfassung.</p>
+              <p class="chat__blase">Spätestens 7 Tage nach der Fußerfassung. Gedruckt wird in Deutschland, fertig in 48 Stunden.</p>
               <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
             </li>
             <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
@@ -314,37 +327,37 @@
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Zahlen, die Sie im Einkaufsgespräch brauchen</h2>
+        <h2 id="termin-titel">Was Sie im Einkaufsgespräch brauchen</h2>
       </div>
       <div class="fragenkarten fragenkarten--raster fragenkarten--fuenf">
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Preis</strong></div>
-            <div class="dreh__hinten"><p>120 Euro je Paar, zzgl. Umsatzsteuer.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.7-.8-1.7-1.2-2.8-1.2-2 0-3.2 1.6-3.2 4s1.2 4 3.2 4c1.1 0 2.1-.4 2.8-1.2M7.5 11h5M7.5 13.5h5"/></svg><strong class="etikett">Preis</strong></div>
+            <div class="dreh__hinten"><p>120 Euro je Paar, zzgl. Umsatzsteuer. Pilot: 10 Paare, 1.200 Euro zzgl. Umsatzsteuer.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Pilot</strong></div>
-            <div class="dreh__hinten"><p>10 Paare, 1.200 Euro zzgl. Umsatzsteuer. Mindestmengen: offen.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8l9-5 9 5-9 5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg><strong class="etikett">Menge</strong></div>
+            <div class="dreh__hinten"><p>Außer im Piloten keine Mindestmenge. Einzelpersonen werden nicht beliefert.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">Lieferzeit</strong></div>
-            <div class="dreh__hinten"><p>Spätestens 7 Tage nach der Fußerfassung.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><strong class="etikett">Bestellung</strong></div>
+            <div class="dreh__hinten"><p>Kontaktformular, bei Bedarf Videomeeting, Angebot per E-Mail, Zahlung auf Rechnung in 14 Tagen.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">Marke und Gravur</strong></div>
-            <div class="dreh__hinten"><p>Name und Firmenlogo werden eingraviert. Die Fertigung ist noch zu bestätigen.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7M7 19.5a1.5 1.5 0 1 0 0-.01M17 19.5a1.5 1.5 0 1 0 0-.01"/></svg><strong class="etikett">Lieferung</strong></div>
+            <div class="dreh__hinten"><p>Gedruckt in Deutschland innerhalb von 48 Stunden, geliefert spätestens 7 Tage nach der Fußerfassung. Nachfertigung innerhalb von 7 Tagen.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Offen</strong></div>
-            <div class="dreh__hinten"><p>Bestellweg, Reklamationsprozess sowie Liefer- und Servicebedingungen stehen noch nicht fest.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12V4h8l10 10-8 8L3 12zM7.5 8.5h.01"/></svg><strong class="etikett">Marke</strong></div>
+            <div class="dreh__hinten"><p>Name und Firmenlogo werden auf die Sohle gedruckt.</p></div>
           </div>
         </div>
       </div>
@@ -399,6 +412,10 @@
         <div class="fragen__gruppe">
           <h3 class="etikett fragen__titel" id="fragen-weitere">Weitere Fragen</h3>
           <div class="fragen" role="group" aria-labelledby="fragen-weitere">
+          <details class="frage">
+            <summary>Wie wird eine individuelle Einlegesohle gefertigt?</summary>
+            <div class="frage__antwort"><p>Eine individuelle Einlegesohle kann per 3D-Druck nach den Fotos der Füße gefertigt werden. Bei VIANU wird sie lokal in Deutschland gedruckt und ist innerhalb von 48 Stunden gefertigt. Sie erreicht Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung.</p></div>
+          </details>
           <details class="frage">
             <summary>Wie lange dauert es von der Fußerfassung bis zur Lieferung der Einlegesohlen?</summary>
             <div class="frage__antwort"><p>Die Lieferzeit von Einlegesohlen nach der Fußerfassung unterscheidet sich je nach Anbieter. Bei VIANU erreicht die Sohle Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung.</p></div>

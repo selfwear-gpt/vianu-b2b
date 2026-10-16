@@ -12,7 +12,7 @@ const abschnitte = (h) => [...h.matchAll(/<section class="([^"]*)"(?: id="([^"]+
 const text = (h) => h.replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<svg[\s\S]*?<\/svg>/g, " ").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&euro;/g, "€").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
 const folge = (f) => abschnitte(lies(f)).map((a) => a.id).filter((id) => id !== "stimme-frueh");
 
-const BAUSTEIN = /class="stimme"|data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
+const BAUSTEIN = /class="stimme"|class="punkte"|data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
 
 test("jede Rollenseite hat ihre eigene Reihenfolge, Deutsch und Englisch gleich", () => {
   const de = ROLLEN.map((r) => folge("b2b/" + r + ".html").join(">"));
@@ -201,7 +201,7 @@ test("jede Seite hat einen eigenen, konkreten Titel im Termin-Abschnitt und kein
     assert.doesNotMatch(abschnitte(lies(f)).find((x) => x.id === "termin").html, /What you need to be able to stand behind|How this page sees it/, f);
   }
 });
-test("Geschäftsführung: Rechner und Klein starten; Einkauf: Rechnung, Lieferzeit und gefilterte Statusliste; Betriebsrat: klickbarer Datenfluss", () => {
+test("Geschäftsführung: Rechner und Klein starten; Einkauf: Rechnung, Lieferzeit und ausgearbeitete Punkte mit Sprungleiste; Betriebsrat: klickbarer Datenfluss", () => {
   for (const f of ["b2b/geschaeftsfuehrung.html", "en/b2b/geschaeftsfuehrung.html"]) {
     const k = abschnitte(lies(f)).find((x) => x.id === "kosten").html;
     assert.match(k, /data-rechner/, f);
@@ -209,11 +209,17 @@ test("Geschäftsführung: Rechner und Klein starten; Einkauf: Rechnung, Lieferze
   }
   for (const f of ["b2b/einkauf.html", "en/b2b/einkauf.html"]) {
     const b = abschnitte(lies(f)).find((x) => x.id === "beschaffung").html;
-    assert.match(b, /data-filter/, f);
-    assert.equal((b.match(/<button class="filter__knopf" type="button" aria-pressed="(true|false)" data-filter-wert="[a-z]*">/g) || []).length, 3, f);
-    assert.match(b, /class="lieferung"/, f);
-    assert.match(b, /class="rechnung"/, f);
-    assert.equal((b.match(/<li class="stand__zeile/g) || []).length, 9, f);
+    assert.doesNotMatch(b, /data-filter|stand__zeile|data-platzhalter|Offen<|>Open</, f + ": keine Statusliste und keine offenen Platzhalter");
+    assert.match(b, /class="lieferung" id="e-lieferung"/, f);
+    assert.match(b, /class="rechnung" id="e-preis"/, f);
+    assert.equal((b.match(/<a class="sprung__link" href="#e-/g) || []).length, 7, f + ": Sprungleiste");
+    assert.equal((b.match(/<li class="punkt" id="e-/g) || []).length, 5, f + ": fünf ausgearbeitete Punkte");
+    assert.equal((b.match(/<svg class="punkt__icon"/g) || []).length, 5, f + ": Symbol je Punkt");
+    for (const m of b.matchAll(/href="#(e-[a-z]+)"/g)) assert.match(b, new RegExp('id="' + m[1] + '"'), f + ": Sprungziel " + m[1]);
+    const t3 = abschnitte(lies(f)).find((x) => x.id === "termin").html;
+    assert.equal((t3.match(/<svg class="fragenkarte__icon"/g) || []).length, 5, f + ": Symbol je Karte im Einkaufsgespräch");
+    assert.match(b, /(48 Stunden|48 hours)/, f + ": Fertigung in 48 Stunden");
+    assert.match(lies(f), /(spätestens 7 Tage|at the latest 7 days)/i, f + ": die 7 Tage bleiben");
   }
   for (const f of ["b2b/betriebsrat.html", "en/b2b/betriebsrat.html"]) {
     const d = abschnitte(lies(f)).find((x) => x.id === "datenfluss").html;

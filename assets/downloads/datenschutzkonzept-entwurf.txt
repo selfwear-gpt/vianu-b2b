@@ -9,7 +9,7 @@ Der Pilot prüft, ob individuell angefertigte Einlegesohlen für 10 teilnehmende
 
 2. Welche Daten entstehen
 - Fotos der Füße, aufgenommen mit dem eigenen Smartphone der teilnehmenden Person in einer Pause.
-- Die Angaben für die Fertigung der Einlegesohle. [Platzhalter: genaue Angaben, zum Beispiel Name und Firmenlogo für die Gravur, von VIANU zu bestätigen.]
+- Die Angaben für die Fertigung der Einlegesohle. [Platzhalter: genaue Angaben, zum Beispiel Name und Firmenlogo für den Aufdruck, von VIANU zu bestätigen.]
 - Vier Antworten am Ende des Piloten: Tragequote, spürbare Verbesserung, Weiterempfehlung und Wertschätzung. Die Teilnehmenden beantworten sie selbst.
 
 3. Datenfluss
@@ -23,11 +23,11 @@ d) Am Ende erhält der Arbeitgeber einen anonymisierten Bericht auf Gruppenebene
 [Platzhalter: Ob VIANU Auftragsverarbeiter oder eigener Verantwortlicher ist, ist offen und rechtlich zu klären.]
 
 5. Verarbeitungsort, Speicherdauer, Einsicht und Löschung
-[Platzhalter: Verarbeitungsort, offen.]
-[Platzhalter: Speicherdauer, offen.]
+Verarbeitungsort: Die Fotos werden in der EU verarbeitet. Gedruckt wird die Sohle per 3D-Druck lokal in Deutschland.
+Verwendung und Löschung: Die Fotos werden nur für die Anfertigung der Sohle verwendet und nach der Herstellung gelöscht. Sehen können sie VIANU und ihre Fertigungspartner.
+[Platzhalter: Aufbewahrung der Befragungsantworten, offen.]
 [Platzhalter: Einsicht der Teilnehmenden in ihre Daten, offen.]
-[Platzhalter: Löschung nach dem Piloten, offen.]
-[Platzhalter: Was der Arbeitgeber über einzelne Teilnehmende erfährt, offen.]
+Was der Arbeitgeber erfährt: Der Arbeitgeber kennt die Teilnehmerliste. Der Bericht ist anonym auf Gruppenebene.
 
 6. Rechte der Betroffenen
 [Platzhalter: Auskunft, Berichtigung, Löschung, Widerspruch, Ansprechpartner, rechtlich zu prüfen.]

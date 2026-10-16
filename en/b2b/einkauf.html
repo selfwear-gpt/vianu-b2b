@@ -27,6 +27,14 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How is a custom insole made?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A custom insole can be made with 3D printing from the photos of the feet. At VIANU, it is printed locally in Germany and made within 48 hours. It reaches your employees at the latest 7 days after the foot capture."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Which questions and special cases arise when procuring insoles for several sites?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -179,43 +187,48 @@
     <div class="behaelter">
       <div class="abschnitt__kopf">
         <h2 id="beschaffung-titel">Price and procurement</h2>
-        <p>What is settled and what is still open. Open points stay placeholders.</p>
+        <p>What you need to know for ordering.</p>
       </div>
-      <div class="rechnung">
+      <div class="rechnung" id="e-preis">
         <p class="rechnung__teil"><strong>€120</strong><span class="etikett">per pair</span></p>
         <span class="rechnung__zeichen" aria-hidden="true">×</span>
         <p class="rechnung__teil"><svg class="buendel__bild" viewBox="0 0 300 140" role="img" aria-label="Ten insoles for the pilot" focusable="false"><use class="buendel__sohle" href="#sohle-form" x="14" y="6" width="20" height="52" transform="rotate(5 24.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="6" width="20" height="52" transform="rotate(-6 80.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="6" width="20" height="52" transform="rotate(5 136.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="6" width="20" height="52" transform="rotate(-6 192.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="6" width="20" height="52" transform="rotate(5 248.0 32.0)"/><use class="buendel__sohle" href="#sohle-form" x="14" y="80" width="20" height="52" transform="rotate(-6 24.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="70" y="80" width="20" height="52" transform="rotate(5 80.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="126" y="80" width="20" height="52" transform="rotate(-6 136.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="182" y="80" width="20" height="52" transform="rotate(5 192.0 106.0)"/><use class="buendel__sohle" href="#sohle-form" x="238" y="80" width="20" height="52" transform="rotate(-6 248.0 106.0)"/></svg><span class="etikett">10 pairs in the pilot</span></p>
         <span class="rechnung__zeichen" aria-hidden="true">=</span>
         <p class="rechnung__teil rechnung__teil--summe"><strong>€1,200</strong><span class="etikett">Pilot, plus VAT</span></p>
       </div>
-      <div class="lieferung" role="group" aria-label="Course from the foot capture to delivery">
+      <div class="lieferung" id="e-lieferung" role="group" aria-label="Course from the foot capture to delivery">
         <p class="etikett lieferung__titel">Delivery time</p>
         <ol class="lieferung__strahl">
           <li class="lieferung__punkt"><span class="etikett">Day 0</span><strong>Foot capture</strong></li>
-          <li class="lieferung__punkt"><strong>VIANU makes the insoles</strong></li>
+          <li class="lieferung__punkt"><span class="etikett">within 48 hours</span><strong>VIANU prints the insoles with 3D printing, locally in Germany</strong></li>
           <li class="lieferung__punkt lieferung__punkt--ziel"><span class="etikett">Day 7 (at the latest)</span><strong>Insoles arrive at your business</strong></li>
         </ol>
         <p class="lieferung__satz">At the latest 7 days after the foot capture</p>
       </div>
-      <div data-filter>
-      <div class="filter" role="group" aria-label="Price and procurement">
-        <button class="filter__knopf" type="button" aria-pressed="true" data-filter-wert="">All</button>
-        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="fest">Settled</button>
-        <button class="filter__knopf" type="button" aria-pressed="false" data-filter-wert="offen">Open</button>
-      </div>
-      <ul class="stand stand--filter">
-          <li class="stand__zeile" data-status="fest"><span>Price: EUR 120 per pair, plus VAT</span><span class="etikett stand__status">Settled</span></li>
-          <li class="stand__zeile" data-status="fest"><span>Pilot: 10 pairs, EUR 1,200 plus VAT</span><span class="etikett stand__status">Settled</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Minimum quantities</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Ordering route and contact for orders</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Delivery and service terms</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Complaints process</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Design and brand</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Replacement and second pair</span><span class="etikett stand__status">Open</span></li>
-          <li class="stand__zeile stand__zeile--offen" data-status="offen" data-platzhalter><span>Data sheets</span><span class="etikett stand__status">Open</span></li>
+      <nav class="sprung" aria-label="Jump to the points"><a class="sprung__link" href="#e-preis">Price</a><a class="sprung__link" href="#e-lieferung">Delivery time</a><a class="sprung__link" href="#e-menge">Minimum quantity</a><a class="sprung__link" href="#e-bestellung">Ordering and payment</a><a class="sprung__link" href="#e-nachfertigung">Remaking</a><a class="sprung__link" href="#e-marke">Brand</a><a class="sprung__link" href="#e-datenblatt">Data sheet</a></nav>
+      <ul class="punkte">
+        <li class="punkt" id="e-menge">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8l9-5 9 5-9 5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg>
+          <div class="punkt__text"><h3>Minimum quantity</h3><p class="punkt__satz">Apart from the pilot, there is no minimum quantity. Individual persons are not supplied.</p></div>
+        </li>
+        <li class="punkt" id="e-bestellung">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <div class="punkt__text"><h3>Ordering and payment</h3><p class="punkt__satz">You get in touch via the contact form, followed by a video meeting if needed. The offer comes by email, and you pay by invoice with a 14-day payment term.</p></div>
+        </li>
+        <li class="punkt" id="e-nachfertigung">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg>
+          <div class="punkt__text"><h3>Remaking</h3><p class="punkt__satz">If an insole does not fit, we make it again within 7 days.</p></div>
+        </li>
+        <li class="punkt" id="e-marke">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12V4h8l10 10-8 8L3 12zM7.5 8.5h.01"/></svg>
+          <div class="punkt__text"><h3>Brand</h3><p class="punkt__satz">Name and company logo are printed on the insole.</p></div>
+        </li>
+        <li class="punkt" id="e-datenblatt">
+          <svg class="punkt__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6zM15 3v4h4M9 12h7M9 16h7"/></svg>
+          <div class="punkt__text"><h3>Data sheet</h3><p class="punkt__satz">You get material and hygiene details as a data sheet before you order.</p><span class="etikett punkt__status">Follows before ordering</span></div>
+        </li>
       </ul>
-      </div>
-    </div>
+          </div>
   </section>
 
   <section class="abschnitt" id="brief" aria-labelledby="brief-titel">
@@ -264,7 +277,7 @@
               <p class="chat__blase">How fast does delivery come?<span class="sr-nur"> (read)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">At the latest 7 days after the foot capture.</p>
+              <p class="chat__blase">At the latest 7 days after the foot capture. Printed in Germany, ready in 48 hours.</p>
               <img class="chat__avatar chat__avatar--roderich" src="../../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
             </li>
             <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
@@ -314,37 +327,37 @@
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Figures you need in the procurement conversation</h2>
+        <h2 id="termin-titel">What you need in the procurement conversation</h2>
       </div>
       <div class="fragenkarten fragenkarten--raster fragenkarten--fuenf">
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">1</span><strong class="etikett">Price</strong></div>
-            <div class="dreh__hinten"><p>EUR 120 per pair, plus VAT.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.7-.8-1.7-1.2-2.8-1.2-2 0-3.2 1.6-3.2 4s1.2 4 3.2 4c1.1 0 2.1-.4 2.8-1.2M7.5 11h5M7.5 13.5h5"/></svg><strong class="etikett">Price</strong></div>
+            <div class="dreh__hinten"><p>EUR 120 per pair, plus VAT. Pilot: 10 pairs, EUR 1,200 plus VAT.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">2</span><strong class="etikett">Pilot</strong></div>
-            <div class="dreh__hinten"><p>10 pairs, EUR 1,200 plus VAT. Minimum quantities: open.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8l9-5 9 5-9 5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg><strong class="etikett">Quantity</strong></div>
+            <div class="dreh__hinten"><p>Apart from the pilot, no minimum quantity. Individual persons are not supplied.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">3</span><strong class="etikett">Delivery time</strong></div>
-            <div class="dreh__hinten"><p>At the latest 7 days after the foot capture.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><strong class="etikett">Ordering</strong></div>
+            <div class="dreh__hinten"><p>Contact form, video meeting if needed, offer by email, payment by invoice within 14 days.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">4</span><strong class="etikett">Brand and engraving</strong></div>
-            <div class="dreh__hinten"><p>Name and company logo are engraved. Production is still to be confirmed.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7M7 19.5a1.5 1.5 0 1 0 0-.01M17 19.5a1.5 1.5 0 1 0 0-.01"/></svg><strong class="etikett">Delivery</strong></div>
+            <div class="dreh__hinten"><p>Printed in Germany within 48 hours, delivered at the latest 7 days after the foot capture. Remade within 7 days.</p></div>
           </div>
         </div>
         <div class="dreh fragenkarte" tabindex="0" role="group">
           <div class="dreh__innen">
-            <div class="dreh__vorn"><span class="fragenkarte__nr" aria-hidden="true">5</span><strong class="etikett">Open</strong></div>
-            <div class="dreh__hinten"><p>Ordering route, complaints process, and delivery and service terms have not been set.</p></div>
+            <div class="dreh__vorn"><svg class="fragenkarte__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12V4h8l10 10-8 8L3 12zM7.5 8.5h.01"/></svg><strong class="etikett">Brand</strong></div>
+            <div class="dreh__hinten"><p>Name and company logo are printed on the insole.</p></div>
           </div>
         </div>
       </div>
@@ -399,6 +412,10 @@
         <div class="fragen__gruppe">
           <h3 class="etikett fragen__titel" id="fragen-weitere">More questions</h3>
           <div class="fragen" role="group" aria-labelledby="fragen-weitere">
+          <details class="frage">
+            <summary>How is a custom insole made?</summary>
+            <div class="frage__antwort"><p>A custom insole can be made with 3D printing from the photos of the feet. At VIANU, it is printed locally in Germany and made within 48 hours. It reaches your employees at the latest 7 days after the foot capture.</p></div>
+          </details>
           <details class="frage">
             <summary>How long does it take from the foot scan to delivery of the insoles?</summary>
             <div class="frage__antwort"><p>The delivery time of insoles after the foot capture differs by provider. At VIANU, the insole reaches your employees at the latest 7 days after the foot capture.</p></div>

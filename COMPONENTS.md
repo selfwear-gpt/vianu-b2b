@@ -257,3 +257,7 @@ Status: gebaut
 Status: gebaut
 - `breakeven`, `data-breakeven` im Seitenkopf der Geschäftsführung (statt Motiv). Zwei Regler (Kosten je Fehltag, Fehltage je Teilnehmendem), Ergebnis: Pilotpreis in Fehltagen, Fehlzeitkosten der 10 Teilnehmenden, Anteil des Pilotpreises. Reine Rechnung mit Besucherzahlen (`kosten.js`: `fehltageFuerPreis`, `fehlzeitKosten`, `anteilPreis`, `euro`), Hinweis "VIANU sagt nicht, dass Fehltage sinken". Logik: `initBreakEven` in `b2b.js`. Im Druck ausgeblendet.
 - Preiskacheln unter dem Kopf (`preisstreifen`) gibt es nicht mehr.
+
+### Einkauf: Punkte mit Symbol und Sprungleiste
+Status: gebaut
+- `sprung` (Chips mit Ankerlinks) und `punkte`/`punkt` (Karten mit Symbol `punkt__icon`, Überschrift, Satz `punkt__satz`, optional Status `punkt__status`) ersetzen die Statusliste mit Filter. Sprungziele: `e-preis`, `e-lieferung`, `e-menge`, `e-bestellung`, `e-nachfertigung`, `e-marke`, `e-datenblatt`. Die Karten heben sich beim Darüberfahren ab und sind nicht klickbar. Der Termin-Abschnitt trägt Symbole (`fragenkarte__icon`) statt Zahlen. Im Betriebsrat-Datenfluss tragen die Stationen Symbole (`fluss__icon`), es gibt keine offenen Stationen mehr.

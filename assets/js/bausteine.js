@@ -303,36 +303,40 @@
     aktivitaet();
   }
 
-  // Ergebnisbild: Balken, Säulen und Marken bauen sich erst auf, wenn man sie sieht. Studienkarten am Computer: beim ersten Darüberfahren
-  // (oder Fokus) baut sich das Bild auf, die Karte dreht sich erst danach um. Auf Touchgeräten und sonst beim Sichtbarwerden.
+  // Ergebnisbild: Balken, Säulen und Marken bauen sich automatisch auf, sobald man so weit gescrollt hat, dass sie sichtbar sind.
+  // Rückfall für Rahmen, in denen alles als sichtbar gilt: beim ersten Darüberfahren (oder Fokus) baut sich das Bild auf, eine Studienkarte
+  // dreht sich dann erst nach dem Aufbau um.
   function initErgebnis(wurzel) {
     if (ruhig()) return;
-    var hover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    var karte = wurzel.classList.contains("studienkarte");
-    if (!karte || !hover) { if (!("IntersectionObserver" in window)) return; }
     wurzel.classList.add("ergebnis--bereit");
+    var gezeigt = false, o = null;
     function zeige() {
+      if (gezeigt) return;
+      gezeigt = true;
+      if (o) o.disconnect();
       wurzel.classList.add("ergebnis--zeigt");
       wurzel.classList.remove("ergebnis--bereit");
     }
-    if (karte && hover) {
+    if ("IntersectionObserver" in window) {
+      o = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (e) { if (e.isIntersecting) zeige(); });
+      }, { threshold: 0.45 });
+      o.observe(wurzel);
+    } else {
+      zeige();
+    }
+    if (wurzel.classList.contains("studienkarte")) {
       var erst = function () {
         wurzel.removeEventListener("pointerenter", erst);
         wurzel.removeEventListener("focusin", erst);
+        if (gezeigt) return;
         wurzel.setAttribute("data-warte", "");
         zeige();
         window.setTimeout(function () { wurzel.removeAttribute("data-warte"); }, 1300);
       };
       wurzel.addEventListener("pointerenter", erst);
       wurzel.addEventListener("focusin", erst);
-      return;
     }
-    var o = new IntersectionObserver(function (eintraege) {
-      eintraege.forEach(function (e) {
-        if (e.isIntersecting) { zeige(); o.disconnect(); }
-      });
-    }, { threshold: 0.35 });
-    o.observe(wurzel);
   }
 
   // Ab drei beantworteten Fragen erscheint der Knopf [data-umfrage-pilot] (öffnet das Kontaktformular).

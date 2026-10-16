@@ -1878,3 +1878,20 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .ergebnis__kasten:nth-of-type(25) { transition-delay: 960ms; }
 .ergebnis__kasten:nth-of-type(26) { transition-delay: 1000ms; }
 @media (prefers-reduced-motion: reduce) { .ergebnis__marke, .ergebnis__kasten { transition: none; } }
+
+/* ---------- Einkauf: Sprungleiste und ausgearbeitete Punkte mit Symbol ---------- */
+.sprung { display: flex; flex-wrap: wrap; gap: var(--abstand-2); margin: var(--abstand-5) 0; }
+.sprung__link { padding: 0.4rem 0.9rem; border: var(--kante) solid var(--farbe-tinte); border-radius: 2rem; font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--farbe-tinte); }
+.sprung__link:hover, .sprung__link:focus-visible { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.punkte { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--abstand-4); margin: 0; padding: 0; list-style: none; }
+.punkt { display: flex; gap: var(--abstand-4); align-items: flex-start; padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s; }
+.punkt:hover { transform: translateY(-3px); background: var(--farbe-signal); box-shadow: 0 4px 0 var(--farbe-tinte); }
+.punkt__icon, .fragenkarte__icon { flex: none; width: 2.25rem; height: 2.25rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.fragenkarte__icon { width: 2.5rem; height: 2.5rem; }
+.punkt__text { display: flex; flex-direction: column; gap: var(--abstand-2); min-width: 0; }
+.punkt__text h3 { margin: 0; font-family: var(--schrift-kopf); font-weight: 800; font-size: var(--schrift-groesse-h3); line-height: 1; text-transform: uppercase; }
+.punkt__satz { margin: 0; font-size: var(--schrift-groesse-klein); line-height: 1.4; }
+.punkt__status { align-self: flex-start; padding: 0.1rem 0.5rem; border: 1px dashed var(--farbe-tinte); }
+.rechnung, .lieferung, .punkt { scroll-margin-top: calc(var(--menue-hoehe) + var(--abstand-4)); }
+@media (prefers-reduced-motion: reduce) { .punkt { transition: none; } .punkt:hover { transform: none; } }
+.fluss__icon { width: 2rem; height: 2rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
