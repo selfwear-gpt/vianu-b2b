@@ -39,6 +39,20 @@
       document.addEventListener("click", function (e) {
         if (!panel.hidden && !panel.contains(e.target) && !auswahlKnopf.contains(e.target)) setzeAuswahl(false);
       });
+      // Bei Zeigergeräten öffnet die Auswahl schon beim Darüberfahren. Ein kurzer Verzug verhindert Flackern beim Wechsel zum Panel.
+      var huelle = auswahlKnopf.parentNode;
+      var zu = null;
+      var hover = window.matchMedia ? window.matchMedia("(hover: hover) and (pointer: fine)") : null;
+      huelle.addEventListener("mouseenter", function () {
+        if (!hover || !hover.matches) return;
+        window.clearTimeout(zu);
+        setzeAuswahl(true);
+      });
+      huelle.addEventListener("mouseleave", function () {
+        if (!hover || !hover.matches) return;
+        window.clearTimeout(zu);
+        zu = window.setTimeout(function () { setzeAuswahl(false); }, 200);
+      });
     }
 
     wurzel.addEventListener("keydown", function (e) {

@@ -1,0 +1,100 @@
+// Verhalten im Browser: Menü bei Hover, Pilot-Knopf der Umfrage, Chat-Handy (Eingabe, Senden, Neustart).
+// Braucht Playwright und Chromium (CHROMIUM_PFAD oder Standardpfad). Ohne beides werden die Tests übersprungen.
+const test = require("node:test");
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+
+let chromium = null;
+try { ({ chromium } = require("playwright")); } catch (e) { try { ({ chromium } = require(path.join(require("node:child_process").execSync("npm root -g").toString().trim(), "playwright"))); } catch (e2) { chromium = null; } }
+const PFAD = process.env.CHROMIUM_PFAD || (fs.existsSync("/opt/pw-browsers/chromium") ? "/opt/pw-browsers/chromium" : undefined);
+const ROOT = path.join(__dirname, "..");
+const url = (f) => "file://" + path.join(ROOT, f);
+const ueberspringen = !chromium;
+
+async function mitSeite(f, breite, fn) {
+  const b = await chromium.launch(PFAD ? { executablePath: PFAD } : {});
+  try {
+    const p = await (await b.newContext({ viewport: { width: breite, height: 900 } })).newPage();
+    await p.goto(url(f));
+    await p.waitForTimeout(300);
+    await fn(p);
+  } finally { await b.close(); }
+}
+
+test("Wer entscheidet mit? öffnet beim Darüberfahren und schließt beim Verlassen", { skip: ueberspringen }, async () => {
+  await mitSeite("b2b/personal.html", 1280, async (p) => {
+    const knopf = p.locator("[data-auswahl-knopf]");
+    assert.equal(await knopf.getAttribute("aria-expanded"), "false");
+    await knopf.hover();
+    assert.equal(await knopf.getAttribute("aria-expanded"), "true");
+    assert.equal(await p.locator("#persona-liste").isVisible(), true);
+    await p.mouse.move(600, 600);
+    await p.waitForTimeout(400);
+    assert.equal(await knopf.getAttribute("aria-expanded"), "false");
+  });
+});
+
+test("Personal: Pilot anfragen erscheint ab drei beantworteten Fragen", { skip: ueberspringen }, async () => {
+  await mitSeite("b2b/personal.html", 1280, async (p) => {
+    const knopf = p.locator("[data-umfrage-pilot]");
+    const antworten = p.locator("#messwerte .umfrage__antwort");
+    assert.equal(await knopf.isHidden(), true);
+    await antworten.nth(0).click();
+    await antworten.nth(3).click();
+    assert.equal(await knopf.isHidden(), true, "nach zwei Antworten noch versteckt");
+    await antworten.nth(4).click();
+    assert.equal(await knopf.isVisible(), true, "nach drei Antworten sichtbar");
+    await knopf.click();
+    assert.equal(await p.locator("dialog[open]").count(), 1, "öffnet das Kontaktformular");
+  });
+});
+
+test("Chat-Handy: erste Nachricht allein, Weiter zeigt die nächste, Neustart setzt zurück", { skip: ueberspringen }, async () => {
+  await mitSeite("b2b/personal.html", 1280, async (p) => {
+    const sichtbar = () => p.evaluate(() => document.querySelectorAll("[data-chat] .chat__nachricht:not(.chat__nachricht--aus)").length);
+    await p.evaluate(() => document.querySelector("[data-chat]").scrollIntoView());
+    await p.waitForTimeout(1500);
+    assert.equal(await sichtbar(), 1, "nur die erste Nachricht");
+    await p.locator("[data-chat-weiter]").click();
+    await p.waitForTimeout(1300);
+    assert.equal(await sichtbar(), 2);
+    await p.locator("[data-chat-menue-knopf]").click();
+    assert.equal(await p.locator("[data-chat-menue]").isVisible(), true);
+    await p.locator("[data-chat-neu]").click();
+    await p.waitForTimeout(2000);
+    assert.equal(await sichtbar(), 1, "nach dem Neustart wieder nur die erste");
+  });
+});
+
+test("Chat-Handy: Mikro vergrößert das Feld, Text wird zum Senden und füllt das Formular vor", { skip: ueberspringen }, async () => {
+  await mitSeite("b2b/personal.html", 1280, async (p) => {
+    const senden = p.locator("[data-chat-senden]");
+    const eingabe = p.locator("[data-chat-eingabe]");
+    assert.equal(await eingabe.getAttribute("maxlength"), "280");
+    await senden.scrollIntoViewIfNeeded();
+    await senden.click();
+    assert.equal(await p.locator(".chat__eingabe--gross").count(), 1, "Feld ist größer");
+    await p.waitForTimeout(1200);
+    assert.equal(await p.locator(".chat__eingabe--gross").count(), 0, "nach einer Sekunde wieder normal");
+    assert.equal(/chat__senden--text/.test(await senden.getAttribute("class")), false);
+    await eingabe.fill("Wir haben 40 Leute im Housekeeping.");
+    assert.equal(/chat__senden--text/.test(await senden.getAttribute("class")), true, "Papierflieger bei Text");
+    await senden.click();
+    assert.equal(await p.locator("dialog[open]").count(), 1, "Formular offen");
+    assert.equal(await p.locator('dialog [data-feld="anliegen"]').inputValue(), "Wir haben 40 Leute im Housekeeping.");
+  });
+});
+
+test("Chat in der Gesamtvorschau: eine versteckte Seite zeigt beim Öffnen nicht schon alle Nachrichten", { skip: ueberspringen || !fs.existsSync(process.env.VORSCHAU || "") }, async () => {
+  const b = await chromium.launch(PFAD ? { executablePath: PFAD } : {});
+  try {
+    const p = await (await b.newContext({ viewport: { width: 1280, height: 900 } })).newPage();
+    await p.goto("file://" + process.env.VORSCHAU + "#b2b-geschaeftsfuehrung");
+    await p.waitForTimeout(400);
+    await p.goto("file://" + process.env.VORSCHAU + "#b2b-personal");
+    await p.waitForTimeout(800);
+    const n = await p.evaluate(() => document.querySelectorAll("[data-seite]:not([hidden]) [data-chat] .chat__nachricht:not(.chat__nachricht--aus)").length);
+    assert.equal(n, 0);
+  } finally { await b.close(); }
+});

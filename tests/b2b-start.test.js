@@ -34,7 +34,7 @@ test("jeder Knopf zum Kontakt (Kontakt aufnehmen, im Preisblock Pilot buchen) ö
     const dialog = h.match(/<dialog[\s\S]*?<\/dialog>/)[0];
     const de = !f.startsWith("en/");
     assert.match(dialog, de ? /<h2 id="pilot-titel">Kontaktanfrage stellen<\/h2>/ : /<h2 id="pilot-titel">Send a contact request<\/h2>/, f + ": Titel");
-    assert.match(dialog, de ? /Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich ist Ihr Ansprechpartner\./ : /We will get back to you within 5 working days, promise! Roderich is your contact\./, f + ": Einleitung");
+    assert.match(dialog, de ? /Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich Körner-Rehn ist Ihr Ansprechpartner\./ : /We will get back to you within 5 working days, promise! Roderich Körner-Rehn is your contact\./, f + ": Einleitung");
     assert.match(dialog, de ? /placeholder="Ich möchte mehr Infos erhalten für einen ersten möglichen Pilottest für 10 Mitarbeitende\."/ : /placeholder="I would like more information about a possible first pilot test for 10 employees\."/, f + ": Platzhalter im Anliegen");
     assert.doesNotMatch(h, /Datenschutzhinweis zum Formular|privacy notice for the form/, f + ": kein Platzhalter");
     assert.equal((h.match(/>(Pilot buchen|Book a pilot)\s/g) || []).length, f.endsWith("b2b/index.html") ? 1 : 0, f + ": \"Pilot buchen\" steht nur im Preisblock der Startseite");
@@ -98,7 +98,7 @@ test("Was Sie bekommen: drei Felder, Unterlagen mit Entwurf und Download, drei B
     assert.equal((abschnitt.match(/<li class="messwert messwert--dreh"/g) || []).length, 4, f + ": vier Fragen als Kacheln");
     assert.doesNotMatch(abschnitt, /chips--gross/, f);
     assert.doesNotMatch(abschnitt, /Kein Messtag|No measurement day/, f);
-    assert.match(abschnitt, de ? /1\.200 Euro zuzüglich Umsatzsteuer\. Roderich antwortet innerhalb von 5 Werktagen\./ : /EUR 1,200 plus VAT\. Roderich replies within 5 working days\./, f + ": Preis und Frist");
+    assert.match(abschnitt, de ? /1\.200 Euro zuzüglich Umsatzsteuer\. Roderich Körner-Rehn antwortet innerhalb von 5 Werktagen\./ : /EUR 1,200 plus VAT\. Roderich Körner-Rehn replies within 5 working days\./, f + ": Preis und Frist");
     assert.match(abschnitt, /<div class="reise__cta"><p>[\s\S]*?<\/p><a class="knopf" href="#pilot" data-pilot-oeffnen>(Kontakt aufnehmen|Get in touch)/, f + ": Knopf unter den Inhalten");
   }
 });
@@ -233,7 +233,7 @@ test("Kopf der Geschichte: Zitat in Anführungszeichen, Name direkt darunter, da
   for (const [f, zitat, folge] of [["b2b/index.html", /<h2 class="geschichte__satz" id="geschichte-titel">„Ich möchte, dass nach der Schicht für jeden noch Kraft und Vorfreude auf Familie, Sport und Freunde da sind\.“<\/h2>/, /Darauf arbeite ich hin\. Lassen Sie mich erklären…/], ["en/b2b/index.html", /<h2 class="geschichte__satz" id="geschichte-titel">“I want everyone to have energy and something to look forward to after the shift, for family, sport and friends\.”<\/h2>/, /That is what I work towards\. Let me explain…/]]) {
     const h = lies(f);
     assert.match(h, zitat, f);
-    assert.match(h, /geschichte-titel">[^<]+<\/h2>\s*<div class="geschichte__sprecher">[\s\S]*?<p class="etikett band__name">Roderich, (Gründer von VIANU|founder of VIANU)<\/p>[\s\S]*?geschichte__satz2/, f + ": Name unter dem Zitat");
+    assert.match(h, /geschichte-titel">[^<]+<\/h2>\s*<div class="geschichte__sprecher">[\s\S]*?<p class="etikett band__name">Roderich Körner-Rehn, (Gründer von VIANU|founder of VIANU)<\/p>[\s\S]*?geschichte__satz2/, f + ": Name unter dem Zitat");
     assert.match(h, folge, f);
   }
 });
@@ -252,7 +252,7 @@ test("Ihre Schicht: Regler von 0 bis 12 Stunden mit Vorgabe 1, die alten Hinweis
     assert.match(h, /<output class="rechner__zahl" for="boden-stunden" data-boden-zahl>1<\/output>/, f);
     assert.match(h, /<figure class="schicht__bild" data-druckkarte data-druck-regler>/, f);
     assert.doesNotMatch(h, /Die Karte füllt sich mit|The map fills along|Größere Punkte|Larger dots|Dafür gibt es die Sohle|This is what the insole is for|So lange wie bei Roderich|As long as Roderich did|boden__vergleich|boden__gleich/, f);
-    assert.match(h, /<p class="boden__roderich" data-boden-roderich hidden>(Roderich stand selbst 10 bis 12 Stunden am Tag auf hartem Boden\.|Roderich himself stood on hard floors for 10 to 12 hours a day\.)<\/p>/, f);
+    assert.match(h, /<p class="boden__roderich" data-boden-roderich hidden>(Roderich Körner-Rehn stand selbst 10 bis 12 Stunden am Tag auf hartem Boden\.|Roderich Körner-Rehn himself stood on hard floors for 10 to 12 hours a day\.)<\/p>/, f);
     assert.match(h, /<div class="boden__kacheln" data-boden-kacheln hidden>[\s\S]*?(Wählen Sie die Art der Tätigkeit aus|Choose the type of work)/, f);
     assert.match(h, /<div class="boden__anfrage" data-boden-anfrage hidden>[\s\S]*?(Genau für Ihre Mitarbeitenden gibt es unsere Sohle|Our insole is made for exactly your employees)/, f);
     assert.match(h, /schematisch|Schematische|[Ss]chematic/, f + ": Karte bleibt als Zeichnung gekennzeichnet");

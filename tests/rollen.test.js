@@ -52,14 +52,20 @@ test("der Wortlaut der bisherigen Seiten bleibt erhalten (Termin, Brief, Belege,
 });
 
 test("Messwerte als Umfrage im Smartphone nur auf Personal, Geschäftsführung und Arbeitsschutz", () => {
-  const fragen = { personal: 3, geschaeftsfuehrung: 2, arbeitsschutz: 2 };
+  const fragen = { personal: 4, geschaeftsfuehrung: 2, arbeitsschutz: 2 };
   for (const r of ROLLEN) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const m = abschnitte(lies(f)).find((x) => x.id === "messwerte");
     if (!fragen[r]) { assert.equal(m, undefined, f + ": keine Messwerte"); continue; }
     assert.match(m.html, /data-umfrage/, f);
     assert.equal((m.html.match(/<div class="umfrage__frage">/g) || []).length, fragen[r], f + ": Fragen im Telefon");
-    assert.equal((m.html.match(/<li( data-wichtig)?><strong>/g) || []).length, 4, f + ": vier Messwerte in der Liste");
-    assert.equal((m.html.match(/<li data-wichtig>/g) || []).length, fragen[r] === 3 ? 3 : 2, f + ": wichtige Messwerte");
+    if (r === "personal") {
+      // Personal: nur das Telefon mit vier Fragen, kein Erklärteil, Pilot-Knopf erst ab drei Antworten
+      assert.doesNotMatch(m.html, /umfrage__erklaerung|umfrage__liste/, f + ": kein Erklärteil");
+      assert.match(m.html, /<a class="knopf umfrage__pilot"[^>]*data-pilot-oeffnen data-umfrage-pilot hidden>/, f + ": Pilot-Knopf, zuerst versteckt");
+    } else {
+      assert.equal((m.html.match(/<li( data-wichtig)?><strong>/g) || []).length, 4, f + ": vier Messwerte in der Liste");
+      assert.equal((m.html.match(/<li data-wichtig>/g) || []).length, 2, f + ": wichtige Messwerte");
+    }
     assert.doesNotMatch(m.html, /Noch keine Daten|No data yet|messwert__leer|Entwurf|ungeprüft|unverified/, f);
   }
   for (const f of SEITEN) assert.doesNotMatch(lies(f), /zeitstrahl|rollen__entwurf|Entwurf\)|\(draft\)/, f);
@@ -72,12 +78,16 @@ test("umdrehbare Karten sind mit der Tastatur erreichbar, Schalter tragen aria-p
   }
 });
 
-test("Personal: Aufgaben als Stationenweg mit vier Stationen", () => {
+test("Personal: So funktioniert´s als Stationenweg mit fünf Stationen, je ein Bild, Kontaktknopf am Ende", () => {
   for (const f of ["b2b/personal.html", "en/b2b/personal.html"]) {
     const a = abschnitte(lies(f)).find((x) => x.id === "aufgaben").html;
-    assert.equal((a.match(/data-station="\d"/g) || []).length, 4, f);
-    assert.equal((a.match(/data-station-nr="\d"/g) || []).length, 4, f);
+    assert.equal((a.match(/data-station="\d"/g) || []).length, 5, f);
+    assert.equal((a.match(/data-station-nr="\d"/g) || []).length, 5, f);
+    assert.equal((a.match(/<svg class="weg__abb"/g) || []).length, 5, f + ": ein Bild je Schritt");
+    assert.doesNotMatch(a, /\d \/ \d|weg__zeit|Vom Start bis zum Bericht|From start to report/, f + ": keine Zähler, kein Untertitel");
     assert.match(a, /data-weg-zurueck/, f);
+    assert.match(a, /data-weg-pilot data-pilot-oeffnen>(Kontakt anfragen|Request contact)/, f);
+    assert.match(a, /<h2 id="aufgaben-titel">(So funktioniert´s|How it works)<\/h2>/, f);
   }
 });
 
@@ -101,8 +111,8 @@ test("Termin als Fragenkarten (Einkauf, Betriebsrat) und als Prüfliste (Arbeits
   }
 });
 
-test("Belege als Ergebnisbilder: Personal zwei, Geschäftsführung eine, Arbeitsschutz zwei, sonst keine", () => {
-  const erwartet = { personal: 2, geschaeftsfuehrung: 1, arbeitsschutz: 2 };
+test("Belege als Ergebnisbilder: Personal zwei, Arbeitsschutz zwei, sonst keine", () => {
+  const erwartet = { personal: 2, arbeitsschutz: 2 };
   for (const r of ROLLEN) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const b = abschnitte(lies(f)).find((x) => x.id === "belege");
     if (!erwartet[r]) { assert.equal(b, undefined, f + ": keine Belege"); continue; }
@@ -121,23 +131,29 @@ test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Weiter-Kno
     const rolle = (b.match(/chat__nachricht chat__nachricht--rolle" data-chat-nachricht/g) || []).length;
     const roderich = (b.match(/chat__nachricht chat__nachricht--roderich" data-chat-nachricht/g) || []).length;
     assert.ok(rolle >= 2 && roderich >= 3 && rolle + roderich >= 6 && rolle + roderich <= 10, f + ": " + rolle + " und " + roderich + " Nachrichten");
+    // Handy-Rahmen: Name im Kopf, Hörer und Menü, Eingabe mit Begrenzung, Sprach- und Sendeknopf
+    assert.match(b, /<h2 id="brief-titel" class="chat__titel">(Der Vianu Gründer Roderich Körner-Rehn|The VIANU founder Roderich Körner-Rehn)<\/h2>/, f + ": Name im Kopf");
+    assert.match(b, /<a class="chat__icon" href="\.\/#pilot" data-pilot-oeffnen/, f + ": Hörer öffnet das Formular");
+    assert.match(b, /data-chat-menue-knopf[\s\S]*data-chat-neu>(Chat von vorne starten|Restart chat)</, f + ": Menü mit Neustart");
+    assert.match(b, /<input type="text" maxlength="\d+"[^>]*placeholder="(Tippen Sie hier Ihre Nachricht ein|Type your message here)"[^>]*data-chat-eingabe>/, f + ": Eingabefeld");
+    assert.match(b, /data-chat-senden>/, f + ": Knopf Sprache oder Senden");
+    assert.doesNotMatch(b, /5 Werktagen|5 working days|brief__unterschrift/, f + ": kein Hinweis auf die Antwortfrist, kein rosa Name");
     assert.ok(b.indexOf("chat__nachricht--rolle") < b.indexOf("chat__nachricht--roderich"), f + ": die Rolle schreibt zuerst");
-    assert.equal((b.match(/chat__avatar--roderich" data-platzhalter role="img"/g) || []).length, roderich, f + ": Foto-Platzhalter an jeder Antwort");
+    assert.equal((b.match(/chat__avatar--roderich" data-platzhalter role="img"/g) || []).length, roderich + 1, f + ": Foto-Platzhalter an jeder Antwort und im Kopf");
     assert.match(b, /data-chat-weiter/, f);
     assert.match(b, /<a class="knopf" href="\.\/#pilot" data-pilot-oeffnen>/, f + ": Antwortfeld mit Kontaktknopf");
-    assert.match(b, /class="brief__unterschrift"/, f);
     assert.match(b, /#geschichte/, f);
     for (const m of b.matchAll(/<p class="chat__blase">(.*?)(?:<span class="sr-nur">|<\/p>)/g)) assert.ok(m[1].split(/\s+/).length <= 18, f + ": zu lang: " + m[1]);
   }
 });
 
-test("Kopf mit Motiv (Alternativtext, Animation) und Preisstreifen außer beim Betriebsrat", () => {
+test("Kopf mit Motiv (Alternativtext, Animation) und Preisstreifen außer bei Betriebsrat und Personal", () => {
   for (const f of SEITEN) {
     const h = lies(f);
     assert.match(h, /<figure class="rolle__motiv">\s*<svg class="motiv"[^>]*role="img" aria-label="[^"]{20,}"/, f + ": Motiv");
     assert.match(h, /class="[^"]*\bm-(zeichnen|pop|auf|blatt)\b/, f + ": Motiv ist animiert");
     const streifen = h.match(/<ul class="preisstreifen">([\s\S]*?)<\/ul>/);
-    if (f.includes("betriebsrat")) { assert.equal(streifen, null, f); continue; }
+    if (f.includes("betriebsrat") || f.includes("personal")) { assert.equal(streifen, null, f); continue; }
     assert.ok(streifen, f + ": Preisstreifen");
     assert.equal((streifen[1].match(/<li>/g) || []).length, 3, f);
     assert.match(streifen[1], /1[.,]200/, f);

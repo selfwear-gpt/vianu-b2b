@@ -3,8 +3,9 @@
   Prüfliste: Schalter zum Abhaken, nur Ansicht, nichts wird gespeichert. Datenfluss: ein Feld pro Knoten, der gewählte Knoten zeigt seinen Text.
   Filter: blendet Zeilen der Statusliste nach Status ein und aus. Ohne Skript stehen alle Inhalte lesbar da.
   Chat-Brief [data-chat]: die Nachrichten stehen im HTML, das Skript blendet sie beim Scrollen oder per Knopf "Weiter" nacheinander ein, vorher erscheinen Tippen-Punkte.
-  Bei reduzierter Bewegung und ohne Skript stehen alle Nachrichten sofort da. Ergebnisbild [data-ergebnis]: der Balken baut sich beim Sichtbarwerden auf.
-  Umfrage [data-umfrage]: Antworten sind nur zur Ansicht antippbar, nichts wird gespeichert.
+  Das Menü "Chat von vorne starten" setzt zurück. Eingabefeld, Mikro- und Sendeknopf öffnen das Kontaktformular (Nachricht im Feld "Anliegen").
+  Versteckte Seiten der Gesamtvorschau starten erst, wenn sie sichtbar werden. Bei reduzierter Bewegung und ohne Skript stehen alle Nachrichten sofort da. Ergebnisbild [data-ergebnis]: der Balken baut sich beim Sichtbarwerden auf.
+  Umfrage [data-umfrage]: Antworten sind nur zur Ansicht antippbar, nichts wird gespeichert. Ab drei Antworten erscheint [data-umfrage-pilot].
 */
 (function () {
   function jeder(selektor, fn) { Array.prototype.forEach.call(document.querySelectorAll(selektor), fn); }
@@ -66,17 +67,91 @@
 
   function ruhig() { return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); }
 
+  // Kopf und Fuß des Chat-Handys: Menü, Eingabefeld, Sprach- und Sendeknopf. Läuft auch bei reduzierter Bewegung.
+  function initChatLeiste(wurzel) {
+    var menueKnopf = wurzel.querySelector("[data-chat-menue-knopf]");
+    var menue = wurzel.querySelector("[data-chat-menue]");
+    var neu = wurzel.querySelector("[data-chat-neu]");
+    var eingabe = wurzel.querySelector("[data-chat-eingabe]");
+    var senden = wurzel.querySelector("[data-chat-senden]");
+    var feld = eingabe ? eingabe.parentNode : null;
+    var hoerer = wurzel.querySelector(".chat__kopf [data-pilot-oeffnen]");
+
+    function setzeMenue(offen) {
+      if (!menueKnopf || !menue) return;
+      menueKnopf.setAttribute("aria-expanded", offen ? "true" : "false");
+      menue.hidden = !offen;
+    }
+    if (menueKnopf && menue) {
+      menueKnopf.addEventListener("click", function () { setzeMenue(menue.hidden); });
+      document.addEventListener("click", function (e) {
+        if (!menue.hidden && !menue.contains(e.target) && !menueKnopf.contains(e.target)) setzeMenue(false);
+      });
+      wurzel.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !menue.hidden) { setzeMenue(false); menueKnopf.focus(); }
+      });
+    }
+    if (neu) {
+      neu.addEventListener("click", function () {
+        setzeMenue(false);
+        wurzel.dispatchEvent(new CustomEvent("chat:neu"));
+      });
+    }
+    if (!eingabe || !senden) return;
+
+    var textLabel = senden.getAttribute("data-label-text");
+    var leerLabel = senden.getAttribute("data-label-leer");
+    function hatText() { return eingabe.value.replace(/\s+/g, " ").trim().length > 0; }
+    function aktualisiere() {
+      var text = hatText();
+      senden.classList.toggle("chat__senden--text", text);
+      senden.setAttribute("aria-label", text ? textLabel : leerLabel);
+      if (feld) feld.classList.toggle("chat__eingabe--leer", !eingabe.value.length);
+    }
+    function sende() {
+      var seite = wurzel.closest("[data-seite]") || document;
+      var dialog = seite.querySelector("[data-pilot-dialog]");
+      var ziel = dialog ? dialog.querySelector('[data-feld="anliegen"]') : null;
+      if (ziel) {
+        ziel.value = eingabe.value.replace(/\s+/g, " ").trim();
+        ziel.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+      if (hoerer) hoerer.click();
+    }
+    eingabe.addEventListener("input", aktualisiere);
+    eingabe.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && hatText()) { e.preventDefault(); sende(); }
+    });
+    var gross = null;
+    senden.addEventListener("click", function () {
+      if (hatText()) { sende(); return; }
+      // Ohne Text zeigt der Knopf, dass hier getippt wird: das Feld wird eine Sekunde größer.
+      if (!feld) return;
+      feld.classList.add("chat__eingabe--gross");
+      eingabe.focus();
+      window.clearTimeout(gross);
+      gross = window.setTimeout(function () { feld.classList.remove("chat__eingabe--gross"); }, 1000);
+    });
+    aktualisiere();
+  }
+
   function initChat(wurzel) {
+    initChatLeiste(wurzel);
     var liste = wurzel.querySelector(".chat__verlauf");
     var buehne = wurzel.querySelector(".chat__buehne");
     var nachrichten = Array.prototype.slice.call(wurzel.querySelectorAll("[data-chat-nachricht]"));
     var weiter = wurzel.querySelector("[data-chat-weiter]");
     var n = nachrichten.length;
-    if (!liste || !buehne || !n || ruhig()) return;
+    if (!liste || !buehne || !n) return;
+    if (ruhig()) {
+      // Bei reduzierter Bewegung stehen alle Nachrichten da. "Von vorne starten" springt dann nur zum Chat.
+      wurzel.addEventListener("chat:neu", function () { wurzel.scrollIntoView(); });
+      return;
+    }
     wurzel.classList.add("chat--aktiv");
     wurzel.style.setProperty("--schritte", String(n));
     nachrichten.forEach(function (m) { m.classList.add("chat__nachricht--aus"); });
-    var gezeigt = 0, ziel = 0, laeuft = false;
+    var gezeigt = 0, ziel = 0, laeuft = false, epoche = 0, sperre = false;
 
     function fertig() {
       if (gezeigt >= n) wurzel.classList.add("chat--fertig");
@@ -85,12 +160,14 @@
       if (gezeigt >= ziel) { laeuft = false; fertig(); return; }
       laeuft = true;
       var m = nachrichten[gezeigt];
+      var meine = epoche;
       var tippen = document.createElement("li");
       tippen.className = "chat__tippen chat__tippen--" + (m.classList.contains("chat__nachricht--roderich") ? "roderich" : "rolle");
       tippen.setAttribute("aria-hidden", "true");
       tippen.innerHTML = "<span></span><span></span><span></span>";
       liste.appendChild(tippen);
       window.setTimeout(function () {
+        if (meine !== epoche) return;
         if (tippen.parentNode) tippen.parentNode.removeChild(tippen);
         m.classList.remove("chat__nachricht--aus");
         m.classList.add("chat__nachricht--neu");
@@ -120,6 +197,8 @@
       beobachter.observe(buehne);
     }
     function beiScroll() {
+      // Versteckte Seiten (Gesamtvorschau) haben keine Größe: dort darf nichts ablaufen, sonst steht der Chat beim Öffnen schon am Ende.
+      if (sperre || !wurzel.getClientRects().length) return;
       if (!scrollt()) {
         if (!ohneScroll) { ohneScroll = true; wurzel.classList.add("chat--ohnescroll"); }
         beobachte();
@@ -135,6 +214,25 @@
       p = Math.min(1, p / 0.85);
       setzeZiel(1 + Math.floor(p * (n - 1) + 0.001));
     }
+    // Menüpunkt "Chat von vorne starten": alles ausblenden, nach oben zum Chat scrollen, dann erscheint die erste Nachricht.
+    function neustart() {
+      epoche++;
+      Array.prototype.forEach.call(liste.querySelectorAll(".chat__tippen"), function (t) { t.parentNode.removeChild(t); });
+      nachrichten.forEach(function (m) { m.classList.add("chat__nachricht--aus"); m.classList.remove("chat__nachricht--neu"); });
+      gezeigt = 0; ziel = 0; laeuft = false;
+      wurzel.classList.remove("chat--fertig");
+      if (beobachter) { beobachter.disconnect(); beobachter = null; }
+      sperre = true;
+      var wartezeit = 0;
+      if (scrollt() && !ohneScroll) {
+        var haften = parseFloat(window.getComputedStyle(buehne).top) || 0;
+        var oben = wurzel.getBoundingClientRect().top + (window.pageYOffset || 0) - haften;
+        window.scrollTo({ top: Math.max(0, oben), behavior: "smooth" });
+        wartezeit = 700;
+      }
+      window.setTimeout(function () { sperre = false; setzeZiel(1); beiScroll(); }, wartezeit);
+    }
+    wurzel.addEventListener("chat:neu", neustart);
     var wartet = false;
     function planeScroll() {
       if (wartet) return;
@@ -144,6 +242,9 @@
     window.addEventListener("scroll", planeScroll, { passive: true });
     window.addEventListener("resize", planeScroll);
     window.addEventListener("load", planeScroll);
+    window.addEventListener("hashchange", planeScroll);
+    // Wird eine versteckte Seite sichtbar, gibt es kein Scroll-Signal: der Beobachter stößt die Berechnung an.
+    if ("IntersectionObserver" in window) new IntersectionObserver(planeScroll).observe(wurzel);
     buehne.addEventListener("click", function (ev) {
       if (ev.target.closest && ev.target.closest("a, button")) return;
       setzeZiel(Math.max(ziel, 0) + 1);
@@ -167,15 +268,25 @@
     o.observe(wurzel);
   }
 
+  // Ab drei beantworteten Fragen erscheint der Knopf [data-umfrage-pilot] (öffnet das Kontaktformular).
+  var UMFRAGE_SCHWELLE = 3;
   function initUmfrage(wurzel) {
+    var pilot = wurzel.querySelector("[data-umfrage-pilot]");
+    function pruefe() {
+      if (!pilot) return;
+      var n = wurzel.querySelectorAll('.umfrage__antwort[aria-pressed="true"]').length;
+      pilot.hidden = n < UMFRAGE_SCHWELLE;
+    }
     Array.prototype.forEach.call(wurzel.querySelectorAll(".umfrage__frage"), function (frage) {
       var knoepfe = frage.querySelectorAll(".umfrage__antwort");
       Array.prototype.forEach.call(knoepfe, function (k) {
         k.addEventListener("click", function () {
           Array.prototype.forEach.call(knoepfe, function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); });
+          pruefe();
         });
       });
     });
+    pruefe();
   }
 
   function start() {

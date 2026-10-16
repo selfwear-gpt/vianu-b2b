@@ -75,7 +75,7 @@ test("im englischen Text steht kein Deutsch", () => {
   for (const f of PAARE) {
     const h = lies("en/" + f);
     for (const [name, text] of [["Text", sichtbar(h)], ["Attribute", attribute(h)]]) {
-      const m = text.match(woerter);
+      const m = text.replace(/Körner-Rehn/g, "").match(woerter);
       assert.ok(!m, "en/" + f + " " + name + ": " + (m && text.slice(Math.max(0, m.index - 40), m.index + 40)));
     }
   }
