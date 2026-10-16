@@ -1181,11 +1181,12 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 /* ---------- Preisblock: Regler oben, Preis und Pilot darunter, i-Hinweis ---------- */
 .behaelter > .rechner { padding: 0; border: 0; margin-bottom: var(--abstand-7); max-width: 40rem; }
 .behaelter > .rechner .rechner__ergebnis { position: relative; }
-.rechner__einheit { display: inline-flex; align-items: center; gap: var(--abstand-2); }
+.rechner__einheit { display: inline-flex; align-items: flex-start; gap: 0.15rem; }
 .preis .preis__links { grid-row: span 2; }
 .preis .preis__knopf { grid-column: 2; justify-self: start; align-self: start; }
-.info { position: relative; display: inline-flex; align-self: center; }
-.info__knopf { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; padding: 0; border: var(--kante) solid var(--farbe-tinte); border-radius: 50%; background: var(--farbe-papier); color: var(--farbe-tinte); font-family: var(--schrift-mono); font-size: 0.8rem; font-weight: 700; line-height: 1; cursor: help; }
+.info { position: relative; display: inline-flex; align-self: flex-start; margin-top: -0.15em; }
+.info__knopf { position: relative; display: inline-grid; place-items: center; width: 0.95rem; height: 0.95rem; padding: 0; border: 1px solid var(--farbe-tinte); border-radius: 50%; background: var(--farbe-papier); color: var(--farbe-tinte); font-family: var(--schrift-mono); font-size: 0.58rem; font-weight: 700; line-height: 1; cursor: help; }
+.info__knopf::after { content: ""; position: absolute; inset: -0.5rem; }
 .info__knopf:hover, .info__knopf:focus-visible { background: var(--farbe-tinte); color: var(--farbe-papier); }
 .info__text { position: absolute; left: 0; top: calc(100% + var(--abstand-2)); z-index: 5; width: min(22rem, calc(100vw - 2 * var(--abstand-4))); padding: var(--abstand-3) var(--abstand-4); background: var(--farbe-tinte); color: var(--farbe-papier); font-size: var(--schrift-groesse-klein); font-weight: 500; line-height: 1.4; text-transform: none; letter-spacing: 0; visibility: hidden; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
 .info:hover .info__text, .info:focus-within .info__text { visibility: visible; opacity: 1; }
