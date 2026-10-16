@@ -12,7 +12,7 @@ const abschnitte = (h) => [...h.matchAll(/<section class="([^"]*)"(?: id="([^"]+
 const text = (h) => h.replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<svg[\s\S]*?<\/svg>/g, " ").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&euro;/g, "€").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
 const folge = (f) => abschnitte(lies(f)).map((a) => a.id).filter((id) => id !== "stimme-frueh");
 
-const BAUSTEIN = /data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
+const BAUSTEIN = /class="stimme"|data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
 
 test("jede Rollenseite hat ihre eigene Reihenfolge, Deutsch und Englisch gleich", () => {
   const de = ROLLEN.map((r) => folge("b2b/" + r + ".html").join(">"));
@@ -26,6 +26,16 @@ test("der Chat steht auf jeder Rollenseite an dritter Stelle, nie direkt unter d
     const ids = folge(f);
     assert.deepEqual(ids.slice(-3), ["messwerte", "fragen-rolle", "weiterleiten"], f + ": Messwerte kommen direkt vor der FAQ");
     assert.equal(ids[1], "aufgaben", f);
+  }
+});
+
+test("jede Rollenseite hat genau eine Kundenstimme direkt nach dem Chat, bis echte Aussagen vorliegen als markierter Platzhalter", () => {
+  for (const f of SEITEN) {
+    const ids = folge(f);
+    assert.equal(ids[3], "stimme", f + ": Stimme an vierter Stelle");
+    const st = abschnitte(lies(f)).find((x) => x.id === "stimme").html;
+    assert.equal((st.match(/<figure class="stimme" data-platzhalter/g) || []).length, 1, f);
+    assert.match(st, /platzhalter__etikett">(Platzhalter|Placeholder)</, f + ": als Platzhalter markiert");
   }
 });
 

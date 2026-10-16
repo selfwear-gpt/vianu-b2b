@@ -9,16 +9,17 @@
     "Ich muss der Geschäftsführung zeigen, dass das Budget gut angelegt ist.",
     "10 Paare, 1.200 Euro zzgl. Umsatzsteuer. Mitarbeitende zahlen nichts.",
     "Woran sehen wir, ob das Team es annimmt?",
-    "Am Ende beantworten die Teilnehmenden vier Fragen selbst.",
     "Nächster Schritt: Mit der Betriebsleitung eine passende Pilotgruppe festlegen und die interne Kommunikation vorbereiten. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.",
     "Mitarbeitende zahlen nichts",
     "In wenigen Stunden: Sie legen die Testgruppe fest und sprechen die Teilnehmenden an und erklären kurz das Vorgehen.",
     "Vier Fragen an die Teilnehmenden, so dass der Effekt messbar wird.",
-    "Am Ende beantworten die Teilnehmenden vier Fragen selbst. Sie bekommen den Bericht.",
     "Und wenn die Sohle nicht passt?",
     "Dann fertigen wir sie neu.",
     "Und mein Aufwand?",
-    "Wenige Stunden: Testgruppe festlegen, Teilnehmende ansprechen, Vorgehen erklären."
+    "Wenige Stunden: Testgruppe festlegen, Teilnehmende ansprechen, Vorgehen erklären.",
+    "Wir testen erstmal in kleiner Runde mit 10 Mitarbeitenden. Das wären nur Kosten von 1.200 Euro zzgl. Umsatzsteuer.",
+    "Am Ende bekommen Sie einen Bericht, wie hilfreich die Sohlen waren und wie zufrieden das Team ist.",
+    "Den können Sie dann auch der Geschäftsführung vorlegen."
   ],
   "en/b2b/personal.html": [
     "What you present to your management",
@@ -30,15 +31,16 @@
     "I have to show management that the budget is well spent.",
     "10 pairs, EUR 1,200 plus VAT. Employees pay nothing.",
     "How will we see whether the team accepts it?",
-    "At the end, the participants answer four questions themselves.",
     "Next step: Define a suitable pilot group with operations management and prepare the internal communication. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
     "A few hours: you define the test group, approach the participants and briefly explain the process.",
     "Four questions to the participants, so that the effect becomes measurable.",
-    "At the end, the participants answer four questions themselves. You get the report.",
     "And if the insole does not fit?",
     "Then we make it again.",
     "And my effort?",
-    "A few hours: define the test group, approach the participants, explain the process."
+    "A few hours: define the test group, approach the participants, explain the process.",
+    "We start with a small group of 10 employees. That would be only EUR 1,200 plus VAT.",
+    "At the end you get a report: how helpful the insoles were, how satisfied the team is.",
+    "You can then show it to management as well."
   ],
   "b2b/geschaeftsfuehrung.html": [
     "Was Sie für Ihre Entscheidung brauchen",
@@ -53,9 +55,9 @@
     "Die Fußerfassung läuft mit dem Smartphone, z. B. in einer Pause. Kein Messtag.",
     "Und wer an dem Tag fehlt?",
     "Die Fußerfassung wird nachgeholt, die Sohlen kommen trotzdem normal.",
-    "Am Ende beantworten die Teilnehmenden vier Fragen. Tragequote und spürbarer Unterschied zeigen es.",
     "Was kostet das, und was bindet mich?",
-    "1.200 Euro zzgl. Umsatzsteuer. Über mehr entscheiden Sie erst danach."
+    "1.200 Euro zzgl. Umsatzsteuer. Über mehr entscheiden Sie erst danach.",
+    "Am Ende bekommen Sie einen Bericht, wie hilfreich die Sohlen waren und wie zufrieden das Team ist."
   ],
   "en/b2b/geschaeftsfuehrung.html": [
     "What you need for your decision",
@@ -70,9 +72,9 @@
     "Foot capture runs on a smartphone, for example during a break. No measurement day.",
     "And who is absent that day?",
     "The foot capture is made up later, and the insoles are still delivered as normal.",
-    "At the end, the participants answer four questions. Wear rate and noticeable difference show it.",
     "What does it cost, and what ties me down?",
-    "EUR 1,200 plus VAT. You decide on more only afterwards."
+    "EUR 1,200 plus VAT. You decide on more only afterwards.",
+    "At the end you get a report: how helpful the insoles were, how satisfied the team is."
   ],
   "b2b/arbeitsschutz.html": [
     "Transparent erklärt. Klar abgegrenzt. Arbeitsnah gedacht.",
