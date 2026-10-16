@@ -164,7 +164,6 @@
           </a>
         </div>
         <div class="rolle__motiv breakeven" data-breakeven>
-          <p class="etikett">Rechnen Sie mit Ihren Zahlen</p>
           <div class="breakeven__feld">
             <label class="etikett" for="be-kosten">Was kostet Sie ein Fehltag in Euro?</label>
             <div class="rechner__regler">
@@ -173,16 +172,15 @@
             </div>
           </div>
           <div class="breakeven__feld">
-            <label class="etikett" for="be-tage">Wie viele Fehltage hat ein Teilnehmender im Jahr?</label>
+            <label class="etikett" for="be-tage">Wie viele Fehltage hat ein Durchschnitts-Mitarbeiter im Jahr?</label>
             <div class="rechner__regler">
               <input class="rechner__eingabe" id="be-tage" type="range" min="0" max="30" step="1" value="10" data-be-tage>
               <output class="rechner__zahl" for="be-tage" data-be-tage-zahl>10</output>
             </div>
           </div>
-          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-be-ergebnis-tage>6</span> entsprechen dem Pilotpreis von 1.200 Euro zzgl. Umsatzsteuer.</p>
-          <p class="breakeven__zeile">Fehltage der 10 Teilnehmenden im Jahr: <strong data-be-summe>20.000</strong></p>
-          <p class="breakeven__zeile">Der Pilotpreis entspricht <strong data-be-anteil>6 %</strong> dieser Kosten.</p>
-          <p class="etikett rechner__formel">Rechnung mit Ihren Eingaben, gerechnet. VIANU sagt nicht, dass Fehltage sinken.</p>
+          <p class="breakeven__gross" aria-live="polite">Bei 10 Mitarbeitern entspricht das im Jahr: <strong data-be-tage-gesamt>100 Fehltage</strong></p>
+          <p class="breakeven__zeile">umgerechnet also <strong data-be-summe>20.000 Euro</strong> im Jahr</p>
+          <p class="breakeven__zeile">Unser Pilotpreis entspricht <strong data-be-anteil>6 %</strong> dieser Kosten und kann dauerhaft dabei helfen Fehltage zu senken.</p>
         </div>
       </div>
     </div>

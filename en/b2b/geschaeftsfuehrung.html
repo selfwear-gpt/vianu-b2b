@@ -164,7 +164,6 @@
           </a>
         </div>
         <div class="rolle__motiv breakeven" data-breakeven>
-          <p class="etikett">Calculate with your numbers</p>
           <div class="breakeven__feld">
             <label class="etikett" for="be-kosten">What does one absence day cost you in euros?</label>
             <div class="rechner__regler">
@@ -173,16 +172,15 @@
             </div>
           </div>
           <div class="breakeven__feld">
-            <label class="etikett" for="be-tage">How many absence days does a participant have per year?</label>
+            <label class="etikett" for="be-tage">How many absence days does an average employee have per year?</label>
             <div class="rechner__regler">
               <input class="rechner__eingabe" id="be-tage" type="range" min="0" max="30" step="1" value="10" data-be-tage>
               <output class="rechner__zahl" for="be-tage" data-be-tage-zahl>10</output>
             </div>
           </div>
-          <p class="rechner__ergebnis" aria-live="polite"><span class="rechner__wert" data-be-ergebnis-tage>6</span> equal the pilot price of EUR 1,200 plus VAT.</p>
-          <p class="breakeven__zeile">Absence days of the 10 participants per year: <strong data-be-summe>20.000</strong></p>
-          <p class="breakeven__zeile">The pilot price equals <strong data-be-anteil>6 %</strong> of these costs.</p>
-          <p class="etikett rechner__formel">Calculation with your inputs. VIANU does not say that absence days fall.</p>
+          <p class="breakeven__gross" aria-live="polite">For 10 employees, that equals per year: <strong data-be-tage-gesamt>100 absence days</strong></p>
+          <p class="breakeven__zeile">converted, that is <strong data-be-summe>EUR 20,000</strong> per year</p>
+          <p class="breakeven__zeile">Our pilot price equals <strong data-be-anteil>6 %</strong> of these costs and can help lower absence days in the long run.</p>
         </div>
       </div>
     </div>
