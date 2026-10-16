@@ -125,7 +125,7 @@ Status: gebaut
 
 ### Beleg-Block
 Status: gebaut
-- **Ergebnisbilder** (`ergebnisse`, `ergebnis`, `data-ergebnis`) statt Studienkarten, nur auf Personal (Abdelsalam als Balken 46,1 Prozent, Tarrade als zwei Säulen ohne Zahlen) und Arbeitsschutz (Speed als Skala schwach, mäßig, stark mit Marke bei mäßig, Kang als 26 Kästchen). Jedes Bild trägt Alternativtext, eine feste Fußleiste mit Gruppe, "Selbstauskunft" bzw. Förderhinweis und die Fundstelle mit Link auf die DOI. Der Balken baut sich beim Sichtbarwerden auf (`initErgebnis`). Unter den Bildern steht kein Hinweis und die Belege haben keine Unterüberschrift (Entscheidung vom 16.10.2026). Einkauf und Betriebsrat haben keine Belege.
+- **Studienkarten zum Herunterladen** (`dreh studienkarte`, `data-ergebnis`, Skript `studien.js`): Vorderseite nur Überschrift, Bild und Download-Zeichen, Rückseite (Hover oder Fokus) Erklärtext, Studie mit Autoren und Jahr, Gruppe und Grenzen und der Knopf "Studie herunterladen", der das Popup `data-studie-dialog` öffnet (E-Mail-Adresse, nur geprüft). Der Download trägt den Studiennamen. Vorläufer: Ergebnisbilder (`ergebnisse`, `ergebnis`) statt Studienkarten, nur auf Personal (Abdelsalam als Balken 46,1 Prozent, Tarrade als zwei Säulen ohne Zahlen) und Arbeitsschutz (Speed als Skala schwach, mäßig, stark mit Marke bei mäßig, Kang als 26 Kästchen). Jedes Bild trägt Alternativtext, eine feste Fußleiste mit Gruppe, "Selbstauskunft" bzw. Förderhinweis und die Fundstelle mit Link auf die DOI. Der Balken baut sich beim Sichtbarwerden auf (`initErgebnis`). Unter den Bildern steht kein Hinweis und die Belege haben keine Unterüberschrift (Entscheidung vom 16.10.2026). Einkauf und Betriebsrat haben keine Belege.
 
 ### Messwerte-Umfrage (Rollenseiten)
 Status: gebaut

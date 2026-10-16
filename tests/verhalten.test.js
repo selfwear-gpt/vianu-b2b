@@ -151,3 +151,32 @@ test("Chat in der Gesamtvorschau: eine versteckte Seite zeigt beim Öffnen nicht
     assert.equal(n, 0);
   } finally { await b.close(); }
 });
+
+test("Studienkarte: Download-Knopf öffnet das Popup, ungültige Adresse bleibt stehen, gültige lädt die PDF unter ihrem Studiennamen", { skip: ueberspringen }, async () => {
+  // Der Download-Name gilt nur für Dateien vom selben Ursprung, deshalb läuft die Seite hier über einen kleinen lokalen Server
+  const http = require("node:http");
+  const typen = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".pdf": "application/pdf", ".woff2": "font/woff2", ".jpg": "image/jpeg" };
+  const server = http.createServer((req, res) => {
+    const f = path.join(ROOT, decodeURIComponent(req.url.split("?")[0]));
+    if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.statusCode = 404; return res.end(); }
+    res.setHeader("Content-Type", typen[path.extname(f)] || "application/octet-stream");
+    fs.createReadStream(f).pipe(res);
+  });
+  await new Promise((r) => server.listen(0, "127.0.0.1", r));
+  const b = await chromium.launch(PFAD ? { executablePath: PFAD } : {});
+  try {
+    const ctx = await b.newContext({ viewport: { width: 1280, height: 900 }, acceptDownloads: true });
+    const p = await ctx.newPage();
+    await p.goto("http://127.0.0.1:" + server.address().port + "/b2b/personal.html");
+    await p.waitForTimeout(300);
+    await p.locator(".studienkarte").first().hover();
+    await p.locator("[data-studie-datei]").first().click();
+    assert.equal(await p.locator("[data-studie-dialog][open]").count(), 1, "Popup offen");
+    await p.locator("[data-studie-email]").fill("kein-mail");
+    await p.locator("[data-studie-absenden]").click();
+    assert.equal(await p.locator("[data-studie-fehler]").isVisible(), true, "Fehler bei ungültiger Adresse");
+    await p.locator("[data-studie-email]").fill("max@firma.de");
+    const [dl] = await Promise.all([p.waitForEvent("download"), p.locator("[data-studie-absenden]").click()]);
+    assert.match(dl.suggestedFilename(), /^Abdelsalam et al\. 2023 - Frequency and risk factors of musculoskeletal disorders among kitchen workers\.pdf$/);
+  } finally { await b.close(); server.close(); }
+});

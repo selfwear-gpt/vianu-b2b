@@ -24,7 +24,7 @@ test("jeder Knopf zum Kontakt (Kontakt aufnehmen, im Preisblock Pilot buchen) ö
     const links = [...h.matchAll(/<a [^>]*href="(?:\.\/)?#pilot"[^>]*>/g)].map((m) => m[0]);
     assert.ok(links.length >= 2, f + ": Pilot-Verweise");
     for (const l of links) assert.match(l, /data-pilot-oeffnen/, f + ": " + l);
-    assert.equal((h.match(/<dialog /g) || []).length, 1, f);
+    assert.equal((h.match(/<dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>/g) || []).length, 1, f);
     for (const feld of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "anliegen", "einwilligung"]) {
       assert.match(h, new RegExp('data-feld="' + feld + '"'), f + " " + feld);
     }

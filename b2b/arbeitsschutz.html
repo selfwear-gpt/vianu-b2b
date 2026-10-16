@@ -20,6 +20,7 @@
 <script src="../assets/js/b2b.js" defer></script>
 <script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
+<script src="../assets/js/studien.js" defer></script>
 <script src="../assets/js/rollen.js" defer></script>
 <script type="application/ld+json">
 {
@@ -310,10 +311,11 @@
         <h2 id="belege-titel">Belege</h2>
       </div>
       <div class="ergebnisse">
-        <figure class="ergebnis" data-ergebnis>
-          <p class="etikett ergebnis__quelle">Speed et al. 2018</p>
-          <h3 class="ergebnis__titel">Dämpfung bei langem Stehen im Beruf</h3>
-          <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="Skala mit drei Stufen, schwach, mäßig und stark. Die Marke steht bei mäßig: Die Belege der Übersichtsarbeit sind mäßig." focusable="false">
+                <article class="dreh studienkarte" data-ergebnis tabindex="0" role="group" aria-label="Speed et al. 2018">
+          <div class="dreh__innen">
+            <div class="dreh__vorn">
+              <h3 class="ergebnis__titel">Dämpfung bei langem Stehen im Beruf</h3>
+              <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="Skala mit drei Stufen, schwach, mäßig und stark. Die Marke steht bei mäßig: Die Belege der Übersichtsarbeit sind mäßig." focusable="false">
             <rect class="ergebnis__stufe" x="2" y="30" width="100" height="34"/>
             <text x="52" y="52" text-anchor="middle">schwach</text>
             <rect class="ergebnis__stufe ergebnis__stufe--an" x="108" y="30" width="100" height="34"/>
@@ -323,14 +325,21 @@
             <path class="ergebnis__marke" d="M158 70l-8 12h16z"/>
             <text x="158" y="100" text-anchor="middle">Belege in der Übersicht</text>
           </svg>
-          <p class="ergebnis__satz">Mäßige Belege, dass gedämpfte Materialien (weichere Böden, gedämpfte Einlegesohlen) bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen. Für Einlegesohlen im Vergleich zu Arbeitsplatzmatten ist die Evidenz begrenzt.</p>
-          <p class="etikett ergebnis__fuss">Übersichtsarbeit mit 10 Studien · Beschäftigte mit Arbeit im Stehen · gilt für diese Gruppe</p>
-          <p class="beleg__zitat">Speed et al. 2018, Applied Ergonomics 70:300-314, <a class="textlink" href="https://doi.org/10.1016/j.apergo.2018.02.021" rel="noopener">doi:10.1016/j.apergo.2018.02.021</a></p>
-        </figure>
-        <figure class="ergebnis" data-ergebnis>
-          <p class="etikett ergebnis__quelle">Kang et al. 2025</p>
-          <h3 class="ergebnis__titel">Schuhe und Sohlen bei langem Stehen im Beruf</h3>
-          <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="26 Kästchen, eines je Studie: Die Übersicht wertet 26 Studien aus." focusable="false">
+              <svg class="studie__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg>
+            </div>
+            <div class="dreh__hinten">
+              <p class="ergebnis__satz">Mäßige Belege, dass gedämpfte Materialien (weichere Böden, gedämpfte Einlegesohlen) bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen. Für Einlegesohlen im Vergleich zu Arbeitsplatzmatten ist die Evidenz begrenzt.</p>
+              <p class="etikett studienkarte__quelle">Speed et al. 2018</p>
+              <p class="etikett ergebnis__fuss">Übersichtsarbeit mit 10 Studien · Beschäftigte mit Arbeit im Stehen · gilt für diese Gruppe</p>
+              <button class="knopf knopf--dunkel" type="button" data-studie-datei="../assets/downloads/studien/speed-et-al-2018.pdf" data-studie-name="Speed et al. 2018 - The effect of cushioning materials on musculoskeletal discomfort and fatigue during prolonged standing at work.pdf" data-studie-titel="Dämpfung bei langem Stehen im Beruf">Studie herunterladen <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+            </div>
+          </div>
+        </article>
+                <article class="dreh studienkarte" data-ergebnis tabindex="0" role="group" aria-label="Kang et al. 2025">
+          <div class="dreh__innen">
+            <div class="dreh__vorn">
+              <h3 class="ergebnis__titel">Schuhe und Sohlen bei langem Stehen im Beruf</h3>
+              <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="26 Kästchen, eines je Studie: Die Übersicht wertet 26 Studien aus." focusable="false">
             <text class="ergebnis__zahl" x="2" y="38">26 Studien</text>
             <rect class="ergebnis__stufe ergebnis__stufe--an" x="2" y="46" width="18" height="18"/>
             <rect class="ergebnis__stufe ergebnis__stufe--an" x="26" y="46" width="18" height="18"/>
@@ -360,10 +369,16 @@
             <rect class="ergebnis__stufe ergebnis__stufe--an" x="290" y="72" width="18" height="18"/>
             <text x="2" y="108">721 Teilnehmende insgesamt</text>
           </svg>
-          <p class="ergebnis__satz">Die Übersicht berichtet, dass individuell angepasste Sohlen bei Komfort und Gleichgewicht besser abschnitten als Standardsohlen. Die Autoren nennen die Studienlage uneinheitlich.</p>
-          <p class="etikett ergebnis__fuss">Übersichtsarbeit, keine Metaanalyse · Beschäftigte mit Arbeit im Stehen · gefördert von einem Schuhhersteller</p>
-          <p class="beleg__zitat">Kang et al. 2025, Safety and Health at Work 17(1):24-32, <a class="textlink" href="https://doi.org/10.1016/j.shaw.2025.10.003" rel="noopener">doi:10.1016/j.shaw.2025.10.003</a></p>
-        </figure>
+              <svg class="studie__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg>
+            </div>
+            <div class="dreh__hinten">
+              <p class="ergebnis__satz">Die Übersicht berichtet, dass individuell angepasste Sohlen bei Komfort und Gleichgewicht besser abschnitten als Standardsohlen. Die Autoren nennen die Studienlage uneinheitlich.</p>
+              <p class="etikett studienkarte__quelle">Kang et al. 2025</p>
+              <p class="etikett ergebnis__fuss">Übersichtsarbeit, keine Metaanalyse · Beschäftigte mit Arbeit im Stehen · gefördert von einem Schuhhersteller</p>
+              <button class="knopf knopf--dunkel" type="button" data-studie-datei="../assets/downloads/studien/kang-et-al-2025.pdf" data-studie-name="Kang et al. 2025 - Influence of Footwear on Foot Comfort of Workers Engaged in Prolonged Standing Occupations.pdf" data-studie-titel="Schuhe und Sohlen bei langem Stehen im Beruf">Studie herunterladen <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+            </div>
+          </div>
+        </article>
       </div>
       <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Orthopäden">
         <span class="etikett platzhalter__etikett">Platzhalter</span>
@@ -612,6 +627,23 @@
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
           <p class="formular__status" role="status" data-formular-status></p>
+    </form>
+  </div>
+</dialog>
+
+<dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-studie-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <p class="etikett">Studie herunterladen</p>
+    <h2 id="studie-titel" data-studie-titel></h2>
+    <p>Keine Sorge, es wird kein Spam von uns geben.</p>
+    <form class="formular" novalidate>
+      <div class="formular__feld">
+        <label>Ihre E-Mail-Adresse<input type="email" name="email" autocomplete="email" maxlength="254" placeholder="name@firma.de" required data-studie-email aria-describedby="studie-fehler"></label>
+        <p class="formular__fehler" id="studie-fehler" data-studie-fehler hidden></p>
+      </div>
+      <p class="etikett">Nach der Eingabe Ihrer E-Mail-Adresse wird Ihnen das PDF zur Verfügung gestellt.</p>
+      <button class="knopf" type="submit" data-studie-absenden>Jetzt herunterladen <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
     </form>
   </div>
 </dialog>

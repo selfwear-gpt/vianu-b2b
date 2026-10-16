@@ -130,16 +130,21 @@ test("Termin als Fragenkarten (Einkauf, Betriebsrat) und als Prüfliste (Arbeits
   }
 });
 
-test("Belege als Ergebnisbilder: Personal zwei, Arbeitsschutz zwei, sonst keine", () => {
+test("Belege als drehbare Studienkarten mit PDF-Download: Personal zwei, Arbeitsschutz zwei, sonst keine", () => {
   const erwartet = { personal: 2, arbeitsschutz: 2 };
   for (const r of ROLLEN) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const b = abschnitte(lies(f)).find((x) => x.id === "belege");
     if (!erwartet[r]) { assert.equal(b, undefined, f + ": keine Belege"); continue; }
-    assert.equal((b.html.match(/<figure class="ergebnis" data-ergebnis>/g) || []).length, erwartet[r], f);
+    assert.equal((b.html.match(/<article class="dreh studienkarte" data-ergebnis tabindex="0" role="group"/g) || []).length, erwartet[r], f);
     assert.equal((b.html.match(/<svg class="ergebnis__bild"[^>]*role="img" aria-label="[^"]+"/g) || []).length, erwartet[r], f + ": Alternativtext");
-    assert.equal((b.html.match(/class="etikett ergebnis__fuss"/g) || []).length, erwartet[r], f + ": Fußleiste mit Gruppe");
-    assert.match(b.html, /doi\.org/, f + ": Fundstellen bleiben");
-    assert.doesNotMatch(b.html, /Entwurf|ungeprüft|unverified|class="dreh studienkarte/, f);
+    assert.equal((b.html.match(/class="etikett ergebnis__fuss"/g) || []).length, erwartet[r], f + ": Gruppe und Grenzen auf der Rückseite");
+    assert.equal((b.html.match(/data-studie-datei="(\.\.\/)+assets\/downloads\/studien\/[a-z-]+-\d{4}\.pdf" data-studie-name="[^"]+\.pdf"/g) || []).length, erwartet[r], f + ": Download-Knopf mit Dateiname");
+    assert.doesNotMatch(b.html, /belege__hinweis|<p>[^<]*Studien?:/, f + ": kein Hinweis und keine Unterüberschrift");
+    assert.doesNotMatch(b.html, /Entwurf|ungeprüft|unverified|class="dreh studienkarte"[^>]*beleg--offen/, f);
+    for (const m of b.html.matchAll(/data-studie-datei="([^"]+)"/g)) assert.ok(fs.existsSync(path.join(ROOT, path.dirname(f), m[1])), f + ": PDF fehlt " + m[1]);
+    const h = lies(f);
+    assert.match(h, /<dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>/, f + ": Popup für die E-Mail");
+    assert.match(h, /studien\.js/, f + ": Skript eingebunden");
   }
 });
 test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Link-Nachricht am Ende, Antwortfeld", () => {
