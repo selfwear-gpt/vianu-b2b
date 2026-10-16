@@ -1591,7 +1591,7 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 .chat__nachricht--roderich .chat__blase { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-radius: 1.1rem 1.1rem 0.2rem 1.1rem; }
 .chat__haken { display: inline-block; vertical-align: -0.1em; width: 1.1rem; height: 0.75rem; margin-left: 0.45rem; }
 .chat__haken path { fill: none; stroke: var(--farbe-gedaempft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.chat__avatar { flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; overflow: hidden; }
+.chat__avatar { flex: none; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; overflow: hidden; }
 .chat__avatar svg { width: 1.4rem; height: 1.4rem; }
 .chat__avatar--rolle { background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); }
 .chat__avatar--rolle svg * { stroke: var(--farbe-tinte); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
@@ -1626,16 +1626,20 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 .chat__senden--text .chat__mikro { display: none; }
 .chat__senden--text .chat__flieger { display: block; }
 .chat__senden:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
-.chat__hinweis { margin: 0; text-align: center; font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); letter-spacing: 0.08em; text-transform: uppercase; color: var(--farbe-gedaempft); }
+.chat__hinweis { visibility: hidden; margin: 0; text-align: center; font-family: var(--schrift-mono); font-size: var(--schrift-groesse-etikett); letter-spacing: 0.08em; text-transform: uppercase; color: var(--farbe-gedaempft); }
+.chat--hinweis .chat__hinweis { visibility: visible; animation: chat-hinweis 1.6s ease-in-out infinite; }
+@keyframes chat-hinweis { 0%, 100% { opacity: 0.55; transform: none; } 50% { opacity: 1; transform: translateY(0.15rem); } }
 .chat:not(.chat--aktiv) .chat__hinweis, .chat--fertig .chat__hinweis { display: none; }
-/* Link-Nachricht wie im Messenger: Text und darunter eine Vorschaukarte */
-.chat__blase--link { display: flex; flex-direction: column; gap: 0.4rem; }
-.chat__link { display: flex; flex-direction: column; gap: 0.1rem; padding: 0.5rem 0.7rem; background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); border-left-width: 0.4rem; border-radius: 0.6rem; text-decoration: none; }
-.chat__link strong { font-family: var(--schrift-kopf); font-size: 1.15rem; text-transform: uppercase; line-height: 1.1; }
-.chat__link span { font-size: var(--schrift-groesse-klein); text-decoration: underline; color: var(--farbe-gedaempft); }
-.chat__link:hover { background: var(--farbe-tinte); color: var(--farbe-papier); }
-.chat__link:hover span { color: var(--farbe-papier); }
-.chat__link:focus-visible { outline: 3px solid var(--farbe-tinte); outline-offset: 2px; }.chat__unterschrift { margin: var(--abstand-5) auto 0; max-width: 25rem; justify-content: center; display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--abstand-2) var(--abstand-5); }
+.chat--aktiv.chat--kurz { height: auto; }
+.chat--aktiv.chat--kurz .chat__buehne { position: static; height: var(--chat-hoehe); }
+.chat__icon .chat__wieder { display: none; }
+.chat--fertig .chat__icon .chat__wieder { display: block; }
+.chat--fertig .chat__icon .chat__punkte { display: none; }
+.chat__punkte { display: grid; place-items: center; }
+/* Link-Nachricht wie im Messenger: Text mit unterstrichenem Link */
+.chat__link { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; font-weight: 600; }
+.chat__link:hover { text-decoration-thickness: 3px; }
+.chat__link:focus-visible { outline: 3px solid var(--farbe-tinte); outline-offset: 2px; }
 .chat__unterschrift .brief__unterschrift { margin: 0; }
 @media (max-width: 40rem) {
   .chat { --chat-hoehe: min(34rem, calc(100svh - var(--menue-hoehe) - var(--abstand-5))); }
@@ -1824,3 +1828,7 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 .breakeven__zeile { margin: 0; font-size: 1.05rem; }
 .breakeven__zeile strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.35rem; }
 @media print { .breakeven { display: none; } }
+
+img.chat__avatar { object-fit: cover; object-position: center; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); }
+.chat__kopf img.chat__avatar--roderich { border-color: var(--farbe-papier); }
+@media (prefers-reduced-motion: reduce) { .chat--hinweis .chat__hinweis { animation: none; } }

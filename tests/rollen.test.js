@@ -148,11 +148,13 @@ test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Link-Nachr
     assert.match(b, /data-chat-senden>/, f + ": Knopf Sprache oder Senden");
     assert.doesNotMatch(b, /5 Werktagen|5 working days|brief__unterschrift/, f + ": kein Hinweis auf die Antwortfrist, kein rosa Name");
     assert.ok(b.indexOf("chat__nachricht--rolle") < b.indexOf("chat__nachricht--roderich"), f + ": die Rolle schreibt zuerst");
-    assert.equal((b.match(/chat__avatar--roderich" data-platzhalter role="img"/g) || []).length, roderich + 1, f + ": Foto-Platzhalter an jeder Antwort und im Kopf");
+    assert.equal((b.match(/<img class="chat__avatar chat__avatar--roderich" src="(\.\.\/)+assets\/img\/roderich\.jpg" alt="Roderich Körner-Rehn"/g) || []).length, roderich + 1, f + ": Foto von Roderich an jeder Antwort und im Kopf");
+    assert.doesNotMatch(b, /chat__avatar--roderich" data-platzhalter/, f + ": kein Foto-Platzhalter mehr");
     assert.doesNotMatch(b, /data-chat-weiter|chat__leiste|<a class="knopf"/, f + ": keine Dauerknöpfe im Chat");
     assert.match(b, /data-chat-hinweis>(Scrollen für die nächste Nachricht|Scroll for the next message)</, f + ": Hinweis zum Scrollen");
     const letzte = b.slice(b.lastIndexOf('data-chat-nachricht>'));
-    assert.match(letzte, /chat__blase chat__blase--link[\s\S]*<a class="chat__link" href="\.\/#pilot" data-pilot-oeffnen>/, f + ": letzte Nachricht ist der Link zum Kontaktformular");
+    assert.match(letzte, /chat__blase chat__blase--link">(Hier erreichen Sie mich direkt:|You can reach me directly here:) <a class="chat__link" href="\.\/#pilot" data-pilot-oeffnen>(Kontakt aufnehmen|Get in touch)<\/a><\/p>/, f + ": letzte Nachricht ist ein Textlink zum Kontaktformular");
+    assert.match(b, /chat__wieder/, f + ": Kreispfeil für den Neustart am Ende");
     assert.match(b, /#geschichte/, f);
     for (const m of b.matchAll(/<p class="chat__blase">(.*?)(?:<span class="sr-nur">|<\/p>)/g)) assert.ok(m[1].split(/\s+/).length <= 18, f + ": zu lang: " + m[1]);
   }

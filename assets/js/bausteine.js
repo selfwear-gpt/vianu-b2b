@@ -83,7 +83,16 @@
       menue.hidden = !offen;
     }
     if (menueKnopf && menue) {
-      menueKnopf.addEventListener("click", function () { setzeMenue(menue.hidden); });
+      // Ist der Chat zu Ende, zeigt der Knopf einen Kreispfeil und startet den Chat direkt von vorne.
+      menueKnopf.addEventListener("click", function () {
+        if (wurzel.classList.contains("chat--fertig")) { setzeMenue(false); wurzel.dispatchEvent(new CustomEvent("chat:neu")); return; }
+        setzeMenue(menue.hidden);
+      });
+      wurzel.addEventListener("chat:zustand", function () {
+        var fertig = wurzel.classList.contains("chat--fertig");
+        menueKnopf.setAttribute("aria-label", menueKnopf.getAttribute(fertig ? "data-label-neu" : "data-label-menue"));
+        if (fertig) setzeMenue(false);
+      });
       document.addEventListener("click", function (e) {
         if (!menue.hidden && !menue.contains(e.target) && !menueKnopf.contains(e.target)) setzeMenue(false);
       });
@@ -153,7 +162,19 @@
     var gezeigt = 0, ziel = 0, laeuft = false, epoche = 0, sperre = false;
 
     function fertig() {
-      if (gezeigt >= n) wurzel.classList.add("chat--fertig");
+      if (gezeigt >= n) { wurzel.classList.add("chat--fertig"); wurzel.classList.remove("chat--hinweis"); wurzel.dispatchEvent(new CustomEvent("chat:zustand")); }
+    }
+    // Hinweis "Scrollen für die nächste Nachricht": erst nach 3 Sekunden ohne Scrollen, Klick oder Tippen, solange der Chat im Bild ist.
+    var hinweisZeit = null;
+    function aktivitaet() {
+      wurzel.classList.remove("chat--hinweis");
+      window.clearTimeout(hinweisZeit);
+      if (gezeigt >= n) return;
+      hinweisZeit = window.setTimeout(function () {
+        if (gezeigt >= n || laeuft || !wurzel.getClientRects().length) return;
+        var r = wurzel.getBoundingClientRect(), vh = window.innerHeight || document.documentElement.clientHeight;
+        if (r.top < vh * 0.7 && r.bottom > vh * 0.3) wurzel.classList.add("chat--hinweis");
+      }, 3000);
     }
     function zeigeNaechste() {
       if (gezeigt >= ziel) { laeuft = false; fertig(); return; }
@@ -171,6 +192,7 @@
         m.classList.remove("chat__nachricht--aus");
         m.classList.add("chat__nachricht--neu");
         gezeigt++;
+        aktivitaet();
         zeigeNaechste();
       }, 850);
     }
@@ -193,9 +215,25 @@
       letzterSchritt = jetzt;
       setzeZiel(Math.max(ziel, 1) + 1);
     }
+    // Ist der Chat zu Ende und der Besucher darunter weitergescrollt, schrumpft die lange Scroll-Strecke auf die Höhe des Handys.
+    // Wer nach oben zurückkommt, sieht den Endzustand und muss die Strecke nicht rückwärts scrollen. Die Seite springt nicht, weil die Verschiebung ausgeglichen wird.
+    function kuerzen() {
+      var abschnitt = wurzel.closest("section");
+      var danach = abschnitt && abschnitt.nextElementSibling;
+      var d = document.documentElement;
+      var vorher = danach ? danach.getBoundingClientRect().top : 0;
+      wurzel.classList.add("chat--kurz");
+      var nachher = danach ? danach.getBoundingClientRect().top : 0;
+      if (nachher !== vorher) {
+        d.style.overflowAnchor = "none";
+        window.scrollBy(0, nachher - vorher);
+        window.requestAnimationFrame(function () { d.style.overflowAnchor = ""; });
+      }
+    }
     function beiScroll() {
       // Versteckte Seiten (Gesamtvorschau) haben keine Größe: dort darf nichts ablaufen, sonst steht der Chat beim Öffnen schon am Ende.
       if (sperre || !wurzel.getClientRects().length) return;
+      if (gezeigt >= n && !ohneScroll && !wurzel.classList.contains("chat--kurz") && wurzel.getBoundingClientRect().bottom < 0) { kuerzen(); return; }
       if (!scrollt()) {
         if (!ohneScroll) { ohneScroll = true; wurzel.classList.add("chat--ohnescroll"); }
         setzeZiel(1);
@@ -218,6 +256,9 @@
       nachrichten.forEach(function (m) { m.classList.add("chat__nachricht--aus"); m.classList.remove("chat__nachricht--neu"); });
       gezeigt = 0; ziel = 0; laeuft = false;
       wurzel.classList.remove("chat--fertig");
+      wurzel.classList.remove("chat--kurz");
+      wurzel.dispatchEvent(new CustomEvent("chat:zustand"));
+      aktivitaet();
       sperre = true;
       var wartezeit = 0;
       if (scrollt() && !ohneScroll) {
@@ -235,6 +276,11 @@
       wartet = true;
       window.requestAnimationFrame(function () { wartet = false; beiScroll(); });
     }
+    window.addEventListener("scroll", function () { aktivitaet(); }, { passive: true });
+    window.addEventListener("wheel", function () { aktivitaet(); }, { passive: true });
+    window.addEventListener("touchmove", function () { aktivitaet(); }, { passive: true });
+    document.addEventListener("click", function () { aktivitaet(); });
+    document.addEventListener("keydown", function () { aktivitaet(); });
     window.addEventListener("scroll", planeScroll, { passive: true });
     window.addEventListener("resize", planeScroll);
     window.addEventListener("load", planeScroll);
@@ -254,6 +300,7 @@
       if (Math.abs(e.touches[0].clientY - startY) > 24) { startY = e.touches[0].clientY; schritt(); }
     }, { passive: true });
     beiScroll();
+    aktivitaet();
   }
 
   function initErgebnis(wurzel) {
