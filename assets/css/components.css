@@ -918,7 +918,7 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
 .weg__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-dasharray: 1 7; stroke-linecap: round; opacity: 0.4; }
 .weg__stationen circle { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; transition: opacity 0.2s; }
 .weg__punkt { fill: var(--farbe-tinte); transition: opacity 0.2s; }
-.weg__spur { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 6; transition: opacity 0.2s; }
+.weg__spur { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 5; transition: opacity 0.2s; }
 .weg__punkt[data-aus], .weg__spur[data-aus], .weg__stationen circle[data-aus] { opacity: 0; }
 .weg__fuss-vorlage { display: none; }
 .weg__liste { padding-left: 1.5rem; display: flex; flex-direction: column; gap: var(--abstand-3); font-size: 1.15rem; }
@@ -1400,7 +1400,9 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 .pruefliste__zeile { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-4); align-items: start; width: 100%; padding: var(--abstand-4); background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); font: inherit; text-align: left; cursor: pointer; }
 .pruefliste__kasten { position: relative; width: 1.75rem; height: 1.75rem; border: 3px solid var(--farbe-tinte); background: var(--farbe-papier); }
 .pruefliste__zeile[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.pruefliste__zeile[aria-pressed="true"] .pruefliste__kasten::after { content: ""; position: absolute; left: 6px; top: -3px; width: 8px; height: 16px; border: solid var(--farbe-tinte); border-width: 0 4px 4px 0; transform: rotate(40deg); }
+.pruefliste__zeile[aria-pressed="true"] .pruefliste__kasten::after { content: ""; position: absolute; left: 50%; top: 46%; width: 6px; height: 13px; border: solid var(--farbe-tinte); border-width: 0 3px 3px 0; transform: translate(-50%, -55%) rotate(40deg); }
+.pruefliste__pilot { align-self: flex-start; animation: pilot-auf 0.35s cubic-bezier(0.3, 1.5, 0.5, 1) both; }
+.pruefliste__pilot[hidden] { display: none; }
 .pruefliste__text { display: flex; flex-direction: column; gap: var(--abstand-1); }
 .pruefliste__dd { font-size: 1.15rem; line-height: 1.45; max-width: 62ch; }
 /* ---------- Rollenseiten: Brief als Zitatkarte ---------- */
@@ -1663,6 +1665,7 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 .ergebnis__bild { display: block; width: 100%; height: auto; }
 .ergebnis__bild text { font-family: var(--schrift-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; fill: var(--farbe-tinte); }
 .ergebnis__bild text.ergebnis__zahl { font-family: var(--schrift-kopf); font-weight: 800; font-size: 40px; letter-spacing: 0; text-transform: none; }
+.ergebnis__bild text.ergebnis__achsentext { font-size: 8px; letter-spacing: 0.03em; }
 .ergebnis__rest { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 2; }
 .ergebnis__wert { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 2; transform-box: fill-box; transform-origin: left center; transition: transform 1.1s ease-out; }
 .ergebnis__stunde { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 2; transform-box: fill-box; transform-origin: center bottom; transition: transform 0.4s ease-out; }
@@ -1895,3 +1898,85 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .rechnung, .lieferung, .punkt { scroll-margin-top: calc(var(--menue-hoehe) + var(--abstand-4)); }
 @media (prefers-reduced-motion: reduce) { .punkt { transition: none; } .punkt:hover { transform: none; } }
 .fluss__icon { width: 2rem; height: 2rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Arbeitsschutz: Hero-Schaubild und Matte-Abschnitt (Fußspur mit auftauchenden Beschriftungen) */
+.motiv__sohle { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; }
+.weg__boden { stroke: none; pointer-events: none; }
+.weg__fliese { fill: none; stroke: var(--farbe-tinte); stroke-width: 0.6; opacity: 0.18; }
+.weg__teller { fill: none; stroke: var(--farbe-tinte); stroke-width: 1.5; }
+.weg__brenner { fill: var(--farbe-papier); }
+.weg__streifen { fill: none; stroke: var(--farbe-tinte); stroke-width: 1.5; opacity: 0.6; }
+.weg__matte-text, .weg__etikett { font-family: var(--schrift-mono); font-size: 8px; letter-spacing: 0.06em; text-transform: uppercase; fill: var(--farbe-tinte); }
+.weg__matte-text { font-size: 7px; font-weight: 700; paint-order: stroke; stroke: var(--farbe-signal); stroke-width: 3px; }
+.weg__etikett { font-size: 9px; font-weight: 700; paint-order: stroke; stroke: var(--farbe-papier); stroke-width: 4px; stroke-linejoin: round; transform-box: fill-box; transform-origin: center; transition: opacity 0.25s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
+.weg__etikett[data-aus] { opacity: 0; transform: scale(0.6); }
+.weg__schritte { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--abstand-5); counter-reset: schritt; }
+.weg__schritte li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--abstand-3); align-items: start; counter-increment: schritt; }
+.weg__schritte li::before { content: counter(schritt); grid-row: 1 / span 2; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-tinte); font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.3rem; }
+.weg__schritte strong { font-family: var(--schrift-kopf); font-size: 1.4rem; line-height: 1.1; text-transform: uppercase; }
+.weg__schritte span { font-size: 1.1rem; line-height: 1.4; }
+.weg__fazit { margin: var(--abstand-5) 0 0; max-width: 62ch; font-size: 1.15rem; line-height: 1.45; }
+@media (prefers-reduced-motion: reduce) { .weg__etikett { transition: none; } }
+
+/* Einkauf: Bestellstrecke und Zahlenkacheln */
+.strecke { --strecke-anteil: 1; list-style: none; width: 100%; max-width: none; margin: var(--abstand-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-3); position: relative; }
+.strecke::before { content: ""; position: absolute; left: 10%; right: 10%; top: 2.1rem; border-top: 3px dashed var(--farbe-tinte); }
+.strecke::after { content: ""; position: absolute; left: 10%; top: 2.1rem; width: calc(80% * var(--strecke-anteil)); border-top: 5px solid var(--farbe-signal); transition: width 0.4s ease-out; }
+.strecke__station { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); text-align: center; }
+.strecke__marke { display: grid; place-items: center; width: 4.2rem; height: 4.2rem; border-radius: 50%; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: background 0.3s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
+.strecke__marke svg { width: 2rem; height: 2rem; fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.strecke__station[data-an] .strecke__marke { background: var(--farbe-signal); transform: scale(1.1); }
+.strecke__station h3 { margin: 0; font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
+.strecke__satz { margin: 0; font-size: 1rem; line-height: 1.4; max-width: 24ch; }
+@media (max-width: 56rem) {
+  .strecke { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-5); }
+  .strecke::before, .strecke::after { display: none; }
+  .strecke__station { flex-direction: column; align-items: flex-start; text-align: left; padding-left: 5.4rem; min-height: 4.2rem; }
+  .strecke__marke { position: absolute; left: 0; top: 0; }
+  .strecke__satz { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { .strecke::after, .strecke__marke { transition: none; } }
+.zahlenkacheln { list-style: none; width: 100%; max-width: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr)); gap: var(--abstand-4); }
+.zahlenkachel { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5) var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); transition: transform 0.2s, box-shadow 0.2s; }
+.zahlenkachel:nth-child(odd) { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.zahlenkachel:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--farbe-tinte); }
+.zahlenkachel__zahl { font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; }
+.zahlenkachel .etikett { margin: 0; }
+.zahlenkachel__satz { margin: 0; font-size: 1.05rem; line-height: 1.4; }
+.zahlenkacheln__weiter { margin: var(--abstand-5) 0 0; }
+@media (prefers-reduced-motion: reduce) { .zahlenkachel { transition: none; } .zahlenkachel:hover { transform: none; } }
+@media print { .zahlenkachel:hover { transform: none; box-shadow: none; } }
+
+/* Betriebsrat: Datenreise mit Karte und Tagesordnung */
+.fluss--karte { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--abstand-6); align-items: start; }
+.fluss--karte .fluss__liste { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-3); }
+.fluss--karte .fluss__liste li { display: flex; flex-direction: column; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: background 0.2s; }
+.fluss--karte .fluss__knoten { flex-direction: row; align-items: center; gap: var(--abstand-4); border: 0; background: transparent; }
+.fluss--karte .fluss__knoten::after { display: none; }
+.fluss--karte .fluss__knoten[aria-pressed="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.fluss--karte .fluss__feld { padding: var(--abstand-4); border-top: var(--kante) solid var(--farbe-tinte); }
+.fluss--karte .fluss__feld p { margin: 0; font-size: 1.1rem; line-height: 1.45; max-width: 60ch; }
+.fluss--karte .fluss__feld[hidden] { display: none; }
+.fluss__karte { margin: 0; display: flex; flex-direction: column; gap: var(--abstand-3); position: sticky; top: 6rem; }
+.karte { display: block; width: 100%; height: auto; }
+.karte__eu { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 2; stroke-dasharray: 8 6; stroke-linejoin: round; transition: fill 0.3s; }
+.karte__de { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; transition: fill 0.3s; }
+.karte__eu[data-aktiv], .karte__de[data-aktiv] { fill: var(--farbe-signal); }
+.karte__text { font-family: var(--schrift-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; fill: var(--farbe-tinte); }
+.fluss__legende { display: flex; flex-direction: column; gap: var(--abstand-1); font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.06em; text-transform: uppercase; }
+@media (max-width: 56rem) { .fluss--karte { grid-template-columns: minmax(0, 1fr); } .fluss__karte { position: static; max-width: 22rem; } }
+.tagesordnung { list-style: none; width: 100%; max-width: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--abstand-3); counter-reset: top; }
+.top { counter-increment: top; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: transform 0.2s, box-shadow 0.2s; }
+.top:hover { transform: translateX(6px); box-shadow: -6px 6px 0 var(--farbe-tinte); }
+.top__knopf { display: flex; align-items: center; gap: var(--abstand-4); width: 100%; padding: var(--abstand-4); background: transparent; border: 0; color: var(--farbe-tinte); font: inherit; text-align: left; cursor: pointer; }
+.top__knopf::before { content: counter(top); flex: none; display: grid; place-items: center; width: 2.2rem; height: 2.2rem; background: var(--farbe-tinte); color: var(--farbe-papier); font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.2rem; }
+.top__icon { flex: none; width: 2.2rem; height: 2.2rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.top__titel { flex: 1; font-family: var(--schrift-kopf); font-weight: 700; font-size: 1.3rem; line-height: 1.15; text-transform: uppercase; }
+.top__pfeil { flex: none; width: 0.8rem; height: 0.8rem; border-right: 3px solid currentColor; border-bottom: 3px solid currentColor; transform: rotate(45deg); transition: transform 0.2s; }
+.top__knopf[aria-expanded="true"] .top__pfeil { transform: rotate(225deg); }
+.top__knopf[aria-expanded="true"] { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.top__text { padding: var(--abstand-4); border-top: var(--kante) solid var(--farbe-tinte); }
+.top__text p { margin: 0; font-size: 1.1rem; line-height: 1.45; max-width: 62ch; }
+.js .top__text:not([data-offen]) { display: none; }
+@media (prefers-reduced-motion: reduce) { .top, .top__pfeil, .karte__eu, .karte__de { transition: none; } .top:hover { transform: none; } }
+@media print { .top:hover { transform: none; box-shadow: none; } .js .top__text:not([data-offen]) { display: block; } .top__pfeil { display: none; } }

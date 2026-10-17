@@ -54,7 +54,9 @@
     "Die Fußerfassung wird nachgeholt, die Sohlen kommen trotzdem normal.",
     "Was kostet das, und was bindet mich?",
     "1.200 Euro zzgl. Umsatzsteuer. Über mehr entscheiden Sie erst danach.",
-    "Am Ende bekommen Sie einen Bericht, wie hilfreich die Sohlen waren und wie zufrieden das Team ist."
+    "Am Ende bekommen Sie einen Bericht, wie die Wirkung der Sohlen auf Ihre Mitarbeitenden war.",
+    "Und wie zufrieden das Team ist.",
+    "Für einen Test mit 10 Mitarbeitenden kostet es 1.200 Euro zzgl. Umsatzsteuer. Über mehr entscheiden Sie erst danach."
   ],
   "en/b2b/geschaeftsfuehrung.html": [
     "What you need for your decision",
@@ -70,61 +72,65 @@
     "The foot capture is made up later, and the insoles are still delivered as normal.",
     "What does it cost, and what ties me down?",
     "EUR 1,200 plus VAT. You decide on more only afterwards.",
-    "At the end you get a report: how helpful the insoles were, how satisfied the team is."
+    "At the end, you get a report on how the insoles worked for your employees.",
+    "And how satisfied the team is.",
+    "For a test with 10 employees, it costs EUR 1,200 plus VAT. You decide on more only afterwards."
   ],
   "b2b/arbeitsschutz.html": [
-    "Nein. Die Matte liegt an einem Platz, die Sohle ist auf dem ganzen Weg dabei.",
     "Nächster Schritt: Den Pilotumfang gegen die Gefährdungsbeurteilung spiegeln und die Testgruppe fachlich freigeben. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.",
     "Und wenn die Sohle drückt?",
     "Dann fertigen wir sie neu. Die Teilnahme ist freiwillig.",
     "Ich kenne VIANU noch nicht. Was ist das, und wo liegen die Grenzen?",
     "Wir fertigen individuelle Einlegesohlen für Beschäftigte, die lange stehen. Die Sohle liegt im eigenen Schuh.",
     "Sie ist ein Komfortangebot und ersetzt keine Schutzmaßnahme.",
-    "Ersetzt die Sohle unsere Arbeitsplatzmatten, also die Matten an festen Standplätzen?",
     "Und was passiert mit den Fotos der Füße?",
-    "Die Fotos werden nur für die Anfertigung der Sohle verwendet und danach gelöscht."
+    "Die Fotos werden nur für die Anfertigung der Sohle verwendet und danach gelöscht.",
+    "Wir haben schon Arbeitsplatzmatten. Wozu dann noch Sohlen?",
+    "Eine Matte hilft an einem Platz. Die Sohle ist bei jedem Schritt der Schicht dabei.",
+    "Das Personal wechselt zwischen Herd, Lager und Kühlraum. Die Sohle ist an jedem Ort dabei.",
+    "Wer Matten hat, behält sie. Die Sohle gleicht die Wege dazwischen aus."
   ],
   "en/b2b/arbeitsschutz.html": [
     "Next step: Check the pilot scope against the risk assessment and give the test group technical approval. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
-    "No. The mat lies in one place, the insole is with you all the way.",
     "And if the insole presses?",
     "Then we make it again. Taking part is voluntary.",
     "I do not know VIANU yet. What is it, and where are the limits?",
     "It is a comfort offer and replaces no protective measure.",
-    "Does the insole replace our anti-fatigue mats, the mats at fixed standing spots?",
     "And what happens to the photos of the feet?",
     "The photos are used only to make the insole and are deleted afterwards.",
-    "We make custom insoles for employees who stand a lot. The insole sits in their own shoe."
+    "We make custom insoles for employees who stand a lot. The insole sits in their own shoe.",
+    "We already have anti-fatigue mats. Why insoles on top?",
+    "A mat helps at one spot. The insole is with you at every step of the shift.",
+    "Staff move between stove, storage and cold room. The insole is with them at each place.",
+    "Whoever has mats keeps them. The insole covers the routes in between."
   ],
   "b2b/einkauf.html": [
     "Ich brauche einen klaren Ablauf ohne Überraschungen nach der Freigabe.",
-    "10 Paare, 1.200 Euro zzgl. Umsatzsteuer.",
     "Nächster Schritt: Das Pilotangebot gegen die Beschaffungsstandards prüfen und die Freigabe an einen klaren Prozess knüpfen. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.",
-    "Sie bestellen wie bei jeder Beschaffung: 120 Euro je Paar zzgl. Umsatzsteuer.",
     "Und wenn Sohlen nicht passen?",
     "Dann fertigen wir sie neu.",
-    "Wie schnell kommt die Lieferung?",
-    "Spätestens 7 Tage nach der Fußerfassung.",
     "Und Mindestmengen oder Rahmenverträge?",
-    "Das steht noch nicht fest. Ich nenne es Ihnen, bevor Sie über mehr entscheiden.",
     "Was genau bestelle ich da eigentlich?",
     "Individuell angefertigte Einlegesohlen, nach Fotos der Füße gefertigt. Beim Pilot sind es 10 Paare.",
-    "Spätestens 7 Tage nach der Fußerfassung. Gedruckt wird in Deutschland, fertig in 48 Stunden."
+    "Der Ablauf ist kurz. Sie nehmen über das Kontaktformular Kontakt auf, bei Bedarf folgt ein Videomeeting.",
+    "Das Angebot kommt per E-Mail. Bezahlt wird auf Rechnung, das Zahlungsziel sind 14 Tage.",
+    "Gedruckt in Deutschland in 48 Stunden. Geliefert spätestens 7 Tage nach der Fußerfassung.",
+    "Für den ersten Test sind es 10 Paare.",
+    "Danach entscheiden Sie, ob sich ein größerer Rollout lohnt. Mindestmengen gibt es sonst nicht."
   ],
   "en/b2b/einkauf.html": [
     "I need a clear process with no surprises after approval.",
-    "10 pairs, EUR 1,200 plus VAT.",
     "Next step: Check the pilot offer against the procurement standards and tie the approval to a clear process. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
-    "You order like any other procurement: EUR 120 per pair plus VAT.",
     "And if insoles do not fit?",
     "Then we make them again.",
-    "How fast does delivery come?",
-    "At the latest 7 days after the foot capture.",
     "And minimum quantities or framework contracts?",
-    "That is not settled yet. I will tell you before you decide on more.",
     "What exactly am I ordering here?",
     "Custom-made insoles, made from photos of the feet. In the pilot, it is 10 pairs.",
-    "At the latest 7 days after the foot capture. Printed in Germany, ready in 48 hours."
+    "The process is short. Contact us through the form, and a video meeting follows if needed.",
+    "The offer arrives by email. You pay by invoice, with 14 days to pay.",
+    "Printed in Germany in 48 hours. Delivered at the latest 7 days after the foot capture.",
+    "For the first test, it is 10 pairs.",
+    "After that, you decide whether a larger rollout pays off. Otherwise there are no minimum quantities."
   ],
   "b2b/betriebsrat.html": [
     "Was Sie in der Betriebsratssitzung klären können",
@@ -139,7 +145,9 @@
     "Wir fertigen individuelle Einlegesohlen. Dafür fotografieren Beschäftigte freiwillig ihre Füße mit dem eigenen Smartphone.",
     "Sie werden nur für die Anfertigung der Sohle verwendet und danach gelöscht.",
     "Nur VIANU und ihre Fertigungspartner. Gedruckt wird lokal in Deutschland.",
-    "Der Betrieb kennt die Teilnehmerliste. Antworten erscheinen nur als Gruppe, anonym."
+    "Am Ende gibt es eine Befragung zur Wirkung bei den Mitarbeitenden.",
+    "Der Bericht enthält für den Betrieb die Teilnehmerliste.",
+    "Die Antworten erscheinen nur anonym und lassen sich keiner einzelnen Person zuordnen."
   ],
   "en/b2b/betriebsrat.html": [
     "What you can clarify in the works council meeting",
@@ -154,6 +162,8 @@
     "We make custom insoles. For that, employees voluntarily photograph their feet with their own smartphone.",
     "They are used only to make the insole and deleted afterwards.",
     "Only VIANU and its manufacturing partners. Printing happens locally in Germany.",
-    "The business knows the participant list. Answers appear only as a group, anonymous."
+    "At the end there is a survey on the effect among the employees.",
+    "The report contains the participant list for the business.",
+    "The answers appear only anonymously and cannot be traced to a single person."
   ]
 }

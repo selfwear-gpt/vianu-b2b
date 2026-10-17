@@ -1,10 +1,11 @@
 /*
   Bausteine der Rollenseiten. Schnittstelle: Elemente mit [data-pruefliste], [data-fluss] und [data-filter] arbeiten für sich.
-  Prüfliste: Schalter zum Abhaken, nur Ansicht, nichts wird gespeichert. Datenfluss: ein Feld pro Knoten, der gewählte Knoten zeigt seinen Text.
+  Prüfliste: Schalter zum Abhaken, nur Ansicht, nichts wird gespeichert. Ab drei Haken erscheint [data-pruefliste-pilot]. Datenfluss: ein Feld pro Knoten, der gewählte Knoten zeigt seinen Text.
   Filter: blendet Zeilen der Statusliste nach Status ein und aus. Ohne Skript stehen alle Inhalte lesbar da.
   Chat-Brief [data-chat]: die Nachrichten stehen im HTML, das Skript blendet sie beim Scrollen nacheinander ein (in Rahmen ohne Scrollen per Mausrad, Wisch oder Tipp), vorher erscheinen Tippen-Punkte.
   Das Menü "Chat von vorne starten" setzt zurück. Eingabefeld, Mikro- und Sendeknopf öffnen das Kontaktformular (Nachricht im Feld "Anliegen").
   Versteckte Seiten der Gesamtvorschau starten erst, wenn sie sichtbar werden. Bei reduzierter Bewegung und ohne Skript stehen alle Nachrichten sofort da. Ergebnisbild [data-ergebnis]: der Balken baut sich beim Sichtbarwerden auf.
+  Tagesordnung [data-tagesordnung]: aufklappbare Zeilen. Bestellstrecke [data-strecke]: Stationen füllen sich beim Scrollen (benötigt fortschritt.js, ohne Skript stehen alle Stationen da).
   Umfrage [data-umfrage]: Antworten sind nur zur Ansicht antippbar, nichts wird gespeichert. Ab drei Antworten erscheint [data-umfrage-pilot].
 */
 (function () {
@@ -13,10 +14,12 @@
   function initPruefliste(wurzel) {
     var zeilen = wurzel.querySelectorAll(".pruefliste__zeile");
     var zahl = wurzel.querySelector("[data-pruefliste-zahl]");
+    var pilot = wurzel.querySelector("[data-pruefliste-pilot]");
     function zaehle() {
       var n = 0;
       Array.prototype.forEach.call(zeilen, function (z) { if (z.getAttribute("aria-pressed") === "true") n++; });
       if (zahl) zahl.textContent = String(n);
+      if (pilot) pilot.hidden = n < UMFRAGE_SCHWELLE;
     }
     Array.prototype.forEach.call(zeilen, function (z) {
       z.addEventListener("click", function () {
@@ -38,9 +41,18 @@
         if (an && fokus) k.focus();
       });
       Array.prototype.forEach.call(felder, function (f) { f.hidden = f.getAttribute("data-fluss-feld") !== nr; });
+      Array.prototype.forEach.call(wurzel.querySelectorAll("[data-fluss-punkt]"), function (p) {
+        if (p.getAttribute("data-fluss-punkt") === nr) p.setAttribute("data-aktiv", "");
+        else p.removeAttribute("data-aktiv");
+      });
     }
+    var zeiger = window.matchMedia ? window.matchMedia("(hover: hover) and (pointer: fine)") : null;
     Array.prototype.forEach.call(knoten, function (k, i) {
       k.addEventListener("click", function () { waehle(k.getAttribute("data-fluss-knoten")); });
+      // Mit der Maus öffnet schon das Darüberfahren den Punkt
+      if (wurzel.hasAttribute("data-fluss-hover")) {
+        k.parentNode.addEventListener("mouseenter", function () { if (zeiger && zeiger.matches) waehle(k.getAttribute("data-fluss-knoten")); });
+      }
       k.addEventListener("keydown", function (e) {
         var ziel = null;
         if (e.key === "ArrowRight" || e.key === "ArrowDown") ziel = (i + 1) % knoten.length;
@@ -360,7 +372,53 @@
     pruefe();
   }
 
+  // Tagesordnung [data-tagesordnung]: Zeilen klappen per Klick auf, mehrere können offen sein. Ohne Skript steht jeder Text da.
+  function initTagesordnung(wurzel) {
+    Array.prototype.forEach.call(wurzel.querySelectorAll(".top"), function (zeile, i) {
+      var knopf = zeile.querySelector(".top__knopf");
+      var text = zeile.querySelector(".top__text");
+      if (!knopf || !text) return;
+      function setze(offen) {
+        knopf.setAttribute("aria-expanded", offen ? "true" : "false");
+        if (offen) text.setAttribute("data-offen", "");
+        else text.removeAttribute("data-offen");
+      }
+      knopf.addEventListener("click", function () { setze(knopf.getAttribute("aria-expanded") !== "true"); });
+      setze(i === 0);
+    });
+  }
+
+  // Bestellstrecke [data-strecke]: Stationen und Linie füllen sich beim Scrollen, rückwärts beim Zurückscrollen.
+  function initStrecke(wurzel) {
+    var F = window.VianuFortschritt;
+    var stationen = wurzel.querySelectorAll(".strecke__station");
+    var reduziert = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function setze(n) {
+      Array.prototype.forEach.call(stationen, function (st, i) {
+        if (i < n) st.setAttribute("data-an", "");
+        else st.removeAttribute("data-an");
+      });
+      wurzel.style.setProperty("--strecke-anteil", String(stationen.length > 1 ? Math.max(0, n - 1) / (stationen.length - 1) : 1));
+    }
+    if (!F || reduziert || !stationen.length) { setze(stationen.length); return; }
+    var geplant = false;
+    function aktualisiere() {
+      geplant = false;
+      var r = wurzel.getBoundingClientRect();
+      var f = F.fortschrittImBild(r.top, r.height, window.innerHeight);
+      setze(F.sichtbareAnzahl(Math.min(1, f / 0.55), stationen.length));
+    }
+    function planen() {
+      if (!geplant) { geplant = true; window.requestAnimationFrame(aktualisiere); }
+    }
+    window.addEventListener("scroll", planen, { passive: true });
+    window.addEventListener("resize", planen);
+    aktualisiere();
+  }
+
   function start() {
+    jeder("[data-strecke]", initStrecke);
+    jeder("[data-tagesordnung]", initTagesordnung);
     jeder("[data-pruefliste]", initPruefliste);
     jeder("[data-fluss]", initFluss);
     jeder("[data-filter]", initFilter);

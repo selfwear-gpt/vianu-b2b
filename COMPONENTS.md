@@ -261,3 +261,21 @@ Status: gebaut
 ### Einkauf: Punkte mit Symbol und Sprungleiste
 Status: gebaut
 - `sprung` (Chips mit Ankerlinks) und `punkte`/`punkt` (Karten mit Symbol `punkt__icon`, Überschrift, Satz `punkt__satz`, optional Status `punkt__status`) ersetzen die Statusliste mit Filter. Sprungziele: `e-preis`, `e-lieferung`, `e-menge`, `e-bestellung`, `e-nachfertigung`, `e-marke`, `e-datenblatt`. Die Karten heben sich beim Darüberfahren ab und sind nicht klickbar. Der Termin-Abschnitt trägt Symbole (`fragenkarte__icon`) statt Zahlen. Im Betriebsrat-Datenfluss tragen die Stationen Symbole (`fluss__icon`), es gibt keine offenen Stationen mehr.
+
+### Arbeitsschutz: Matte gegen Sohle, Hero und Prüfliste (17.10.2026)
+
+- Hero-Schaubild: Sohle mit drei Druckpunkten, Linien zu Schichtbeginn, Mittag und Feierabend (`motiv__sohle`).
+- `weg` (Abschnitt "Arbeitsplatzmatte und Sohle: Wo hilft was?"): Küchengrundriss mit Matte, Fußspuren links und rechts. Die Namen der Stationen (`weg__etikett` in `data-weg-etiketten`) poppen an der Station auf, solange die Fußspuren dort sind, und verschwinden beim Weiterscrollen (`rollen.js`). Rechts drei nummerierte Schritte (`weg__schritte`: Die Matte, Der Weg, Die Sohle), darunter ein Absatz `weg__fazit`.
+- `pruefliste` mit Knopf `pruefliste__pilot` (`data-pruefliste-pilot`, "Kontakt anfragen"), erscheint ab drei Haken. Der Haken sitzt mittig im Kästchen.
+- Beleg-Balken Beginn und nach 3 Wochen haben links eine Achse mit Beschriftung (`ergebnis__achsentext`, kleine Schrift).
+
+### Einkauf: Bestellstrecke und Zahlenkacheln
+
+- `strecke` (`data-strecke`): fünf Stationen mit Symbol (Anfrage, Angebot, Bestellung, Marke, Nachfertigung), die Linie füllt sich beim Scrollen, rückwärts beim Zurückscrollen. Ersetzt Sprungleiste und `punkte`. Ohne Skript stehen alle Stationen aktiv da.
+- `zahlenkacheln`/`zahlenkachel`: große Zahl (1.200 €, 0, 14 Tage, 7 Tage, Logo), Etikett, Satz. Kacheln heben sich beim Darüberfahren. Darunter Knopf "Weitere Fragen klären" zum Kontaktformular. Ersetzt die Drehkarten.
+- Hero: Gegenüberstellung "Ihr Aufwand" und "Unser Aufwand", Preis nur als Zeile "Test mit 10 Mitarbeitenden".
+
+### Betriebsrat: Datenreise mit Karte und Tagesordnung
+
+- `fluss--karte` (`data-fluss-hover`): stilisierte Karte (Deutschland innerhalb der EU, `karte__eu` und `karte__de` leuchten bei Verarbeitung und Druck auf) neben fünf Zeilen. Mit der Maus öffnet schon das Darüberfahren die Zeile, sonst Klick oder Tippen. Die Statusübersicht `stand-kasten` am Seitenanfang entfällt.
+- `tagesordnung`/`top`: nummerierte, aufklappbare Zeilen mit Symbol statt Drehkarten (`data-tagesordnung`), nur feststehende Aussagen. Ohne Skript und im Druck steht jeder Text da.

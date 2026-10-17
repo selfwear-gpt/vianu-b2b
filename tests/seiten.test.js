@@ -66,7 +66,7 @@ test("Messwerte (Umfrage) stehen nur auf Personal, Geschäftsführung und Arbeit
 
 test("rollenspezifische Bausteine: Matte und Weg, Datenfluss, Rechner", () => {
   assert.match(seite("arbeitsschutz"), /data-weg/);
-  assert.match(seite("arbeitsschutz"), /Die Sohle ergänzt die Arbeitsplatzmatte\./);
+  assert.match(seite("arbeitsschutz"), /(ganzen Tag dabei|with them all day)/);
   assert.match(seite("betriebsrat"), /id="datenfluss"/);
   assert.doesNotMatch(seite("betriebsrat"), /fluss__knoten--offen|fluss__offen/, "keine offenen Stationen mehr im Datenfluss");
   assert.match(seite("betriebsrat"), /(3D-Druck|3D printing)/, "Druck in Deutschland steht im Datenfluss");
