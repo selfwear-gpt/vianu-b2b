@@ -37,10 +37,26 @@
     },
     {
       "@type": "Question",
+      "name": "Wer sieht die Fotos beim Fußscan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Fotos der Füße sehen nur VIANU und ihre Fertigungspartner. Sie werden nur für die Anfertigung der Sohle verwendet, in der EU verarbeitet und danach gelöscht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Material- und Hygieneinformationen gibt es zur Einlegesohle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Vor der Bestellung erhalten Sie ein Datenblatt zu Material und Hygiene."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Ersetzt eine Einlegesohle Arbeitsplatzmatten (Anti-Ermüdungsmatten)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. Eine Arbeitsplatzmatte liegt an einem festen Platz, eine Einlegesohle ist im Schuh auf dem ganzen Weg einer Schicht dabei. VIANU versteht die Sohle als Ergänzung zur Arbeitsplatzmatte."
+        "text": "Nein. Eine Arbeitsplatzmatte liegt an einem festen Platz und hilft nur dort. Eine Einlegesohle ist im Schuh auf dem ganzen Weg einer Schicht dabei, den ganzen Tag. VIANU versteht die Sohle als Ergänzung zur Arbeitsplatzmatte."
       }
     },
     {
@@ -159,29 +175,28 @@
           <p class="etikett druck-nur">VIANU</p>
           <p class="etikett rolle__ueber">Wer entscheidet mit? </p>
           <h1 id="hero-titel">Arbeitsschutz</h1>
-          <p class="rolle__lead">VIANU fertigt individuelle Einlegesohlen für Beschäftigte, die viele Stunden stehen und gehen. Die Sohle liegt im eigenen Arbeits- oder Berufsschuh. Sie ist ein Komfortangebot und ersetzt keine Schutzmaßnahme und keine Arbeitsplatzgestaltung. Bei Ihrer Sicherheitsprüfung vor Ort können Sie die Grenzen klar benennen.</p>
+          <p class="rolle__lead">VIANU fertigt individuelle Einlegesohlen für Beschäftigte, die viele Stunden stehen und gehen. Die Sohle liegt im eigenen Arbeits- oder Berufsschuh. Sie ist ein Komfortangebot und ersetzt keine Schutzmaßnahme und keine Arbeitsplatzgestaltung.</p>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
         </div>
         <figure class="rolle__motiv">
-          <svg class="motiv" viewBox="0 0 400 300" role="img" aria-label="Küchengrundriss: Die Arbeitsplatzmatte liegt am Herd. Eine Linie zeichnet den Weg einer Schicht durch die ganze Küche, vorbei an sechs Stationen." focusable="false">
-            <rect class="motiv__papier m-auf m-d0" x="20" y="24" width="360" height="252"/>
-            <g class="motiv__zonen m-auf m-d1">
-              <rect x="190" y="46" width="110" height="26"/><rect x="306" y="52" width="56" height="70"/>
-              <rect x="310" y="134" width="52" height="52"/><rect x="262" y="214" width="100" height="40"/><rect x="140" y="222" width="88" height="40"/>
-            </g>
-            <rect class="motiv__tinte m-auf m-d1" x="44" y="150" width="84" height="40"/>
-            <rect class="motiv__signal m-pop m-d2" x="40" y="200" width="92" height="20" rx="5"/>
-            <text class="m-auf m-d3" x="86" y="244" text-anchor="middle">Matte</text>
-            <path class="motiv__linie m-zeichnen m-lang m-d4" pathLength="1" d="M86 172C120 124 190 82 244 68S336 62 352 92S364 140 350 158S334 218 322 236S230 252 190 238"/>
-            <circle class="motiv__papier m-pop m-d4" cx="86" cy="172" r="8"/>
-            <circle class="motiv__papier m-pop m-d7" cx="244" cy="68" r="8"/>
-            <circle class="motiv__papier m-pop m-d9" cx="352" cy="92" r="8"/>
-            <circle class="motiv__papier m-pop m-d10" cx="350" cy="158" r="8"/>
-            <circle class="motiv__papier m-pop m-d12" cx="322" cy="236" r="8"/>
-            <circle class="motiv__papier m-pop m-d13" cx="190" cy="238" r="8"/>
-            <g class="m-auf m-d13"><rect class="motiv__papier" x="104" y="76" width="104" height="26" rx="13"/><text x="156" y="93" text-anchor="middle">Schichtweg</text></g>
+          <svg class="motiv" viewBox="0 0 400 300" role="img" aria-label="Eine Fußsohle mit drei Druckpunkten. Eine Linie verbindet sie mit Schichtbeginn, Mittag und Feierabend: Die Sohle ist den ganzen Tag dabei." focusable="false">
+            <use class="motiv__sohle m-auf m-d0" href="#sohle-form" x="30" y="30" width="100" height="250"/>
+            <circle class="motiv__signal m-pop m-d2" cx="70" cy="200" r="11"/>
+            <circle class="motiv__signal m-pop m-d3" cx="62" cy="100" r="11"/>
+            <circle class="motiv__signal m-pop m-d4" cx="96" cy="84" r="11"/>
+            <text class="m-auf m-d1" x="80" y="20" text-anchor="middle">Sohle</text>
+            <path class="motiv__linie m-zeichnen m-d3" pathLength="1" d="M236 46V254"/>
+            <path class="motiv__strich m-zeichnen m-d4" pathLength="1" d="M138 200C170 200 190 254 228 254"/>
+            <path class="motiv__strich m-zeichnen m-d5" pathLength="1" d="M138 150C170 150 200 150 228 150"/>
+            <path class="motiv__strich m-zeichnen m-d6" pathLength="1" d="M138 90C170 90 190 46 228 46"/>
+            <circle class="motiv__signal m-pop m-d6" cx="236" cy="46" r="9"/>
+            <circle class="motiv__signal m-pop m-d7" cx="236" cy="150" r="9"/>
+            <circle class="motiv__signal m-pop m-d8" cx="236" cy="254" r="9"/>
+            <text class="m-auf m-d6" x="256" y="50">Schichtbeginn</text>
+            <text class="m-auf m-d7" x="256" y="154">Mittag</text>
+            <text class="m-auf m-d8" x="256" y="258">Feierabend</text>
           </svg>
         </figure>
       </div>
@@ -191,39 +206,51 @@
   <section class="abschnitt" id="weg" aria-labelledby="weg-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="weg-titel">Wo die Arbeitsplatzmatte endet</h2>
-        <p>Eine Arbeitsplatzmatte liegt an einem festen Platz. Eine Schicht führt durch die ganze Küche. Die Sohle ergänzt die Arbeitsplatzmatte.</p>
+        <h2 id="weg-titel">Arbeitsplatzmatte und Sohle: Wo hilft was?</h2>
+        <p>Eine Arbeitsplatzmatte ist eine federnde Matte, die an einem festen Platz auf dem Boden liegt, zum Beispiel am Herd. In vielen Betrieben ist sie eine übliche Maßnahme.</p>
       </div>
       <div class="weg__raster" data-weg>
         <figure class="weg__bild">
-          <svg class="weg" viewBox="0 0 360 240" role="img" aria-label="Grundriss einer Küche. Am Herd liegt eine Arbeitsplatzmatte. Eine gepunktete Linie führt in einer Schicht vom Herd über Pass, Service, Kühllager und Lager bis zur Spülküche. Fußspuren folgen dem Weg.">
+          <svg class="weg" viewBox="0 0 360 240" role="img" aria-label="Grundriss einer Küche. Am Herd liegt eine Arbeitsplatzmatte. Fußspuren folgen dem Weg einer Schicht vom Herd über Pass, Service, Kühllager und Lager bis zur Spülküche. An jeder Station erscheint kurz ihr Name.">
+            <defs><pattern id="fliesen" width="16" height="16" patternUnits="userSpaceOnUse"><path class="weg__fliese" d="M16 0H0V16"/></pattern></defs>
             <rect class="weg__raum" x="4" y="4" width="352" height="232"/>
+            <rect class="weg__boden" x="4" y="4" width="352" height="232" fill="url(#fliesen)"/>
             <rect class="weg__zone" x="150" y="20" width="130" height="18"/>
             <rect class="weg__zone" x="296" y="20" width="44" height="76"/>
             <rect class="weg__zone" x="292" y="108" width="48" height="52"/>
             <rect class="weg__zone" x="236" y="184" width="104" height="38"/>
             <rect class="weg__zone" x="112" y="190" width="84" height="34"/>
-            <rect class="weg__herd" x="24" y="148" width="72" height="34"/>
-            <rect class="weg__matte" x="20" y="188" width="80" height="16" rx="4"/>
+            <circle class="weg__teller" cx="172" cy="29" r="5"/><circle class="weg__teller" cx="204" cy="29" r="5"/><circle class="weg__teller" cx="236" cy="29" r="5"/><circle class="weg__teller" cx="266" cy="29" r="5"/>
+            <circle class="weg__teller" cx="318" cy="38" r="9"/>
+            <path class="weg__teller" d="M316 108V160"/><rect class="weg__herd" x="330" y="126" width="4" height="16"/>
+            <path class="weg__teller" d="M244 196H332M244 210H332"/>
+            <rect class="weg__teller" x="120" y="197" width="32" height="20" rx="3"/><rect class="weg__teller" x="158" y="197" width="32" height="20" rx="3"/>
+            <rect class="weg__herd" x="24" y="140" width="72" height="40"/>
+            <circle class="weg__brenner" cx="42" cy="152" r="6"/><circle class="weg__brenner" cx="78" cy="152" r="6"/><circle class="weg__brenner" cx="42" cy="168" r="6"/><circle class="weg__brenner" cx="78" cy="168" r="6"/>
+            <rect class="weg__matte" x="20" y="186" width="80" height="18" rx="4"/>
+            <path class="weg__streifen" d="M30 190v10M42 190v10M54 190v10M66 190v10M78 190v10M90 190v10"/>
+            <text class="weg__matte-text" x="60" y="199" text-anchor="middle">Matte</text>
             <path class="weg__linie" data-weg-pfad d="M60 168C90 120 150 70 210 56S300 52 318 78S332 120 316 134S304 190 292 204S190 222 150 206"/>
             <g class="weg__stationen" data-weg-stationen>
               <circle cx="60" cy="168" r="7"/><circle cx="210" cy="56" r="7"/><circle cx="318" cy="78" r="7"/>
               <circle cx="316" cy="134" r="7"/><circle cx="292" cy="204" r="7"/><circle cx="150" cy="206" r="7"/>
             </g>
             <g class="weg__spuren" data-weg-spuren></g>
-            <use class="weg__fuss-vorlage" data-weg-fuss href="#sohle-form" width="7" height="18"/>
+            <g class="weg__etiketten" data-weg-etiketten>
+              <text class="weg__etikett" x="60" y="224" text-anchor="middle">Herd</text>
+              <text class="weg__etikett" x="210" y="78" text-anchor="middle">Pass</text>
+              <text class="weg__etikett" x="318" y="62" text-anchor="middle">Service</text>
+              <text class="weg__etikett" x="316" y="154" text-anchor="middle">Kühllager</text>
+              <text class="weg__etikett" x="292" y="233" text-anchor="middle">Lager</text>
+              <text class="weg__etikett" x="154" y="234" text-anchor="middle">Spülküche</text>
+            </g>
+            <use class="weg__fuss-vorlage" data-weg-fuss href="#sohle-form" width="11" height="27"/>
           </svg>
           <figcaption class="sr-nur">Schematischer Grundriss einer Küche mit Arbeitsplatzmatte am Herd und dem Weg einer Schicht.</figcaption>
         </figure>
-        <ol class="weg__liste">
-          <li>Herd, hier liegt die Arbeitsplatzmatte</li>
-          <li>Pass</li>
-          <li>Service</li>
-          <li>Kühllager</li>
-          <li>Lager</li>
-          <li>Spülküche</li>
-        </ol>
+        <ol class="weg__schritte"><li><strong>Die Matte</strong><span>Sie hilft, solange man auf ihr steht. Sie bleibt an ihrem Platz.</span></li><li><strong>Der Weg</strong><span>Eine Schicht führt durch Küche, Service, Lager und Kühlraum. Ein großer Teil davon liegt abseits der Matte.</span></li><li><strong>Die Sohle</strong><span>Sie steckt im eigenen Schuh und ist den ganzen Tag dabei. Sie hilft an jeder Stelle, auch auf dem Weg zwischen den Plätzen.</span></li></ol>
       </div>
+      <p class="weg__fazit">Matten lassen sich nicht an jeden Ort legen, den Beschäftigte an einem Tag durchlaufen. Die Sohle geht mit jeder Person mit, am Herd, im Lager und auf dem Weg dazwischen. Wer schon Matten hat, behält sie und gewinnt die Strecke dazwischen dazu.</p>
     </div>
   </section>
 
@@ -258,10 +285,18 @@
             </li>
             <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
               <span class="chat__avatar chat__avatar--rolle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="f-signal" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <p class="chat__blase">Ersetzt die Sohle unsere Arbeitsplatzmatten, also die Matten an festen Standplätzen?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
+              <p class="chat__blase">Wir haben schon Arbeitsplatzmatten. Wozu dann noch Sohlen?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Nein. Die Matte liegt an einem Platz, die Sohle ist auf dem ganzen Weg dabei.</p>
+              <p class="chat__blase">Eine Matte hilft an einem Platz. Die Sohle ist bei jedem Schritt der Schicht dabei.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Das Personal wechselt zwischen Herd, Lager und Kühlraum. Die Sohle ist an jedem Ort dabei.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Wer Matten hat, behält sie. Die Sohle gleicht die Wege dazwischen aus.</p>
               <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
             </li>
             <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
@@ -329,12 +364,13 @@
                 <h3 class="ergebnis__titel">Individuell gefertigte Sohlen bei Beschäftigten im Stehen</h3>
                 <svg class="studie__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg>
               </div>
-              <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="Zwei Säulen: Der berichtete Schmerz ist nach drei Wochen niedriger als am Anfang." focusable="false">
-                <text x="160" y="12" text-anchor="middle">Schmerz, Diskomfort, schwere Beine</text>
-                <rect class="ergebnis__rest" x="50" y="24" width="90" height="62"/>
-                <rect class="ergebnis__stunde" x="180" y="55" width="90" height="31"/>
-                <text x="95" y="104" text-anchor="middle">Beginn</text>
-                <text x="225" y="104" text-anchor="middle">nach 3 Wochen</text>
+              <svg class="ergebnis__bild" viewBox="0 0 320 136" role="img" aria-label="Zwei Säulen auf einer Achse für Schmerz, Diskomfort und schwere Beine: Der berichtete Wert ist nach drei Wochen niedriger als am Anfang." focusable="false">
+                <path class="ergebnis__linie" d="M34 14V108H304M30 20l4-6 4 6"/>
+                <text class="ergebnis__achsentext" transform="rotate(-90 14 61)" x="14" y="61" text-anchor="middle"><tspan x="14" dy="-2">Schmerz, Diskomfort,</tspan><tspan x="14" dy="10">schwere Beine</tspan></text>
+                <rect class="ergebnis__rest" x="62" y="18" width="90" height="90"/>
+                <rect class="ergebnis__stunde" x="192" y="63" width="90" height="45"/>
+                <text x="107" y="126" text-anchor="middle">Beginn</text>
+                <text x="237" y="126" text-anchor="middle">nach 3 Wochen</text>
               </svg>
             </div>
             <div class="dreh__hinten">
@@ -400,15 +436,16 @@
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Was Sie für Ihre Sicherheitsprüfung brauchen</h2>
+        <h2 id="termin-titel">Was VIANU für Ihre Prüfung liefert</h2>
       </div>
       <div class="pruefliste" data-pruefliste>
-        <p class="pruefliste__zaehler" aria-live="polite"><strong data-pruefliste-zahl>0</strong> von 5 geprüft</p>
+        <p class="pruefliste__zaehler" aria-live="polite"><strong data-pruefliste-zahl>0</strong> von 5 abgehakt</p>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Umfang</span><span class="pruefliste__dd">Ein ergänzendes Komfortangebot für Arbeits- und Berufsschuhe. Es ersetzt keine Schutzmaßnahme und keine Arbeitsplatzgestaltung.</span></span></button>
-          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Was die Sohle nicht ersetzt</span><span class="pruefliste__dd">Eine Arbeitsplatzmatte (Matte an einem festen Standplatz, zum Beispiel am Herd) liegt an einem Platz. Die Sohle ist auf dem ganzen Weg der Schicht dabei und ergänzt die Matte.</span></span></button>
-          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Material und Hygiene</span><span class="pruefliste__dd"><span class="etikett rubrik__status">Offen</span>Dazu gibt es erst eine Aussage, wenn die Informationen vorliegen.</span></span></button>
-          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Ausschlusskriterien und Datenprozess</span><span class="pruefliste__dd"><span class="etikett rubrik__status">Offen</span>Dazu gibt es erst eine Aussage, wenn die Informationen vorliegen.</span></span></button>
-          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Testgruppe und Gefährdungsbeurteilung</span><span class="pruefliste__dd">Den Pilotumfang gegen die Gefährdungsbeurteilung (Ihre Bewertung der Risiken am Arbeitsplatz) spiegeln, die Testgruppe fachlich freigeben. Die Teilnahme ist freiwillig.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Abgrenzung zur Matte</span><span class="pruefliste__dd">Die Sohle ist den ganzen Tag dabei, auch zwischen den Plätzen. Eine vorhandene Arbeitsplatzmatte kann bleiben.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Material und Hygiene</span><span class="pruefliste__dd">Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Vor der Bestellung erhalten Sie ein Datenblatt zu Material und Hygiene.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Datenumgang</span><span class="pruefliste__dd">Die Fotos der Füße sehen nur VIANU und ihre Fertigungspartner. Sie werden nur für die Anfertigung der Sohle verwendet, in der EU verarbeitet und danach gelöscht.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Testgruppe und Gefährdungsbeurteilung</span><span class="pruefliste__dd">Sie spiegeln den Pilotumfang gegen Ihre Gefährdungsbeurteilung (Ihre Bewertung der Risiken am Arbeitsplatz) und geben die Testgruppe fachlich frei. Die Teilnahme ist freiwillig.</span></span></button>
+        <a class="knopf pruefliste__pilot" href="./#pilot" data-pilot-oeffnen data-pruefliste-pilot hidden>Kontakt anfragen <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
       </div>
       <p class="einseiter__fuss druck-nur">Nächster Schritt: Den Pilotumfang gegen die Gefährdungsbeurteilung spiegeln und die Testgruppe fachlich freigeben. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
     </div>
@@ -450,7 +487,7 @@
           <div class="fragen" role="group" aria-labelledby="fragen-wichtig">
           <details class="frage">
             <summary>Ersetzt eine Einlegesohle Arbeitsplatzmatten (Anti-Ermüdungsmatten)?</summary>
-            <div class="frage__antwort"><p>Nein. Eine Arbeitsplatzmatte liegt an einem festen Platz, eine Einlegesohle ist im Schuh auf dem ganzen Weg einer Schicht dabei. VIANU versteht die Sohle als Ergänzung zur Arbeitsplatzmatte.</p></div>
+            <div class="frage__antwort"><p>Nein. Eine Arbeitsplatzmatte liegt an einem festen Platz und hilft nur dort. Eine Einlegesohle ist im Schuh auf dem ganzen Weg einer Schicht dabei, den ganzen Tag. VIANU versteht die Sohle als Ergänzung zur Arbeitsplatzmatte.</p></div>
           </details>
           <details class="frage">
             <summary>Ersetzt eine Einlegesohle Arbeitsschutzmaßnahmen im Betrieb?</summary>
@@ -458,21 +495,11 @@
           </details>
           <details class="frage">
             <summary>Welche Material- und Hygieneinformationen gibt es zur Einlegesohle?</summary>
-            <div class="frage__antwort">
-              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zu Material und Hygiene">
-                <span class="etikett platzhalter__etikett">Platzhalter</span>
-                <p>Antwort folgt, sobald die Material- und Hygieneinformationen vorliegen. Bis dahin machen wir dazu keine Aussage.</p>
-              </div>
-            </div>
+            <div class="frage__antwort"><p>Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Vor der Bestellung erhalten Sie ein Datenblatt zu Material und Hygiene.</p></div>
           </details>
           <details class="frage">
             <summary>Wer sieht die Fotos beim Fußscan?</summary>
-            <div class="frage__antwort">
-              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zu den Fotos beim Fußscan">
-                <span class="etikett platzhalter__etikett">Platzhalter</span>
-                <p>Antwort folgt, sobald das Datenschutzkonzept steht. Bis dahin machen wir dazu keine Zusage.</p>
-              </div>
-            </div>
+            <div class="frage__antwort"><p>Die Fotos der Füße sehen nur VIANU und ihre Fertigungspartner. Sie werden nur für die Anfertigung der Sohle verwendet, in der EU verarbeitet und danach gelöscht.</p></div>
           </details>
           </div>
         </div>
