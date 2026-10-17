@@ -277,5 +277,5 @@ Status: gebaut
 
 ### Betriebsrat: Datenreise mit Karte und Tagesordnung
 
-- `fluss--karte` (`data-fluss-hover`): stilisierte Karte (Deutschland innerhalb der EU, `karte__eu` und `karte__de` leuchten bei Verarbeitung und Druck auf) neben fünf Zeilen. Mit der Maus öffnet schon das Darüberfahren die Zeile, sonst Klick oder Tippen. Die Statusübersicht `stand-kasten` am Seitenanfang entfällt.
+- `fluss--karte` (`data-fluss-hover`): Umriss von Deutschland (aus den Ländergrenzen von Natural Earth, 1:50 Mio., gemeinfrei, auf etwa 130 Punkte vereinfacht, ohne EU-Umrandung; `karte__de` und die Legendenzeilen leuchten bei Verarbeitung und Druck auf) neben fünf Zeilen. Mit der Maus öffnet schon das Darüberfahren die Zeile, sonst Klick oder Tippen. Die Statusübersicht `stand-kasten` am Seitenanfang entfällt.
 - `tagesordnung`/`top`: nummerierte, aufklappbare Zeilen mit Symbol statt Drehkarten (`data-tagesordnung`), nur feststehende Aussagen. Ohne Skript und im Druck steht jeder Text da.

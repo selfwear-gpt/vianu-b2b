@@ -1959,11 +1959,12 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .fluss--karte .fluss__feld[hidden] { display: none; }
 .fluss__karte { margin: 0; display: flex; flex-direction: column; gap: var(--abstand-3); position: sticky; top: 6rem; }
 .karte { display: block; width: 100%; height: auto; }
-.karte__eu { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 2; stroke-dasharray: 8 6; stroke-linejoin: round; transition: fill 0.3s; }
-.karte__de { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; transition: fill 0.3s; }
-.karte__eu[data-aktiv], .karte__de[data-aktiv] { fill: var(--farbe-signal); }
+.karte__de { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 2.5; stroke-linejoin: round; transition: fill 0.3s; }
+.karte__de[data-aktiv] { fill: var(--farbe-signal); }
 .karte__text { font-family: var(--schrift-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; fill: var(--farbe-tinte); }
-.fluss__legende { display: flex; flex-direction: column; gap: var(--abstand-1); font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.06em; text-transform: uppercase; }
+.fluss__legende span { padding: 0.15rem 0.5rem; transition: background 0.2s; }
+.fluss__legende span[data-aktiv] { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.fluss__legende { display: flex; align-items: flex-start; flex-direction: column; gap: var(--abstand-1); font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); letter-spacing: 0.06em; text-transform: uppercase; }
 @media (max-width: 56rem) { .fluss--karte { grid-template-columns: minmax(0, 1fr); } .fluss__karte { position: static; max-width: 22rem; } }
 .tagesordnung { list-style: none; width: 100%; max-width: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--abstand-3); counter-reset: top; }
 .top { counter-increment: top; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: transform 0.2s, box-shadow 0.2s; }
@@ -1978,5 +1979,14 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .top__text { padding: var(--abstand-4); border-top: var(--kante) solid var(--farbe-tinte); }
 .top__text p { margin: 0; font-size: 1.1rem; line-height: 1.45; max-width: 62ch; }
 .js .top__text:not([data-offen]) { display: none; }
-@media (prefers-reduced-motion: reduce) { .top, .top__pfeil, .karte__eu, .karte__de { transition: none; } .top:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .top, .top__pfeil, .karte__de { transition: none; } .top:hover { transform: none; } }
 @media print { .top:hover { transform: none; box-shadow: none; } .js .top__text:not([data-offen]) { display: block; } .top__pfeil { display: none; } }
+@media print {
+  .top__knopf { padding: var(--abstand-2) var(--abstand-3); }
+  .top__titel { font-size: 1rem; }
+  .top__icon { width: 1.4rem; height: 1.4rem; }
+  .top__knopf::before { width: 1.6rem; height: 1.6rem; font-size: 0.9rem; }
+  .top__text { padding: var(--abstand-2) var(--abstand-3); }
+  .top__text p { font-size: 0.85rem; line-height: 1.3; }
+  .tagesordnung { gap: var(--abstand-2); }
+}
