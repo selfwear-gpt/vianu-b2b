@@ -50,7 +50,7 @@ test("Was der Datenschutz über die Seite sagt, stimmt mit dem Code überein", (
   }
   if (/Namen[^.]*Browser/.test(text) || /keine Verbindung zu Fremdservern/.test(text)) assert.doesNotMatch(js, /fetch\(|XMLHttpRequest|sendBeacon|WebSocket/, "Skript baut eine Verbindung auf");
   if (/Schriften[^.]*eigenen Server/.test(text)) {
-    for (const f of ALLE) assert.doesNotMatch(lies(f).replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, ""), /(src|href)="https?:\/\/(?!doi\.org)/, f + " lädt etwas von außen");
+    for (const f of ALLE) assert.doesNotMatch(lies(f).replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "").replace(/<!-- seo -->[\s\S]*?<!-- \/seo -->/g, ""), /(src|href)="https?:\/\/(?!doi\.org)/, f + " lädt etwas von außen");
     assert.doesNotMatch(lies("assets/css/fonts.css"), /url\(["']?https?:/);
   }
   assert.match(text, /keine Cookies/);

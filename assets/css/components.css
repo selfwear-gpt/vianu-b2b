@@ -2013,8 +2013,7 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .preisrechner > .rechner { margin-bottom: 0; padding: 0; border: 0; max-width: 40rem; }
 .preisrechner__foto { --sohle-anteil: 0.33; width: calc(5rem + 13rem * var(--sohle-anteil)); max-width: 100%; justify-self: end; }
 .preisrechner__foto.platzhalter { padding: var(--abstand-2); }
-.preisrechner__foto .platzhalter__etikett { font-size: 0.55rem; letter-spacing: 0; }
-.preisrechner__foto p { display: none; }
+.preisrechner__foto .platzhalter__etikett { font-size: 0.6rem; line-height: 1.25; letter-spacing: 0; text-align: center; }
 @media (max-width: 40rem) { .preisrechner { grid-template-columns: minmax(0, 1fr); } .preisrechner__foto { justify-self: start; } }
 @media (prefers-reduced-motion: no-preference) { .preisrechner__foto { transition: width 0.15s ease-out; } }
 
@@ -2082,3 +2081,15 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .karte__punkt { fill: var(--farbe-tinte); }
 .karte__text--klein { font-size: 9.5px; letter-spacing: 0.04em; paint-order: stroke; stroke: var(--farbe-papier); stroke-width: 3px; }
 @media (prefers-reduced-motion: reduce) { .karte__szene { transition: none; } }
+/* Matte und Sohle: Das Bild bleibt beim Scrollen stehen, nur Füße und Punkte bewegen sich */
+.weg__haelt[data-haelt] { height: 260vh; }
+.weg__haelt[data-haelt] .weg__stage { position: sticky; top: 5rem; }
+@media print { .weg__haelt[data-haelt] { height: auto; } .weg__haelt[data-haelt] .weg__stage { position: static; } }
+/* Vertrauensleiste unter dem Seitenkopf der B2B-Startseite */
+.vertrauen { padding-block: var(--abstand-5); border-top: var(--kante) solid var(--farbe-tinte); border-bottom: var(--kante) solid var(--farbe-tinte); }
+.vertrauen__liste { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--abstand-5); }
+.vertrauen__punkt { display: flex; flex-direction: column; gap: var(--abstand-1); }
+.vertrauen__punkt strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; line-height: 1.05; text-transform: uppercase; }
+.vertrauen__punkt span { font-size: var(--schrift-groesse-klein); line-height: 1.35; max-width: 34ch; }
+@media (max-width: 48rem) { .vertrauen__liste { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-4); } }
+@media (max-width: 40rem) { .seitenfoto .zahlenkacheln { grid-template-columns: minmax(0, 1fr); } }

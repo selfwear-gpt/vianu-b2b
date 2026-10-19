@@ -45,3 +45,7 @@ Der Test meldet außerdem Überlauf, Anfragen an fremde Server, nicht geladene S
 ## Rückweg
 
 Jede Änderung ist ein Commit auf `main`. Ein Zurückrollen heißt: den Commit rückgängig machen (`git revert`) und neu deployen. Das Deploy-Skript sollte die zuletzt ausgelieferte Version aufbewahren, damit der Server selbst zurückspringen kann.
+
+## Suchmaschinen-Daten
+
+`python3 scripts/seo.py` schreibt Beschreibung, canonical, Open Graph, Twitter-Karte und Organisationsdaten in alle Seiten und erzeugt `robots.txt` und `sitemap.xml`. Die Basisadresse steht in `BASIS` am Anfang des Skripts (derzeit `https://vianu247.com/`, eine Annahme). Vor dem Deploy die echte Adresse eintragen, das Skript ausführen und die Dateien committen. Beschreibungen ändert man in `BESCHREIBUNG` im Skript, nie von Hand in den Seiten. Ein `og:image` kommt dazu, sobald es ein Bild gibt.

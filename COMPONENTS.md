@@ -294,3 +294,7 @@ Status: gebaut
 - Der Grundriss beginnt erst, wenn er ganz im Bild ist, und endet, solange er noch ganz im Bild ist. Die Punkte 1 bis 3 daneben erscheinen mit den Stationen (1 am Anfang, 2 bei Service, 3 beim Lager). Keine Stationskreise, Matte oberhalb des Herds, Etikett "Flur".
 ### Betriebsrat: Datenkarte
 - Jeder der fünf Punkte zeigt eine Szene in der Karte (`karte__szene`): Smartphone mit Fußfoto, Schloss "EU" mit "danach gelöscht", Pin "Druck: 48 h", Pfeile zu drei Betrieben, Liste und anonyme Punktewolke. Kein Wort "Deutschland" in der Karte. "Was Sie von uns erhalten" ist der Einseiter-Abschnitt (`#termin`) der Seite.
+
+### Vertrauensleiste, Matte-Sohle hält
+- `vertrauen` (B2B-Startseite, unter dem Seitenkopf): drei Punkte: gefertigt in Deutschland (48 Stunden), 7 Tage, erteilte Patente mit Nummern.
+- Arbeitsschutz `#weg`: Überschrift und Grundriss stehen in `weg__stage` und bleiben beim Scrollen stehen (sticky in der Hülle `weg__haelt`, 260 vh). Nur Füße, Etiketten und die Punkte 1 bis 3 bewegen sich. Passt die Bühne nicht ins Fenster oder gilt reduzierte Bewegung, läuft es ohne Halten.

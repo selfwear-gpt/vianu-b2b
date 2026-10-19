@@ -118,9 +118,31 @@
       Array.prototype.forEach.call(schritte, function (li) { li.removeAttribute("data-aus"); });
       return;
     }
+    // Hält der Grundriss: Die Hülle ist höher als das Bild, das Bild bleibt beim Scrollen stehen (sticky), und die Scrollstrecke
+    // der Hülle treibt Füße, Etiketten und Punkte. Passt das Bild nicht ins Fenster, läuft die Bewegung wie ohne Hülle.
+    var huelle = wurzel.closest("[data-weg-haelt]");
+    var KOPF = 80;
+    var buehne = huelle ? huelle.querySelector(".weg__stage") : null;
+    function haeltPasst() {
+      return !!buehne && window.innerHeight - KOPF >= buehne.offsetHeight + 16;
+    }
+    function stelleHaltenEin() {
+      if (!huelle) return false;
+      if (haeltPasst()) huelle.setAttribute("data-haelt", "");
+      else huelle.removeAttribute("data-haelt");
+      return huelle.hasAttribute("data-haelt");
+    }
     var geplant = false;
     function aktualisiere() {
       geplant = false;
+      if (stelleHaltenEin()) {
+        var h = huelle.getBoundingClientRect();
+        var strecke = h.height - buehne.offsetHeight;
+        var anteil = strecke > 0 ? (KOPF - h.top) / strecke : 1;
+        // Das letzte Zehntel der Strecke steht der fertige Weg still, bevor die Seite weiterscrollt
+        zeige(Math.max(0, Math.min(1, anteil / 0.9)));
+        return;
+      }
       var r = wurzel.getBoundingClientRect();
       var f = F.fortschrittImBild(r.top, r.height, window.innerHeight);
       // Der Grundriss ist ganz im Bild von von bis bis. Die Bewegung beginnt erst, wenn man ihn ganz sieht, und ist fertig, solange man ihn noch ganz sieht.
