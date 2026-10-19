@@ -1233,15 +1233,6 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
   .fragen__gruppe { grid-template-columns: minmax(0, 1fr); }
   .fragen__titel.etikett { position: static; }
 }
-/* ---------- Zweites Paar ---------- */
-.zweites { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-6); align-items: center; }
-.zweites__bild { width: min(100%, 15rem); height: auto; }
-.zweites__sohle { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 5; }
-.zweites__sohle--leer { fill: none; stroke-dasharray: 14 10; }
-.zweites__frage { font-family: var(--schrift-kopf); font-weight: 800; font-size: 3.5rem; fill: var(--farbe-tinte); }
-@media (max-width: 36rem) {
-  .zweites { grid-template-columns: minmax(0, 1fr); }
-}
 /* ---------- Messwerte: zweite Kachel mit Pink-Kopf, Fußform ruhiger ---------- */
 .messwerte:not(.messwerte--rolle) .messwert:nth-child(2) { border-top: 1rem solid var(--farbe-signal); }
 .sorge__kurz { text-wrap: balance; }
@@ -1919,23 +1910,23 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 @media (prefers-reduced-motion: reduce) { .weg__etikett { transition: none; } }
 
 /* Einkauf: Bestellstrecke und Zahlenkacheln */
-.strecke { --strecke-anteil: 1; list-style: none; width: 100%; max-width: none; margin: var(--abstand-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-3); position: relative; }
-.strecke::before { content: ""; position: absolute; left: 10%; right: 10%; top: 2.1rem; border-top: 3px dashed var(--farbe-tinte); }
-.strecke::after { content: ""; position: absolute; left: 10%; top: 2.1rem; width: calc(80% * var(--strecke-anteil)); border-top: 5px solid var(--farbe-signal); transition: width 0.4s ease-out; }
-.strecke__station { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); text-align: center; }
-.strecke__marke { display: grid; place-items: center; width: 4.2rem; height: 4.2rem; border-radius: 50%; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: background 0.3s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
-.strecke__marke svg { width: 2rem; height: 2rem; fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.strecke__station[data-an] .strecke__marke { background: var(--farbe-signal); transform: scale(1.1); }
-.strecke__station h3 { margin: 0; font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
-.strecke__satz { margin: 0; font-size: 1rem; line-height: 1.4; max-width: 24ch; }
+.bestellstrecke { --bestellstrecke-anteil: 1; list-style: none; width: 100%; max-width: none; margin: var(--abstand-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-3); position: relative; }
+.bestellstrecke::before { content: ""; position: absolute; left: 10%; right: 10%; top: 2.1rem; border-top: 3px dashed var(--farbe-tinte); }
+.bestellstrecke::after { content: ""; position: absolute; left: 10%; top: 2.1rem; width: calc(80% * var(--bestellstrecke-anteil)); border-top: 5px solid var(--farbe-signal); transition: width 0.4s ease-out; }
+.bestellstrecke__station { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); text-align: center; }
+.bestellstrecke__marke { display: grid; place-items: center; width: 4.2rem; height: 4.2rem; border-radius: 50%; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: background 0.3s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
+.bestellstrecke__marke svg { width: 2rem; height: 2rem; fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.bestellstrecke__station[data-an] .bestellstrecke__marke { background: var(--farbe-signal); transform: scale(1.1); }
+.bestellstrecke__station h3 { margin: 0; font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
+.bestellstrecke__satz { margin: 0; font-size: 1rem; line-height: 1.4; max-width: 24ch; }
 @media (max-width: 56rem) {
-  .strecke { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-5); }
-  .strecke::before, .strecke::after { display: none; }
-  .strecke__station { flex-direction: column; align-items: flex-start; text-align: left; padding-left: 5.4rem; min-height: 4.2rem; }
-  .strecke__marke { position: absolute; left: 0; top: 0; }
-  .strecke__satz { max-width: none; }
+  .bestellstrecke { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-5); }
+  .bestellstrecke::before, .bestellstrecke::after { display: none; }
+  .bestellstrecke__station { flex-direction: column; align-items: flex-start; text-align: left; padding-left: 5.4rem; min-height: 4.2rem; }
+  .bestellstrecke__marke { position: absolute; left: 0; top: 0; }
+  .bestellstrecke__satz { max-width: none; }
 }
-@media (prefers-reduced-motion: reduce) { .strecke::after, .strecke__marke { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .bestellstrecke::after, .bestellstrecke__marke { transition: none; } }
 .zahlenkacheln { list-style: none; width: 100%; max-width: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr)); gap: var(--abstand-4); }
 .zahlenkachel { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5) var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); transition: transform 0.2s, box-shadow 0.2s; }
 .zahlenkachel:nth-child(odd) { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
@@ -1990,3 +1981,56 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
   .top__text p { font-size: 0.85rem; line-height: 1.3; }
   .tagesordnung { gap: var(--abstand-2); }
 }
+
+/* Kontaktwahl: Telefon oder Formular */
+.kontaktwahl { width: min(34rem, calc(100vw - 2 * var(--abstand-4))); }
+.kontaktwahl[data-modus="telefon"] [data-nur-wahl], .kontaktwahl[data-modus="wahl"] [data-nur-telefon] { display: none; }
+.kontaktwahl__knoepfe { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand-4); }
+.kontaktwahl__option { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-2); padding: var(--abstand-4); text-align: left; background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); cursor: pointer; font: inherit; }
+.kontaktwahl__option strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; line-height: 1; text-transform: uppercase; }
+.kontaktwahl__option span { font-size: var(--schrift-groesse-klein); line-height: 1.35; }
+.kontaktwahl__option:hover, .kontaktwahl__option:focus-visible { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.kontaktwahl__telefon { display: flex; flex-direction: column; gap: var(--abstand-3); padding-top: var(--abstand-3); border-top: var(--kante) solid var(--farbe-tinte); }
+.kontaktwahl__telefon[hidden] { display: none; }
+.kontaktwahl__satz { margin: 0; }
+.kontaktwahl__nummer { margin: 0; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1; user-select: all; }
+.kontaktwahl__aktionen { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+@media (max-width: 30rem) { .kontaktwahl__knoepfe { grid-template-columns: minmax(0, 1fr); } }
+
+/* Produktfoto der Sohle: Platzhalter neben Inhalten */
+.platzhalter--sohle { aspect-ratio: 4 / 3; align-items: center; text-align: center; max-width: 100%; }
+.seitenfoto { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--abstand-6) clamp(24px, 4vw, 56px); align-items: start; }
+.seitenfoto__foto { position: sticky; top: var(--abstand-6); }
+@media (max-width: 56rem) {
+  .seitenfoto { grid-template-columns: minmax(0, 1fr); }
+  .seitenfoto__foto { position: static; }
+}
+
+/* Preisregler mit wachsendem Sohlenfoto: 5rem bei 20 Schichten, 18rem bei 600 */
+.preisrechner { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--abstand-5) clamp(24px, 4vw, 56px); align-items: center; margin-bottom: var(--abstand-7); }
+.preisrechner > .rechner { margin-bottom: 0; padding: 0; border: 0; max-width: 40rem; }
+.preisrechner__foto { --sohle-anteil: 0.33; width: calc(5rem + 13rem * var(--sohle-anteil)); max-width: 100%; justify-self: end; }
+.preisrechner__foto.platzhalter { padding: var(--abstand-2); }
+.preisrechner__foto .platzhalter__etikett { font-size: 0.55rem; letter-spacing: 0; }
+.preisrechner__foto p { display: none; }
+@media (max-width: 40rem) { .preisrechner { grid-template-columns: minmax(0, 1fr); } .preisrechner__foto { justify-self: start; } }
+@media (prefers-reduced-motion: no-preference) { .preisrechner__foto { transition: width 0.15s ease-out; } }
+
+/* Zufriedenheitsgarantie */
+.garantie__schritte { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--abstand-4); }
+.garantie__schritt { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-4); align-items: start; padding: var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); }
+.garantie__zahl { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--farbe-signal); color: var(--farbe-auf-signal); font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; }
+.garantie__schritt h3 { margin: 0 0 var(--abstand-1); font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
+.garantie__schritt p { margin: 0; line-height: 1.4; }
+.garantie__fazit { margin: var(--abstand-5) 0 0; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1; text-transform: uppercase; }
+.garantie--kurz .garantie__fazit { margin-top: 0; }
+@media print {
+  .kontaktwahl, .preisrechner__foto, .seitenfoto__foto { display: none; }
+  .seitenfoto { grid-template-columns: minmax(0, 1fr); }
+}
+.preisrechner > .rechner .rechner__ergebnis { position: relative; }
+.seitenfoto .zahlenkacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.seitenfoto__inhalt { min-width: 0; }
+.alles { display: flex; flex-direction: column; gap: var(--abstand-4); margin-top: var(--abstand-7); }
+.alles h3 { margin: 0; font-size: var(--schrift-groesse-h2); }
+.alles .platzhalter--sohle { max-width: 36rem; width: 100%; }

@@ -12,7 +12,7 @@ const abschnitte = (h) => [...h.matchAll(/<section class="([^"]*)"(?: id="([^"]+
 const text = (h) => h.replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<svg[\s\S]*?<\/svg>/g, " ").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&euro;/g, "€").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
 const folge = (f) => abschnitte(lies(f)).map((a) => a.id).filter((id) => id !== "stimme-frueh");
 
-const BAUSTEIN = /class="stimme"|class="punkte"|class="strecke"|class="zahlenkacheln"|data-tagesordnung|data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
+const BAUSTEIN = /class="stimme"|class="punkte"|class="bestellstrecke"|class="garantie__schritte"|class="zahlenkacheln"|data-tagesordnung|data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
 
 test("jede Rollenseite hat ihre eigene Reihenfolge, Deutsch und Englisch gleich", () => {
   const de = ROLLEN.map((r) => folge("b2b/" + r + ".html").join(">"));
@@ -122,7 +122,7 @@ test("Termin als Fragenkarten (Einkauf, Betriebsrat) und als Prüfliste (Arbeits
   for (const r of ["einkauf", "betriebsrat"]) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const t = abschnitte(lies(f)).find((x) => x.id === "termin").html;
     if (r === "einkauf") {
-      assert.equal((t.match(/<li class="zahlenkachel">/g) || []).length, 5, f + ": fünf Zahlenkacheln");
+      assert.equal((t.match(/<li class="zahlenkachel">/g) || []).length, 6, f + ": sechs Zahlenkacheln");
       assert.match(t, /<a class="knopf" href="\.\/#pilot" data-pilot-oeffnen>(Weitere Fragen klären|Clarify further questions)/, f + ": Knopf zum Kontaktformular");
     } else {
       assert.equal((t.match(/<li class="top">/g) || []).length, 5, f + ": fünf aufklappbare Zeilen");
@@ -165,7 +165,7 @@ test("Brief als Chat: Rolle links, Roderich rechts, Foto-Platzhalter, Link-Nachr
     assert.ok(rolle >= 2 && roderich >= 3 && rolle + roderich >= 6 && rolle + roderich <= 14, f + ": " + rolle + " und " + roderich + " Nachrichten");
     // Handy-Rahmen: Name im Kopf, Hörer und Menü, Eingabe mit Begrenzung, Sprach- und Sendeknopf
     assert.match(b, /<h2 id="brief-titel" class="chat__titel">(Der Vianu Gründer Roderich Körner-Rehn|The VIANU founder Roderich Körner-Rehn)<\/h2>/, f + ": Name im Kopf");
-    assert.match(b, /<a class="chat__icon" href="\.\/#pilot" data-pilot-oeffnen/, f + ": Hörer öffnet das Formular");
+    assert.match(b, /<a class="chat__icon" href="tel:\+4915678548855" data-telefon-oeffnen/, f + ": Hörer zeigt nur den Telefonweg");
     assert.match(b, /data-chat-menue-knopf[\s\S]*data-chat-neu>(Chat von vorne starten|Restart chat)</, f + ": Menü mit Neustart");
     assert.match(b, /<input type="text" maxlength="\d+"[^>]*placeholder="(Tippen Sie hier Ihre Nachricht ein|Type your message here)"[^>]*data-chat-eingabe>/, f + ": Eingabefeld");
     assert.match(b, /data-chat-senden>/, f + ": Knopf Sprache oder Senden");
@@ -219,9 +219,9 @@ test("Geschäftsführung: Rechner und Klein starten; Einkauf: Rechnung, Lieferze
     assert.match(b, /class="lieferung" id="e-lieferung"/, f);
     assert.match(b, /class="rechnung" id="e-preis"/, f);
     assert.doesNotMatch(b, /sprung__link|lieferung__satz/, f + ": keine Sprungleiste, kein Satz unter der Lieferzeit");
-    assert.match(b, /<ol class="strecke" data-strecke/, f + ": Bestellstrecke");
-    assert.equal((b.match(/<li class="strecke__station">/g) || []).length, 5, f + ": fünf Stationen");
-    assert.equal((b.match(/<span class="strecke__marke"><svg/g) || []).length, 5, f + ": Symbol je Station");
+    assert.match(b, /<ol class="bestellstrecke" data-bestellstrecke/, f + ": Bestellstrecke");
+    assert.equal((b.match(/<li class="bestellstrecke__station">/g) || []).length, 5, f + ": fünf Stationen");
+    assert.equal((b.match(/<span class="bestellstrecke__marke"><svg/g) || []).length, 5, f + ": Symbol je Station");
     assert.match(b, /(48 Stunden|48 hours)/, f + ": Fertigung in 48 Stunden");
     assert.match(lies(f), /(spätestens 7 Tage|at the latest 7 days)/i, f + ": die 7 Tage bleiben");
   }

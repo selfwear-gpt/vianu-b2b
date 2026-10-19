@@ -18,6 +18,7 @@
 <script src="../assets/js/fortschritt.js" defer></script>
 <script src="../assets/js/kosten.js" defer></script>
 <script src="../assets/js/formular.js" defer></script>
+<script src="../assets/js/sitzung.js" defer></script>
 <script src="../assets/js/ablauf.js" defer></script>
 <script src="../assets/js/b2b.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
@@ -473,7 +474,7 @@
             <div class="strecke__ende" data-strecke-ende hidden>
               <div class="formular__feld formular__feld--haken">
                 <input id="b-einwilligung" name="einwilligung" type="checkbox" data-feld="einwilligung">
-                <label for="b-einwilligung">Ich stimme den <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">Datenschutzrichtlinien</a> zu, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden.</label>
+                <label for="b-einwilligung">Ich stimme den <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">Datenschutzrichtlinien</a> zu. Meine Angaben werden zur Bearbeitung dieser Anfrage verarbeitet und bleiben bis zum Schließen dieses Tabs im Browser gespeichert.</label>
               </div>
               <button class="knopf" type="submit" data-absenden disabled>Anfrage absenden
               <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
@@ -535,7 +536,8 @@
   <section class="abschnitt" id="preis" aria-labelledby="preis-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="preis-titel">Preis</h2></div>
-      <div class="rechner" data-rechner>
+      <div class="preisrechner">
+        <div class="rechner" data-rechner>
         <label class="etikett" for="rechner-schichten">Wie viele Schichten hat ein Mitarbeiter im Jahr?</label>
         <div class="rechner__regler">
           <input class="rechner__eingabe" id="rechner-schichten" type="range" min="20" max="600" step="10" value="210" data-rechner-regler>
@@ -543,6 +545,8 @@
         </div>
         <p class="rechner__ergebnis"><span class="rechner__wert" data-rechner-ergebnis aria-live="polite" aria-atomic="true">0,57 Euro</span><span class="rechner__einheit">je Schicht pro Person<span class="info"><button class="info__knopf" type="button" aria-describedby="rechner-info" aria-label="Rechenweg anzeigen">i</button><span class="info__text" id="rechner-info" role="tooltip">Gerechnet: <span data-rechner-text>120 Euro je Paar geteilt durch 210 Schichten pro Person und Jahr</span>, zuzüglich Umsatzsteuer</span></span></span></p>
         <p class="preis__halt">Aus eigenen Tests wissen wir, dass die Sohle mindestens 3 Jahre einwandfrei hält.</p>
+      </div>
+        <div class="platzhalter platzhalter--sohle preisrechner__foto" data-platzhalter data-sohle-foto role="group" aria-label="Platzhalter für ein Produktfoto der Sohle"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Produktfoto der Sohle</p></div>
       </div>
       <div class="preis">
         <div class="preis__links">
@@ -745,13 +749,21 @@
     </div>
   </section>
 
-  <section class="abschnitt" id="zweites-paar" aria-labelledby="zweites-titel">
+  <section class="abschnitt" id="garantie" aria-labelledby="garantie-titel">
     <div class="behaelter">
-      <div class="abschnitt__kopf"><h2 id="zweites-titel">Zweites Paar</h2></div>
-      <div class="zweites"><svg class="zweites__bild" viewBox="0 0 220 140" role="img" aria-label="Zwei Sohlen, eine ausgefüllt und eine gestrichelt" focusable="false"><use class="zweites__sohle" href="#sohle-form" x="40" y="10" width="46" height="120" transform="rotate(-8 63 70)"/><use class="zweites__sohle zweites__sohle--leer" href="#sohle-form" x="116" y="10" width="46" height="120" transform="rotate(8 139 70)"/><text x="190" y="82" class="zweites__frage" aria-hidden="true">?</text></svg><div class="platzhalter platzhalter--abschnitt" data-platzhalter role="group" aria-label="Platzhalter für den Abschnitt Zweites Paar">
-        <span class="etikett platzhalter__etikett">Platzhalter</span>
-        <p>Abschnitt Zweites Paar: Rücknahme und zweites Paar, in wenigen Sätzen. Inhalt folgt, sobald das Konzept dazu steht.</p>
-      </div></div>
+      <div class="abschnitt__kopf"><h2 id="garantie-titel">Zufriedenheitsgarantie</h2>
+        <p>Alle, die unsere Sohlen tragen, haben diese Garantie.</p></div>
+      <div class="seitenfoto">
+        <div class="seitenfoto__inhalt">
+        <ol class="garantie__schritte">
+          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Persönliches Gespräch</h3><p>Passt eine Sohle nicht oder überzeugt sie nicht, sprechen wir online persönlich mit der Person, die sie trägt. So gehen wir genau auf ihre Bedürfnisse ein.</p></div></li>
+          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Nachbessern oder neu fertigen</h3><p>Danach bessern wir die Sohle nach und/oder fertigen sie neu. Sie erreicht den Betrieb kostenlos.</p></div></li>
+          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Kaufpreis zurück</h3><p>Ist die Person danach immer noch nicht zufrieden, erstatten wir den Kaufpreis vollständig.</p></div></li>
+        </ol>
+        <p class="garantie__fazit">Sie sind erst fertig, wenn die Person zufrieden ist.</p>
+        </div>
+        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Platzhalter für ein Produktfoto der Sohle"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Produktfoto der Sohle</p></div>
+      </div>
     </div>
   </section>
 
@@ -876,6 +888,26 @@
 
 </main>
 
+<dialog class="dialog kontaktwahl" aria-labelledby="wahl-titel" data-kontaktwahl data-modus="wahl">
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-wahl-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <h2 id="wahl-titel"><span data-nur-wahl>Wie möchten Sie uns erreichen?</span><span data-nur-telefon>Rufen Sie Roderich an</span></h2>
+    <div class="kontaktwahl__knoepfe" data-nur-wahl>
+      <button class="kontaktwahl__option" type="button" data-wahl-formular><strong>Per Formular</strong><span>Wir melden uns innerhalb von 5 Werktagen.</span></button>
+      <button class="kontaktwahl__option" type="button" data-wahl-telefon><strong>Per Telefon</strong><span>Sprechen Sie direkt mit Roderich Körner-Rehn.</span></button>
+    </div>
+    <div class="kontaktwahl__telefon" data-wahl-telefon-feld hidden>
+      <p class="kontaktwahl__satz">Roderich Körner-Rehn erreichen Sie unter:</p>
+      <p class="kontaktwahl__nummer" data-tel-nummer>+49 15678 54 88 55</p>
+      <div class="kontaktwahl__aktionen">
+        <button class="knopf" type="button" data-tel-kopieren data-ok="Nummer kopiert" data-fehler="Kopieren nicht möglich. Bitte markieren Sie die Nummer.">Nummer kopieren</button>
+        <a class="knopf knopf--dunkel" href="tel:+4915678548855" data-tel-link>Jetzt anrufen</a>
+      </div>
+      <p class="formular__status" role="status" aria-live="polite" data-tel-status></p>
+    </div>
+  </div>
+</dialog>
+
 <dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
@@ -963,7 +995,7 @@
           </div>
           <div class="formular__feld formular__feld--haken">
             <input id="f-einwilligung" name="einwilligung" type="checkbox" aria-describedby="f-einwilligung-fehler" data-feld="einwilligung">
-            <label for="f-einwilligung">Ich stimme zu, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden. Der genaue Wortlaut folgt mit dem Datenschutzhinweis.</label>
+            <label for="f-einwilligung">Ich stimme den <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">Datenschutzrichtlinien</a> zu. Meine Angaben werden zur Bearbeitung dieser Anfrage verarbeitet und bleiben bis zum Schließen dieses Tabs im Browser gespeichert.</label>
             <p class="formular__fehler" id="f-einwilligung-fehler" data-fehler="einwilligung" hidden></p>
           </div>
           <button class="knopf" type="submit">Anfrage absenden

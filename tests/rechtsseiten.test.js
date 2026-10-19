@@ -41,7 +41,13 @@ test("Der Datenschutz nennt jede Firmenangabe als Platzhalter und erfindet keine
 test("Was der Datenschutz über die Seite sagt, stimmt mit dem Code überein", () => {
   const text = sichtbar(lies("datenschutz.html"));
   const js = fs.readdirSync(path.join(ROOT, "assets", "js")).map((f) => lies("assets/js/" + f)).join("\n");
-  if (/keine Cookies/.test(text)) assert.doesNotMatch(js, /document\.cookie|localStorage|sessionStorage|indexedDB/, "Skript speichert etwas");
+  // Gespeichert wird nur im sessionStorage und nur in sitzung.js, die Seite sagt es in "Was diese Seite tut und nicht tut"
+  const ohneSitzung = fs.readdirSync(path.join(ROOT, "assets", "js")).filter((f) => f !== "sitzung.js").map((f) => lies("assets/js/" + f)).join("\n");
+  if (/keine Cookies/.test(text)) {
+    assert.doesNotMatch(js, /document\.cookie|localStorage|indexedDB/, "Skript speichert etwas");
+    assert.doesNotMatch(ohneSitzung, /sessionStorage/, "nur sitzung.js darf den Sitzungsspeicher nutzen");
+    assert.match(text, /Speicher Ihres Browsers, nur für diesen Tab/, "Sitzungsspeicher fehlt in der Datenschutzseite");
+  }
   if (/Namen[^.]*Browser/.test(text) || /keine Verbindung zu Fremdservern/.test(text)) assert.doesNotMatch(js, /fetch\(|XMLHttpRequest|sendBeacon|WebSocket/, "Skript baut eine Verbindung auf");
   if (/Schriften[^.]*eigenen Server/.test(text)) {
     for (const f of ALLE) assert.doesNotMatch(lies(f).replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, ""), /(src|href)="https?:\/\/(?!doi\.org)/, f + " lädt etwas von außen");

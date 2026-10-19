@@ -98,9 +98,16 @@ Status: gebaut
 Status: gebaut
 - Die Gruppen ("Einlegesohlen für Teams", "Zu VIANU") sind farbige Köpfe (Tinte, Pink), auf breiten Schirmen links und klebend. Die Fragen sind nummerierte Karten mit rundem Plus. Gilt für alle Seiten mit FAQ.
 
-### Zweites Paar
-Status: Platzhalter mit Bild
-- Zwei Sohlen (eine ausgefüllt, eine gestrichelt) mit Fragezeichen neben dem markierten Platzhalter. Der Inhalt fehlt, bis es ein Konzept gibt.
+### Zufriedenheitsgarantie
+Status: Inhalt vom Nutzer vorgegeben (19.10.2026)
+- `#garantie` auf der B2B-Startseite (Sie, mit Sohlenfoto-Platzhalter), auf der Seite für Mitarbeitende (Du, ohne Foto), auf Geschäftsführung (kurz) und als sechste Zahlenkachel auf Einkauf. Drei Schritte (`garantie__schritt`): persönliches Online-Gespräch, nachbessern und/oder neu fertigen kostenlos, vollständige Erstattung des Kaufpreises.
+- Offen und nicht auf der Seite: Frist, wer das Gespräch vereinbart, wie "nicht zufriedenstellend" festgestellt wird.
+
+### Sohlenfoto-Platzhalter, Kontaktwahl, Sitzungsspeicher
+- `platzhalter--sohle` (4:3): Platzhalter für ein Produktfoto der Sohle. Neben den Abschnitten "Termin" der fünf Rollenseiten (Hülle `seitenfoto`, rechts, auf dem Handy darunter, im Druck ausgeblendet), bei Betriebsrat auch neben "Was Sie von uns erhalten", auf der B2C-Seite unter "Das alles in einer Sohle". Beim Preisregler der B2B-Startseite (`preisrechner__foto`) wächst er mit dem Regler von 5 auf 18 rem und wird nie wieder kleiner (`--sohle-anteil`, gesetzt in `initRechner`).
+- `data-kontaktwahl` (pilot.js): Jeder Kontakt-Knopf (`data-pilot-oeffnen`, auch im Menü) öffnet zuerst die Wahl "Per Formular" oder "Per Telefon". Telefon: auf dem Handy (`pointer: coarse` und höchstens 56 rem) startet `tel:+4915678548855` die Telefon-App, sonst stehen Nummer und "Nummer kopieren" da. Der Hörer im Chatkopf (`data-telefon-oeffnen`) zeigt nur den Telefonweg. `data-direkt-formular` am Auslöser überspringt die Wahl. Das Chat-Anliegen öffnet das Formular über das Ereignis `pilot:formular`.
+- `sitzung.js` (`VianuSitzung`): Eingaben in `[data-feld]`, Stundenregler und Branchenkachel bleiben im `sessionStorage` (nur dieser Tab, nie das Einwilligungskästchen) und füllen Formular und Anfrage-Strecke vor. Alle Formulare tragen das Kästchen mit Link zur Datenschutzseite.
+
 ### Rollen-Rohbau
 Status: gebaut
 - Fünf Seiten `b2b/<rolle>.html` mit Menü, einem `h1`, der Frage der Rolle und einem Platzhalter, `noindex`. Sie werden mit dem Baustein "Persona-Seite" gefüllt.
@@ -271,7 +278,7 @@ Status: gebaut
 
 ### Einkauf: Bestellstrecke und Zahlenkacheln
 
-- `strecke` (`data-strecke`): fünf Stationen mit Symbol (Anfrage, Angebot, Bestellung, Marke, Nachfertigung), die Linie füllt sich beim Scrollen, rückwärts beim Zurückscrollen. Ersetzt Sprungleiste und `punkte`. Ohne Skript stehen alle Stationen aktiv da.
+- `bestellstrecke` (`data-bestellstrecke`): fünf Stationen mit Symbol (Anfrage, Angebot, Bestellung, Marke, Nachfertigung), die Linie füllt sich beim Scrollen, rückwärts beim Zurückscrollen. Ersetzt Sprungleiste und `punkte`. Ohne Skript stehen alle Stationen aktiv da.
 - `zahlenkacheln`/`zahlenkachel`: große Zahl (1.200 €, 0, 14 Tage, 7 Tage, Logo), Etikett, Satz. Kacheln heben sich beim Darüberfahren. Darunter Knopf "Weitere Fragen klären" zum Kontaktformular. Ersetzt die Drehkarten.
 - Hero: Gegenüberstellung "Ihr Aufwand" und "Unser Aufwand", Preis nur als Zeile "Test mit 10 Mitarbeitenden".
 

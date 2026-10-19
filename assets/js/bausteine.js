@@ -5,7 +5,7 @@
   Chat-Brief [data-chat]: die Nachrichten stehen im HTML, das Skript blendet sie beim Scrollen nacheinander ein (in Rahmen ohne Scrollen per Mausrad, Wisch oder Tipp), vorher erscheinen Tippen-Punkte.
   Das Menü "Chat von vorne starten" setzt zurück. Eingabefeld, Mikro- und Sendeknopf öffnen das Kontaktformular (Nachricht im Feld "Anliegen").
   Versteckte Seiten der Gesamtvorschau starten erst, wenn sie sichtbar werden. Bei reduzierter Bewegung und ohne Skript stehen alle Nachrichten sofort da. Ergebnisbild [data-ergebnis]: der Balken baut sich beim Sichtbarwerden auf.
-  Tagesordnung [data-tagesordnung]: aufklappbare Zeilen. Bestellstrecke [data-strecke]: Stationen füllen sich beim Scrollen (benötigt fortschritt.js, ohne Skript stehen alle Stationen da).
+  Tagesordnung [data-tagesordnung]: aufklappbare Zeilen. Bestellstrecke [data-bestellstrecke]: Stationen füllen sich beim Scrollen (benötigt fortschritt.js, ohne Skript stehen alle Stationen da).
   Umfrage [data-umfrage]: Antworten sind nur zur Ansicht antippbar, nichts wird gespeichert. Ab drei Antworten erscheint [data-umfrage-pilot].
 */
 (function () {
@@ -87,7 +87,6 @@
     var eingabe = wurzel.querySelector("[data-chat-eingabe]");
     var senden = wurzel.querySelector("[data-chat-senden]");
     var feld = eingabe ? eingabe.parentNode : null;
-    var hoerer = wurzel.querySelector(".chat__kopf [data-pilot-oeffnen]");
 
     function setzeMenue(offen) {
       if (!menueKnopf || !menue) return;
@@ -137,7 +136,8 @@
         ziel.value = eingabe.value.replace(/\s+/g, " ").trim();
         ziel.dispatchEvent(new Event("input", { bubbles: true }));
       }
-      if (hoerer) hoerer.click();
+      // Das Anliegen aus dem Chat gehört ins Formular: Es öffnet direkt, ohne die Wahl zwischen Telefon und Formular
+      if (dialog) dialog.dispatchEvent(new CustomEvent("pilot:formular"));
     }
     eingabe.addEventListener("input", aktualisiere);
     eingabe.addEventListener("keydown", function (e) {
@@ -388,17 +388,17 @@
     });
   }
 
-  // Bestellstrecke [data-strecke]: Stationen und Linie füllen sich beim Scrollen, rückwärts beim Zurückscrollen.
+  // Bestellstrecke [data-bestellstrecke]: Stationen und Linie füllen sich beim Scrollen, rückwärts beim Zurückscrollen.
   function initStrecke(wurzel) {
     var F = window.VianuFortschritt;
-    var stationen = wurzel.querySelectorAll(".strecke__station");
+    var stationen = wurzel.querySelectorAll(".bestellstrecke__station");
     var reduziert = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     function setze(n) {
       Array.prototype.forEach.call(stationen, function (st, i) {
         if (i < n) st.setAttribute("data-an", "");
         else st.removeAttribute("data-an");
       });
-      wurzel.style.setProperty("--strecke-anteil", String(stationen.length > 1 ? Math.max(0, n - 1) / (stationen.length - 1) : 1));
+      wurzel.style.setProperty("--bestellstrecke-anteil", String(stationen.length > 1 ? Math.max(0, n - 1) / (stationen.length - 1) : 1));
     }
     if (!F || reduziert || !stationen.length) { setze(stationen.length); return; }
     var geplant = false;
@@ -417,7 +417,7 @@
   }
 
   function start() {
-    jeder("[data-strecke]", initStrecke);
+    jeder("[data-bestellstrecke]", initStrecke);
     jeder("[data-tagesordnung]", initTagesordnung);
     jeder("[data-pruefliste]", initPruefliste);
     jeder("[data-fluss]", initFluss);
