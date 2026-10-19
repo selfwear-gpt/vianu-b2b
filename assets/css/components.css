@@ -2087,5 +2087,8 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 @media print { .weg__haelt[data-haelt] { height: auto; } .weg__haelt[data-haelt] .weg__stage { position: static; } }
 /* Vertrauensleiste: Kurz-Leiste mit drei Spalten */
 .kurz--drei .kurz__liste { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (max-width: 56rem) { .kurz--drei .kurz__liste { grid-template-columns: minmax(0, 1fr); } .kurz--drei .kurz__punkt { border-left: 0; padding-left: 0; } .kurz--drei .kurz__punkt:nth-child(n+2) { border-top: 1px solid var(--farbe-tinte); } }
+.kurz--drei .kurz__punkt { align-items: center; justify-content: center; text-align: center; padding-inline: var(--abstand-5); }
+.kurz--drei .kurz__punkt:first-child { padding-left: var(--abstand-5); }
+.kurz--drei .kurz__punkt p { max-width: 38ch; }
+@media (max-width: 56rem) { .kurz--drei .kurz__liste { grid-template-columns: minmax(0, 1fr); } .kurz--drei .kurz__punkt { border-left: 0; padding-inline: var(--abstand-4); } .kurz--drei .kurz__punkt:nth-child(n+2) { border-top: 1px solid var(--farbe-tinte); } }
 @media (max-width: 40rem) { .seitenfoto .zahlenkacheln { grid-template-columns: minmax(0, 1fr); } }
