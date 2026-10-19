@@ -296,5 +296,5 @@ Status: gebaut
 - Jeder der fünf Punkte zeigt eine Szene in der Karte (`karte__szene`): Smartphone mit Fußfoto, Schloss "EU" mit "danach gelöscht", Pin "Druck: 48 h", Pfeile zu drei Betrieben, Liste und anonyme Punktewolke. Kein Wort "Deutschland" in der Karte. "Was Sie von uns erhalten" ist der Einseiter-Abschnitt (`#termin`) der Seite.
 
 ### Vertrauensleiste, Matte-Sohle hält
-- Vertrauensleiste (B2B-Startseite, unter dem Seitenkopf, `kurz kurz--drei` wie die Kurz-Leiste auf der B2C-Seite): je Spalte ein Satz mit ein bis zwei hervorgehobenen Wörtern (`kurz__wort`): In Deutschland gefertigt (48 Stunden), 7 Tage, Patente erteilt mit Nummern.
+- Vertrauensleiste (B2B-Startseite, unter dem Seitenkopf, `kurz kurz--drei` wie die Kurz-Leiste auf der B2C-Seite): je Spalte ein Satz mit ein bis zwei hervorgehobenen Wörtern (`kurz__wort`): In Deutschland gefertigt (lokal 3D-gedruckt, 48 Stunden), 7 Tage bis vor Ort, Patente mit Nummern (hervorgehoben: Vermessen, Optimierung).
 - Arbeitsschutz `#weg`: Überschrift und Grundriss stehen in `weg__stage` und bleiben beim Scrollen stehen (sticky in der Hülle `weg__haelt`, 260 vh). Nur Füße, Etiketten und die Punkte 1 bis 3 bewegen sich. Passt die Bühne nicht ins Fenster oder gilt reduzierte Bewegung, läuft es ohne Halten.
