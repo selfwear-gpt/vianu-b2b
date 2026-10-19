@@ -416,7 +416,38 @@
     aktualisiere();
   }
 
+  // Zufriedenheitskurve [data-garantie-kurve]: Die Linie zeichnet sich beim Scrollen, die drei Punkte leuchten nacheinander auf.
+  // Ohne Skript oder bei reduzierter Bewegung steht alles da.
+  function initGarantieKurve(wurzel) {
+    var F = window.VianuFortschritt;
+    var marken = wurzel.querySelectorAll("[data-punkt]");
+    var texte = wurzel.querySelectorAll("[data-punkt-text]");
+    var reduziert = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var PUNKTE = [0.18, 0.5, 0.82];
+    function setze(anteil) {
+      wurzel.style.setProperty("--kurve-anteil", String(anteil));
+      Array.prototype.forEach.call(marken, function (m, i) {
+        if (anteil >= PUNKTE[i] - 0.001) m.setAttribute("data-an", ""); else m.removeAttribute("data-an");
+      });
+      Array.prototype.forEach.call(texte, function (t, i) {
+        if (anteil >= PUNKTE[i] - 0.001) t.setAttribute("data-an", ""); else t.removeAttribute("data-an");
+      });
+    }
+    if (!F || reduziert) { setze(1); return; }
+    var geplant = false;
+    function aktualisiere() {
+      geplant = false;
+      var r = wurzel.getBoundingClientRect();
+      setze(Math.min(1, F.fortschrittImBild(r.top, r.height, window.innerHeight) / 0.6));
+    }
+    function planen() { if (!geplant) { geplant = true; window.requestAnimationFrame(aktualisiere); } }
+    window.addEventListener("scroll", planen, { passive: true });
+    window.addEventListener("resize", planen);
+    aktualisiere();
+  }
+
   function start() {
+    jeder("[data-garantie-kurve]", initGarantieKurve);
     jeder("[data-bestellstrecke]", initStrecke);
     jeder("[data-tagesordnung]", initTagesordnung);
     jeder("[data-pruefliste]", initPruefliste);

@@ -22,6 +22,7 @@
 <script src="../assets/js/b2b.js" defer></script>
 <script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
+<script src="../assets/js/studien.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -322,7 +323,7 @@
         <div class="rubrik"><dt><svg class="rubrik__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></svg>Auswertung und Ausweitung</dt><dd>Ein Bericht am Ende des Piloten, unter anderem mit vier Fragen an die Teilnehmenden. Danach entscheiden Sie über mehr. Auf einen Rollout legen Sie sich vorher nicht fest.</dd></div>
       </dl>
         </div>
-        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Platzhalter für ein Produktfoto der Sohle"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Produktfoto der Sohle</p></div>
+        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Platzhalter für Produktfoto der Sohlen"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Platzhalter für Produktfoto der Sohlen</p></div>
       </div>
       <p class="einseiter__fuss druck-nur">Nächster Schritt: Eine Testgruppe von 10 Mitarbeitenden benennen, einen Auswertungstermin festlegen und erst danach über die Skalierung entscheiden. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
     </div>
@@ -333,12 +334,20 @@
       <div class="abschnitt__kopf"><h2 id="garantie-titel">Zufriedenheitsgarantie</h2>
         <p>Ihr Risiko im Pilot bleibt klein.</p></div>
       <div class="seitenfoto__inhalt garantie--kurz">
-        <ol class="garantie__schritte">
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Gespräch</h3><p>Wir sprechen online mit der Person, die die Sohle trägt.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Nachbessern oder neu fertigen</h3><p>Wir bessern nach und/oder fertigen neu, kostenlos für den Betrieb.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Kaufpreis zurück</h3><p>Genügt das nicht, erstatten wir den Kaufpreis vollständig.</p></div></li>
+        <div class="garantie__kurvenwurzel" data-garantie-kurve>
+        <svg class="garantie__kurve" viewBox="0 0 640 250" role="img" aria-label="Kurve der Zufriedenheit: Punkt 1 Gespräch im Tiefpunkt, Punkt 2 Nachbessern oder neu fertigen im Hochpunkt, Punkt 3 Kaufpreis zurück auf dem Plateau." focusable="false">
+          <path class="garantie__linie" pathLength="1" d="M0 110C50 110 62 205 107 205S250 205 270 125S280 45 320 45S410 45 450 78S480 95 533 95H640"/>
+          <g class="garantie__marke" data-punkt><circle cx="107" cy="205" r="22"/><text x="107" y="213" text-anchor="middle">1</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="320" cy="45" r="22"/><text x="320" y="53" text-anchor="middle">2</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="533" cy="95" r="22"/><text x="533" y="103" text-anchor="middle">3</text></g>
+        </svg>
+        <ol class="garantie__punkte">
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Gespräch</h3><p>Wir sprechen online mit der Person, die die Sohle trägt.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Nachbessern oder neu fertigen</h3><p>Wir bessern nach oder fertigen neu, kostenlos für den Betrieb.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Kaufpreis zurück</h3><p>Genügt das nicht, erstatten wir den Kaufpreis vollständig.</p></div></li>
         </ol>
-        <p class="garantie__fazit">Am Ende steht die volle Erstattung des Kaufpreises.</p>
+      </div>
+        <p class="garantie__fazit">Für uns zählt, dass die Sohle für jede Person im Team etwas bringt.</p>
       </div>
     </div>
   </section>
@@ -428,7 +437,7 @@
       </div>
       <div class="weiter" data-weiterleiten data-weiterleiten-diese-seite>
         <div class="weiter__aktionen">
-          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-geschaeftsfuehrung.pdf" download>Einseiter als PDF</a>
+          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-geschaeftsfuehrung.pdf" data-studie-datei="../assets/downloads/rolle-geschaeftsfuehrung.pdf" data-studie-name="rolle-geschaeftsfuehrung.pdf" data-studie-titel="Einseiter: Geschäftsführung">Einseiter als PDF</a>
           <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Link zu dieser Seite kopieren</button>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -448,6 +457,23 @@
   </section>
 
 </main>
+
+<dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-studie-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <p class="etikett">Herunterladen</p>
+    <h2 id="studie-titel" data-studie-titel></h2>
+    <p>Keine Sorge, es wird kein Spam von uns geben.</p>
+    <form class="formular" novalidate>
+      <div class="formular__feld">
+        <label>Ihre E-Mail-Adresse<input type="email" name="email" autocomplete="email" maxlength="254" placeholder="name@firma.de" required data-studie-email aria-describedby="studie-fehler"></label>
+        <p class="formular__fehler" id="studie-fehler" data-studie-fehler hidden></p>
+      </div>
+      <p class="etikett">Nach der Eingabe Ihrer E-Mail-Adresse wird Ihnen die Datei zur Verfügung gestellt. Es gelten die <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">Datenschutzrichtlinien</a>.</p>
+      <button class="knopf" type="submit" data-studie-absenden>Jetzt herunterladen <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+    </form>
+  </div>
+</dialog>
 
 <dialog class="dialog kontaktwahl" aria-labelledby="wahl-titel" data-kontaktwahl data-modus="wahl">
   <div class="dialog__innen">

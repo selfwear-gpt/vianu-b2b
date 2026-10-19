@@ -79,6 +79,13 @@
         else zeigeWahl(false);
       });
     });
+    // Auslöser ohne eigene Tastenbedienung (z. B. ein Wort in einer Grafik mit role="link") öffnen auch mit Enter und Leertaste
+    Array.prototype.forEach.call(oeffnen, function (a) {
+      if (/^(A|BUTTON)$/.test(a.tagName)) return;
+      a.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); a.dispatchEvent(new MouseEvent("click", { bubbles: true })); }
+      });
+    });
     // Hörer im Chat: auf dem Handy ruft der Link direkt an, sonst erscheint der Telefonweg ohne Formular
     Array.prototype.forEach.call(telefonKnoepfe, function (a) {
       a.addEventListener("click", function (e) {

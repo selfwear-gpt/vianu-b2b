@@ -100,7 +100,8 @@ Status: gebaut
 
 ### Zufriedenheitsgarantie
 Status: Inhalt vom Nutzer vorgegeben (19.10.2026)
-- `#garantie` auf der B2B-Startseite (Sie, mit Sohlenfoto-Platzhalter), auf der Seite für Mitarbeitende (Du, ohne Foto), auf Geschäftsführung (kurz) und als sechste Zahlenkachel auf Einkauf. Drei Schritte (`garantie__schritt`): persönliches Online-Gespräch, nachbessern und/oder neu fertigen kostenlos, vollständige Erstattung des Kaufpreises.
+- `#garantie` auf der B2B-Startseite (Sie, mit Sohlenfoto-Platzhalter), auf der Seite für Mitarbeitende (Du, ohne Foto), auf Geschäftsführung (kurz) und als sechste Zahlenkachel auf Einkauf. Drei Schritte (`garantie__schritt`): persönliches Online-Gespräch, nachbessern oder neu fertigen kostenlos, vollständige Erstattung des Kaufpreises.
+- Mit Foto-Platzhalter (B2B-Startseite): drei Zeilen mit Hover wie die Tabellenzeilen. Ohne Foto (B2C, Geschäftsführung): Zufriedenheitskurve `garantie__kurve` (`data-garantie-kurve`) mit Tief (1 Gespräch), Hoch (2 Nachbessern oder neu fertigen) und Plateau (3 Kaufpreis zurück), die Linie zeichnet sich beim Scrollen. Abschluss: "Für uns zählt, dass die Sohle für jede Person im Team (B2C: für dich) etwas bringt."
 - Offen und nicht auf der Seite: Frist, wer das Gespräch vereinbart, wie "nicht zufriedenstellend" festgestellt wird.
 
 ### Sohlenfoto-Platzhalter, Kontaktwahl, Sitzungsspeicher
@@ -286,3 +287,10 @@ Status: gebaut
 
 - `fluss--karte` (`data-fluss-hover`): Umriss von Deutschland (aus den Ländergrenzen von Natural Earth, 1:50 Mio., gemeinfrei, auf etwa 130 Punkte vereinfacht, ohne EU-Umrandung; `karte__de` und die Legendenzeilen leuchten bei Verarbeitung und Druck auf) neben fünf Zeilen. Mit der Maus öffnet schon das Darüberfahren die Zeile, sonst Klick oder Tippen. Die Statusübersicht `stand-kasten` am Seitenanfang entfällt.
 - `tagesordnung`/`top`: nummerierte, aufklappbare Zeilen mit Symbol statt Drehkarten (`data-tagesordnung`), nur feststehende Aussagen. Ohne Skript und im Druck steht jeder Text da.
+
+### Downloads mit E-Mail-Adresse
+- Jeder Download (Verweise mit `data-studie-datei`, `data-studie-name`, `data-studie-titel`) öffnet das Popup `data-studie-dialog` (studien.js), prüft die E-Mail-Adresse und startet danach den Download. Ohne Skript führt der `href` direkt zur Datei. Die Adresse wird nicht gesendet und nicht gespeichert.
+### Arbeitsschutz: Matte und Sohle
+- Der Grundriss beginnt erst, wenn er ganz im Bild ist, und endet, solange er noch ganz im Bild ist. Die Punkte 1 bis 3 daneben erscheinen mit den Stationen (1 am Anfang, 2 bei Service, 3 beim Lager). Keine Stationskreise, Matte oberhalb des Herds, Etikett "Flur".
+### Betriebsrat: Datenkarte
+- Jeder der fünf Punkte zeigt eine Szene in der Karte (`karte__szene`): Smartphone mit Fußfoto, Schloss "EU" mit "danach gelöscht", Pin "Druck: 48 h", Pfeile zu drei Betrieben, Liste und anonyme Punktewolke. Kein Wort "Deutschland" in der Karte. "Was Sie von uns erhalten" ist der Einseiter-Abschnitt (`#termin`) der Seite.

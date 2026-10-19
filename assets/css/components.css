@@ -965,7 +965,7 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
   position: relative;
   display: grid;
   gap: var(--abstand-5);
-  margin: 0;
+  margin: 0 auto;
   padding: var(--abstand-6);
   max-width: 44rem;
   background: var(--farbe-papier);
@@ -1760,7 +1760,6 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 }
 @media print {
   .stand-kasten { margin-top: var(--abstand-3); padding: var(--abstand-3); }
-  .dokumente { display: none; }
 }
 
 /* ---------- Geschäftsführung: Motiv mit Zehnerstapel und Kalenderblatt, Kostenwert, Lieferung und Haltbarkeit ---------- */
@@ -1902,12 +1901,15 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .weg__etikett { font-size: 9px; font-weight: 700; paint-order: stroke; stroke: var(--farbe-papier); stroke-width: 4px; stroke-linejoin: round; transform-box: fill-box; transform-origin: center; transition: opacity 0.25s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
 .weg__etikett[data-aus] { opacity: 0; transform: scale(0.6); }
 .weg__schritte { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--abstand-5); counter-reset: schritt; }
+.weg__stationen { visibility: hidden; }
+.js .weg__schritte li { transition: opacity 0.3s, transform 0.3s; }
+.js .weg__schritte li[data-aus] { opacity: 0; transform: translateY(8px); }
 .weg__schritte li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--abstand-3); align-items: start; counter-increment: schritt; }
 .weg__schritte li::before { content: counter(schritt); grid-row: 1 / span 2; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-tinte); font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.3rem; }
 .weg__schritte strong { font-family: var(--schrift-kopf); font-size: 1.4rem; line-height: 1.1; text-transform: uppercase; }
 .weg__schritte span { font-size: 1.1rem; line-height: 1.4; }
 .weg__fazit { margin: var(--abstand-5) 0 0; max-width: 62ch; font-size: 1.15rem; line-height: 1.45; }
-@media (prefers-reduced-motion: reduce) { .weg__etikett { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .weg__etikett, .js .weg__schritte li { transition: none; } }
 
 /* Einkauf: Bestellstrecke und Zahlenkacheln */
 .bestellstrecke { --bestellstrecke-anteil: 1; list-style: none; width: 100%; max-width: none; margin: var(--abstand-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-3); position: relative; }
@@ -2023,7 +2025,32 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .garantie__schritt h3 { margin: 0 0 var(--abstand-1); font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
 .garantie__schritt p { margin: 0; line-height: 1.4; }
 .garantie__fazit { margin: var(--abstand-5) 0 0; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1; text-transform: uppercase; }
-.garantie--kurz .garantie__fazit { margin-top: 0; }
+.garantie__schritt { transition: transform 0.15s, background-color 0.15s, box-shadow 0.15s; }
+.garantie__schritt:hover { transform: translateY(-3px); background: var(--farbe-signal); box-shadow: 0 4px 0 var(--farbe-tinte); }
+.garantie__schritt:hover .garantie__zahl { background: var(--farbe-papier); }
+.garantie__fazit { margin: var(--abstand-6) 0 0; }
+.garantie--kurz .garantie__fazit { margin-top: var(--abstand-6); }
+.garantie__kurvenwurzel { --kurve-anteil: 1; display: flex; flex-direction: column; gap: var(--abstand-4); }
+.garantie__kurve { width: 100%; height: auto; overflow: visible; }
+.garantie__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--kurve-anteil)); }
+.garantie__marke circle { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 4; transition: fill 0.3s; }
+.garantie__marke text { font-family: var(--schrift-kopf); font-weight: 800; font-size: 24px; fill: var(--farbe-tinte); }
+.garantie__marke[data-an] circle { fill: var(--farbe-signal); }
+.garantie__punkte { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--abstand-4); }
+.garantie__punkt { text-align: center; transition: opacity 0.3s; }
+.garantie__punkt .garantie__zahl { display: none; }
+.garantie__punkt h3 { margin: 0 0 var(--abstand-1); font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
+.garantie__punkt p { margin: 0 auto; max-width: 28ch; line-height: 1.4; }
+.js .garantie__punkt:not([data-an]) { opacity: 0.25; }
+@media (max-width: 40rem) {
+  .garantie__kurve { display: none; }
+  .garantie__punkte { grid-template-columns: minmax(0, 1fr); }
+  .garantie__punkt { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-3); text-align: left; padding: var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); }
+  .garantie__punkt .garantie__zahl { display: grid; }
+  .garantie__punkt p { margin: 0; max-width: none; }
+  .js .garantie__punkt:not([data-an]) { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .garantie__schritt, .garantie__marke circle, .garantie__punkt { transition: none; } .garantie__schritt:hover { transform: none; } }
 @media print {
   .kontaktwahl, .preisrechner__foto, .seitenfoto__foto { display: none; }
   .seitenfoto { grid-template-columns: minmax(0, 1fr); }
@@ -2034,3 +2061,24 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .alles { display: flex; flex-direction: column; gap: var(--abstand-4); margin-top: var(--abstand-7); }
 .alles h3 { margin: 0; font-size: var(--schrift-groesse-h2); }
 .alles .platzhalter--sohle { max-width: 36rem; width: 100%; }
+#stimme .abschnitt__kopf, #stimmen .abschnitt__kopf { text-align: center; }
+.seitenfoto .dokument { grid-template-columns: auto minmax(0, 1fr); }
+.seitenfoto .dokument__knopf { grid-column: 1 / -1; justify-self: start; }
+.dokument__knopf { max-width: 100%; white-space: normal; }
+@media print {
+  .dokumente { display: flex; gap: var(--abstand-2); }
+  .dokument { padding: var(--abstand-2) var(--abstand-3); grid-template-columns: auto minmax(0, 1fr); }
+  .dokument__bild { width: 1.5rem; }
+  .dokument__knopf { display: none; }
+  .dokument__nutzen { font-size: 0.85rem; margin-top: 0; }
+  .dokument__titel { font-size: 1rem; }
+}
+.karte__szene { opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.karte__szene[data-aktiv] { opacity: 1; }
+.karte__umriss { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.karte__fuell { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.karte__strich { fill: none; stroke: var(--farbe-tinte); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 7; }
+.karte__sohle { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 6; }
+.karte__punkt { fill: var(--farbe-tinte); }
+.karte__text--klein { font-size: 9.5px; letter-spacing: 0.04em; paint-order: stroke; stroke: var(--farbe-papier); stroke-width: 3px; }
+@media (prefers-reduced-motion: reduce) { .karte__szene { transition: none; } }

@@ -22,6 +22,7 @@
 <script src="../../assets/js/ablauf.js" defer></script>
 <script src="../../assets/js/b2b.js" defer></script>
 <script src="../../assets/js/pilot.js" defer></script>
+<script src="../../assets/js/studien.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -546,7 +547,7 @@
         <p class="rechner__ergebnis"><span class="rechner__wert" data-rechner-ergebnis aria-live="polite" aria-atomic="true">EUR 0.57</span><span class="rechner__einheit">per shift per person<span class="info"><button class="info__knopf" type="button" aria-describedby="rechner-info" aria-label="Show how this is calculated">i</button><span class="info__text" id="rechner-info" role="tooltip">Calculated: <span data-rechner-text>EUR 120 per pair divided by 210 shifts per person and year</span>, plus VAT</span></span></span></p>
         <p class="preis__halt">From our own tests we know that the insole holds up in perfect condition for at least 3 years.</p>
       </div>
-        <div class="platzhalter platzhalter--sohle preisrechner__foto" data-platzhalter data-sohle-foto role="group" aria-label="Placeholder for a product photo of the insole"><span class="etikett platzhalter__etikett">Placeholder</span><p>Product photo of the insole</p></div>
+        <div class="platzhalter platzhalter--sohle preisrechner__foto" data-platzhalter data-sohle-foto role="group" aria-label="Placeholder for product photo of the insoles"><span class="etikett platzhalter__etikett">Placeholder</span><p>Placeholder for product photo of the insoles</p></div>
       </div>
       <div class="preis">
         <div class="preis__links">
@@ -701,14 +702,14 @@
         <div class="reise__buehne">
           <div class="reise__feld" id="reise-feld-1" aria-labelledby="reise-tab-1" data-feld-nr="1">
             <h3>The documents you use for internal approval</h3>
-            <ul class="unterlagen"><li class="unterlagen__eintrag"><span>Template for the works agreement<span class="unterlagen__nutzen">A starting text you negotiate with your works council.</span></span><span class="unterlagen__rechts"><span class="etikett unterlagen__stand">Draft</span><a class="textlink textlink--hell" href="../../assets/downloads/works-agreement-template.txt" download>Download (text)</a></span></li><li class="unterlagen__eintrag"><span>Data protection concept<span class="unterlagen__nutzen">Shows which data is created during the foot capture.</span></span><span class="unterlagen__rechts"><span class="etikett unterlagen__stand">Draft</span><a class="textlink textlink--hell" href="../../assets/downloads/data-protection-concept-draft.txt" download>Download (text)</a></span></li><li class="unterlagen__eintrag"><span>Data processing agreement<span class="unterlagen__nutzen">A contract template for your legal department.</span></span><span class="unterlagen__rechts"><span class="etikett unterlagen__stand">Draft</span><a class="textlink textlink--hell" href="../../assets/downloads/data-processing-agreement-template.txt" download>Download (text)</a></span></li></ul>
+            <ul class="unterlagen"><li class="unterlagen__eintrag"><span>Template for the works agreement<span class="unterlagen__nutzen">A starting text you negotiate with your works council.</span></span><span class="unterlagen__rechts"><span class="etikett unterlagen__stand">Draft</span><a class="textlink textlink--hell" href="../../assets/downloads/works-agreement-template.txt" data-studie-datei="../../assets/downloads/works-agreement-template.txt" data-studie-name="works-agreement-template.txt" data-studie-titel="Works agreement template">Download (text)</a></span></li><li class="unterlagen__eintrag"><span>Data protection concept<span class="unterlagen__nutzen">Shows which data is created during the foot capture.</span></span><span class="unterlagen__rechts"><span class="etikett unterlagen__stand">Draft</span><a class="textlink textlink--hell" href="../../assets/downloads/data-protection-concept-draft.txt" data-studie-datei="../../assets/downloads/data-protection-concept-draft.txt" data-studie-name="data-protection-concept-draft.txt" data-studie-titel="Data protection concept">Download (text)</a></span></li><li class="unterlagen__eintrag"><span>Data processing agreement<span class="unterlagen__nutzen">A contract template for your legal department.</span></span><span class="unterlagen__rechts"><span class="etikett unterlagen__stand">Draft</span><a class="textlink textlink--hell" href="../../assets/downloads/data-processing-agreement-template.txt" data-studie-datei="../../assets/downloads/data-processing-agreement-template.txt" data-studie-name="data-processing-agreement-template.txt" data-studie-titel="Data processing agreement">Download (text)</a></span></li></ul>
           </div>
           <div class="reise__feld" id="reise-feld-2" aria-labelledby="reise-tab-2" data-feld-nr="2">
             <h3>What happens at your business</h3>
             <p>Who does what in the pilot.</p>
             <ol class="schritte3 schritte3--klein"><li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="30" y="6" width="50" height="68" rx="4" class="f-papier"/><path d="M40 22h30M40 34h30M40 46h18"/><circle cx="82" cy="58" r="18" class="f-signal"/><path d="M73 58l7 7 12-15" stroke-width="5"/></svg><span class="etikett">Your business</span><strong>You register the team</strong><span>You decide who takes part. Taking part is voluntary.</span></li><li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><rect x="38" y="6" width="44" height="72" rx="8" class="f-papier"/><path d="M52 14h16" /><circle cx="60" cy="42" r="12" class="f-signal"/><path d="M60 36v12M54 42h12"/><circle cx="60" cy="68" r="3.5" class="f-tinte"/><path d="M20 22l10 6M20 62l10-6M100 22l-10 6M100 62l-10-6"/></svg><span class="etikett">Your team</span><strong>The foot capture</strong><span>On their own smartphone, for example during a break. Your employees pay nothing.</span></li><li class="schritte3__punkt"><svg class="ico" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M12 62V30l16-4 12 16c10 2 22 6 34 12 14 0 30 2 34 12v2z" class="f-papier"/><path d="M12 62h96" class="f-tinte"/><path d="M34 62c4-8 18-8 26 0" class="f-signal"/><path d="M26 46l6 4M36 40l6 4"/></svg><span class="etikett">VIANU</span><strong>Production and delivery</strong><span>The insole reaches your employees at the latest 7 days after the foot capture.</span></li></ol>
             <p class="schritte3__offen">Effort for your staff: the foot capture for each person and the short surveys during the pilot. We agree the period until the evaluation with you before the start.</p>
-            <p class="reise__download"><a class="textlink textlink--hell" href="../../assets/downloads/process-and-tasks.txt" download>Process and tasks (text)</a></p>
+            <p class="reise__download"><a class="textlink textlink--hell" href="../../assets/downloads/process-and-tasks.txt" data-studie-datei="../../assets/downloads/process-and-tasks.txt" data-studie-name="process-and-tasks.txt" data-studie-titel="Process and tasks">Process and tasks (text)</a></p>
           </div>
           <div class="reise__feld" id="reise-feld-3" aria-labelledby="reise-tab-3" data-feld-nr="3">
             <h3>At the end you get a report with your team's answers</h3>
@@ -739,7 +740,7 @@
           </div>
         </li>
       </ul>
-            <p class="reise__download"><a class="textlink textlink--hell" href="../../assets/downloads/results-report-sample.txt" download>Sample report (text)</a></p>
+            <p class="reise__download"><a class="textlink textlink--hell" href="../../assets/downloads/results-report-sample.txt" data-studie-datei="../../assets/downloads/results-report-sample.txt" data-studie-name="results-report-sample.txt" data-studie-titel="Sample report">Sample report (text)</a></p>
           </div>
         </div>
         <div class="reise__cta"><p>A pilot with 10 employees costs EUR 1,200 plus VAT. Roderich Körner-Rehn replies within 5 working days.</p><a class="knopf" href="#pilot" data-pilot-oeffnen>Get in touch
@@ -756,13 +757,13 @@
       <div class="seitenfoto">
         <div class="seitenfoto__inhalt">
         <ol class="garantie__schritte">
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Personal conversation</h3><p>If an insole does not fit or does not convince, we talk to the person wearing it in a personal online meeting. That way we can respond to their needs.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Rework or make anew</h3><p>Afterwards we rework the insole and/or make a new one. It reaches the company free of charge.</p></div></li>
+          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Conversation</h3><p>If an insole does not fit or does not convince, we talk to the person wearing it in a personal online meeting. That way we can respond to their needs.</p></div></li>
+          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Rework or make anew</h3><p>Afterwards we rework the insole or make a new one. It reaches the company free of charge.</p></div></li>
           <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Purchase price back</h3><p>If the person is still not satisfied afterwards, we refund the purchase price in full.</p></div></li>
         </ol>
-        <p class="garantie__fazit">We are only done when the person is satisfied.</p>
+        <p class="garantie__fazit">For us it matters that the insole brings something to every person in the team.</p>
         </div>
-        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Placeholder for a product photo of the insole"><span class="etikett platzhalter__etikett">Placeholder</span><p>Product photo of the insole</p></div>
+        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Placeholder for product photo of the insoles"><span class="etikett platzhalter__etikett">Placeholder</span><p>Placeholder for product photo of the insoles</p></div>
       </div>
     </div>
   </section>
@@ -887,6 +888,23 @@
   </section>
 
 </main>
+
+<dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-studie-schliessen aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <p class="etikett">Download</p>
+    <h2 id="studie-titel" data-studie-titel></h2>
+    <p>Don't worry, we will not send you any spam.</p>
+    <form class="formular" novalidate>
+      <div class="formular__feld">
+        <label>Your email address<input type="email" name="email" autocomplete="email" maxlength="254" placeholder="name@company.com" required data-studie-email aria-describedby="studie-fehler"></label>
+        <p class="formular__fehler" id="studie-fehler" data-studie-fehler hidden></p>
+      </div>
+      <p class="etikett">Once you have entered your email address, the file will be made available to you. The <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">privacy policy</a> applies.</p>
+      <button class="knopf" type="submit" data-studie-absenden>Download now <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+    </form>
+  </div>
+</dialog>
 
 <dialog class="dialog kontaktwahl" aria-labelledby="wahl-titel" data-kontaktwahl data-modus="wahl">
   <div class="dialog__innen">

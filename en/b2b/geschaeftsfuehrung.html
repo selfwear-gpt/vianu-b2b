@@ -22,6 +22,7 @@
 <script src="../../assets/js/b2b.js" defer></script>
 <script src="../../assets/js/bausteine.js" defer></script>
 <script src="../../assets/js/pilot.js" defer></script>
+<script src="../../assets/js/studien.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -322,7 +323,7 @@
         <div class="rubrik"><dt><svg class="rubrik__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></svg>Evaluation and expansion</dt><dd>A report at the end of the pilot, including four questions to the participants. Then you decide on more. You do not commit to a rollout beforehand.</dd></div>
       </dl>
         </div>
-        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Placeholder for a product photo of the insole"><span class="etikett platzhalter__etikett">Placeholder</span><p>Product photo of the insole</p></div>
+        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Placeholder for product photo of the insoles"><span class="etikett platzhalter__etikett">Placeholder</span><p>Placeholder for product photo of the insoles</p></div>
       </div>
       <p class="einseiter__fuss druck-nur">Next step: Name a test group of 10 employees, set a date for the evaluation and only then decide on scaling. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.</p>
     </div>
@@ -333,12 +334,20 @@
       <div class="abschnitt__kopf"><h2 id="garantie-titel">Satisfaction guarantee</h2>
         <p>Your risk in the pilot stays small.</p></div>
       <div class="seitenfoto__inhalt garantie--kurz">
-        <ol class="garantie__schritte">
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Conversation</h3><p>We talk online to the person wearing the insole.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Rework or make anew</h3><p>We rework and/or make anew, free of charge for the company.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Purchase price back</h3><p>If that is not enough, we refund the purchase price in full.</p></div></li>
+        <div class="garantie__kurvenwurzel" data-garantie-kurve>
+        <svg class="garantie__kurve" viewBox="0 0 640 250" role="img" aria-label="Satisfaction curve: point 1 conversation at the low, point 2 rework or make anew at the peak, point 3 purchase price back on the plateau." focusable="false">
+          <path class="garantie__linie" pathLength="1" d="M0 110C50 110 62 205 107 205S250 205 270 125S280 45 320 45S410 45 450 78S480 95 533 95H640"/>
+          <g class="garantie__marke" data-punkt><circle cx="107" cy="205" r="22"/><text x="107" y="213" text-anchor="middle">1</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="320" cy="45" r="22"/><text x="320" y="53" text-anchor="middle">2</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="533" cy="95" r="22"/><text x="533" y="103" text-anchor="middle">3</text></g>
+        </svg>
+        <ol class="garantie__punkte">
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Conversation</h3><p>We talk online to the person wearing the insole.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Rework or make anew</h3><p>We rework or make anew, free of charge for the company.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Purchase price back</h3><p>If that is not enough, we refund the purchase price in full.</p></div></li>
         </ol>
-        <p class="garantie__fazit">In the end there is a full refund of the purchase price.</p>
+      </div>
+        <p class="garantie__fazit">For us it matters that the insole brings something to every person in the team.</p>
       </div>
     </div>
   </section>
@@ -428,7 +437,7 @@
       </div>
       <div class="weiter" data-weiterleiten data-weiterleiten-diese-seite>
         <div class="weiter__aktionen">
-          <a class="knopf knopf--dunkel" href="../../assets/downloads/role-geschaeftsfuehrung.pdf" download>One-pager as PDF</a>
+          <a class="knopf knopf--dunkel" href="../../assets/downloads/role-geschaeftsfuehrung.pdf" data-studie-datei="../../assets/downloads/role-geschaeftsfuehrung.pdf" data-studie-name="role-geschaeftsfuehrung.pdf" data-studie-titel="One-pager: Management">One-pager as PDF</a>
           <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Copy link to this page</button>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Get in touch
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -448,6 +457,23 @@
   </section>
 
 </main>
+
+<dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-studie-schliessen aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <p class="etikett">Download</p>
+    <h2 id="studie-titel" data-studie-titel></h2>
+    <p>Don't worry, we will not send you any spam.</p>
+    <form class="formular" novalidate>
+      <div class="formular__feld">
+        <label>Your email address<input type="email" name="email" autocomplete="email" maxlength="254" placeholder="name@company.com" required data-studie-email aria-describedby="studie-fehler"></label>
+        <p class="formular__fehler" id="studie-fehler" data-studie-fehler hidden></p>
+      </div>
+      <p class="etikett">Once you have entered your email address, the file will be made available to you. The <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">privacy policy</a> applies.</p>
+      <button class="knopf" type="submit" data-studie-absenden>Download now <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+    </form>
+  </div>
+</dialog>
 
 <dialog class="dialog kontaktwahl" aria-labelledby="wahl-titel" data-kontaktwahl data-modus="wahl">
   <div class="dialog__innen">

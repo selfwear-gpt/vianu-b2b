@@ -12,7 +12,7 @@ const abschnitte = (h) => [...h.matchAll(/<section class="([^"]*)"(?: id="([^"]+
 const text = (h) => h.replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<svg[\s\S]*?<\/svg>/g, " ").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&euro;/g, "€").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
 const folge = (f) => abschnitte(lies(f)).map((a) => a.id).filter((id) => id !== "stimme-frueh");
 
-const BAUSTEIN = /class="stimme"|class="punkte"|class="bestellstrecke"|class="garantie__schritte"|class="zahlenkacheln"|data-tagesordnung|data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
+const BAUSTEIN = /class="stimme"|class="punkte"|class="bestellstrecke"|class="garantie__schritte"|data-garantie-kurve|class="zahlenkacheln"|data-tagesordnung|data-reise|class="dreh|messwert--dreh|data-pruefliste|data-stationenweg|data-weg|data-rechner|data-klein|<details|data-fluss|data-filter|data-chat|data-umfrage|data-ergebnis|class="rubriken|class="dokumente"|class="weg__raster"/;
 
 test("jede Rollenseite hat ihre eigene Reihenfolge, Deutsch und Englisch gleich", () => {
   const de = ROLLEN.map((r) => folge("b2b/" + r + ".html").join(">"));
@@ -70,8 +70,8 @@ test("der Wortlaut der bisherigen Seiten bleibt erhalten (Termin, Brief, Belege,
   }
 });
 
-test("Messwerte als Umfrage im Smartphone nur auf Personal, Geschäftsführung und Arbeitsschutz", () => {
-  const fragen = { personal: 4, geschaeftsfuehrung: 2, arbeitsschutz: 2 };
+test("Messwerte als Umfrage im Smartphone nur auf Personal und Geschäftsführung", () => {
+  const fragen = { personal: 4, geschaeftsfuehrung: 2 };
   for (const r of ROLLEN) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const m = abschnitte(lies(f)).find((x) => x.id === "messwerte");
     if (!fragen[r]) { assert.equal(m, undefined, f + ": keine Messwerte"); continue; }
@@ -118,15 +118,15 @@ test("Termin als Rubriken auf Personal und Geschäftsführung mit eigenem Titel"
     assert.doesNotMatch(t, /data-reise|data-feld-nr/, f + ": keine Reiter mehr");
   }
 });
-test("Termin als Fragenkarten (Einkauf, Betriebsrat) und als Prüfliste (Arbeitsschutz)", () => {
+test("Termin als Zahlenkacheln (Einkauf), Unterlagen (Betriebsrat) und als Prüfliste (Arbeitsschutz)", () => {
   for (const r of ["einkauf", "betriebsrat"]) for (const f of ["b2b/" + r + ".html", "en/b2b/" + r + ".html"]) {
     const t = abschnitte(lies(f)).find((x) => x.id === "termin").html;
     if (r === "einkauf") {
       assert.equal((t.match(/<li class="zahlenkachel">/g) || []).length, 6, f + ": sechs Zahlenkacheln");
       assert.match(t, /<a class="knopf" href="\.\/#pilot" data-pilot-oeffnen>(Weitere Fragen klären|Clarify further questions)/, f + ": Knopf zum Kontaktformular");
     } else {
-      assert.equal((t.match(/<li class="top">/g) || []).length, 5, f + ": fünf aufklappbare Zeilen");
-      assert.doesNotMatch(t, /class="dreh/, f + ": keine Drehkarten");
+      assert.equal((t.match(/<li class="dokument">/g) || []).length, 3, f + ": drei Unterlagen");
+      assert.doesNotMatch(t, /class="top"|class="dreh/, f + ": keine aufklappbaren Zeilen, keine Drehkarten");
     }
   }
   for (const f of ["b2b/arbeitsschutz.html", "en/b2b/arbeitsschutz.html"]) {

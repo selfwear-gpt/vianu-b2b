@@ -91,7 +91,7 @@ test("Was Sie bekommen: drei Felder, Unterlagen mit Entwurf und Download, drei B
     assert.doesNotMatch(abschnitt, /role="tab(list|panel)?"/, f + ": Rollen setzt erst das Skript");
     assert.doesNotMatch(abschnitt, /unterlagen__stand">(In Arbeit|In progress)/, f + ": kein In Arbeit mehr");
     assert.equal((abschnitt.match(/<li class="unterlagen__eintrag">/g) || []).length, 3, f + ": drei Unterlagen");
-    const links = [...abschnitt.matchAll(/href="((?:\.\.\/)+assets\/downloads\/[^"]+\.txt)" download/g)].map((m) => m[1]);
+    const links = [...abschnitt.matchAll(/data-studie-datei="((?:\.\.\/)+assets\/downloads\/[^"]+\.txt)" data-studie-name/g)].map((m) => m[1]);
     assert.equal(links.length, 5, f + ": fünf Downloads");
     for (const l of links) assert.ok(fs.existsSync(path.join(__dirname, "..", path.dirname(f), l)), f + " " + l);
     assert.equal((abschnitt.match(/<li class="schritte3__punkt">/g) || []).length, 3, f + ": drei Bahnen");

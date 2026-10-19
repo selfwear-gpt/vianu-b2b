@@ -20,6 +20,7 @@
 <script src="../assets/js/position.js" defer></script>
 <script src="../assets/js/ablauf.js" defer></script>
 <script src="../assets/js/mitarbeitende.js" defer></script>
+<script src="../assets/js/bausteine.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -300,7 +301,7 @@
       </div>
       <div class="alles">
         <h3 id="alles-titel">All of this in one insole</h3>
-        <div class="platzhalter platzhalter--sohle" data-platzhalter role="group" aria-label="Placeholder for a product photo of the insole"><span class="etikett platzhalter__etikett">Placeholder</span><p>Product photo of the insole</p></div>
+        <div class="platzhalter platzhalter--sohle" data-platzhalter role="group" aria-label="Placeholder for product photo of the insoles"><span class="etikett platzhalter__etikett">Placeholder</span><p>Placeholder for product photo of the insoles</p></div>
       </div>
     </div>
   </section>
@@ -327,12 +328,20 @@
       <div class="abschnitt__kopf"><h2 id="garantie-titel">Your satisfaction guarantee</h2>
         <p>If your insole does not fit, you are not left on your own with it.</p></div>
       <div class="seitenfoto__inhalt garantie--kurz">
-        <ol class="garantie__schritte">
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>We talk to you</h3><p>If your insole does not fit or you are not satisfied, we talk to you in a personal online meeting. We respond to what you need.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>We rework or make anew</h3><p>Afterwards we rework your insole and/or make a new one. It goes to your company free of charge.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Purchase price back</h3><p>If you are still not satisfied afterwards, the purchase price is refunded in full.</p></div></li>
+        <div class="garantie__kurvenwurzel" data-garantie-kurve>
+        <svg class="garantie__kurve" viewBox="0 0 640 250" role="img" aria-label="Satisfaction curve: point 1 conversation at the low, point 2 rework or make anew at the peak, point 3 purchase price back on the plateau." focusable="false">
+          <path class="garantie__linie" pathLength="1" d="M0 110C50 110 62 205 107 205S250 205 270 125S280 45 320 45S410 45 450 78S480 95 533 95H640"/>
+          <g class="garantie__marke" data-punkt><circle cx="107" cy="205" r="22"/><text x="107" y="213" text-anchor="middle">1</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="320" cy="45" r="22"/><text x="320" y="53" text-anchor="middle">2</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="533" cy="95" r="22"/><text x="533" y="103" text-anchor="middle">3</text></g>
+        </svg>
+        <ol class="garantie__punkte">
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>We talk to you</h3><p>If your insole does not fit or you are not satisfied, we talk to you in a personal online meeting. We respond to what you need.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>We rework or make anew</h3><p>Afterwards we rework your insole or make a new one. It goes to your company free of charge.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Purchase price back</h3><p>If you are still not satisfied afterwards, the purchase price is refunded in full.</p></div></li>
         </ol>
-        <p class="garantie__fazit">You are only done when you are satisfied.</p>
+      </div>
+        <p class="garantie__fazit">For us it matters that every insole brings something to you.</p>
       </div>
     </div>
   </section>

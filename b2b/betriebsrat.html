@@ -21,6 +21,7 @@
 <script src="../assets/js/b2b.js" defer></script>
 <script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
+<script src="../assets/js/studien.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,6 +113,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Wie lange eine Einlegesohle im Arbeitsalltag hält, hängt vom Anbieter ab. Bei VIANU wissen wir aus eigenen Tests, dass die Sohle mindestens 3 Jahre einwandfrei hält."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Braucht ein Einlegesohlen-Programm eine Betriebsvereinbarung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ob ein Einlegesohlen-Programm eine Betriebsvereinbarung braucht, klären Betrieb und Betriebsrat im Einzelfall, das ist keine Rechtsberatung. Bei VIANU gibt es eine Vorlage für die Betriebsvereinbarung, die als Ausgangstext für die Verhandlung dient. Sie ist als Datei zum Herunterladen verfügbar."
       }
     }
   ]
@@ -217,7 +226,31 @@
         <figure class="fluss__karte">
           <svg class="karte" viewBox="0 0 320 416" role="img" aria-label="Stilisierte Karte: Deutschland liegt innerhalb der EU. Die Fotos werden in der EU verarbeitet, die Sohle wird in Deutschland gedruckt." focusable="false">
             <path class="karte__de" data-fluss-punkt="3" d="M130.1 394.1L118.9 386.4L109.0 387.2L98.9 381.0L93.4 385.6L98.9 388.2L94.3 390.5L77.8 392.0L65.9 389.8L67.6 361.1L74.9 336.2L84.8 323.2L84.6 318.6L67.4 314.0L62.2 309.3L48.6 311.4L47.5 307.9L43.9 306.5L38.8 308.9L32.2 296.7L25.9 293.7L30.6 275.7L23.1 271.9L18.2 260.3L20.4 253.1L26.6 248.8L25.8 241.7L20.5 238.0L22.4 234.2L14.5 226.2L16.3 218.1L10.0 211.6L18.9 205.5L17.2 201.5L21.2 189.7L13.0 171.4L20.1 167.3L26.3 170.2L39.0 165.8L41.0 162.1L38.4 156.9L48.1 147.3L47.5 139.3L39.2 137.0L37.3 133.5L39.2 128.1L47.9 128.1L53.3 110.8L53.9 94.4L49.2 89.5L54.2 75.0L80.5 73.1L85.6 80.8L83.7 84.7L88.2 85.9L91.1 77.5L96.3 82.3L96.4 88.5L97.5 68.4L100.4 63.5L109.6 65.6L119.7 64.5L132.1 77.8L138.6 80.2L133.6 77.8L123.1 64.4L112.2 60.9L109.8 57.0L109.9 43.4L105.7 40.7L101.3 41.7L101.4 36.3L111.4 32.7L111.5 29.0L102.5 15.8L102.1 10.0L109.8 10.3L121.3 15.0L133.1 12.5L142.2 16.4L146.4 21.9L146.6 26.8L141.4 32.4L150.4 31.6L152.6 35.7L157.5 34.2L169.6 40.6L178.9 37.3L180.5 42.4L178.7 47.6L172.2 53.1L173.7 56.5L191.5 59.9L204.5 49.4L214.8 48.3L230.0 32.7L244.9 35.6L248.8 42.3L258.6 49.7L267.7 49.0L272.3 64.7L277.5 69.1L285.2 71.1L290.2 98.7L280.9 115.4L297.0 133.6L294.9 142.4L301.4 156.9L296.4 169.8L300.4 178.7L300.4 185.9L306.4 189.0L310.0 200.0L301.8 222.6L296.8 220.7L294.6 213.5L287.2 211.2L285.1 213.1L288.8 218.4L262.2 228.5L258.2 233.9L256.2 232.8L249.9 238.6L244.5 239.7L242.1 244.1L236.3 242.8L229.2 244.7L220.3 255.8L214.1 249.5L218.0 260.1L228.0 270.6L224.0 278.8L233.5 295.7L237.8 300.1L241.2 300.1L257.1 318.4L261.9 319.4L270.6 329.4L267.7 341.1L259.9 339.0L256.2 350.5L240.6 358.7L236.1 363.7L242.4 375.0L240.6 383.8L245.7 387.3L244.4 396.5L237.7 393.1L236.5 388.1L233.7 386.5L227.0 388.2L218.0 384.0L217.3 389.1L201.9 391.0L188.2 399.2L179.8 400.9L174.3 394.3L160.1 392.6L157.8 402.3L151.7 406.8L152.2 402.4L147.9 400.9L144.8 395.1L137.5 391.4Z"/>
-            <text class="karte__text" x="160" y="215" text-anchor="middle">Deutschland</text>
+            <g class="karte__szene" data-fluss-punkt="1" aria-hidden="true">
+              <rect class="karte__umriss" x="88" y="150" width="44" height="76" rx="8"/><use class="karte__sohle" href="#sohle-form" x="101" y="164" width="18" height="46"/><circle class="karte__umriss" cx="110" cy="218" r="2"/>
+              <path class="karte__strich" d="M142 164l14-8M142 188h18M142 212l14 8"/>
+            </g>
+            <g class="karte__szene" data-fluss-punkt="2" aria-hidden="true">
+              <rect class="karte__fuell" x="174" y="150" width="32" height="26" rx="3"/><path class="karte__umriss" d="M180 150v-8a10 10 0 0 1 20 0v8"/>
+              <text class="karte__text" x="190" y="198" text-anchor="middle">EU</text>
+              <text class="karte__text karte__text--klein" x="190" y="216" text-anchor="middle">danach gelöscht</text>
+            </g>
+            <g class="karte__szene" data-fluss-punkt="3" aria-hidden="true">
+              <path class="karte__fuell" d="M150 314c-12-14-18-22-18-30a18 18 0 0 1 36 0c0 8-6 16-18 30z"/><circle class="karte__punkt" cx="150" cy="284" r="6"/>
+              <text class="karte__text" x="150" y="344" text-anchor="middle">Druck: 48 h</text>
+            </g>
+            <g class="karte__szene" data-fluss-punkt="4" aria-hidden="true">
+              <path class="karte__strich" d="M150 290L80 250M150 290L210 262M150 290L190 346"/>
+              <path class="karte__fuell" d="M64 262l16-14 16 14v16H64zM194 274l16-14 16 14v16h-32zM174 358l16-14 16 14v16h-32z"/>
+              <text class="karte__text karte__text--klein" x="150" y="230" text-anchor="middle">Sohlen + Bericht</text>
+            </g>
+            <g class="karte__szene" data-fluss-punkt="5" aria-hidden="true">
+              <rect class="karte__umriss" x="56" y="160" width="84" height="84" rx="4"/><path class="karte__strich" d="M68 178h60M68 194h60M68 210h60M68 226h40"/>
+              <rect class="karte__umriss" x="170" y="160" width="84" height="84" rx="4"/>
+              <g class="karte__punkt"><circle cx="190" cy="184" r="4"/><circle cx="214" cy="178" r="4"/><circle cx="234" cy="196" r="4"/><circle cx="200" cy="210" r="4"/><circle cx="226" cy="226" r="4"/><circle cx="184" cy="232" r="4"/><circle cx="212" cy="196" r="4"/></g>
+              <text class="karte__text karte__text--klein" x="98" y="264" text-anchor="middle">Liste</text>
+              <text class="karte__text karte__text--klein" x="212" y="264" text-anchor="middle">Gruppe, anonym</text>
+            </g>
           </svg>
           <figcaption class="fluss__legende"><span data-fluss-punkt="2">Verarbeitung der Fotos: EU</span><span data-fluss-punkt="3">Druck der Sohle: Deutschland</span></figcaption>
         </figure>
@@ -341,28 +374,7 @@
   <section class="abschnitt einseiter" id="termin" aria-labelledby="termin-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="termin-titel">Was Sie in der Betriebsratssitzung klären können</h2>
-      </div>
-      <div class="seitenfoto">
-        <div class="seitenfoto__inhalt">
-      <ol class="tagesordnung" data-tagesordnung>
-        <li class="top"><button class="top__knopf" type="button" aria-expanded="false"><svg class="top__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"/></svg><span class="top__titel">Ihre Frage: Was passiert mit den Daten unserer Kolleginnen und Kollegen?</span><span class="top__pfeil" aria-hidden="true"></span></button><div class="top__text"><p class="top__satz">Die Fotos der Füße werden nur für die Anfertigung der Sohle verwendet, in der EU verarbeitet und danach gelöscht. Sehen können sie nur VIANU und ihre Fertigungspartner.</p></div></li>
-        <li class="top"><button class="top__knopf" type="button" aria-expanded="false"><svg class="top__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 10V4a1.5 1.5 0 0 1 3 0v6M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4 14a1.5 1.5 0 0 1 2.4-1.8L7 13"/></svg><span class="top__titel">Freiwilligkeit</span><span class="top__pfeil" aria-hidden="true"></span></button><div class="top__text"><p class="top__satz">Die Teilnahme ist freiwillig, für jede Person. Die Fotos entstehen mit dem eigenen Smartphone, z. B. in einer Pause. Für Mitarbeitende entstehen keine Kosten, der Arbeitgeber bezahlt.</p></div></li>
-        <li class="top"><button class="top__knopf" type="button" aria-expanded="false"><svg class="top__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg><span class="top__titel">Was der Betrieb sieht</span><span class="top__pfeil" aria-hidden="true"></span></button><div class="top__text"><p class="top__satz">Der Betrieb kennt die Teilnehmerliste. Der Ergebnisbericht fasst die Befragung anonym auf Gruppenebene zusammen und lässt sich keiner einzelnen Person zuordnen.</p></div></li>
-        <li class="top"><button class="top__knopf" type="button" aria-expanded="false"><svg class="top__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg><span class="top__titel">Was Sie von uns erhalten</span><span class="top__pfeil" aria-hidden="true"></span></button><div class="top__text"><p class="top__satz">Entwurf der Betriebsvereinbarung, Datenschutzkonzept und Auftragsverarbeitungsvertrag zum Download.</p></div></li>
-        <li class="top"><button class="top__knopf" type="button" aria-expanded="false"><svg class="top__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg><span class="top__titel">Wer ansprechbar ist</span><span class="top__pfeil" aria-hidden="true"></span></button><div class="top__text"><p class="top__satz">Roderich Körner-Rehn antwortet innerhalb von 5 Werktagen.</p></div></li>
-      </ol>
-        </div>
-        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Platzhalter für ein Produktfoto der Sohle"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Produktfoto der Sohle</p></div>
-      </div>
-      <p class="einseiter__fuss druck-nur">Nächster Schritt: Betriebsvereinbarung, Datenschutzkonzept und Auftragsverarbeitungsvertrag vor der Freigabe klären. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="unterlagen" aria-labelledby="unterlagen-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="unterlagen-titel">Was Sie von uns erhalten</h2>
+        <h2 id="termin-titel">Was Sie von uns erhalten</h2>
       </div>
       <div class="seitenfoto">
         <div class="seitenfoto__inhalt">
@@ -370,22 +382,23 @@
         <li class="dokument">
           <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
           <div class="dokument__text"><h3 class="dokument__titel">Vorlage für die Betriebsvereinbarung</h3><p class="dokument__nutzen">Ausgangstext für die Verhandlung der Betriebsvereinbarung.</p></div>
-          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/vorlage-betriebsvereinbarung.txt" download>Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/vorlage-betriebsvereinbarung.txt" data-studie-datei="../assets/downloads/vorlage-betriebsvereinbarung.txt" data-studie-name="vorlage-betriebsvereinbarung.txt" data-studie-titel="Vorlage für die Betriebsvereinbarung">Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
         <li class="dokument">
           <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
           <div class="dokument__text"><h3 class="dokument__titel">Datenschutzkonzept</h3><p class="dokument__nutzen">Zeigt, welche Daten bei der Fußerfassung entstehen.</p></div>
-          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/datenschutzkonzept-entwurf.txt" download>Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/datenschutzkonzept-entwurf.txt" data-studie-datei="../assets/downloads/datenschutzkonzept-entwurf.txt" data-studie-name="datenschutzkonzept-entwurf.txt" data-studie-titel="Datenschutzkonzept">Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
         <li class="dokument">
           <svg class="dokument__bild" viewBox="0 0 64 80" aria-hidden="true" focusable="false"><path class="dokument__blatt" d="M6 4h34l18 18v54H6z"/><path class="dokument__ecke" d="M40 4v18h18z"/><path class="dokument__linie" d="M16 38h32M16 48h32M16 58h20"/></svg>
           <div class="dokument__text"><h3 class="dokument__titel">Auftragsverarbeitungsvertrag</h3><p class="dokument__nutzen">Vertragsvorlage zur Verarbeitung im Auftrag des Betriebs.</p></div>
-          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/vorlage-auftragsverarbeitungsvertrag.txt" download>Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+          <a class="knopf knopf--dunkel dokument__knopf" href="../assets/downloads/vorlage-auftragsverarbeitungsvertrag.txt" data-studie-datei="../assets/downloads/vorlage-auftragsverarbeitungsvertrag.txt" data-studie-name="vorlage-auftragsverarbeitungsvertrag.txt" data-studie-titel="Auftragsverarbeitungsvertrag">Herunterladen (Text) <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v8M3.5 6L7 9.5 10.5 6M2 12.5h10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
         </li>
       </ul>
         </div>
-        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Platzhalter für ein Produktfoto der Sohle"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Produktfoto der Sohle</p></div>
+        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Platzhalter für Produktfoto der Sohlen"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Platzhalter für Produktfoto der Sohlen</p></div>
       </div>
+      <p class="einseiter__fuss druck-nur">Nächster Schritt: Betriebsvereinbarung, Datenschutzkonzept und Auftragsverarbeitungsvertrag vor der Freigabe klären. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
     </div>
   </section>
 
@@ -423,12 +436,7 @@
           <div class="fragen" role="group" aria-labelledby="fragen-weitere">
           <details class="frage">
             <summary>Braucht ein Einlegesohlen-Programm eine Betriebsvereinbarung?</summary>
-            <div class="frage__antwort">
-              <div class="platzhalter platzhalter--klein" data-platzhalter role="group" aria-label="Platzhalter für die Antwort zur Betriebsvereinbarung">
-                <span class="etikett platzhalter__etikett">Platzhalter</span>
-                <p>Antwort folgt nach der rechtlichen Prüfung und sobald die Vorlage für die Betriebsvereinbarung steht.</p>
-              </div>
-            </div>
+            <div class="frage__antwort"><p>Ob ein Einlegesohlen-Programm eine Betriebsvereinbarung braucht, klären Betrieb und Betriebsrat im Einzelfall, das ist keine Rechtsberatung. Bei VIANU gibt es eine Vorlage für die Betriebsvereinbarung, die als Ausgangstext für die Verhandlung dient. Sie ist als Datei zum Herunterladen verfügbar.</p></div>
           </details>
           <details class="frage">
             <summary>Wie wird eine individuelle Einlegesohle gefertigt?</summary>
@@ -468,7 +476,7 @@
       </div>
       <div class="weiter" data-weiterleiten data-weiterleiten-diese-seite>
         <div class="weiter__aktionen">
-          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-betriebsrat.pdf" download>Einseiter als PDF</a>
+          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-betriebsrat.pdf" data-studie-datei="../assets/downloads/rolle-betriebsrat.pdf" data-studie-name="rolle-betriebsrat.pdf" data-studie-titel="Einseiter: Betriebsrat">Einseiter als PDF</a>
           <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Link zu dieser Seite kopieren</button>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -488,6 +496,23 @@
   </section>
 
 </main>
+
+<dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-studie-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <p class="etikett">Herunterladen</p>
+    <h2 id="studie-titel" data-studie-titel></h2>
+    <p>Keine Sorge, es wird kein Spam von uns geben.</p>
+    <form class="formular" novalidate>
+      <div class="formular__feld">
+        <label>Ihre E-Mail-Adresse<input type="email" name="email" autocomplete="email" maxlength="254" placeholder="name@firma.de" required data-studie-email aria-describedby="studie-fehler"></label>
+        <p class="formular__fehler" id="studie-fehler" data-studie-fehler hidden></p>
+      </div>
+      <p class="etikett">Nach der Eingabe Ihrer E-Mail-Adresse wird Ihnen die Datei zur Verfügung gestellt. Es gelten die <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">Datenschutzrichtlinien</a>.</p>
+      <button class="knopf" type="submit" data-studie-absenden>Jetzt herunterladen <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
+    </form>
+  </div>
+</dialog>
 
 <dialog class="dialog kontaktwahl" aria-labelledby="wahl-titel" data-kontaktwahl data-modus="wahl">
   <div class="dialog__innen">

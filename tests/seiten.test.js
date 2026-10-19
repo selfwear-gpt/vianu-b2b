@@ -54,9 +54,9 @@ test("die Rollenseiten tragen FAQPage-Daten mit beantworteten Fragen", () => {
   }
 });
 
-test("Messwerte (Umfrage) stehen nur auf Personal, Geschäftsführung und Arbeitsschutz, mit wichtigen Messwerten", () => {
-  const erwartet = { personal: 0, geschaeftsfuehrung: 2, arbeitsschutz: 2, einkauf: 0, betriebsrat: 0 };
-  const mitUmfrage = ["personal", "geschaeftsfuehrung", "arbeitsschutz"];
+test("Messwerte (Umfrage) stehen nur auf Personal und Geschäftsführung, mit wichtigen Messwerten", () => {
+  const erwartet = { personal: 0, geschaeftsfuehrung: 2, arbeitsschutz: 0, einkauf: 0, betriebsrat: 0 };
+  const mitUmfrage = ["personal", "geschaeftsfuehrung"];
   for (const r of ROLLEN) {
     const n = (seite(r).match(/<li data-wichtig>/g) || []).length;
     assert.equal(n, erwartet[r], r + ": " + n + " wichtige Messwerte");

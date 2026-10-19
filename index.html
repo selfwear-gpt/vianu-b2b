@@ -20,6 +20,7 @@
 <script src="assets/js/position.js" defer></script>
 <script src="assets/js/ablauf.js" defer></script>
 <script src="assets/js/mitarbeitende.js" defer></script>
+<script src="assets/js/bausteine.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -300,7 +301,7 @@
       </div>
       <div class="alles">
         <h3 id="alles-titel">Das alles in einer Sohle</h3>
-        <div class="platzhalter platzhalter--sohle" data-platzhalter role="group" aria-label="Platzhalter für ein Produktfoto der Sohle"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Produktfoto der Sohle</p></div>
+        <div class="platzhalter platzhalter--sohle" data-platzhalter role="group" aria-label="Platzhalter für Produktfoto der Sohlen"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Platzhalter für Produktfoto der Sohlen</p></div>
       </div>
     </div>
   </section>
@@ -327,12 +328,20 @@
       <div class="abschnitt__kopf"><h2 id="garantie-titel">Deine Zufriedenheitsgarantie</h2>
         <p>Wenn deine Sohle nicht passt, bleibst du nicht damit allein.</p></div>
       <div class="seitenfoto__inhalt garantie--kurz">
-        <ol class="garantie__schritte">
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Wir sprechen mit dir</h3><p>Passt deine Sohle nicht oder bist du nicht zufrieden, sprechen wir online persönlich mit dir. Wir gehen auf das ein, was du brauchst.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Wir bessern nach oder fertigen neu</h3><p>Danach bessern wir deine Sohle nach und/oder fertigen sie neu. Sie geht kostenlos an deinen Betrieb.</p></div></li>
-          <li class="garantie__schritt"><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Kaufpreis zurück</h3><p>Bist du danach noch immer nicht zufrieden, wird der Kaufpreis vollständig erstattet.</p></div></li>
+        <div class="garantie__kurvenwurzel" data-garantie-kurve>
+        <svg class="garantie__kurve" viewBox="0 0 640 250" role="img" aria-label="Kurve der Zufriedenheit: Punkt 1 Gespräch im Tiefpunkt, Punkt 2 Nachbessern oder neu fertigen im Hochpunkt, Punkt 3 Kaufpreis zurück auf dem Plateau." focusable="false">
+          <path class="garantie__linie" pathLength="1" d="M0 110C50 110 62 205 107 205S250 205 270 125S280 45 320 45S410 45 450 78S480 95 533 95H640"/>
+          <g class="garantie__marke" data-punkt><circle cx="107" cy="205" r="22"/><text x="107" y="213" text-anchor="middle">1</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="320" cy="45" r="22"/><text x="320" y="53" text-anchor="middle">2</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="533" cy="95" r="22"/><text x="533" y="103" text-anchor="middle">3</text></g>
+        </svg>
+        <ol class="garantie__punkte">
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Wir sprechen mit dir</h3><p>Passt deine Sohle nicht oder bist du nicht zufrieden, sprechen wir online persönlich mit dir. Wir gehen auf das ein, was du brauchst.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Wir bessern nach oder fertigen neu</h3><p>Danach bessern wir deine Sohle nach oder fertigen sie neu. Sie geht kostenlos an deinen Betrieb.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Kaufpreis zurück</h3><p>Bist du danach noch immer nicht zufrieden, wird der Kaufpreis vollständig erstattet.</p></div></li>
         </ol>
-        <p class="garantie__fazit">Du bist erst fertig, wenn du zufrieden bist.</p>
+      </div>
+        <p class="garantie__fazit">Für uns zählt, dass jede Sohle für dich etwas bringt.</p>
       </div>
     </div>
   </section>
