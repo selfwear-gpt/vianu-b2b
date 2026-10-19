@@ -12,7 +12,7 @@ const ALLE_B2B = [...SEITEN, ...ROLLEN.flatMap((r) => ["b2b/" + r + ".html", "en
 test("die große Überschrift ist der neue englische Slogan, Unterüberschrift und Preiszeile im Kopf entfallen", () => {
   for (const f of SEITEN) {
     const h = lies(f);
-    assert.match(h, /<h1 id="hero-titel" lang="en">Keep walkin’ strong, the whole day long<\/h1>/, f);
+    assert.match(h, /<h1 id="hero-titel" lang="en">Keep walkin’ strong the whole day long<\/h1>/, f);
     assert.match(h, /<p class="hero__slogan" lang="en">Nothing fancy\. Just a great way to get through your day\.<\/p>/, f);
     assert.doesNotMatch(h, /hero__antwort|hero__preis/, f);
   }
