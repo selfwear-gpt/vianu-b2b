@@ -33,3 +33,26 @@ test("Organisationsdaten stehen auf den Startseiten, Produktdaten auf der B2B-St
   for (const f of ["index.html", "en/index.html", "b2b/index.html", "en/b2b/index.html"]) assert.match(lies(f), /"@type":\s*"Organization"/, f);
   for (const f of ["b2b/index.html", "en/b2b/index.html"]) assert.match(lies(f), /"@type":\s*"Product"/, f);
 });
+
+test("jede Seite hat einen Sprunglink zum Inhalt und ein Favicon, dessen Farben den Tokens gleichen", () => {
+  for (const f of SEITEN.flatMap((s) => [s, "en/" + s])) {
+    const h = lies(f);
+    assert.match(h, /<a class="sprung" href="#inhalt">(Zum Inhalt|Skip to content)<\/a>/, f);
+    assert.match(h, /<main id="inhalt" tabindex="-1">/, f);
+    assert.match(h, /<link rel="icon" href="[^"]*assets\/img\/favicon\.svg" type="image\/svg\+xml">/, f);
+  }
+  const tokens = lies("assets/css/tokens.css");
+  const farbe = (name) => tokens.match(new RegExp("--" + name + ":\\s*(#[0-9A-Fa-f]{6})"))[1].toUpperCase();
+  const icon = lies("assets/img/favicon.svg").toUpperCase();
+  assert.ok(icon.includes(farbe("farbe-tinte")) && icon.includes(farbe("farbe-signal")), "Favicon-Farben weichen von den Tokens ab");
+});
+
+test("Fachstimme als Platzhalter neben der Kundenstimme auf B2C, B2B-Start, Arbeitsschutz, Einkauf, Geschäftsführung und Betriebsrat", () => {
+  for (const f of ["index.html", "b2b/index.html", "b2b/arbeitsschutz.html", "b2b/einkauf.html", "b2b/geschaeftsfuehrung.html", "b2b/betriebsrat.html"]) {
+    for (const seite of [f, "en/" + f]) {
+      const h = lies(seite);
+      assert.match(h, /<div class="stimmenpaar">\s*<figure class="stimme" data-platzhalter[\s\S]*?<figure class="stimme stimme--fach" data-platzhalter/, seite);
+    }
+  }
+  for (const f of ["b2b/arbeitsschutz.html", "en/b2b/arbeitsschutz.html"]) assert.doesNotMatch(lies(f), /Aussage eines Orthopäden|statement of an orthop/i, f + ": alter Orthopäden-Platzhalter entfernt");
+});

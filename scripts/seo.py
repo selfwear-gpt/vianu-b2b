@@ -101,8 +101,10 @@ def produkt(en):
 
 def block(pfad, en, titel, beschr):
     sprache, andere = ("en_US", "de_DE") if en else ("de_DE", "en_US")
+    tiefe = pfad.count("/") + (1 if en else 0)
     z = [
         "<!-- seo -->",
+        '<link rel="icon" href="%sassets/img/favicon.svg" type="image/svg+xml">' % ("../" * tiefe),
         '<link rel="canonical" href="%s">' % url(pfad, en),
         '<meta property="og:type" content="website">',
         '<meta property="og:site_name" content="%s">' % NAME,

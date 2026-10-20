@@ -73,6 +73,9 @@ def check_literals():
             continue
         if SKIP_DIRS & set(path.relative_to(ROOT).parts):
             continue
+        # Das Favicon kann keine CSS-Variablen nutzen. Seine Farben müssen den Tokens gleichen (tests/seo.test.js prüft das).
+        if path.relative_to(ROOT).as_posix() == "assets/img/favicon.svg":
+            continue
         text = path.read_text(encoding="utf-8", errors="replace")
         for n, line in enumerate(text.splitlines(), 1):
             for m in HEX.finditer(line):

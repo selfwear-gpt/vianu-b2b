@@ -296,5 +296,10 @@ Status: gebaut
 - Jeder der fünf Punkte zeigt eine Szene in der Karte (`karte__szene`): Smartphone mit Fußfoto, Schloss "EU" mit "danach gelöscht", Pin "Druck: 48 h", Pfeile zu drei Betrieben, Liste und anonyme Punktewolke. Kein Wort "Deutschland" in der Karte. "Was Sie von uns erhalten" ist der Einseiter-Abschnitt (`#termin`) der Seite.
 
 ### Vertrauensleiste, Matte-Sohle hält
-- Vertrauensleiste (B2B-Startseite, unter dem Seitenkopf, `kurz kurz--drei` wie die Kurz-Leiste auf der B2C-Seite): je Spalte ein Satz mit ein bis zwei hervorgehobenen Wörtern (`kurz__wort`): In Deutschland gefertigt (lokal 3D-gedruckt, 48 Stunden), 7 Tage bis vor Ort, Patente mit Nummern (hervorgehoben: Vermessen, Optimierung).
+- Vertrauensleiste (B2B-Startseite, unter dem Seitenkopf, `kurz kurz--vier`, vier Spalten: Fertigung, 7 Tage, Pilot mit 10, Patente; wie die Kurz-Leiste auf der B2C-Seite): je Spalte ein Satz mit ein bis zwei hervorgehobenen Wörtern (`kurz__wort`): In Deutschland gefertigt (lokal 3D-gedruckt, 48 Stunden), 7 Tage bis vor Ort, Patente mit Nummern (hervorgehoben: Vermessen, Optimierung).
 - Arbeitsschutz `#weg`: Überschrift und Grundriss stehen in `weg__stage` und bleiben beim Scrollen stehen (sticky in der Hülle `weg__haelt`, 260 vh). Nur Füße, Etiketten und die Punkte 1 bis 3 bewegen sich. Passt die Bühne nicht ins Fenster oder gilt reduzierte Bewegung, läuft es ohne Halten.
+
+### Fachstimme, Sprunglink, Favicon
+- `stimmenpaar` (B2C, B2B-Startseite, Arbeitsschutz, Einkauf, Geschäftsführung, Betriebsrat): Kundenstimme links, Fachstimme rechts (`stimme--fach`, gestrichelter Rand, Etikett "Aus der Orthopädietechnik"), gleich groß, auf dem Handy untereinander. Beides Platzhalter, Person offen. Der alte Platzhalter "Aussage eines Orthopäden" auf Arbeitsschutz entfällt.
+- `sprung`: Sprunglink "Zum Inhalt" als erstes fokussierbares Element, nur bei Fokus sichtbar, Ziel `main#inhalt`.
+- Favicon `assets/img/favicon.svg` (Sohle in Signalfarbe auf Tinte). Die Farben stehen als Literal in der Datei, weil Favicons keine Variablen nutzen. `tests/seo.test.js` prüft sie gegen `tokens.css`, `check-tokens.py` überspringt die Datei. Der Link kommt aus `scripts/seo.py`.
