@@ -20,12 +20,12 @@ for (const [datei, leitsatz] of Object.entries(SEITEN)) {
     const h = lies(datei);
     assert.match(h, new RegExp('<p class="leitsatz" id="erlebt-titel">' + leitsatz + "</p>"));
   });
-  test(datei + ": fünf Szenen, jede mit Entwurfsetikett, vier Zonen im Fuß, kein 'Jagd'", () => {
+  test(datei + ": fünf Szenen, eine stetige Füllung im Fuß, kein Entwurfsetikett, kein 'Jagd'", () => {
     const h = lies(datei);
     const bereich = h.slice(h.indexOf('id="erlebt"'), h.indexOf('id="stimmen"'));
     assert.equal((bereich.match(/data-roddy-szene="/g) || []).length, 5);
-    assert.equal((bereich.match(/class="etikett roddy__entwurf"/g) || []).length, 5);
-    assert.equal((bereich.match(/data-roddy-zone="/g) || []).length, 4);
+    assert.doesNotMatch(bereich, /roddy__entwurf|Entwurf|Draft/);
+    assert.equal((bereich.match(/data-roddy-fuell/g) || []).length, 1);
     assert.doesNotMatch(bereich, /Jagd|hunt for/i);
   });
   test(datei + ": das Skript roddy.js ist eingebunden", () => {

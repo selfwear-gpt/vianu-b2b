@@ -2117,13 +2117,11 @@ main:focus { outline: none; }
 .roddy__blase { position: relative; margin: 0; padding: var(--abstand-4) var(--abstand-5); max-width: none; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-tinte); border-radius: var(--abstand-5); font-family: var(--schrift-kopf); font-weight: 600; font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.25; }
 .roddy__blase::before { content: ""; position: absolute; left: var(--abstand-6); top: calc(-1 * var(--abstand-3) - var(--kante)); width: var(--abstand-4); height: var(--abstand-4); background: var(--farbe-signal); border-left: var(--kante) solid var(--farbe-tinte); border-top: var(--kante) solid var(--farbe-tinte); transform: rotate(45deg); }
 .roddy__zeit { color: var(--farbe-tinte); }
-.roddy__entwurf { color: var(--farbe-gedaempft); }
 .roddy__fuss { width: 100%; height: auto; max-height: 24rem; justify-self: center; }
 .roddy__umriss { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; }
-.roddy__zone { fill: var(--farbe-signal); transition: opacity 0.3s; }
+.roddy__zone { fill: var(--farbe-signal); }
 .roddy__marke { fill: var(--farbe-tinte); font-family: var(--schrift-kopf); font-weight: 800; font-size: 18px; letter-spacing: 0.08em; opacity: 0; transition: opacity 0.3s; }
 .roddy__fuss[data-fertig] .roddy__marke { opacity: 1; }
-.roddy__haelt[data-bereit] .roddy__zone:not([data-an]) { opacity: 0; }
 .roddy__haelt[data-bereit] .roddy__buehne { display: grid; }
 .roddy__haelt[data-bereit] .roddy__szene { grid-area: 1 / 1; margin-bottom: 0; opacity: 0; visibility: hidden; transition: opacity 0.3s; }
 .roddy__haelt[data-bereit] .roddy__szene[data-aktiv] { opacity: 1; visibility: visible; }
@@ -2133,7 +2131,7 @@ main:focus { outline: none; }
   .roddy__stage { grid-template-columns: minmax(0, 1fr) 4.5rem; gap: var(--abstand-3); }
   .roddy__blase { padding: var(--abstand-3) var(--abstand-4); font-size: 1.1rem; }
 }
-@media (prefers-reduced-motion: reduce) { .roddy__zone, .roddy__marke, .roddy__haelt[data-bereit] .roddy__szene { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .roddy__marke, .roddy__haelt[data-bereit] .roddy__szene { transition: none; } }
 @media print { .roddy__haelt[data-haelt] { height: auto; } .roddy__haelt[data-haelt] .roddy__stage { position: static; } }
 @media (min-width: 56rem) {
   .roddy__szene { grid-template-columns: 26rem minmax(0, 1fr); align-items: center; gap: var(--abstand-6); }

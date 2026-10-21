@@ -1,7 +1,7 @@
 /*
   Roddys Weg. Schnittstelle: Elemente mit [data-roddy] arbeiten für sich. Benötigt fortschritt.js.
-  Fünf Szenen stehen im Wechsel auf einer Bühne, die beim Scrollen stehen bleibt (sticky). Mit jeder Szene füllt sich eine Zone des Fußabdrucks,
-  bei der letzten der ganze Fuß. Die Bewegung hängt am Scrollen und läuft rückwärts mit. Ohne Skript, bei reduzierter Bewegung
+  Fünf Szenen stehen im Wechsel auf einer Bühne, die beim Scrollen stehen bleibt (sticky). Der Fußabdruck füllt sich dabei stetig von der Ferse bis zur Zehe,
+  am Ende steht der ganze Fuß da. Die Bewegung hängt am Scrollen und läuft rückwärts mit. Ohne Skript, bei reduzierter Bewegung
   und wenn die Bühne nicht ins Fenster passt, stehen alle Szenen untereinander und der Fuß ist ganz gefüllt.
 */
 (function () {
@@ -12,11 +12,36 @@
     var F = window.VianuFortschritt;
     var buehne = huelle.querySelector(".roddy__stage");
     var szenen = huelle.querySelectorAll("[data-roddy-szene]");
-    var zonen = huelle.querySelectorAll("[data-roddy-zone]");
     var fuss = huelle.querySelector(".roddy__fuss");
     if (!F || !buehne || !szenen.length || reduziert) return;
 
     var aktiv = -1;
+    var fuell = huelle.querySelector("[data-roddy-fuell]");
+    var ziel = 0;
+    var jetzt = 0;
+    var laeuft = false;
+    function setzeFuellung(f) {
+      if (fuell) {
+        fuell.setAttribute("y", (260 * (1 - f)).toFixed(1));
+        fuell.setAttribute("height", (260 * f).toFixed(1));
+      }
+      if (fuss) {
+        if (f > 0.97) fuss.setAttribute("data-fertig", "");
+        else fuss.removeAttribute("data-fertig");
+      }
+    }
+    // Der Fuß füllt sich stetig von der Ferse nach oben und läuft dem Scrollstand weich hinterher
+    function schritt() {
+      jetzt += (ziel - jetzt) * 0.1;
+      if (Math.abs(ziel - jetzt) < 0.002) jetzt = ziel;
+      setzeFuellung(jetzt);
+      if (jetzt !== ziel) window.requestAnimationFrame(schritt);
+      else laeuft = false;
+    }
+    function fuelleBis(f) {
+      ziel = f;
+      if (!laeuft) { laeuft = true; window.requestAnimationFrame(schritt); }
+    }
     function zeige(nr) {
       if (nr === aktiv) return;
       aktiv = nr;
@@ -24,16 +49,6 @@
         if (i === nr) s.setAttribute("data-aktiv", "");
         else s.removeAttribute("data-aktiv");
       });
-      var letzte = nr === szenen.length - 1;
-      Array.prototype.forEach.call(zonen, function (z) {
-        var zone = Number(z.getAttribute("data-roddy-zone"));
-        if (letzte || zone <= nr + 1) z.setAttribute("data-an", "");
-        else z.removeAttribute("data-an");
-      });
-      if (fuss) {
-        if (letzte) fuss.setAttribute("data-fertig", "");
-        else fuss.removeAttribute("data-fertig");
-      }
     }
     function passt() {
       return window.innerHeight - KOPF >= buehne.offsetHeight + 16;
@@ -47,13 +62,17 @@
         huelle.removeAttribute("data-bereit");
         huelle.removeAttribute("data-haelt");
         aktiv = -1;
+        ziel = jetzt = 0;
+        setzeFuellung(1);
         return;
       }
       huelle.setAttribute("data-haelt", "");
       var h = huelle.getBoundingClientRect();
       var strecke = h.height - buehne.offsetHeight;
       var anteil = strecke > 0 ? (KOPF - h.top) / strecke : 1;
-      zeige(F.aktiverSchritt(Math.max(0, Math.min(1, anteil)), szenen.length));
+      var a = Math.max(0, Math.min(1, anteil));
+      zeige(F.aktiverSchritt(a, szenen.length));
+      fuelleBis(Math.min(1, a / 0.9));
     }
     function planen() {
       if (!geplant) {
