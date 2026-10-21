@@ -2126,7 +2126,7 @@ main:focus { outline: none; }
 .roddy__haelt[data-bereit] .roddy__szene { grid-area: 1 / 1; margin-bottom: 0; opacity: 0; visibility: hidden; transition: opacity 0.3s; }
 .roddy__haelt[data-bereit] .roddy__szene[data-aktiv] { opacity: 1; visibility: visible; }
 .roddy__haelt[data-haelt] { height: 380vh; }
-.roddy__haelt[data-haelt] .roddy__stage { position: sticky; top: 5rem; }
+.roddy__haelt[data-haelt] .roddy__stage { position: sticky; top: var(--roddy-oben, 5rem); }
 @media (max-width: 40rem) {
   .roddy__stage { grid-template-columns: minmax(0, 1fr) 4.5rem; gap: var(--abstand-3); }
   .roddy__blase { padding: var(--abstand-3) var(--abstand-4); font-size: 1.1rem; }

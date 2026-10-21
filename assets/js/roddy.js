@@ -67,9 +67,12 @@
         return;
       }
       huelle.setAttribute("data-haelt", "");
+      // Die Bühne bleibt senkrecht mittig im Raum unter der Menüleiste stehen
+      var oben = Math.max(KOPF, Math.round((window.innerHeight + KOPF - buehne.offsetHeight) / 2));
+      huelle.style.setProperty("--roddy-oben", oben + "px");
       var h = huelle.getBoundingClientRect();
       var strecke = h.height - buehne.offsetHeight;
-      var anteil = strecke > 0 ? (KOPF - h.top) / strecke : 1;
+      var anteil = strecke > 0 ? (oben - h.top) / strecke : 1;
       var a = Math.max(0, Math.min(1, anteil));
       zeige(F.aktiverSchritt(a, szenen.length));
       fuelleBis(Math.min(1, a / 0.9));
