@@ -195,7 +195,7 @@ Status: gebaut
 
 ### Stimme
 Status: gebaut (Vorlage)
-- Rezensionskarte unter der Überschrift "Hör nicht auf uns, hör auf andere in deiner Situation": großes Anführungszeichen in Signalfarbe, Zitat, rundes Porträtfeld, Vorname, Jobtitel, Signal-Versatz. Heute trägt sie den Platzhaltertext und ist mit `data-platzhalter` markiert. Keine Sterne und keine Bewertungszahl, weil beides Daten wären, die es nicht gibt.
+- Rezensionskarte unter der Überschrift "Aber hör nicht auf mich, hör auf andere in deiner Situation": großes Anführungszeichen in Signalfarbe, Zitat, rundes Porträtfeld, Vorname, Jobtitel, Signal-Versatz. Heute trägt sie den Platzhaltertext und ist mit `data-platzhalter` markiert. Keine Sterne und keine Bewertungszahl, weil beides Daten wären, die es nicht gibt.
 - Wird eine echte Stimme freigegeben, ersetzen Zitat, Porträt, Vorname und Jobtitel den Platzhalter, die Karte bleibt gleich. Das Bild nur mit Einwilligung der Person.
 
 ### Schichttag
