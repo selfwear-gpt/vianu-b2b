@@ -13,12 +13,13 @@
     "Mitarbeitende zahlen nichts",
     "In wenigen Stunden: Sie legen die Testgruppe fest und sprechen die Teilnehmenden an und erklären kurz das Vorgehen.",
     "Und wenn die Sohle nicht passt?",
-    "Dann fertigen wir sie neu.",
     "Und mein Aufwand?",
     "Wenige Stunden: Testgruppe festlegen, Teilnehmende ansprechen, Vorgehen erklären.",
     "Wir testen erstmal in kleiner Runde mit 10 Mitarbeitenden. Das wären nur Kosten von 1.200 Euro zzgl. Umsatzsteuer.",
     "Am Ende bekommen Sie einen Bericht, wie hilfreich die Sohlen waren und wie zufrieden das Team ist.",
-    "Den können Sie dann auch der Geschäftsführung vorlegen."
+    "Den können Sie dann auch der Geschäftsführung vorlegen.",
+    "Dann sprechen wir persönlich mit der Person und bessern nach oder fertigen neu.",
+    "Ist sie danach nicht zufrieden, gibt es den Kaufpreis zurück."
   ],
   "en/b2b/personal.html": [
     "What you present to your management",
@@ -33,12 +34,13 @@
     "Next step: Define a suitable pilot group with operations management and prepare the internal communication. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
     "A few hours: you define the test group, approach the participants and briefly explain the process.",
     "And if the insole does not fit?",
-    "Then we make it again.",
     "And my effort?",
     "A few hours: define the test group, approach the participants, explain the process.",
     "We start with a small group of 10 employees. That would be only EUR 1,200 plus VAT.",
     "At the end you get a report: how helpful the insoles were, how satisfied the team is.",
-    "You can then show it to management as well."
+    "You can then show it to management as well.",
+    "Then we talk to the person personally and rework it or make a new one.",
+    "If they are still not satisfied afterwards, they get the purchase price back."
   ],
   "b2b/geschaeftsfuehrung.html": [
     "Was Sie für Ihre Entscheidung brauchen",
@@ -79,7 +81,6 @@
   "b2b/arbeitsschutz.html": [
     "Nächster Schritt: Den Pilotumfang gegen die Gefährdungsbeurteilung spiegeln und die Testgruppe fachlich freigeben. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.",
     "Und wenn die Sohle drückt?",
-    "Dann fertigen wir sie neu. Die Teilnahme ist freiwillig.",
     "Ich kenne VIANU noch nicht. Was ist das, und wo liegen die Grenzen?",
     "Wir fertigen individuelle Einlegesohlen für Beschäftigte, die lange stehen. Die Sohle liegt im eigenen Schuh.",
     "Sie ist ein Komfortangebot und ersetzt keine Schutzmaßnahme.",
@@ -88,12 +89,13 @@
     "Wir haben schon Arbeitsplatzmatten. Wozu dann noch Sohlen?",
     "Eine Matte hilft an einem Platz. Die Sohle ist bei jedem Schritt der Schicht dabei.",
     "Das Personal wechselt zwischen Herd, Lager und Kühlraum. Die Sohle ist an jedem Ort dabei.",
-    "Wer Matten hat, behält sie. Die Sohle gleicht die Wege dazwischen aus."
+    "Wer Matten hat, behält sie. Die Sohle gleicht die Wege dazwischen aus.",
+    "Dann sprechen wir persönlich mit der Person und bessern nach oder fertigen neu.",
+    "Ist sie danach nicht zufrieden, gibt es den Kaufpreis zurück. Die Teilnahme ist freiwillig."
   ],
   "en/b2b/arbeitsschutz.html": [
     "Next step: Check the pilot scope against the risk assessment and give the test group technical approval. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
     "And if the insole presses?",
-    "Then we make it again. Taking part is voluntary.",
     "I do not know VIANU yet. What is it, and where are the limits?",
     "It is a comfort offer and replaces no protective measure.",
     "And what happens to the photos of the feet?",
@@ -102,7 +104,9 @@
     "We already have anti-fatigue mats. Why insoles on top?",
     "A mat helps at one spot. The insole is with you at every step of the shift.",
     "Staff move between stove, storage and cold room. The insole is with them at each place.",
-    "Whoever has mats keeps them. The insole covers the routes in between."
+    "Whoever has mats keeps them. The insole covers the routes in between.",
+    "Then we talk to the person personally and rework it or make a new one.",
+    "If they are still not satisfied afterwards, they get the purchase price back. Taking part is voluntary."
   ],
   "b2b/einkauf.html": [
     "Ich brauche einen klaren Ablauf ohne Überraschungen nach der Freigabe.",
@@ -116,7 +120,8 @@
     "Das Angebot kommt per E-Mail. Bezahlt wird auf Rechnung, das Zahlungsziel sind 14 Tage.",
     "Gedruckt in Deutschland in 48 Stunden. Geliefert spätestens 7 Tage nach der Fußerfassung.",
     "Für den ersten Test sind es 10 Paare.",
-    "Danach entscheiden Sie, ob sich ein größerer Rollout lohnt. Mindestmengen gibt es sonst nicht."
+    "Danach entscheiden Sie, ob sich ein größerer Rollout lohnt. Mindestmengen gibt es sonst nicht.",
+    "Konditionen für größere Mengen besprechen wir nach dem Piloten."
   ],
   "en/b2b/einkauf.html": [
     "I need a clear process with no surprises after approval.",
@@ -130,10 +135,10 @@
     "The offer arrives by email. You pay by invoice, with 14 days to pay.",
     "Printed in Germany in 48 hours. Delivered at the latest 7 days after the foot capture.",
     "For the first test, it is 10 pairs.",
-    "After that, you decide whether a larger rollout pays off. Otherwise there are no minimum quantities."
+    "After that, you decide whether a larger rollout pays off. Otherwise there are no minimum quantities.",
+    "We discuss terms for larger quantities after the pilot."
   ],
   "b2b/betriebsrat.html": [
-    "Was Sie in der Betriebsratssitzung klären können",
     "Was passiert mit den Fotos der Füße unserer Kolleginnen und Kollegen?",
     "Die Teilnahme ist freiwillig, für jede Person.",
     "Sieht der Arbeitgeber einzelne Personen?",
@@ -147,10 +152,12 @@
     "Nur VIANU und ihre Fertigungspartner. Gedruckt wird lokal in Deutschland.",
     "Am Ende gibt es eine Befragung zur Wirkung bei den Mitarbeitenden.",
     "Der Bericht enthält für den Betrieb die Teilnehmerliste.",
-    "Die Antworten erscheinen nur anonym und lassen sich keiner einzelnen Person zuordnen."
+    "Die Antworten erscheinen nur anonym und lassen sich keiner einzelnen Person zuordnen.",
+    "Und wenn die Sohle nicht passt?",
+    "Dann sprechen wir persönlich mit der Person und bessern nach oder fertigen neu.",
+    "Ist sie danach nicht zufrieden, gibt es den Kaufpreis zurück."
   ],
   "en/b2b/betriebsrat.html": [
-    "What you can clarify in the works council meeting",
     "What happens to the photos of our colleagues' feet?",
     "Taking part is voluntary, for every person.",
     "Next step: Settle the works agreement, the data protection concept and the data processing agreement before approval. Contact: Roderich Körner-Rehn. Get in touch on the VIANU B2B page.",
@@ -164,6 +171,9 @@
     "Only VIANU and its manufacturing partners. Printing happens locally in Germany.",
     "At the end there is a survey on the effect among the employees.",
     "The report contains the participant list for the business.",
-    "The answers appear only anonymously and cannot be traced to a single person."
+    "The answers appear only anonymously and cannot be traced to a single person.",
+    "And if the insole does not fit?",
+    "Then we talk to the person personally and rework it or make a new one.",
+    "If they are still not satisfied afterwards, they get the purchase price back."
   ]
 }

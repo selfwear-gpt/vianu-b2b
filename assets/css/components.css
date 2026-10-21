@@ -790,7 +790,7 @@ a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px;
 .sorge:hover .sorge__innen, .sorge:focus-visible .sorge__innen, .sorge[data-aktiv="true"] .sorge__innen { transform: rotateY(180deg); }
 .sorge:focus-visible { outline-offset: -6px; z-index: 2; }
 .sorgen__punkte { display: flex; gap: var(--abstand-3); justify-content: center; padding-top: var(--abstand-2); }
-.sorgen__punkt { width: 14px; height: 14px; padding: 0; border: var(--kante) solid var(--farbe-tinte); border-radius: 50%; background: var(--farbe-papier); cursor: pointer; }
+.sorgen__punkt { position: relative; width: 14px; height: 14px; padding: 0; border: var(--kante) solid var(--farbe-tinte); border-radius: 50%; background: var(--farbe-papier); cursor: pointer; }
 .sorgen__punkt[aria-current="true"] { background: var(--farbe-signal); }
 .mini { width: 100%; max-width: 20rem; height: auto; display: block; margin-inline: auto; }
 .mini__zone { fill: var(--farbe-papier); }
@@ -965,7 +965,7 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
   position: relative;
   display: grid;
   gap: var(--abstand-5);
-  margin: 0;
+  margin: 0 auto;
   padding: var(--abstand-6);
   max-width: 44rem;
   background: var(--farbe-papier);
@@ -1233,15 +1233,6 @@ svg.weg { width: 100%; height: auto; max-height: 34rem; }
   .fragen__gruppe { grid-template-columns: minmax(0, 1fr); }
   .fragen__titel.etikett { position: static; }
 }
-/* ---------- Zweites Paar ---------- */
-.zweites { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-6); align-items: center; }
-.zweites__bild { width: min(100%, 15rem); height: auto; }
-.zweites__sohle { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 5; }
-.zweites__sohle--leer { fill: none; stroke-dasharray: 14 10; }
-.zweites__frage { font-family: var(--schrift-kopf); font-weight: 800; font-size: 3.5rem; fill: var(--farbe-tinte); }
-@media (max-width: 36rem) {
-  .zweites { grid-template-columns: minmax(0, 1fr); }
-}
 /* ---------- Messwerte: zweite Kachel mit Pink-Kopf, Fußform ruhiger ---------- */
 .messwerte:not(.messwerte--rolle) .messwert:nth-child(2) { border-top: 1rem solid var(--farbe-signal); }
 .sorge__kurz { text-wrap: balance; }
@@ -1270,7 +1261,7 @@ div.weg { display: flex; flex-direction: column; gap: var(--abstand-5); }
 .weg__feld[hidden] { display: none; }
 .weg__feld + .weg__feld { margin-top: var(--abstand-6); }
 .weg__zeit { color: var(--farbe-signal); }
-.weg__feld h4 { margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; color: var(--farbe-papier); }
+.weg__feld h3, .weg__feld h4 { margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; color: var(--farbe-papier); }
 .weg__satz { font-size: clamp(1.2rem, 2.2vw, 1.7rem); line-height: 1.35; max-width: 34ch; font-weight: 500; }
 .weg__jahr { font-family: var(--schrift-mono); font-size: var(--schrift-groesse-klein); font-weight: 700; }
 .weg__steuerung { display: flex; flex-wrap: wrap; gap: var(--abstand-3); clear: both; }
@@ -1769,7 +1760,6 @@ details.beleg[open] { border-left: 10px solid var(--farbe-signal); }
 }
 @media print {
   .stand-kasten { margin-top: var(--abstand-3); padding: var(--abstand-3); }
-  .dokumente { display: none; }
 }
 
 /* ---------- Geschäftsführung: Motiv mit Zehnerstapel und Kalenderblatt, Kostenwert, Lieferung und Haltbarkeit ---------- */
@@ -1911,31 +1901,34 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .weg__etikett { font-size: 9px; font-weight: 700; paint-order: stroke; stroke: var(--farbe-papier); stroke-width: 4px; stroke-linejoin: round; transform-box: fill-box; transform-origin: center; transition: opacity 0.25s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
 .weg__etikett[data-aus] { opacity: 0; transform: scale(0.6); }
 .weg__schritte { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--abstand-5); counter-reset: schritt; }
+.weg__stationen { visibility: hidden; }
+.js .weg__schritte li { transition: opacity 0.3s, transform 0.3s; }
+.js .weg__schritte li[data-aus] { opacity: 0; transform: translateY(8px); }
 .weg__schritte li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--abstand-3); align-items: start; counter-increment: schritt; }
 .weg__schritte li::before { content: counter(schritt); grid-row: 1 / span 2; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-tinte); font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.3rem; }
 .weg__schritte strong { font-family: var(--schrift-kopf); font-size: 1.4rem; line-height: 1.1; text-transform: uppercase; }
 .weg__schritte span { font-size: 1.1rem; line-height: 1.4; }
 .weg__fazit { margin: var(--abstand-5) 0 0; max-width: 62ch; font-size: 1.15rem; line-height: 1.45; }
-@media (prefers-reduced-motion: reduce) { .weg__etikett { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .weg__etikett, .js .weg__schritte li { transition: none; } }
 
 /* Einkauf: Bestellstrecke und Zahlenkacheln */
-.strecke { --strecke-anteil: 1; list-style: none; width: 100%; max-width: none; margin: var(--abstand-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-3); position: relative; }
-.strecke::before { content: ""; position: absolute; left: 10%; right: 10%; top: 2.1rem; border-top: 3px dashed var(--farbe-tinte); }
-.strecke::after { content: ""; position: absolute; left: 10%; top: 2.1rem; width: calc(80% * var(--strecke-anteil)); border-top: 5px solid var(--farbe-signal); transition: width 0.4s ease-out; }
-.strecke__station { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); text-align: center; }
-.strecke__marke { display: grid; place-items: center; width: 4.2rem; height: 4.2rem; border-radius: 50%; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: background 0.3s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
-.strecke__marke svg { width: 2rem; height: 2rem; fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.strecke__station[data-an] .strecke__marke { background: var(--farbe-signal); transform: scale(1.1); }
-.strecke__station h3 { margin: 0; font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
-.strecke__satz { margin: 0; font-size: 1rem; line-height: 1.4; max-width: 24ch; }
+.bestellstrecke { --bestellstrecke-anteil: 1; list-style: none; width: 100%; max-width: none; margin: var(--abstand-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--abstand-3); position: relative; }
+.bestellstrecke::before { content: ""; position: absolute; left: 10%; right: 10%; top: 2.1rem; border-top: 3px dashed var(--farbe-tinte); }
+.bestellstrecke::after { content: ""; position: absolute; left: 10%; top: 2.1rem; width: calc(80% * var(--bestellstrecke-anteil)); border-top: 5px solid var(--farbe-signal); transition: width 0.4s ease-out; }
+.bestellstrecke__station { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); text-align: center; }
+.bestellstrecke__marke { display: grid; place-items: center; width: 4.2rem; height: 4.2rem; border-radius: 50%; border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); transition: background 0.3s, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
+.bestellstrecke__marke svg { width: 2rem; height: 2rem; fill: none; stroke: var(--farbe-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.bestellstrecke__station[data-an] .bestellstrecke__marke { background: var(--farbe-signal); transform: scale(1.1); }
+.bestellstrecke__station h3 { margin: 0; font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
+.bestellstrecke__satz { margin: 0; font-size: 1rem; line-height: 1.4; max-width: 24ch; }
 @media (max-width: 56rem) {
-  .strecke { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-5); }
-  .strecke::before, .strecke::after { display: none; }
-  .strecke__station { flex-direction: column; align-items: flex-start; text-align: left; padding-left: 5.4rem; min-height: 4.2rem; }
-  .strecke__marke { position: absolute; left: 0; top: 0; }
-  .strecke__satz { max-width: none; }
+  .bestellstrecke { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-5); }
+  .bestellstrecke::before, .bestellstrecke::after { display: none; }
+  .bestellstrecke__station { flex-direction: column; align-items: flex-start; text-align: left; padding-left: 5.4rem; min-height: 4.2rem; }
+  .bestellstrecke__marke { position: absolute; left: 0; top: 0; }
+  .bestellstrecke__satz { max-width: none; }
 }
-@media (prefers-reduced-motion: reduce) { .strecke::after, .strecke__marke { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .bestellstrecke::after, .bestellstrecke__marke { transition: none; } }
 .zahlenkacheln { list-style: none; width: 100%; max-width: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr)); gap: var(--abstand-4); }
 .zahlenkachel { display: flex; flex-direction: column; gap: var(--abstand-2); padding: var(--abstand-5) var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); transition: transform 0.2s, box-shadow 0.2s; }
 .zahlenkachel:nth-child(odd) { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
@@ -1989,4 +1982,158 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
   .top__text { padding: var(--abstand-2) var(--abstand-3); }
   .top__text p { font-size: 0.85rem; line-height: 1.3; }
   .tagesordnung { gap: var(--abstand-2); }
+}
+
+/* Kontaktwahl: Telefon oder Formular */
+.kontaktwahl { width: min(34rem, calc(100vw - 2 * var(--abstand-4))); }
+.kontaktwahl[data-modus="telefon"] [data-nur-wahl], .kontaktwahl[data-modus="wahl"] [data-nur-telefon] { display: none; }
+.kontaktwahl__knoepfe { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand-4); }
+.kontaktwahl__option { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-2); padding: var(--abstand-4); text-align: left; background: var(--farbe-papier); color: var(--farbe-tinte); border: var(--kante) solid var(--farbe-tinte); cursor: pointer; font: inherit; }
+.kontaktwahl__option strong { font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; line-height: 1; text-transform: uppercase; }
+.kontaktwahl__option span { font-size: var(--schrift-groesse-klein); line-height: 1.35; }
+.kontaktwahl__option:hover, .kontaktwahl__option:focus-visible { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.kontaktwahl__telefon { display: flex; flex-direction: column; gap: var(--abstand-3); padding-top: var(--abstand-3); border-top: var(--kante) solid var(--farbe-tinte); }
+.kontaktwahl__telefon[hidden] { display: none; }
+.kontaktwahl__satz { margin: 0; }
+.kontaktwahl__nummer { margin: 0; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1; user-select: all; }
+.kontaktwahl__aktionen { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+@media (max-width: 30rem) { .kontaktwahl__knoepfe { grid-template-columns: minmax(0, 1fr); } }
+
+/* Produktfoto der Sohle: Platzhalter neben Inhalten */
+.platzhalter--sohle { aspect-ratio: 4 / 3; align-items: center; text-align: center; max-width: 100%; }
+.seitenfoto { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--abstand-6) clamp(24px, 4vw, 56px); align-items: start; }
+.seitenfoto__foto { position: sticky; top: var(--abstand-6); }
+@media (max-width: 56rem) {
+  .seitenfoto { grid-template-columns: minmax(0, 1fr); }
+  .seitenfoto__foto { position: static; }
+}
+
+/* Preisregler mit wachsendem Sohlenfoto: 5rem bei 20 Schichten, 18rem bei 600 */
+.preisrechner { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--abstand-5) clamp(24px, 4vw, 56px); align-items: center; margin-bottom: var(--abstand-7); }
+.preisrechner > .rechner { margin-bottom: 0; padding: 0; border: 0; max-width: 40rem; }
+.preisrechner__foto { --sohle-anteil: 0.33; width: calc(5rem + 13rem * var(--sohle-anteil)); max-width: 100%; justify-self: end; }
+.preisrechner__foto.platzhalter { padding: var(--abstand-2); }
+.preisrechner__foto .platzhalter__etikett { font-size: 0.6rem; line-height: 1.25; letter-spacing: 0; text-align: center; }
+@media (max-width: 40rem) { .preisrechner { grid-template-columns: minmax(0, 1fr); } .preisrechner__foto { justify-self: start; } }
+@media (prefers-reduced-motion: no-preference) { .preisrechner__foto { transition: width 0.15s ease-out; } }
+
+/* Zufriedenheitsgarantie */
+.garantie__schritte { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--abstand-4); }
+.garantie__schritt { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-4); align-items: start; padding: var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); }
+.garantie__zahl { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--farbe-signal); color: var(--farbe-auf-signal); font-family: var(--schrift-kopf); font-weight: 800; font-size: 1.5rem; }
+.garantie__schritt h3 { margin: 0 0 var(--abstand-1); font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
+.garantie__schritt p { margin: 0; line-height: 1.4; }
+.garantie__fazit { margin: var(--abstand-5) 0 0; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1; text-transform: uppercase; }
+.garantie__schritt { transition: transform 0.15s, background-color 0.15s, box-shadow 0.15s; }
+.garantie__schritt:hover { transform: translateY(-3px); background: var(--farbe-signal); box-shadow: 0 4px 0 var(--farbe-tinte); }
+.garantie__schritt:hover .garantie__zahl { background: var(--farbe-papier); }
+.garantie__fazit { margin: var(--abstand-6) 0 0; }
+.garantie--kurz .garantie__fazit { margin-top: var(--abstand-6); }
+.garantie__kurvenwurzel { --kurve-anteil: 1; display: flex; flex-direction: column; gap: var(--abstand-4); }
+.garantie__kurve { width: 100%; height: auto; overflow: visible; }
+.garantie__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--kurve-anteil)); }
+.garantie__marke circle { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 4; transition: fill 0.3s; }
+.garantie__marke text { font-family: var(--schrift-kopf); font-weight: 800; font-size: 24px; fill: var(--farbe-tinte); }
+.garantie__marke[data-an] circle { fill: var(--farbe-signal); }
+.garantie__punkte { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--abstand-4); }
+.garantie__punkt { text-align: center; transition: opacity 0.3s; }
+.garantie__punkt .garantie__zahl { display: none; }
+.garantie__punkt h3 { margin: 0 0 var(--abstand-1); font-size: 1.35rem; line-height: 1.1; text-transform: uppercase; }
+.garantie__punkt p { margin: 0 auto; max-width: 28ch; line-height: 1.4; }
+.js .garantie__punkt:not([data-an]) { opacity: 0.25; }
+@media (max-width: 40rem) {
+  .garantie__kurve { display: none; }
+  .garantie__punkte { grid-template-columns: minmax(0, 1fr); }
+  .garantie__punkt { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--abstand-3); text-align: left; padding: var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); }
+  .garantie__punkt .garantie__zahl { display: grid; }
+  .garantie__punkt p { margin: 0; max-width: none; }
+  .js .garantie__punkt:not([data-an]) { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .garantie__schritt, .garantie__marke circle, .garantie__punkt { transition: none; } .garantie__schritt:hover { transform: none; } }
+@media print {
+  .kontaktwahl, .preisrechner__foto, .seitenfoto__foto { display: none; }
+  .seitenfoto { grid-template-columns: minmax(0, 1fr); }
+}
+.preisrechner > .rechner .rechner__ergebnis { position: relative; }
+.seitenfoto .zahlenkacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.seitenfoto__inhalt { min-width: 0; }
+.alles { display: flex; flex-direction: column; gap: var(--abstand-4); margin-top: var(--abstand-7); }
+.alles h3 { margin: 0; font-size: var(--schrift-groesse-h2); }
+.alles .platzhalter--sohle { max-width: 36rem; width: 100%; }
+#stimme .abschnitt__kopf, #stimmen .abschnitt__kopf { text-align: center; }
+.seitenfoto .dokument { grid-template-columns: auto minmax(0, 1fr); }
+.seitenfoto .dokument__knopf { grid-column: 1 / -1; justify-self: start; }
+.dokument__knopf { max-width: 100%; white-space: normal; }
+@media print {
+  .dokumente { display: flex; gap: var(--abstand-2); }
+  .dokument { padding: var(--abstand-2) var(--abstand-3); grid-template-columns: auto minmax(0, 1fr); }
+  .dokument__bild { width: 1.5rem; }
+  .dokument__knopf { display: none; }
+  .dokument__nutzen { font-size: 0.85rem; margin-top: 0; }
+  .dokument__titel { font-size: 1rem; }
+}
+.karte__szene { opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.karte__szene[data-aktiv] { opacity: 1; }
+.karte__umriss { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.karte__fuell { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.karte__strich { fill: none; stroke: var(--farbe-tinte); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 7; }
+.karte__sohle { fill: var(--farbe-signal); stroke: var(--farbe-tinte); stroke-width: 6; }
+.karte__punkt { fill: var(--farbe-tinte); }
+.karte__text--klein { font-size: 9.5px; letter-spacing: 0.04em; paint-order: stroke; stroke: var(--farbe-papier); stroke-width: 3px; }
+@media (prefers-reduced-motion: reduce) { .karte__szene { transition: none; } }
+/* Matte und Sohle: Das Bild bleibt beim Scrollen stehen, nur Füße und Punkte bewegen sich */
+.weg__haelt[data-haelt] { height: 260vh; }
+.weg__haelt[data-haelt] .weg__stage { position: sticky; top: 5rem; }
+@media print { .weg__haelt[data-haelt] { height: auto; } .weg__haelt[data-haelt] .weg__stage { position: static; } }
+/* Vertrauensleiste: Kurz-Leiste mit vier Spalten, Inhalt mittig, Text linksbündig */
+.kurz--vier .kurz__liste { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.kurz--vier .kurz__punkt { align-items: center; justify-content: center; text-align: left; padding-inline: var(--abstand-4); }
+.kurz--vier .kurz__punkt:first-child { padding-left: var(--abstand-4); }
+.kurz--vier .kurz__punkt p { max-width: 36ch; }
+.kurz--vier .kurz__wort { font-size: clamp(1.4rem, 2vw, 2rem); }
+@media (max-width: 64rem) { .kurz--vier .kurz__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); } .kurz--vier .kurz__punkt:nth-child(3) { border-left: 0; } .kurz--vier .kurz__punkt:nth-child(n+3) { border-top: 1px solid var(--farbe-tinte); } }
+@media (max-width: 40rem) { .kurz--vier .kurz__liste { grid-template-columns: minmax(0, 1fr); } .kurz--vier .kurz__punkt { border-left: 0; } .kurz--vier .kurz__punkt:nth-child(n+2) { border-top: 1px solid var(--farbe-tinte); } }
+@media (max-width: 40rem) { .seitenfoto .zahlenkacheln { grid-template-columns: minmax(0, 1fr); } }
+/* Fachstimme neben der Kundenstimme: zwei gleich große Karten */
+.stimmenpaar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand-6); max-width: 76rem; margin-inline: auto; align-items: stretch; }
+.stimmenpaar .stimme { max-width: none; margin: 0; height: 100%; }
+.stimme--fach { border-style: dashed; }
+.stimme__rolle { position: absolute; top: var(--abstand-3); left: var(--abstand-5); color: var(--farbe-gedaempft); }
+@media (max-width: 56rem) { .stimmenpaar { grid-template-columns: minmax(0, 1fr); gap: var(--abstand-5); } }
+/* Sprunglink zum Inhalt: nur bei Tastaturfokus sichtbar */
+.sprung { position: absolute; left: var(--abstand-3); top: -4rem; z-index: 100; padding: var(--abstand-2) var(--abstand-4); background: var(--farbe-tinte); color: var(--farbe-papier); font-weight: 700; }
+.sprung:focus { top: var(--abstand-3); }
+main:focus { outline: none; }
+/* Klickflächen von mindestens 24 px bei kleinen Bedienelementen */
+.sorgen__punkt::after { content: ""; position: absolute; inset: -6px; }
+.fuss__recht a, .fuss a { display: inline-block; min-height: 24px; padding-block: 3px; }
+/* Roddys Weg: Leitsatz in einer Zeile, darunter Bühne mit Foto, Sprechblase und Fußabdruck, die beim Scrollen stehen bleibt */
+.leitsatz { margin: 0; text-align: center; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(0.9rem, 4.3vw, 3rem); line-height: 1.1; white-space: nowrap; }
+.roddy__name { margin: var(--abstand-3) 0 var(--abstand-6); text-align: center; color: var(--farbe-gedaempft); }
+.roddy__stage { display: grid; grid-template-columns: minmax(0, 1fr) 9rem; gap: var(--abstand-6); align-items: center; max-width: 60rem; margin-inline: auto; background: var(--farbe-papier); }
+.roddy__szene { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--abstand-4); margin-bottom: var(--abstand-6); }
+.roddy__bild { aspect-ratio: 4 / 3; width: 100%; max-width: 26rem; }
+.roddy__rede { display: flex; flex-direction: column; gap: var(--abstand-2); align-items: flex-start; }
+.roddy__blase { position: relative; margin: 0; padding: var(--abstand-4) var(--abstand-5); max-width: none; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-tinte); border-radius: var(--abstand-5); font-family: var(--schrift-kopf); font-weight: 600; font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.25; }
+.roddy__blase::before { content: ""; position: absolute; left: var(--abstand-6); top: calc(-1 * var(--abstand-3) - var(--kante)); width: var(--abstand-4); height: var(--abstand-4); background: var(--farbe-signal); border-left: var(--kante) solid var(--farbe-tinte); border-top: var(--kante) solid var(--farbe-tinte); transform: rotate(45deg); }
+.roddy__zeit { color: var(--farbe-tinte); }
+.roddy__fuss { width: 100%; height: auto; max-height: 24rem; justify-self: center; }
+.roddy__umriss { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; }
+.roddy__zone { fill: var(--farbe-signal); }
+.roddy__marke { fill: var(--farbe-tinte); font-family: var(--schrift-kopf); font-weight: 800; font-size: 18px; letter-spacing: 0.08em; opacity: 0; transition: opacity 0.3s; }
+.roddy__fuss[data-fertig] .roddy__marke { opacity: 1; }
+.roddy__haelt[data-bereit] .roddy__buehne { display: grid; }
+.roddy__haelt[data-bereit] .roddy__szene { grid-area: 1 / 1; margin-bottom: 0; opacity: 0; visibility: hidden; transition: opacity 0.3s; }
+.roddy__haelt[data-bereit] .roddy__szene[data-aktiv] { opacity: 1; visibility: visible; }
+.roddy__haelt[data-haelt] { height: 380vh; }
+.roddy__haelt[data-haelt] .roddy__stage { position: sticky; top: var(--roddy-oben, 5rem); }
+@media (max-width: 40rem) {
+  .roddy__stage { grid-template-columns: minmax(0, 1fr) 4.5rem; gap: var(--abstand-3); }
+  .roddy__blase { padding: var(--abstand-3) var(--abstand-4); font-size: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .roddy__marke, .roddy__haelt[data-bereit] .roddy__szene { transition: none; } }
+@media print { .roddy__haelt[data-haelt] { height: auto; } .roddy__haelt[data-haelt] .roddy__stage { position: static; } }
+@media (min-width: 56rem) {
+  .roddy__szene { grid-template-columns: 26rem minmax(0, 1fr); align-items: center; gap: var(--abstand-6); }
+  .roddy__blase::before { left: calc(-1 * var(--abstand-3) - var(--kante)); top: var(--abstand-5); border-left: var(--kante) solid var(--farbe-tinte); border-top: 0; border-bottom: var(--kante) solid var(--farbe-tinte); }
 }

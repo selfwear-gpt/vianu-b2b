@@ -12,7 +12,7 @@ const ALLE_B2B = [...SEITEN, ...ROLLEN.flatMap((r) => ["b2b/" + r + ".html", "en
 test("die große Überschrift ist der neue englische Slogan, Unterüberschrift und Preiszeile im Kopf entfallen", () => {
   for (const f of SEITEN) {
     const h = lies(f);
-    assert.match(h, /<h1 id="hero-titel" lang="en">Keep walkin’ strong, the whole day long<\/h1>/, f);
+    assert.match(h, /<h1 id="hero-titel" lang="en">Keep walkin’ strong the whole day long<\/h1>/, f);
     assert.match(h, /<p class="hero__slogan" lang="en">Nothing fancy\. Just a great way to get through your day\.<\/p>/, f);
     assert.doesNotMatch(h, /hero__antwort|hero__preis/, f);
   }
@@ -24,14 +24,14 @@ test("jeder Knopf zum Kontakt (Kontakt aufnehmen, im Preisblock Pilot buchen) ö
     const links = [...h.matchAll(/<a [^>]*href="(?:\.\/)?#pilot"[^>]*>/g)].map((m) => m[0]);
     assert.ok(links.length >= 2, f + ": Pilot-Verweise");
     for (const l of links) assert.match(l, /data-pilot-oeffnen/, f + ": " + l);
-    assert.equal((h.match(/<dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>/g) || []).length, 1, f);
+    assert.equal((h.match(/<dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog[^>]*>/g) || []).length, 1, f);
     for (const feld of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "anliegen", "einwilligung"]) {
       assert.match(h, new RegExp('data-feld="' + feld + '"'), f + " " + feld);
     }
     for (const feld of ["unternehmen", "rolle", "mitarbeitende", "kontakt", "quelle", "freitext", "anliegen"]) {
       assert.match(h, new RegExp('name="' + feld + '"[^>]* required|required[^>]*name="' + feld + '"'), f + " Pflicht " + feld);
     }
-    const dialog = h.match(/<dialog[\s\S]*?<\/dialog>/)[0];
+    const dialog = h.match(/<dialog[^>]*data-pilot-dialog[\s\S]*?<\/dialog>/)[0];
     const de = !f.startsWith("en/");
     assert.match(dialog, de ? /<h2 id="pilot-titel">Kontaktanfrage stellen<\/h2>/ : /<h2 id="pilot-titel">Send a contact request<\/h2>/, f + ": Titel");
     assert.match(dialog, de ? /Wir melden uns innerhalb von 5 Werktagen zurück, versprochen! Roderich Körner-Rehn ist Ihr Ansprechpartner\./ : /We will get back to you within 5 working days, promise! Roderich Körner-Rehn is your contact\./, f + ": Einleitung");
@@ -53,7 +53,7 @@ test("die Startseite zeigt keine Kurzliste mehr und keine Geschichte-Unterseite,
   for (const f of SEITEN) {
     const h = lies(f);
     assert.doesNotMatch(h, /class="kurz"/, f);
-    const reihe = ["geschichte", "messwerte", "preis", "wer-entscheidet-mit", "programm", "zweites-paar", "faq", "pilot"];
+    const reihe = ["geschichte", "messwerte", "preis", "wer-entscheidet-mit", "programm", "garantie", "faq", "pilot"];
     const pos = reihe.map((id) => h.indexOf('<section class="' ) >= 0 ? h.search(new RegExp('<section[^>]*id="' + id + '"')) : -1);
     assert.ok(pos.every((p) => p > 0), f + " " + pos);
     assert.deepEqual([...pos].sort((a, b) => a - b), pos, f + ": Reihenfolge");
@@ -91,7 +91,7 @@ test("Was Sie bekommen: drei Felder, Unterlagen mit Entwurf und Download, drei B
     assert.doesNotMatch(abschnitt, /role="tab(list|panel)?"/, f + ": Rollen setzt erst das Skript");
     assert.doesNotMatch(abschnitt, /unterlagen__stand">(In Arbeit|In progress)/, f + ": kein In Arbeit mehr");
     assert.equal((abschnitt.match(/<li class="unterlagen__eintrag">/g) || []).length, 3, f + ": drei Unterlagen");
-    const links = [...abschnitt.matchAll(/href="((?:\.\.\/)+assets\/downloads\/[^"]+\.txt)" download/g)].map((m) => m[1]);
+    const links = [...abschnitt.matchAll(/data-studie-datei="((?:\.\.\/)+assets\/downloads\/[^"]+\.txt)" data-studie-name/g)].map((m) => m[1]);
     assert.equal(links.length, 5, f + ": fünf Downloads");
     for (const l of links) assert.ok(fs.existsSync(path.join(__dirname, "..", path.dirname(f), l)), f + " " + l);
     assert.equal((abschnitt.match(/<li class="schritte3__punkt">/g) || []).length, 3, f + ": drei Bahnen");
@@ -184,13 +184,13 @@ test("der Preis: oben der Regler mit i-Hinweis und 3-Jahres-Satz, darunter Preis
   }
 });
 
-test("Zweites Paar zeigt zwei Sohlen und bleibt als Platzhalter markiert", () => {
+test("Zufriedenheitsgarantie: drei Schritte, Sohlenfoto-Platzhalter, Strecke und Telefon-Wahl", () => {
   for (const f of SEITEN) {
     const h = lies(f);
-    const z = h.match(/<section class="abschnitt" id="zweites-paar"[\s\S]*?<\/section>/)[0];
-    assert.match(z, /class="zweites__bild"/, f);
-    assert.equal((z.match(/class="zweites__sohle/g) || []).length, 2, f);
-    assert.match(z, /data-platzhalter/, f);
+    const z = h.match(/<section class="abschnitt" id="garantie"[\s\S]*?<\/section>/)[0];
+    assert.equal((z.match(/class="garantie__schritt"/g) || []).length, 3, f);
+    assert.match(z, /platzhalter--sohle/, f);
+    assert.doesNotMatch(z, /zweites/i, f);
   }
 });
 
@@ -296,7 +296,7 @@ test("Anfrage-Strecke: fünf Schritte mit Pflichtfeldern, nur der erste ist sich
     assert.match(ende, /type="checkbox"[^>]*data-feld="einwilligung"/, f);
     assert.match(ende, /datenschutz\.html/, f);
     assert.match(ende, /type="submit"[^>]* disabled/, f);
-    assert.match(form.replace(/<[^>]+>/g, ""), /(Ich stimme den Datenschutzrichtlinien zu, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden|I agree to the privacy policy that my details are processed to handle this request)\./, f);
+    assert.match(form.replace(/<[^>]+>/g, ""), /(Ich stimme den Datenschutzrichtlinien zu. Meine Angaben werden zur Bearbeitung dieser Anfrage verarbeitet und bleiben bis zum Schließen dieses Tabs im Browser gespeichert|I agree to the privacy policy. My details are processed to handle this request and stay saved in the browser until this tab is closed)\./, f);
     assert.match(form, /(Anfrage absenden|Send request)/, f);
     assert.doesNotMatch(form, /data-pilot-oeffnen/, f + ": kein Pilot-Knopf in der Strecke");
   }

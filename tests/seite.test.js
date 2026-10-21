@@ -7,13 +7,14 @@ const path = require("node:path");
 const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 const body = html.slice(html.indexOf("<body"));
 
-test("Reihenfolge: Das hast du davon, Stimmen, Ein Tag im Schichtbetrieb, Name, Ablauf, Fragen", () => {
+test("Reihenfolge: Das hast du davon, Roddys Weg, Stimmen, Ein Tag im Schichtbetrieb, Name, Ablauf, Fragen", () => {
   const ids = [...body.matchAll(/<section[^>]*\sid="([^"]+)"/g)].map((m) => m[1]);
-  const reihe = ["sohle", "stimmen", "tag", "name", "ablauf", "fragen"];
+  const reihe = ["sohle", "erlebt", "stimmen", "tag", "name", "ablauf", "fragen"];
   const pos = reihe.map((id) => ids.indexOf(id));
   assert.ok(pos.every((p) => p >= 0), "Abschnitt fehlt: " + ids.join(","));
   assert.deepEqual([...pos].sort((a, b) => a - b), pos, "falsche Reihenfolge: " + ids.join(","));
-  assert.equal(pos[1], pos[0] + 1, "Stimmen stehen nicht direkt hinter Das hast du davon");
+  assert.equal(pos[1], pos[0] + 1, "Roddys Weg steht nicht direkt hinter Das hast du davon");
+  assert.equal(pos[2], pos[1] + 1, "Stimmen stehen nicht direkt hinter Roddys Weg");
 });
 
 test("Überschrift des Schichttags und Wortlaut der Stoßzeit", () => {

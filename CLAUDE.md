@@ -28,6 +28,7 @@ Diese Datei enthält nur Wegweiser. Die Regeln stehen in den verlinkten Dateien.
 - Keine Zugangsdaten, Schlüssel oder interne Unterlagen im Repo. Das Repo kann öffentlich sein.
 - Bei jeder neuen Aufgabe zuerst `docs/agents/skill-auswahl.md` lesen, den passenden Skill selbst wählen und anwenden, ohne dass der Nutzer ihn nennt.
 - Jede inhaltliche Änderung gilt sinngemäß auch für die englische Fassung unter `en/`. Beide Fassungen ändern wir immer zusammen, ohne dass der Nutzer es erneut sagt.
+- Meta Descriptions, canonical, Open Graph, `robots.txt` und `sitemap.xml` stehen in `scripts/seo.py`. Nach jeder Änderung an einer Beschreibung dort ändern und das Skript ausführen.
 - Texte nie erfinden. Fehlt ein Beleg, steht ein markierter Platzhalter.
 - Größere Entscheidungen kurz erklären (Was, Warum), damit sie nachvollziehbar bleiben.
 - Die Einseiter-PDFs unter `assets/downloads/rolle-*.pdf` und `role-*.pdf` (englisch) entstehen aus den Rollenseiten: nach jeder Änderung an einer Rollenseite `NODE_PATH=$(npm root -g) CHROMIUM_PFAD=<Chromium> node scripts/erzeuge-pdf.js` ausführen und die PDFs mit committen.

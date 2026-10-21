@@ -333,6 +333,7 @@
     var zahl = wurzel.querySelector("[data-rechner-zahl]");
     var ergebnis = wurzel.querySelector("[data-rechner-ergebnis]");
     var text = wurzel.querySelector("[data-rechner-text]");
+    var foto = wurzel.parentNode ? wurzel.parentNode.querySelector("[data-sohle-foto]") : null;
     if (!regler || !zahl || !ergebnis || !text || !window.VianuKosten) return;
     var PREIS = 120;
 
@@ -343,6 +344,12 @@
       zahl.textContent = String(n);
       ergebnis.textContent = k.text;
       text.textContent = window.VianuTexte.text("rechner.zeile", { preis: PREIS, n: n }, wurzel);
+      // Das Sohlenfoto wächst mit dem Regler (CSS: 5rem bei Mindestwert bis 18rem bei Höchstwert) und wird nie wieder kleiner
+      if (foto) {
+        var von = Number(regler.min) || 0;
+        var bis = Number(regler.max) || 1;
+        foto.style.setProperty("--sohle-anteil", String(Math.min(1, Math.max(0, (n - von) / (bis - von)))));
+      }
     }
     regler.addEventListener("input", rechne);
     rechne();
@@ -540,6 +547,8 @@
         aktualisiere();
       });
     }
+    // Aus dem Sitzungsspeicher vorbelegte Antworten: gültige Fragen sind schon beantwortet, es geht bei der ersten offenen weiter
+    while (erreicht < 5 && gueltig[erreicht - 1]()) erreicht++;
     aktualisiere();
   }
 

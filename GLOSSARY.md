@@ -119,7 +119,7 @@ Der Abschnitt `#geschichte` der B2B-Startseite mit seinen Stationen und seiner E
 Impressum und Datenschutzerklärung. Solange die Angaben fehlen, sind sie Gerüste mit markierten Platzhaltern.
 
 **Stimme**:
-Die Rezensionskarte in der Sektion "Hör nicht auf uns, hör auf andere in deiner Situation". Zitat, Porträt, Vorname und Jobtitel einer Person. Bis es echte Stimmen gibt, trägt sie Platzhaltertext. Englisch: voice.
+Die Rezensionskarte in der Sektion "Aber hör nicht auf mich, hör auf andere in deiner Situation". Zitat, Porträt, Vorname und Jobtitel einer Person. Bis es echte Stimmen gibt, trägt sie Platzhaltertext. Englisch: voice.
 
 **Platzhalter**:
 Sichtbar markierter Inhalt, der noch fehlt oder noch nicht freigegeben ist (Bild, Video, Aussage eines Orthopäden, Stimme eines Pilotkunden). Er bleibt auch auf der Live-Seite sichtbar markiert. Bei Bildern steht darin kurz, welches Bild gebraucht wird.

@@ -1,5 +1,5 @@
 /*
-  Studien zum Herunterladen. Schnittstelle: Knöpfe mit [data-studie-datei] und [data-studie-name] öffnen das <dialog data-studie-dialog>.
+  Downloads (Studien, Vorlagen, Einseiter). Schnittstelle: Knöpfe und Verweise mit [data-studie-datei] und [data-studie-name] öffnen das <dialog data-studie-dialog>.
   Das Popup fragt eine E-Mail-Adresse ab, prüft sie und startet danach den Download der PDF unter ihrem Studiennamen.
   Die Adresse wird nur geprüft, nicht gesendet und nicht gespeichert (es gibt noch keinen Dienst zur Erfassung, siehe FACTS.md).
   emailGueltig(wert): reine Funktion, auch für Tests.
@@ -30,7 +30,9 @@
     function text(k) { return T ? T.text(k, null, dialog) : k; }
 
     function melde(k) { if (fehler) { fehler.textContent = k ? text(k) : ""; fehler.hidden = !k; } if (feld) feld.setAttribute("aria-invalid", k ? "true" : "false"); }
-    function oeffne(knopf) {
+    function oeffne(knopf, ereignis) {
+      // Verweise mit href laufen ohne Skript direkt zur Datei, mit Skript erst nach der E-Mail-Adresse
+      if (ereignis && ereignis.preventDefault) ereignis.preventDefault();
       ausloeser = knopf;
       gewaehlt = { datei: knopf.getAttribute("data-studie-datei"), name: knopf.getAttribute("data-studie-name"), titel: knopf.getAttribute("data-studie-titel") };
       if (titel) titel.textContent = gewaehlt.titel || "";
@@ -54,7 +56,7 @@
       schliesse();
     }
 
-    Array.prototype.forEach.call(knoepfe, function (k) { k.addEventListener("click", function () { oeffne(k); }); });
+    Array.prototype.forEach.call(knoepfe, function (k) { k.addEventListener("click", function (e) { oeffne(k, e); }); });
     Array.prototype.forEach.call(dialog.querySelectorAll("[data-studie-schliessen]"), function (b) { b.addEventListener("click", schliesse); });
     dialog.addEventListener("click", function (e) { if (e.target === dialog) schliesse(); });
     dialog.addEventListener("close", function () { if (ausloeser && document.contains(ausloeser)) ausloeser.focus(); });

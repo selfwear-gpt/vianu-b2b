@@ -100,7 +100,7 @@ test("Chat: Hinweis erst nach 3 Sekunden Ruhe, nach dem Ende bleibt der Verlauf 
     await p.waitForTimeout(400);
     const hoehe = await p.locator("[data-chat]").evaluate((c) => Math.round(c.getBoundingClientRect().height));
     assert.ok(hoehe < 1000, "Chat-Strecke ist gekürzt: " + hoehe);
-    assert.equal(await p.locator("[data-chat] .chat__nachricht:not(.chat__nachricht--aus)").count(), 10, "Endzustand bleibt stehen");
+    assert.equal(await p.locator("[data-chat] .chat__nachricht:not(.chat__nachricht--aus)").count(), 11, "Endzustand bleibt stehen");
   });
 });
 

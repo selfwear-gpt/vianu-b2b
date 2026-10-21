@@ -177,6 +177,16 @@
       });
       zeigeFirma(window.VianuName.bereinigeFirma(firmaFeld.value));
     }
+
+    // Gemessen wird nur, wo der Text Platz hat: Liegt die Sohle in einem versteckten Bereich (Gesamtvorschau) oder ist die Schrift noch nicht geladen,
+    // ist die Länge 0 oder falsch. Darum wird neu angepasst, sobald die Sohle sichtbar wird und die Schrift da ist.
+    function neuAnpassen() {
+      if (firmaFeld && firmaTexte.length) zeigeFirma(aktuelleFirma);
+      zeige(aktuellerName);
+    }
+    var bild = wurzel.querySelector(".sohle");
+    if (bild && window.IntersectionObserver) new IntersectionObserver(function (e) { if (e[0] && e[0].isIntersecting) neuAnpassen(); }).observe(bild);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(neuAnpassen);
   }
 
   /* ---------- Ein Tag im Schichtbetrieb ---------- */

@@ -98,9 +98,17 @@ Status: gebaut
 Status: gebaut
 - Die Gruppen ("Einlegesohlen für Teams", "Zu VIANU") sind farbige Köpfe (Tinte, Pink), auf breiten Schirmen links und klebend. Die Fragen sind nummerierte Karten mit rundem Plus. Gilt für alle Seiten mit FAQ.
 
-### Zweites Paar
-Status: Platzhalter mit Bild
-- Zwei Sohlen (eine ausgefüllt, eine gestrichelt) mit Fragezeichen neben dem markierten Platzhalter. Der Inhalt fehlt, bis es ein Konzept gibt.
+### Zufriedenheitsgarantie
+Status: Inhalt vom Nutzer vorgegeben (19.10.2026)
+- `#garantie` auf der B2B-Startseite (Sie, mit Sohlenfoto-Platzhalter), auf der Seite für Mitarbeitende (Du, ohne Foto), auf Geschäftsführung (kurz) und als sechste Zahlenkachel auf Einkauf. Drei Schritte (`garantie__schritt`): persönliches Online-Gespräch, nachbessern oder neu fertigen kostenlos, vollständige Erstattung des Kaufpreises.
+- Mit Foto-Platzhalter (B2B-Startseite): drei Zeilen mit Hover wie die Tabellenzeilen. Ohne Foto (B2C, Geschäftsführung): Zufriedenheitskurve `garantie__kurve` (`data-garantie-kurve`) mit Tief (1 Gespräch), Hoch (2 Nachbessern oder neu fertigen) und Plateau (3 Kaufpreis zurück), die Linie zeichnet sich beim Scrollen. Abschluss: "Für uns zählt, dass die Sohle für jede Person im Team (B2C: für dich) etwas bringt."
+- Offen und nicht auf der Seite: Frist, wer das Gespräch vereinbart, wie "nicht zufriedenstellend" festgestellt wird.
+
+### Sohlenfoto-Platzhalter, Kontaktwahl, Sitzungsspeicher
+- `platzhalter--sohle` (4:3): Platzhalter für ein Produktfoto der Sohle. Neben den Abschnitten "Termin" der fünf Rollenseiten (Hülle `seitenfoto`, rechts, auf dem Handy darunter, im Druck ausgeblendet), bei Betriebsrat auch neben "Was Sie von uns erhalten", auf der B2C-Seite unter "Das alles in einer Sohle". Beim Preisregler der B2B-Startseite (`preisrechner__foto`) wächst er mit dem Regler von 5 auf 18 rem und wird nie wieder kleiner (`--sohle-anteil`, gesetzt in `initRechner`).
+- `data-kontaktwahl` (pilot.js): Jeder Kontakt-Knopf (`data-pilot-oeffnen`, auch im Menü) öffnet zuerst die Wahl "Per Formular" oder "Per Telefon". Telefon: auf dem Handy (`pointer: coarse` und höchstens 56 rem) startet `tel:+4915678548855` die Telefon-App, sonst stehen Nummer und "Nummer kopieren" da. Der Hörer im Chatkopf (`data-telefon-oeffnen`) zeigt nur den Telefonweg. `data-direkt-formular` am Auslöser überspringt die Wahl. Das Chat-Anliegen öffnet das Formular über das Ereignis `pilot:formular`.
+- `sitzung.js` (`VianuSitzung`): Eingaben in `[data-feld]`, Stundenregler und Branchenkachel bleiben im `sessionStorage` (nur dieser Tab, nie das Einwilligungskästchen) und füllen Formular und Anfrage-Strecke vor. Alle Formulare tragen das Kästchen mit Link zur Datenschutzseite.
+
 ### Rollen-Rohbau
 Status: gebaut
 - Fünf Seiten `b2b/<rolle>.html` mit Menü, einem `h1`, der Frage der Rolle und einem Platzhalter, `noindex`. Sie werden mit dem Baustein "Persona-Seite" gefüllt.
@@ -187,7 +195,7 @@ Status: gebaut
 
 ### Stimme
 Status: gebaut (Vorlage)
-- Rezensionskarte unter der Überschrift "Hör nicht auf uns, hör auf andere in deiner Situation": großes Anführungszeichen in Signalfarbe, Zitat, rundes Porträtfeld, Vorname, Jobtitel, Signal-Versatz. Heute trägt sie den Platzhaltertext und ist mit `data-platzhalter` markiert. Keine Sterne und keine Bewertungszahl, weil beides Daten wären, die es nicht gibt.
+- Rezensionskarte unter der Überschrift "Aber hör nicht auf mich, hör auf andere in deiner Situation": großes Anführungszeichen in Signalfarbe, Zitat, rundes Porträtfeld, Vorname, Jobtitel, Signal-Versatz. Heute trägt sie den Platzhaltertext und ist mit `data-platzhalter` markiert. Keine Sterne und keine Bewertungszahl, weil beides Daten wären, die es nicht gibt.
 - Wird eine echte Stimme freigegeben, ersetzen Zitat, Porträt, Vorname und Jobtitel den Platzhalter, die Karte bleibt gleich. Das Bild nur mit Einwilligung der Person.
 
 ### Schichttag
@@ -271,7 +279,7 @@ Status: gebaut
 
 ### Einkauf: Bestellstrecke und Zahlenkacheln
 
-- `strecke` (`data-strecke`): fünf Stationen mit Symbol (Anfrage, Angebot, Bestellung, Marke, Nachfertigung), die Linie füllt sich beim Scrollen, rückwärts beim Zurückscrollen. Ersetzt Sprungleiste und `punkte`. Ohne Skript stehen alle Stationen aktiv da.
+- `bestellstrecke` (`data-bestellstrecke`): fünf Stationen mit Symbol (Anfrage, Angebot, Bestellung, Marke, Nachfertigung), die Linie füllt sich beim Scrollen, rückwärts beim Zurückscrollen. Ersetzt Sprungleiste und `punkte`. Ohne Skript stehen alle Stationen aktiv da.
 - `zahlenkacheln`/`zahlenkachel`: große Zahl (1.200 €, 0, 14 Tage, 7 Tage, Logo), Etikett, Satz. Kacheln heben sich beim Darüberfahren. Darunter Knopf "Weitere Fragen klären" zum Kontaktformular. Ersetzt die Drehkarten.
 - Hero: Gegenüberstellung "Ihr Aufwand" und "Unser Aufwand", Preis nur als Zeile "Test mit 10 Mitarbeitenden".
 
@@ -279,3 +287,26 @@ Status: gebaut
 
 - `fluss--karte` (`data-fluss-hover`): Umriss von Deutschland (aus den Ländergrenzen von Natural Earth, 1:50 Mio., gemeinfrei, auf etwa 130 Punkte vereinfacht, ohne EU-Umrandung; `karte__de` und die Legendenzeilen leuchten bei Verarbeitung und Druck auf) neben fünf Zeilen. Mit der Maus öffnet schon das Darüberfahren die Zeile, sonst Klick oder Tippen. Die Statusübersicht `stand-kasten` am Seitenanfang entfällt.
 - `tagesordnung`/`top`: nummerierte, aufklappbare Zeilen mit Symbol statt Drehkarten (`data-tagesordnung`), nur feststehende Aussagen. Ohne Skript und im Druck steht jeder Text da.
+
+### Downloads mit E-Mail-Adresse
+- Jeder Download (Verweise mit `data-studie-datei`, `data-studie-name`, `data-studie-titel`) öffnet das Popup `data-studie-dialog` (studien.js), prüft die E-Mail-Adresse und startet danach den Download. Ohne Skript führt der `href` direkt zur Datei. Die Adresse wird nicht gesendet und nicht gespeichert.
+### Arbeitsschutz: Matte und Sohle
+- Der Grundriss beginnt erst, wenn er ganz im Bild ist, und endet, solange er noch ganz im Bild ist. Die Punkte 1 bis 3 daneben erscheinen mit den Stationen (1 am Anfang, 2 bei Service, 3 beim Lager). Keine Stationskreise, Matte oberhalb des Herds, Etikett "Flur".
+### Betriebsrat: Datenkarte
+- Jeder der fünf Punkte zeigt eine Szene in der Karte (`karte__szene`): Smartphone mit Fußfoto, Schloss "EU" mit "danach gelöscht", Pin "Druck: 48 h", Pfeile zu drei Betrieben, Liste und anonyme Punktewolke. Kein Wort "Deutschland" in der Karte. "Was Sie von uns erhalten" ist der Einseiter-Abschnitt (`#termin`) der Seite.
+
+### Vertrauensleiste, Matte-Sohle hält
+- Vertrauensleiste (B2B-Startseite, unter dem Seitenkopf, `kurz kurz--vier`, vier Spalten: Fertigung, 7 Tage, Pilot mit 10, Patente; wie die Kurz-Leiste auf der B2C-Seite): je Spalte ein Satz mit ein bis zwei hervorgehobenen Wörtern (`kurz__wort`): In Deutschland gefertigt (lokal 3D-gedruckt, 48 Stunden), 7 Tage bis vor Ort, Patente mit Nummern (hervorgehoben: Vermessen, Optimierung).
+- Arbeitsschutz `#weg`: Überschrift und Grundriss stehen in `weg__stage` und bleiben beim Scrollen stehen (sticky in der Hülle `weg__haelt`, 260 vh). Nur Füße, Etiketten und die Punkte 1 bis 3 bewegen sich. Passt die Bühne nicht ins Fenster oder gilt reduzierte Bewegung, läuft es ohne Halten.
+
+### Fachstimme, Sprunglink, Favicon
+- `stimmenpaar` (B2C, B2B-Startseite, Arbeitsschutz, Einkauf, Geschäftsführung, Betriebsrat): Kundenstimme links, Fachstimme rechts (`stimme--fach`, gestrichelter Rand, Etikett "Aus der Orthopädietechnik"), gleich groß, auf dem Handy untereinander. Beides Platzhalter, Person offen. Der alte Platzhalter "Aussage eines Orthopäden" auf Arbeitsschutz entfällt.
+- `sprung`: Sprunglink "Zum Inhalt" als erstes fokussierbares Element, nur bei Fokus sichtbar, Ziel `main#inhalt`.
+- Favicon `assets/img/favicon.svg` (Sohle in Signalfarbe auf Tinte). Die Farben stehen als Literal in der Datei, weil Favicons keine Variablen nutzen. `tests/seo.test.js` prüft sie gegen `tokens.css`, `check-tokens.py` überspringt die Datei. Der Link kommt aus `scripts/seo.py`.
+
+### Roddys Weg (B2C, `#erlebt`)
+Status: gebaut
+- Abschnitt zwischen "Das alles in einer Sohle" und `#stimmen`. Leitsatz "Gemacht von jemand, der das Problem selbst erlebt hat" als `p.leitsatz` (keine Überschrift, mittig, `white-space: nowrap`, Größe per `clamp`, auf dem Handy rund 17 px, damit er in einer Zeile bleibt). Darunter `roddy__name` "Roddy the Barista, Gründer von VIANU".
+- Bühne `[data-roddy]` (`assets/js/roddy.js`, braucht `fortschritt.js`): fünf Szenen (2010 Ausbildung, 2012 Yum!, 2020 WOYTON, 20 Jahre harter Boden, Heute VIANU) mit Foto-Platzhalter (`roddy__bild`) und Sprechblase (`roddy__blase`). Rechts ein Fußabdruck, der sich stetig von der Ferse bis zur Zehe pink füllt (Füllstand folgt dem Scrollstand und läuft ihm weich hinterher), am Ende steht der ganze Fuß mit "VIANU" da. Die Bühne klebt (sticky, Hülle 380vh) und läuft beim Zurückscrollen rückwärts.
+- Ohne Skript, bei reduzierter Bewegung und wenn die Bühne nicht ins Fenster passt: alle Szenen untereinander, Fuß ganz gefüllt (Zustand `data-bereit` fehlt).
+- Die Sätze gelten seit dem 21.10.2026 als geprüft, keine Entwurfsmarkierung. Die Fotos bleiben Platzhalter.

@@ -4,10 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VIANU für Arbeitsschutz | Komfortangebot und Abgrenzung</title>
-<meta name="description" content="Wo die Einlegesohle ansetzt und wo die Arbeitsplatzmatte endet: Abgrenzung für den Arbeitsschutz, Belege, Messwerte und häufige Fragen zum Einlegesohlen-Pilot.">
+<meta name="description" content="Die Einlegesohle ergänzt die Arbeitsplatzmatte und hilft an jedem Ort der Schicht. Was VIANU für Ihre Prüfung liefert, Studien und häufige Fragen.">
 <link rel="alternate" hreflang="de" href="arbeitsschutz.html">
 <link rel="alternate" hreflang="en" href="../en/b2b/arbeitsschutz.html">
 <link rel="alternate" hreflang="x-default" href="arbeitsschutz.html">
+<!-- seo -->
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://vianu247.com/b2b/arbeitsschutz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VIANU">
+<meta property="og:title" content="VIANU für Arbeitsschutz | Komfortangebot und Abgrenzung">
+<meta property="og:description" content="Die Einlegesohle ergänzt die Arbeitsplatzmatte und hilft an jedem Ort der Schicht. Was VIANU für Ihre Prüfung liefert, Studien und häufige Fragen.">
+<meta property="og:url" content="https://vianu247.com/b2b/arbeitsschutz.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VIANU für Arbeitsschutz | Komfortangebot und Abgrenzung">
+<meta name="twitter:description" content="Die Einlegesohle ergänzt die Arbeitsplatzmatte und hilft an jedem Ort der Schicht. Was VIANU für Ihre Prüfung liefert, Studien und häufige Fragen.">
+<!-- /seo -->
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/fonts.css">
 <link rel="stylesheet" href="../assets/css/base.css">
@@ -17,6 +31,7 @@
 <script src="../assets/js/position.js" defer></script>
 <script src="../assets/js/fortschritt.js" defer></script>
 <script src="../assets/js/formular.js" defer></script>
+<script src="../assets/js/sitzung.js" defer></script>
 <script src="../assets/js/b2b.js" defer></script>
 <script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/pilot.js" defer></script>
@@ -48,7 +63,7 @@
       "name": "Welche Material- und Hygieneinformationen gibt es zur Einlegesohle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Vor der Bestellung erhalten Sie ein Datenblatt zu Material und Hygiene."
+        "text": "Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Angaben zu Material und Hygiene senden wir Ihnen auf Anfrage vorab."
       }
     },
     {
@@ -88,7 +103,7 @@
       "name": "Was ist VIANU?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, ohne Messtag."
+        "text": "VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, ohne Messtag. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt."
       }
     },
     {
@@ -106,12 +121,21 @@
         "@type": "Answer",
         "text": "Wie lange es von der Fußerfassung bis zur Lieferung dauert, hängt vom Anbieter ab. Bei VIANU erreicht die Sohle Ihre Mitarbeitenden spätestens 7 Tage nach der Fußerfassung."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie läuft die Fußerfassung für die Mitarbeitenden ab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Mitarbeitenden öffnen unsere Anwendung auf dem Smartphone in jedem Browser. Sie fotografieren ihre Füße und die aktuelle Innensohle ihres Schuhs, jeweils neben einem DIN-A4-Blatt. Unsere patentgestützte generative KI unterstützt dann die Anatomie-Erkennung und die individuelle Modellierung der Sohle. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt."
+      }
     }
   ]
 }
 </script>
 </head>
 <body class="rollenseite">
+<a class="sprung" href="#inhalt">Zum Inhalt</a>
 
 <!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
 <svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
@@ -166,7 +190,7 @@
   </div>
 </header>
 
-<main>
+<main id="inhalt" tabindex="-1">
 
   <section class="hero rolle einseiter" aria-labelledby="hero-titel">
     <div class="behaelter">
@@ -205,13 +229,15 @@
 
   <section class="abschnitt" id="weg" aria-labelledby="weg-titel">
     <div class="behaelter">
-      <div class="abschnitt__kopf">
+      <div class="weg__haelt" data-weg-haelt>
+        <div class="weg__stage">
+          <div class="abschnitt__kopf">
         <h2 id="weg-titel">Arbeitsplatzmatte und Sohle: Wo hilft was?</h2>
         <p>Eine Arbeitsplatzmatte ist eine federnde Matte, die an einem festen Platz auf dem Boden liegt, zum Beispiel am Herd. In vielen Betrieben ist sie eine übliche Maßnahme.</p>
       </div>
-      <div class="weg__raster" data-weg>
+          <div class="weg__raster" data-weg>
         <figure class="weg__bild">
-          <svg class="weg" viewBox="0 0 360 240" role="img" aria-label="Grundriss einer Küche. Am Herd liegt eine Arbeitsplatzmatte. Fußspuren folgen dem Weg einer Schicht vom Herd über Pass, Service, Kühllager und Lager bis zur Spülküche. An jeder Station erscheint kurz ihr Name.">
+          <svg class="weg" viewBox="0 0 360 240" role="img" aria-label="Grundriss einer Küche. Am Herd liegt eine Arbeitsplatzmatte. Fußspuren folgen dem Weg einer Schicht vom Herd über Flur, Service, Kühllager und Lager bis zur Spülküche. An jeder Station erscheint kurz ihr Name.">
             <defs><pattern id="fliesen" width="16" height="16" patternUnits="userSpaceOnUse"><path class="weg__fliese" d="M16 0H0V16"/></pattern></defs>
             <rect class="weg__raum" x="4" y="4" width="352" height="232"/>
             <rect class="weg__boden" x="4" y="4" width="352" height="232" fill="url(#fliesen)"/>
@@ -227,18 +253,18 @@
             <rect class="weg__teller" x="120" y="197" width="32" height="20" rx="3"/><rect class="weg__teller" x="158" y="197" width="32" height="20" rx="3"/>
             <rect class="weg__herd" x="24" y="140" width="72" height="40"/>
             <circle class="weg__brenner" cx="42" cy="152" r="6"/><circle class="weg__brenner" cx="78" cy="152" r="6"/><circle class="weg__brenner" cx="42" cy="168" r="6"/><circle class="weg__brenner" cx="78" cy="168" r="6"/>
-            <rect class="weg__matte" x="20" y="186" width="80" height="18" rx="4"/>
-            <path class="weg__streifen" d="M30 190v10M42 190v10M54 190v10M66 190v10M78 190v10M90 190v10"/>
-            <text class="weg__matte-text" x="60" y="199" text-anchor="middle">Matte</text>
-            <path class="weg__linie" data-weg-pfad d="M60 168C90 120 150 70 210 56S300 52 318 78S332 120 316 134S304 190 292 204S190 222 150 206"/>
+            <rect class="weg__matte" x="20" y="114" width="80" height="18" rx="4"/>
+            <path class="weg__streifen" d="M30 118v10M42 118v10M54 118v10M66 118v10M78 118v10M90 118v10"/>
+            <text class="weg__matte-text" x="60" y="127" text-anchor="middle">Matte</text>
+            <path class="weg__linie" data-weg-pfad d="M60 123C90 105 150 70 210 56S300 52 318 78S332 120 316 134S304 190 292 204S190 222 150 206"/>
             <g class="weg__stationen" data-weg-stationen>
-              <circle cx="60" cy="168" r="7"/><circle cx="210" cy="56" r="7"/><circle cx="318" cy="78" r="7"/>
+              <circle cx="60" cy="123" r="7"/><circle cx="210" cy="56" r="7"/><circle cx="318" cy="78" r="7"/>
               <circle cx="316" cy="134" r="7"/><circle cx="292" cy="204" r="7"/><circle cx="150" cy="206" r="7"/>
             </g>
             <g class="weg__spuren" data-weg-spuren></g>
             <g class="weg__etiketten" data-weg-etiketten>
-              <text class="weg__etikett" x="60" y="224" text-anchor="middle">Herd</text>
-              <text class="weg__etikett" x="210" y="78" text-anchor="middle">Pass</text>
+              <text class="weg__etikett" x="60" y="194" text-anchor="middle">Herd</text>
+              <text class="weg__etikett" x="210" y="78" text-anchor="middle">Flur</text>
               <text class="weg__etikett" x="318" y="62" text-anchor="middle">Service</text>
               <text class="weg__etikett" x="316" y="154" text-anchor="middle">Kühllager</text>
               <text class="weg__etikett" x="292" y="233" text-anchor="middle">Lager</text>
@@ -248,9 +274,11 @@
           </svg>
           <figcaption class="sr-nur">Schematischer Grundriss einer Küche mit Arbeitsplatzmatte am Herd und dem Weg einer Schicht.</figcaption>
         </figure>
-        <ol class="weg__schritte"><li><strong>Die Matte</strong><span>Sie hilft, solange man auf ihr steht. Sie bleibt an ihrem Platz.</span></li><li><strong>Der Weg</strong><span>Eine Schicht führt durch Küche, Service, Lager und Kühlraum. Ein großer Teil davon liegt abseits der Matte.</span></li><li><strong>Die Sohle</strong><span>Sie steckt im eigenen Schuh und ist den ganzen Tag dabei. Sie hilft an jeder Stelle, auch auf dem Weg zwischen den Plätzen.</span></li></ol>
+        <ol class="weg__schritte" data-weg-schritte><li><strong>Die Matte</strong><span>Sie hilft, solange man auf ihr steht. Sie bleibt an ihrem Platz.</span></li><li><strong>Übliche Schicht</strong><span>Eine Schicht führt z. B. durch Küche, Flur, Servicebereich, Lager und Kühlraum. Ein großer Teil davon liegt also abseits der Matte.</span></li><li><strong>Die Sohle</strong><span>Die Einlegesohle steckt im eigenen Schuh und unterstützt den ganzen Tag. Im Gegensatz zur Matte hilft sie an jedem Ort und während der gesamten Schicht, egal, wo sich die Person aufhält.</span></li></ol>
       </div>
-      <p class="weg__fazit">Matten lassen sich nicht an jeden Ort legen, den Beschäftigte an einem Tag durchlaufen. Die Sohle geht mit jeder Person mit, am Herd, im Lager und auf dem Weg dazwischen. Wer schon Matten hat, behält sie und gewinnt die Strecke dazwischen dazu.</p>
+        </div>
+      </div>
+      <p class="weg__fazit">Die Antiermüdungsmatten bleiben liegen. Die Einlegesohlen ergänzen sie, so dass die Füße der Mitarbeitenden die gesamte Zeit unterstützt werden.</p>
     </div>
   </section>
 
@@ -263,7 +291,7 @@
               <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
               <h2 id="brief-titel" class="chat__titel">Der Vianu Gründer Roderich Körner-Rehn</h2>
               <div class="chat__aktionen">
-                <a class="chat__icon" href="./#pilot" data-pilot-oeffnen aria-label="Kontakt aufnehmen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                <a class="chat__icon" href="tel:+4915678548855" data-telefon-oeffnen aria-label="Roderich anrufen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
                 <div class="chat__menuehuelle">
                   <button class="chat__icon" type="button" aria-label="Chat-Menü" aria-haspopup="true" aria-expanded="false" data-chat-menue-knopf data-label-menue="Chat-Menü" data-label-neu="Chat von vorne starten"><span class="chat__punkte"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span><svg class="chat__wieder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg></button>
                   <ul class="chat__menue" hidden data-chat-menue><li><button type="button" data-chat-neu>Chat von vorne starten</button></li></ul>
@@ -304,7 +332,11 @@
               <p class="chat__blase">Und wenn die Sohle drückt?<span class="sr-nur"> (gelesen)</span><svg class="chat__haken" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="M1 6.5l3.2 3.2L10 2.5M7.5 8.7l1.2 1.2L16 2.5"/></svg></p>
             </li>
             <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
-              <p class="chat__blase">Dann fertigen wir sie neu. Die Teilnahme ist freiwillig.</p>
+              <p class="chat__blase">Dann sprechen wir persönlich mit der Person und bessern nach oder fertigen neu.</p>
+              <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
+            </li>
+            <li class="chat__nachricht chat__nachricht--roderich" data-chat-nachricht>
+              <p class="chat__blase">Ist sie danach nicht zufrieden, gibt es den Kaufpreis zurück. Die Teilnahme ist freiwillig.</p>
               <img class="chat__avatar chat__avatar--roderich" src="../assets/img/roderich.jpg" alt="Roderich Körner-Rehn" width="128" height="128" loading="lazy">
             </li>
             <li class="chat__nachricht chat__nachricht--rolle" data-chat-nachricht>
@@ -331,7 +363,7 @@
         </div>
       </div>
       <div class="chat__unterschrift">
-        <p class="brief__weiter"><a class="textlink textlink--hell" href="./#geschichte">Die Geschichte von Roderich Körner-Rehn</a></p>
+        <p class="brief__weiter"><a class="textlink" href="./#geschichte">Die Geschichte von Roderich Körner-Rehn</a></p>
       </div>
     </div>
   </section>
@@ -339,6 +371,7 @@
   <section class="abschnitt" id="stimme" aria-labelledby="stimme-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="stimme-titel">So sehen unsere Kunden uns</h2></div>
+      <div class="stimmenpaar">
       <figure class="stimme" data-platzhalter role="group" aria-label="Platzhalter für die Stimme einer Fachkraft für Arbeitssicherheit">
         <span class="etikett platzhalter__etikett">Platzhalter</span>
         <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
@@ -348,13 +381,24 @@
           <span class="stimme__name"><strong>Vorname</strong><span>Funktion</span></span>
         </figcaption>
       </figure>
+      <figure class="stimme stimme--fach" data-platzhalter role="group" aria-label="Platzhalter für die Stimme einer Fachperson aus der Orthopädietechnik">
+        <span class="etikett platzhalter__etikett">Platzhalter</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>Kurze Aussage einer Fachperson aus der Orthopädietechnik zur Sohle. Nur mit schriftlicher Erlaubnis, mit Namen und Funktion. Bis dahin steht hier nichts Erfundenes.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>Vorname</strong><span>Funktion</span></span>
+        </figcaption>
+        <span class="etikett stimme__rolle">Aus der Orthopädietechnik</span>
+      </figure>
+      </div>
     </div>
   </section>
 
   <section class="abschnitt" id="belege" aria-labelledby="belege-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="belege-titel">Belege</h2>
+        <h2 id="belege-titel">Das sagen die Studien zur Wirkung</h2>
       </div>
       <div class="ergebnisse">
                 <article class="dreh studienkarte" data-ergebnis tabindex="0" role="group" aria-label="Tarrade et al. 2019">
@@ -387,7 +431,7 @@
                 <h3 class="ergebnis__titel">Schuhe und Sohlen bei langem Stehen im Beruf</h3>
                 <svg class="studie__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg>
               </div>
-              <svg class="ergebnis__bild" viewBox="0 0 320 112" role="img" aria-label="26 Kästchen, eines je Studie: Die Übersicht wertet 26 Studien aus." focusable="false">
+              <svg class="ergebnis__bild" viewBox="0 0 320 96" role="img" aria-label="26 Kästchen, eines je Studie: Die Übersicht wertet 26 Studien aus." focusable="false">
             <text class="ergebnis__zahl" x="2" y="38">26 Studien</text>
             <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="2" y="46" width="18" height="18"/>
             <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="26" y="46" width="18" height="18"/>
@@ -415,7 +459,6 @@
             <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="242" y="72" width="18" height="18"/>
             <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="266" y="72" width="18" height="18"/>
             <rect class="ergebnis__stufe ergebnis__stufe--an ergebnis__kasten" x="290" y="72" width="18" height="18"/>
-            <text x="2" y="108">721 Teilnehmende insgesamt</text>
           </svg>
             </div>
             <div class="dreh__hinten">
@@ -426,10 +469,6 @@
           </div>
         </article>
       </div>
-      <div class="platzhalter platzhalter--klein platzhalter--abstand-oben" data-platzhalter role="group" aria-label="Platzhalter für die Aussage eines Orthopäden">
-        <span class="etikett platzhalter__etikett">Platzhalter</span>
-        <p>Aussage eines Orthopäden zur Abgrenzung der Einlegesohle. Nur mit Freigabe, mit Namen und Funktion.</p>
-      </div>
     </div>
   </section>
 
@@ -438,47 +477,25 @@
       <div class="abschnitt__kopf">
         <h2 id="termin-titel">Was VIANU für Ihre Prüfung liefert</h2>
       </div>
+      <div class="seitenfoto">
+        <div class="seitenfoto__inhalt">
       <div class="pruefliste" data-pruefliste>
         <p class="pruefliste__zaehler" aria-live="polite"><strong data-pruefliste-zahl>0</strong> von 5 abgehakt</p>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Umfang</span><span class="pruefliste__dd">Ein ergänzendes Komfortangebot für Arbeits- und Berufsschuhe. Es ersetzt keine Schutzmaßnahme und keine Arbeitsplatzgestaltung.</span></span></button>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Abgrenzung zur Matte</span><span class="pruefliste__dd">Die Sohle ist den ganzen Tag dabei, auch zwischen den Plätzen. Eine vorhandene Arbeitsplatzmatte kann bleiben.</span></span></button>
-          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Material und Hygiene</span><span class="pruefliste__dd">Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Vor der Bestellung erhalten Sie ein Datenblatt zu Material und Hygiene.</span></span></button>
+          <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Material und Hygiene</span><span class="pruefliste__dd">Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Angaben zu Material und Hygiene senden wir Ihnen auf Anfrage vorab.</span></span></button>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Datenumgang</span><span class="pruefliste__dd">Die Fotos der Füße sehen nur VIANU und ihre Fertigungspartner. Sie werden nur für die Anfertigung der Sohle verwendet, in der EU verarbeitet und danach gelöscht.</span></span></button>
           <button class="pruefliste__zeile" type="button" aria-pressed="false"><span class="pruefliste__kasten" aria-hidden="true"></span><span class="pruefliste__text"><span class="etikett">Testgruppe und Gefährdungsbeurteilung</span><span class="pruefliste__dd">Sie spiegeln den Pilotumfang gegen Ihre Gefährdungsbeurteilung (Ihre Bewertung der Risiken am Arbeitsplatz) und geben die Testgruppe fachlich frei. Die Teilnahme ist freiwillig.</span></span></button>
         <a class="knopf pruefliste__pilot" href="./#pilot" data-pilot-oeffnen data-pruefliste-pilot hidden>Kontakt anfragen <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      </div>
+        </div>
+        <div class="platzhalter platzhalter--sohle seitenfoto__foto" data-platzhalter role="group" aria-label="Platzhalter für Produktfoto der Sohlen"><span class="etikett platzhalter__etikett">Platzhalter</span><p>Platzhalter für Produktfoto der Sohlen</p></div>
       </div>
       <p class="einseiter__fuss druck-nur">Nächster Schritt: Den Pilotumfang gegen die Gefährdungsbeurteilung spiegeln und die Testgruppe fachlich freigeben. Ansprechpartner: Roderich Körner-Rehn. Kontakt aufnehmen auf der B2B-Seite von VIANU.</p>
     </div>
   </section>
 
-  <section class="abschnitt" id="messwerte" aria-labelledby="messwerte-titel">
-    <div class="behaelter">
-      <div class="abschnitt__kopf">
-        <h2 id="messwerte-titel">Was wir am Ende messen</h2>
-        <p>Der Bericht am Ende des Piloten fasst die Befragung der Teilnehmenden zusammen, unter anderem mit diesen vier Fragen. Für Arbeitsschutz zählen zwei besonders.</p>
-      </div>
-      <div class="umfrage" data-umfrage>
-        <div class="umfrage__telefon">
-          <div class="umfrage__schirm" role="group" aria-label="Beispielansicht der Umfrage am Ende des Piloten">
-          <p class="etikett umfrage__kopf">Frage an die Teilnehmenden</p>
-          <div class="umfrage__frage"><p class="umfrage__text">„Tragen Sie die Einlegesohlen noch?“</p><div class="umfrage__antworten"><button class="umfrage__antwort" type="button" aria-pressed="false">Ja</button><button class="umfrage__antwort" type="button" aria-pressed="false">Nein</button></div></div>
-          <div class="umfrage__frage"><p class="umfrage__text">„Merken Sie einen spürbaren Unterschied im Vergleich zu vorher?“</p><div class="umfrage__antworten"><button class="umfrage__antwort" type="button" aria-pressed="false">Ja</button><button class="umfrage__antwort" type="button" aria-pressed="false">Nein</button></div></div>
-          </div>
-        </div>
-        <div class="umfrage__erklaerung">
-          <h3>Vier Messwerte aus dem Bericht</h3>
-          <ul class="umfrage__liste">
-          <li data-wichtig><strong>Tragequote</strong><span>Wer die Sohle noch trägt.</span></li>
-          <li data-wichtig><strong>Spürbare Verbesserung</strong><span>Wer einen Unterschied zu vorher merkt.</span></li>
-          <li><strong>Weiterempfehlung</strong><span>Wer sie weiterempfehlen würde.</span></li>
-          <li><strong>Wertschätzung</strong><span>Wer sich mit dem Angebot wertgeschätzt fühlt.</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="fragen-rolle" aria-labelledby="fragen-titel">
+    <section class="abschnitt" id="fragen-rolle" aria-labelledby="fragen-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf"><h2 id="fragen-titel">Häufige Fragen</h2></div>
       <div class="fragen__bereich">
@@ -490,12 +507,16 @@
             <div class="frage__antwort"><p>Nein. Eine Arbeitsplatzmatte liegt an einem festen Platz und hilft nur dort. Eine Einlegesohle ist im Schuh auf dem ganzen Weg einer Schicht dabei, den ganzen Tag. VIANU versteht die Sohle als Ergänzung zur Arbeitsplatzmatte.</p></div>
           </details>
           <details class="frage">
+            <summary>Wie läuft die Fußerfassung für die Mitarbeitenden ab?</summary>
+            <div class="frage__antwort"><p>Die Mitarbeitenden öffnen unsere Anwendung auf dem Smartphone in jedem Browser. Sie fotografieren ihre Füße und die aktuelle Innensohle ihres Schuhs, jeweils neben einem DIN-A4-Blatt. Unsere patentgestützte generative KI unterstützt dann die Anatomie-Erkennung und die individuelle Modellierung der Sohle. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt.</p></div>
+          </details>
+          <details class="frage">
             <summary>Ersetzt eine Einlegesohle Arbeitsschutzmaßnahmen im Betrieb?</summary>
             <div class="frage__antwort"><p>Nein. VIANU bietet die Sohle als ergänzendes Komfortangebot an, sie ersetzt keine Schutzmaßnahme und keine Arbeitsplatzgestaltung.</p></div>
           </details>
           <details class="frage">
             <summary>Welche Material- und Hygieneinformationen gibt es zur Einlegesohle?</summary>
-            <div class="frage__antwort"><p>Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Vor der Bestellung erhalten Sie ein Datenblatt zu Material und Hygiene.</p></div>
+            <div class="frage__antwort"><p>Die Sohle wird per 3D-Druck lokal in Deutschland gefertigt. Angaben zu Material und Hygiene senden wir Ihnen auf Anfrage vorab.</p></div>
           </details>
           <details class="frage">
             <summary>Wer sieht die Fotos beim Fußscan?</summary>
@@ -525,7 +546,7 @@
           </details>
           <details class="frage">
             <summary>Was ist VIANU?</summary>
-            <div class="frage__antwort"><p>VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, ohne Messtag.</p></div>
+            <div class="frage__antwort"><p>VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. VIANU ist ein Komfort- und Wertschätzungsangebot, das als begrenzter Pilot startet. Es besteht aus einem Freigabepaket, der Durchführung im Betrieb und einem Ergebnisbericht. Die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, ohne Messtag. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt.</p></div>
           </details>
           <details class="frage">
             <summary>Wie wird eine individuelle Einlegesohle gefertigt?</summary>
@@ -553,7 +574,7 @@
       </div>
       <div class="weiter" data-weiterleiten data-weiterleiten-diese-seite>
         <div class="weiter__aktionen">
-          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-arbeitsschutz.pdf" download>Einseiter als PDF</a>
+          <a class="knopf knopf--dunkel" href="../assets/downloads/rolle-arbeitsschutz.pdf" data-studie-datei="../assets/downloads/rolle-arbeitsschutz.pdf" data-studie-name="rolle-arbeitsschutz.pdf" data-studie-titel="Einseiter: Arbeitsschutz">Einseiter als PDF</a>
           <button class="knopf knopf--dunkel" type="button" data-weiterleiten-kopieren>Link zu dieser Seite kopieren</button>
           <a class="knopf" href="./#pilot" data-pilot-oeffnen>Kontakt aufnehmen
             <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -574,7 +595,27 @@
 
 </main>
 
-<dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog>
+<dialog class="dialog kontaktwahl" aria-labelledby="wahl-titel" data-kontaktwahl data-modus="wahl">
+  <div class="dialog__innen">
+    <button class="dialog__zu" type="button" data-wahl-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <h2 id="wahl-titel"><span data-nur-wahl>Wie möchten Sie uns erreichen?</span><span data-nur-telefon>Rufen Sie Roderich an</span></h2>
+    <div class="kontaktwahl__knoepfe" data-nur-wahl>
+      <button class="kontaktwahl__option" type="button" data-wahl-formular><strong>Per Formular</strong><span>Wir melden uns innerhalb von 5 Werktagen.</span></button>
+      <button class="kontaktwahl__option" type="button" data-wahl-telefon><strong>Per Telefon</strong><span>Sprechen Sie direkt mit Roderich Körner-Rehn.</span></button>
+    </div>
+    <div class="kontaktwahl__telefon" data-wahl-telefon-feld hidden>
+      <p class="kontaktwahl__satz">Roderich Körner-Rehn erreichen Sie unter:</p>
+      <p class="kontaktwahl__nummer" data-tel-nummer>+49 15678 54 88 55</p>
+      <div class="kontaktwahl__aktionen">
+        <button class="knopf" type="button" data-tel-kopieren data-ok="Nummer kopiert" data-fehler="Kopieren nicht möglich. Bitte markieren Sie die Nummer.">Nummer kopieren</button>
+        <a class="knopf knopf--dunkel" href="tel:+4915678548855" data-tel-link>Jetzt anrufen</a>
+      </div>
+      <p class="formular__status" role="status" aria-live="polite" data-tel-status></p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dialog" aria-labelledby="pilot-titel" data-pilot-dialog data-rolle-vorgabe="arbeitsschutz">
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-pilot-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     <h2 id="pilot-titel">Kontaktanfrage stellen</h2>
@@ -661,7 +702,7 @@
           </div>
           <div class="formular__feld formular__feld--haken">
             <input id="f-einwilligung" name="einwilligung" type="checkbox" aria-describedby="f-einwilligung-fehler" data-feld="einwilligung">
-            <label for="f-einwilligung">Ich stimme zu, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden. Der genaue Wortlaut folgt mit dem Datenschutzhinweis.</label>
+            <label for="f-einwilligung">Ich stimme den <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">Datenschutzrichtlinien</a> zu. Meine Angaben werden zur Bearbeitung dieser Anfrage verarbeitet und bleiben bis zum Schließen dieses Tabs im Browser gespeichert.</label>
             <p class="formular__fehler" id="f-einwilligung-fehler" data-fehler="einwilligung" hidden></p>
           </div>
           <button class="knopf" type="submit">Anfrage absenden
@@ -675,7 +716,7 @@
 <dialog class="dialog" aria-labelledby="studie-titel" data-studie-dialog>
   <div class="dialog__innen">
     <button class="dialog__zu" type="button" data-studie-schliessen aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
-    <p class="etikett">Studie herunterladen</p>
+    <p class="etikett">Herunterladen</p>
     <h2 id="studie-titel" data-studie-titel></h2>
     <p>Keine Sorge, es wird kein Spam von uns geben.</p>
     <form class="formular" novalidate>
@@ -683,7 +724,7 @@
         <label>Ihre E-Mail-Adresse<input type="email" name="email" autocomplete="email" maxlength="254" placeholder="name@firma.de" required data-studie-email aria-describedby="studie-fehler"></label>
         <p class="formular__fehler" id="studie-fehler" data-studie-fehler hidden></p>
       </div>
-      <p class="etikett">Nach der Eingabe Ihrer E-Mail-Adresse wird Ihnen das PDF zur Verfügung gestellt.</p>
+      <p class="etikett">Nach der Eingabe Ihrer E-Mail-Adresse wird Ihnen die Datei zur Verfügung gestellt. Es gelten die <a class="textlink" href="../datenschutz.html" target="_blank" rel="noopener">Datenschutzrichtlinien</a>.</p>
       <button class="knopf" type="submit" data-studie-absenden>Jetzt herunterladen <svg class="studie__icon studie__icon--klein" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12M7 11l5 5 5-5M5 20h14"/></svg></button>
     </form>
   </div>
