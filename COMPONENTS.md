@@ -303,3 +303,10 @@ Status: gebaut
 - `stimmenpaar` (B2C, B2B-Startseite, Arbeitsschutz, Einkauf, Geschäftsführung, Betriebsrat): Kundenstimme links, Fachstimme rechts (`stimme--fach`, gestrichelter Rand, Etikett "Aus der Orthopädietechnik"), gleich groß, auf dem Handy untereinander. Beides Platzhalter, Person offen. Der alte Platzhalter "Aussage eines Orthopäden" auf Arbeitsschutz entfällt.
 - `sprung`: Sprunglink "Zum Inhalt" als erstes fokussierbares Element, nur bei Fokus sichtbar, Ziel `main#inhalt`.
 - Favicon `assets/img/favicon.svg` (Sohle in Signalfarbe auf Tinte). Die Farben stehen als Literal in der Datei, weil Favicons keine Variablen nutzen. `tests/seo.test.js` prüft sie gegen `tokens.css`, `check-tokens.py` überspringt die Datei. Der Link kommt aus `scripts/seo.py`.
+
+### Roddys Weg (B2C, `#erlebt`)
+Status: gebaut (Entwurfstexte)
+- Abschnitt zwischen "Das alles in einer Sohle" und `#stimmen`. Leitsatz "Gemacht von jemand, der das Problem selbst erlebt hat" als `p.leitsatz` (keine Überschrift, mittig, `white-space: nowrap`, Größe per `clamp`, auf dem Handy rund 17 px, damit er in einer Zeile bleibt). Darunter `roddy__name` "Roddy the Barista, Gründer von VIANU".
+- Bühne `[data-roddy]` (`assets/js/roddy.js`, braucht `fortschritt.js`): fünf Szenen (2010 Ausbildung, 2012 Yum!, 2020 WOYTON, 20 Jahre harter Boden, Heute VIANU) mit Foto-Platzhalter (`roddy__bild`), Sprechblase (`roddy__blase`) und Entwurfsetikett. Rechts ein Fußabdruck in vier Zonen (Ferse, Mittelfuß, Ballen, Zehen), je Szene füllt sich eine Zone pink, am Ende der ganze Fuß mit "VIANU". Die Bühne klebt (sticky, Hülle 380vh) und läuft beim Zurückscrollen rückwärts.
+- Ohne Skript, bei reduzierter Bewegung und wenn die Bühne nicht ins Fenster passt: alle Szenen untereinander, Fuß ganz gefüllt (Zustand `data-bereit` fehlt).
+- Alle Sätze sind Entwurf, sichtbar markiert, Roderich bestätigt sie vor dem Live-Gang.

@@ -2107,3 +2107,35 @@ main:focus { outline: none; }
 /* Klickflächen von mindestens 24 px bei kleinen Bedienelementen */
 .sorgen__punkt::after { content: ""; position: absolute; inset: -6px; }
 .fuss__recht a, .fuss a { display: inline-block; min-height: 24px; padding-block: 3px; }
+/* Roddys Weg: Leitsatz in einer Zeile, darunter Bühne mit Foto, Sprechblase und Fußabdruck, die beim Scrollen stehen bleibt */
+.leitsatz { margin: 0; text-align: center; font-family: var(--schrift-kopf); font-weight: 800; font-size: clamp(0.9rem, 4.3vw, 3rem); line-height: 1.1; white-space: nowrap; }
+.roddy__name { margin: var(--abstand-3) 0 var(--abstand-6); text-align: center; color: var(--farbe-gedaempft); }
+.roddy__stage { display: grid; grid-template-columns: minmax(0, 1fr) 9rem; gap: var(--abstand-6); align-items: center; max-width: 60rem; margin-inline: auto; background: var(--farbe-papier); }
+.roddy__szene { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--abstand-4); margin-bottom: var(--abstand-6); }
+.roddy__bild { aspect-ratio: 4 / 3; width: 100%; max-width: 26rem; }
+.roddy__rede { display: flex; flex-direction: column; gap: var(--abstand-2); align-items: flex-start; }
+.roddy__blase { position: relative; margin: 0; padding: var(--abstand-4) var(--abstand-5); max-width: none; background: var(--farbe-signal); color: var(--farbe-auf-signal); border: var(--kante) solid var(--farbe-tinte); border-radius: var(--abstand-5); font-family: var(--schrift-kopf); font-weight: 600; font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.25; }
+.roddy__blase::before { content: ""; position: absolute; left: var(--abstand-6); top: calc(-1 * var(--abstand-3) - var(--kante)); width: var(--abstand-4); height: var(--abstand-4); background: var(--farbe-signal); border-left: var(--kante) solid var(--farbe-tinte); border-top: var(--kante) solid var(--farbe-tinte); transform: rotate(45deg); }
+.roddy__zeit { color: var(--farbe-tinte); }
+.roddy__entwurf { color: var(--farbe-gedaempft); }
+.roddy__fuss { width: 100%; height: auto; max-height: 24rem; justify-self: center; }
+.roddy__umriss { fill: var(--farbe-papier); stroke: var(--farbe-tinte); stroke-width: 3; stroke-linejoin: round; }
+.roddy__zone { fill: var(--farbe-signal); transition: opacity 0.3s; }
+.roddy__marke { fill: var(--farbe-tinte); font-family: var(--schrift-kopf); font-weight: 800; font-size: 18px; letter-spacing: 0.08em; opacity: 0; transition: opacity 0.3s; }
+.roddy__fuss[data-fertig] .roddy__marke { opacity: 1; }
+.roddy__haelt[data-bereit] .roddy__zone:not([data-an]) { opacity: 0; }
+.roddy__haelt[data-bereit] .roddy__buehne { display: grid; }
+.roddy__haelt[data-bereit] .roddy__szene { grid-area: 1 / 1; margin-bottom: 0; opacity: 0; visibility: hidden; transition: opacity 0.3s; }
+.roddy__haelt[data-bereit] .roddy__szene[data-aktiv] { opacity: 1; visibility: visible; }
+.roddy__haelt[data-haelt] { height: 380vh; }
+.roddy__haelt[data-haelt] .roddy__stage { position: sticky; top: 5rem; }
+@media (max-width: 40rem) {
+  .roddy__stage { grid-template-columns: minmax(0, 1fr) 4.5rem; gap: var(--abstand-3); }
+  .roddy__blase { padding: var(--abstand-3) var(--abstand-4); font-size: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .roddy__zone, .roddy__marke, .roddy__haelt[data-bereit] .roddy__szene { transition: none; } }
+@media print { .roddy__haelt[data-haelt] { height: auto; } .roddy__haelt[data-haelt] .roddy__stage { position: static; } }
+@media (min-width: 56rem) {
+  .roddy__szene { grid-template-columns: 26rem minmax(0, 1fr); align-items: center; gap: var(--abstand-6); }
+  .roddy__blase::before { left: calc(-1 * var(--abstand-3) - var(--kante)); top: var(--abstand-5); border-left: var(--kante) solid var(--farbe-tinte); border-top: 0; border-bottom: var(--kante) solid var(--farbe-tinte); }
+}
