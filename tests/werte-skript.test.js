@@ -13,21 +13,27 @@ test("werte.js ist ein eigenes Modul, in beiden Startseiten eingebunden, und mit
   assert.doesNotMatch(lies("assets/js/mitarbeitende.js"), /initWerte|data-wert/);
 });
 
-test("werte.js nutzt Scrollstand, aktiverSchritt und die Bühne, keinen IntersectionObserver", () => {
+test("Es gibt keinen Scrolleffekt: werte.js hört weder auf scroll noch auf resize und kennt keine Bühne", () => {
   const js = lies("assets/js/werte.js");
-  assert.match(js, /aktiverSchritt/);
-  assert.match(js, /data-haelt/);
-  assert.match(js, /data-aktiv/);
-  assert.doesNotMatch(js, /IntersectionObserver/);
+  assert.doesNotMatch(js, /scroll|resize|aktiverSchritt|data-haelt|IntersectionObserver/);
+  const css = lies("assets/css/components.css");
+  assert.doesNotMatch(css, /\.werte\[data-haelt\]|\.wert\[data-aktiv/);
 });
 
-test("Die Beschreibungen sind im CSS standardmäßig zugeklappt und öffnen bei Hover, Fokus, Aktiv und Fix", () => {
+test("Nur eine Karte ist offen, und Karte, Linie und Punkt öffnen sie, das leere Fach nicht", () => {
+  const css = lies("assets/css/components.css");
+  assert.match(css, /\.werte:has\(\.wert:hover\) \.wert:not\(:hover\) \.wert__text \{ grid-template-rows: 0fr; \}/);
+  assert.match(css, /\.wert \{[^}]*pointer-events: none;/);
+  assert.match(css, /\.wert__karte \{[^}]*pointer-events: auto;/);
+  assert.match(css, /\.wert::before, \.wert::after \{[^}]*pointer-events: auto;/);
+});
+
+test("Die Beschreibungen sind im CSS standardmäßig zugeklappt und öffnen bei Hover, Tastaturfokus und Fix", () => {
   const css = lies("assets/css/components.css");
   assert.match(css, /\.wert__text \{ display: grid; grid-template-rows: 0fr;/);
   const regel = css.split("\n").find((z) => z.includes("{ grid-template-rows: 1fr; }") && z.includes(".wert:hover .wert__text"));
   assert.ok(regel, "Regel zum Aufklappen fehlt");
-  for (const z of [".wert:focus-within .wert__text", '.wert[data-aktiv="true"] .wert__text', '.wert[data-fix="true"] .wert__text']) assert.ok(regel.includes(z), z);
-  assert.doesNotMatch(css, /\.werte\[data-bereit\]/);
+  for (const z of [".wert:focus-visible .wert__text", '.wert[data-fix="true"] .wert__text']) assert.ok(regel.includes(z), z);
 });
 
 for (const datei of ["index.html", "en/index.html"]) {

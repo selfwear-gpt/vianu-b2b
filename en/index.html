@@ -345,54 +345,57 @@
           </article>
         </div>
         <div class="platzhalter platzhalter--sohle werte__mitte" data-platzhalter role="group" aria-label="Placeholder for product photo of an insole">
-          <svg class="werte__bild" viewBox="0 0 220 330" aria-hidden="true" focusable="false">
+          <svg class="werte__bild" viewBox="0 0 496 672" aria-hidden="true" focusable="false">
             <defs>
-              <path id="sohle-umriss" d="M12 92C10 56 36 40 80 40C170 38 280 40 380 26C440 18 480 10 520 12C570 14 592 36 592 70C592 112 556 132 500 132C440 132 400 112 340 108C290 104 250 126 200 140C150 154 90 152 52 140C24 130 12 114 12 92Z"/>
-              <linearGradient id="sohle-flaeche" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="600" y2="0">
+              <path id="sohle-umriss" d="M-361.3 -53.6C-354.8 -80.9 -311.8 -103.3 -253.9 -98.7C-184.8 -93.4 -121.7 -82.8 -61.1 -90.1C-0.5 -97.3 64.2 -115 135.6 -125.2C207 -135.4 270.2 -124.8 316.1 -85.4C353.9 -52.1 373.5 -9.2 353 15.8C326 42.6 267.4 52.1 210.1 63.1C152.9 74.1 103.1 78.4 52.5 96.8C12.6 112.3 -27.2 127.8 -73.3 128.8C-129.7 125.7 -188.4 97.6 -249.2 71.6C-310.1 45.5 -361.3 -2.7 -361.3 -53.6Z"/>
+              <linearGradient id="sohle-flaeche" gradientUnits="userSpaceOnUse" x1="-361" y1="0" x2="361" y2="0">
                 <stop class="sohle-stop sohle-stop--basis" offset="0"/>
-                <stop class="sohle-stop sohle-stop--hell" offset="0.45"/>
-                <stop class="sohle-stop sohle-stop--basis" offset="0.8"/>
+                <stop class="sohle-stop sohle-stop--hell" offset="0.4"/>
+                <stop class="sohle-stop sohle-stop--basis" offset="0.72"/>
                 <stop class="sohle-stop sohle-stop--hell" offset="1"/>
               </linearGradient>
-              <linearGradient id="sohle-rand" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="140">
-                <stop class="sohle-stop sohle-stop--hell" offset="0" stop-opacity="0.35"/>
+              <linearGradient id="sohle-rand" gradientUnits="userSpaceOnUse" x1="0" y1="-129" x2="0" y2="129">
+                <stop class="sohle-stop sohle-stop--hell" offset="0" stop-opacity="0.3"/>
                 <stop class="sohle-stop sohle-stop--dunkel" offset="0.55" stop-opacity="0"/>
                 <stop class="sohle-stop sohle-stop--dunkel" offset="1" stop-opacity="0.3"/>
               </linearGradient>
-              <radialGradient id="sohle-mulde" gradientUnits="userSpaceOnUse" cx="300" cy="104" r="62">
+              <radialGradient id="sohle-mulde" gradientUnits="userSpaceOnUse" cx="-61" cy="37" r="95">
                 <stop class="sohle-stop sohle-stop--dunkel" offset="0" stop-opacity="0.5"/>
                 <stop class="sohle-stop sohle-stop--dunkel" offset="1" stop-opacity="0"/>
               </radialGradient>
               <clipPath id="sohle-klemme"><use href="#sohle-umriss"/></clipPath>
               <filter id="sohle-koernung" x="0" y="0" width="100%" height="100%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" seed="3" result="rauschen"/>
+                <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="3" result="rauschen"/>
                 <feColorMatrix in="rauschen" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.45" result="punkte"/>
                 <feComposite in="punkte" in2="SourceAlpha" operator="in"/>
               </filter>
-              <filter id="sohle-weich" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
+              <filter id="sohle-weich" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
             </defs>
-            <g class="sohle-schatten" filter="url(#sohle-weich)"><use href="#sohle-umriss" transform="translate(14 20) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/></g>
+            <g class="sohle-schatten" filter="url(#sohle-weich)"><use href="#sohle-umriss" transform="translate(22 30) translate(269.73 351.57) rotate(-55) scale(0.97)"/></g>
             <g class="sohle-wand">
-              <use href="#sohle-umriss" transform="translate(0.9 1.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(1.8 2.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(2.7 3.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(3.6 4.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(4.5 5.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(5.4 6.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(6.3 7.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(7.2 8.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
-              <use href="#sohle-umriss" transform="translate(8.1 9.0) translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)"/>
+              <use href="#sohle-umriss" transform="translate(1.0 1.1) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(2.0 2.2) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(3.0 3.3) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(4.0 4.4) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(5.0 5.5) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(6.0 6.6) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(7.0 7.7) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(8.0 8.8) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(9.0 9.9) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(10.0 11.0) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(11.0 12.1) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(12.0 13.2) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(13.0 14.3) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
+              <use href="#sohle-umriss" transform="translate(14.0 15.4) translate(269.73 351.57) rotate(-55) scale(0.97)"/>
             </g>
-            <g transform="translate(110 165) rotate(-55) scale(0.5 0.64) translate(-302 -86)">
+            <g transform="translate(269.73 351.57) rotate(-55) scale(0.97)">
               <use href="#sohle-umriss" fill="url(#sohle-flaeche)"/>
-              <ellipse cx="300" cy="106" rx="74" ry="28" fill="url(#sohle-mulde)" clip-path="url(#sohle-klemme)"/>
+              <ellipse cx="-61" cy="37" rx="130" ry="52" fill="url(#sohle-mulde)" clip-path="url(#sohle-klemme)"/>
               <use href="#sohle-umriss" fill="url(#sohle-rand)"/>
               <use href="#sohle-umriss" class="sohle-koernung" filter="url(#sohle-koernung)"/>
               <use href="#sohle-umriss" class="sohle-randlinie"/>
             </g>
           </svg>
-          <span class="etikett platzhalter__etikett">Placeholder</span>
-          <p>Product photo of an insole. Lines around the insole each carry one feature.</p>
         </div>
         <div class="werte__spalte werte__spalte--rechts">
           <article class="wert" data-wert tabindex="0">

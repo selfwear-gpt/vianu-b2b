@@ -33,13 +33,14 @@ for (const [datei, leitsatz] of Object.entries(SEITEN)) {
   });
 }
 
-const SOHLE = { "index.html": ["Alles in einer Sohle", "Das ist das, was du von uns erwarten kannst.", "Produktfoto einer Einlegesohle. Um die Sohle stehen Linien mit je einer Eigenschaft."], "en/index.html": ["Everything in one insole", "This is what you can expect from us.", "Product photo of an insole. Lines around the insole each carry one feature."] };
-for (const [datei, [titel, unter, hinweis]] of Object.entries(SOHLE)) {
-  test(datei + ": Abschnitt Sohle mit Überschrift, Unterzeile und Platzhalterhinweis", () => {
+const SOHLE = { "index.html": ["Alles in einer Sohle", "Das ist das, was du von uns erwarten kannst."], "en/index.html": ["Everything in one insole", "This is what you can expect from us."] };
+for (const [datei, [titel, unter]] of Object.entries(SOHLE)) {
+  test(datei + ": Abschnitt Sohle mit Überschrift und Unterzeile, ohne Hinweis im Platzhalter", () => {
     const h = lies(datei);
     assert.match(h, new RegExp('<h2 id="sohle-titel">' + titel + "</h2>"));
     assert.ok(h.includes("<p>" + unter + "</p>"));
-    assert.ok(h.includes("<p>" + hinweis + "</p>"));
     assert.doesNotMatch(h, /id="alles-titel"/);
+    const mitte = h.slice(h.indexOf("werte__mitte"), h.indexOf("werte__spalte--rechts"));
+    assert.doesNotMatch(mitte, /<p>|platzhalter__etikett/);
   });
 }
