@@ -409,8 +409,8 @@ button.knopf { cursor: pointer; }
 .sohle-stop--basis { stop-color: var(--farbe-sohle-basis); }
 .sohle-stop--hell { stop-color: var(--farbe-sohle-hell); }
 .sohle-stop--dunkel { stop-color: var(--farbe-sohle-dunkel); }
-.sohle-wand { fill: var(--farbe-sohle-kante); }
-.sohle-schatten { fill: var(--farbe-sohle-kante); opacity: 0.3; }
+.sohle-wand { fill: var(--farbe-sohle-kante); pointer-events: none; }
+.sohle-schatten { fill: var(--farbe-sohle-kante); opacity: 0.3; pointer-events: none; }
 .sohle-basis { fill: var(--farbe-sohle-basis); }
 .sohle-koernung { fill: var(--farbe-sohle-dunkel); opacity: 0.12; }
 .sohle-randlinie { fill: none; stroke: var(--farbe-sohle-dunkel); stroke-width: 4; opacity: 0.7; }
@@ -426,10 +426,10 @@ button.knopf { cursor: pointer; }
 .wert__text { display: grid; grid-template-rows: 0fr; color: inherit; text-decoration: none; transition: grid-template-rows 0.4s; }
 .wert__text p { min-height: 0; overflow: hidden; font-size: 0.9375rem; line-height: 1.5; opacity: 0; transition: opacity 0.3s; }
 a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
-.wert:hover, .wert:focus-visible, .wert[data-fix="true"] { z-index: 4; }
-.wert:hover .wert__karte, .wert:focus-visible .wert__karte, .wert[data-fix="true"] .wert__karte { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.wert:hover .wert__text, .wert:focus-visible .wert__text, .wert[data-fix="true"] .wert__text { grid-template-rows: 1fr; }
-.wert:hover .wert__text p, .wert:focus-visible .wert__text p, .wert[data-fix="true"] .wert__text p { opacity: 1; padding-top: var(--abstand-3); }
+.wert:hover, .wert:focus-visible, .wert[data-fix="true"], .wert[data-nah="true"] { z-index: 4; }
+.wert:hover .wert__karte, .wert:focus-visible .wert__karte, .wert[data-fix="true"] .wert__karte, .wert[data-nah="true"] .wert__karte { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+.wert:hover .wert__text, .wert:focus-visible .wert__text, .wert[data-fix="true"] .wert__text, .wert[data-nah="true"] .wert__text { grid-template-rows: 1fr; }
+.wert:hover .wert__text p, .wert:focus-visible .wert__text p, .wert[data-fix="true"] .wert__text, .wert[data-nah="true"] .wert__text p { opacity: 1; padding-top: var(--abstand-3); }
 /* Wird eine Karte überfahren, klappen alle anderen zu */
 .werte:has(.wert:hover) .wert:not(:hover) .wert__karte { background: var(--farbe-papier); color: var(--farbe-tinte); }
 .werte:has(.wert:hover) .wert:not(:hover) .wert__text { grid-template-rows: 0fr; }
@@ -444,7 +444,8 @@ a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
 .werte__spalte--links .wert::before { left: calc(100% + var(--luecke) + var(--mitte) * var(--px, 0.5) - 0.8rem); }
 .werte__spalte--rechts .wert::after { right: 100%; }
 .werte__spalte--rechts .wert::before { right: calc(100% + var(--luecke) + var(--mitte) * var(--px, 0.5) - 0.8rem); }
-.wert:hover::before, .wert:focus-visible::before, .wert[data-fix="true"]::before { transform: scale(1.5); background: radial-gradient(circle closest-side, var(--farbe-signal) 0 38%, var(--farbe-tinte) 40% 58%, transparent 60%); }
+.wert:hover::before, .wert:focus-visible::before, .wert[data-fix="true"]::before, .wert[data-nah="true"]::before { transform: scale(1.5); background: radial-gradient(circle closest-side, var(--farbe-signal) 0 38%, var(--farbe-tinte) 40% 58%, transparent 60%); }
+.wert[data-nah="punkt"]::before { transform: scale(1.3); }
 .werte__spalte--links .wert:nth-child(1) { --y: 7.000rem; --px: 0.678; }
 .werte__spalte--links .wert:nth-child(2) { --y: 16.125rem; --px: 0.417; }
 .werte__spalte--links .wert:nth-child(3) { --y: 23.812rem; --px: 0.17; }

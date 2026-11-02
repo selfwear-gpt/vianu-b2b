@@ -13,6 +13,19 @@ test("werte.js ist ein eigenes Modul, in beiden Startseiten eingebunden, und mit
   assert.doesNotMatch(lies("assets/js/mitarbeitende.js"), /initWerte|data-wert/);
 });
 
+test("Die ganze Sohle ist Trefferfläche: werte.js wertet pointermove der Mittelspalte aus, nur mit Maus, und setzt data-nah", () => {
+  const js = lies("assets/js/werte.js");
+  assert.match(js, /pointermove/);
+  assert.match(js, /pointerType !== "mouse"/);
+  assert.match(js, /data-nah/);
+  assert.match(js, /sohle-koerper/);
+  const css = lies("assets/css/components.css");
+  assert.match(css, /\.wert\[data-nah="true"\] \.wert__text \{ grid-template-rows: 1fr; \}|\.wert\[data-nah="true"\] \.wert__text, /);
+  assert.match(css, /\.wert\[data-nah="punkt"\]::before \{ transform: scale\(1\.3\); \}/);
+  assert.match(css, /\.sohle-wand \{[^}]*pointer-events: none;/);
+  for (const f of ["index.html", "en/index.html"]) assert.match(lies(f), /<g class="sohle-koerper" transform=/);
+});
+
 test("Es gibt keinen Scrolleffekt: werte.js hört weder auf scroll noch auf resize und kennt keine Bühne", () => {
   const js = lies("assets/js/werte.js");
   assert.doesNotMatch(js, /scroll|resize|aktiverSchritt|data-haelt|IntersectionObserver/);
