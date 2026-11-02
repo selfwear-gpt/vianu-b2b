@@ -98,7 +98,9 @@ def bilder_einbetten(body, seite_rel):
             return m.group(0)
         art = {".jpg": "jpeg", ".jpeg": "jpeg", ".png": "png", ".webp": "webp", ".svg": "svg+xml"}.get(ziel.suffix.lower(), "jpeg")
         return f'{m.group(1)}data:image/{art};base64,{base64.b64encode(ziel.read_bytes()).decode()}"'
-    return re.sub(r'(src=")((?:\.\./)*assets/img/[^"?#]+)"', ersetze, body)
+    body = re.sub(r'(src=")((?:\.\./)*assets/img/[^"?#]+)"', ersetze, body)
+    # SVG-Bilder (<image href="...">) brauchen die Einbettung ebenso
+    return re.sub(r'(<image\b[^>]*?\bhref=")((?:\.\./)*assets/img/[^"?#]+)"', ersetze, body)
 
 
 def seite_als_container(kennung, rel, praefix, sichtbar):

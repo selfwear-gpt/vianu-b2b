@@ -1,6 +1,6 @@
 /*
   Interaktionen der Mitarbeitenden-Seite. Jedes Modul arbeitet über Datenattribute und nur innerhalb
-  seines Bereichs: initTeilen, initWerte, initName, initTag, initMail. Der Ablauf liegt in ablauf.js.
+  seines Bereichs: initTeilen, initName, initTag, initMail. Der Ablauf liegt in ablauf.js.
   Benötigt name.js (VianuName) und teilen.js (VianuTeilen). Ohne Skript bleibt der Inhalt lesbar.
 */
 (function () {
@@ -243,34 +243,6 @@
     aktualisiere();
   }
 
-  /* ---------- Werte: Kacheln drehen sich ---------- */
-  function initWerte(wurzel) {
-    var kacheln = wurzel.querySelectorAll("[data-wert]");
-    var breit = window.matchMedia("(min-width: 56.01rem)");
-
-    // Fokus und damit die Drehung gibt es nur dort, wo sich die Kachel dreht. Auf dem Handy stehen beide Seiten untereinander.
-    function setzeFokus() {
-      Array.prototype.forEach.call(kacheln, function (k) {
-        if (breit.matches) k.setAttribute("tabindex", "0");
-        else k.removeAttribute("tabindex");
-      });
-    }
-    setzeFokus();
-    breit.addEventListener("change", setzeFokus);
-
-    // Hover und Fokus drehen per CSS. Ein Tippen dreht die Kachel um und wieder zurück. "false" hebt auch ein
-    // hängendes :hover auf Touchgeräten auf. Ob ein Gerät Hover kennt, wird bei jedem Tippen neu gelesen.
-    Array.prototype.forEach.call(kacheln, function (k) {
-      k.addEventListener("click", function (e) {
-        var touch = window.matchMedia("(hover: none)").matches || e.pointerType === "touch";
-        if (!touch) return;
-        var an = k.getAttribute("data-gedreht") !== "true";
-        Array.prototype.forEach.call(kacheln, function (andere) { andere.setAttribute("data-gedreht", "false"); });
-        k.setAttribute("data-gedreht", an ? "true" : "false");
-      });
-    });
-  }
-
   /* ---------- Mailvorlage ---------- */
   function initMail(wurzel) {
     var knopf = wurzel.querySelector("[data-mail-kopieren]");
@@ -295,12 +267,11 @@
     });
   }
 
+  // Jeder Schritt läuft für sich: Bricht einer ab, laufen die anderen weiter
   function start() {
-    jeder("[data-teilen]", document, initTeilen);
-    jeder(".werte", document, initWerte);
-    jeder("[data-name]", document, initName);
-    jeder("[data-tag]", document, initTag);
-    jeder("[data-mail]", document, initMail);
+    [["[data-teilen]", initTeilen], ["[data-name]", initName], ["[data-tag]", initTag], ["[data-mail]", initMail]].forEach(function (z) {
+      try { jeder(z[0], document, z[1]); } catch (fehler) { if (window.console) window.console.error(fehler); }
+    });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);

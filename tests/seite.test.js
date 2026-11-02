@@ -7,13 +7,13 @@ const path = require("node:path");
 const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 const body = html.slice(html.indexOf("<body"));
 
-test("Reihenfolge: Das hast du davon, Roddys Weg, Stimmen, Ein Tag im Schichtbetrieb, Name, Ablauf, Fragen", () => {
+test("Reihenfolge: Alles in einer Sohle, Roddys Weg, Stimmen, Ein Tag im Schichtbetrieb, Name, Ablauf, Fragen", () => {
   const ids = [...body.matchAll(/<section[^>]*\sid="([^"]+)"/g)].map((m) => m[1]);
   const reihe = ["sohle", "erlebt", "stimmen", "tag", "name", "ablauf", "fragen"];
   const pos = reihe.map((id) => ids.indexOf(id));
   assert.ok(pos.every((p) => p >= 0), "Abschnitt fehlt: " + ids.join(","));
   assert.deepEqual([...pos].sort((a, b) => a - b), pos, "falsche Reihenfolge: " + ids.join(","));
-  assert.equal(pos[1], pos[0] + 1, "Roddys Weg steht nicht direkt hinter Das hast du davon");
+  assert.equal(pos[1], pos[0] + 1, "Roddys Weg steht nicht direkt hinter Alles in einer Sohle");
   assert.equal(pos[2], pos[1] + 1, "Stimmen stehen nicht direkt hinter Roddys Weg");
 });
 
@@ -33,9 +33,11 @@ test("Die Uhr läuft von 8 Uhr bis 17 Uhr: zwei Momente tragen Stunde und Uhrzei
   assert.match(body, /data-titel="Feierabend" data-zeit="17 Uhr" data-stunde="17"/);
 });
 
-test("Sechs Kacheln, jede mit Vorder- und Rückseite im HTML", () => {
-  assert.equal((body.match(/class="wert__vorn"/g) || []).length, 6);
-  assert.equal((body.match(/class="wert__hinten"/g) || []).length, 6);
+test("Sechs Werte, jeder mit Kopf und Beschreibung im HTML, ein Platzhalter in der Mitte", () => {
+  assert.equal((body.match(/class="wert__kopf"/g) || []).length, 6);
+  assert.equal((body.match(/class="wert__text"/g) || []).length, 6);
+  assert.equal((body.match(/werte__mitte/g) || []).length, 1);
+  assert.doesNotMatch(body, /wert__vorn|wert__hinten/);
 });
 
 test("Der Zeiger läuft über Feierabend hinaus: Der Moment Abend trägt eine eigene Stunde", () => {
@@ -50,7 +52,7 @@ test("Der Zeiger läuft über Feierabend hinaus: Der Moment Abend trägt eine ei
 test("Die Kachel Dein Name drauf führt von der Rückseite zum Namensabschnitt, der Abschnitt hat Namens- und Firmenfeld", () => {
   for (const f of ["index.html", "en/index.html"]) {
     const h = fs.readFileSync(path.join(__dirname, "..", f), "utf8");
-    assert.match(h, /<a class="wert__hinten" href="#name">/, f);
+    assert.match(h, /<a class="wert__text" href="#name">/, f);
     assert.match(h, /id="name-feld"[^>]*data-name-feld/, f);
     assert.match(h, /id="firma-feld"[^>]*maxlength="18"[^>]*data-firma-feld/, f);
     assert.equal((h.match(/data-firma-text/g) || []).length, 2, f);

@@ -37,6 +37,7 @@
 <script src="../assets/js/mitarbeitende.js" defer></script>
 <script src="../assets/js/bausteine.js" defer></script>
 <script src="../assets/js/roddy.js" defer></script>
+<script src="../assets/js/werte.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -127,7 +128,7 @@
       "name": "How does the foot scan work for me?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You open our application on your smartphone in any browser. You take photos of your feet and of the current inner sole of your shoe, each next to an A4 sheet. Our patent-backed generative AI then supports anatomy recognition and the individual modeling of your insole. For the method of measuring feet from photos, patent DE 10 2019 123 458 B4 has been granted in Germany."
+        "text": "You open our application on your smartphone in any browser. You take photos of your feet and of the current inner sole of your shoe, each next to an A4 sheet. Each foot capture needs 6 photos. Our patent-backed generative AI then supports anatomy recognition and the individual modeling of your insole. For the method of measuring feet from photos, patent DE 10 2019 123 458 B4 has been granted in Germany."
       }
     },
     {
@@ -176,6 +177,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Whether insoles can be printed with your name depends on the provider. At VIANU the name and company logo are printed on the insole."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the fit of my insole ensured, and how long does production take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With the high-precision 3D models from our technology partner SELFWEAR AI, we make your highly individual insole by 3D printing. Throughout the process, our foot experts naturally carry out further analysis and quality control to ensure the highest fit accuracy. It is made within 48 hours and reaches you at the latest 7 days after the foot scan."
       }
     }
   ]
@@ -301,80 +310,107 @@
   <section class="abschnitt" id="sohle" aria-labelledby="sohle-titel">
     <div class="behaelter">
       <div class="abschnitt__kopf">
-        <h2 id="sohle-titel">What you get out of it</h2>
-        <p>Six things we are working toward.</p>
+        <h2 id="sohle-titel">Everything in one insole</h2>
+        <p>This is what you can expect from us.</p>
       </div>
-      <div class="werte">
-        <article class="wert wert--a wert--signal" data-wert>
-          <div class="wert__innen">
-            <div class="wert__vorn">
-              <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M4 14h28M4 22h20M4 30h32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-              <h3>Light through the shift</h3>
+      <div class="werte" data-werte>
+        <div class="werte__stage">
+        <div class="werte__spalte werte__spalte--links">
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M4 14h28M4 22h20M4 30h32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                <h3>Light through the shift</h3>
+              </div>
+              <div class="wert__text"><p>We are working toward your feet getting through the shift well. For that, you get an insole made for your foot, based on photos you take with your phone, for example during a break. We promise no more than this goal.</p></div>
             </div>
-            <div class="wert__hinten">
-              <p>We are working toward your feet getting through the shift well. For that, you get an insole made for your foot, based on photos you take with your phone, for example during a break. We promise no more than this goal.</p>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M30 7a15 15 0 1 0 9 23A13 13 0 0 1 30 7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+                <h3>Evenings that belong to you</h3>
+              </div>
+              <div class="wert__text"><p>Family, sports, friends: after your shift there should still be room for your life. That is what we are working toward. You decide whether you join. Taking part is voluntary.</p></div>
             </div>
-          </div>
-        </article>
-        <article class="wert wert--b wert--tinte" data-wert>
-          <div class="wert__innen">
-            <div class="wert__vorn">
-              <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M30 7a15 15 0 1 0 9 23A13 13 0 0 1 30 7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
-              <h3>Evenings that belong to you</h3>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M5 31h35v-6c-9 0-11-7-15-13l-9 4-6 3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+                <h3>Fits the shoes you already have</h3>
+              </div>
+              <div class="wert__text"><p>Your work shoes stay as they are. The insole simply goes inside, and you do not need new shoes for it. The insole reaches you at your workplace.</p></div>
             </div>
-            <div class="wert__hinten">
-              <p>Family, sports, friends: after your shift there should still be room for your life. That is what we are working toward. You decide whether you join. Taking part is voluntary.</p>
+          </article>
+        </div>
+        <div class="platzhalter platzhalter--sohle werte__mitte" data-platzhalter role="group" aria-label="Placeholder for product photo of an insole">
+          <svg class="werte__bild" viewBox="0 0 400 480" aria-hidden="true" focusable="false">
+            <defs>
+              <path id="sohle-umriss" d="M1097.7 -9.1C1086.7 -1.2 1077.3 7.3 1068.8 15.2C1060.3 23.0 1053.5 30.8 1046.8 38.2C1040.0 45.6 1034.3 52.6 1028.4 59.6C1022.5 66.5 1017.0 73.2 1011.5 80.0C1005.9 86.7 1000.4 93.3 994.9 100.0C989.4 106.7 983.9 113.3 978.5 120.0C973.1 126.7 967.8 133.3 962.5 140.0C957.2 146.7 952.0 153.3 946.8 160.0C941.7 166.7 936.5 173.3 931.5 180.0C926.4 186.7 921.4 193.3 916.3 200.0C911.3 206.7 906.3 213.3 901.3 220.0C896.3 226.7 891.3 233.3 886.3 240.0C881.3 246.7 876.3 253.3 871.2 260.0C866.2 266.7 861.1 273.3 856.0 280.0C850.9 286.7 845.8 293.3 840.8 300.0C835.7 306.7 830.7 313.3 825.7 320.0C820.7 326.7 815.8 333.3 810.9 340.0C806.0 346.7 801.1 353.3 796.3 360.0C791.4 366.7 786.7 373.3 781.8 380.0C776.9 386.7 772.1 393.3 767.1 400.0C762.1 406.7 757.0 413.3 751.7 420.0C746.4 426.7 740.9 433.3 735.2 440.0C729.4 446.7 723.4 453.3 717.2 460.0C711.0 466.7 704.5 473.3 697.8 480.0C691.2 486.7 684.2 493.3 677.3 500.0C670.3 506.7 663.1 513.3 656.0 520.0C648.9 526.7 641.7 533.3 634.6 540.0C627.5 546.7 620.3 553.3 613.4 560.0C606.5 566.7 599.7 573.3 593.1 580.1C586.6 586.8 580.1 593.5 574.2 600.8C568.4 608.0 562.5 615.3 558.0 623.4C553.4 631.5 549.0 640.1 546.7 649.5C544.4 658.9 542.9 669.3 544.3 679.6C545.7 689.9 548.8 701.4 555.2 711.5C561.7 721.6 570.9 732.2 582.9 740.1C594.9 748.0 610.5 755.1 627.4 759.0C644.3 762.8 664.5 764.3 684.3 763.0C704.0 761.7 725.9 757.2 745.7 751.2C765.6 745.1 785.8 735.9 803.4 726.6C821.1 717.3 837.3 706.0 851.5 695.6C865.6 685.2 877.6 674.1 888.4 664.1C899.2 654.2 907.8 644.6 916.2 635.9C924.5 627.2 931.5 619.4 938.5 611.7C945.6 604.1 952.0 597.2 958.4 590.3C964.9 583.3 971.1 576.7 977.3 570.0C983.5 563.3 989.6 556.7 995.4 550.0C1001.3 543.3 1007.1 536.7 1012.7 530.0C1018.2 523.3 1023.6 516.7 1028.7 510.0C1033.9 503.3 1038.8 496.7 1043.4 490.0C1048.1 483.3 1052.5 476.7 1056.6 470.0C1060.8 463.3 1064.6 456.7 1068.2 450.0C1071.8 443.3 1075.1 436.7 1078.3 430.0C1081.5 423.3 1084.4 416.7 1087.2 410.0C1090.1 403.3 1092.8 396.7 1095.5 390.0C1098.2 383.3 1100.8 376.7 1103.6 370.0C1106.3 363.3 1109.0 356.7 1111.9 350.0C1114.7 343.3 1117.7 336.7 1120.7 330.0C1123.7 323.3 1126.9 316.7 1130.1 310.0C1133.3 303.3 1136.7 296.7 1140.1 290.0C1143.5 283.3 1147.0 276.7 1150.5 270.0C1154.0 263.3 1157.6 256.7 1161.2 250.0C1164.8 243.3 1168.5 236.7 1172.2 230.0C1175.9 223.3 1179.6 216.7 1183.4 210.0C1187.3 203.3 1191.1 196.7 1195.1 190.0C1199.1 183.3 1203.2 176.7 1207.4 170.0C1211.6 163.3 1216.0 156.7 1220.4 150.0C1224.9 143.3 1229.5 136.7 1234.2 130.0C1238.9 123.3 1243.7 116.7 1248.6 110.0C1253.4 103.3 1258.4 96.7 1263.3 90.0C1268.2 83.3 1273.2 76.7 1277.9 69.9C1282.6 63.0 1287.4 56.2 1291.5 49.0C1295.7 41.9 1299.9 34.6 1302.9 26.9C1305.9 19.2 1308.8 11.1 1309.6 3.1C1310.4 -4.9 1310.5 -13.5 1307.9 -21.1C1305.2 -28.7 1300.9 -36.6 1293.9 -42.5C1286.9 -48.4 1277.2 -53.6 1265.8 -56.5C1254.5 -59.3 1240.1 -60.5 1225.8 -59.5C1211.4 -58.5 1194.8 -55.2 1179.7 -50.7C1164.6 -46.2 1148.9 -39.3 1135.2 -32.4C1121.5 -25.5 1108.8 -17.1 1097.7 -9.1Z"/>
+              <clipPath id="sohle-klemme"><use href="#sohle-umriss"/></clipPath>
+              <filter id="sohle-koernung" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.4" numOctaves="2" seed="3" result="rauschen"/>
+                <feColorMatrix in="rauschen" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.45" result="punkte"/>
+                <feComposite in="punkte" in2="SourceAlpha" operator="in"/>
+              </filter>
+              <filter id="sohle-weich" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+            </defs>
+            <g class="sohle-schatten" filter="url(#sohle-weich)"><use href="#sohle-umriss" transform="translate(20 26) translate(2 22) scale(0.52) translate(-544 59)"/></g>
+            <g class="sohle-wand">
+              <use href="#sohle-umriss" transform="translate(0.8 0.6) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(1.6 1.1) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(2.4 1.7) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(3.2 2.2) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(4.0 2.8) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(4.8 3.3) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(5.6 3.9) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(6.4 4.4) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(7.2 5.0) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(8.0 5.5) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(8.8 6.1) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(9.6 6.6) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(10.4 7.2) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(11.2 7.7) translate(2 22) scale(0.52) translate(-544 59)"/>
+            </g>
+            <g class="sohle-koerper" transform="translate(2 22) scale(0.52) translate(-544 59)">
+              <use href="#sohle-umriss" class="sohle-basis"/>
+              <image href="../assets/img/sohle-oberflaeche.webp" x="520" y="-90" width="820" height="880" clip-path="url(#sohle-klemme)"/>
+              <use href="#sohle-umriss" class="sohle-koernung" filter="url(#sohle-koernung)"/>
+              <use href="#sohle-umriss" class="sohle-randlinie"/>
+            </g>
+          </svg>
+        </div>
+        <div class="werte__spalte werte__spalte--rechts">
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="13" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="17" y="21" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+                <h3>Lasts as long as your shoes</h3>
+              </div>
+              <div class="wert__text"><p>The insole is meant to last as long as your shoes. From our own tests we know that it comes through at least 3 years in perfect condition.</p></div>
             </div>
-          </div>
-        </article>
-        <article class="wert wert--c wert--linie" data-wert>
-          <div class="wert__innen">
-            <div class="wert__vorn">
-              <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M5 31h35v-6c-9 0-11-7-15-13l-9 4-6 3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
-              <h3>Fits the shoes you already have</h3>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4c9 11 13 17 13 23a13 13 0 0 1-26 0c0-6 4-12 13-23z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+                <h3>Stays fresh</h3>
+              </div>
+              <div class="wert__text"><p>A lot goes on inside work shoes. The insole is meant to stay fresh through it. That is exactly what our insoles are well suited for.</p></div>
             </div>
-            <div class="wert__hinten">
-              <p>Your work shoes stay as they are. The insole simply goes inside, and you do not need new shoes for it. The insole reaches you at your workplace.</p>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 11h22l11 12-11 12H6z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="14" cy="23" r="2.6" fill="currentColor"/></svg>
+                <h3>Your name on it</h3>
+              </div>
+              <a class="wert__text" href="#name"><p>Try out below how your name could look on your insole. Type it in and see how it will look printed on the insole.</p></a>
             </div>
-          </div>
-        </article>
-        <article class="wert wert--d wert--linie" data-wert>
-          <div class="wert__innen">
-            <div class="wert__vorn">
-              <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="13" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="17" y="21" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
-              <h3>Lasts as long as your shoes</h3>
-            </div>
-            <div class="wert__hinten">
-              <p>The insole is meant to last as long as your shoes. From our own tests we know that it comes through at least 3 years in perfect condition.</p>
-            </div>
-          </div>
-        </article>
-        <article class="wert wert--e wert--linie" data-wert>
-          <div class="wert__innen">
-            <div class="wert__vorn">
-              <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4c9 11 13 17 13 23a13 13 0 0 1-26 0c0-6 4-12 13-23z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
-              <h3>Stays fresh</h3>
-            </div>
-            <div class="wert__hinten">
-              <p>A lot goes on inside work shoes. The insole is meant to stay fresh through it. That is exactly what our insoles are well suited for.</p>
-            </div>
-          </div>
-        </article>
-        <article class="wert wert--f wert--signal" data-wert>
-          <div class="wert__innen">
-            <div class="wert__vorn">
-              <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 11h22l11 12-11 12H6z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="14" cy="23" r="2.6" fill="currentColor"/></svg>
-              <h3>Your name on it</h3>
-            </div>
-            <a class="wert__hinten" href="#name">
-              <p>Try out below how your name could look on your insole. Type it in and see how it will look printed on the insole.</p>
-            </a>
-          </div>
-        </article>
-      </div>
-      <div class="alles">
-        <h3 id="alles-titel">All of this in one insole</h3>
-        <div class="platzhalter platzhalter--sohle" data-platzhalter role="group" aria-label="Placeholder for product photo of the insoles"><span class="etikett platzhalter__etikett">Placeholder</span><p>Placeholder for product photo of the insoles</p></div>
+          </article>
+        </div>
+        </div>
       </div>
     </div>
   </section>
@@ -581,13 +617,13 @@
           <li>
             <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="2">
               <span class="ablauf__nummer" aria-hidden="true">2</span>
-              <span><strong>You take photos, for example during a break</strong><span>With your own smartphone, with no measurement day and no extra devices.</span></span>
+              <span><strong>You take photos, for example during a break</strong><span>With your own smartphone, with no measurement day and no extra devices. Each foot capture needs 6 photos.</span></span>
             </button>
           </li>
           <li>
             <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="3">
               <span class="ablauf__nummer" aria-hidden="true">3</span>
-              <span><strong>Your insole is made</strong><span>It is made for your foot. It is 3D-printed in Germany and made within 48 hours. Your name and your company's logo are printed on it.</span></span>
+              <span><strong>Your insole is made</strong><span>It is made for your foot. With our partner SELFWEAR AI, your feet are measured to the millimeter and modeled into your personal insole. It is 3D-printed in Germany and made within 48 hours. Your name and your company's logo are printed on it.</span></span>
             </button>
           </li>
           <li>
@@ -682,7 +718,7 @@
           </details>
         <details class="frage">
             <summary>How does the foot scan work for me?</summary>
-            <div class="frage__antwort"><p>You open our application on your smartphone in any browser. You take photos of your feet and of the current inner sole of your shoe, each next to an A4 sheet. Our patent-backed generative AI then supports anatomy recognition and the individual modeling of your insole. For the method of measuring feet from photos, patent DE 10 2019 123 458 B4 has been granted in Germany.</p></div>
+            <div class="frage__antwort"><p>You open our application on your smartphone in any browser. You take photos of your feet and of the current inner sole of your shoe, each next to an A4 sheet. Each foot capture needs 6 photos. Our patent-backed generative AI then supports anatomy recognition and the individual modeling of your insole. For the method of measuring feet from photos, patent DE 10 2019 123 458 B4 has been granted in Germany.</p></div>
           </details>
         <details class="frage">
           <summary>Do insoles help with long hours of standing and walking at work?</summary>
@@ -729,6 +765,14 @@
           <summary>Can employees from the kitchen, service, housekeeping or other jobs with a lot of standing take part?</summary>
           <div class="frage__antwort"><p>Yes. Kitchen, service, housekeeping, reception and bar come first. All other jobs with a lot of standing and walking are meant too, for example care, retail, production, logistics and cleaning. Your employer decides whether your workplace takes part.</p></div>
         </details>
+        <details class="frage">
+            <summary>How is the fit of my insole ensured, and how long does production take?</summary>
+            <div class="frage__antwort"><p>With the high-precision 3D models from our technology partner SELFWEAR AI, we make your highly individual insole by 3D printing. Throughout the process, our foot experts naturally carry out further analysis and quality control to ensure the highest fit accuracy. It is made within 48 hours and reaches you at the latest 7 days after the foot scan.</p></div>
+          </details>
+        <details class="frage">
+            <summary>What material is the insole made of?</summary>
+            <div class="frage__antwort"><p><span class="etikett" data-platzhalter>Placeholder: The material still has to be confirmed.</span></p></div>
+          </details>
         </div>
       </div>
     </div>
