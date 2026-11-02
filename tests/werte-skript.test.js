@@ -47,7 +47,7 @@ test("Linien und Punkte liegen über der Sohle: Karte hat einen höheren z-index
   assert.equal(new Set(y).size, 6, "keine zwei Karten auf gleicher Höhe");
   for (const seite of ["links", "rechts"]) {
     const ys = hoehen.filter((h) => h.seite === seite).map((h) => h.y).sort((a, b) => a - b);
-    for (let i = 1; i < ys.length; i++) assert.ok((ys[i] - ys[i - 1]) * 16 >= 190, "Abstand der Karten einer Seite zu klein");
+    for (let i = 1; i < ys.length; i++) assert.ok((ys[i] - ys[i - 1]) * 16 >= 110, "Abstand der Karten einer Seite zu klein");
   }
 });
 
@@ -59,5 +59,13 @@ for (const datei of ["index.html", "en/index.html"]) {
     assert.equal((h.match(/werte__spalte--links/g) || []).length, 1);
     assert.equal((h.match(/werte__spalte--rechts/g) || []).length, 1);
     assert.match(h, /<svg class="werte__bild"/);
+  });
+}
+
+for (const [datei, pfad] of [["index.html", "assets/img/sohle-oberflaeche.webp"], ["en/index.html", "../assets/img/sohle-oberflaeche.webp"]]) {
+  test(datei + ": Die Sohle trägt die echte Oberfläche als Bild und die Datei liegt vor", () => {
+    const h = lies(datei);
+    assert.ok(h.includes('<image href="' + pfad + '"'));
+    assert.ok(fs.existsSync(path.join(__dirname, "..", "assets/img/sohle-oberflaeche.webp")));
   });
 }

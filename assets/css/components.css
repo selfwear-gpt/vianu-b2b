@@ -400,7 +400,7 @@ button.knopf { cursor: pointer; }
 }
 /* ---------- Alles in einer Sohle: sechs Überschriften hängen per Linie an der Sohle, die Beschreibung klappt in der Karte auf ---------- */
 /* Die Bühne ist breiter als der Textbereich, damit die Karten genug Platz haben. Jede Karte hat ihre eigene Höhe (--y), damit nichts starr wirkt. */
-.werte { --mitte: 33rem; --hoehe: 43.75rem; --luecke: clamp(2rem, 3.5vw, 3.5rem); width: min(88rem, calc(100vw - 3rem)); margin-left: 50%; transform: translateX(-50%); }
+.werte { --mitte: 25rem; --hoehe: 30rem; --luecke: clamp(2rem, 3.5vw, 3.5rem); width: min(88rem, calc(100vw - 3rem)); margin-left: 50%; transform: translateX(-50%); }
 .werte__stage { display: grid; grid-template-columns: minmax(0, 1fr) var(--mitte) minmax(0, 1fr); column-gap: var(--luecke); padding-block: var(--abstand-4); }
 .werte__spalte { position: relative; height: var(--hoehe); min-width: 0; }
 /* Die Sohle liegt schräg und plastisch in der Mitte, nach dem Vorbild gezeichnet. Der Platzhalter ersetzt später das Produktfoto. */
@@ -411,7 +411,8 @@ button.knopf { cursor: pointer; }
 .sohle-stop--dunkel { stop-color: var(--farbe-sohle-dunkel); }
 .sohle-wand { fill: var(--farbe-sohle-kante); }
 .sohle-schatten { fill: var(--farbe-sohle-kante); opacity: 0.3; }
-.sohle-koernung { fill: var(--farbe-sohle-dunkel); opacity: 0.3; }
+.sohle-basis { fill: var(--farbe-sohle-basis); }
+.sohle-koernung { fill: var(--farbe-sohle-dunkel); opacity: 0.12; }
 .sohle-randlinie { fill: none; stroke: var(--farbe-sohle-dunkel); stroke-width: 4; opacity: 0.7; }
 /* Karte: steht mit ihrer Mitte auf der Höhe --y und wächst beim Aufklappen nach oben und unten. Anfassbar sind nur Karte, Linie und Punkt. */
 .wert { position: absolute; z-index: 2; left: 0; right: 0; top: var(--y); transform: translateY(-50%); outline: none; pointer-events: none; }
@@ -444,19 +445,19 @@ a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
 .werte__spalte--rechts .wert::after { right: 100%; }
 .werte__spalte--rechts .wert::before { right: calc(100% + var(--luecke) + var(--mitte) * var(--px, 0.5) - 0.8rem); }
 .wert:hover::before, .wert:focus-visible::before, .wert[data-fix="true"]::before { transform: scale(1.5); background: radial-gradient(circle closest-side, var(--farbe-signal) 0 38%, var(--farbe-tinte) 40% 58%, transparent 60%); }
-.werte__spalte--links .wert:nth-child(1) { --y: 9.375rem; --px: 0.724; }
-.werte__spalte--links .wert:nth-child(2) { --y: 22.0rem; --px: 0.433; }
-.werte__spalte--links .wert:nth-child(3) { --y: 35.125rem; --px: 0.16; }
-.werte__spalte--rechts .wert:nth-child(1) { --y: 7.0rem; --px: 0.11; }
-.werte__spalte--rechts .wert:nth-child(2) { --y: 19.875rem; --px: 0.35; }
-.werte__spalte--rechts .wert:nth-child(3) { --y: 32.625rem; --px: 0.661; }
+.werte__spalte--links .wert:nth-child(1) { --y: 7.000rem; --px: 0.678; }
+.werte__spalte--links .wert:nth-child(2) { --y: 16.125rem; --px: 0.417; }
+.werte__spalte--links .wert:nth-child(3) { --y: 23.812rem; --px: 0.17; }
+.werte__spalte--rechts .wert:nth-child(1) { --y: 9.375rem; --px: 0.252; }
+.werte__spalte--rechts .wert:nth-child(2) { --y: 17.062rem; --px: 0.418; }
+.werte__spalte--rechts .wert:nth-child(3) { --y: 24.062rem; --px: 0.666; }
 @media (prefers-reduced-motion: reduce) {
   .wert__karte, .wert__text, .wert__text p, .wert::before { transition: none; }
 }
-@media (max-width: 56rem) {
+@media (max-width: 75rem) {
   .werte { width: auto; margin-left: 0; transform: none; }
   .werte__stage { display: flex; flex-direction: column; padding-block: 0; }
-  .werte .werte__mitte { order: -1; width: min(100%, 22rem); height: auto; aspect-ratio: 528 / 700; margin: 0 auto var(--abstand-5); }
+  .werte .werte__mitte { order: -1; width: min(100%, 18rem); height: auto; aspect-ratio: 400 / 480; margin: 0 auto var(--abstand-5); }
   .werte__spalte { height: auto; display: grid; gap: var(--abstand-3); margin-bottom: var(--abstand-3); }
   .wert { position: static; transform: none; pointer-events: auto; }
   .wert::before, .wert::after { display: none; }
