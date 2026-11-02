@@ -15,9 +15,9 @@
   --farbe-auf-signal: var(--farbe-tinte);  /* Textfarbe auf Signal- und Nähe-Flächen */
 
   /* Produktbild der Sohle (nur für die Nachzeichnung im Platzhalter, bis es ein echtes Foto gibt) */
-  --farbe-sohle-basis: #F07F22;
-  --farbe-sohle-hell: #F9A15A;
-  --farbe-sohle-dunkel: #A9500F;
+  --farbe-sohle-basis: #F47B1C;
+  --farbe-sohle-hell: #FFA34F;
+  --farbe-sohle-dunkel: #C25A10;
   --farbe-sohle-kante: #6A6A66;
 
   /* Schriften (Dateien in assets/fonts/, noch nicht eingebunden) */

@@ -1,4 +1,5 @@
-// Seam: Werteabschnitt "Alles in einer Sohle". Das CSS entscheidet über Verstecken, das Skript hängt nur am IntersectionObserver.
+// Seam: Werteabschnitt "Alles in einer Sohle" (assets/js/werte.js). Das Zuklappen der Beschreibungen entscheidet allein das CSS,
+// das Skript fügt nur die Scrollbühne und den aktiven Punkt hinzu und hängt an keinem anderen Skript.
 const test = require("node:test");
 const assert = require("node:assert");
 const fs = require("node:fs");
@@ -6,24 +7,36 @@ const path = require("node:path");
 
 const lies = (f) => fs.readFileSync(path.join(__dirname, "..", f), "utf8");
 
-test("initWerte prüft keine Medienabfragen und keine Fensterhöhe, sondern nutzt den IntersectionObserver", () => {
-  const js = lies("assets/js/mitarbeitende.js");
-  const a = js.indexOf("function initWerte");
-  const e = js.indexOf("/* ---------- Mailvorlage");
-  const rumpf = js.slice(a, e);
-  assert.doesNotMatch(rumpf, /matchMedia|innerHeight|VianuFortschritt/);
-  assert.match(rumpf, /new IntersectionObserver/);
-  assert.match(rumpf, /setAttribute\("data-bereit"/);
+test("werte.js ist ein eigenes Modul, in beiden Startseiten eingebunden, und mitarbeitende.js enthält initWerte nicht mehr", () => {
+  assert.match(lies("index.html"), /<script src="assets\/js\/werte\.js" defer><\/script>/);
+  assert.match(lies("en/index.html"), /<script src="\.\.\/assets\/js\/werte\.js" defer><\/script>/);
+  assert.doesNotMatch(lies("assets/js/mitarbeitende.js"), /initWerte|data-wert/);
 });
 
-test("Die Regeln, die Linien und Texte verstecken, stehen nur in der Medienabfrage für breite Bildschirme ohne reduzierte Bewegung", () => {
-  const css = lies("assets/css/components.css");
-  const kopf = "@media (min-width: 56.01rem) and (prefers-reduced-motion: no-preference) {";
-  const a = css.indexOf(kopf);
-  assert.ok(a > 0, "Medienabfrage fehlt");
-  const ende = css.indexOf("\n}\n", a);
-  const ausserhalb = css.slice(0, a) + css.slice(ende);
-  assert.doesNotMatch(ausserhalb, /\.werte\[data-bereit\] \.wert__text \{ opacity: 0/);
-  assert.match(css.slice(a, ende), /\.werte\[data-bereit\] \.wert__text \{ opacity: 0; \}/);
-  assert.match(css.slice(a, ende), /\.wert:hover/);
+test("werte.js nutzt Scrollstand, aktiverSchritt und die Bühne, keinen IntersectionObserver", () => {
+  const js = lies("assets/js/werte.js");
+  assert.match(js, /aktiverSchritt/);
+  assert.match(js, /data-haelt/);
+  assert.match(js, /data-aktiv/);
+  assert.doesNotMatch(js, /IntersectionObserver/);
 });
+
+test("Die Beschreibungen sind im CSS standardmäßig zugeklappt und öffnen bei Hover, Fokus, Aktiv und Fix", () => {
+  const css = lies("assets/css/components.css");
+  assert.match(css, /\.wert__text \{ display: grid; grid-template-rows: 0fr;/);
+  const regel = css.split("\n").find((z) => z.includes("{ grid-template-rows: 1fr; }") && z.includes(".wert:hover .wert__text"));
+  assert.ok(regel, "Regel zum Aufklappen fehlt");
+  for (const z of [".wert:focus-within .wert__text", '.wert[data-aktiv="true"] .wert__text', '.wert[data-fix="true"] .wert__text']) assert.ok(regel.includes(z), z);
+  assert.doesNotMatch(css, /\.werte\[data-bereit\]/);
+});
+
+for (const datei of ["index.html", "en/index.html"]) {
+  test(datei + ": sechs fokussierbare Karten, je drei links und rechts, Wrapper mit data-werte", () => {
+    const h = lies(datei);
+    assert.match(h, /<div class="werte" data-werte>/);
+    assert.equal((h.match(/<article class="wert" data-wert tabindex="0">/g) || []).length, 6);
+    assert.equal((h.match(/werte__spalte--links/g) || []).length, 1);
+    assert.equal((h.match(/werte__spalte--rechts/g) || []).length, 1);
+    assert.match(h, /<svg class="werte__bild"/);
+  });
+}

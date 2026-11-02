@@ -1,6 +1,6 @@
 /*
   Interaktionen der Mitarbeitenden-Seite. Jedes Modul arbeitet über Datenattribute und nur innerhalb
-  seines Bereichs: initTeilen, initWerte, initName, initTag, initMail. Der Ablauf liegt in ablauf.js.
+  seines Bereichs: initTeilen, initName, initTag, initMail. Der Ablauf liegt in ablauf.js.
   Benötigt name.js (VianuName) und teilen.js (VianuTeilen). Ohne Skript bleibt der Inhalt lesbar.
 */
 (function () {
@@ -243,52 +243,6 @@
     aktualisiere();
   }
 
-  /* ---------- Werte: Karten öffnen sich, wenn sie beim Scrollen ins Bild kommen ---------- */
-  // Ob Linien und Texte versteckt werden, entscheidet das CSS (breiter Bildschirm, Bewegung erlaubt). Das Skript setzt nur
-  // data-bereit und meldet je Karte, wann sie sichtbar wird. Die Sichtbarkeit kommt vom IntersectionObserver und hängt nicht
-  // an der Fensterhöhe, deshalb klappt es auch in eingebetteten Fenstern, die der Host scrollt.
-  function initWerte(wurzel) {
-    var werte = Array.prototype.slice.call(wurzel.querySelectorAll("[data-wert]"));
-    if (!werte.length || !("IntersectionObserver" in window)) return;
-    wurzel.setAttribute("data-bereit", "");
-
-    // Ein Tippen auf einem Touchgerät öffnet den Wert dauerhaft. Hover und Fokus öffnet das CSS.
-    werte.forEach(function (w) {
-      w.addEventListener("click", function () { w.setAttribute("data-fix", "true"); });
-    });
-
-    var reihe = [];
-    var laeuft = false;
-    var letzte = null;
-    var gemeldet = false;
-    function naechste() {
-      if (letzte) letzte.setAttribute("data-aktiv", "false");
-      var w = reihe.shift();
-      if (!w) { laeuft = false; return; }
-      w.setAttribute("data-offen", "true");
-      w.setAttribute("data-aktiv", "true");
-      letzte = w;
-      window.setTimeout(naechste, reihe.length ? 180 : 900);
-    }
-    function einreihen(w) {
-      if (reihe.indexOf(w) !== -1 || w.getAttribute("data-offen") === "true") return;
-      reihe.push(w);
-      reihe.sort(function (a, b) { return werte.indexOf(a) - werte.indexOf(b); });
-      if (!laeuft) { laeuft = true; naechste(); }
-    }
-    var beobachter = new IntersectionObserver(function (eintraege) {
-      gemeldet = true;
-      eintraege.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        beobachter.unobserve(e.target);
-        einreihen(e.target);
-      });
-    }, { threshold: 0.35, rootMargin: "0px 0px -10% 0px" });
-    werte.forEach(function (w) { beobachter.observe(w); });
-    // Meldet der Observer gar nichts, bleibt nichts versteckt
-    window.setTimeout(function () { if (!gemeldet) werte.forEach(function (w) { w.setAttribute("data-offen", "true"); }); }, 2500);
-  }
-
   /* ---------- Mailvorlage ---------- */
   function initMail(wurzel) {
     var knopf = wurzel.querySelector("[data-mail-kopieren]");
@@ -313,12 +267,11 @@
     });
   }
 
+  // Jeder Schritt läuft für sich: Bricht einer ab, laufen die anderen weiter
   function start() {
-    jeder("[data-teilen]", document, initTeilen);
-    jeder(".werte", document, initWerte);
-    jeder("[data-name]", document, initName);
-    jeder("[data-tag]", document, initTag);
-    jeder("[data-mail]", document, initMail);
+    [["[data-teilen]", initTeilen], ["[data-name]", initName], ["[data-tag]", initTag], ["[data-mail]", initMail]].forEach(function (z) {
+      try { jeder(z[0], document, z[1]); } catch (fehler) { if (window.console) window.console.error(fehler); }
+    });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
