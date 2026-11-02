@@ -36,6 +36,21 @@ test("Die Beschreibungen sind im CSS standardmäßig zugeklappt und öffnen bei 
   for (const z of [".wert:focus-visible .wert__text", '.wert[data-fix="true"] .wert__text']) assert.ok(regel.includes(z), z);
 });
 
+test("Linien und Punkte liegen über der Sohle: Karte hat einen höheren z-index als die Mitte, und alle sechs Karten haben eine eigene Höhe", () => {
+  const css = lies("assets/css/components.css");
+  const mitte = Number((css.match(/\.werte \.werte__mitte \{[^}]*z-index: (\d+)/) || [])[1]);
+  const wert = Number((css.match(/\.wert \{[^}]*z-index: (\d+)/) || [])[1]);
+  assert.ok(wert > mitte, "z-index der Karte muss über der Sohle liegen");
+  const hoehen = [...css.matchAll(/\.werte__spalte--(links|rechts) \.wert:nth-child\((\d)\) \{ --y: ([\d.]+)rem; --px: ([\d.]+); \}/g)].map((m) => ({ seite: m[1], nr: m[2], y: Number(m[3]), px: Number(m[4]) }));
+  assert.equal(hoehen.length, 6);
+  const y = hoehen.map((h) => h.y);
+  assert.equal(new Set(y).size, 6, "keine zwei Karten auf gleicher Höhe");
+  for (const seite of ["links", "rechts"]) {
+    const ys = hoehen.filter((h) => h.seite === seite).map((h) => h.y).sort((a, b) => a - b);
+    for (let i = 1; i < ys.length; i++) assert.ok((ys[i] - ys[i - 1]) * 16 >= 190, "Abstand der Karten einer Seite zu klein");
+  }
+});
+
 for (const datei of ["index.html", "en/index.html"]) {
   test(datei + ": sechs fokussierbare Karten, je drei links und rechts, Wrapper mit data-werte", () => {
     const h = lies(datei);

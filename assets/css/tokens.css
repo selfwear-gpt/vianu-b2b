@@ -15,10 +15,10 @@
   --farbe-auf-signal: var(--farbe-tinte);  /* Textfarbe auf Signal- und Nähe-Flächen */
 
   /* Produktbild der Sohle (nur für die Nachzeichnung im Platzhalter, bis es ein echtes Foto gibt) */
-  --farbe-sohle-basis: #F47B1C;
-  --farbe-sohle-hell: #FFA34F;
-  --farbe-sohle-dunkel: #C25A10;
-  --farbe-sohle-kante: #6A6A66;
+  --farbe-sohle-basis: #FC803A;
+  --farbe-sohle-hell: #FBA252;
+  --farbe-sohle-dunkel: #D8641C;
+  --farbe-sohle-kante: #6C6C6C;
 
   /* Schriften (Dateien in assets/fonts/, noch nicht eingebunden) */
   --schrift-kopf: "Barlow Condensed", "Arial Narrow", sans-serif;

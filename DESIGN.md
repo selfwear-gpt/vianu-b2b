@@ -40,7 +40,7 @@ Aktuelle Belegung: Farbwelt 3, Rosa und Tannengrün.
 | Gedämpft | `--farbe-gedaempft` | `#55605B` | Nebentext, Beschriftungen |
 | Linie | `--farbe-linie` | `#D8D8D2` | Trennlinien ohne Bedienfunktion |
 | Text auf Signal | `--farbe-auf-signal` | wie Tinte | Textfarbe auf Signal- und Nähe-Flächen |
-| Sohle (Produktbild) | `--farbe-sohle-basis`, `-hell`, `-dunkel`, `-kante` | `#F47B1C`, `#FFA34F`, `#C25A10`, `#6A6A66` | Nur die Nachzeichnung der Sohle im Platzhalter (`werte__bild`), bis ein echtes Foto da ist. Nicht für Flächen, Text oder Bedienelemente |
+| Sohle (Produktbild) | `--farbe-sohle-basis`, `-hell`, `-dunkel`, `-kante` | `#FC803A`, `#FBA252`, `#D8641C`, `#6C6C6C` | Nur die Nachzeichnung der Sohle im Platzhalter (`werte__bild`), bis ein echtes Foto da ist. Nicht für Flächen, Text oder Bedienelemente |
 
 Weitere Tokens: Schriften (`--schrift-kopf`, `--schrift-text`, `--schrift-mono`) und die Abstandsskala (`--abstand-1` bis `--abstand-8`: 4, 8, 12, 16, 24, 32, 48, 80 px). Schriftdateien liegen in `assets/fonts/` und werden über `assets/css/fonts.css` von dort geladen.
 

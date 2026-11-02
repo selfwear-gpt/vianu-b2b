@@ -399,33 +399,33 @@ button.knopf { cursor: pointer; }
   .kurz__punkt:nth-child(n+2) { border-top: 1px solid var(--farbe-tinte); }
 }
 /* ---------- Alles in einer Sohle: sechs Überschriften hängen per Linie an der Sohle, die Beschreibung klappt in der Karte auf ---------- */
-.werte { --fach: 14rem; --mitte: 31rem; --luecke: clamp(2rem, 4vw, 3.5rem); }
-.werte__stage { display: grid; grid-template-columns: minmax(0, 1fr) var(--mitte) minmax(0, 1fr); column-gap: var(--luecke); max-width: 76rem; margin-inline: auto; padding-block: var(--abstand-5); }
-.werte__spalte { display: grid; grid-template-rows: repeat(3, var(--fach)); min-width: 0; }
-/* Die Sohle liegt schräg und plastisch in der Mitte. Der Platzhalter ersetzt später das Produktfoto. */
-.werte .werte__mitte { position: relative; display: block; width: var(--mitte); height: calc(var(--fach) * 3); aspect-ratio: auto; padding: 0; border: 0; background: none; }
+/* Die Bühne ist breiter als der Textbereich, damit die Karten genug Platz haben. Jede Karte hat ihre eigene Höhe (--y), damit nichts starr wirkt. */
+.werte { --mitte: 33rem; --hoehe: 43.75rem; --luecke: clamp(2rem, 3.5vw, 3.5rem); width: min(88rem, calc(100vw - 3rem)); margin-left: 50%; transform: translateX(-50%); }
+.werte__stage { display: grid; grid-template-columns: minmax(0, 1fr) var(--mitte) minmax(0, 1fr); column-gap: var(--luecke); padding-block: var(--abstand-4); }
+.werte__spalte { position: relative; height: var(--hoehe); min-width: 0; }
+/* Die Sohle liegt schräg und plastisch in der Mitte, nach dem Vorbild gezeichnet. Der Platzhalter ersetzt später das Produktfoto. */
+.werte .werte__mitte { position: relative; z-index: 1; display: block; width: var(--mitte); height: var(--hoehe); aspect-ratio: auto; padding: 0; border: 0; background: none; }
 .werte__bild { display: block; width: 100%; height: 100%; overflow: visible; }
 .sohle-stop--basis { stop-color: var(--farbe-sohle-basis); }
 .sohle-stop--hell { stop-color: var(--farbe-sohle-hell); }
 .sohle-stop--dunkel { stop-color: var(--farbe-sohle-dunkel); }
 .sohle-wand { fill: var(--farbe-sohle-kante); }
-.sohle-schatten { fill: var(--farbe-sohle-kante); opacity: 0.35; }
-.sohle-koernung { fill: var(--farbe-sohle-dunkel); opacity: 0.35; }
-.sohle-randlinie { fill: none; stroke: var(--farbe-sohle-hell); stroke-width: 3; }
-/* Fach: Es ist so hoch, dass die aufgeklappte Karte in ihr bleibt. Die Karte steht senkrecht mittig und wächst nach oben und unten.
-   Anfassbar sind nur Karte, Linie und Punkt, nicht das leere Fach. */
-.wert { position: relative; display: flex; align-items: center; min-width: 0; outline: none; pointer-events: none; }
-.wert__karte { position: relative; z-index: 1; width: 100%; padding: var(--abstand-4) var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); transition: background-color 0.3s, color 0.3s; pointer-events: auto; }
+.sohle-schatten { fill: var(--farbe-sohle-kante); opacity: 0.3; }
+.sohle-koernung { fill: var(--farbe-sohle-dunkel); opacity: 0.3; }
+.sohle-randlinie { fill: none; stroke: var(--farbe-sohle-dunkel); stroke-width: 4; opacity: 0.7; }
+/* Karte: steht mit ihrer Mitte auf der Höhe --y und wächst beim Aufklappen nach oben und unten. Anfassbar sind nur Karte, Linie und Punkt. */
+.wert { position: absolute; z-index: 2; left: 0; right: 0; top: var(--y); transform: translateY(-50%); outline: none; pointer-events: none; }
+.wert__karte { position: relative; z-index: 1; padding: var(--abstand-3) var(--abstand-4); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); transition: background-color 0.3s, color 0.3s; pointer-events: auto; }
 .wert:focus-visible .wert__karte { outline: var(--kante) solid var(--farbe-tinte); outline-offset: 4px; }
 .wert__kopf { display: flex; align-items: center; gap: var(--abstand-3); }
-.wert__icon { flex: none; }
-.wert h3 { font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
+.wert__icon { flex: none; width: 2.25rem; height: 2.25rem; }
+.wert h3 { font-size: clamp(1.05rem, 1.35vw, 1.3rem); line-height: 1.1; }
 /* Beschreibung: zugeklappt, bis die Karte, ihre Linie oder ihr Punkt überfahren, die Karte per Tastatur fokussiert oder auf einem Touchgerät angetippt wird.
    Das entscheidet allein das CSS. Es ist immer nur eine Karte offen. */
 .wert__text { display: grid; grid-template-rows: 0fr; color: inherit; text-decoration: none; transition: grid-template-rows 0.4s; }
-.wert__text p { min-height: 0; overflow: hidden; font-size: 1rem; line-height: 1.5; opacity: 0; transition: opacity 0.3s; }
+.wert__text p { min-height: 0; overflow: hidden; font-size: 0.9375rem; line-height: 1.5; opacity: 0; transition: opacity 0.3s; }
 a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
-.wert:hover, .wert:focus-visible, .wert[data-fix="true"] { z-index: 2; }
+.wert:hover, .wert:focus-visible, .wert[data-fix="true"] { z-index: 4; }
 .wert:hover .wert__karte, .wert:focus-visible .wert__karte, .wert[data-fix="true"] .wert__karte { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 .wert:hover .wert__text, .wert:focus-visible .wert__text, .wert[data-fix="true"] .wert__text { grid-template-rows: 1fr; }
 .wert:hover .wert__text p, .wert:focus-visible .wert__text p, .wert[data-fix="true"] .wert__text p { opacity: 1; padding-top: var(--abstand-3); }
@@ -435,29 +435,30 @@ a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
 .werte:has(.wert:hover) .wert:not(:hover) .wert__text p { opacity: 0; padding-top: 0; }
 .werte:has(.wert:hover) .wert:not(:hover)::before { transform: none; }
 /* Linie und Punkt zur Sohle. --px ist der Anteil der Mittelspalte, bis zu dem die Linie reicht, je Karte so gewählt, dass der Punkt auf der Sohle liegt.
-   Beide haben eine größere Trefferfläche als ihre sichtbare Breite. */
-.wert::before, .wert::after { content: ""; position: absolute; top: 50%; pointer-events: auto; }
+   Beide liegen über der Sohle und haben eine größere Trefferfläche als ihre sichtbare Breite. */
+.wert::before, .wert::after { content: ""; position: absolute; top: 50%; z-index: 3; pointer-events: auto; }
 .wert::after { height: 1.5rem; margin-top: -0.75rem; background: linear-gradient(var(--farbe-tinte), var(--farbe-tinte)) center / 100% var(--kante) no-repeat; width: calc(var(--luecke) + var(--mitte) * var(--px, 0.5)); }
-.wert::before { z-index: 3; width: 1.6rem; height: 1.6rem; margin: -0.8rem 0 0; border-radius: 50%; background: radial-gradient(circle closest-side, var(--farbe-tinte) 0 38%, var(--farbe-papier) 40% 58%, transparent 60%); transition: transform 0.3s; }
+.wert::before { width: 1.6rem; height: 1.6rem; margin: -0.8rem 0 0; border-radius: 50%; background: radial-gradient(circle closest-side, var(--farbe-tinte) 0 38%, var(--farbe-papier) 40% 58%, transparent 60%); transition: transform 0.3s; }
 .werte__spalte--links .wert::after { left: 100%; }
 .werte__spalte--links .wert::before { left: calc(100% + var(--luecke) + var(--mitte) * var(--px, 0.5) - 0.8rem); }
 .werte__spalte--rechts .wert::after { right: 100%; }
 .werte__spalte--rechts .wert::before { right: calc(100% + var(--luecke) + var(--mitte) * var(--px, 0.5) - 0.8rem); }
 .wert:hover::before, .wert:focus-visible::before, .wert[data-fix="true"]::before { transform: scale(1.5); background: radial-gradient(circle closest-side, var(--farbe-signal) 0 38%, var(--farbe-tinte) 40% 58%, transparent 60%); }
-.werte__spalte--links .wert:nth-child(1) { --px: 0.694; }
-.werte__spalte--links .wert:nth-child(2) { --px: 0.475; }
-.werte__spalte--links .wert:nth-child(3) { --px: 0.168; }
-.werte__spalte--rechts .wert:nth-child(1) { --px: 0.153; }
-.werte__spalte--rechts .wert:nth-child(2) { --px: 0.354; }
-.werte__spalte--rechts .wert:nth-child(3) { --px: 0.657; }
+.werte__spalte--links .wert:nth-child(1) { --y: 9.375rem; --px: 0.724; }
+.werte__spalte--links .wert:nth-child(2) { --y: 22.0rem; --px: 0.433; }
+.werte__spalte--links .wert:nth-child(3) { --y: 35.125rem; --px: 0.16; }
+.werte__spalte--rechts .wert:nth-child(1) { --y: 7.0rem; --px: 0.11; }
+.werte__spalte--rechts .wert:nth-child(2) { --y: 19.875rem; --px: 0.35; }
+.werte__spalte--rechts .wert:nth-child(3) { --y: 32.625rem; --px: 0.661; }
 @media (prefers-reduced-motion: reduce) {
   .wert__karte, .wert__text, .wert__text p, .wert::before { transition: none; }
 }
 @media (max-width: 56rem) {
+  .werte { width: auto; margin-left: 0; transform: none; }
   .werte__stage { display: flex; flex-direction: column; padding-block: 0; }
-  .werte .werte__mitte { order: -1; width: min(100%, 20rem); height: auto; aspect-ratio: 496 / 672; margin: 0 auto var(--abstand-5); }
-  .werte__spalte { grid-template-rows: none; gap: var(--abstand-3); margin-bottom: var(--abstand-3); }
-  .wert { display: block; pointer-events: auto; }
+  .werte .werte__mitte { order: -1; width: min(100%, 22rem); height: auto; aspect-ratio: 528 / 700; margin: 0 auto var(--abstand-5); }
+  .werte__spalte { height: auto; display: grid; gap: var(--abstand-3); margin-bottom: var(--abstand-3); }
+  .wert { position: static; transform: none; pointer-events: auto; }
   .wert::before, .wert::after { display: none; }
   .wert__karte { cursor: pointer; }
 }
