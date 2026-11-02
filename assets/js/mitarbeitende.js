@@ -243,42 +243,43 @@
     aktualisiere();
   }
 
-  /* ---------- Werte: Linien zeichnen sich, Beschreibungen erscheinen nacheinander ---------- */
+  /* ---------- Werte: Linien und Beschreibungen hängen am Scrollen ---------- */
   function initWerte(wurzel) {
     var werte = wurzel.querySelectorAll("[data-wert]");
     var breit = window.matchMedia("(min-width: 56.01rem)");
     var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var F = window.VianuFortschritt;
     // Auf dem Handy und bei reduzierter Bewegung steht alles offen da. Auch ohne Skript.
-    if (!werte.length || !breit.matches || ruhig.matches) return;
+    if (!werte.length || !F || !breit.matches || ruhig.matches) return;
     wurzel.setAttribute("data-bereit", "");
 
-    function oeffne(w) { w.setAttribute("data-offen", "true"); }
     // Ein Tippen auf einem Touchgerät öffnet den Wert dauerhaft. Hover und Fokus öffnet das CSS.
     Array.prototype.forEach.call(werte, function (w) {
-      w.addEventListener("click", function () { oeffne(w); });
+      w.addEventListener("click", function () { w.setAttribute("data-fix", "true"); });
     });
 
-    var gestartet = false;
-    function ablauf() {
-      if (gestartet) return;
-      gestartet = true;
-      var i = 0;
-      var zeiger = window.setInterval(function () {
-        if (i > 0) werte[i - 1].setAttribute("data-aktiv", "false");
-        if (i >= werte.length) { window.clearInterval(zeiger); return; }
-        werte[i].setAttribute("data-aktiv", "true");
-        oeffne(werte[i]);
-        i += 1;
-      }, 1100);
+    // Der Fortschritt ist umkehrbar: gleicher Scrollstand, gleiches Bild. Alle Werte sind offen, sobald der Abschnitt
+    // im Bild steht. Dabei ist jeweils der zuletzt erreichte Wert hervorgehoben.
+    function aktualisiere() {
+      var r = wurzel.getBoundingClientRect();
+      var fenster = window.innerHeight || document.documentElement.clientHeight;
+      // Start, wenn die Oberkante bei 80 % der Fensterhöhe steht, alle offen, wenn die Unterkante bei 85 % steht
+      var f = F.anteilZwischen(r.top, fenster * 0.8, fenster * 0.85 - r.height);
+      var offen = F.sichtbareAnzahl(f, werte.length);
+      Array.prototype.forEach.call(werte, function (w, i) {
+        w.setAttribute("data-offen", i < offen ? "true" : "false");
+        w.setAttribute("data-aktiv", offen < werte.length && i === offen - 1 ? "true" : "false");
+      });
     }
-    if ("IntersectionObserver" in window) {
-      var beobachter = new IntersectionObserver(function (eintraege) {
-        eintraege.forEach(function (e) { if (e.isIntersecting) { ablauf(); beobachter.disconnect(); } });
-      }, { threshold: 0.4 });
-      beobachter.observe(wurzel);
-    } else {
-      Array.prototype.forEach.call(werte, oeffne);
+    var geplant = false;
+    function planen() {
+      if (geplant) return;
+      geplant = true;
+      window.requestAnimationFrame(function () { geplant = false; aktualisiere(); });
     }
+    window.addEventListener("scroll", planen, { passive: true });
+    window.addEventListener("resize", planen);
+    aktualisiere();
   }
 
   /* ---------- Mailvorlage ---------- */
