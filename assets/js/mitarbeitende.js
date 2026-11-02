@@ -243,43 +243,50 @@
     aktualisiere();
   }
 
-  /* ---------- Werte: Linien und Beschreibungen hängen am Scrollen ---------- */
+  /* ---------- Werte: Karten öffnen sich, wenn sie beim Scrollen ins Bild kommen ---------- */
+  // Ob Linien und Texte versteckt werden, entscheidet das CSS (breiter Bildschirm, Bewegung erlaubt). Das Skript setzt nur
+  // data-bereit und meldet je Karte, wann sie sichtbar wird. Die Sichtbarkeit kommt vom IntersectionObserver und hängt nicht
+  // an der Fensterhöhe, deshalb klappt es auch in eingebetteten Fenstern, die der Host scrollt.
   function initWerte(wurzel) {
-    var werte = wurzel.querySelectorAll("[data-wert]");
-    var breit = window.matchMedia("(min-width: 56.01rem)");
-    var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var F = window.VianuFortschritt;
-    // Auf dem Handy und bei reduzierter Bewegung steht alles offen da. Auch ohne Skript.
-    if (!werte.length || !F || !breit.matches || ruhig.matches) return;
+    var werte = Array.prototype.slice.call(wurzel.querySelectorAll("[data-wert]"));
+    if (!werte.length || !("IntersectionObserver" in window)) return;
     wurzel.setAttribute("data-bereit", "");
 
     // Ein Tippen auf einem Touchgerät öffnet den Wert dauerhaft. Hover und Fokus öffnet das CSS.
-    Array.prototype.forEach.call(werte, function (w) {
+    werte.forEach(function (w) {
       w.addEventListener("click", function () { w.setAttribute("data-fix", "true"); });
     });
 
-    // Der Fortschritt ist umkehrbar: gleicher Scrollstand, gleiches Bild. Alle Werte sind offen, sobald der Abschnitt
-    // im Bild steht. Dabei ist jeweils der zuletzt erreichte Wert hervorgehoben.
-    function aktualisiere() {
-      var r = wurzel.getBoundingClientRect();
-      var fenster = window.innerHeight || document.documentElement.clientHeight;
-      // Start, wenn die Oberkante bei 80 % der Fensterhöhe steht, alle offen, wenn die Unterkante bei 85 % steht
-      var f = F.anteilZwischen(r.top, fenster * 0.8, fenster * 0.85 - r.height);
-      var offen = F.sichtbareAnzahl(f, werte.length);
-      Array.prototype.forEach.call(werte, function (w, i) {
-        w.setAttribute("data-offen", i < offen ? "true" : "false");
-        w.setAttribute("data-aktiv", offen < werte.length && i === offen - 1 ? "true" : "false");
+    var reihe = [];
+    var laeuft = false;
+    var letzte = null;
+    var gemeldet = false;
+    function naechste() {
+      if (letzte) letzte.setAttribute("data-aktiv", "false");
+      var w = reihe.shift();
+      if (!w) { laeuft = false; return; }
+      w.setAttribute("data-offen", "true");
+      w.setAttribute("data-aktiv", "true");
+      letzte = w;
+      window.setTimeout(naechste, reihe.length ? 180 : 900);
+    }
+    function einreihen(w) {
+      if (reihe.indexOf(w) !== -1 || w.getAttribute("data-offen") === "true") return;
+      reihe.push(w);
+      reihe.sort(function (a, b) { return werte.indexOf(a) - werte.indexOf(b); });
+      if (!laeuft) { laeuft = true; naechste(); }
+    }
+    var beobachter = new IntersectionObserver(function (eintraege) {
+      gemeldet = true;
+      eintraege.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        beobachter.unobserve(e.target);
+        einreihen(e.target);
       });
-    }
-    var geplant = false;
-    function planen() {
-      if (geplant) return;
-      geplant = true;
-      window.requestAnimationFrame(function () { geplant = false; aktualisiere(); });
-    }
-    window.addEventListener("scroll", planen, { passive: true });
-    window.addEventListener("resize", planen);
-    aktualisiere();
+    }, { threshold: 0.35, rootMargin: "0px 0px -10% 0px" });
+    werte.forEach(function (w) { beobachter.observe(w); });
+    // Meldet der Observer gar nichts, bleibt nichts versteckt
+    window.setTimeout(function () { if (!gemeldet) werte.forEach(function (w) { w.setAttribute("data-offen", "true"); }); }, 2500);
   }
 
   /* ---------- Mailvorlage ---------- */

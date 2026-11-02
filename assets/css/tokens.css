@@ -14,6 +14,12 @@
   --farbe-linie: #D8D8D2;        /* Trennlinien ohne Bedienfunktion */
   --farbe-auf-signal: var(--farbe-tinte);  /* Textfarbe auf Signal- und Nähe-Flächen */
 
+  /* Produktbild der Sohle (nur für die Nachzeichnung im Platzhalter, bis es ein echtes Foto gibt) */
+  --farbe-sohle-basis: #F07F22;
+  --farbe-sohle-hell: #F9A15A;
+  --farbe-sohle-dunkel: #A9500F;
+  --farbe-sohle-kante: #6A6A66;
+
   /* Schriften (Dateien in assets/fonts/, noch nicht eingebunden) */
   --schrift-kopf: "Barlow Condensed", "Arial Narrow", sans-serif;
   --schrift-text: "Barlow", "Helvetica Neue", Arial, sans-serif;

@@ -407,11 +407,21 @@ button.knopf { cursor: pointer; }
   row-gap: var(--werte-luecke);
 }
 /* Die Sohle liegt quer, ohne Rahmen, in der Größe eines Produktfotos. Der Umriss füllt den Platzhalter, Etikett und Hinweis liegen darüber. */
-.werte .werte__mitte { grid-column: 1 / -1; grid-row: 2; justify-self: center; width: min(100%, 52rem); aspect-ratio: 260 / 100; display: grid; place-items: center; padding: 0; border: 0; background: none; text-align: center; }
-.werte .werte__mitte > * { grid-area: 1 / 1; }
-.werte__umriss { width: 100%; height: 100%; fill: none; stroke: var(--farbe-gedaempft); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.werte__mitte .platzhalter__etikett { align-self: start; margin-top: var(--abstand-4); }
-.werte__mitte p { align-self: center; max-width: 24rem; }
+.werte .werte__mitte { grid-column: 1 / -1; grid-row: 2; justify-self: center; width: min(100%, 56rem); aspect-ratio: auto; display: flex; flex-direction: column; align-items: center; gap: var(--abstand-2); padding: 0; border: 0; background: none; text-align: center; }
+.werte__bild { display: block; width: 100%; height: auto; }
+.werte__mitte p { max-width: 32rem; }
+/* Auf breiten Bildschirmen liegen Etikett und Hinweis auf der Sohle, damit die Linien das Bild berühren */
+@media (min-width: 56.01rem) {
+  .werte .werte__mitte { position: relative; }
+  .werte__mitte .platzhalter__etikett, .werte__mitte p { position: absolute; left: 50%; transform: translateX(-50%); width: 24rem; max-width: 70%; color: var(--farbe-tinte); }
+  .werte__mitte .platzhalter__etikett { top: 25%; }
+  .werte__mitte p { top: 33%; }
+}
+.sohle-stop--basis { stop-color: var(--farbe-sohle-basis); }
+.sohle-stop--hell { stop-color: var(--farbe-sohle-hell); }
+.sohle-stop--dunkel { stop-color: var(--farbe-sohle-dunkel); }
+.sohle-kante { fill: var(--farbe-sohle-kante); }
+.sohle-koernung { fill: var(--farbe-sohle-dunkel); opacity: 0.5; }
 .wert { position: relative; display: flex; flex-direction: column; gap: var(--abstand-3); min-width: 0; padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); transition: background-color 0.3s, color 0.3s; }
 .wert:nth-child(-n+4) { grid-row: 1; }
 .wert:nth-child(n+5) { grid-row: 3; }
@@ -428,12 +438,15 @@ a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
 .wert::after { content: ""; position: absolute; left: 50%; width: var(--kante); height: var(--werte-luecke); background: var(--farbe-tinte); transition: transform 0.5s; }
 .wert:nth-child(-n+4)::after { top: 100%; transform-origin: center top; }
 .wert:nth-child(n+5)::after { bottom: 100%; transform-origin: center bottom; }
-/* Mit Skript hängen Linie und Beschreibung am Scrollen: Der Wert ist offen, wenn der Fortschritt ihn erreicht hat, er angetippt oder überfahren wird */
-.werte[data-bereit] .wert::after { transform: scaleY(0); }
-.werte[data-bereit] .wert__text { opacity: 0; }
-.werte[data-bereit] .wert[data-offen="true"]::after, .werte[data-bereit] .wert[data-fix="true"]::after, .werte[data-bereit] .wert:hover::after, .werte[data-bereit] .wert:focus-within::after { transform: scaleY(1); }
-.werte[data-bereit] .wert[data-offen="true"] .wert__text, .werte[data-bereit] .wert[data-fix="true"] .wert__text, .werte[data-bereit] .wert:hover .wert__text, .werte[data-bereit] .wert:focus-within .wert__text { opacity: 1; }
-.wert[data-aktiv="true"], .werte[data-bereit] .wert:hover, .werte[data-bereit] .wert:focus-within { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+/* Verstecken und Einblenden nur auf breiten Bildschirmen und ohne reduzierte Bewegung. Das entscheidet allein das CSS, das Skript setzt nur data-bereit.
+   Eine Karte ist offen, wenn sie beim Scrollen ins Bild kam, angetippt wird oder überfahren wird. */
+@media (min-width: 56.01rem) and (prefers-reduced-motion: no-preference) {
+  .werte[data-bereit] .wert::after { transform: scaleY(0); }
+  .werte[data-bereit] .wert__text { opacity: 0; }
+  .werte[data-bereit] .wert[data-offen="true"]::after, .werte[data-bereit] .wert[data-fix="true"]::after, .werte[data-bereit] .wert:hover::after, .werte[data-bereit] .wert:focus-within::after { transform: scaleY(1); }
+  .werte[data-bereit] .wert[data-offen="true"] .wert__text, .werte[data-bereit] .wert[data-fix="true"] .wert__text, .werte[data-bereit] .wert:hover .wert__text, .werte[data-bereit] .wert:focus-within .wert__text { opacity: 1; }
+  .wert[data-aktiv="true"], .wert:hover, .wert:focus-within { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
+}
 @media (prefers-reduced-motion: reduce) {
   .wert, .wert::after, .wert__text { transition: none; }
 }
@@ -442,7 +455,6 @@ a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
   .werte .werte__mitte, .wert:nth-child(n) { grid-column: 1; grid-row: auto; }
   .werte .werte__mitte { margin-bottom: var(--abstand-3); }
   .wert::after { display: none; }
-  .werte[data-bereit] .wert__text { opacity: 1; }
 }
 @media print {
   .wert::after { display: none; }

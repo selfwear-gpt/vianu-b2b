@@ -314,8 +314,29 @@
       </div>
       <div class="werte">
         <div class="platzhalter platzhalter--sohle werte__mitte" data-platzhalter role="group" aria-label="Placeholder for product photo of an insole">
+          <svg class="werte__bild" viewBox="0 0 600 172" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="sohle-flaeche" x1="0" y1="0" x2="1" y2="0.15">
+                <stop class="sohle-stop sohle-stop--basis" offset="0"/>
+                <stop class="sohle-stop sohle-stop--hell" offset="0.55"/>
+                <stop class="sohle-stop sohle-stop--basis" offset="1"/>
+              </linearGradient>
+              <radialGradient id="sohle-mulde" cx="0.5" cy="0.5" r="0.5">
+                <stop class="sohle-stop sohle-stop--dunkel" offset="0" stop-opacity="0.75"/>
+                <stop class="sohle-stop sohle-stop--dunkel" offset="1" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="sohle-koernung" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="3" result="rauschen"/>
+                <feColorMatrix in="rauschen" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.45" result="punkte"/>
+                <feComposite in="punkte" in2="SourceAlpha" operator="in"/>
+              </filter>
+            </defs>
+            <path class="sohle-kante" d="M12 102C10 68 34 50 70 50C140 48 220 54 300 46C380 38 440 20 500 20C560 20 592 42 592 80C592 122 556 140 500 140C440 140 400 122 340 116C290 110 250 134 200 148C150 162 90 162 52 150C24 140 12 124 12 102Z"/>
+            <path d="M12 92C10 58 34 40 70 40C140 38 220 44 300 36C380 28 440 10 500 10C560 10 592 32 592 70C592 112 556 130 500 130C440 130 400 112 340 106C290 100 250 124 200 138C150 152 90 152 52 140C24 130 12 114 12 92Z" fill="url(#sohle-flaeche)"/>
+            <ellipse cx="300" cy="96" rx="60" ry="20" fill="url(#sohle-mulde)"/>
+            <path class="sohle-koernung" d="M12 92C10 58 34 40 70 40C140 38 220 44 300 36C380 28 440 10 500 10C560 10 592 32 592 70C592 112 556 130 500 130C440 130 400 112 340 106C290 100 250 124 200 138C150 152 90 152 52 140C24 130 12 114 12 92Z" filter="url(#sohle-koernung)"/>
+          </svg>
           <span class="etikett platzhalter__etikett">Placeholder</span>
-          <svg class="werte__umriss" viewBox="0 0 260 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><use href="#sohle-form" width="100" height="260" transform="translate(260 0) rotate(90)"/></svg>
           <p>Product photo of an insole. Lines around the insole each carry one feature.</p>
         </div>
         <article class="wert" data-wert>
