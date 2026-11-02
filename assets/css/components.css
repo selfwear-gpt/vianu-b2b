@@ -398,69 +398,52 @@ button.knopf { cursor: pointer; }
   .kurz__punkt { border-left: 0; padding-left: 0; }
   .kurz__punkt:nth-child(n+2) { border-top: 1px solid var(--farbe-tinte); }
 }
-/* ---------- Werteband: Kacheln drehen sich um und zeigen die Antwort ---------- */
-.werte { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--abstand-3); }
-.wert { display: flex; min-width: 0; perspective: 1000px; }
-/* Vorder- und Rückseite liegen im selben Gitterfeld, die Kachel wächst mit dem längeren Text */
-.wert__innen { flex: 1; display: grid; min-height: 16rem; transform-style: preserve-3d; transition: transform 0.6s; }
-.wert__vorn, .wert__hinten {
-  grid-area: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--abstand-3);
-  padding: var(--abstand-5);
-  border: var(--kante) solid var(--farbe-tinte);
-  backface-visibility: hidden;
+/* ---------- Alles in einer Sohle: sechs Werte hängen per Linie um das Sohlenbild ---------- */
+.werte {
+  --werte-luecke: clamp(3rem, 7vw, 6rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem) minmax(0, 1fr);
+  grid-template-rows: repeat(3, auto);
+  column-gap: var(--werte-luecke);
+  row-gap: var(--abstand-4);
 }
-.wert__vorn { justify-content: flex-end; }
-.wert__hinten { justify-content: center; align-items: center; text-align: center; transform: rotateY(180deg); }
-a.wert__hinten { color: inherit; text-decoration: none; }
-a.wert__hinten:hover p { text-decoration: underline; text-underline-offset: 4px; }
-.wert h3 { font-size: var(--schrift-groesse-h3); }
-.wert__hinten p { font-size: 1.125rem; line-height: 1.55; max-width: 40ch; margin-inline: auto; }
-.wert--signal .wert__vorn { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.wert--signal .wert__hinten { background: var(--farbe-tinte); color: var(--farbe-papier); }
-.wert--tinte .wert__vorn { background: var(--farbe-tinte); color: var(--farbe-papier); }
-.wert--tinte .wert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.wert--linie .wert__vorn { background: var(--farbe-papier); color: var(--farbe-tinte); }
-.wert--linie .wert__hinten { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
-.wert:hover .wert__innen, .wert:focus-visible .wert__innen, .wert:focus-within .wert__innen, .wert[data-gedreht="true"] .wert__innen { transform: rotateY(180deg); }
-/* Nach dem Tippen auf einem Touchgerät bleibt :hover hängen, "false" dreht dann zurück */
-.wert[data-gedreht="false"] .wert__innen { transform: none; }
-.wert--a { grid-column: span 7; }
-.wert--a .wert__innen { min-height: 17rem; }
-.wert--a h3 { font-size: clamp(2rem, 4vw, 3rem); }
-.wert--b { grid-column: span 5; }
-.wert--c { grid-column: span 5; }
-.wert--d { grid-column: span 7; }
-.wert--e { grid-column: span 4; }
-.wert--f { grid-column: span 8; }
+.werte__mitte { grid-column: 2; grid-row: 1 / span 3; align-self: stretch; height: auto; aspect-ratio: auto; min-height: 24rem; flex-direction: column; justify-content: center; gap: var(--abstand-3); }
+.werte__umriss { width: 5rem; height: auto; fill: none; stroke: var(--farbe-gedaempft); stroke-width: 1.5; }
+.wert { position: relative; display: flex; flex-direction: column; gap: var(--abstand-3); min-width: 0; padding: var(--abstand-5); border: var(--kante) solid var(--farbe-tinte); background: var(--farbe-papier); color: var(--farbe-tinte); transition: background-color 0.3s, color 0.3s; }
+.wert:nth-child(-n+4) { grid-column: 1; }
+.wert:nth-child(n+5) { grid-column: 3; }
+.wert:nth-child(2), .wert:nth-child(5) { grid-row: 1; }
+.wert:nth-child(3), .wert:nth-child(6) { grid-row: 2; }
+.wert:nth-child(4), .wert:nth-child(7) { grid-row: 3; }
+.wert__kopf { display: flex; align-items: center; gap: var(--abstand-3); }
+.wert__icon { flex: none; }
+.wert h3 { font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
+.wert__text { color: inherit; text-decoration: none; transition: opacity 0.4s; }
+.wert__text p { font-size: 1rem; line-height: 1.55; }
+a.wert__text:hover p { text-decoration: underline; text-underline-offset: 4px; }
+/* Linie von der Karte zur Sohle, zeichnet sich von der Karte aus */
+.wert::after { content: ""; position: absolute; top: 50%; width: var(--werte-luecke); height: var(--kante); background: var(--farbe-tinte); transition: transform 0.5s; }
+.wert:nth-child(-n+4)::after { left: 100%; transform-origin: left center; }
+.wert:nth-child(n+5)::after { right: 100%; transform-origin: right center; }
+/* Mit Skript stehen Linie und Beschreibung erst, wenn der Wert an der Reihe ist, angetippt oder überfahren wird */
+.werte[data-bereit] .wert::after { transform: scaleX(0); }
+.werte[data-bereit] .wert__text { opacity: 0; }
+.werte[data-bereit] .wert[data-offen="true"]::after, .werte[data-bereit] .wert:hover::after, .werte[data-bereit] .wert:focus-within::after { transform: scaleX(1); }
+.werte[data-bereit] .wert[data-offen="true"] .wert__text, .werte[data-bereit] .wert:hover .wert__text, .werte[data-bereit] .wert:focus-within .wert__text { opacity: 1; }
+.wert[data-aktiv="true"], .werte[data-bereit] .wert:hover, .werte[data-bereit] .wert:focus-within { background: var(--farbe-signal); color: var(--farbe-auf-signal); }
 @media (prefers-reduced-motion: reduce) {
-  .wert__innen, .wert[data-gedreht="false"] .wert__innen { transform: none !important; }
-  .wert__hinten { transform: none; opacity: 0; }
-  .wert:hover .wert__hinten, .wert:focus-visible .wert__hinten, .wert:focus-within .wert__hinten, .wert[data-gedreht="true"] .wert__hinten { opacity: 1; }
+  .wert, .wert::after, .wert__text { transition: none; }
 }
 @media (max-width: 56rem) {
-  .werte { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .wert, .wert--a, .wert--b, .wert--c, .wert--d, .wert--e, .wert--f { grid-column: auto; perspective: none; }
-  .wert--a, .wert--f { grid-column: 1 / -1; }
-  .wert__innen, .wert--a .wert__innen { display: block; min-height: 0; transform: none !important; transform-style: flat; transition: none; }
-  .wert__vorn, .wert__hinten { backface-visibility: visible; transform: none; opacity: 1; }
-  .wert__vorn { border-bottom: 0; padding-bottom: var(--abstand-2); }
-  .wert__hinten { justify-content: flex-start; border-top: 0; padding-top: var(--abstand-3); }
-  .wert__vorn { justify-content: flex-start; }
+  .werte { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: var(--abstand-3); }
+  .werte__mitte, .wert:nth-child(n) { grid-column: 1; grid-row: auto; }
+  .werte__mitte { min-height: 0; padding-block: var(--abstand-5); margin-bottom: var(--abstand-3); }
+  .wert::after { display: none; }
+  .werte[data-bereit] .wert__text { opacity: 1; }
 }
-@media (max-width: 36rem) {
-  .werte { grid-template-columns: minmax(0, 1fr); }
-  .wert--a, .wert--f { grid-column: auto; }
-}
-/* Im Druck stehen Vorder- und Rückseite untereinander, damit die Antworten nicht verloren gehen */
 @media print {
-  .wert { perspective: none; }
-  .wert__innen { display: block; min-height: 0; transform: none !important; transform-style: flat; }
-  .wert__vorn, .wert__hinten { backface-visibility: visible; transform: none; opacity: 1; }
-  .wert__vorn { border-bottom: 0; }
-  .wert__hinten { border-top: 0; justify-content: flex-start; }
+  .wert::after { display: none; }
+  .werte[data-bereit] .wert__text { opacity: 1; }
 }
 /* ---------- Ein Tag im Schichtbetrieb ---------- */
 .tag__raster { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 72px); align-items: start; }
@@ -2057,9 +2040,6 @@ img.chat__avatar { object-fit: cover; object-position: center; border: var(--kan
 .preisrechner > .rechner .rechner__ergebnis { position: relative; }
 .seitenfoto .zahlenkacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .seitenfoto__inhalt { min-width: 0; }
-.alles { display: flex; flex-direction: column; gap: var(--abstand-4); margin-top: var(--abstand-7); }
-.alles h3 { margin: 0; font-size: var(--schrift-groesse-h2); }
-.alles .platzhalter--sohle { max-width: 36rem; width: 100%; }
 #stimme .abschnitt__kopf, #stimmen .abschnitt__kopf { text-align: center; }
 .seitenfoto .dokument { grid-template-columns: auto minmax(0, 1fr); }
 .seitenfoto .dokument__knopf { grid-column: 1 / -1; justify-self: start; }

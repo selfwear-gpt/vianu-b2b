@@ -243,32 +243,42 @@
     aktualisiere();
   }
 
-  /* ---------- Werte: Kacheln drehen sich ---------- */
+  /* ---------- Werte: Linien zeichnen sich, Beschreibungen erscheinen nacheinander ---------- */
   function initWerte(wurzel) {
-    var kacheln = wurzel.querySelectorAll("[data-wert]");
+    var werte = wurzel.querySelectorAll("[data-wert]");
     var breit = window.matchMedia("(min-width: 56.01rem)");
+    var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // Auf dem Handy und bei reduzierter Bewegung steht alles offen da. Auch ohne Skript.
+    if (!werte.length || !breit.matches || ruhig.matches) return;
+    wurzel.setAttribute("data-bereit", "");
 
-    // Fokus und damit die Drehung gibt es nur dort, wo sich die Kachel dreht. Auf dem Handy stehen beide Seiten untereinander.
-    function setzeFokus() {
-      Array.prototype.forEach.call(kacheln, function (k) {
-        if (breit.matches) k.setAttribute("tabindex", "0");
-        else k.removeAttribute("tabindex");
-      });
-    }
-    setzeFokus();
-    breit.addEventListener("change", setzeFokus);
-
-    // Hover und Fokus drehen per CSS. Ein Tippen dreht die Kachel um und wieder zurück. "false" hebt auch ein
-    // hängendes :hover auf Touchgeräten auf. Ob ein Gerät Hover kennt, wird bei jedem Tippen neu gelesen.
-    Array.prototype.forEach.call(kacheln, function (k) {
-      k.addEventListener("click", function (e) {
-        var touch = window.matchMedia("(hover: none)").matches || e.pointerType === "touch";
-        if (!touch) return;
-        var an = k.getAttribute("data-gedreht") !== "true";
-        Array.prototype.forEach.call(kacheln, function (andere) { andere.setAttribute("data-gedreht", "false"); });
-        k.setAttribute("data-gedreht", an ? "true" : "false");
-      });
+    function oeffne(w) { w.setAttribute("data-offen", "true"); }
+    // Ein Tippen auf einem Touchgerät öffnet den Wert dauerhaft. Hover und Fokus öffnet das CSS.
+    Array.prototype.forEach.call(werte, function (w) {
+      w.addEventListener("click", function () { oeffne(w); });
     });
+
+    var gestartet = false;
+    function ablauf() {
+      if (gestartet) return;
+      gestartet = true;
+      var i = 0;
+      var zeiger = window.setInterval(function () {
+        if (i > 0) werte[i - 1].setAttribute("data-aktiv", "false");
+        if (i >= werte.length) { window.clearInterval(zeiger); return; }
+        werte[i].setAttribute("data-aktiv", "true");
+        oeffne(werte[i]);
+        i += 1;
+      }, 1100);
+    }
+    if ("IntersectionObserver" in window) {
+      var beobachter = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (e) { if (e.isIntersecting) { ablauf(); beobachter.disconnect(); } });
+      }, { threshold: 0.4 });
+      beobachter.observe(wurzel);
+    } else {
+      Array.prototype.forEach.call(werte, oeffne);
+    }
   }
 
   /* ---------- Mailvorlage ---------- */

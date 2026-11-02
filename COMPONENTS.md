@@ -187,10 +187,12 @@ Status: gebaut
 - Zweites Feld "Dein Unternehmen" (höchstens 18 Zeichen, Buchstaben, Ziffern, Leerzeichen und `& . - '`). Der Firmenname steht klein und hochkant ganz links im breiten Zehenbereich der Sohle (54 Einheiten lang, mit Abstand zum Umriss), in derselben Gravur-Optik, und schrumpft bei langen Namen, ohne den Rand zu überschreiten. Das Feld trägt kein "optional", der Abschnitt hat keinen Einleitungstext. Die Ansage für Screenreader nennt beides.
 - Logik: `assets/js/name.js` (`bereinigeName`, `bereinigeFirma`), Test in `tests/name.test.js`.
 
-### Werteband
-Status: gebaut
-- Sechs Werte als ungleich große Kacheln (Spannen 7/5, 5/7, 4/8 von 12 Spalten) mit Symbol und Überschrift vorn: Leicht durch die Schicht, Abende, die dir gehören, Passt in die Schuhe, die du hast, Hält so lange wie deine Schuhe, Bleibt frisch, Dein Name drauf. Bei allen Kacheln steht das Symbol oben links und die Überschrift unten. Die Rückseiten sind mittig zentriert. Die Rückseite von "Dein Name drauf" ist ein Link auf den Namensabschnitt (`#name`).
-- Beim Hovern, bei Tastaturfokus (`tabindex="0"`) und auf Geräten ohne Hover beim Tippen dreht sich die Kachel um. Die Rückseite zeigt die Antwort auf die Überschrift, in umgekehrten Farben (Signal wird Tinte, Tinte und Papier werden Signal). Beide Seiten stehen im HTML. Bei reduzierter Bewegung blendet die Rückseite über. Auf dem Handy (bis 56 rem) stehen Vorder- und Rückseite untereinander. Logik: `initWerte` in `assets/js/mitarbeitende.js`.
+### Alles in einer Sohle (Werteband, B2C `#sohle`)
+Status: gebaut, Struktur vom Nutzer vorgegeben (2.11.2026)
+- Überschrift "Alles in einer Sohle", Unterzeile "Das ist das, was du von uns erwarten kannst." Ersetzt "Das hast du davon" und den Block "Das alles in einer Sohle".
+- Mitte: Platzhalter `werte__mitte` für ein echtes Produktfoto einer Einlegesohle (Sohlenumriss, Hinweis "Produktfoto einer Einlegesohle. Um die Sohle stehen Linien mit je einer Eigenschaft."). Links drei, rechts drei Werte (`article.wert` mit `wert__kopf` aus Symbol und Überschrift und `wert__text`). Von jeder Karte läuft eine Linie zur Sohle (`::after`).
+- Die Texte der früheren Rückseiten stehen unverändert als `wert__text`. "Dein Name drauf" bleibt ein Link auf `#name`.
+- Verhalten (`initWerte` in `assets/js/mitarbeitende.js`): Symbol und Überschrift stehen immer. Sobald der Abschnitt im Bild ist, zeichnet sich nacheinander die Linie jedes Werts, die Karte färbt sich in Signal und die Beschreibung blendet ein. Danach bleiben alle offen. Hover, Fokus und Tippen öffnen einen Wert auch früher. Ohne Skript, mit reduzierter Bewegung und auf dem Handy (bis 56 rem) steht alles offen, die Sohle oben, die Werte darunter, ohne Linien.
 - Regel: Antworten nennen nur, was `FACTS.md` trägt. Haltbarkeit (3 Jahre) und Frische sind Angaben des Nutzers vom 13.10.2026, der Beleg fehlt noch im Repo.
 
 ### Stimme
@@ -306,7 +308,7 @@ Status: gebaut
 
 ### Roddys Weg (B2C, `#erlebt`)
 Status: gebaut
-- Abschnitt zwischen "Das alles in einer Sohle" und `#stimmen`. Leitsatz "Gemacht von jemand, der das Problem selbst erlebt hat" als `p.leitsatz` (keine Überschrift, mittig, `white-space: nowrap`, Größe per `clamp`, auf dem Handy rund 17 px, damit er in einer Zeile bleibt). Darunter `roddy__name` "Roddy the Barista, Gründer von VIANU".
+- Abschnitt zwischen "Alles in einer Sohle" und `#stimmen`. Leitsatz "Gemacht von jemand, der das Problem selbst erlebt hat" als `p.leitsatz` (keine Überschrift, mittig, `white-space: nowrap`, Größe per `clamp`, auf dem Handy rund 17 px, damit er in einer Zeile bleibt). Darunter `roddy__name` "Roddy the Barista, Gründer von VIANU".
 - Bühne `[data-roddy]` (`assets/js/roddy.js`, braucht `fortschritt.js`): fünf Szenen (2010 Ausbildung, 2012 Yum!, 2020 WOYTON, 20 Jahre harter Boden, Heute VIANU) mit Foto-Platzhalter (`roddy__bild`) und Sprechblase (`roddy__blase`). Rechts ein Fußabdruck, der sich stetig von der Ferse bis zur Zehe pink füllt (Füllstand folgt dem Scrollstand und läuft ihm weich hinterher), am Ende steht der ganze Fuß mit "VIANU" da. Die Bühne klebt (sticky, Hülle 380vh) und läuft beim Zurückscrollen rückwärts.
 - Ohne Skript, bei reduzierter Bewegung und wenn die Bühne nicht ins Fenster passt: alle Szenen untereinander, Fuß ganz gefüllt (Zustand `data-bereit` fehlt).
 - Die Sätze gelten seit dem 21.10.2026 als geprüft, keine Entwurfsmarkierung. Die Fotos bleiben Platzhalter.
